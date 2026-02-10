@@ -40,6 +40,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://admizzeducation.com/category/${slug}/`,
       siteName: "Admizz Education",
       type: "website",
+      images: [
+        {
+          url: "https://admizzeducation.com/images/og/blog.webp",
+          width: 1200,
+          height: 630,
+          alt: `${name} - Admizz Education`,
+        },
+      ],
     },
   };
 }

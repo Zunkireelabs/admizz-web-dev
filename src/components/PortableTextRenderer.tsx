@@ -9,14 +9,19 @@ const components: PortableTextComponents = {
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl md:text-2xl font-bold text-navy mt-6 mb-3">
+      <h2 className="text-2xl md:text-[28px] font-bold text-navy mt-8 mb-4">
         {children}
-      </h3>
+      </h2>
     ),
     h4: ({ children }) => (
-      <h4 className="text-lg md:text-xl font-semibold text-navy mt-5 mb-2">
+      <h2 className="text-xl md:text-2xl font-bold text-navy mt-6 mb-3">
         {children}
-      </h4>
+      </h2>
+    ),
+    h5: ({ children }) => (
+      <h3 className="text-lg md:text-xl font-semibold text-navy mt-5 mb-2">
+        {children}
+      </h3>
     ),
     normal: ({ children }) => (
       <p className="text-base text-gray-dark leading-relaxed mb-4">{children}</p>
