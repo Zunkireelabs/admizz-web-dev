@@ -1,0 +1,17 @@
+services:
+  admizz-edu-web-dev:
+    build: .
+    container_name: admizz-edu-web-dev
+    restart: unless-stopped
+    networks:
+      - hosting
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.admizz-edu-web-dev.rule=Host(`dev-web.admizzeducation.com`)"
+      - "traefik.http.routers.admizz-edu-web-dev.entrypoints=websecure"
+      - "traefik.http.routers.admizz-edu-web-dev.tls.certresolver=letsencrypt"
+      - "traefik.http.services.admizz-edu-web-dev.loadbalancer.server.port=80"
+
+networks:
+  hosting:
+    external: true

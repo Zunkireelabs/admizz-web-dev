@@ -1,0 +1,23 @@
+services:
+  admizz-edu-web-prod:
+    build: .
+    container_name: admizz-edu-web-prod
+    restart: unless-stopped
+    networks:
+      - hosting
+    labels:
+      - "traefik.enable=true"
+      # Router
+      - "traefik.http.routers.admizz-edu-web-prod.rule=Host(`admizzeducation.com`) || Host(`www.admizzeducation.com`)"
+      - "traefik.http.routers.admizz-edu-web-prod.entrypoints=websecure"
+      - "traefik.http.routers.admizz-edu-web-prod.tls.certresolver=letsencrypt"
+      # Service
+      - "traefik.http.services.admizz-edu-web-prod.loadbalancer.server.port=80"
+      # Middleware: WWW Redirect
+      - "traefik.http.middlewares.admizz-edu-web-www-redirect.redirectregex.regex=^https://www\\.admizzeducation\\.com/(.*)"
+      - "traefik.http.middlewares.admizz-edu-web-www-redirect.redirectregex.replacement=https://admizzeducation.com/$${1}"
+      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect"
+
+networks:
+  hosting:
+    external: true

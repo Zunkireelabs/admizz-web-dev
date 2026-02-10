@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Colors — Primary */
+  --color-navy: #001353;
+  --color-blue-dark: #0D1282;
+  --color-blue-royal: #31429C;
+  --color-blue-oxford: #002147;
+  --color-blue-link: #007cba;
+
+  /* Colors — Accent (Yellow) */
+  --color-yellow: #FDED22;
+  --color-yellow-bright: #FAE445;
+  --color-golden: #FCB730;
+  --color-golden-hover: #FFC229;
+  --color-golden-rating: #FFC53F;
+
+  /* Colors — Neutrals */
+  --color-white: #FFFFFF;
+  --color-off-white: #F8F8F8;
+  --color-gray-lightest: #F7F7F7;
+  --color-cyan-light: #ECFEFF;
+  --color-border-light: #D7DAE8;
+  --color-border: #E8DFDF;
+  --color-border-input: #eaecf1;
+  --color-gray-medium: #949494;
+  --color-gray: #656565;
+  --color-gray-dark: #5C7189;
+  --color-slate: #292E3E;
+  --color-black: #000000;
+
+  /* Colors — Semantic */
+  --color-error: #e04562;
+  --color-error-alt: #c41e3a;
+
+  /* Font */
+  --font-montserrat: "Montserrat", sans-serif;
+
+  /* Breakpoints */
+  --breakpoint-tablet: 921px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat);
+  color: var(--color-slate);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Blog table styles (for WordPress tables migrated as raw HTML) */
+.blog-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9375rem;
+}
+.blog-table th,
+.blog-table td {
+  border: 1px solid var(--color-border-light);
+  padding: 0.625rem 0.875rem;
+  text-align: left;
+}
+.blog-table th {
+  background: var(--color-off-white);
+  font-weight: 600;
+  color: var(--color-navy);
+}
+.blog-table tr:nth-child(even) {
+  background: var(--color-gray-lightest);
 }
