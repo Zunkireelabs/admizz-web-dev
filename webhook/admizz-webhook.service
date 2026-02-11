@@ -1,0 +1,15 @@
+[Unit]
+Description=Admizz Education Sanity Webhook Server
+After=network.target
+
+[Service]
+Type=simple
+User=hardik
+WorkingDirectory=/home/zunkireelabs/devprojects/websiteprojects/admizz-devs/admizz-edu-web-dev
+ExecStart=/usr/bin/node webhook/server.mjs
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

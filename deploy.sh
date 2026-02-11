@@ -8,8 +8,10 @@ if [ "$ENV" == "prod" ]; then
     COMPOSE_FILE="docker-compose.yml"
     URL="admizzeducation.com"
     echo "PRODUCTION DEPLOYMENT to $URL"
-    echo "Root password required to proceed."
-    su -c "echo 'Root access verified.'" root
+    if [ "$WEBHOOK_TRIGGERED" != "1" ]; then
+        echo "Root password required to proceed."
+        su -c "echo 'Root access verified.'" root
+    fi
     echo "Proceeding with production deployment..."
 elif [ "$ENV" == "dev" ]; then
     COMPOSE_FILE="docker-compose.dev.yml"
@@ -20,10 +22,13 @@ else
     exit 1
 fi
 
-echo "1. Installing dependencies..."
+echo "1. Cleaning build cache..."
+rm -rf .next
+
+echo "2. Installing dependencies..."
 npm install
 
-echo "2. Building Next.js app..."
+echo "3. Building Next.js app..."
 npm run build
 
 if [ ! -d "out" ]; then
@@ -31,10 +36,10 @@ if [ ! -d "out" ]; then
     exit 1
 fi
 
-echo "3. Building Docker image..."
+echo "4. Building Docker image..."
 docker compose -f "$COMPOSE_FILE" build --no-cache
 
-echo "4. Restarting container..."
+echo "5. Restarting container..."
 docker compose -f "$COMPOSE_FILE" down 2>/dev/null || true
 docker compose -f "$COMPOSE_FILE" up -d
 
