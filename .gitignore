@@ -38,6 +38,7 @@ yarn-error.log*
 # sanity studio
 .sanity/
 /dist/
+webhook/logs/
 
 # screenshots
 /temp_ss/
