@@ -1,29 +1,35 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in India - Admizz Education",
   description:
     "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-india/",
+    canonical: "https://admizzeducation.com/study-in-india",
   },
   openGraph: {
     title: "Study in India - Admizz Education",
     description:
       "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!",
-    url: "https://admizzeducation.com/study-in-india/",
+    url: "https://admizzeducation.com/study-in-india",
     siteName: "Admizz Education",
-    images: ["/images/og/flag-of-australia.png"],
+    images: ["/images/hero/web-ad.webp"],
     type: "website",
   },
 };
 
 const indiaData: CountryPageData = {
   countryName: "India",
+  countryCategorySlug: "india",
   heroHeading: "STUDY IN INDIA",
-  heroSubheading: "Study in India and unlock quality education, diverse programs, and career-ready opportunities. Admizz Education guides you through course selection, university admissions, documentation, and support—making your journey effortless, informed, and future-focused across India's leading academic destinations.",
+  heroSubheading: "Unlock Quality Education and Career-Ready Opportunities",
+  heroDescription: "Study in India and unlock quality education, diverse programs, and career-ready opportunities. Admizz Education guides you through course selection, university admissions, documentation, and support — making your journey effortless, informed, and future-focused across India's leading academic destinations.",
+  heroBackground: "/images/hero/india-hero.webp",
   quickFacts: [
     { label: "Capital", value: "New Delhi" },
     { label: "Language", value: "Hindi" },
@@ -38,12 +44,12 @@ const indiaData: CountryPageData = {
   whyStudyIntro:
     "Study in India for globally recognised education, affordable fees, diverse culture, advanced universities, English-taught programs, and excellent career opportunities for international students.",
   benefits: [
-    { title: "Global Recognition", description: "Degrees from top Indian universities are valued worldwide for strong academic standards." },
-    { title: "Affordable Education", description: "Tuition fees and living costs are low compared to major study destinations." },
-    { title: "English Programs", description: "Most Indian universities offer English-taught courses across diverse academic fields." },
-    { title: "Cultural Diversity", description: "Experience India's vibrant culture, traditions, and inclusive student-friendly lifestyle." },
-    { title: "Career Opportunities", description: "Strong industry links provide internships, projects, and excellent job prospects." },
-    { title: "Modern Campuses", description: "Universities offer safe campuses, advanced labs, and technology-driven learning environments." },
+    { title: "Global Recognition", icon: "/images/icons/school-1.webp", description: "Degrees from top Indian universities are valued worldwide for strong academic standards." },
+    { title: "Affordable Education", icon: "/images/icons/scholarship-108.webp", description: "Tuition fees and living costs are low compared to major study destinations." },
+    { title: "English Programs", icon: "/images/icons/knowledge.webp", description: "Most Indian universities offer English-taught courses across diverse academic fields." },
+    { title: "Cultural Diversity", icon: "/images/icons/visa-1.webp", description: "Experience India's vibrant culture, traditions, and inclusive student-friendly lifestyle." },
+    { title: "Career Opportunities", icon: "/images/icons/consultation.webp", description: "Strong industry links provide internships, projects, and excellent job prospects." },
+    { title: "Modern Campuses", icon: "/images/icons/school-1.webp", description: "Universities offer safe campuses, advanced labs, and technology-driven learning environments." },
   ],
   admissionTitle: "Admission Requirements for Studying in India",
   admissionIntro:
@@ -102,7 +108,19 @@ const indiaData: CountryPageData = {
       { name: "Rolling / Flexible Intakes (Special Courses)", details: [] },
     ],
   },
-  universities: [],
+  universities: [
+    { name: "IISc Bangalore", logo: "/images/universities/india/iisc-bangalore.webp" },
+    { name: "University of Delhi", logo: "/images/universities/india/university-of-delhi.webp" },
+    { name: "Jawaharlal Nehru University", logo: "/images/universities/india/jawaharlal-nehru-university.webp" },
+    { name: "Banaras Hindu University", logo: "/images/universities/india/banaras-hindu-university.webp" },
+    { name: "Anna University", logo: "/images/universities/india/anna-university.webp" },
+    { name: "VIT", logo: "/images/universities/india/vit.webp" },
+    { name: "Manipal Academy", logo: "/images/universities/india/manipal-academy.webp" },
+    { name: "Symbiosis International University", logo: "/images/universities/india/symbiosis-international-university.webp" },
+    { name: "Delhi Technological University", logo: "/images/universities/india/delhi-technological-university.webp" },
+    { name: "KIIT University", logo: "/images/universities/india/kalinga-institute.webp" },
+    { name: "RK University", logo: "/images/universities/india/rk-university.webp" },
+  ],
   costTitle: "Cost of Studying in India",
   costIntro: "Study in India offers affordable tuition fees, low living expenses, quality education, and excellent value compared to major global study destinations.",
   costTable: [
@@ -144,6 +162,7 @@ const indiaData: CountryPageData = {
   ],
 };
 
-export default function StudyInIndiaPage() {
-  return <CountryPageTemplate data={indiaData} />;
+export default async function StudyInIndiaPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "india" });
+  return <CountryPageTemplate data={indiaData} blogPosts={blogPosts} />;
 }

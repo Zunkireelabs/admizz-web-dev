@@ -117,6 +117,7 @@ export const post = defineType({
       name: "featuredImage",
       title: "Featured Image",
       type: "image",
+      description: "Recommended size: 1200 × 630 px (19:10 ratio). Any ratio will work without cropping.",
       options: { hotspot: true },
       fields: [
         {
@@ -132,6 +133,22 @@ export const post = defineType({
       title: "Categories",
       type: "array",
       of: [{ type: "reference", to: [{ type: "category" }] }],
+    }),
+    defineField({
+      name: "infoBox",
+      title: "Info Box",
+      description: "Quick facts grid shown below the hero image",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          name: "infoBoxItem",
+          fields: [
+            { name: "label", type: "string", title: "Label" },
+            { name: "value", type: "string", title: "Value" },
+          ],
+        },
+      ],
     }),
     defineField({
       name: "seo",

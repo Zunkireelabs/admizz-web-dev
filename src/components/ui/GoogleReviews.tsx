@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { useSwipe } from "@/lib/useSwipe";
 
 export interface GoogleReview {
   name: string;
@@ -43,12 +44,34 @@ export default function GoogleReviews({ reviews }: Props) {
   const visibleCount = 3;
   const [startIndex, setStartIndex] = useState(0);
 
+  const maxStart = Math.max(0, reviews.length - visibleCount);
   const canPrev = startIndex > 0;
   const canNext = startIndex + visibleCount < reviews.length;
+  const totalDots = maxStart + 1;
+
+  const handleSwipeLeft = useCallback(() => {
+    if (canNext) setStartIndex((i) => Math.min(i + 1, maxStart));
+  }, [canNext, maxStart]);
+  const handleSwipeRight = useCallback(() => {
+    if (canPrev) setStartIndex((i) => Math.max(i - 1, 0));
+  }, [canPrev]);
+  const swipeHandlers = useSwipe({ onSwipeLeft: handleSwipeLeft, onSwipeRight: handleSwipeRight });
 
   return (
-    <section className="py-16 px-4 bg-off-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 md:py-20 bg-white">
+      <style>{`
+        :root {
+          --gr-card-width: 100%;
+          --gr-slide-offset: calc(100% + 16px);
+        }
+        @media (min-width: 768px) {
+          :root {
+            --gr-card-width: calc(33.333% - 10.667px);
+            --gr-slide-offset: calc(33.333% + 5.333px);
+          }
+        }
+      `}</style>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-[36px] font-bold text-navy text-center mb-4" style={{ fontFamily: "var(--font-rubik), sans-serif" }}>
           What Our Students Say
         </h2>
@@ -83,7 +106,7 @@ export default function GoogleReviews({ reviews }: Props) {
           {/* Prev Arrow */}
           <button
             onClick={() => canPrev && setStartIndex(startIndex - 1)}
-            className={`hidden md:flex items-center justify-center w-10 h-10 rounded-full border border-border-light flex-shrink-0 transition-colors ${canPrev ? "hover:bg-gray-lightest text-slate cursor-pointer" : "text-border-light cursor-default"}`}
+            className={`hidden md:flex items-center justify-center w-11 h-11 rounded-full border border-border-light flex-shrink-0 transition-colors ${canPrev ? "hover:bg-gray-lightest text-slate cursor-pointer" : "text-border-light cursor-default"}`}
             disabled={!canPrev}
             aria-label="Previous reviews"
           >
@@ -93,27 +116,28 @@ export default function GoogleReviews({ reviews }: Props) {
           </button>
 
           {/* Review Cards — sliding container */}
-          <div className="flex-1 min-w-0 overflow-hidden">
+          <div className="flex-1 min-w-0 overflow-hidden" {...swipeHandlers}>
             <div
               className="flex gap-4 transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(calc(-${startIndex} * (33.333% + 5.333px)))` }}
+              style={{ transform: `translateX(calc(-${startIndex} * var(--gr-slide-offset)))` }}
             >
               {reviews.map((review) => (
                 <div
                   key={review.name}
-                  className="w-[calc(33.333%-10.667px)] flex-shrink-0 border border-border-light rounded-xl p-5 bg-white flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-[#d0d5dd] cursor-default"
+                  className="flex-shrink-0 border border-border-light rounded-xl p-5 bg-white flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-[#d0d5dd] cursor-default"
+                  style={{ width: "var(--gr-card-width)" }}
                 >
                   {/* Header */}
                   <div className="flex items-center gap-3 mb-3">
                     <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold text-sm flex-shrink-0"
+                      className="w-11 h-11 rounded-full flex items-center justify-center text-white font-semibold text-sm flex-shrink-0"
                       style={{ background: review.color }}
                     >
                       {review.initial}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-[14px] font-semibold text-slate truncate">{review.name}</p>
-                      <p className="text-[12px] text-gray-medium">a while ago</p>
+                      <p className="text-[13px] text-gray-medium">a while ago</p>
                     </div>
                     <GoogleIcon />
                   </div>
@@ -124,7 +148,7 @@ export default function GoogleReviews({ reviews }: Props) {
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-[13px] text-gray-dark leading-relaxed line-clamp-5 whitespace-pre-line">
+                  <p className="text-[14px] text-gray-dark leading-relaxed line-clamp-5 whitespace-pre-line">
                     {review.text}
                   </p>
                 </div>
@@ -135,7 +159,7 @@ export default function GoogleReviews({ reviews }: Props) {
           {/* Next Arrow */}
           <button
             onClick={() => canNext && setStartIndex(startIndex + 1)}
-            className={`hidden md:flex items-center justify-center w-10 h-10 rounded-full border border-border-light flex-shrink-0 transition-colors ${canNext ? "hover:bg-gray-lightest text-slate cursor-pointer" : "text-border-light cursor-default"}`}
+            className={`hidden md:flex items-center justify-center w-11 h-11 rounded-full border border-border-light flex-shrink-0 transition-colors ${canNext ? "hover:bg-gray-lightest text-slate cursor-pointer" : "text-border-light cursor-default"}`}
             disabled={!canNext}
             aria-label="Next reviews"
           >
@@ -143,6 +167,29 @@ export default function GoogleReviews({ reviews }: Props) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </button>
+        </div>
+
+        {/* Dot Indicators (mobile) */}
+        <div className="flex items-center justify-center gap-1.5 mt-8 md:hidden">
+          {[...Array(totalDots)].map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setStartIndex(i)}
+              className="cursor-pointer flex items-center justify-center"
+              style={{ minWidth: 44, minHeight: 44 }}
+              aria-label={`Go to page ${i + 1}`}
+            >
+              <span
+                className="rounded-full block"
+                style={{
+                  width: startIndex === i ? 28 : 8,
+                  height: 8,
+                  background: startIndex === i ? "#0D1282" : "#c7cdd8",
+                  transition: "all 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
+                }}
+              />
+            </button>
+          ))}
         </div>
       </div>
     </section>

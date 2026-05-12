@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState } from "react";
+import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -157,86 +158,11 @@ const testimonials = [
   },
 ];
 
-const countries = [
-  "Nepal",
-  "India",
-  "Bangladesh",
-  "Sri Lanka",
-  "Pakistan",
-  "Nigeria",
-  "Ghana",
-  "Kenya",
-  "Other",
-];
-
-const studyLevels = ["Diploma", "Bachelors", "Masters", "PhD"];
-
-const studyPrograms = [
-  "Business & Management",
-  "Computer Science & IT",
-  "Engineering",
-  "Health Sciences",
-  "Law",
-  "Arts & Humanities",
-  "Social Sciences",
-  "Finance & Accounting",
-  "Data Science & Analytics",
-  "Other",
-];
-
-const preferredCities = [
-  "London",
-  "Manchester",
-  "Birmingham",
-  "Edinburgh",
-  "Glasgow",
-  "Leeds",
-  "Bristol",
-  "Liverpool",
-  "Cardiff",
-  "Other",
-];
-
-/* ------------------------------------------------------------------ */
-/*  Shared classes                                                     */
-/* ------------------------------------------------------------------ */
-
-const inputClass =
-  "w-full h-[40px] px-3 border border-border-input rounded-[10px] text-xs font-montserrat text-black placeholder:text-[#888888] focus:outline-none focus:ring-1 focus:ring-blue-dark";
-
-const selectClass =
-  "w-full h-[40px] px-3 border border-border-input rounded-[10px] text-xs font-montserrat text-gray-medium focus:outline-none focus:ring-1 focus:ring-blue-dark";
-
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function CampaignUKPage() {
-  /* ---- form state ---- */
-  const [formData, setFormData] = useState({
-    fullName: "",
-    lastName: "",
-    email: "",
-    countryCode: "+977",
-    phone: "",
-    country: "",
-    studyLevel: "",
-    studyProgram: "",
-    preferredCity: "",
-    agreedToTerms: false,
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const update = (field: string, value: string | boolean) =>
-    setFormData((prev) => ({ ...prev, [field]: value }));
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    // In production this would POST to an API endpoint
-    setSubmitted(true);
-  };
-
   /* ---- testimonial carousel ---- */
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const prevTestimonial = () =>
@@ -261,8 +187,8 @@ export default function CampaignUKPage() {
       {/* ============================================================ */}
       {/*  1. HERO                                                      */}
       {/* ============================================================ */}
-      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center md:text-left">
+      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             {/* Left text */}
             <div>
@@ -327,8 +253,8 @@ export default function CampaignUKPage() {
       {/* ============================================================ */}
       {/*  2. STATS BAR                                                 */}
       {/* ============================================================ */}
-      <section className="bg-navy py-10 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="bg-navy py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-3xl md:text-4xl font-bold text-yellow">
@@ -343,8 +269,8 @@ export default function CampaignUKPage() {
       {/* ============================================================ */}
       {/*  3. CAMPAIGN HIGHLIGHT                                        */}
       {/* ============================================================ */}
-      <section className="py-16 px-4 bg-off-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 bg-off-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-white border-2 border-golden rounded-[10px] p-8 md:p-12 text-center overflow-hidden">
             {/* Yellow accent bar */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-yellow to-golden" />
@@ -387,8 +313,8 @@ export default function CampaignUKPage() {
       {/* ============================================================ */}
       {/*  4. SERVICES GRID                                             */}
       {/* ============================================================ */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-10">
             Our Services
           </h2>
@@ -415,8 +341,8 @@ export default function CampaignUKPage() {
       {/* ============================================================ */}
       {/*  5. WHY STUDY IN UK                                           */}
       {/* ============================================================ */}
-      <section className="py-16 px-4 bg-off-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16 bg-off-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy mb-10">
             Why Study in the UK?
           </h2>
@@ -513,7 +439,7 @@ export default function CampaignUKPage() {
                 <h3 className="font-semibold text-navy text-sm">
                   {item.title}
                 </h3>
-                <p className="mt-1 text-xs text-gray-dark leading-relaxed">
+                <p className="mt-1 text-[13px] text-gray-dark leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -525,8 +451,8 @@ export default function CampaignUKPage() {
       {/* ============================================================ */}
       {/*  6. SUCCESS STORIES                                           */}
       {/* ============================================================ */}
-      <section className="py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy mb-10">
             Success Stories
           </h2>
@@ -565,7 +491,7 @@ export default function CampaignUKPage() {
           <div className="flex items-center justify-center gap-4 mt-6">
             <button
               onClick={prevTestimonial}
-              className="w-10 h-10 rounded-full border border-border-light flex items-center justify-center hover:bg-white transition-colors"
+              className="w-11 h-11 rounded-full border border-border-light flex items-center justify-center hover:bg-white transition-colors"
               aria-label="Previous testimonial"
             >
               <svg
@@ -588,19 +514,22 @@ export default function CampaignUKPage() {
                 <button
                   key={i}
                   onClick={() => setCurrentTestimonial(i)}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                  className="flex items-center justify-center"
+                  style={{ minWidth: 44, minHeight: 44 }}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                >
+                  <span className={`w-2.5 h-2.5 rounded-full block transition-colors ${
                     i === currentTestimonial
                       ? "bg-blue-dark"
                       : "bg-gray-medium"
-                  }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                />
+                  }`} />
+                </button>
               ))}
             </div>
 
             <button
               onClick={nextTestimonial}
-              className="w-10 h-10 rounded-full border border-border-light flex items-center justify-center hover:bg-white transition-colors"
+              className="w-11 h-11 rounded-full border border-border-light flex items-center justify-center hover:bg-white transition-colors"
               aria-label="Next testimonial"
             >
               <svg
@@ -624,193 +553,22 @@ export default function CampaignUKPage() {
       {/* ============================================================ */}
       {/*  7. REGISTRATION FORM                                         */}
       {/* ============================================================ */}
-      <section id="registration-form" className="py-16 px-4 bg-off-white">
-        <div className="max-w-2xl mx-auto">
+      <section id="registration-form" className="py-16 bg-off-white">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-10">
             Register Now
           </h2>
 
-          {submitted ? (
-            <div className="bg-white border border-border-light rounded-[10px] p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
-                <svg
-                  className="w-8 h-8 text-green-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-navy mb-2">
-                Thank You for Registering!
-              </h3>
-              <p className="text-[15px] text-gray-dark leading-relaxed">
-                Our team will get in touch with you shortly. Get ready to begin
-                your UK education journey with Admizz Education!
-              </p>
-            </div>
-          ) : (
-            <form
-              className="bg-white border border-border-light rounded-[10px] p-8 space-y-4"
-              onSubmit={handleSubmit}
-            >
-              {/* Full Name & Last Name */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  required
-                  value={formData.fullName}
-                  onChange={(e) => update("fullName", e.target.value)}
-                  className={inputClass}
-                />
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  required
-                  value={formData.lastName}
-                  onChange={(e) => update("lastName", e.target.value)}
-                  className={inputClass}
-                />
-              </div>
-
-              {/* Email */}
-              <input
-                type="email"
-                placeholder="Email Address"
-                required
-                value={formData.email}
-                onChange={(e) => update("email", e.target.value)}
-                className={inputClass}
-              />
-
-              {/* Phone with country code */}
-              <div className="grid grid-cols-[100px_1fr] gap-2">
-                <select
-                  value={formData.countryCode}
-                  onChange={(e) => update("countryCode", e.target.value)}
-                  className={selectClass}
-                >
-                  <option value="+977">+977</option>
-                  <option value="+91">+91</option>
-                  <option value="+880">+880</option>
-                  <option value="+94">+94</option>
-                  <option value="+92">+92</option>
-                  <option value="+234">+234</option>
-                  <option value="+233">+233</option>
-                  <option value="+254">+254</option>
-                  <option value="+1">+1</option>
-                  <option value="+44">+44</option>
-                </select>
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  required
-                  value={formData.phone}
-                  onChange={(e) => update("phone", e.target.value)}
-                  className={inputClass}
-                />
-              </div>
-
-              {/* Country */}
-              <select
-                value={formData.country}
-                onChange={(e) => update("country", e.target.value)}
-                required
-                className={selectClass}
-              >
-                <option value="">Country</option>
-                {countries.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-
-              {/* Level of Study */}
-              <select
-                value={formData.studyLevel}
-                onChange={(e) => update("studyLevel", e.target.value)}
-                required
-                className={selectClass}
-              >
-                <option value="">Level of Study</option>
-                {studyLevels.map((l) => (
-                  <option key={l} value={l}>
-                    {l}
-                  </option>
-                ))}
-              </select>
-
-              {/* Preferred Study Program */}
-              <select
-                value={formData.studyProgram}
-                onChange={(e) => update("studyProgram", e.target.value)}
-                required
-                className={selectClass}
-              >
-                <option value="">Preferred Study Program</option>
-                {studyPrograms.map((p) => (
-                  <option key={p} value={p}>
-                    {p}
-                  </option>
-                ))}
-              </select>
-
-              {/* Preferred City */}
-              <select
-                value={formData.preferredCity}
-                onChange={(e) => update("preferredCity", e.target.value)}
-                required
-                className={selectClass}
-              >
-                <option value="">Preferred City</option>
-                {preferredCities.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-
-              {/* Terms checkbox */}
-              <label className="flex items-start gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  required
-                  checked={formData.agreedToTerms}
-                  onChange={(e) => update("agreedToTerms", e.target.checked)}
-                  className="mt-1 w-4 h-4 accent-blue-dark"
-                />
-                <span className="text-xs text-gray-dark leading-relaxed">
-                  I agree to the{" "}
-                  <a
-                    href="/terms/"
-                    className="text-blue-link underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Terms &amp; Conditions
-                  </a>{" "}
-                  and consent to being contacted by Admizz Education regarding
-                  my enquiry.
-                </span>
-              </label>
-
-              {/* Submit */}
-              <button
-                type="submit"
-                className="w-full bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
-              >
-                Submit Application
-              </button>
-            </form>
-          )}
+          <div
+            className="p-3 sm:p-5"
+            style={{
+              border: "1px solid #D4955A",
+              borderRadius: 24,
+              background: "linear-gradient(to bottom, #F0ECF9, #FFFFFF)",
+            }}
+          >
+            <CRMFormEmbed />
+          </div>
         </div>
       </section>
     </>

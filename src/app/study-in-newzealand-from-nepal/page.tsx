@@ -186,15 +186,15 @@ const pageData: NepalVariantData = {
     "Some scholarships cover tuition fees, living expenses, and travel costs.",
 
   universities: [
-    { name: "University of Auckland", logo: "/images/universities/newzealand/university-of-auckland.png" },
-    { name: "University of Otago", logo: "/images/universities/newzealand/university-of-otago.png" },
-    { name: "Victoria University of Wellington", logo: "/images/universities/newzealand/victoria-university-of-wellington.png" },
-    { name: "University of Canterbury", logo: "/images/universities/newzealand/university-of-canterbury.png" },
-    { name: "Massey University", logo: "/images/universities/newzealand/massey-university.png" },
-    { name: "Lincoln University", logo: "/images/universities/newzealand/lincoln-university.png" },
-    { name: "Auckland University of Technology", logo: "/images/universities/newzealand/auckland-university-of-technology.png" },
-    { name: "Unitec Institute of Technology", logo: "/images/universities/newzealand/unitec-institute-of-technology.png" },
-    { name: "Eastern Institute of Technology", logo: "/images/universities/newzealand/eastern-institute-of-technology.png" },
+    { name: "University of Auckland", logo: "/images/universities/newzealand/university-of-auckland.webp" },
+    { name: "University of Otago", logo: "/images/universities/newzealand/university-of-otago.webp" },
+    { name: "Victoria University of Wellington", logo: "/images/universities/newzealand/victoria-university-of-wellington.webp" },
+    { name: "University of Canterbury", logo: "/images/universities/newzealand/university-of-canterbury.webp" },
+    { name: "Massey University", logo: "/images/universities/newzealand/massey-university.webp" },
+    { name: "Lincoln University", logo: "/images/universities/newzealand/lincoln-university.webp" },
+    { name: "Auckland University of Technology", logo: "/images/universities/newzealand/auckland-university-of-technology.webp" },
+    { name: "Unitec Institute of Technology", logo: "/images/universities/newzealand/unitec-institute-of-technology.webp" },
+    { name: "Eastern Institute of Technology", logo: "/images/universities/newzealand/eastern-institute-of-technology.webp" },
   ],
 
   faqItems: [

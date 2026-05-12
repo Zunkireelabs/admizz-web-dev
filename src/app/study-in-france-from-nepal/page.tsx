@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in France from Nepal - Admizz Education",
   description:
     "Study in France from Nepal with Admizz \u2013 expert guidance for top universities, visa support & a smooth journey to global education.",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-france-from-nepal/",
+    canonical: "https://admizzeducation.com/study-in-france-from-nepal",
   },
   openGraph: {
     title: "Study in France from Nepal - Admizz Education",
     description:
       "Study in France from Nepal with Admizz \u2013 expert guidance for top universities, visa support & a smooth journey to global education.",
-    url: "https://admizzeducation.com/study-in-france-from-nepal/",
+    url: "https://admizzeducation.com/study-in-france-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/france.jpg"],
+    images: ["/images/og/france.webp"],
     type: "website",
   },
 };
 
 const pageData: NepalVariantData = {
   countryName: "France",
+  countryCategorySlug: "france",
   heroHeading: "Build a Bright Future in One of the World's Top Study Destinations",
   heroSubheading: "Study in France from Nepal with world-class universities, affordable tuition, scholarships, cultural exposure, and excellent career opportunities abroad.",
 
@@ -192,7 +196,18 @@ const pageData: NepalVariantData = {
     }
   ],
 
-  universities: [],
+  universities: [
+    { name: "Sorbonne University", logo: "/images/universities/france/sorbonne-university.webp" },
+    { name: "Universit\u00E9 PSL", logo: "/images/universities/france/universite-psl.svg" },
+    { name: "\u00C9cole Polytechnique", logo: "/images/universities/france/ecole-polytechnique.webp" },
+    { name: "Sciences Po", logo: "/images/universities/france/sciences-po.webp" },
+    { name: "University of Paris-Saclay", logo: "/images/universities/france/university-of-paris-saclay.webp" },
+    { name: "Universit\u00E9 Grenoble Alpes", logo: "/images/universities/france/universite-grenoble-alpes.webp" },
+    { name: "Aix-Marseille University", logo: "/images/universities/france/aix-marseille-university.webp" },
+    { name: "Universit\u00E9 de Strasbourg", logo: "/images/universities/france/universite-de-strasbourg.webp" },
+    { name: "Universit\u00E9 de Bordeaux", logo: "/images/universities/france/universite-de-bordeaux.webp" },
+    { name: "Universit\u00E9 de Lille", logo: "/images/universities/france/universite-de-lille.webp" },
+  ],
 
   faqItems: [
     {
@@ -233,6 +248,7 @@ const pageData: NepalVariantData = {
   ctaContent: "France offers unmatched advantages for Nepalese students including academic prestige, innovation, lifestyle, and career opportunities across business, science, fashion, hospitality, and arts fields. Admizz specializes in comprehensive support covering university selection, SOP writing, Campus France procedures, visa interview preparation, and accommodation arrangement. With Admizz, you're not just applying — you're preparing to succeed."
 };
 
-export default function StudyInFranceFromNepalPage() {
-  return <NepalVariantTemplate data={pageData} />;
+export default async function StudyInFranceFromNepalPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "france" });
+  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

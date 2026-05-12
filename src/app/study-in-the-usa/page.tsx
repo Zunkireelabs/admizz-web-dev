@@ -1,29 +1,35 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in the USA - Admizz Education",
   description:
     "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-the-usa/",
+    canonical: "https://admizzeducation.com/study-in-the-usa",
   },
   openGraph: {
     title: "Study in the USA - Admizz Education",
     description:
       "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!",
-    url: "https://admizzeducation.com/study-in-the-usa/",
+    url: "https://admizzeducation.com/study-in-the-usa",
     siteName: "Admizz Education",
-    images: ["/images/og/flag-of-australia-1024x512.png"],
+    images: ["/images/hero/web-ad.webp"],
     type: "website",
   },
 };
 
 const usaData: CountryPageData = {
   countryName: "the USA",
+  countryCategorySlug: "usa",
   heroHeading: "STUDY IN THE USA",
   heroSubheading: "Shape Your Global Future With World-Class US Education",
+  heroDescription: "Kick-start your study abroad journey with Admizz Education, your trusted partner for studying in the USA. From university selection and application support to scholarships, visas, and pre-departure guidance, we help you secure admission to top US universities with complete confidence and clarity.",
+  heroBackground: "/images/hero/usa-hero.webp",
   quickFacts: [
     { label: "Capital", value: "Washington" },
     { label: "Language", value: "English" },
@@ -38,12 +44,12 @@ const usaData: CountryPageData = {
   whyStudyIntro:
     "The United States is one of the world's most preferred study destinations, offering globally recognized degrees, cutting-edge research, flexible learning options, and exceptional career opportunities. Whether you're pursuing STEM, business, healthcare, or arts, studying in the USA empowers you with skills, exposure, and a future-ready global edge.",
   benefits: [
-    { title: "World-Class Universities", description: "The USA hosts globally top-ranked universities known for academic excellence, modern classrooms, advanced labs, and innovation." },
-    { title: "Flexible Learning System", description: "American universities allow customised course combinations, helping students explore interests and switch majors easily if needed." },
-    { title: "Global Career Opportunities", description: "Students benefit from strong industry connections, internships, OPT, and CPT programs supporting excellent international career growth." },
-    { title: "Cutting-Edge Research Environment", description: "The USA leads innovation with advanced research facilities, funded projects, and opportunities to work alongside global experts." },
-    { title: "Highly Diverse & Inclusive Culture", description: "Students enjoy a multicultural environment promoting broad perspectives, personal growth, global friendships, and supportive campus communities." },
-    { title: "Strong Post-Study Prospects", description: "Graduates from U.S. universities gain worldwide recognition, improving employability across international markets and long-term career pathways." },
+    { title: "World-Class Universities", description: "The USA hosts globally top-ranked universities known for academic excellence, modern classrooms, advanced labs, and innovation.", icon: "/images/icons/school-1.webp" },
+    { title: "Flexible Learning System", description: "American universities allow customised course combinations, helping students explore interests and switch majors easily if needed.", icon: "/images/icons/knowledge.webp" },
+    { title: "Global Career Opportunities", description: "Students benefit from strong industry connections, internships, OPT, and CPT programs supporting excellent international career growth.", icon: "/images/icons/consultation.webp" },
+    { title: "Cutting-Edge Research Environment", description: "The USA leads innovation with advanced research facilities, funded projects, and opportunities to work alongside global experts.", icon: "/images/icons/exam-1.webp" },
+    { title: "Highly Diverse & Inclusive Culture", description: "Students enjoy a multicultural environment promoting broad perspectives, personal growth, global friendships, and supportive campus communities.", icon: "/images/icons/visa-1.webp" },
+    { title: "Strong Post-Study Prospects", description: "Graduates from U.S. universities gain worldwide recognition, improving employability across international markets and long-term career pathways.", icon: "/images/icons/accomodation-108.webp" },
   ],
   admissionTitle: "Admission Requirements for Studying in the USA",
   admissionIntro:
@@ -103,28 +109,28 @@ const usaData: CountryPageData = {
     ],
   },
   universities: [
-    { name: "Colorado State University", logo: "/images/universities/usa/COLORADO.jpeg" },
-    { name: "Webster University", logo: "/images/universities/usa/webster-1.jpeg" },
-    { name: "Avila University", logo: "/images/universities/usa/AVILA.jpeg" },
-    { name: "Concordia University", logo: "/images/universities/usa/CONCORDIA.jpeg" },
-    { name: "Southeast Missouri State", logo: "/images/universities/usa/SOUTHEAST-MISSOURI.jpeg" },
-    { name: "Herzing University", logo: "/images/universities/usa/HERZING.jpeg" },
-    { name: "Wright State University", logo: "/images/universities/usa/WRIGHT-STATE.jpeg" },
-    { name: "Washington University", logo: "/images/universities/usa/WASHINGTON.jpeg" },
-    { name: "Texas State University", logo: "/images/universities/usa/TEXAS.jpeg" },
-    { name: "Murray State University", logo: "/images/universities/usa/MURRAY.jpeg" },
-    { name: "Youngstown State University", logo: "/images/universities/usa/YOUNGSTOWN.jpeg" },
-    { name: "University of Central Arkansas", logo: "/images/universities/usa/CENTRAL-ARKANSAS.jpeg" },
-    { name: "Dakota State University", logo: "/images/universities/usa/DAKOTA-STATE.jpeg" },
-    { name: "University of South Dakota", logo: "/images/universities/usa/UNIVERSITY-F-SOUTH-DAKOTA.jpeg" },
-    { name: "Pacific Oaks College", logo: "/images/universities/usa/PACIFIC.jpeg" },
-    { name: "Bethesda University", logo: "/images/universities/usa/BETHESDA.jpeg" },
-    { name: "St. Cloud State University", logo: "/images/universities/usa/ST-CLOUD.jpeg" },
-    { name: "South Dakota State University", logo: "/images/universities/usa/South.jpeg" },
-    { name: "Post University", logo: "/images/universities/usa/POST.jpeg" },
-    { name: "Northwest Missouri State", logo: "/images/universities/usa/NORTHWEST.jpeg" },
-    { name: "University of Central Missouri", logo: "/images/universities/usa/university-f.jpeg" },
-    { name: "Minnesota State University", logo: "/images/universities/usa/MINNESOTA-STATE.jpeg" },
+    { name: "Colorado State University", logo: "/images/universities/usa/COLORADO.webp" },
+    { name: "Webster University", logo: "/images/universities/usa/webster-1.webp" },
+    { name: "Avila University", logo: "/images/universities/usa/AVILA.webp" },
+    { name: "Concordia University", logo: "/images/universities/usa/CONCORDIA.webp" },
+    { name: "Southeast Missouri State", logo: "/images/universities/usa/SOUTHEAST-MISSOURI.webp" },
+    { name: "Herzing University", logo: "/images/universities/usa/HERZING.webp" },
+    { name: "Wright State University", logo: "/images/universities/usa/WRIGHT-STATE.webp" },
+    { name: "Washington University", logo: "/images/universities/usa/WASHINGTON.webp" },
+    { name: "Texas State University", logo: "/images/universities/usa/TEXAS.webp" },
+    { name: "Murray State University", logo: "/images/universities/usa/MURRAY.webp" },
+    { name: "Youngstown State University", logo: "/images/universities/usa/YOUNGSTOWN.webp" },
+    { name: "University of Central Arkansas", logo: "/images/universities/usa/CENTRAL-ARKANSAS.webp" },
+    { name: "Dakota State University", logo: "/images/universities/usa/DAKOTA-STATE.webp" },
+    { name: "University of South Dakota", logo: "/images/universities/usa/UNIVERSITY-F-SOUTH-DAKOTA.webp" },
+    { name: "Pacific Oaks College", logo: "/images/universities/usa/PACIFIC.webp" },
+    { name: "Bethesda University", logo: "/images/universities/usa/BETHESDA.webp" },
+    { name: "St. Cloud State University", logo: "/images/universities/usa/ST-CLOUD.webp" },
+    { name: "South Dakota State University", logo: "/images/universities/usa/South.webp" },
+    { name: "Post University", logo: "/images/universities/usa/POST.webp" },
+    { name: "Northwest Missouri State", logo: "/images/universities/usa/NORTHWEST.webp" },
+    { name: "University of Central Missouri", logo: "/images/universities/usa/university-f.webp" },
+    { name: "Minnesota State University", logo: "/images/universities/usa/MINNESOTA-STATE.webp" },
   ],
   costTitle: "Cost of Studying in the USA",
   costIntro: "Here's a rough idea of the yearly expenses for International students:",
@@ -168,6 +174,7 @@ const usaData: CountryPageData = {
   ],
 };
 
-export default function StudyInUSAPage() {
-  return <CountryPageTemplate data={usaData} />;
+export default async function StudyInUSAPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "usa" });
+  return <CountryPageTemplate data={usaData} blogPosts={blogPosts} />;
 }

@@ -2,6 +2,11 @@
 
 // Sanity CMS types
 
+export interface InfoBoxItem {
+  label: string;
+  value: string;
+}
+
 export interface SanityPost {
   title: string;
   slug: { current: string };
@@ -9,6 +14,7 @@ export interface SanityPost {
   excerpt?: string;
   content?: any[];
   featuredImage?: SanityImage;
+  infoBox?: InfoBoxItem[];
   categories?: SanityCategory[];
   seo?: SanitySEO;
 }

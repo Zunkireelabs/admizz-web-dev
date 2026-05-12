@@ -9,19 +9,19 @@ const components: PortableTextComponents = {
       </h2>
     ),
     h3: ({ children }) => (
-      <h2 className="text-2xl md:text-[28px] font-bold text-navy mt-8 mb-4">
-        {children}
-      </h2>
-    ),
-    h4: ({ children }) => (
-      <h2 className="text-xl md:text-2xl font-bold text-navy mt-6 mb-3">
-        {children}
-      </h2>
-    ),
-    h5: ({ children }) => (
-      <h3 className="text-lg md:text-xl font-semibold text-navy mt-5 mb-2">
+      <h3 className="text-xl md:text-2xl font-bold text-navy mt-8 mb-4">
         {children}
       </h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text-lg md:text-xl font-bold text-navy mt-6 mb-3">
+        {children}
+      </h4>
+    ),
+    h5: ({ children }) => (
+      <h5 className="text-base md:text-lg font-semibold text-navy mt-5 mb-2">
+        {children}
+      </h5>
     ),
     normal: ({ children }) => (
       <p className="text-base text-gray-dark leading-relaxed mb-4">{children}</p>
@@ -92,11 +92,41 @@ const components: PortableTextComponents = {
     },
     rawHtml: ({ value }) => {
       if (!value?.html) return null;
+
+      // Extract <style> blocks and scope their rules to .blog-raw-content
+      // to prevent global style leaks (e.g. body { padding: ... })
+      let html = value.html;
+      let scopedStyles = "";
+
+      html = html.replace(/<style[^>]*>([\s\S]*?)<\/style>/gi, (_match: string, css: string) => {
+        // Scope each rule: prefix selectors with .blog-raw-content
+        // Skip rules targeting body/html — they must not leak globally
+        const scoped = css.replace(
+          /([^{}]+)\{([^{}]*)\}/g,
+          (ruleMatch: string, selector: string, body: string) => {
+            const trimmed = selector.trim();
+            // Strip body/html rules entirely — page layout handles these
+            if (/^(body|html)\b/i.test(trimmed)) {
+              return "";
+            }
+            // Already scoped or @-rules — leave as-is
+            if (trimmed.startsWith("@") || trimmed.startsWith(".blog-raw-content")) {
+              return ruleMatch;
+            }
+            return `.blog-raw-content ${trimmed} {${body}}`;
+          }
+        );
+        scopedStyles += scoped;
+        return ""; // remove original <style> from HTML
+      });
+
       return (
-        <div
-          className="my-6 overflow-x-auto blog-table"
-          dangerouslySetInnerHTML={{ __html: value.html }}
-        />
+        <div className="my-6 overflow-x-auto blog-table blog-raw-content">
+          {scopedStyles && (
+            <style dangerouslySetInnerHTML={{ __html: scopedStyles }} />
+          )}
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </div>
       );
     },
   },
@@ -110,6 +140,12 @@ export default function PortableTextRenderer({ content }: PortableTextRendererPr
   if (!content) return null;
   return (
     <div className="prose-admizz">
+      <div className="flex items-center gap-3 mb-6">
+        <span className="text-[13px] font-bold uppercase tracking-[0.15em] text-[#001353]">
+          Introduction
+        </span>
+        <span className="flex-1 h-px bg-[#001353]/20" />
+      </div>
       <PortableText value={content} components={components} />
     </div>
   );

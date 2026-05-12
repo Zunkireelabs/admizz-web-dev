@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.git
+temp_ss
+*.md
+chrome-headless-shell
+_site
+dist
+docs
+webhook
+*.html
+*.png
+*.jpg
+*.jpeg
+*.csv
+.claude

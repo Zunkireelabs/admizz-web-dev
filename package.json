@@ -5,15 +5,19 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/generate-sitemap.mjs",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "studio:deploy": "sanity deploy"
   },
   "dependencies": {
+    "@fontsource-variable/montserrat": "^5.2.8",
+    "@fontsource-variable/open-sans": "^5.2.7",
+    "@fontsource-variable/rubik": "^5.2.8",
     "@portabletext/react": "^6.0.2",
     "@sanity/client": "^7.14.1",
     "@sanity/image-url": "^2.0.3",
+    "framer-motion": "^12.38.0",
     "next": "16.1.6",
     "next-sanity": "^12.1.0",
     "react": "19.2.3",

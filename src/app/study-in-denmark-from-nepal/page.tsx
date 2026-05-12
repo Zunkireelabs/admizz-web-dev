@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in Denmark From Nepal - Admizz Education",
+  title: "Study in Denmark from Nepal - Admizz Education",
   description:
     "Study in Denmark from Nepal with Admizz. Get expert help with university selection, scholarships, visa & more. Start your journey today!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-denmark-from-nepal/",
+    canonical: "https://admizzeducation.com/study-in-denmark-from-nepal",
   },
   openGraph: {
-    title: "Study in Denmark From Nepal - Admizz Education",
+    title: "Study in Denmark from Nepal - Admizz Education",
     description:
       "Study in Denmark from Nepal with Admizz. Get expert help with university selection, scholarships, visa & more. Start your journey today!",
-    url: "https://admizzeducation.com/study-in-denmark-from-nepal/",
+    url: "https://admizzeducation.com/study-in-denmark-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/flag-of-australia.png"],
+    images: ["/images/hero/web-ad.webp"],
     type: "website",
   },
 };
 
 const pageData: NepalVariantData = {
   countryName: "Denmark",
+  countryCategorySlug: "denmark",
   heroHeading: "Study in Denmark from Nepal",
   heroSubheading: "Build a Bright Future in One of the World's Top Study Destinations",
 
@@ -242,7 +246,18 @@ const pageData: NepalVariantData = {
   ],
   scholarshipsNote: "Tip: Apply early and ensure your SOP, recommendation letters, and test scores (IELTS/PTE) are strong.",
 
-  universities: [],
+  universities: [
+    { name: "University of Copenhagen", logo: "/images/universities/denmark/university-of-copenhagen.webp" },
+    { name: "Aarhus University", logo: "/images/universities/denmark/aarhus-university.webp" },
+    { name: "Technical University of Denmark", logo: "/images/universities/denmark/technical-university-of-denmark.webp" },
+    { name: "Copenhagen Business School", logo: "/images/universities/denmark/copenhagen-business-school.webp" },
+    { name: "Aalborg University", logo: "/images/universities/denmark/aalborg-university.webp" },
+    { name: "University of Southern Denmark", logo: "/images/universities/denmark/university-of-southern-denmark.webp" },
+    { name: "Roskilde University", logo: "/images/universities/denmark/roskilde-university.webp" },
+    { name: "IT University of Copenhagen", logo: "/images/universities/denmark/it-university-of-copenhagen.webp" },
+    { name: "VIA University College", logo: "/images/universities/denmark/via-university-college.webp" },
+    { name: "University College Copenhagen", logo: "/images/universities/denmark/university-college-copenhagen.webp" },
+  ],
 
   faqItems: [
     {
@@ -291,6 +306,7 @@ const pageData: NepalVariantData = {
   ctaContent: "At Admizz, we help Nepalese students navigate the entire Denmark study process — from choosing the right university to preparing documents and applying for a visa. We make it clear, personalized, and stress-free. Your future in Denmark starts here — with Admizz.",
 };
 
-export default function StudyInDenmarkFromNepalPage() {
-  return <NepalVariantTemplate data={pageData} />;
+export default async function StudyInDenmarkFromNepalPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "denmark" });
+  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

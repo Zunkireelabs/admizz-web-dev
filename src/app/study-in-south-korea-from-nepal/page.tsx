@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in South Korea from Nepal",
+  title: "Study in South Korea from Nepal - Admizz Education",
   description:
     "Study in South Korea from Nepal for top-ranked universities, tech-driven education & cultural experience. Apply now for the 2025 intake!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-south-korea-from-nepal/",
+    canonical: "https://admizzeducation.com/study-in-south-korea-from-nepal",
   },
   openGraph: {
-    title: "Study in South Korea from Nepal",
+    title: "Study in South Korea from Nepal - Admizz Education",
     description:
       "Study in South Korea from Nepal for top-ranked universities, tech-driven education & cultural experience. Apply now for the 2025 intake!",
-    url: "https://admizzeducation.com/study-in-south-korea-from-nepal/",
+    url: "https://admizzeducation.com/study-in-south-korea-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/korean.jpg"],
+    images: ["/images/og/korean.webp"],
     type: "website",
   },
 };
 
 const pageData: NepalVariantData = {
   countryName: "South Korea",
+  countryCategorySlug: "south-korea",
   heroHeading: "Build a Bright Future in One of the World's Top Study Destinations",
   heroSubheading: "Study in South Korea from Nepal offers world-class education, scholarships, affordable tuition, cultural exposure, and global career opportunities.",
   introTitle: "Shape Your Future in Korea's World-Class Universities",
@@ -207,6 +211,7 @@ const pageData: NepalVariantData = {
   ctaContent: "From helping you select the right Korean university and program to assisting with scholarship applications, visa documentation, and even basic Korean language support — we provide end-to-end guidance tailored to Nepalese students. Contact us today to schedule your free Korea education counselling session. Your global career starts now — make South Korea your next academic destination with Admizz."
 };
 
-export default function StudyInSouthKoreaFromNepalPage() {
-  return <NepalVariantTemplate data={pageData} />;
+export default async function StudyInSouthKoreaFromNepalPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "south-korea" });
+  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

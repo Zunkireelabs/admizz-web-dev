@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Explore Admizz Education's Privacy Policy & Terms of Use. Learn how we handle your data, use cookies, and protect your rights at Admizz.",
   alternates: {
-    canonical: "https://admizzeducation.com/privacy-policy/",
+    canonical: "https://admizzeducation.com/privacy-policy",
   },
   openGraph: {
     title: "Privacy Policy | Admizz Education",
     description:
       "Explore Admizz Education's Privacy Policy & Terms of Use. Learn how we handle your data, use cookies, and protect your rights at Admizz.",
-    url: "https://admizzeducation.com/privacy-policy/",
+    url: "https://admizzeducation.com/privacy-policy",
     siteName: "Admizz Education",
     type: "website",
   },
@@ -21,8 +21,8 @@ export default function PrivacyPolicyPage() {
   return (
     <main>
       {/* ===== HERO ===== */}
-      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16">
+        <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl md:text-[42px] font-bold leading-tight">
             Admizz Education Privacy Policy &amp; Terms of Use
           </h1>
@@ -34,8 +34,8 @@ export default function PrivacyPolicyPage() {
       </section>
 
       {/* ===== CONTENT ===== */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto space-y-12">
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto space-y-12 px-4 sm:px-6 lg:px-8">
           {/* --- Who We Are --- */}
           <div>
             <h2 className="text-xl font-bold text-navy mb-4">Who We Are</h2>
@@ -226,10 +226,10 @@ export default function PrivacyPolicyPage() {
                   <li>
                     Contact{" "}
                     <a
-                      href="mailto:support@admizz.com"
+                      href="mailto:hello@admizz.com"
                       className="text-blue-royal underline hover:text-blue-dark transition-colors"
                     >
-                      support@admizz.com
+                      hello@admizz.com
                     </a>{" "}
                     to exercise these rights
                   </li>
@@ -286,10 +286,10 @@ export default function PrivacyPolicyPage() {
                   If you have any questions about this Privacy Policy or Terms of
                   Use, please contact us at{" "}
                   <a
-                    href="mailto:support@admizz.com"
+                    href="mailto:hello@admizz.com"
                     className="text-blue-royal underline hover:text-blue-dark transition-colors"
                   >
-                    support@admizz.com
+                    hello@admizz.com
                   </a>
                   .
                 </p>

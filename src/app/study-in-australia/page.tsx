@@ -1,29 +1,35 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in Australia",
+  title: "Study in Australia - Admizz Education",
   description:
     "Study in Australia at top universities with expert guidance, visa support, and scholarship opportunities. Start your global journey today!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-australia/",
+    canonical: "https://admizzeducation.com/study-in-australia",
   },
   openGraph: {
-    title: "Study in Australia",
+    title: "Study in Australia - Admizz Education",
     description:
       "Study in Australia at top universities with expert guidance, visa support, and scholarship opportunities. Start your global journey today!",
-    url: "https://admizzeducation.com/study-in-australia/",
+    url: "https://admizzeducation.com/study-in-australia",
     siteName: "Admizz Education",
-    images: ["/images/og/untitled-design-80.png"],
+    images: ["/images/og/untitled-design-80.webp"],
     type: "website",
   },
 };
 
 const ausData: CountryPageData = {
   countryName: "Australia",
+  countryCategorySlug: "australia",
   heroHeading: "STUDY IN AUSTRALIA",
-  heroSubheading: "Shape Your Future at World-Class Universities",
+  heroSubheading: "Shape Your Future at World-Class Australian Education",
+  heroDescription: "Australia offers world-class universities, globally recognised degrees, strong post-study work opportunities, and a safe multicultural environment. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top Australian universities with complete confidence.",
+  heroBackground: "/images/hero/australia-hero.webp",
   quickFacts: [
     { label: "Capital", value: "Canberra" },
     { label: "Language", value: "English" },
@@ -38,12 +44,12 @@ const ausData: CountryPageData = {
   whyStudyIntro:
     "Australia offers world-class universities, globally recognised degrees, strong post-study work opportunities, and a safe multicultural environment, making it a top destination for international students seeking quality education and global career growth.",
   benefits: [
-    { title: "Top-Ranked Global Universities", description: "Universities consistently rank globally, offering innovative education and exceptional learning experiences." },
-    { title: "Highly Recognized International Degree", description: "Australian degrees ensure strong credibility and open diverse international career opportunities." },
-    { title: "Strong Post-Study Opportunities", description: "Generous post-study work visas help students gain valuable global industry exposure." },
-    { title: "Safe Multicultural Student Environment", description: "Students enjoy inclusive communities, cultural diversity, personal safety, and supportive surroundings." },
-    { title: "Industry-Focused Practical Learning", description: "Australia offers clean cities, advanced facilities, outdoor lifestyle, and balanced well-being." },
-    { title: "High Quality Lifestyle", description: "Australia offers clean cities, advanced facilities, outdoor lifestyle, and balanced well-being." },
+    { title: "Top-Ranked Global Universities", icon: "/images/icons/school-1.webp", description: "Universities consistently rank globally, offering innovative education and exceptional learning experiences." },
+    { title: "Highly Recognized International Degree", icon: "/images/icons/exam-1.webp", description: "Australian degrees ensure strong credibility and open diverse international career opportunities." },
+    { title: "Strong Post-Study Opportunities", icon: "/images/icons/visa-108.webp", description: "Generous post-study work visas help students gain valuable global industry exposure." },
+    { title: "Safe Multicultural Student Environment", icon: "/images/icons/visa-1.webp", description: "Students enjoy inclusive communities, cultural diversity, personal safety, and supportive surroundings." },
+    { title: "Industry-Focused Practical Learning", icon: "/images/icons/consultation.webp", description: "Australia offers clean cities, advanced facilities, outdoor lifestyle, and balanced well-being." },
+    { title: "High Quality Lifestyle", icon: "/images/icons/accomodation-108.webp", description: "Australia offers clean cities, advanced facilities, outdoor lifestyle, and balanced well-being." },
   ],
   admissionTitle: "Admission Requirements for Studying in Australia",
   admissionIntro:
@@ -74,7 +80,18 @@ const ausData: CountryPageData = {
       { name: "November Intake (Minor Intake, limited programs)", details: [] },
     ],
   },
-  universities: [],
+  universities: [
+    { name: "Monash University", logo: "/images/universities/australia/monash-university.webp" },
+    { name: "University of Queensland", logo: "/images/universities/australia/university-of-queensland.webp" },
+    { name: "Macquarie University", logo: "/images/universities/australia/macquarie-university.webp" },
+    { name: "RMIT University", logo: "/images/universities/australia/rmit-university.webp" },
+    { name: "La Trobe University", logo: "/images/universities/australia/la-trobe-university.webp" },
+    { name: "Victoria University", logo: "/images/universities/australia/victoria-university.webp" },
+    { name: "Western Sydney University", logo: "/images/universities/australia/western-sydney-university.webp" },
+    { name: "University of Tasmania", logo: "/images/universities/australia/university-of-tasmania.webp" },
+    { name: "Southern Cross University", logo: "/images/universities/australia/southern-cross-university.webp" },
+    { name: "Kaplan Business School", logo: "/images/universities/australia/kaplan-business-school.webp" },
+  ],
   costTitle: "Cost of Studying in Australia",
   costIntro: "Understanding the cost of studying in Australia helps international students plan their budget effectively.",
   costTable: [
@@ -117,6 +134,7 @@ const ausData: CountryPageData = {
   ],
 };
 
-export default function StudyInAustraliaPage() {
-  return <CountryPageTemplate data={ausData} />;
+export default async function StudyInAustraliaPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "australia" });
+  return <CountryPageTemplate data={ausData} blogPosts={blogPosts} />;
 }

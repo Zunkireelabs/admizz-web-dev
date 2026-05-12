@@ -32,12 +32,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     alternates: {
-      canonical: `https://admizzeducation.com/category/${slug}/`,
+      canonical: `https://admizzeducation.com/category/${slug}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://admizzeducation.com/category/${slug}/`,
+      url: `https://admizzeducation.com/category/${slug}`,
       siteName: "Admizz Education",
       type: "website",
       images: [
@@ -67,8 +67,8 @@ export default async function CategoryPage({ params }: PageProps) {
   return (
     <main>
       {/* ===== HERO ===== */}
-      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16">
+        <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-medium text-white/70 mb-2">Category</p>
           <h1 className="text-3xl md:text-[42px] font-bold leading-tight">
             {categoryName}
@@ -80,8 +80,8 @@ export default async function CategoryPage({ params }: PageProps) {
       </section>
 
       {/* ===== POSTS ===== */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {posts.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.map((post) => {
@@ -95,8 +95,7 @@ export default async function CategoryPage({ params }: PageProps) {
 
                 const imageUrl = post.featuredImage
                   ? urlFor(post.featuredImage)
-                      .width(400)
-                      .height(225)
+                      .width(600)
                       .auto("format")
                       .url()
                   : null;
@@ -107,11 +106,11 @@ export default async function CategoryPage({ params }: PageProps) {
                     className="bg-white border border-border-light rounded-[10px] overflow-hidden flex flex-col hover:shadow-md transition-shadow"
                   >
                     {imageUrl && (
-                      <Link href={`/${post.slug.current}/`}>
+                      <Link href={`/${post.slug.current}`}>
                         <img
                           src={imageUrl}
                           alt={post.featuredImage?.alt || post.title}
-                          className="w-full h-48 object-cover"
+                          className="w-full aspect-[19/10] object-cover"
                           loading="lazy"
                         />
                       </Link>
@@ -122,7 +121,7 @@ export default async function CategoryPage({ params }: PageProps) {
                           {post.categories.map((cat) => (
                             <Link
                               key={cat.slug.current}
-                              href={`/category/${cat.slug.current}/`}
+                              href={`/category/${cat.slug.current}`}
                               className="text-[11px] font-semibold text-blue-royal bg-blue-royal/10 px-2 py-0.5 rounded-full hover:bg-blue-royal/20 transition-colors"
                             >
                               {cat.title}
@@ -133,7 +132,7 @@ export default async function CategoryPage({ params }: PageProps) {
 
                       <h2 className="text-[15px] font-bold text-navy leading-snug flex-1">
                         <Link
-                          href={`/${post.slug.current}/`}
+                          href={`/${post.slug.current}`}
                           className="hover:text-blue-royal transition-colors"
                         >
                           {post.title}
@@ -153,7 +152,7 @@ export default async function CategoryPage({ params }: PageProps) {
                           </span>
                         )}
                         <Link
-                          href={`/${post.slug.current}/`}
+                          href={`/${post.slug.current}`}
                           className="text-sm font-semibold text-blue-royal hover:text-blue-dark transition-colors"
                         >
                           Read More &raquo;
@@ -173,10 +172,10 @@ export default async function CategoryPage({ params }: PageProps) {
       </section>
 
       {/* ===== BACK TO BLOG ===== */}
-      <section className="bg-off-white py-10 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="bg-off-white py-10">
+        <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <Link
-            href="/blogs/"
+            href="/blogs"
             className="inline-block bg-blue-royal text-white font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-blue-dark transition-colors"
           >
             &laquo; Back to all blogs

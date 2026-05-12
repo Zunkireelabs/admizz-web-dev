@@ -1,29 +1,35 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in Denmark - Admizz Education",
   description:
     "Study in Denmark with world-class education, expert guidance, visa support, and scholarship options. Apply now for a brighter future!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-denmark/",
+    canonical: "https://admizzeducation.com/study-in-denmark",
   },
   openGraph: {
     title: "Study in Denmark - Admizz Education",
     description:
       "Study in Denmark with world-class education, expert guidance, visa support, and scholarship options. Apply now for a brighter future!",
-    url: "https://admizzeducation.com/study-in-denmark/",
+    url: "https://admizzeducation.com/study-in-denmark",
     siteName: "Admizz Education",
-    images: ["/images/og/flag-of-australia.png"],
+    images: ["/images/hero/web-ad.webp"],
     type: "website",
   },
 };
 
 const denmarkData: CountryPageData = {
   countryName: "Denmark",
+  countryCategorySlug: "denmark",
   heroHeading: "STUDY IN DENMARK",
-  heroSubheading: "Study in Denmark and access innovative education, industry-focused programs, and a welcoming international environment. Admizz Education guides you through course selection, admissions, documentation, and visa support\u2014ensuring a smooth, informed journey toward world-class learning and future-ready opportunities in Denmark.",
+  heroSubheading: "Access Innovative Education in a Welcoming European Hub",
+  heroDescription: "Study in Denmark and access innovative education, industry-focused programs, and a welcoming international environment. Admizz Education guides you through course selection, admissions, documentation, and visa support — ensuring a smooth, informed journey toward world-class learning and future-ready opportunities in Denmark.",
+  heroBackground: "/images/hero/denmark-hero.webp",
   quickFacts: [
     { label: "Capital", value: "Copenhagen" },
     { label: "Language", value: "Danish" },
@@ -38,12 +44,12 @@ const denmarkData: CountryPageData = {
   whyStudyIntro:
     "Study in Denmark for world-class education, innovative teaching, affordable living, strong career opportunities, and a safe, welcoming European study environment.",
   benefits: [
-    { title: "World-Ranked Universities", description: "Denmark is home to globally recognised institutions known for academic excellence, cutting-edge research, and industry-driven learning." },
-    { title: "Innovative Student-Centric Teaching", description: "Danish education focuses on problem-solving, real-world applications, group work, and creative thinking\u2014skills highly valued worldwide." },
-    { title: "Strong Career Prospects", description: "Denmark offers excellent internship pathways, part-time work options, and post-study opportunities in engineering, IT, life sciences, and sustainability." },
-    { title: "Affordable Education & Scholarships", description: "International students benefit from reasonable tuition fees, strong scholarship options, and great value for quality education." },
-    { title: "English-Taught Programs & Global Exposure", description: "Thousands of programs are taught entirely in English, enabling international students to study comfortably and compete globally." },
-    { title: "High Quality of Life & Safety", description: "With a secure, clean, and modern environment, Denmark consistently ranks among the world\u2019s happiest and safest countries." },
+    { icon: "/images/icons/school-1.webp", title: "World-Ranked Universities", description: "Denmark is home to globally recognised institutions known for academic excellence, cutting-edge research, and industry-driven learning." },
+    { icon: "/images/icons/knowledge.webp", title: "Innovative Student-Centric Teaching", description: "Danish education focuses on problem-solving, real-world applications, group work, and creative thinking\u2014skills highly valued worldwide." },
+    { icon: "/images/icons/consultation.webp", title: "Strong Career Prospects", description: "Denmark offers excellent internship pathways, part-time work options, and post-study opportunities in engineering, IT, life sciences, and sustainability." },
+    { icon: "/images/icons/scholarship-108.webp", title: "Affordable Education & Scholarships", description: "International students benefit from reasonable tuition fees, strong scholarship options, and great value for quality education." },
+    { icon: "/images/icons/knowledge.webp", title: "English-Taught Programs & Global Exposure", description: "Thousands of programs are taught entirely in English, enabling international students to study comfortably and compete globally." },
+    { icon: "/images/icons/accomodation-108.webp", title: "High Quality of Life & Safety", description: "With a secure, clean, and modern environment, Denmark consistently ranks among the world\u2019s happiest and safest countries." },
   ],
   admissionTitle: "Admission Requirements for Studying in Denmark",
   admissionIntro:
@@ -104,7 +110,18 @@ const denmarkData: CountryPageData = {
       { name: "Rolling Intakes (Program/University-Specific)", details: [] },
     ],
   },
-  universities: [],
+  universities: [
+    { name: "University of Copenhagen", logo: "/images/universities/denmark/university-of-copenhagen.webp" },
+    { name: "Aarhus University", logo: "/images/universities/denmark/aarhus-university.webp" },
+    { name: "Technical University of Denmark", logo: "/images/universities/denmark/technical-university-of-denmark.webp" },
+    { name: "Copenhagen Business School", logo: "/images/universities/denmark/copenhagen-business-school.webp" },
+    { name: "Aalborg University", logo: "/images/universities/denmark/aalborg-university.webp" },
+    { name: "University of Southern Denmark", logo: "/images/universities/denmark/university-of-southern-denmark.webp" },
+    { name: "Roskilde University", logo: "/images/universities/denmark/roskilde-university.webp" },
+    { name: "IT University of Copenhagen", logo: "/images/universities/denmark/it-university-of-copenhagen.webp" },
+    { name: "VIA University College", logo: "/images/universities/denmark/via-university-college.webp" },
+    { name: "University College Copenhagen", logo: "/images/universities/denmark/university-college-copenhagen.webp" },
+  ],
   costTitle: "Cost of Studying in Denmark",
   costIntro: "Understand the complete cost of studying in Denmark, including tuition fees, living expenses, and additional student costs for a well-planned study journey.",
   costTable: [
@@ -146,6 +163,7 @@ const denmarkData: CountryPageData = {
   ],
 };
 
-export default function StudyInDenmarkPage() {
-  return <CountryPageTemplate data={denmarkData} />;
+export default async function StudyInDenmarkPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "denmark" });
+  return <CountryPageTemplate data={denmarkData} blogPosts={blogPosts} />;
 }

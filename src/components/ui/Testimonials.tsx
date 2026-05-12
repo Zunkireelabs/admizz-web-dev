@@ -36,8 +36,8 @@ export default function Testimonials({
   const item = testimonials[current];
 
   return (
-    <section className="py-16 px-4 bg-off-white">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="py-16 bg-off-white">
+      <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         {title && (
           <h2 className="text-2xl md:text-[28px] font-bold text-navy mb-10">
             {title}
@@ -79,16 +79,18 @@ export default function Testimonials({
             </svg>
           </button>
 
-          <div className="flex gap-2">
+          <div className="flex gap-1">
             {testimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  i === current ? "bg-blue-dark" : "bg-gray-medium"
-                }`}
+                className="p-2"
                 aria-label={`Go to testimonial ${i + 1}`}
-              />
+              >
+                <span className={`block w-2.5 h-2.5 rounded-full transition-colors ${
+                  i === current ? "bg-blue-dark" : "bg-gray-medium"
+                }`} />
+              </button>
             ))}
           </div>
 

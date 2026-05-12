@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in India from Nepal - Admizz Education",
   description:
     "Study in India from Nepal with top universities, affordable fees, quality education & global exposure. Apply now for 2025 intake!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-india-from-nepal/",
+    canonical: "https://admizzeducation.com/study-in-india-from-nepal",
   },
   openGraph: {
     title: "Study in India from Nepal - Admizz Education",
     description:
       "Study in India from Nepal with top universities, affordable fees, quality education & global exposure. Apply now for 2025 intake!",
-    url: "https://admizzeducation.com/study-in-india-from-nepal/",
+    url: "https://admizzeducation.com/study-in-india-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/nepali-2.jpg"],
+    images: ["/images/og/nepali-2.webp"],
     type: "website",
   },
 };
 
 const pageData: NepalVariantData = {
   countryName: "India",
+  countryCategorySlug: "india",
   heroHeading: "Study in India from Nepal",
   heroSubheading: "Build a Bright Future in One of the World's Top Study Destinations",
 
@@ -215,7 +219,19 @@ const pageData: NepalVariantData = {
     }
   ],
 
-  universities: [],
+  universities: [
+    { name: "IISc Bangalore", logo: "/images/universities/india/iisc-bangalore.webp" },
+    { name: "University of Delhi", logo: "/images/universities/india/university-of-delhi.webp" },
+    { name: "Jawaharlal Nehru University", logo: "/images/universities/india/jawaharlal-nehru-university.webp" },
+    { name: "Banaras Hindu University", logo: "/images/universities/india/banaras-hindu-university.webp" },
+    { name: "Anna University", logo: "/images/universities/india/anna-university.webp" },
+    { name: "VIT", logo: "/images/universities/india/vit.webp" },
+    { name: "Manipal Academy", logo: "/images/universities/india/manipal-academy.webp" },
+    { name: "Symbiosis International University", logo: "/images/universities/india/symbiosis-international-university.webp" },
+    { name: "Delhi Technological University", logo: "/images/universities/india/delhi-technological-university.webp" },
+    { name: "KIIT University", logo: "/images/universities/india/kalinga-institute.webp" },
+    { name: "RK University", logo: "/images/universities/india/rk-university.webp" },
+  ],
 
   faqItems: [
     {
@@ -256,6 +272,7 @@ const pageData: NepalVariantData = {
   ctaContent: "India offers top-tier education, cultural connection, and cost-effective learning with hundreds of globally recognized institutions across medicine, engineering, business, IT, and humanities. Admizz helps you choose the right college/university, navigate entrance exams, secure scholarships, and complete admission formalities. Thousands of students from Nepal are already studying in India and building successful careers. Now it's your turn!"
 };
 
-export default function StudyInIndiaFromNepalPage() {
-  return <NepalVariantTemplate data={pageData} />;
+export default async function StudyInIndiaFromNepalPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "india" });
+  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

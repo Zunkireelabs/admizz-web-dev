@@ -1,29 +1,35 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in South Korea - Admizz Education",
   description:
     "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-south-korea/",
+    canonical: "https://admizzeducation.com/study-in-south-korea",
   },
   openGraph: {
     title: "Study in South Korea - Admizz Education",
     description:
       "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!",
-    url: "https://admizzeducation.com/study-in-south-korea/",
+    url: "https://admizzeducation.com/study-in-south-korea",
     siteName: "Admizz Education",
-    images: ["/images/og/flag-of-australia.png"],
+    images: ["/images/og/korean.webp"],
     type: "website",
   },
 };
 
 const southKoreaData: CountryPageData = {
   countryName: "South Korea",
+  countryCategorySlug: "south-korea",
   heroHeading: "STUDY IN SOUTH KOREA",
-  heroSubheading: "South Korea has become a global learning hub where innovation hums through every lecture hall and creativity blooms in every campus street. Admizz Education stands beside you as your trusted navigator, helping you enter this dynamic academic world with confidence and clarity.",
+  heroSubheading: "Enter a Dynamic Academic World With Innovation and Creativity",
+  heroDescription: "South Korea has become a global learning hub where innovation hums through every lecture hall and creativity blooms in every campus street. Admizz Education stands beside you as your trusted navigator, helping you enter this dynamic academic world with confidence and clarity.",
+  heroBackground: "/images/hero/south-korea-hero.webp",
   quickFacts: [
     { label: "Capital", value: "Seoul" },
     { label: "Language", value: "Korean" },
@@ -38,12 +44,12 @@ const southKoreaData: CountryPageData = {
   whyStudyIntro:
     "South Korea offers globally ranked universities, innovative learning, safe modern cities, rich cultural experiences, and excellent career opportunities. It's the ideal destination for ambitious students seeking quality education and future-focused growth.",
   benefits: [
-    { title: "World-Class Universities", description: "South Korea hosts globally ranked institutions known for academic excellence and advanced learning environments." },
-    { title: "Affordable Quality Education", description: "Students benefit from reasonable tuition fees without compromising on teaching standards or campus facilities." },
-    { title: "Strong Career Opportunities", description: "Graduates access high-demand roles across technology, business, research, engineering, and creative fields." },
-    { title: "Attractive Scholarships", description: "Universities and government programs offer generous scholarships that support international student growth." },
-    { title: "Rich Cultural Experience", description: "A unique blend of tradition, innovation, arts, and global pop culture enhances student life." },
-    { title: "Safe, Modern Cities", description: "International students enjoy secure, tech-driven cities with efficient transport and vibrant daily life." },
+    { icon: "/images/icons/school-1.webp", title: "World-Class Universities", description: "South Korea hosts globally ranked institutions known for academic excellence and advanced learning environments." },
+    { icon: "/images/icons/scholarship-108.webp", title: "Affordable Quality Education", description: "Students benefit from reasonable tuition fees without compromising on teaching standards or campus facilities." },
+    { icon: "/images/icons/consultation.webp", title: "Strong Career Opportunities", description: "Graduates access high-demand roles across technology, business, research, engineering, and creative fields." },
+    { icon: "/images/icons/scholarship-108.webp", title: "Attractive Scholarships", description: "Universities and government programs offer generous scholarships that support international student growth." },
+    { icon: "/images/icons/visa-1.webp", title: "Rich Cultural Experience", description: "A unique blend of tradition, innovation, arts, and global pop culture enhances student life." },
+    { icon: "/images/icons/accomodation-108.webp", title: "Safe, Modern Cities", description: "International students enjoy secure, tech-driven cities with efficient transport and vibrant daily life." },
   ],
   admissionTitle: "Admission Requirements for Studying in South Korea",
   admissionIntro:
@@ -101,7 +107,18 @@ const southKoreaData: CountryPageData = {
       { name: "Fall Intake (September)", details: ["A major intake offering strong course options, ideal for students completing their studies mid-year."] },
     ],
   },
-  universities: [],
+  universities: [
+    { name: "Seoul National University", logo: "/images/universities/south-korea/seoul-national-university.webp" },
+    { name: "KAIST", logo: "/images/universities/south-korea/kaist.webp" },
+    { name: "Yonsei University", logo: "/images/universities/south-korea/yonsei-university.webp" },
+    { name: "Korea University", logo: "/images/universities/south-korea/korea-university.webp" },
+    { name: "Sungkyunkwan University", logo: "/images/universities/south-korea/sungkyunkwan-university.webp" },
+    { name: "Hanyang University", logo: "/images/universities/south-korea/hanyang-university.webp" },
+    { name: "Kyung Hee University", logo: "/images/universities/south-korea/kyung-hee-university.webp" },
+    { name: "Ewha Womans University", logo: "/images/universities/south-korea/ewha-womans-university.webp" },
+    { name: "Sogang University", logo: "/images/universities/south-korea/sogang-university.webp" },
+    { name: "Chung-Ang University", logo: "/images/universities/south-korea/chung-ang-university.webp" },
+  ],
   costTitle: "Cost of Studying in South Korea",
   costIntro: "Understanding the cost of studying in South Korea helps international students plan their finances effectively.",
   costTable: [
@@ -144,6 +161,7 @@ const southKoreaData: CountryPageData = {
   ],
 };
 
-export default function StudyInSouthKoreaPage() {
-  return <CountryPageTemplate data={southKoreaData} />;
+export default async function StudyInSouthKoreaPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "south-korea" });
+  return <CountryPageTemplate data={southKoreaData} blogPosts={blogPosts} />;
 }

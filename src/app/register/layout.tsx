@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       "Register with Admizz Education to get personalized guidance for studying abroad. Expert counseling, university admissions support, and visa assistance.",
     url: "https://admizzeducation.com/register",
     siteName: "Admizz Education",
-    images: ["/images/hero/web-ad.png"],
+    images: ["/images/hero/web-ad.webp"],
     type: "website",
   },
 };

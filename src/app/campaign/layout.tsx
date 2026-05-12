@@ -5,14 +5,15 @@ export const metadata: Metadata = {
   description:
     "Join the Win Big Campaign and stand a chance to win exciting prizes!",
   alternates: {
-    canonical: "https://admizzeducation.com/campaign/",
+    canonical: "https://admizzeducation.com/campaign",
   },
   openGraph: {
     title: "Win Big Campaign | Admizz Education",
     description:
       "Join the Win Big Campaign and stand a chance to win exciting prizes!",
-    url: "https://admizzeducation.com/campaign/",
+    url: "https://admizzeducation.com/campaign",
     siteName: "Admizz Education",
+    images: ["/images/hero/web-ad.webp"],
     type: "website",
   },
 };

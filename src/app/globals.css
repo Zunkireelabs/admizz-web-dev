@@ -23,7 +23,7 @@
   --color-border-light: #D7DAE8;
   --color-border: #E8DFDF;
   --color-border-input: #eaecf1;
-  --color-gray-medium: #949494;
+  --color-gray-medium: #767676;
   --color-gray: #656565;
   --color-gray-dark: #5C7189;
   --color-slate: #292E3E;
@@ -47,12 +47,24 @@ body {
   background: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Minimum WCAG 2.1 AA touch target */
+.touch-target-min {
+  min-width: 44px;
+  min-height: 44px;
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
+
+/* ===== Alumni Section ===== */
+@keyframes alumni-left  { 0% { transform: translateX(0); }    100% { transform: translateX(-50%); } }
+@keyframes alumni-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
 
 /* Blog table styles (for WordPress tables migrated as raw HTML) */
 .blog-table table {
@@ -74,4 +86,29 @@ html {
 }
 .blog-table tr:nth-child(even) {
   background: var(--color-gray-lightest);
+}
+
+/* Hide scrollbar for horizontal scroll containers */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* University carousel auto-scroll */
+@keyframes scroll-carousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll-carousel {
+  animation: scroll-carousel 30s linear infinite;
+}
+
+/* Skip rendering below-fold sections until scrolled near.
+   Browser reserves the intrinsic size to avoid layout shift. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
 }

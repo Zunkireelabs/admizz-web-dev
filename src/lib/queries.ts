@@ -21,6 +21,7 @@ export const postBySlugQuery = `
     excerpt,
     content,
     featuredImage,
+    infoBox,
     categories[]->{ title, slug },
     seo
   }
@@ -55,6 +56,19 @@ export const postsByCategoryQuery = `
 // All category slugs (for generateStaticParams at build time)
 export const allCategorySlugsQuery = `
   *[_type == "category"] { "slug": slug.current }
+`;
+
+// Related posts by shared categories (for blog post pages)
+export const relatedPostsQuery = `
+  *[_type == "post" && slug.current != $slug && count((categories[]->slug.current)[@ in $categorySlugs]) > 0]
+    | order(publishedAt desc) [0...3] {
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    featuredImage,
+    categories[]->{ title, slug }
+  }
 `;
 
 // All post slugs with dates (for sitemap generation)

@@ -1,19 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const quickLinks = [
-  { name: "Test Preparation", href: "/test-prep/" },
-  { name: "Students", href: "/study-destinations/" },
-  { name: "Recruitment Partners", href: "/recruitment-partners/" },
-  { name: "Colleges & Universities", href: "/universities/" },
-  { name: "Blogs", href: "/blogs/" },
+const quickLinks: { name: string; href: string; external?: boolean }[] = [
+  { name: "Test Preparation", href: "/test-prep" },
+  { name: "Students", href: "/study-destinations" },
+  { name: "Events", href: "/events" },
+  { name: "Recruitment Partners", href: "/recruitment-partners" },
+  { name: "Colleges & Universities", href: "/universities" },
+  { name: "Blogs", href: "/blogs" },
 ];
 
 const companyLinks = [
-  { name: "About", href: "/about/" },
+  { name: "About", href: "/about" },
   { name: "Careers", href: "https://careers.admizzeducation.com" },
-  { name: "Contact Us", href: "/contact/" },
-  { name: "Privacy Policy", href: "/privacy-policy/" },
+  { name: "Contact Us", href: "/contact" },
+  { name: "Privacy Policy", href: "/privacy-policy" },
 ];
 
 const socialLinks = [
@@ -75,52 +76,79 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-oxford text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Column 1: Brand */}
-          <div>
+    <footer className="text-white relative z-10 overflow-hidden" style={{ background: "#111d6b" }}>
+      {/* World landmarks skyline — background behind content, positioned upward */}
+      <div className="absolute bottom-[40px] left-0 w-full z-[1] pointer-events-none" aria-hidden="true">
+        <Image
+          src="/images/footer-skyline.webp"
+          alt=""
+          width={2880}
+          height={500}
+          className="w-full h-auto"
+          style={{ opacity: 0.7 }}
+          priority={false}
+        />
+      </div>
+
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 relative z-[2]">
+        {/* All footer columns in one grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_auto] gap-6 lg:gap-12">
+          {/* Brand */}
+          <div className="col-span-2 lg:col-span-1">
             <Link href="/">
               <Image
                 src="/images/logos/Admizz-Education-New-Logo-For-Dark-Background-1.png-1-1024x331.webp"
                 alt="Admizz Education"
-                width={200}
-                height={65}
+                width={180}
+                height={58}
               />
             </Link>
-            <p className="mt-4 text-sm text-gray-medium leading-relaxed">
-              Admizz Education is a global platform for Study Abroad. We help
-              international students find the right university, prepare for
-              tests, and navigate visa processes.
+            <p className="mt-3 text-sm text-white/70 leading-relaxed max-w-md">
+              Admizz Education is a global platform for Study Abroad.
+              <br />
+              We help international students secure admission worldwide,
+              offering test prep, expert guidance, scholarship support,
+              and a seamless application process.
             </p>
           </div>
-
-          {/* Column 2: Quick Links */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-base font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-3">
+            <h3 className="text-base font-semibold mb-3">Quick Links</h3>
+            <ul className="space-y-0">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-gray-medium hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-white/70 hover:text-white transition-colors inline-block py-1.5"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/70 hover:text-white transition-colors inline-block py-1.5"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: Company */}
+          {/* Company */}
           <div>
-            <h3 className="text-base font-semibold mb-4">Company</h3>
-            <ul className="space-y-3">
+            <h3 className="text-base font-semibold mb-3">Company</h3>
+            <ul className="space-y-0">
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-medium hover:text-white transition-colors"
+                    className="text-sm text-white/70 hover:text-white transition-colors inline-block py-1.5"
                   >
                     {link.name}
                   </Link>
@@ -129,34 +157,38 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Social */}
-          <div>
-            <h3 className="text-base font-semibold mb-4">Follow Us</h3>
-            <div className="flex flex-wrap gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-medium hover:text-white transition-colors"
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
-          </div>
+          {/* ICEF Badge */}
+          <div
+            className="col-span-2 lg:col-span-1 flex items-start justify-center lg:justify-end"
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{
+              __html: '<span id="iasBadge" data-account-id="6499"></span>',
+            }}
+          />
         </div>
       </div>
 
       {/* Copyright Bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <p className="text-center text-sm text-gray-medium">
+      <div className="border-t border-white/10 relative z-[2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-sm text-white/70">
             &copy; {new Date().getFullYear()}, All rights reserved. Admizz
             Education.
           </p>
+          <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-center">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-full border border-white/30 flex items-center justify-center text-white/70 hover:text-white hover:border-white transition-colors"
+                aria-label={social.name}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

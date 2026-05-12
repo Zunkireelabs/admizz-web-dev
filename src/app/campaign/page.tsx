@@ -1,6 +1,6 @@
-"use client";
-
-import { useState, type FormEvent } from "react";
+import SpinWheel from "@/components/ui/SpinWheel";
+import TrustedPartners from "@/components/ui/TrustedPartners";
+import WhyChooseAdmizz from "@/components/ui/WhyChooseAdmizz";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -111,117 +111,16 @@ const prizes = [
   },
 ];
 
-const destinations = [
-  "Australia",
-  "Canada",
-  "Denmark",
-  "Dubai",
-  "France",
-  "India",
-  "New Zealand",
-  "South Korea",
-  "UK",
-  "USA",
-];
-
-const studyLevels = ["Certificate", "Diploma", "Bachelors", "Masters"];
-
-const studyPrograms = [
-  "Engineering & Technology",
-  "Allied Health Sciences",
-  "Humanities & Social Sciences",
-  "Business & Management",
-  "Law & Legal Studies",
-  "Architecture & Design",
-  "Applied Sciences",
-  "Medical & Pharmacy",
-];
-
-const countries = [
-  "Afghanistan", "Albania", "Algeria", "Argentina", "Armenia", "Australia",
-  "Austria", "Azerbaijan", "Bahrain", "Bangladesh", "Belarus", "Belgium",
-  "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Brunei", "Bulgaria",
-  "Cambodia", "Cameroon", "Canada", "Chile", "China", "Colombia", "Costa Rica",
-  "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Dominican Republic",
-  "Ecuador", "Egypt", "El Salvador", "Estonia", "Ethiopia", "Finland", "France",
-  "Georgia", "Germany", "Ghana", "Greece", "Guatemala", "Honduras", "Hungary",
-  "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy",
-  "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyzstan",
-  "Latvia", "Lebanon", "Libya", "Lithuania", "Luxembourg", "Malaysia", "Maldives",
-  "Mexico", "Moldova", "Mongolia", "Morocco", "Myanmar", "Nepal", "Netherlands",
-  "New Zealand", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan",
-  "Palestine", "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
-  "Qatar", "Romania", "Russia", "Saudi Arabia", "Serbia", "Singapore",
-  "Slovakia", "Slovenia", "Somalia", "South Africa", "South Korea", "Spain",
-  "Sri Lanka", "Sudan", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan",
-  "Tanzania", "Thailand", "Tunisia", "Turkey", "Turkmenistan", "UAE",
-  "Uganda", "Ukraine", "United Kingdom", "United States", "Uruguay",
-  "Uzbekistan", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe",
-];
-
-/* ------------------------------------------------------------------ */
-/*  Shared CSS class strings                                           */
-/* ------------------------------------------------------------------ */
-
-const inputClass =
-  "w-full h-[40px] px-3 border border-border-input rounded-[10px] text-xs font-montserrat text-black placeholder:text-[#888888] focus:outline-none focus:ring-1 focus:ring-blue-dark";
-
-const selectClass =
-  "w-full h-[40px] px-3 border border-border-input rounded-[10px] text-xs font-montserrat text-gray-medium focus:outline-none focus:ring-1 focus:ring-blue-dark";
-
-/* ------------------------------------------------------------------ */
-/*  Form data interface                                                */
-/* ------------------------------------------------------------------ */
-
-interface CampaignFormData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  country: string;
-  phone: string;
-  destination: string;
-  city: string;
-  studyLevel: string;
-  studyProgram: string;
-  terms: boolean;
-}
-
-const initialFormData: CampaignFormData = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  country: "",
-  phone: "",
-  destination: "",
-  city: "",
-  studyLevel: "",
-  studyProgram: "",
-  terms: false,
-};
-
 /* ------------------------------------------------------------------ */
 /*  Page Component                                                     */
 /* ------------------------------------------------------------------ */
 
 export default function CampaignPage() {
-  const [formData, setFormData] = useState<CampaignFormData>(initialFormData);
-  const [submitted, setSubmitted] = useState(false);
-
-  const update = (field: keyof CampaignFormData, value: string | boolean) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    // TODO: integrate with backend / API
-    setSubmitted(true);
-  };
-
   return (
     <main>
       {/* ===== 1. HERO SECTION ===== */}
-      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl md:text-[42px] font-bold leading-tight">
             Planning to Study Abroad This Year?
           </h1>
@@ -243,8 +142,8 @@ export default function CampaignPage() {
       </section>
 
       {/* ===== 2. PRIZE SECTION ===== */}
-      <section className="py-16 px-4 bg-off-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-off-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
             Win Big with Admizz Education!
           </h2>
@@ -267,198 +166,17 @@ export default function CampaignPage() {
             ))}
           </div>
 
-          <p className="text-center mt-10 text-[15px] font-semibold text-golden">
-            <svg
-              className="inline-block w-5 h-5 mr-2 -mt-0.5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Winner will be announced every Friday
-          </p>
         </div>
       </section>
 
-      {/* ===== 3. REGISTRATION FORM ===== */}
-      <section id="register" className="py-16 px-4">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-10">
-            Register Now
-          </h2>
+      {/* ===== 3. WHY CHOOSE ADMIZZ ===== */}
+      <WhyChooseAdmizz />
 
-          {submitted ? (
-            <div className="bg-white border border-border-light rounded-[10px] p-10 text-center">
-              <svg
-                className="w-16 h-16 mx-auto text-golden mb-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <h3 className="text-xl font-bold text-navy mb-2">
-                Thank You for Registering!
-              </h3>
-              <p className="text-[15px] text-gray-dark leading-relaxed">
-                Your entry has been received. Winners are announced every
-                Friday. Stay tuned and good luck!
-              </p>
-            </div>
-          ) : (
-            <div className="bg-white border border-border-light rounded-[10px] p-8">
-              <form className="space-y-4" onSubmit={handleSubmit}>
-                {/* Row: First Name / Last Name */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Full Name *"
-                    required
-                    value={formData.firstName}
-                    onChange={(e) => update("firstName", e.target.value)}
-                    className={inputClass}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Last Name *"
-                    required
-                    value={formData.lastName}
-                    onChange={(e) => update("lastName", e.target.value)}
-                    className={inputClass}
-                  />
-                </div>
+      {/* ===== 4. TRUSTED PARTNERS ===== */}
+      <TrustedPartners />
 
-                {/* Email */}
-                <input
-                  type="email"
-                  placeholder="Email Address *"
-                  required
-                  value={formData.email}
-                  onChange={(e) => update("email", e.target.value)}
-                  className={inputClass}
-                />
-
-                {/* Country */}
-                <select
-                  value={formData.country}
-                  onChange={(e) => update("country", e.target.value)}
-                  className={selectClass}
-                >
-                  <option value="">Select Country</option>
-                  {countries.map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
-                  ))}
-                </select>
-
-                {/* Phone */}
-                <input
-                  type="tel"
-                  placeholder="Phone Number *"
-                  required
-                  minLength={13}
-                  value={formData.phone}
-                  onChange={(e) => update("phone", e.target.value)}
-                  className={inputClass}
-                />
-
-                {/* Preferred Study Destination */}
-                <select
-                  required
-                  value={formData.destination}
-                  onChange={(e) => update("destination", e.target.value)}
-                  className={selectClass}
-                >
-                  <option value="">Preferred Study Destination *</option>
-                  {destinations.map((d) => (
-                    <option key={d} value={d}>
-                      {d}
-                    </option>
-                  ))}
-                </select>
-
-                {/* City */}
-                <input
-                  type="text"
-                  placeholder="City *"
-                  required
-                  minLength={2}
-                  value={formData.city}
-                  onChange={(e) => update("city", e.target.value)}
-                  className={inputClass}
-                />
-
-                {/* Row: Level of Study / Study Program */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <select
-                    required
-                    value={formData.studyLevel}
-                    onChange={(e) => update("studyLevel", e.target.value)}
-                    className={selectClass}
-                  >
-                    <option value="">Level of Study *</option>
-                    {studyLevels.map((l) => (
-                      <option key={l} value={l}>
-                        {l}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    required
-                    value={formData.studyProgram}
-                    onChange={(e) => update("studyProgram", e.target.value)}
-                    className={selectClass}
-                  >
-                    <option value="">Preferred Study Program *</option>
-                    {studyPrograms.map((p) => (
-                      <option key={p} value={p}>
-                        {p}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Terms & Conditions */}
-                <label className="flex items-start gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    required
-                    checked={formData.terms}
-                    onChange={(e) => update("terms", e.target.checked)}
-                    className="mt-1 h-4 w-4 rounded border-border-input text-blue-dark focus:ring-blue-dark"
-                  />
-                  <span className="text-xs text-gray-dark leading-relaxed">
-                    I agree to the{" "}
-                    <span className="text-blue-dark font-medium underline">
-                      Terms &amp; Conditions
-                    </span>{" "}
-                    and consent to Admizz Education contacting me regarding study
-                    abroad opportunities and campaign updates.
-                  </span>
-                </label>
-
-                {/* Submit */}
-                <button
-                  type="submit"
-                  className="w-full bg-yellow text-black font-semibold text-[15px] py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
-                >
-                  Register
-                </button>
-              </form>
-            </div>
-          )}
-        </div>
-      </section>
+      {/* ===== 4. SPIN & WIN ===== */}
+      <SpinWheel />
     </main>
   );
 }

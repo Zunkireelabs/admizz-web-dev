@@ -24,45 +24,55 @@ const client = createClient({
   useCdn: true,
 });
 
-// Static pages with priorities
+// Static pages with priorities (no trailing slashes, no thank-you/utility pages)
 const staticPages = [
   { path: "/", priority: 1.0, freq: "daily" },
-  { path: "/about/", priority: 0.8, freq: "monthly" },
-  { path: "/contact/", priority: 0.8, freq: "monthly" },
-  { path: "/blogs/", priority: 0.9, freq: "daily" },
-  { path: "/study-destinations/", priority: 0.8, freq: "monthly" },
-  { path: "/privacy-policy/", priority: 0.3, freq: "yearly" },
-  { path: "/universities/", priority: 0.7, freq: "monthly" },
-  { path: "/recruitment-partners/", priority: 0.7, freq: "monthly" },
-  { path: "/study-in-the-usa/", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-the-uk/", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-australia/", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-canada/", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-newzealand/", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-south-korea/", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-india/", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-france/", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-denmark/", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-dubai/", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-canada-from-nepal/", priority: 0.7, freq: "monthly" },
-  { path: "/study-in-south-korea-from-nepal/", priority: 0.7, freq: "monthly" },
-  { path: "/study-in-india-from-nepal/", priority: 0.7, freq: "monthly" },
-  { path: "/study-in-france-from-nepal/", priority: 0.7, freq: "monthly" },
-  { path: "/study-in-denmark-from-nepal/", priority: 0.7, freq: "monthly" },
-  { path: "/study-in-dubai-from-nepal/", priority: 0.7, freq: "monthly" },
-  { path: "/study-in-uae-from-nepal/", priority: 0.7, freq: "monthly" },
-  { path: "/best-education-consultancy-for-study-abroad/", priority: 0.7, freq: "monthly" },
-  { path: "/study-abroad-consultancy-in-nepal/", priority: 0.7, freq: "monthly" },
-  { path: "/overseas-education-consultants-in-nepal/", priority: 0.7, freq: "monthly" },
-  { path: "/top-education-consultancy-in-nepal/", priority: 0.7, freq: "monthly" },
-  { path: "/study-abroad-consultants-in-kathmandu/", priority: 0.7, freq: "monthly" },
-  { path: "/campaign/", priority: 0.5, freq: "monthly" },
-  { path: "/campaign-uk/", priority: 0.5, freq: "monthly" },
-  { path: "/coming-soon/", priority: 0.3, freq: "yearly" },
-  { path: "/thank-you/", priority: 0.3, freq: "yearly" },
-  { path: "/thank-you-uk/", priority: 0.3, freq: "yearly" },
-  { path: "/country-page-thank-you/", priority: 0.3, freq: "yearly" },
-  { path: "/test-prep-thank-you/", priority: 0.3, freq: "yearly" },
+  { path: "/about", priority: 0.8, freq: "monthly" },
+  { path: "/contact", priority: 0.8, freq: "monthly" },
+  { path: "/blogs", priority: 0.9, freq: "daily" },
+  { path: "/register", priority: 0.8, freq: "monthly" },
+  { path: "/test-prep", priority: 0.7, freq: "monthly" },
+  { path: "/study-destinations", priority: 0.8, freq: "monthly" },
+  { path: "/privacy-policy", priority: 0.3, freq: "yearly" },
+  { path: "/universities", priority: 0.7, freq: "monthly" },
+  { path: "/recruitment-partners", priority: 0.7, freq: "monthly" },
+  // Country pages (main)
+  { path: "/study-in-the-usa", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-the-uk", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-australia", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-canada", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-newzealand", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-south-korea", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-india", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-france", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-denmark", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-dubai", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-germany", priority: 0.8, freq: "monthly" },
+  // Nepal variant pages
+  { path: "/study-in-canada-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-south-korea-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-india-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-france-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-denmark-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-dubai-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-uae-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-newzealand-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-uk-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-usa-from-nepal", priority: 0.7, freq: "monthly" },
+  // SEO landing pages
+  { path: "/best-education-consultancy-for-study-abroad", priority: 0.7, freq: "monthly" },
+  { path: "/best-education-consultancy-in-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/education-consultancy-in-kathmandu", priority: 0.7, freq: "monthly" },
+  { path: "/study-abroad-consultancy-in-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/overseas-education-consultants-in-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/top-education-consultancy-in-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-abroad-consultants-in-kathmandu", priority: 0.7, freq: "monthly" },
+  // City landing pages
+  { path: "/study-abroad-from-birgunj", priority: 0.7, freq: "monthly" },
+  { path: "/study-abroad-from-janakpur", priority: 0.7, freq: "monthly" },
+  // Campaign pages
+  { path: "/campaign", priority: 0.5, freq: "monthly" },
+  { path: "/campaign-uk", priority: 0.5, freq: "monthly" },
 ];
 
 function escapeXml(str) {
@@ -110,7 +120,7 @@ async function main() {
   // Blog posts
   for (const post of posts) {
     urls.push({
-      loc: `${BASE_URL}/${post.slug}/`,
+      loc: `${BASE_URL}/${post.slug}`,
       lastmod: post.publishedAt ? toISODate(post.publishedAt) : today,
       changefreq: "monthly",
       priority: 0.6,
@@ -120,7 +130,7 @@ async function main() {
   // Categories
   for (const cat of categories) {
     urls.push({
-      loc: `${BASE_URL}/category/${cat.slug}/`,
+      loc: `${BASE_URL}/category/${cat.slug}`,
       lastmod: today,
       changefreq: "weekly",
       priority: 0.5,

@@ -30,7 +30,7 @@ const germanyData: CountryPageData = {
   heroSubheading: "World-Class Education with Tuition-Free Public Universities",
   heroDescription:
     "Study in Germany and benefit from tuition-free public universities, cutting-edge research facilities, and globally recognised degrees. Admizz Education supports you with course guidance, admissions, documentation, and visa assistance \u2014 ensuring a smooth, confident journey toward top-quality education and career opportunities in Germany.",
-  heroBackground: "/images/hero/germany-hero.jpg",
+  heroBackground: "/images/hero/germany-hero.webp",
   quickFacts: [
     { label: "Capital", value: "Berlin" },
     { label: "Language", value: "German English" },
@@ -46,37 +46,37 @@ const germanyData: CountryPageData = {
     "Germany is one of the most sought-after study destinations in the world, offering tuition-free education at public universities, globally ranked institutions, and excellent career prospects in Europe\u2019s largest economy. With a strong focus on research, innovation, and industry partnerships, studying in Germany opens doors to a successful international career.",
   benefits: [
     {
-      icon: "/images/icons/school-1.png",
+      icon: "/images/icons/school-1.webp",
       title: "Tuition-Free Public Universities",
       description:
         "Most public universities in Germany charge no tuition fees for international students, making it one of the most affordable study destinations worldwide.",
     },
     {
-      icon: "/images/icons/scholarship-108.png",
+      icon: "/images/icons/scholarship-108.webp",
       title: "Globally Ranked Institutions",
       description:
         "Home to prestigious universities like TU Munich, LMU Munich, Heidelberg University, and Humboldt University, consistently ranked among the world\u2019s best.",
     },
     {
-      icon: "/images/icons/knowledge.png",
+      icon: "/images/icons/knowledge.webp",
       title: "English-Taught Programs",
       description:
         "Over 1,800 international programs are available fully in English at Bachelor\u2019s, Master\u2019s, and PhD levels across German universities.",
     },
     {
-      icon: "/images/icons/accomodation-108.png",
+      icon: "/images/icons/accomodation-108.webp",
       title: "Strong Economy & Career Prospects",
       description:
         "Germany is Europe\u2019s largest economy and home to global companies like BMW, Siemens, SAP, and Bosch, offering excellent internship and job opportunities.",
     },
     {
-      icon: "/images/icons/consultation.png",
+      icon: "/images/icons/consultation.webp",
       title: "Post-Study Work Opportunities",
       description:
         "Graduates receive an 18-month post-study work visa to find employment in Germany, one of the most generous policies in Europe.",
     },
     {
-      icon: "/images/icons/visa-1.png",
+      icon: "/images/icons/visa-1.webp",
       title: "Rich Cultural Experience",
       description:
         "Experience a vibrant cultural scene, historic cities, world-class museums, and a diverse, welcoming student community across Germany.",
@@ -150,16 +150,16 @@ const germanyData: CountryPageData = {
     ],
   },
   universities: [
-    { name: "Technical University of Munich", logo: "/images/universities/germany/technical-university-of-munich.png" },
-    { name: "Ludwig Maximilian University", logo: "/images/universities/germany/ludwig-maximilians-universitat.png" },
-    { name: "Heidelberg University", logo: "/images/universities/germany/heidelberg-university.png" },
-    { name: "RWTH Aachen University", logo: "/images/universities/germany/rwth-aachen-university.jpg" },
-    { name: "Humboldt University of Berlin", logo: "/images/universities/germany/humboldt-universitat-berlin.png" },
-    { name: "Freie Universit\u00E4t Berlin", logo: "/images/universities/germany/freie-universitat-berlin.png" },
-    { name: "Karlsruhe Institute of Technology", logo: "/images/universities/germany/karlsruhe-institute-of-technology.png" },
-    { name: "Technische Universit\u00E4t Berlin", logo: "/images/universities/germany/technische-universitat-berlin.png" },
-    { name: "University of Freiburg", logo: "/images/universities/germany/university-of-freiburg.png" },
-    { name: "University of Hamburg", logo: "/images/universities/germany/university-of-hamburg.png" },
+    { name: "Technical University of Munich", logo: "/images/universities/germany/technical-university-of-munich.webp" },
+    { name: "Ludwig Maximilian University", logo: "/images/universities/germany/ludwig-maximilians-universitat.webp" },
+    { name: "Heidelberg University", logo: "/images/universities/germany/heidelberg-university.webp" },
+    { name: "RWTH Aachen University", logo: "/images/universities/germany/rwth-aachen-university.webp" },
+    { name: "Humboldt University of Berlin", logo: "/images/universities/germany/humboldt-universitat-berlin.webp" },
+    { name: "Freie Universit\u00E4t Berlin", logo: "/images/universities/germany/freie-universitat-berlin.webp" },
+    { name: "Karlsruhe Institute of Technology", logo: "/images/universities/germany/karlsruhe-institute-of-technology.webp" },
+    { name: "Technische Universit\u00E4t Berlin", logo: "/images/universities/germany/technische-universitat-berlin.webp" },
+    { name: "University of Freiburg", logo: "/images/universities/germany/university-of-freiburg.webp" },
+    { name: "University of Hamburg", logo: "/images/universities/germany/university-of-hamburg.webp" },
   ],
   costTitle: "Cost of Studying in Germany",
   costIntro:

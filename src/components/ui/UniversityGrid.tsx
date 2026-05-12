@@ -15,14 +15,14 @@ export default function UniversityGrid({
   universities,
 }: UniversityGridProps) {
   return (
-    <section className="py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {title && (
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-10">
             {title}
           </h2>
         )}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {universities.map((uni) => (
             <div
               key={uni.name}

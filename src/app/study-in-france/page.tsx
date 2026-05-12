@@ -1,30 +1,35 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in France - Admizz Education",
   description:
     "Study in France at prestigious universities with expert guidance, visa support, and scholarships. Begin your international journey today!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-france/",
+    canonical: "https://admizzeducation.com/study-in-france",
   },
   openGraph: {
     title: "Study in France - Admizz Education",
     description:
       "Study in France at prestigious universities with expert guidance, visa support, and scholarships. Begin your international journey today!",
-    url: "https://admizzeducation.com/study-in-france/",
+    url: "https://admizzeducation.com/study-in-france",
     siteName: "Admizz Education",
-    images: ["/images/og/flag-of-australia-1024x512.png"],
+    images: ["/images/og/france.webp"],
     type: "website",
   },
 };
 
 const franceData: CountryPageData = {
   countryName: "France",
+  countryCategorySlug: "france",
   heroHeading: "STUDY IN FRANCE",
-  heroSubheading:
-    "Study in France and experience prestigious universities, innovative programs, and a vibrant cultural landscape. Admizz Education supports you with course guidance, admissions, documentation, and visa assistance\u2014ensuring a smooth, confident journey toward top-quality education and international opportunities in France.",
+  heroSubheading: "Experience Prestigious Universities and Rich Cultural Heritage",
+  heroDescription: "Study in France and experience prestigious universities, innovative programs, and a vibrant cultural landscape. Admizz Education supports you with course guidance, admissions, documentation, and visa assistance — ensuring a smooth, confident journey toward top-quality education and international opportunities in France.",
+  heroBackground: "/images/hero/france-hero.webp",
   quickFacts: [
     { label: "Capital", value: "Paris" },
     { label: "Language", value: "French English" },
@@ -40,31 +45,37 @@ const franceData: CountryPageData = {
     "France is one of the most preferred study-abroad destinations for students seeking world-class education, affordable tuition, and unmatched cultural exposure. With globally ranked universities, innovative programs, and strong career opportunities across Europe, studying in France opens doors to a successful international future.",
   benefits: [
     {
+      icon: "/images/icons/school-1.webp",
       title: "World-Class Education",
       description:
         "Home to top universities and Grandes \u00C9coles known for excellence in engineering, business, fashion, arts, and research.",
     },
     {
+      icon: "/images/icons/scholarship-108.webp",
       title: "Affordable Tuition Fees",
       description:
         "Public universities offer highly subsidised education for international students.",
     },
     {
+      icon: "/images/icons/knowledge.webp",
       title: "English-Taught Programs",
       description:
         "Thousands of Bachelor\u2019s and Master\u2019s degrees are available fully in English.",
     },
     {
+      icon: "/images/icons/accomodation-108.webp",
       title: "Safe & Student-Friendly Country",
       description:
         "Vibrant student cities like Paris, Lyon, Toulouse, Lille, and Bordeaux.",
     },
     {
+      icon: "/images/icons/consultation.webp",
       title: "Strong Career Opportunities",
       description:
         "Access internship pathways and post-study work opportunities across the EU.",
     },
     {
+      icon: "/images/icons/visa-1.webp",
       title: "Cultural & Global Exposure",
       description:
         "Rich heritage, world-famous cuisine, and a multicultural learning environment.",
@@ -134,7 +145,18 @@ const franceData: CountryPageData = {
       { name: "March April June (limited programs)", details: [] },
     ],
   },
-  universities: [],
+  universities: [
+    { name: "Sorbonne University", logo: "/images/universities/france/sorbonne-university.webp" },
+    { name: "Universit\u00E9 PSL", logo: "/images/universities/france/universite-psl.svg" },
+    { name: "\u00C9cole Polytechnique", logo: "/images/universities/france/ecole-polytechnique.webp" },
+    { name: "Sciences Po", logo: "/images/universities/france/sciences-po.webp" },
+    { name: "University of Paris-Saclay", logo: "/images/universities/france/university-of-paris-saclay.webp" },
+    { name: "Universit\u00E9 Grenoble Alpes", logo: "/images/universities/france/universite-grenoble-alpes.webp" },
+    { name: "Aix-Marseille University", logo: "/images/universities/france/aix-marseille-university.webp" },
+    { name: "Universit\u00E9 de Strasbourg", logo: "/images/universities/france/universite-de-strasbourg.webp" },
+    { name: "Universit\u00E9 de Bordeaux", logo: "/images/universities/france/universite-de-bordeaux.webp" },
+    { name: "Universit\u00E9 de Lille", logo: "/images/universities/france/universite-de-lille.webp" },
+  ],
   costTitle: "Cost of Studying in France",
   costIntro:
     "Understanding the cost of studying in France helps international students plan their budget effectively.",
@@ -182,6 +204,7 @@ const franceData: CountryPageData = {
   ],
 };
 
-export default function StudyInFrancePage() {
-  return <CountryPageTemplate data={franceData} />;
+export default async function StudyInFrancePage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "france" });
+  return <CountryPageTemplate data={franceData} blogPosts={blogPosts} />;
 }

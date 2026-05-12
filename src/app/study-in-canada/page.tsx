@@ -1,30 +1,35 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in Canada - Admizz Education",
   description:
     "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-canada/",
+    canonical: "https://admizzeducation.com/study-in-canada",
   },
   openGraph: {
     title: "Study in Canada - Admizz Education",
     description:
       "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!",
-    url: "https://admizzeducation.com/study-in-canada/",
+    url: "https://admizzeducation.com/study-in-canada",
     siteName: "Admizz Education",
-    images: ["/images/og/untitled-design-80.png"],
+    images: ["/images/og/untitled-design-80.webp"],
     type: "website",
   },
 };
 
 const canadaData: CountryPageData = {
   countryName: "Canada",
+  countryCategorySlug: "canada",
   heroHeading: "STUDY IN CANADA",
-  heroSubheading:
-    "Canada is one of the most popular study destinations for international students, offering globally recognised degrees, high academic standards, affordable tuition, and promising post-study work opportunities.",
+  heroSubheading: "Build Your Global Career With World-Class Canadian Education",
+  heroDescription: "Canada is one of the most popular study destinations for international students, offering globally recognised degrees, high academic standards, affordable tuition, and promising post-study work opportunities. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top Canadian universities with complete confidence and clarity.",
+  heroBackground: "/images/hero/canada-hero.webp",
   quickFacts: [
     { label: "Capital", value: "Ottawa" },
     { label: "Language", value: "English & French" },
@@ -39,12 +44,12 @@ const canadaData: CountryPageData = {
   whyStudyIntro:
     "Canada is one of the world's top study-abroad destinations known for high-quality education, globally recognised degrees, affordable tuition fees, and a safe, welcoming environment.",
   benefits: [
-    { title: "World-Class Education", description: "Canadian institutions deliver globally recognised programs with exceptional academic and research standards." },
-    { title: "Affordable Study Costs", description: "Students enjoy lower tuition fees and manageable living expenses compared internationally." },
-    { title: "Safe Multicultural Environment", description: "Canada offers welcoming communities supporting diverse international students with inclusivity." },
-    { title: "Strong Career Opportunities", description: "Internships, co-op programs, and industry links boost professional growth significantly." },
-    { title: "Easy PR Pathway", description: "Post-study immigration routes help students achieve permanent residency more smoothly." },
-    { title: "High Quality Life", description: "Vibrant cities and breathtaking landscapes create enjoyable, enriching student lifestyle experiences." },
+    { title: "World-Class Education", icon: "/images/icons/school-1.webp", description: "Canadian institutions deliver globally recognised programs with exceptional academic and research standards." },
+    { title: "Affordable Study Costs", icon: "/images/icons/scholarship-108.webp", description: "Students enjoy lower tuition fees and manageable living expenses compared internationally." },
+    { title: "Safe Multicultural Environment", icon: "/images/icons/visa-1.webp", description: "Canada offers welcoming communities supporting diverse international students with inclusivity." },
+    { title: "Strong Career Opportunities", icon: "/images/icons/consultation.webp", description: "Internships, co-op programs, and industry links boost professional growth significantly." },
+    { title: "Easy PR Pathway", icon: "/images/icons/visa-108.webp", description: "Post-study immigration routes help students achieve permanent residency more smoothly." },
+    { title: "High Quality Life", icon: "/images/icons/accomodation-108.webp", description: "Vibrant cities and breathtaking landscapes create enjoyable, enriching student lifestyle experiences." },
   ],
   admissionTitle: "Admission Requirement For Studying In Canada",
   admissionIntro:
@@ -75,7 +80,18 @@ const canadaData: CountryPageData = {
       { name: "Summer Intake (May)", details: [] },
     ],
   },
-  universities: [],
+  universities: [
+    { name: "University of Toronto", logo: "/images/universities/canada/university-of-toronto.webp" },
+    { name: "McGill University", logo: "/images/universities/canada/mcgill-university.webp" },
+    { name: "University of British Columbia", logo: "/images/universities/canada/university-of-british-columbia.webp" },
+    { name: "University of Alberta", logo: "/images/universities/canada/university-of-alberta.webp" },
+    { name: "McMaster University", logo: "/images/universities/canada/mcmaster-university.webp" },
+    { name: "University of Waterloo", logo: "/images/universities/canada/university-of-waterloo.webp" },
+    { name: "Queen's University", logo: "/images/universities/canada/queens-university.webp" },
+    { name: "Simon Fraser University", logo: "/images/universities/canada/simon-fraser-university.webp" },
+    { name: "Dalhousie University", logo: "/images/universities/canada/dalhousie-university.webp" },
+    { name: "Western University", logo: "/images/universities/canada/western-university.webp" },
+  ],
   costTitle: "Cost of Studying in Canada",
   costIntro:
     "Studying in Canada is affordable compared to many top study destinations. The total cost depends on tuition fees, living expenses, health insurance, travel costs, and personal lifestyle.",
@@ -119,6 +135,7 @@ const canadaData: CountryPageData = {
   ],
 };
 
-export default function StudyInCanadaPage() {
-  return <CountryPageTemplate data={canadaData} />;
+export default async function StudyInCanadaPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "canada" });
+  return <CountryPageTemplate data={canadaData} blogPosts={blogPosts} />;
 }

@@ -1,22 +1,30 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import CountryCard from "@/components/ui/CountryCard";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
+import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
+import CTAForm from "@/components/ui/CTAForm";
+import TestimonialsBento from "@/components/ui/TestimonialsBento";
 
 export const metadata: Metadata = {
   title: "Best Education Consultancy for Study Abroad - Admizz Education",
   description:
     "Admizz Education \u2013 Best Education Consultancy for Study Abroad. Expert guidance, test prep & visa support for USA, UK, Canada & more.",
   alternates: {
-    canonical: "https://admizzeducation.com/best-education-consultancy-for-study-abroad/",
+    canonical: "https://admizzeducation.com/best-education-consultancy-for-study-abroad",
   },
   openGraph: {
     title: "Best Education Consultancy for Study Abroad - Admizz Education",
     description:
       "Admizz Education \u2013 Best Education Consultancy for Study Abroad. Expert guidance, test prep & visa support for USA, UK, Canada & more.",
-    url: "https://admizzeducation.com/best-education-consultancy-for-study-abroad/",
+    url: "https://admizzeducation.com/best-education-consultancy-for-study-abroad",
     siteName: "Admizz Education",
-    images: ["/images/og/flag-of-australia.png"],
+    images: ["/images/hero/web-ad.webp"],
     type: "website",
   },
 };
@@ -91,65 +99,58 @@ const services = [
 ];
 
 const destinations = [
+  { name: "Study in Australia", image: "/images/destinations/aus1.webp", href: "/study-in-australia", description: "Globally ranked universities, excellent research facilities, and post-study work opportunities." },
+  { name: "Study in Canada", image: "/images/destinations/canada1.webp", href: "/study-in-canada", description: "Affordable education, multicultural communities, and permanent residency pathways." },
+  { name: "Study in Denmark", image: "/images/destinations/denmark1.webp", href: "/study-in-denmark", description: "Known for innovation and cutting-edge research programs." },
+  { name: "Study in Dubai", image: "/images/destinations/uae1.webp", href: "/study-in-dubai", description: "A modern hub offering global education and career opportunities in one of the fastest-growing economies." },
+  { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france", description: "Famous for arts, fashion, business, and technology programs." },
+  { name: "Study in India", image: "/images/destinations/india1.webp", href: "/study-in-india", description: "Affordable education options in a culturally diverse environment for international students." },
+  { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand", description: "Safe, welcoming, and focused on hands-on, career-oriented education." },
+  { name: "Study in South Korea", image: "/images/destinations/usa1.webp", href: "/study-in-south-korea", description: "Advanced technology-driven education paired with cultural richness." },
+  { name: "Study in the UK", image: "/images/destinations/uk1.webp", href: "/study-in-the-uk", description: "Home to prestigious, centuries-old institutions and globally recognized degrees." },
+  { name: "Study in the USA", image: "/images/destinations/usa1.webp", href: "/study-in-the-usa", description: "The top destination for research, innovation, and global careers." },
+];
+
+const testimonialData = [
   {
-    country: "Australia",
-    href: "/study-in-australia",
-    description: "Globally ranked universities, research facilities, and post-study work opportunities.",
-    flag: "AU",
+    name: "Niraj Bhattarai",
+    initial: "N",
+    color: "#1E6DEB",
+    university: "University of West of Scotland",
+    originFlag: "NP",
+    destFlag: "GB",
+    route: "Nepal → UK",
+    text: "From university selection to visa approval, Admizz Education provided exceptional support and made my journey to the UK effortless. I highly recommend them to anyone looking for a trustworthy study abroad partner.",
   },
   {
-    country: "Canada",
-    href: "/study-in-canada",
-    description: "Affordable education, multicultural communities, and permanent residency pathways.",
-    flag: "CA",
+    name: "Yousuf Abdirahman Mohamed",
+    initial: "Y",
+    color: "#E8430C",
+    university: "Kalinga Institute of Industrial Technology",
+    originFlag: "SO",
+    destFlag: "IN",
+    route: "Somalia → India",
+    text: "I appreciated your unlimited help for my MBA career. It was very tough but I gained a very solid educational background. Thanks Admizz!",
   },
   {
-    country: "Denmark",
-    href: "/study-in-denmark",
-    description: "Innovation-driven education with cutting-edge research and Scandinavian quality of life.",
-    flag: "DK",
+    name: "Basant Khadka",
+    initial: "B",
+    color: "#34A853",
+    university: "Weber State University",
+    originFlag: "NP",
+    destFlag: "US",
+    route: "Nepal → USA",
+    text: "The journey to college can be overwhelming, but Admizz Education made applying to Weber State University effortless. Thanks to their guidance.",
   },
   {
-    country: "Dubai",
-    href: "/study-in-dubai",
-    description: "A modern education hub in a rapidly growing global economy.",
-    flag: "AE",
-  },
-  {
-    country: "France",
-    href: "/study-in-france",
-    description: "World-renowned programs in arts, fashion, business, and technology.",
-    flag: "FR",
-  },
-  {
-    country: "India",
-    href: "/study-in-india",
-    description: "Affordable education options in a diverse and culturally rich environment.",
-    flag: "IN",
-  },
-  {
-    country: "New Zealand",
-    href: "/study-in-newzealand",
-    description: "Safe, welcoming campuses with career-oriented education and stunning natural beauty.",
-    flag: "NZ",
-  },
-  {
-    country: "South Korea",
-    href: "/study-in-south-korea",
-    description: "Technology-driven education system with cultural richness and innovation.",
-    flag: "KR",
-  },
-  {
-    country: "United Kingdom",
-    href: "/study-in-the-uk",
-    description: "Prestigious centuries-old institutions with globally recognized qualifications.",
-    flag: "GB",
-  },
-  {
-    country: "United States",
-    href: "/study-in-the-usa",
-    description: "Top research universities, unmatched innovation, and global career opportunities.",
-    flag: "US",
+    name: "Satyam Jaiswal",
+    initial: "S",
+    color: "#7C3AED",
+    university: "University of Greenwich",
+    originFlag: "NP",
+    destFlag: "GB",
+    route: "Nepal → UK",
+    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application visa process was smooth and stress-free.",
   },
 ];
 
@@ -206,33 +207,42 @@ const faqItems: FAQItem[] = [
   },
 ];
 
-export default function BestEducationConsultancyPage() {
+export default async function BestEducationConsultancyPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "study-abroad" });
+
   return (
     <main>
       {/* ===== HERO ===== */}
-      <section className="bg-gradient-to-r from-navy to-blue-dark text-white py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-sm font-medium uppercase tracking-wider mb-3 text-yellow">
-            Your Trusted Study Abroad Partner
-          </p>
-          <h1 className="text-3xl md:text-[42px] font-bold leading-tight max-w-4xl mx-auto">
-            Best Education Consultancy for Study Abroad
-          </h1>
-          <p className="mt-4 text-lg md:text-xl font-medium text-white/90 max-w-2xl mx-auto">
-            Trusted Guidance for Global Education, Admissions, and Career Success
-          </p>
-          <Link
-            href="/register/"
-            className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
-          >
-            Book Free Counseling
-          </Link>
+      <section className="bg-gradient-to-r from-navy to-blue-dark text-white py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
+            <div>
+              <p className="text-sm md:text-base font-medium uppercase tracking-wider mb-3 text-yellow">
+                Your Trusted Study Abroad Partner
+              </p>
+              <h1 className="text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight">
+                Best Education Consultancy for Study Abroad
+              </h1>
+              <p className="mt-4 text-[15px] md:text-base font-medium text-white/90">
+                Trusted Guidance for Global Education, Admissions, and Career Success
+              </p>
+              <Link
+                href="/register"
+                className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
+              >
+                Book Free Counseling
+              </Link>
+            </div>
+            <div className="hidden md:block lg:w-[472px] ml-auto">
+              <CTAForm title="Book Your Free Consultation" />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ===== STATS BAR ===== */}
-      <section className="bg-blue-royal py-8 px-4">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <section className="bg-blue-royal py-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-3xl md:text-4xl font-bold text-yellow">{stat.value}</p>
@@ -243,32 +253,45 @@ export default function BestEducationConsultancyPage() {
       </section>
 
       {/* ===== INTRO SECTION ===== */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-[28px] font-bold text-navy mb-6">
-            Turn Your Study Abroad Dreams into Reality
-          </h2>
-          <p className="text-[15px] text-gray-dark leading-relaxed max-w-3xl mx-auto">
-            Admizz Education is a premier overseas education consultancy specializing in guiding
-            students through every step of the study abroad journey. Whether you are seeking
-            world-class learning, global exposure, or career-defining opportunities, we are here to
-            make it happen. From program selection and document preparation to visa assistance and
-            scholarship guidance, our experienced counsellors have helped thousands of students
-            secure placements in top universities across the globe. We believe in transparency,
-            integrity, and personalized support -- because your future deserves nothing less.
-          </p>
-          <Link
-            href="/register/"
-            className="inline-block mt-8 bg-blue-royal text-white font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-blue-dark transition-colors"
-          >
-            Start Your Application with Admizz
-          </Link>
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="hidden md:flex justify-center">
+              <Image
+                src="/images/seo-pages/student-hero.webp"
+                alt="Study abroad with Admizz Education"
+                width={450}
+                height={500}
+                className="rounded-2xl"
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-[28px] font-bold text-navy mb-6">
+                Turn Your Study Abroad Dreams into Reality
+              </h2>
+              <p className="text-[15px] text-gray-dark leading-relaxed">
+                Admizz Education is a premier overseas education consultancy specializing in guiding
+                students through every step of the study abroad journey. Whether you are seeking
+                world-class learning, global exposure, or career-defining opportunities, we are here to
+                make it happen. From program selection and document preparation to visa assistance and
+                scholarship guidance, our experienced counsellors have helped thousands of students
+                secure placements in top universities across the globe. We believe in transparency,
+                integrity, and personalized support -- because your future deserves nothing less.
+              </p>
+              <Link
+                href="/register"
+                className="inline-block mt-8 bg-blue-royal text-white font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-blue-dark transition-colors"
+              >
+                Start Your Application with Admizz
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ===== SERVICES / WHAT MAKES US THE BEST ===== */}
-      <section className="bg-off-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-off-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
             What Makes Admizz Education the Best Consultancy?
           </h2>
@@ -294,41 +317,18 @@ export default function BestEducationConsultancyPage() {
       </section>
 
       {/* ===== STUDY DESTINATIONS ===== */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-3">
             Study Abroad Destinations with Admizz Education
           </h2>
           <p className="text-center text-[15px] text-gray-dark max-w-2xl mx-auto mb-12">
             Explore top study destinations across the globe. Each country offers unique academic
             programs, cultural experiences, and career pathways tailored to your goals.
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {destinations.map((dest) => (
-              <Link
-                key={dest.country}
-                href={dest.href}
-                className="group bg-white border border-border-light rounded-[10px] p-6 hover:border-blue-royal hover:shadow-md transition-all"
-              >
-                <span className="text-3xl mb-3 block" role="img" aria-label={`${dest.country} flag`}>
-                  {dest.flag === "AU" && "\uD83C\uDDE6\uD83C\uDDFA"}
-                  {dest.flag === "CA" && "\uD83C\uDDE8\uD83C\uDDE6"}
-                  {dest.flag === "DK" && "\uD83C\uDDE9\uD83C\uDDF0"}
-                  {dest.flag === "AE" && "\uD83C\uDDE6\uD83C\uDDEA"}
-                  {dest.flag === "FR" && "\uD83C\uDDEB\uD83C\uDDF7"}
-                  {dest.flag === "IN" && "\uD83C\uDDEE\uD83C\uDDF3"}
-                  {dest.flag === "NZ" && "\uD83C\uDDF3\uD83C\uDDFF"}
-                  {dest.flag === "KR" && "\uD83C\uDDF0\uD83C\uDDF7"}
-                  {dest.flag === "GB" && "\uD83C\uDDEC\uD83C\uDDE7"}
-                  {dest.flag === "US" && "\uD83C\uDDFA\uD83C\uDDF8"}
-                </span>
-                <h3 className="text-[15px] font-bold text-navy group-hover:text-blue-royal transition-colors">
-                  Study in {dest.country}
-                </h3>
-                <p className="mt-2 text-sm text-gray-dark leading-relaxed">
-                  {dest.description}
-                </p>
-              </Link>
+              <CountryCard key={dest.name} name={dest.name} image={dest.image} href={dest.href} description={dest.description} />
             ))}
           </div>
         </div>
@@ -336,12 +336,20 @@ export default function BestEducationConsultancyPage() {
 
       {/* ===== FAQ SECTION ===== */}
       <section className="bg-off-white">
-        <FAQ items={faqItems} title="Everything You Need to Know" />
+        <FAQ items={faqItems} sidebar />
       </section>
 
+      <TestimonialsBento
+        testimonials={testimonialData}
+        videoId="AW3Zmubc-tU"
+        featuredStudent={{ name: "Ashok Upreti", subtitle: "Bachelor in Computer Science" }}
+      />
+
+      <StudyAbroadInsights posts={blogPosts} countryName="Study Abroad" categorySlug="study-abroad" />
+
       {/* ===== FINAL CTA ===== */}
-      <section className="bg-gradient-to-r from-navy to-blue-dark text-white py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="bg-gradient-to-r from-navy to-blue-dark text-white py-16">
+        <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[32px] font-bold leading-tight">
             Ready to Begin Your Study Abroad Journey?
           </h2>
@@ -350,20 +358,12 @@ export default function BestEducationConsultancyPage() {
             worldwide. Book your free counselling session today and take the first step toward a
             brighter future.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/register/"
-              className="inline-block bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
-            >
-              Talk to Our Study Abroad Experts
-            </Link>
-            <Link
-              href="/contact/"
-              className="inline-block bg-white/10 text-white font-semibold text-[15px] px-8 py-3 rounded-[10px] border border-white/30 hover:bg-white/20 transition-colors"
-            >
-              Contact Us
-            </Link>
-          </div>
+          <Link
+            href="/register"
+            className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-10 py-3.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
+          >
+            Book Free Counseling
+          </Link>
         </div>
       </section>
     </main>

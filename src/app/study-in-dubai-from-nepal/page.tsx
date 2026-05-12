@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in Dubai from Nepal - Admizz Education",
   description:
     "Study in Dubai from Nepal for quality education, affordable tuition, global exposure, and top university options. Apply now for 2025 intakes!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-dubai-from-nepal/",
+    canonical: "https://admizzeducation.com/study-in-dubai-from-nepal",
   },
   openGraph: {
     title: "Study in Dubai from Nepal - Admizz Education",
     description:
       "Study in Dubai from Nepal for quality education, affordable tuition, global exposure, and top university options. Apply now for 2025 intakes!",
-    url: "https://admizzeducation.com/study-in-dubai-from-nepal/",
+    url: "https://admizzeducation.com/study-in-dubai-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/flag-of-australia.png"],
+    images: ["/images/og/UAE.webp"],
     type: "website",
   },
 };
 
 const pageData: NepalVariantData = {
   countryName: "Dubai",
+  countryCategorySlug: "dubai",
   heroHeading: "Study in Dubai from Nepal",
   heroSubheading:
     "Planning to study in Dubai from Nepal? Discover globally ranked universities, modern campuses, and diverse career paths. Explore opportunities, apply with ease, and turn your international education dream into reality.",
@@ -330,7 +334,18 @@ const pageData: NepalVariantData = {
     },
   ],
 
-  universities: [],
+  universities: [
+    { name: "American University in Dubai", logo: "/images/universities/uae/american-university-in-dubai.webp" },
+    { name: "American University of Sharjah", logo: "/images/universities/uae/american-university-of-sharjah.webp" },
+    { name: "University of Sharjah", logo: "/images/universities/uae/university-of-sharjah.webp" },
+    { name: "Khalifa University", logo: "/images/universities/uae/khalifa-university.webp" },
+    { name: "United Arab Emirates University", logo: "/images/universities/uae/uaeu.webp" },
+    { name: "Heriot-Watt University Dubai", logo: "/images/universities/uae/heriot-watt-university-dubai.webp" },
+    { name: "Middlesex University Dubai", logo: "/images/universities/uae/middlesex-university-dubai.webp" },
+    { name: "Canadian University Dubai", logo: "/images/universities/uae/canadian-university-dubai.webp" },
+    { name: "Zayed University", logo: "/images/universities/uae/zayed-university.webp" },
+    { name: "University of Wollongong Dubai", logo: "/images/universities/uae/university-of-wollongong-dubai.webp" },
+  ],
 
   faqItems: [
     {
@@ -390,6 +405,7 @@ const pageData: NepalVariantData = {
     "Are you a student in Nepal dreaming of studying in a land of innovation, opportunity, and global exposure? Dubai is fast becoming a top destination for higher education — offering world-class universities, industry-focused programs, and an international learning environment. At Admizz Education, we support Nepalese students throughout the entire Dubai study process — from selecting the right university to scholarship guidance, visa support, and pre-departure preparation. We make your journey easy, personalized, and stress-free. Don't let uncertainty hold you back. Join the growing number of students from Nepal who are successfully building their futures in Dubai with Admizz by their side. Contact us today to book your free Dubai education consultation. Your journey to Dubai begins here — with Admizz.",
 };
 
-export default function StudyInDubaiFromNepalPage() {
-  return <NepalVariantTemplate data={pageData} />;
+export default async function StudyInDubaiFromNepalPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "dubai" });
+  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

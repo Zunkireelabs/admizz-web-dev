@@ -13,10 +13,45 @@ services:
       - "traefik.http.routers.admizz-edu-web-prod.tls.certresolver=letsencrypt"
       # Service
       - "traefik.http.services.admizz-edu-web-prod.loadbalancer.server.port=80"
-      # Middleware: WWW Redirect
+      # Middleware: WWW → non-www redirect
       - "traefik.http.middlewares.admizz-edu-web-www-redirect.redirectregex.regex=^https://www\\.admizzeducation\\.com/(.*)"
       - "traefik.http.middlewares.admizz-edu-web-www-redirect.redirectregex.replacement=https://admizzeducation.com/$${1}"
-      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect"
+      # Redirect middlewares
+      - "traefik.http.middlewares.admizz-prod-trailing-slash.redirectregex.regex=^(https?://[^/]+)/(.+)/$$"
+      - "traefik.http.middlewares.admizz-prod-trailing-slash.redirectregex.replacement=$${1}/$${2}"
+      - "traefik.http.middlewares.admizz-prod-trailing-slash.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-prod-test-prep.redirectregex.regex=^(https?://[^/]+)/test-preparation$$"
+      - "traefik.http.middlewares.admizz-prod-test-prep.redirectregex.replacement=$${1}/test-prep"
+      - "traefik.http.middlewares.admizz-prod-test-prep.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-prod-consultation.redirectregex.regex=^(https?://[^/]+)/book-your-free-consultation$$"
+      - "traefik.http.middlewares.admizz-prod-consultation.redirectregex.replacement=$${1}/register"
+      - "traefik.http.middlewares.admizz-prod-consultation.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-prod-campaign.redirectregex.regex=^(https?://[^/]+)/win-big-campaign$$"
+      - "traefik.http.middlewares.admizz-prod-campaign.redirectregex.replacement=$${1}/campaign"
+      - "traefik.http.middlewares.admizz-prod-campaign.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-prod-newzealand.redirectregex.regex=^(https?://[^/]+)/study-in-new-zealand-from-nepal$$"
+      - "traefik.http.middlewares.admizz-prod-newzealand.redirectregex.replacement=$${1}/study-in-newzealand-from-nepal"
+      - "traefik.http.middlewares.admizz-prod-newzealand.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-prod-tag.redirectregex.regex=^(https?://[^/]+)/tag/.*$$"
+      - "traefik.http.middlewares.admizz-prod-tag.redirectregex.replacement=$${1}/blogs"
+      - "traefik.http.middlewares.admizz-prod-tag.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-prod-author.redirectregex.regex=^(https?://[^/]+)/author/.*$$"
+      - "traefik.http.middlewares.admizz-prod-author.redirectregex.replacement=$${1}/blogs"
+      - "traefik.http.middlewares.admizz-prod-author.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-prod-blogs-page.redirectregex.regex=^(https?://[^/]+)/blogs/page/.*$$"
+      - "traefik.http.middlewares.admizz-prod-blogs-page.redirectregex.replacement=$${1}/blogs"
+      - "traefik.http.middlewares.admizz-prod-blogs-page.redirectregex.permanent=false"
+      - "traefik.http.middlewares.admizz-prod-floating-btn.redirectregex.regex=^(https?://[^/]+)/e-floating-buttons/.*$$"
+      - "traefik.http.middlewares.admizz-prod-floating-btn.redirectregex.replacement=$${1}/"
+      - "traefik.http.middlewares.admizz-prod-floating-btn.redirectregex.permanent=true"
+      # Chain all middlewares (www-redirect first)
+      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect,admizz-prod-trailing-slash,admizz-prod-test-prep,admizz-prod-consultation,admizz-prod-campaign,admizz-prod-newzealand,admizz-prod-tag,admizz-prod-author,admizz-prod-blogs-page,admizz-prod-floating-btn"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
 networks:
   hosting:

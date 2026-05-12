@@ -1,20 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
+import CTAForm from "@/components/ui/CTAForm";
+import CountryCard from "@/components/ui/CountryCard";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
+import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
+import TestimonialsBento from "@/components/ui/TestimonialsBento";
 
 export const metadata: Metadata = {
-  title: "Top education consultancy in nepal - Admizz Education",
+  title: "Top Education Consultancy in Nepal - Admizz Education",
   description:
     "Admizz Education, the top education consultancy in Nepal, offers study abroad guidance, test prep, scholarships & visa support",
   alternates: {
-    canonical: "https://admizzeducation.com/top-education-consultancy-in-nepal/",
+    canonical: "https://admizzeducation.com/top-education-consultancy-in-nepal",
   },
   openGraph: {
-    title: "Top education consultancy in nepal - Admizz Education",
+    title: "Top Education Consultancy in Nepal - Admizz Education",
     description:
       "Admizz Education, the top education consultancy in Nepal, offers study abroad guidance, test prep, scholarships & visa support",
-    url: "https://admizzeducation.com/top-education-consultancy-in-nepal/",
+    url: "https://admizzeducation.com/top-education-consultancy-in-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/study.webp"],
     type: "website",
@@ -96,66 +104,16 @@ const features = [
 ];
 
 const destinations = [
-  {
-    country: "Australia",
-    href: "/study-in-australia/",
-    description: "Globally ranked universities, excellent research facilities, and post-study work opportunities.",
-    flag: "🇦🇺",
-  },
-  {
-    country: "Canada",
-    href: "/study-in-canada/",
-    description: "Affordable education, multicultural communities, and permanent residency pathways.",
-    flag: "🇨🇦",
-  },
-  {
-    country: "Denmark",
-    href: "/study-in-denmark/",
-    description: "Known for innovation and cutting-edge research programs.",
-    flag: "🇩🇰",
-  },
-  {
-    country: "Dubai",
-    href: "/study-in-dubai/",
-    description: "A modern hub offering global education and career opportunities in a fast-growing economy.",
-    flag: "🇦🇪",
-  },
-  {
-    country: "France",
-    href: "/study-in-france/",
-    description: "Famous for arts, fashion, business, and technology programs.",
-    flag: "🇫🇷",
-  },
-  {
-    country: "India",
-    href: "/study-in-india/",
-    description: "Affordable education options in a culturally diverse environment for international students.",
-    flag: "🇮🇳",
-  },
-  {
-    country: "New Zealand",
-    href: "/study-in-newzealand/",
-    description: "Safe, welcoming, and focused on hands-on, career-oriented education.",
-    flag: "🇳🇿",
-  },
-  {
-    country: "South Korea",
-    href: "/study-in-south-korea/",
-    description: "Advanced technology-driven education paired with cultural richness.",
-    flag: "🇰🇷",
-  },
-  {
-    country: "United Kingdom",
-    href: "/study-in-the-uk/",
-    description: "Home to prestigious, centuries-old institutions and globally recognized degrees.",
-    flag: "🇬🇧",
-  },
-  {
-    country: "United States",
-    href: "/study-in-the-usa/",
-    description: "The top destination for research, innovation, and global careers.",
-    flag: "🇺🇸",
-  },
+  { name: "Study in Australia", image: "/images/destinations/aus1.webp", href: "/study-in-australia", description: "Globally ranked universities, excellent research facilities, and post-study work opportunities." },
+  { name: "Study in Canada", image: "/images/destinations/canada1.webp", href: "/study-in-canada", description: "Affordable education, multicultural communities, and permanent residency pathways." },
+  { name: "Study in Denmark", image: "/images/destinations/denmark1.webp", href: "/study-in-denmark", description: "Known for innovation and cutting-edge research programs." },
+  { name: "Study in Dubai", image: "/images/destinations/uae1.webp", href: "/study-in-dubai", description: "A modern hub offering global education and career opportunities in one of the fastest-growing economies." },
+  { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france", description: "Famous for arts, fashion, business, and technology programs." },
+  { name: "Study in India", image: "/images/destinations/india1.webp", href: "/study-in-india", description: "Affordable education options in a culturally diverse environment for international students." },
+  { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand", description: "Safe, welcoming, and focused on hands-on, career-oriented education." },
+  { name: "Study in South Korea", image: "/images/destinations/usa1.webp", href: "/study-in-south-korea", description: "Advanced technology-driven education paired with cultural richness." },
+  { name: "Study in the UK", image: "/images/destinations/uk1.webp", href: "/study-in-the-uk", description: "Home to prestigious, centuries-old institutions and globally recognized degrees." },
+  { name: "Study in the USA", image: "/images/destinations/usa1.webp", href: "/study-in-the-usa", description: "The top destination for research, innovation, and global careers." },
 ];
 
 const testPreps = [
@@ -182,6 +140,49 @@ const testPreps = [
   {
     name: "Duolingo",
     description: "Convenient, affordable English proficiency test accepted by many institutions worldwide.",
+  },
+];
+
+const testimonialData = [
+  {
+    name: "Niraj Bhattarai",
+    initial: "N",
+    color: "#1E6DEB",
+    university: "University of West of Scotland",
+    originFlag: "NP",
+    destFlag: "GB",
+    route: "Nepal → UK",
+    text: "From university selection to visa approval, Admizz Education provided exceptional support and made my journey to the UK effortless. I highly recommend them to anyone looking for a trustworthy study abroad partner.",
+  },
+  {
+    name: "Yousuf Abdirahman Mohamed",
+    initial: "Y",
+    color: "#E8430C",
+    university: "Kalinga Institute of Industrial Technology",
+    originFlag: "SO",
+    destFlag: "IN",
+    route: "Somalia → India",
+    text: "I appreciated your unlimited help for my MBA career. It was very tough but I gained a very solid educational background. Thanks Admizz!",
+  },
+  {
+    name: "Basant Khadka",
+    initial: "B",
+    color: "#34A853",
+    university: "Weber State University",
+    originFlag: "NP",
+    destFlag: "US",
+    route: "Nepal → USA",
+    text: "The journey to college can be overwhelming, but Admizz Education made applying to Weber State University effortless. Thanks to their guidance.",
+  },
+  {
+    name: "Satyam Jaiswal",
+    initial: "S",
+    color: "#7C3AED",
+    university: "University of Greenwich",
+    originFlag: "NP",
+    destFlag: "GB",
+    route: "Nepal → UK",
+    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application visa process was smooth and stress-free.",
   },
 ];
 
@@ -242,37 +243,44 @@ const faqItems: FAQItem[] = [
 /*  Page Component                                                     */
 /* ------------------------------------------------------------------ */
 
-export default function TopEducationConsultancyInNepalPage() {
+export default async function TopEducationConsultancyInNepalPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "nepal" });
+
   return (
     <main>
       {/* ===== HERO ===== */}
-      <section className="bg-gradient-to-br from-navy via-blue-dark to-blue-royal text-white py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm font-medium uppercase tracking-wider mb-3 text-yellow">
-            Nepal&apos;s Trusted Study Abroad Partner
-          </p>
-          <h1 className="text-3xl md:text-[42px] font-bold leading-tight">
-            Top Education Consultancy in Nepal
-          </h1>
-          <p className="mt-4 text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Admizz Education provides expert guidance for studying abroad &mdash;
-            from university selection and application support to visa assistance
-            and scholarship counselling.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/register/"
-              className="inline-block bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
-            >
-              Talk to an Expert Counsellor for FREE
-            </Link>
+      <section className="bg-gradient-to-br from-navy via-blue-dark to-blue-royal text-white py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
+            <div>
+              <p className="text-sm md:text-base font-medium uppercase tracking-wider mb-3 text-yellow">
+                Nepal&apos;s Trusted Study Abroad Partner
+              </p>
+              <h1 className="text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight">
+                Top Education Consultancy in Nepal
+              </h1>
+              <p className="mt-4 text-[15px] md:text-base text-white/90 leading-relaxed">
+                Admizz Education provides expert guidance for studying abroad &mdash;
+                from university selection and application support to visa assistance
+                and scholarship counselling.
+              </p>
+              <Link
+                href="/register"
+                className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
+              >
+                Talk to an Expert Counsellor for FREE
+              </Link>
+            </div>
+            <div className="hidden md:block lg:w-[472px] ml-auto">
+              <CTAForm title="Book Your Free Consultation" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* ===== STATS ===== */}
-      <section className="py-14 px-4 border-b border-border-light">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-14 border-b border-border-light">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat) => (
               <div
@@ -290,52 +298,63 @@ export default function TopEducationConsultancyInNepalPage() {
       </section>
 
       {/* ===== INTRO CONTENT ===== */}
-      <section className="py-16 px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-6">
-            Turn Your Study Abroad Dreams into Reality
-          </h2>
-          <div className="space-y-4 text-[15px] text-gray-dark leading-relaxed">
-            <p>
-              If you are dreaming of pursuing higher studies abroad,{" "}
-              <strong className="text-navy">Admizz Education</strong> is here to
-              guide you every step of the way. Recognized as the{" "}
-              <strong className="text-navy">
-                top education consultancy in Nepal
-              </strong>
-              , we specialize in helping students unlock international
-              opportunities by providing professional counselling, university
-              selection, application support, visa guidance, and pre-departure
-              briefings.
-            </p>
-            <p>
-              Unlike many agencies, our approach is not limited to paperwork. We
-              focus on understanding your academic background, career goals, and
-              personal preferences to create a pathway that matches your
-              ambitions. From choosing the right study destination to settling
-              into a new country, we make the process smoother and more
-              achievable.
-            </p>
-            <p>
-              With Admizz Education, your journey is not just about studying
-              abroad &mdash; it is about shaping a brighter future with
-              confidence and clarity.
-            </p>
-          </div>
-          <div className="text-center mt-8">
-            <Link
-              href="/register/"
-              className="inline-block bg-blue-royal text-white font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-blue-dark transition-colors"
-            >
-              Get a Free Counselling Session
-            </Link>
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="hidden md:flex justify-center">
+              <Image
+                src="/images/seo-pages/student-hero.webp"
+                alt="Study abroad with Admizz Education"
+                width={450}
+                height={500}
+                className="rounded-2xl"
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-[28px] font-bold text-navy mb-6">
+                Turn Your Study Abroad Dreams into Reality
+              </h2>
+              <div className="space-y-4 text-[15px] text-gray-dark leading-relaxed">
+                <p>
+                  If you are dreaming of pursuing higher studies abroad,{" "}
+                  <strong className="text-navy">Admizz Education</strong> is here to
+                  guide you every step of the way. Recognized as the{" "}
+                  <strong className="text-navy">
+                    top education consultancy in Nepal
+                  </strong>
+                  , we specialize in helping students unlock international
+                  opportunities by providing professional counselling, university
+                  selection, application support, visa guidance, and pre-departure
+                  briefings.
+                </p>
+                <p>
+                  Unlike many agencies, our approach is not limited to paperwork. We
+                  focus on understanding your academic background, career goals, and
+                  personal preferences to create a pathway that matches your
+                  ambitions. From choosing the right study destination to settling
+                  into a new country, we make the process smoother and more
+                  achievable.
+                </p>
+                <p>
+                  With Admizz Education, your journey is not just about studying
+                  abroad &mdash; it is about shaping a brighter future with
+                  confidence and clarity.
+                </p>
+              </div>
+              <Link
+                href="/register"
+                className="inline-block mt-8 bg-blue-royal text-white font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-blue-dark transition-colors"
+              >
+                Get a Free Counselling Session
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ===== WHY CHOOSE ===== */}
-      <section className="bg-off-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-off-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
             Why Choose Admizz Education?
           </h2>
@@ -364,9 +383,9 @@ export default function TopEducationConsultancyInNepalPage() {
       </section>
 
       {/* ===== DESTINATIONS ===== */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-3">
             Study Abroad Destinations
           </h2>
           <p className="text-center text-[15px] text-gray-dark max-w-2xl mx-auto mb-12">
@@ -375,31 +394,17 @@ export default function TopEducationConsultancyInNepalPage() {
             your horizons. We proudly guide students to leading study
             destinations.
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {destinations.map((dest) => (
-              <Link
-                key={dest.country}
-                href={dest.href}
-                className="group bg-white border border-border-light rounded-[10px] p-6 hover:border-blue-royal hover:shadow-md transition-all"
-              >
-                <span className="text-3xl block mb-3" aria-hidden="true">
-                  {dest.flag}
-                </span>
-                <h3 className="text-[15px] font-bold text-navy group-hover:text-blue-royal transition-colors">
-                  Study in {dest.country}
-                </h3>
-                <p className="mt-2 text-sm text-gray-dark leading-relaxed">
-                  {dest.description}
-                </p>
-              </Link>
+              <CountryCard key={dest.name} name={dest.name} image={dest.image} href={dest.href} description={dest.description} />
             ))}
           </div>
         </div>
       </section>
 
       {/* ===== TEST PREP ===== */}
-      <section className="bg-off-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-off-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
             Go Global with Your Test Preparation
           </h2>
@@ -430,7 +435,7 @@ export default function TopEducationConsultancyInNepalPage() {
           </div>
           <div className="text-center mt-10">
             <Link
-              href="/test-preparation/"
+              href="/test-prep"
               className="inline-block bg-blue-royal text-white font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-blue-dark transition-colors"
             >
               Explore Test Preparation Programs
@@ -440,11 +445,19 @@ export default function TopEducationConsultancyInNepalPage() {
       </section>
 
       {/* ===== FAQ ===== */}
-      <FAQ items={faqItems} title="Frequently Asked Questions" />
+      <FAQ items={faqItems} sidebar />
+
+      <TestimonialsBento
+        testimonials={testimonialData}
+        videoId="AW3Zmubc-tU"
+        featuredStudent={{ name: "Ashok Upreti", subtitle: "Bachelor in Computer Science" }}
+      />
+
+      <StudyAbroadInsights posts={blogPosts} countryName="Nepal" categorySlug="nepal" />
 
       {/* ===== FINAL CTA ===== */}
-      <section className="bg-gradient-to-br from-navy via-blue-dark to-blue-royal text-white py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="bg-gradient-to-br from-navy via-blue-dark to-blue-royal text-white py-16">
+        <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold mb-4">
             Begin Your Journey with Admizz
           </h2>
@@ -461,10 +474,10 @@ export default function TopEducationConsultancyInNepalPage() {
             partner on this exciting journey.
           </p>
           <Link
-            href="/register/"
+            href="/register"
             className="inline-block bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
           >
-            Book Your Free Counselling Session
+            Book Free Counseling
           </Link>
         </div>
       </section>

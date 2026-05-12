@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       "Ace your IELTS, TOEFL, GRE, PTE, SAT and Duolingo exams with expert-led coaching, practice tests, and personalized study plans at Admizz Education.",
     url: "https://admizzeducation.com/test-prep",
     siteName: "Admizz Education",
-    images: ["/images/hero/web-ad.png"],
+    images: ["/images/hero/web-ad.webp"],
     type: "website",
   },
 };

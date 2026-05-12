@@ -1,30 +1,35 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in the UK - Admizz Education",
   description:
     "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for 2025 intake now!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-the-uk/",
+    canonical: "https://admizzeducation.com/study-in-the-uk",
   },
   openGraph: {
     title: "Study in the UK - Admizz Education",
     description:
       "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for 2025 intake now!",
-    url: "https://admizzeducation.com/study-in-the-uk/",
+    url: "https://admizzeducation.com/study-in-the-uk",
     siteName: "Admizz Education",
-    images: ["/images/og/flag-of-australia-1024x512.png"],
+    images: ["/images/hero/web-ad.webp"],
     type: "website",
   },
 };
 
 const ukData: CountryPageData = {
   countryName: "the UK",
+  countryCategorySlug: "uk",
   heroHeading: "STUDY IN THE UK",
-  heroSubheading:
-    "Shape Your Future at World-Class Universities",
+  heroSubheading: "Shape Your Future at World-Class Universities",
+  heroDescription: "Choosing the UK for higher studies opens doors to international exposure, employment opportunities, and globally recognized qualifications. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top UK universities with complete confidence.",
+  heroBackground: "/images/hero/uk-hero.webp",
   quickFacts: [
     { label: "Capital", value: "London" },
     { label: "Language", value: "English" },
@@ -43,30 +48,36 @@ const ukData: CountryPageData = {
       title: "World-Renowned Universities",
       description:
         "Oxford, Cambridge, Manchester, Bristol, Leeds, Birmingham, and more.",
+      icon: "/images/icons/school-1.webp",
     },
     {
       title: "Affordable & Shorter Program Duration",
       description: "1-year master's and 3-year bachelor's degrees.",
+      icon: "/images/icons/scholarship-108.webp",
     },
     {
       title: "Post-Study Work Visa (Graduate Route)",
       description:
         "Stay and work in the UK for 2–3 years after graduation.",
+      icon: "/images/icons/visa-108.webp",
     },
     {
       title: "Flexible Course Options",
       description:
         "Over 50,000+ courses across STEM, business, health, arts, media, aviation & more.",
+      icon: "/images/icons/knowledge.webp",
     },
     {
       title: "High Employability",
       description:
         "UK graduates are preferred by global employers for their skills and academic quality.",
+      icon: "/images/icons/consultation.webp",
     },
     {
       title: "Safe, Diverse & Student-Friendly",
       description:
         "Over 600,000 international students from 180+ countries.",
+      icon: "/images/icons/visa-1.webp",
     },
   ],
   admissionTitle: "Admission Requirements for Studying in the UK",
@@ -147,21 +158,21 @@ const ukData: CountryPageData = {
     ],
   },
   universities: [
-    { name: "University of Roehampton", logo: "/images/universities/uk/University-of-Roehampton.jpg" },
-    { name: "BPP University", logo: "/images/universities/uk/BPP-University.jpg" },
-    { name: "University of Greenwich", logo: "/images/universities/uk/University-of-Greenwich.jpg" },
-    { name: "Buckinghamshire New University", logo: "/images/universities/uk/Buckinghamshire-New-University.jpg" },
-    { name: "Coventry University", logo: "/images/universities/uk/Coventry-University.jpg" },
-    { name: "Ulster University", logo: "/images/universities/uk/Ulster-University.jpg" },
-    { name: "Health Sciences University", logo: "/images/universities/uk/Health-Sciences-University.jpg" },
-    { name: "Ravensbourne University London", logo: "/images/universities/uk/Ravensbourne-University-London.jpg" },
-    { name: "University of Sunderland", logo: "/images/universities/uk/University-of-Sunderland.jpg" },
-    { name: "University of East London", logo: "/images/universities/uk/University-of-East-London.jpg" },
-    { name: "The University of Law", logo: "/images/universities/uk/The-University-of-Law.jpg" },
-    { name: "University of Worcester", logo: "/images/universities/uk/University-of-Worcester.jpg" },
-    { name: "University of West London", logo: "/images/universities/uk/University-of-West-London.jpg" },
-    { name: "University of the West of Scotland", logo: "/images/universities/uk/University-of-the-West-of-Scotland.jpg" },
-    { name: "York St John University", logo: "/images/universities/uk/York-St-John-University.jpg" },
+    { name: "University of Roehampton", logo: "/images/universities/uk/University-of-Roehampton.webp" },
+    { name: "BPP University", logo: "/images/universities/uk/BPP-University.webp" },
+    { name: "University of Greenwich", logo: "/images/universities/uk/University-of-Greenwich.webp" },
+    { name: "Buckinghamshire New University", logo: "/images/universities/uk/Buckinghamshire-New-University.webp" },
+    { name: "Coventry University", logo: "/images/universities/uk/Coventry-University.webp" },
+    { name: "Ulster University", logo: "/images/universities/uk/Ulster-University.webp" },
+    { name: "Health Sciences University", logo: "/images/universities/uk/Health-Sciences-University.webp" },
+    { name: "Ravensbourne University London", logo: "/images/universities/uk/Ravensbourne-University-London.webp" },
+    { name: "University of Sunderland", logo: "/images/universities/uk/University-of-Sunderland.webp" },
+    { name: "University of East London", logo: "/images/universities/uk/University-of-East-London.webp" },
+    { name: "The University of Law", logo: "/images/universities/uk/The-University-of-Law.webp" },
+    { name: "University of Worcester", logo: "/images/universities/uk/University-of-Worcester.webp" },
+    { name: "University of West London", logo: "/images/universities/uk/University-of-West-London.webp" },
+    { name: "University of the West of Scotland", logo: "/images/universities/uk/University-of-the-West-of-Scotland.webp" },
+    { name: "York St John University", logo: "/images/universities/uk/York-St-John-University.webp" },
   ],
   costTitle: "Cost of Studying in the UK",
   costIntro:
@@ -208,6 +219,7 @@ const ukData: CountryPageData = {
   ],
 };
 
-export default function StudyInUKPage() {
-  return <CountryPageTemplate data={ukData} />;
+export default async function StudyInUKPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "uk" });
+  return <CountryPageTemplate data={ukData} blogPosts={blogPosts} />;
 }

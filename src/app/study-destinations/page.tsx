@@ -6,15 +6,15 @@ export const metadata: Metadata = {
   description:
     "Explore top study abroad destinations with expert guidance on universities, courses, visas, costs, and student life to help you choose the right country.",
   alternates: {
-    canonical: "https://admizzeducation.com/study-destinations/",
+    canonical: "https://admizzeducation.com/study-destinations",
   },
   openGraph: {
     title: "Study Destinations - Admizz Education",
     description:
       "Explore top study abroad destinations with expert guidance on universities, courses, visas, costs, and student life to help you choose the right country.",
-    url: "https://admizzeducation.com/study-destinations/",
+    url: "https://admizzeducation.com/study-destinations",
     siteName: "Admizz Education",
-    images: ["/images/og/flag-of-australia.png"],
+    images: ["/images/hero/web-ad.webp"],
     type: "website",
   },
 };
@@ -30,61 +30,73 @@ const destinations = [
     name: "Study in Australia",
     description:
       "Globally ranked universities, excellent research facilities, and post-study work opportunities.",
-    href: "/study-in-australia",
+    href: "/study-in-australia/",
   },
   {
     name: "Study in Canada",
     description:
       "Affordable education, multicultural communities, and permanent residency pathways.",
-    href: "/study-in-canada",
+    href: "/study-in-canada/",
   },
   {
     name: "Study in Denmark",
     description:
       "Known for innovation and cutting-edge research programs.",
-    href: "/study-in-denmark",
+    href: "/study-in-denmark/",
   },
   {
-    name: "Study in Dubai",
+    name: "Study in Finland",
+    description:
+      "Top-ranked education, affordable tuition, and strong post-study work opportunities in the happiest country.",
+    href: "/study-in-finland/",
+  },
+  {
+    name: "Study in UAE",
     description:
       "A modern hub offering global education and career opportunities in one of the fastest-growing economies.",
-    href: "/study-in-dubai",
+    href: "/study-in-dubai/",
   },
   {
     name: "Study in France",
     description:
       "Famous for arts, fashion, business, and technology programs.",
-    href: "/study-in-france",
+    href: "/study-in-france/",
   },
   {
     name: "Study in India",
     description:
       "Affordable education options in a culturally diverse environment for international students.",
-    href: "/study-in-india",
+    href: "/study-in-india/",
+  },
+  {
+    name: "Study in Nepal",
+    description:
+      "Affordable, English-medium programs at recognised universities — with the Himalayas as your campus backdrop.",
+    href: "/study-in-nepal/",
   },
   {
     name: "Study in New Zealand",
     description:
       "Safe, welcoming, and focused on hands-on, career-oriented education.",
-    href: "/study-in-newzealand",
+    href: "/study-in-newzealand/",
   },
   {
     name: "Study in South Korea",
     description:
       "Advanced technology-driven education paired with cultural richness.",
-    href: "/study-in-south-korea",
+    href: "/study-in-south-korea/",
   },
   {
     name: "Study in the UK",
     description:
       "Home to prestigious, centuries-old institutions and globally recognized degrees.",
-    href: "/study-in-the-uk",
+    href: "/study-in-the-uk/",
   },
   {
     name: "Study in the USA",
     description:
       "The top destination for research, innovation, and global careers.",
-    href: "/study-in-the-usa",
+    href: "/study-in-the-usa/",
   },
 ];
 
@@ -92,8 +104,8 @@ export default function StudyDestinationsPage() {
   return (
     <main>
       {/* ===== HERO ===== */}
-      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16">
+        <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl md:text-[42px] font-bold leading-tight">
             Study Destinations
           </h1>
@@ -104,8 +116,8 @@ export default function StudyDestinationsPage() {
       </section>
 
       {/* ===== INTRO ===== */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy mb-6">
             Your Global Education Journey Starts Here
           </h2>
@@ -131,8 +143,8 @@ export default function StudyDestinationsPage() {
       </section>
 
       {/* ===== DESTINATION CARDS ===== */}
-      <section className="bg-off-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-off-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
             Study Abroad Destinations with Admizz Education
           </h2>
@@ -184,8 +196,8 @@ export default function StudyDestinationsPage() {
       </section>
 
       {/* ===== BOTTOM CTA ===== */}
-      <section className="py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="py-16">
+        <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy mb-6">
             Still deciding? Talk to Our Study Abroad Experts
           </h2>
@@ -194,7 +206,7 @@ export default function StudyDestinationsPage() {
             experienced counsellors.
           </p>
           <Link
-            href="/register/"
+            href="/register"
             className="inline-block bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
           >
             Talk to Our Study Abroad Experts

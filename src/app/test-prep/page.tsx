@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import FAQ from "@/components/ui/FAQ";
+import AlumniSection from "@/components/ui/AlumniSection";
+import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
+import TopPromoBanner from "@/components/city-landing/sections/TopPromoBanner";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -11,19 +14,19 @@ import FAQ from "@/components/ui/FAQ";
 const testCards = [
   {
     name: "IELTS",
-    logo: "/images/test-prep/IELTS_LOGO.png",
+    logo: "/images/test-prep/IELTS_LOGO.webp",
     description:
       "A globally recognized English proficiency test for study, work, and migration\u2014widely accepted in countries like the UK, Canada, Australia, and many others.",
   },
   {
     name: "GRE",
-    logo: "/images/test-prep/Untitled-design.jpg",
+    logo: "/images/test-prep/Untitled-design.webp",
     description:
       "Globally accepted graduate admissions test for master\u2019s, MBA, and PhD programs\u2014widely recognized in the U.S., Canada, and beyond.",
   },
   {
     name: "TOEFL",
-    logo: "/images/test-prep/TOFEL_LOGO.png",
+    logo: "/images/test-prep/TOFEL_LOGO.webp",
     description:
       "Preferred by U.S. universities, this test measures academic English skills in reading, writing, speaking, and listening.",
   },
@@ -41,7 +44,7 @@ const testCards = [
   },
   {
     name: "Duolingo",
-    logo: "/images/test-prep/duolingo-2.png",
+    logo: "/images/test-prep/duolingo-2.webp",
     description:
       "Flexible, fast, and accepted by 4,000+ institutions\u2014complete the test from home in under an hour.",
   },
@@ -195,18 +198,18 @@ const faqItems = [
 ];
 
 const universityLogos = [
-  { src: "/images/universities/usa/COLORADO.jpeg", alt: "Colorado State University" },
-  { src: "/images/universities/usa/YOUNGSTOWN.jpeg", alt: "Youngstown State University" },
-  { src: "/images/universities/usa/webster-1.jpeg", alt: "Weber State University" },
-  { src: "/images/universities/uk/York-St-John-University.jpg", alt: "York St John University" },
-  { src: "/images/universities/uk/Ulster-University.jpg", alt: "Ulster University" },
-  { src: "/images/universities/uk/University-of-East-London.jpg", alt: "University of East London" },
-  { src: "/images/universities/uk/Coventry-University.jpg", alt: "Coventry University" },
-  { src: "/images/universities/uk/University-of-Greenwich.jpg", alt: "University of Greenwich" },
-  { src: "/images/universities/usa/DAKOTA-STATE.jpeg", alt: "Dakota State University" },
-  { src: "/images/universities/usa/WRIGHT-STATE.jpeg", alt: "Wright State University" },
-  { src: "/images/universities/uk/University-of-Sunderland.jpg", alt: "University of Sunderland" },
-  { src: "/images/universities/uk/University-of-Roehampton.jpg", alt: "University of Roehampton" },
+  { src: "/images/universities/usa/COLORADO.webp", alt: "Colorado State University" },
+  { src: "/images/universities/usa/YOUNGSTOWN.webp", alt: "Youngstown State University" },
+  { src: "/images/universities/usa/webster-1.webp", alt: "Weber State University" },
+  { src: "/images/universities/uk/York-St-John-University.webp", alt: "York St John University" },
+  { src: "/images/universities/uk/Ulster-University.webp", alt: "Ulster University" },
+  { src: "/images/universities/uk/University-of-East-London.webp", alt: "University of East London" },
+  { src: "/images/universities/uk/Coventry-University.webp", alt: "Coventry University" },
+  { src: "/images/universities/uk/University-of-Greenwich.webp", alt: "University of Greenwich" },
+  { src: "/images/universities/usa/DAKOTA-STATE.webp", alt: "Dakota State University" },
+  { src: "/images/universities/usa/WRIGHT-STATE.webp", alt: "Wright State University" },
+  { src: "/images/universities/uk/University-of-Sunderland.webp", alt: "University of Sunderland" },
+  { src: "/images/universities/uk/University-of-Roehampton.webp", alt: "University of Roehampton" },
 ];
 
 const prizes = [
@@ -232,9 +235,25 @@ export default function TestPrepPage() {
 
   return (
     <main>
+      <TopPromoBanner
+        banner={{
+          id: "test-prep-rs-2083",
+          variant: "campaign",
+          eyebrow: "Only for Nepalese Students",
+          title: (
+            <>
+              Test Prep starting at just{" "}
+              <span style={{ color: "#001353", fontWeight: 800 }}>Rs. 2,083</span>
+            </>
+          ),
+          subtitle: "IELTS · PTE · Duolingo",
+          dismissible: false,
+        }}
+      />
+
       {/* ===== 1. HERO (heading + features + stats on LEFT, form on RIGHT) ===== */}
-      <section id="book-demo" className="pt-10 pb-16" style={{ background: "linear-gradient(180deg, #e8f0fe 0%, #f5f7f8 100%)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-start">
+      <section id="book-demo" className="pt-10 pb-6" style={{ background: "linear-gradient(180deg, #e8f0fe 0%, #f5f7f8 100%)" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[55fr_45fr] gap-10 items-start">
           {/* --- LEFT COLUMN --- */}
           <div className="pt-8">
             <p className="text-sm font-semibold text-[#0D1282] uppercase tracking-wide mb-3">
@@ -248,30 +267,61 @@ export default function TestPrepPage() {
             </h1>
 
             {/* Feature Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-              {[
-                { icon: "/images/icons/user.png", label: "Personalized Coaching", bg: "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)", arc: "rgba(147,197,253,0.5)" },
-                { icon: "/images/icons/online-learning.png", label: "Flexible Online Learning", bg: "linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)", arc: "rgba(110,231,183,0.4)" },
-                { icon: "/images/icons/excellence.png", label: "Guaranteed Score Improvement", bg: "linear-gradient(135deg, #fef9c3 0%, #fde68a 100%)", arc: "rgba(253,224,71,0.4)" },
-              ].map((f) => (
-                <div
-                  key={f.label}
-                  className="relative rounded-2xl p-5 pt-5 pb-5 flex flex-col items-start justify-between overflow-hidden"
-                  style={{ background: f.bg, minHeight: 140 }}
-                >
-                  {/* Decorative arc */}
+            <div className="mt-8">
+
+              {/* Mobile: sticky stack */}
+              <div className="sm:hidden">
+                {([
+                  { icon: "/images/icons/user.webp", label: "Personalized Coaching", bg: "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)" },
+                  { icon: "/images/icons/online-learning.webp", label: "Flexible Online Learning", bg: "linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)" },
+                  { icon: "/images/icons/excellence.webp", label: "Guaranteed Score Improvement", bg: "linear-gradient(135deg, #fef9c3 0%, #fde68a 100%)" },
+                ] as const).map((f, i) => (
+                  <div key={f.label} style={{ height: 110 }}>
+                    <div
+                      className="relative rounded-2xl overflow-hidden flex flex-row items-center gap-3.5 px-4"
+                      style={{
+                        position: "sticky",
+                        top: 82 + i * 8,
+                        zIndex: 10 + i,
+                        height: 64,
+                        background: f.bg,
+                        boxShadow: `0 ${4 + i * 4}px ${12 + i * 10}px rgba(0,0,0,${0.06 + i * 0.04})`,
+                      }}
+                    >
+                      <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ background: "rgba(255,255,255,0.55)" }}>
+                        <Image src={f.icon} alt={f.label} width={24} height={24} />
+                      </div>
+                      <span className="text-[13px] font-semibold text-[#0D1282] leading-snug">{f.label}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop: 3-column grid */}
+              <div className="hidden sm:grid grid-cols-3 gap-3">
+                {([
+                  { icon: "/images/icons/user.webp", label: "Personalized Coaching", bg: "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)", arc: "rgba(147,197,253,0.5)" },
+                  { icon: "/images/icons/online-learning.webp", label: "Flexible Online Learning", bg: "linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)", arc: "rgba(110,231,183,0.4)" },
+                  { icon: "/images/icons/excellence.webp", label: "Guaranteed Score Improvement", bg: "linear-gradient(135deg, #fef9c3 0%, #fde68a 100%)", arc: "rgba(253,224,71,0.4)" },
+                ] as const).map((f) => (
                   <div
-                    className="absolute -right-8 -bottom-8 w-[120px] h-[120px] rounded-full pointer-events-none"
-                    style={{ background: f.arc }}
-                  />
-                  <Image src={f.icon} alt={f.label} width={36} height={36} className="relative z-10" />
-                  <span className="text-[13px] font-semibold text-[#0D1282] leading-tight relative z-10 mt-3">{f.label}</span>
-                </div>
-              ))}
+                    key={f.label}
+                    className="relative rounded-2xl overflow-hidden flex flex-col items-start justify-between p-5"
+                    style={{ background: f.bg, minHeight: 140 }}
+                  >
+                    <div className="absolute -right-8 -bottom-8 w-[120px] h-[120px] rounded-full pointer-events-none" style={{ background: f.arc }} />
+                    <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ background: "rgba(255,255,255,0.55)" }}>
+                      <Image src={f.icon} alt={f.label} width={24} height={24} className="relative z-10" />
+                    </div>
+                    <span className="text-[13px] font-semibold text-[#0D1282] leading-snug relative z-10 mt-2">{f.label}</span>
+                  </div>
+                ))}
+              </div>
+
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
+            <div className="grid grid-cols-3 gap-3 mt-5">
               {[
                 { value: "1K+", label: "Students Trained" },
                 { value: "10+", label: "Study Destinations" },
@@ -279,14 +329,14 @@ export default function TestPrepPage() {
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="flex items-center gap-3 rounded-[12px] px-4 py-3"
+                  className="flex flex-col items-center text-center gap-0.5 rounded-[12px] px-2 py-3 sm:flex-row sm:items-center sm:text-left sm:gap-3 sm:px-4"
                   style={{
                     background: "linear-gradient(182deg, #bfdbfe -115.27%, #ffffff 53.32%)",
                     border: "1px solid #F2F2F2",
                   }}
                 >
-                  <span className="text-xl font-bold text-[#B8860B] whitespace-nowrap">{s.value}</span>
-                  <span className="text-[13px] font-medium text-[#0D1282] leading-tight">{s.label}</span>
+                  <span className="text-lg sm:text-xl font-bold text-[#B8860B] whitespace-nowrap">{s.value}</span>
+                  <span className="text-[11px] sm:text-[13px] font-medium text-[#0D1282] leading-tight">{s.label}</span>
                 </div>
               ))}
             </div>
@@ -294,23 +344,20 @@ export default function TestPrepPage() {
 
           {/* --- RIGHT COLUMN: Form (iframe) --- */}
           <div
+            className="p-3 sm:p-5"
             style={{
               border: "1px solid #D4955A",
               borderRadius: 24,
               background: "linear-gradient(to bottom, #F0ECF9, #FFFFFF)",
-              padding: 12,
               boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
             }}
           >
             <p className="text-[1.1rem] font-semibold text-[#1d419d] text-center mb-4">
               Book a Free Demo Class
             </p>
-            <iframe
-              src="https://lead-crm.zunkireelabs.com/form/admizz/test-prep"
-              width="100%"
-              height={800}
-              frameBorder={0}
-              style={{ border: "none", maxWidth: 600, margin: "0 auto", display: "block" }}
+            <CRMFormEmbed
+              src="https://dev-lead-crm.zunkireelabs.com/form/admizz/test-prep?bg=F0ECF9"
+              height={540}
               title="Test Prep Enquiry Form"
             />
           </div>
@@ -470,6 +517,9 @@ export default function TestPrepPage() {
           </div>
         </div>
       </section>
+
+      {/* ===== Alumni Section ===== */}
+      <AlumniSection />
 
       {/* ===== 6. CTA BANNER — 2 column: text left, test logos right ===== */}
       <section

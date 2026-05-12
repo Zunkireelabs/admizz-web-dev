@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Thank you for your UK study interest! Our expert will reach out to you shortly.",
   alternates: {
-    canonical: "https://admizzeducation.com/thank-you-uk/",
+    canonical: "https://admizzeducation.com/thank-you-uk",
   },
   openGraph: {
     title: "Thank You - UK | Admizz Education",
     description:
       "Thank you for your UK study interest! Our expert will reach out to you shortly.",
-    url: "https://admizzeducation.com/thank-you-uk/",
+    url: "https://admizzeducation.com/thank-you-uk",
     siteName: "Admizz Education",
     type: "website",
   },
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 export default function ThankYouUKPage() {
   return (
     <main>
-      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16 px-4 min-h-[60vh] flex items-center justify-center">
-        <div className="max-w-2xl mx-auto text-center">
+      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16 min-h-[60vh] flex items-center justify-center">
+        <div className="max-w-2xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <svg
             className="w-20 h-20 mx-auto mb-6"
             viewBox="0 0 80 80"

@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in UAE from Nepal - Admizz Education",
   description:
     "Study in the UAE with top-ranked universities, expert admission support, modern campuses, and visa assistance. Apply for 2025 intake now!",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-uae-from-nepal/",
+    canonical: "https://admizzeducation.com/study-in-uae-from-nepal",
   },
   openGraph: {
     title: "Study in UAE from Nepal - Admizz Education",
     description:
       "Study in the UAE with top-ranked universities, expert admission support, modern campuses, and visa assistance. Apply for 2025 intake now!",
-    url: "https://admizzeducation.com/study-in-uae-from-nepal/",
+    url: "https://admizzeducation.com/study-in-uae-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/UAE.jpg"],
+    images: ["/images/og/UAE.webp"],
     type: "website",
   },
 };
 
 const pageData: NepalVariantData = {
   countryName: "UAE",
+  countryCategorySlug: "uae",
   heroHeading: "Build a Bright Future in One of the World's Top Study Destinations",
   heroSubheading: "Experience world-class education in a vibrant international hub. Study in the UAE with Admizz Education—get expert counselling, top university options, visa guidance, and scholarship support for your academic success.",
   introTitle: "Shape Your Future in the Heart of Innovation",
@@ -170,7 +174,18 @@ const pageData: NepalVariantData = {
     },
   ],
   scholarshipsNote: "Contact Admizz to discover scholarships tailored to your profile and simplify the application process.",
-  universities: [],
+  universities: [
+    { name: "American University in Dubai", logo: "/images/universities/uae/american-university-in-dubai.webp" },
+    { name: "American University of Sharjah", logo: "/images/universities/uae/american-university-of-sharjah.webp" },
+    { name: "University of Sharjah", logo: "/images/universities/uae/university-of-sharjah.webp" },
+    { name: "Khalifa University", logo: "/images/universities/uae/khalifa-university.webp" },
+    { name: "United Arab Emirates University", logo: "/images/universities/uae/uaeu.webp" },
+    { name: "Heriot-Watt University Dubai", logo: "/images/universities/uae/heriot-watt-university-dubai.webp" },
+    { name: "Middlesex University Dubai", logo: "/images/universities/uae/middlesex-university-dubai.webp" },
+    { name: "Canadian University Dubai", logo: "/images/universities/uae/canadian-university-dubai.webp" },
+    { name: "Zayed University", logo: "/images/universities/uae/zayed-university.webp" },
+    { name: "University of Wollongong Dubai", logo: "/images/universities/uae/university-of-wollongong-dubai.webp" },
+  ],
   faqItems: [
     {
       question: "Why should I choose the UAE for higher education?",
@@ -217,6 +232,7 @@ const pageData: NepalVariantData = {
   ctaContent: "Dreaming of studying in the UAE? Admizz Education is your trusted partner in making that dream a reality. From selecting top universities to helping with scholarship applications and guiding you through the visa process—we're with you every step of the way. Whether it's a business degree in Dubai, engineering in Abu Dhabi, or media studies in Sharjah, we simplify your path to success in the UAE. Take the first step toward your global education journey with Admizz today!",
 };
 
-export default function StudyInUAEFromNepalPage() {
-  return <NepalVariantTemplate data={pageData} />;
+export default async function StudyInUAEFromNepalPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "uae" });
+  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Something exciting is on the way! Stay tuned for new features from Admizz Education.",
   alternates: {
-    canonical: "https://admizzeducation.com/coming-soon/",
+    canonical: "https://admizzeducation.com/coming-soon",
   },
   openGraph: {
     title: "Coming Soon | Admizz Education",
     description:
       "Something exciting is on the way! Stay tuned for new features from Admizz Education.",
-    url: "https://admizzeducation.com/coming-soon/",
+    url: "https://admizzeducation.com/coming-soon",
     siteName: "Admizz Education",
     type: "website",
   },
@@ -22,8 +22,8 @@ export default function ComingSoonPage() {
   return (
     <main>
       {/* ===== COMING SOON HERO ===== */}
-      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white min-h-[60vh] flex items-center justify-center py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white min-h-[60vh] flex items-center justify-center py-16">
+        <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           {/* Decorative Rocket SVG */}
           <div className="flex justify-center mb-8">
             <svg

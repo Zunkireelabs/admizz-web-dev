@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
+import { client } from "@/lib/sanity";
+import { postsByCategoryQuery } from "@/lib/queries";
+import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in Canada from Nepal - Admizz Education",
   description:
     "Study in Canada from Nepal with Admizz Education \u2013 Expert guidance, top universities, visa support & affordable study abroad solutions.",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-canada-from-nepal/",
+    canonical: "https://admizzeducation.com/study-in-canada-from-nepal",
   },
   openGraph: {
     title: "Study in Canada from Nepal - Admizz Education",
     description:
       "Study in Canada from Nepal with Admizz Education \u2013 Expert guidance, top universities, visa support & affordable study abroad solutions.",
-    url: "https://admizzeducation.com/study-in-canada-from-nepal/",
+    url: "https://admizzeducation.com/study-in-canada-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/stuyabroad.webp"],
     type: "website",
@@ -22,6 +25,7 @@ export const metadata: Metadata = {
 
 const pageData: NepalVariantData = {
   countryName: "Canada",
+  countryCategorySlug: "canada",
   heroHeading: "Study in Canada from Nepal",
   heroSubheading: "Study in Canada from Nepal with Admizz Education—expert counselling, top universities, visa support & affordable study abroad solutions.",
 
@@ -217,7 +221,18 @@ const pageData: NepalVariantData = {
     },
   ],
 
-  universities: [],
+  universities: [
+    { name: "University of Toronto", logo: "/images/universities/canada/university-of-toronto.webp" },
+    { name: "McGill University", logo: "/images/universities/canada/mcgill-university.webp" },
+    { name: "University of British Columbia", logo: "/images/universities/canada/university-of-british-columbia.webp" },
+    { name: "University of Alberta", logo: "/images/universities/canada/university-of-alberta.webp" },
+    { name: "McMaster University", logo: "/images/universities/canada/mcmaster-university.webp" },
+    { name: "University of Waterloo", logo: "/images/universities/canada/university-of-waterloo.webp" },
+    { name: "Queen's University", logo: "/images/universities/canada/queens-university.webp" },
+    { name: "Simon Fraser University", logo: "/images/universities/canada/simon-fraser-university.webp" },
+    { name: "Dalhousie University", logo: "/images/universities/canada/dalhousie-university.webp" },
+    { name: "Western University", logo: "/images/universities/canada/western-university.webp" },
+  ],
 
   faqItems: [
     {
@@ -266,6 +281,7 @@ const pageData: NepalVariantData = {
   ctaContent: "Book your free counseling session with Admizz Education today and take the first step toward studying in Canada.",
 };
 
-export default function StudyInCanadaFromNepalPage() {
-  return <NepalVariantTemplate data={pageData} />;
+export default async function StudyInCanadaFromNepalPage() {
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "canada" });
+  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }
