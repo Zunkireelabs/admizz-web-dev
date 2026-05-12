@@ -14,11 +14,14 @@ else
 fi
 
 echo "1. Installing deps (npm ci)..."
-npm ci
+# Use Python shutil for reliable node_modules cleanup (plain rm -rf fails on this system)
+python3 -c "import shutil; shutil.rmtree('node_modules', ignore_errors=True)"
+npm install --legacy-peer-deps
 
 echo "2. Building Next.js static export..."
 rm -rf out
 npm run build
+chmod -R g+rwX .next node_modules
 
 [ ! -d out ] && echo "ERROR: out/ not produced" && exit 1
 

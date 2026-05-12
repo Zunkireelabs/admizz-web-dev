@@ -361,7 +361,7 @@ export default function Home() {
         }
         ctaText="Book a Demo Class Today!"
         ctaHref="/test-prep"
-        validityNote="*Limited Seats Available"
+        validityNote="*Limited Seats Remaining  •  *Unlimited Mock Test"
         imageSrc="/images/lady-promo-2083.jpg"
         imageAlt="Admizz Education New Year 2083 Offer"
         delayMs={3500}

@@ -109,7 +109,7 @@ function Card({ img, name, uni, batch, destination, imagePath = "/images/alumni/
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
           <p style={{ margin: 0, fontSize: 12.5, fontWeight: 700, color: "#fff", lineHeight: 1.25, textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>{name}</p>
-          {uni && <p style={{ margin: 0, fontSize: 11, fontWeight: 600, color: "#fff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>{uni}</p>}
+          {uni && <p style={{ margin: 0, fontSize: 11, fontWeight: 400, color: "#fff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>{uni}</p>}
           {destination && <p style={{ margin: 0, fontSize: 11, fontWeight: 600, color: "#fded22", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>{destination}</p>}
         </div>
       </div>

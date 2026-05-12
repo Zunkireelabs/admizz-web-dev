@@ -170,9 +170,12 @@ export default function HeroPromoOverlay({
                 {/* Offer box */}
                 <div className="rounded-xl bg-yellow-bright/20 border border-yellow px-4 py-3 text-[15px] font-bold text-blue-dark">
                   {offerLine}
-                  {validityNote && (
-                    <p className="text-[12px] text-gray-400 text-center mt-1 whitespace-nowrap font-normal">{validityNote}</p>
-                  )}
+                  {validityNote && (() => {
+                    const inBox = validityNote.split("•")[1]?.trim();
+                    return inBox ? (
+                      <p className="text-[12px] text-gray-400 text-left mt-1 whitespace-nowrap font-normal">{inBox}</p>
+                    ) : null;
+                  })()}
                 </div>
 
                 {/* CTA */}
@@ -186,6 +189,14 @@ export default function HeroPromoOverlay({
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                   </svg>
                 </Link>
+
+                {/* Below CTA note */}
+                {validityNote && (() => {
+                  const belowCta = validityNote.split("•")[0]?.trim();
+                  return belowCta ? (
+                    <p className="text-[12px] text-gray-400 text-center -mt-1 whitespace-nowrap">{belowCta}</p>
+                  ) : null;
+                })()}
               </div>
             </div>
           </motion.div>
