@@ -6,7 +6,7 @@ import type { AlumniCard } from "@/components/ui/AlumniSection";
 
 export const metadata: Metadata = {
   title: "Spin and Win | Admizz Education",
-  description: "Spin the wheel for a chance to win amazing prizes — laptops, smartphones, flight tickets, and more. 3 free spins, no form needed to spin!",
+  description: "Your study abroad journey starts with a spin. Win laptops, flight tickets & more - plus get free expert counseling from Admizz Education's ICEF-accredited agency.",
 };
 
 const SPIN_AND_WIN_ALUMNI_ROW1 = [

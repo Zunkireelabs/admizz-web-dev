@@ -201,9 +201,9 @@ export default function RegisterPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                   </svg>
                 </div>
-                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#1E6DEB" }}>Why Students Trust Us</h3>
+                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#1E6DEB" }}>Why Students Trust Us?</h3>
                 <p className="text-[13px] text-gray-dark leading-relaxed">
-                  <strong className="text-[#0D1282]">ICEF-Accredited Agency</strong> | <strong className="text-[#0D1282]">10+ Years of Experience</strong> | <strong className="text-[#0D1282]">10,000+ Students Counselled</strong>
+                  <strong className="text-[#0D1282]">ICEF-Accredited Agency</strong> | <strong className="text-[#0D1282]">10+ Years of Excellence</strong> | <strong className="text-[#0D1282]">10,000+ Students Counselled</strong>
                 </p>
               </div>
             </div>
@@ -217,7 +217,7 @@ export default function RegisterPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
                   </svg>
                 </div>
-                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#3FB5A0" }}>What Students Say</h3>
+                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#3FB5A0" }}>What Students Say?</h3>
                 <p className="text-[13px] text-gray-dark leading-relaxed italic mb-4">
                   &ldquo;Admizz helped me figure out the right country, the right course, and got me there. Best decision I made.&rdquo;
                 </p>
