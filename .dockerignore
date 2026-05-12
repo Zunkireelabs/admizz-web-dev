@@ -1,6 +1,5 @@
 node_modules
 .next
-out
 .git
 temp_ss
 *.md
