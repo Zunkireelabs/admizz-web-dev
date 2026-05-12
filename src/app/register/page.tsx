@@ -1,8 +1,11 @@
+"use client";
+
 import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
 import UniversityPartners from "@/app/UniversityPartners";
 import { allUniversities } from "@/lib/universities";
 import GlobalPresence from "@/components/ui/GlobalPresence";
 import AlumniSection from "@/components/ui/AlumniSection";
+import TestimonialsSection from "@/components/ui/TestimonialsSection";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -72,52 +75,6 @@ const stats = [
   { value: "$2M+", label: "Scholarships Awarded", icon: "M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", accent: "#BB5FEC" },
 ];
 
-const testimonials = [
-  {
-    name: "Niraj Bhattarai",
-    university: "University of West of Scotland",
-    originFlag: "np",
-    destFlag: "gb",
-    route: "Nepal -> UK",
-    text: "From university selection to visa approval, Admizz Education provided exceptional support and made my journey to the UK effortless. I highly recommend them to anyone looking for a trustworthy study abroad partner.",
-    rating: 5,
-  },
-  {
-    name: "Yousuf Abdirahman Mohamed",
-    university: "Kalinga Institute of Industrial Technology",
-    originFlag: "so",
-    destFlag: "in",
-    route: "Somalia -> India",
-    text: "I appreciated your unlimited help for my MBA career. It was very tough but I gained a very solid educational background. Thanks Admizz!",
-    rating: 5,
-  },
-  {
-    name: "Basant Khadka",
-    university: "Weber State University",
-    originFlag: "np",
-    destFlag: "us",
-    route: "Nepal -> USA",
-    text: "The journey to college can be overwhelming, but Admizz Education made applying to Weber State University effortless. Thanks to their guidance.",
-    rating: 5,
-  },
-  {
-    name: "Satyam Jaiswal",
-    university: "University of Greenwich",
-    originFlag: "np",
-    destFlag: "gb",
-    route: "Nepal -> UK",
-    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application visa process was smooth and stress-free.",
-    rating: 5,
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/*  Helpers                                                            */
-/* ------------------------------------------------------------------ */
-
-function toEmoji(code: string) {
-  return [...code.toUpperCase()].map((c) => String.fromCodePoint(c.charCodeAt(0) + 127397)).join("");
-}
 
 /* ------------------------------------------------------------------ */
 /*  Stars component                                                    */
@@ -163,19 +120,8 @@ export default function RegisterPage() {
               </div>
               <span className="text-[#9CA3B5]">·</span>
               <span className="text-[12px] sm:text-[13px] text-[#5C7189]">
-                <strong className="text-[#0D1282]">10K+</strong> students
+                Trusted by <strong className="text-[#0D1282]">2,000+</strong> students
               </span>
-              <span className="hidden sm:inline text-[#9CA3B5]">·</span>
-              <span className="hidden sm:inline text-[12px] sm:text-[13px] text-[#5C7189]">
-                <strong className="text-[#0D1282]">ICEF</strong> accredited
-              </span>
-              <span className="hidden md:inline text-[#9CA3B5]">·</span>
-              <a
-                href="#enquiry-form"
-                className="hidden md:inline-flex items-center gap-1 text-[12px] font-semibold text-[#0D1282] hover:underline"
-              >
-                <span aria-hidden>↓</span> Apply below
-              </a>
             </div>
           </div>
         </div>
@@ -212,9 +158,41 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* --- RIGHT: Conversion stack v3 — clean services-pattern style --- */}
-          <div className="flex flex-col gap-5">
-            {/* Card 1: Trust — BLUE accent (services pattern) */}
+          {/* --- RIGHT: What Happens Next — 3 steps vertically, full height --- */}
+          <div className="flex flex-col h-full gap-5">
+            <div>
+              <p className="text-[13px] font-semibold uppercase tracking-[0.14em] mb-1" style={{ color: "#1E6DEB" }}>What happens next</p>
+              <h2 className="text-[20px] md:text-[24px] font-bold leading-tight" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
+                From form to roadmap in 3 simple steps
+              </h2>
+            </div>
+
+            {[
+              { step: "Step 1", emoji: "📝", title: "Share your details", desc: "Tell us your target country, field of study, and budget. Takes under 2 minutes.", accent: "#1E6DEB", bg: "#EBF3FF" },
+              { step: "Step 2", emoji: "📞", title: "Your counsellor calls within 24 hours", desc: "They'll map out your options, answer your questions, and explain exactly what comes next — no pressure.", accent: "#3FB5A0", bg: "#EDFAF7" },
+              { step: "Step 3", emoji: "🎯", title: "Receive your personalized roadmap", desc: "A curated university shortlist with deadlines, scholarship options, and a clear action plan.", accent: "#E86F3C", bg: "#FFF4EE" },
+            ].map((s) => (
+              <div key={s.step} className="flex-1 bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md flex flex-col" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 10px rgba(13,18,130,0.04)" }}>
+                <div className="h-[3px]" style={{ background: s.accent }} />
+                <div className="p-5 flex flex-col justify-center flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center text-[22px] flex-shrink-0" style={{ background: s.bg }}>{s.emoji}</div>
+                    <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em]" style={{ background: `${s.accent}14`, color: s.accent }}>{s.step}</span>
+                  </div>
+                  <h3 className="text-[15px] font-bold mb-1" style={{ color: "#0D1282" }}>{s.title}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ color: "#5C7189" }}>{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TRUST CARDS (horizontal, below form) ===== */}
+      <section className="py-6 md:py-8 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+            {/* Card 1: Trust — BLUE */}
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md" style={{ border: "1px solid #F0F0F0" }}>
               <div className="h-[3px]" style={{ backgroundColor: "#1E6DEB" }} />
               <div className="p-5">
@@ -223,16 +201,14 @@ export default function RegisterPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                   </svg>
                 </div>
-                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#1E6DEB" }}>
-                  Why Students Trust Us
-                </h3>
+                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#1E6DEB" }}>Why Students Trust Us</h3>
                 <p className="text-[13px] text-gray-dark leading-relaxed">
-                  <strong className="text-[#0D1282]">Free</strong> for students with <strong className="text-[#0D1282]">ICEF-accredited</strong> counsellors. <strong className="text-[#0D1282]">10,000+</strong> students admitted across <strong className="text-[#0D1282]">8</strong> countries with a <strong className="text-[#0D1282]">95%</strong> visa approval rate.
+                  <strong className="text-[#0D1282]">ICEF-Accredited Agency</strong> | <strong className="text-[#0D1282]">10+ Years of Experience</strong> | <strong className="text-[#0D1282]">10,000+ Students Counselled</strong>
                 </p>
               </div>
             </div>
 
-            {/* Card 2: Testimonial — GREEN accent (services pattern) */}
+            {/* Card 2: Testimonial — GREEN */}
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md" style={{ border: "1px solid #F0F0F0" }}>
               <div className="h-[3px]" style={{ backgroundColor: "#3FB5A0" }} />
               <div className="p-5">
@@ -241,28 +217,22 @@ export default function RegisterPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
                   </svg>
                 </div>
-                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#3FB5A0" }}>
-                  What Students Say
-                </h3>
+                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#3FB5A0" }}>What Students Say</h3>
                 <p className="text-[13px] text-gray-dark leading-relaxed italic mb-4">
-                  &ldquo;From university selection to visa approval, Admizz made my journey to the UK effortless.&rdquo;
+                  &ldquo;Admizz helped me figure out the right country, the right course, and got me there. Best decision I made.&rdquo;
                 </p>
                 <div className="flex items-center gap-3 pt-3 border-t" style={{ borderColor: "#F0F0F0" }}>
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center text-[14px] font-bold flex-shrink-0" style={{ background: "rgba(30,109,235,0.12)", color: "#1E6DEB" }}>
-                    N
-                  </div>
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center text-[14px] font-bold flex-shrink-0" style={{ background: "rgba(30,109,235,0.12)", color: "#1E6DEB" }}>N</div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[13px] font-bold leading-tight" style={{ color: "#0D1282" }}>Niraj Bhattarai</p>
-                    <p className="text-[11px] mt-0.5 leading-tight" style={{ color: "#5C7189" }}>University of West of Scotland · 🇳🇵 → 🇬🇧</p>
+                    <p className="text-[13px] font-bold leading-tight" style={{ color: "#0D1282" }}>Neharika Gurung</p>
+                    <p className="text-[11px] mt-0.5 leading-tight" style={{ color: "#5C7189" }}>Coventry University · 🇳🇵 → 🇬🇧</p>
                   </div>
-                  <div className="flex-shrink-0">
-                    <Stars count={5} />
-                  </div>
+                  <div className="flex-shrink-0"><Stars count={5} /></div>
                 </div>
               </div>
             </div>
 
-            {/* Card 3: Chat — GOLD accent (services pattern) */}
+            {/* Card 3: Chat — GOLD */}
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md" style={{ border: "1px solid #F0F0F0" }}>
               <div className="h-[3px]" style={{ backgroundColor: "#FCB730" }} />
               <div className="p-5">
@@ -271,11 +241,9 @@ export default function RegisterPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
                   </svg>
                 </div>
-                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#FCB730" }}>
-                  Prefer to Chat Instead?
-                </h3>
+                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#FCB730" }}>Prefer to Chat Instead?</h3>
                 <p className="text-[13px] text-gray-dark leading-relaxed mb-4">
-                  Talk to a counsellor directly on WhatsApp. Average response under <strong className="text-[#0D1282]">5 minutes</strong>, Mon–Sat 9am–6pm NPT.
+                  Talk to one of our counselor directly on WhatsApp. Real people, real answers.
                 </p>
                 <a
                   href="https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
@@ -294,6 +262,9 @@ export default function RegisterPage() {
           </div>
         </div>
       </section>
+
+      {/* ===== Alumni Section ===== */}
+      <AlumniSection />
 
       {/* ===== COUNSELLOR FACES BAND (NEW — preview only) ===== */}
       <section className="py-10 md:py-16" style={{ background: "#F8F9FF" }}>
@@ -347,92 +318,6 @@ export default function RegisterPage() {
                 <p className="text-[14px] font-bold leading-tight" style={{ color: "#0D1282" }}>{c.name}</p>
                 <p className="text-[12px] mt-1" style={{ color: "#5C7189" }}>{c.role}</p>
                 <p className="text-[11px] mt-2 font-medium" style={{ color: "#8892A6" }}>{c.langs}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Alumni Section ===== */}
-      <AlumniSection />
-
-      {/* ===== WHAT HAPPENS NEXT (NEW — preview only) ===== */}
-      <section className="py-10 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.14em] mb-2" style={{ color: "#1E6DEB" }}>
-              What happens next
-            </p>
-            <h2 className="text-[24px] md:text-[32px] font-bold leading-tight" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
-              From form to roadmap in 3 simple steps
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6 relative">
-            {[
-              {
-                step: "Step 1",
-                emoji: "📝",
-                title: "You submit your details",
-                desc: "Fill out the short form above with your study goals and contact info.",
-                accent: "#1E6DEB",
-                bg: "#EBF3FF",
-              },
-              {
-                step: "Step 2",
-                emoji: "📞",
-                title: "Counsellor calls you within 24 hrs",
-                desc: "An expert will understand your goals and answer any questions you have.",
-                accent: "#3FB5A0",
-                bg: "#EDFAF7",
-              },
-              {
-                step: "Step 3",
-                emoji: "🎯",
-                title: "Get a custom university shortlist",
-                desc: "We hand you a personalized roadmap with universities, deadlines, and next steps.",
-                accent: "#E86F3C",
-                bg: "#FFF4EE",
-              },
-            ].map((s, i, arr) => (
-              <div key={s.step} className="relative">
-                <div
-                  className="bg-white rounded-2xl overflow-hidden h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                  style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 10px rgba(13,18,130,0.04)" }}
-                >
-                  <div className="h-[3px]" style={{ background: s.accent }} />
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center text-[24px]"
-                        style={{ background: s.bg }}
-                      >
-                        {s.emoji}
-                      </div>
-                      <span
-                        className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em]"
-                        style={{ background: `${s.accent}14`, color: s.accent }}
-                      >
-                        {s.step}
-                      </span>
-                    </div>
-                    <h3 className="text-[16px] font-bold mb-2" style={{ color: "#0D1282" }}>
-                      {s.title}
-                    </h3>
-                    <p className="text-[14px] leading-relaxed" style={{ color: "#5C7189" }}>
-                      {s.desc}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Connector arrow — desktop only, between cards */}
-                {i < arr.length - 1 && (
-                  <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-4 lg:-right-5 z-10 items-center justify-center w-8 h-8 rounded-full bg-white shadow" aria-hidden>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0D1282" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14m-7-7 7 7-7 7" />
-                    </svg>
-                  </div>
-                )}
               </div>
             ))}
           </div>
@@ -523,68 +408,8 @@ export default function RegisterPage() {
       {/* ===== TRUSTED PARTNERS ===== */}
       <UniversityPartners universities={allUniversities} />
 
-      {/* ===== 4. TESTIMONIALS (grid layout) ===== */}
-      <section className="py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-2xl md:text-[30px] font-bold text-[#0D1282] mb-3"
-            style={{ fontFamily: 'var(--font-rubik), sans-serif' }}
-          >
-            Our Success Stories &amp; Testimonials
-          </h2>
-          <p className="text-sm md:text-base text-gray-dark mb-10 leading-relaxed">
-            Hear from our satisfied students and partners who have achieved great
-            success through our expert guidance, personalized support, and
-            comprehensive services in navigating their academic and career goals.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6 items-start">
-            {/* Left column — 2 cards stacked */}
-            <div className="flex flex-col gap-6">
-              {testimonials.slice(0, 2).map((t) => (
-                <TestimonialCard key={t.name} {...t} />
-              ))}
-            </div>
-
-            {/* Center — YouTube video + quote */}
-            <div className="flex flex-col items-center gap-5">
-              <span className="inline-flex items-center gap-2 border border-[#949494] rounded-full py-3 px-7 text-base font-medium text-black">
-                <span className="w-2 h-2 rounded-full bg-black" />
-                Student
-              </span>
-              <div className="bg-white rounded-[30px] p-2 w-full">
-                <div className="bg-[#F8F8F8] rounded-[30px] overflow-hidden">
-                  <div className="relative w-full" style={{ paddingBottom: '130%' }}>
-                    <iframe
-                      className="absolute inset-0 w-full h-full"
-                      src="https://www.youtube.com/embed/AW3Zmubc-tU"
-                      title="Ashok Upreti - Student Testimonial"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="text-center px-2">
-                <p className="text-base font-bold text-[#0D1282]">Ashok Upreti</p>
-                <p className="mt-2 text-sm text-gray-dark leading-relaxed">
-                  &ldquo;Admizz Education&apos;s dedicated team guided me through
-                  every challenge, ensuring I secured admission to my dream
-                  university. Their professional and personalized approach made the
-                  entire process smooth and hassle-free.&rdquo;
-                </p>
-              </div>
-            </div>
-
-            {/* Right column — 2 cards stacked */}
-            <div className="flex flex-col gap-6">
-              {testimonials.slice(2, 4).map((t) => (
-                <TestimonialCard key={t.name} {...t} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ===== 4. TESTIMONIALS ===== */}
+      <TestimonialsSection />
 
       {/* ===== 5. GLOBAL PRESENCE (Tab-based) ===== */}
       <GlobalPresence />
@@ -618,57 +443,3 @@ export default function RegisterPage() {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Testimonial Card                                                   */
-/* ------------------------------------------------------------------ */
-
-function TestimonialCard({
-  name,
-  text,
-  rating,
-  university,
-  originFlag,
-  destFlag,
-  route,
-}: {
-  name: string;
-  text: string;
-  rating: number;
-  university?: string;
-  originFlag?: string;
-  destFlag?: string;
-  route?: string;
-}) {
-  return (
-    <div className="bg-white rounded-[30px] p-2 shadow-sm">
-      <div className="bg-[#F8F8F8] rounded-[30px] p-6">
-        <Stars count={rating} />
-        <p className="mt-3 text-sm text-gray-dark leading-relaxed">
-          &ldquo;{text}&rdquo;
-        </p>
-        <div className="mt-5 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-blue-royal/10 flex items-center justify-center text-sm font-bold text-blue-royal shrink-0">
-            {name.charAt(0)}
-          </div>
-          <div>
-            <p className="text-[15px] font-bold text-[#0D1282]">{name}</p>
-            {university && (
-              <p className="text-[13px] text-gray-dark leading-snug">{university}</p>
-            )}
-            {route && (
-              <div className="flex items-center gap-1.5 mt-0.5">
-                {originFlag && (
-                  <span className="text-sm leading-none">{toEmoji(originFlag)}</span>
-                )}
-                <span className="text-[13px] text-gray-dark">{route}</span>
-                {destFlag && (
-                  <span className="text-sm leading-none">{toEmoji(destFlag)}</span>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}

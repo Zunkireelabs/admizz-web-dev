@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import FAQ from "@/components/ui/FAQ";
 import AlumniSection from "@/components/ui/AlumniSection";
+import TestimonialsSection from "@/components/ui/TestimonialsSection";
 import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
 import TopPromoBanner from "@/components/city-landing/sections/TopPromoBanner";
+import { allUniversities } from "@/lib/universities";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -156,23 +158,6 @@ const featureCards = [
   },
 ];
 
-const testimonialData = [
-  {
-    name: "Niraj Bhattarai",
-    text: "From university selection to visa approval, Admizz Education provided exceptional support and made my journey to the UK effortless. I highly recommend them to anyone looking for a trustworthy study abroad partner.",
-    rating: 5,
-  },
-  {
-    name: "Basant Khadka",
-    text: "The journey to college can be overwhelming, but Admizz Education made applying to Weber State University effortless. Thanks to their guidance.",
-    rating: 5,
-  },
-  {
-    name: "Satyam Jaiswal",
-    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application visa process was smooth and stress-free.",
-    rating: 5,
-  },
-];
 
 const faqItems = [
   {
@@ -197,20 +182,6 @@ const faqItems = [
   },
 ];
 
-const universityLogos = [
-  { src: "/images/universities/usa/COLORADO.webp", alt: "Colorado State University" },
-  { src: "/images/universities/usa/YOUNGSTOWN.webp", alt: "Youngstown State University" },
-  { src: "/images/universities/usa/webster-1.webp", alt: "Weber State University" },
-  { src: "/images/universities/uk/York-St-John-University.webp", alt: "York St John University" },
-  { src: "/images/universities/uk/Ulster-University.webp", alt: "Ulster University" },
-  { src: "/images/universities/uk/University-of-East-London.webp", alt: "University of East London" },
-  { src: "/images/universities/uk/Coventry-University.webp", alt: "Coventry University" },
-  { src: "/images/universities/uk/University-of-Greenwich.webp", alt: "University of Greenwich" },
-  { src: "/images/universities/usa/DAKOTA-STATE.webp", alt: "Dakota State University" },
-  { src: "/images/universities/usa/WRIGHT-STATE.webp", alt: "Wright State University" },
-  { src: "/images/universities/uk/University-of-Sunderland.webp", alt: "University of Sunderland" },
-  { src: "/images/universities/uk/University-of-Roehampton.webp", alt: "University of Roehampton" },
-];
 
 const prizes = [
   { name: "Free Test Prep", icon: "book" },
@@ -230,8 +201,37 @@ const prizes = [
 
 export default function TestPrepPage() {
   const [whyOpen, setWhyOpen] = useState<number | null>(null);
+  const [uniFilter, setUniFilter] = useState("All");
 
   const rubikFont = { fontFamily: "var(--font-rubik), sans-serif" };
+
+  const uniCountries = [
+    { label: "All", flag: "" },
+    { label: "USA", flag: "🇺🇸" },
+    { label: "UK", flag: "🇬🇧" },
+    { label: "Australia", flag: "🇦🇺" },
+    { label: "Canada", flag: "🇨🇦" },
+    { label: "India", flag: "🇮🇳" },
+    { label: "New Zealand", flag: "🇳🇿" },
+    { label: "Finland", flag: "🇫🇮" },
+    { label: "Germany", flag: "🇩🇪" },
+    { label: "Denmark", flag: "🇩🇰" },
+    { label: "UAE", flag: "🇦🇪" },
+    { label: "France", flag: "🇫🇷" },
+  ];
+
+  const filteredUnis = useMemo(() =>
+    uniFilter === "All" ? allUniversities : allUniversities.filter(u => u.country === uniFilter),
+    [uniFilter]
+  );
+
+  const uniRow1 = filteredUnis.slice(0, Math.ceil(filteredUnis.length / 2));
+  const uniRow2 = filteredUnis.slice(Math.ceil(filteredUnis.length / 2));
+
+  // Match homepage speed: 120s for 11-card set (USA) → ~10.9s per card
+  const SECONDS_PER_CARD = 120 / Math.ceil(22 / 2);
+  const uniRow1Duration = Math.max(uniRow1.length * SECONDS_PER_CARD, 20);
+  const uniRow2Duration = Math.max(uniRow2.length * SECONDS_PER_CARD, 20);
 
   return (
     <main>
@@ -269,36 +269,8 @@ export default function TestPrepPage() {
             {/* Feature Cards */}
             <div className="mt-8">
 
-              {/* Mobile: sticky stack */}
-              <div className="sm:hidden">
-                {([
-                  { icon: "/images/icons/user.webp", label: "Personalized Coaching", bg: "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)" },
-                  { icon: "/images/icons/online-learning.webp", label: "Flexible Online Learning", bg: "linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)" },
-                  { icon: "/images/icons/excellence.webp", label: "Guaranteed Score Improvement", bg: "linear-gradient(135deg, #fef9c3 0%, #fde68a 100%)" },
-                ] as const).map((f, i) => (
-                  <div key={f.label} style={{ height: 110 }}>
-                    <div
-                      className="relative rounded-2xl overflow-hidden flex flex-row items-center gap-3.5 px-4"
-                      style={{
-                        position: "sticky",
-                        top: 82 + i * 8,
-                        zIndex: 10 + i,
-                        height: 64,
-                        background: f.bg,
-                        boxShadow: `0 ${4 + i * 4}px ${12 + i * 10}px rgba(0,0,0,${0.06 + i * 0.04})`,
-                      }}
-                    >
-                      <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ background: "rgba(255,255,255,0.55)" }}>
-                        <Image src={f.icon} alt={f.label} width={24} height={24} />
-                      </div>
-                      <span className="text-[13px] font-semibold text-[#0D1282] leading-snug">{f.label}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Desktop: 3-column grid */}
-              <div className="hidden sm:grid grid-cols-3 gap-3">
+              {/* Mobile & Desktop: 3-column grid (all 3 boxes in one row) */}
+              <div className="grid grid-cols-3 gap-3">
                 {([
                   { icon: "/images/icons/user.webp", label: "Personalized Coaching", bg: "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)", arc: "rgba(147,197,253,0.5)" },
                   { icon: "/images/icons/online-learning.webp", label: "Flexible Online Learning", bg: "linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)", arc: "rgba(110,231,183,0.4)" },
@@ -340,6 +312,53 @@ export default function TestPrepPage() {
                 </div>
               ))}
             </div>
+
+            {/* Content Cards: Unlimited Mock Tests & Study Material */}
+            <div className="mt-6 space-y-2">
+              {/* Card 1: Unlimited Mock Tests */}
+              <div
+                className="relative rounded-[16px] overflow-hidden flex flex-col sm:flex-row items-start gap-3 p-3"
+                style={{
+                  background: "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)",
+                  minHeight: 80,
+                }}
+              >
+                <div className="absolute -right-6 -bottom-6 w-[80px] h-[80px] rounded-full pointer-events-none" style={{ background: "rgba(147,197,253,0.5)" }} />
+                <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center relative z-10 flex-shrink-0" style={{ background: "rgba(255,255,255,0.6)" }}>
+                  <Image src="/images/icons/exam-1.webp" alt="Mock Tests" width={24} height={24} />
+                </div>
+                <div className="flex-1 relative z-10">
+                  <h3 className="text-sm font-semibold text-navy mb-1">
+                    Unlimited Mock Tests
+                  </h3>
+                  <p className="text-[12px] text-gray-dark leading-snug">
+                    Take unlimited full-length mock tests to track progress with detailed analytics.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 2: Study Material Provided */}
+              <div
+                className="relative rounded-[16px] overflow-hidden flex flex-col sm:flex-row items-start gap-3 p-3"
+                style={{
+                  background: "linear-gradient(135deg, #e9d5ff 0%, #ddd6fe 100%)",
+                  minHeight: 80,
+                }}
+              >
+                <div className="absolute -right-6 -bottom-6 w-[80px] h-[80px] rounded-full pointer-events-none" style={{ background: "rgba(168,85,247,0.4)" }} />
+                <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center relative z-10" style={{ background: "rgba(255,255,255,0.6)" }}>
+                  <Image src="/images/icons/knowledge.webp" alt="Study Material" width={24} height={24} />
+                </div>
+                <div className="flex-1 relative z-10">
+                  <h3 className="text-sm font-semibold text-navy mb-1">
+                    Study Material Provided
+                  </h3>
+                  <p className="text-[12px] text-gray-dark leading-snug">
+                    Comprehensive, regularly updated materials aligned with latest exam trends.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* --- RIGHT COLUMN: Form (iframe) --- */}
@@ -363,6 +382,9 @@ export default function TestPrepPage() {
           </div>
         </div>
       </section>
+
+      {/* ===== 1.5 ALUMNI SECTION ===== */}
+      <AlumniSection />
 
       {/* ===== 2. TEST CARDS ===== */}
       <section className="py-16">
@@ -489,37 +511,8 @@ export default function TestPrepPage() {
         </div>
       </section>
 
-      {/* ===== 5. TESTIMONIALS — static 3-card grid ===== */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-2xl md:text-[30px] font-bold text-[#0D1282] mb-8"
-            style={rubikFont}
-          >
-            Our Success Stories &amp; Testimonials
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonialData.map((t) => (
-              <div
-                key={t.name}
-                className="border border-border-light rounded-xl p-6 flex flex-col"
-              >
-                {/* Quote icon */}
-                <svg className="w-8 h-8 text-[#0D1282] mb-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-                </svg>
-                <p className="text-[13px] text-gray-dark leading-relaxed flex-1">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <p className="mt-4 text-sm font-semibold text-navy">- {t.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Alumni Section ===== */}
-      <AlumniSection />
+      {/* ===== 5. TESTIMONIALS ===== */}
+      <TestimonialsSection />
 
       {/* ===== 6. CTA BANNER — 2 column: text left, test logos right ===== */}
       <section
@@ -570,18 +563,15 @@ export default function TestPrepPage() {
         </div>
       </section>
 
-      {/* ===== 7. UNIVERSITY MARQUEE ===== */}
+      {/* ===== 7. UNIVERSITY FILTERABLE GRID ===== */}
       <section className="py-16 overflow-hidden" style={{ background: "#F8F9FF" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-          <h2
-            className="text-2xl md:text-[30px] font-bold text-[#0D1282] text-center mb-6"
-            style={rubikFont}
-          >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <h2 className="text-2xl md:text-[30px] font-bold text-[#0D1282] text-center mb-6" style={rubikFont}>
             Our Students Made It Here
           </h2>
 
           {/* Trust Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 md:gap-10">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 md:gap-10 mb-8">
             <div className="flex items-center gap-2">
               <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "#EBF2FF" }}>
                 <svg className="w-[18px] h-[18px]" fill="none" stroke="#1E6DEB" strokeWidth={2} viewBox="0 0 24 24">
@@ -600,56 +590,73 @@ export default function TestPrepPage() {
               <span className="text-[13px] font-semibold" style={{ color: "#3d4663" }}>Verified Partners</span>
             </div>
           </div>
-        </div>
 
-        {/* Marquee animation styles */}
-        <style>{`
-          @keyframes tp-marquee-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .tp-marquee-track {
-            animation: tp-marquee-left 40s linear infinite;
-          }
-          .tp-marquee-row:hover .tp-marquee-track {
-            animation-play-state: paused;
-          }
-          .tp-uni-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-          }
-          .tp-uni-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(30, 109, 235, 0.12) !important;
-          }
-        `}</style>
-
-        {/* Marquee Row */}
-        <div className="tp-marquee-row relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 md:w-44 z-10" style={{ background: "linear-gradient(to right, #F8F9FF, transparent)" }} />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 md:w-44 z-10" style={{ background: "linear-gradient(to left, #F8F9FF, transparent)" }} />
-          <div className="tp-marquee-track flex w-max gap-5">
-            {[...universityLogos, ...universityLogos].map((logo, i) => (
-              <div
-                key={i}
-                className="tp-uni-card bg-white rounded-2xl px-6 py-5 flex flex-col items-center justify-center gap-3 flex-shrink-0 border border-[#eef1f6] w-[160px] sm:w-[200px]"
-                style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
+          {/* Country Filter Tabs */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            {uniCountries.map((c) => (
+              <button
+                key={c.label}
+                onClick={() => setUniFilter(c.label)}
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold transition-all duration-200 border"
+                style={{
+                  background: uniFilter === c.label ? "#0D1282" : "#fff",
+                  color: uniFilter === c.label ? "#fff" : "#3d4663",
+                  borderColor: uniFilter === c.label ? "#0D1282" : "#d0d5dd",
+                  boxShadow: uniFilter === c.label ? "0 2px 8px rgba(13,18,130,0.2)" : "none",
+                }}
               >
-                <div className="w-full flex items-center justify-center" style={{ height: 52 }}>
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={140}
-                    height={48}
-                    className="object-contain max-h-[48px]"
-                  />
-                </div>
-                <p className="text-[13px] font-medium text-center leading-snug tracking-wide" style={{ color: "#6b7280" }}>
-                  {logo.alt}
-                </p>
-              </div>
+                {c.flag && <span>{c.flag}</span>}
+                {c.label}
+              </button>
             ))}
           </div>
         </div>
+
+        {/* Animation styles */}
+        <style>{`
+          @keyframes tp-uni-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+          @keyframes tp-uni-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+          .tp-uni-row:hover .tp-uni-track { animation-play-state: paused; }
+          .tp-uni-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+          .tp-uni-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(13,18,130,0.12) !important; }
+
+        `}</style>
+
+        {/* Row 1 — scrolls left */}
+        {uniRow1.length > 0 && (
+          <div className="tp-uni-row relative overflow-hidden mb-4">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10" style={{ background: "linear-gradient(to right, #F8F9FF, transparent)" }} />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10" style={{ background: "linear-gradient(to left, #F8F9FF, transparent)" }} />
+            <div className="tp-uni-track flex w-max gap-4" style={{ animation: `tp-uni-left ${uniRow1Duration}s linear infinite` }}>
+              {[...uniRow1, ...uniRow1].map((u, i) => (
+                <div key={i} className="tp-uni-card bg-white rounded-2xl px-5 py-4 flex flex-col items-center justify-center gap-2 flex-shrink-0 border border-[#eef1f6] w-[160px] sm:w-[190px]" style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}>
+                  <div className="w-full flex items-center justify-center" style={{ height: 48 }}>
+                    <Image src={u.logo} alt={u.name} width={130} height={44} className="object-contain max-h-[44px]" />
+                  </div>
+                  <p className="text-[12px] font-medium text-center leading-snug" style={{ color: "#6b7280" }}>{u.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Row 2 — scrolls right */}
+        {uniRow2.length > 0 && (
+          <div className="tp-uni-row relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10" style={{ background: "linear-gradient(to right, #F8F9FF, transparent)" }} />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10" style={{ background: "linear-gradient(to left, #F8F9FF, transparent)" }} />
+            <div className="tp-uni-track flex w-max gap-4" style={{ animation: `tp-uni-right ${uniRow2Duration}s linear infinite` }}>
+              {[...uniRow2, ...uniRow2].map((u, i) => (
+                <div key={i} className="tp-uni-card bg-white rounded-2xl px-5 py-4 flex flex-col items-center justify-center gap-2 flex-shrink-0 border border-[#eef1f6] w-[160px] sm:w-[190px]" style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}>
+                  <div className="w-full flex items-center justify-center" style={{ height: 48 }}>
+                    <Image src={u.logo} alt={u.name} width={130} height={44} className="object-contain max-h-[44px]" />
+                  </div>
+                  <p className="text-[12px] font-medium text-center leading-snug" style={{ color: "#6b7280" }}>{u.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       {/* ===== 8. FAQ ===== */}

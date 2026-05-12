@@ -167,12 +167,14 @@ export default function RootLayout({
           strategy="lazyOnload"
           crossOrigin="anonymous"
         />
+        {/* Zunkiree Search widget — hidden
         <Script
           src="https://zunkiree-search-v1.vercel.app/zunkiree-widget.iife.js"
           data-site-id="admizz"
           data-api-url="https://api.zunkireelabs.com"
           strategy="lazyOnload"
         />
+        */}
       </body>
     </html>
   );
