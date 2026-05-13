@@ -292,7 +292,11 @@
         if (claimBtn) {
             claimBtn.addEventListener('click', function () {
                 closeModal(resultModal);
-                openFormFlow(false);
+                if (isFormSubmitted()) {
+                    window.location.href = THANK_YOU_URL;
+                } else {
+                    openFormFlow(false);
+                }
             });
         }
         if (tryAgainBtn) {
@@ -762,7 +766,17 @@
                 console.error('Demo form submit error:', err);
             }).finally(function () {
                 safeSet(STORAGE_FORM, 'true');
-                showSuccessState();
+                if (isGateFlow) {
+                    // User earned a spin by filling the form — close modal and spin
+                    closeModal(formModal);
+                    spinWheel(function (prize) {
+                        updateCounterChip();
+                        updateSpinButtonState();
+                        showResultModal(prize);
+                    });
+                } else {
+                    showSuccessState();
+                }
             });
         }
 
