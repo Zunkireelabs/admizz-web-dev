@@ -610,6 +610,7 @@
                     first_name: formData.firstName || '',
                     last_name:  formData.lastName  || '',
                     email:      formData.email     || '',
+                    prize:      lastPrize          || '',
                     source:     'website',
                     status:     'new'
                 };
