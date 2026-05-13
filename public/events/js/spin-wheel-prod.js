@@ -10,6 +10,10 @@
     var SOURCE_TAG = 'AdmizzEdu-Spin-And-Win';
     var THANK_YOU_URL = 'https://admizzeducation.com/thank-you/';
 
+    var SB_URL = 'https://ldsgsdjixzsljgkcktqu.supabase.co/rest/v1/spin_win_leads';
+    var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxkc2dzZGppeHpzbGpna2NrdHF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3NTU1NDEsImV4cCI6MjA4NTMzMTU0MX0.855wGImOj-uNFYSqIyXF-Id4B9dO1siQoT2WdQKxusA';
+    var SB_HEADERS = { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' };
+
     var DESTINATION_FLAGS = {
         'UK': '🇬🇧', 'USA': '🇺🇸', 'Australia': '🇦🇺', 'Canada': '🇨🇦',
         'Denmark': '🇩🇰', 'Finland': '🇫🇮', 'Germany': '🇩🇪', 'India': '🇮🇳',
@@ -329,6 +333,7 @@
         var formData = {};
         var currentStep = 0;
         var isGateFlow = false;
+        var supabaseLeadId = null;
 
         var STEPS = [
             { id: 'name',    title: function() { return 'Hi there! 👋 I\'m Pooja. What\'s your name?'; },
@@ -353,6 +358,7 @@
             isGateFlow = !!gateFlow;
             currentStep = 0;
             formData = {};
+            supabaseLeadId = null;
             renderStep();
             openModal(formModal, 'form');
         }
@@ -592,6 +598,47 @@
         }
         function saveConsent() { formData.terms = document.getElementById('sdTerms').checked; }
 
+        // ---- Partial capture to Supabase ----
+        function syncToSupabase(completedStep) {
+            if (completedStep === 1) {
+                // After email step — INSERT partial lead
+                var payload = {
+                    first_name: formData.firstName || '',
+                    last_name:  formData.lastName  || '',
+                    email:      formData.email     || '',
+                    source:     'website',
+                    status:     'new'
+                };
+                fetch(SB_URL, {
+                    method: 'POST',
+                    headers: Object.assign({}, SB_HEADERS, { 'Prefer': 'return=representation' }),
+                    body: JSON.stringify(payload)
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data && data[0] && data[0].id) supabaseLeadId = data[0].id;
+                })
+                .catch(function(err) { console.warn('Supabase partial insert failed:', err); });
+
+            } else if (supabaseLeadId) {
+                // After subsequent steps — UPDATE existing record
+                var update = {};
+                if (completedStep === 2) { update.country = getCountryName(formData.country); update.phone = formData.phone || ''; }
+                if (completedStep === 3) { update.city = formData.city || ''; }
+                if (completedStep === 4) { update.preferred_destination = formData.preferedDestination || ''; }
+                if (completedStep === 5) { update.study_level = formData.studyLevel || ''; }
+                if (completedStep === 6) { update.study_program = formData.studyProgram || ''; }
+
+                if (Object.keys(update).length > 0) {
+                    fetch(SB_URL + '?id=eq.' + supabaseLeadId, {
+                        method: 'PATCH',
+                        headers: Object.assign({}, SB_HEADERS, { 'Prefer': 'return=minimal' }),
+                        body: JSON.stringify(update)
+                    }).catch(function(err) { console.warn('Supabase partial update failed:', err); });
+                }
+            }
+        }
+
         // Navigation
         function goNext() {
             var step = STEPS[currentStep];
@@ -602,8 +649,10 @@
             if (currentStep === STEPS.length - 1) {
                 submitForm();
             } else {
+                var completedStep = currentStep;
                 currentStep += 1;
                 renderStep();
+                syncToSupabase(completedStep);
             }
         }
         function goBack() {
@@ -651,14 +700,11 @@
                 source:                'website',
                 status:                'new'
             };
-            fetch('https://ldsgsdjixzsljgkcktqu.supabase.co/rest/v1/spin_win_leads', {
-                method: 'POST',
-                headers: {
-                    'apikey':        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxkc2dzZGppeHpzbGpna2NrdHF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3NTU1NDEsImV4cCI6MjA4NTMzMTU0MX0.855wGImOj-uNFYSqIyXF-Id4B9dO1siQoT2WdQKxusA',
-                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxkc2dzZGppeHpzbGpna2NrdHF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3NTU1NDEsImV4cCI6MjA4NTMzMTU0MX0.855wGImOj-uNFYSqIyXF-Id4B9dO1siQoT2WdQKxusA',
-                    'Content-Type':  'application/json',
-                    'Prefer':        'return=minimal'
-                },
+            var url    = supabaseLeadId ? SB_URL + '?id=eq.' + supabaseLeadId : SB_URL;
+            var method = supabaseLeadId ? 'PATCH' : 'POST';
+            fetch(url, {
+                method: method,
+                headers: Object.assign({}, SB_HEADERS, { 'Prefer': 'return=minimal' }),
                 body: JSON.stringify(payload)
             }).catch(function (err) {
                 console.warn('Supabase save failed:', err);
