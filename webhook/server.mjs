@@ -40,12 +40,12 @@ loadEnv(join(__dirname, ".env"));
 
 const PORT = parseInt(process.env.PORT || "9090", 10);
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
-const DEPLOY_ENV = process.env.DEPLOY_ENV || "dev";
+const DEPLOY_ENVS = (process.env.DEPLOY_ENV || "dev").split(",").map(e => e.trim()).filter(Boolean);
 const PROJECT_DIR =
   process.env.PROJECT_DIR ||
   resolve(__dirname, "..");
 const LOGS_DIR = join(__dirname, "logs");
-const BUILD_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
+const BUILD_TIMEOUT_MS = 15 * 60 * 1000; // 15 minutes (covers 2 envs)
 
 if (!WEBHOOK_SECRET) {
   console.error("FATAL: WEBHOOK_SECRET is not set. Create webhook/.env");
@@ -96,66 +96,70 @@ function runBuild() {
   pendingBuild = false;
   const startTime = Date.now();
 
-  log("INFO", `Starting deploy.sh ${DEPLOY_ENV} in ${PROJECT_DIR}`);
+  log("INFO", `Starting deploy sequence [${DEPLOY_ENVS.join(", ")}] in ${PROJECT_DIR}`);
 
-  const child = spawn("bash", ["./deploy.sh", DEPLOY_ENV], {
-    cwd: PROJECT_DIR,
-    env: { ...process.env, WEBHOOK_TRIGGERED: "1" },
-    stdio: ["ignore", "pipe", "pipe"],
-  });
+  // Deploy to each env sequentially
+  let envIndex = 0;
 
-  let stdout = "";
-  let stderr = "";
-
-  child.stdout.on("data", (data) => {
-    stdout += data.toString();
-  });
-
-  child.stderr.on("data", (data) => {
-    stderr += data.toString();
-  });
-
-  const timer = setTimeout(() => {
-    log("ERROR", "Build timed out after 10 minutes — killing process");
-    child.kill("SIGTERM");
-    setTimeout(() => {
-      if (!child.killed) child.kill("SIGKILL");
-    }, 5000);
-  }, BUILD_TIMEOUT_MS);
-
-  child.on("close", (code) => {
-    clearTimeout(timer);
-    const duration = ((Date.now() - startTime) / 1000).toFixed(1);
-    building = false;
-
-    if (code === 0) {
-      log("INFO", `Build succeeded in ${duration}s`);
-    } else {
-      log("ERROR", `Build failed (exit ${code}) after ${duration}s`);
-      if (stderr) log("ERROR", `stderr: ${stderr.slice(-500)}`);
+  function deployNext() {
+    if (envIndex >= DEPLOY_ENVS.length) {
+      const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+      log("INFO", `All deployments completed in ${duration}s`);
+      building = false;
+      if (pendingBuild) {
+        log("INFO", "Processing queued rebuild...");
+        runBuild();
+      }
+      return;
     }
 
-    // Log last few lines of output
-    const lastLines = stdout.trim().split("\n").slice(-5).join("\n");
-    if (lastLines) log("INFO", `Build output (last 5 lines):\n${lastLines}`);
+    const env = DEPLOY_ENVS[envIndex++];
+    const envStart = Date.now();
+    log("INFO", `Deploying to ${env}...`);
 
-    // Process queued build
-    if (pendingBuild) {
-      log("INFO", "Processing queued rebuild...");
-      runBuild();
-    }
-  });
+    const child = spawn("bash", ["./deploy.sh", env], {
+      cwd: PROJECT_DIR,
+      env: { ...process.env, WEBHOOK_TRIGGERED: "1" },
+      stdio: ["ignore", "pipe", "pipe"],
+    });
 
-  child.on("error", (err) => {
-    clearTimeout(timer);
-    building = false;
-    log("ERROR", `Failed to spawn build: ${err.message}`);
+    let stdout = "";
+    let stderr = "";
 
-    if (pendingBuild) {
-      log("INFO", "Processing queued rebuild...");
-      runBuild();
-    }
-  });
+    child.stdout.on("data", (data) => { stdout += data.toString(); });
+    child.stderr.on("data", (data) => { stderr += data.toString(); });
+
+    const timer = setTimeout(() => {
+      log("ERROR", `Deploy to ${env} timed out — killing process`);
+      child.kill("SIGTERM");
+      setTimeout(() => { if (!child.killed) child.kill("SIGKILL"); }, 5000);
+    }, BUILD_TIMEOUT_MS);
+
+    child.on("close", (code) => {
+      clearTimeout(timer);
+      const duration = ((Date.now() - envStart) / 1000).toFixed(1);
+
+      if (code === 0) {
+        log("INFO", `Deploy to ${env} succeeded in ${duration}s`);
+      } else {
+        log("ERROR", `Deploy to ${env} failed (exit ${code}) after ${duration}s`);
+        if (stderr) log("ERROR", `stderr: ${stderr.slice(-500)}`);
+      }
+
+      const lastLines = stdout.trim().split("\n").slice(-5).join("\n");
+      if (lastLines) log("INFO", `Build output (last 5 lines):\n${lastLines}`);
+
+      deployNext();
+    });
+
+    child.on("error", (err) => {
+      clearTimeout(timer);
+      log("ERROR", `Failed to spawn deploy to ${env}: ${err.message}`);
+      deployNext();
+    });
+  }
+
+  deployNext();
 }
 
 // ── HMAC signature verification ─────────────────────────────────────────────
@@ -285,7 +289,7 @@ const server = createServer(async (req, res) => {
 server.listen(PORT, () => {
   log("INFO", `Webhook server listening on port ${PORT}`);
   log("INFO", `Project: ${PROJECT_DIR}`);
-  log("INFO", `Deploy env: ${DEPLOY_ENV}`);
+  log("INFO", `Deploy envs: ${DEPLOY_ENVS.join(", ")}`);
 });
 
 // Graceful shutdown
