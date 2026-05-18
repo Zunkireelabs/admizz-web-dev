@@ -381,8 +381,7 @@
             progressEl.innerHTML =
                 '<div class="sd-progress-bar-wrap">' +
                     '<div class="sd-progress-bar-fill" style="width:' + pct + '%"></div>' +
-                '</div>' +
-                '<span class="sd-step-count">Step ' + (currentStep + 1) + ' of ' + STEPS.length + '</span>';
+                '</div>';
         }
 
         function renderStep() {
