@@ -3,11 +3,10 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import { Suspense } from "react";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import ErrorBoundary from "@/components/ErrorBoundary";
+import SiteChrome from "@/components/layout/SiteChrome";
 import ScrollToTop from "@/components/ScrollToTop";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import AffiliateRefCapture from "@/components/AffiliateRefCapture";
 
 const montserrat = localFont({
   src: "../../node_modules/@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2",
@@ -126,6 +125,7 @@ export default function RootLayout({
           }}
         />
         <ScrollToTop />
+        <AffiliateRefCapture />
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>
@@ -135,17 +135,11 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <Header />
-        {/* Spacer for fixed header (70px height) */}
-        <div className="h-[70px]" />
-        <div id="main-content" className="min-h-[80vh]">
-          {children}
-        </div>
-        <ErrorBoundary fallback={<footer className="text-white py-8 text-center text-sm text-white/70" style={{ background: "linear-gradient(135deg, #0a0f5c 0%, #0D1282 40%, #1a3aad 100%)" }}>&copy; {new Date().getFullYear()} Admizz Education. All rights reserved.</footer>}>
-          <div className="cv-auto">
-            <Footer />
+        <SiteChrome>
+          <div id="main-content" className="min-h-[80vh]">
+            {children}
           </div>
-        </ErrorBoundary>
+        </SiteChrome>
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script

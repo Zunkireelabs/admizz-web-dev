@@ -298,10 +298,22 @@ export default function ApplicationForm() {
     if (err) { setError(err); return; }
     setError(null);
     setSubmitting(true);
+    const email = form.email.trim().toLowerCase();
     try {
+      const { data: existing } = await supabase
+        .from("affiliate_leads")
+        .select("id")
+        .eq("email", email)
+        .maybeSingle();
+      if (existing) {
+        setError("You've already applied with this email. We'll be in touch soon.");
+        setSubmitting(false);
+        return;
+      }
+
       const { error: insertError } = await supabase.from("affiliate_leads").insert({
         full_name:        form.fullName.trim(),
-        email:            form.email.trim(),
+        email,
         phone:            `+977${form.phone.trim()}`,
         city:             form.city.trim(),
         organization:     form.organization.trim() || null,
