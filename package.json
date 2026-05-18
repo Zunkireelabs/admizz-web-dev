@@ -17,6 +17,8 @@
     "@portabletext/react": "^6.0.2",
     "@sanity/client": "^7.14.1",
     "@sanity/image-url": "^2.0.3",
+    "@supabase/supabase-js": "^2.105.4",
+    "@types/three": "^0.184.1",
     "complete": "^0.4.4",
     "framer-motion": "^12.38.0",
     "next": "^16.1.6",
@@ -24,7 +26,8 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "sharp": "^0.34.5",
-    "styled-components": "^6.3.9"
+    "styled-components": "^6.3.9",
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@sanity/vision": "^5.8.1",
