@@ -155,6 +155,30 @@ export default function RegisterPage() {
       {/* ===== JOURNEY-SYNCED HERO (donut + form live state-bound) ===== */}
       <RegisterJourneyHero />
 
+      {/* ===== TRUST STRIP ===== */}
+      <section className="bg-white border-b border-[#F0F0F0]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-8">
+            {[
+              { icon: "🎁", bold: "Real Rewards,", text: "Real Students" },
+              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
+              { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
+              { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
+            ].map((item, i, arr) => (
+              <div key={item.bold} className="flex items-center gap-5">
+                <div className="flex items-center gap-2 text-[13px] sm:text-[14px] font-semibold text-[#001353] whitespace-nowrap">
+                  <span className="text-base">{item.icon}</span>
+                  <span><strong>{item.bold}</strong> {item.text}</span>
+                </div>
+                {i < arr.length - 1 && (
+                  <div className="hidden sm:block w-px h-5 bg-[#D0D5E0] flex-shrink-0" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== "WHAT HAPPENS NEXT" — 3-step process panel ===== */}
       <section id="enquiry-form" className="py-12 md:py-16 relative overflow-hidden bg-white">
         <div className="hidden md:block absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full opacity-[0.08] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, #1E6DEB 0%, transparent 70%)" }} />
