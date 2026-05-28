@@ -205,6 +205,10 @@ export default function RegisterPage() {
             from { stroke-dashoffset: 0; }
             to   { stroke-dashoffset: -1000; }
           }
+          @keyframes node-pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50%       { transform: scale(1.5); opacity: 0.5; }
+          }
         `}</style>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 md:mb-10">
@@ -293,40 +297,55 @@ export default function RegisterPage() {
           {/* ── Desktop: horizontal stepper with animated dot track ── */}
           <div className="hidden md:block relative">
 
-            {/* Arched SVG connector — curves over top of cards between each step */}
-            <svg
-              className="absolute inset-x-0 pointer-events-none"
-              style={{ top: 0, height: "1px", overflow: "visible", zIndex: 0 }}
-              viewBox="0 0 1000 1"
-              preserveAspectRatio="none"
-              aria-hidden
-            >
-              <defs>
-                <path
-                  id="arch-path"
-                  d="M 95,0 C 95,-55 295,-55 295,0 C 295,-55 505,-55 505,0 C 505,-55 705,-55 705,0 C 705,-55 905,-55 905,0"
-                />
-                <filter id="dot-glow" x="-100%" y="-100%" width="300%" height="300%">
-                  <feGaussianBlur stdDeviation="3" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
+            {/* Arch connector — dashed line + node dots + 2 traveling dots */}
+            <div className="absolute inset-x-0 pointer-events-none" style={{ top: 0, zIndex: 0 }}>
 
-              {/* Faint arch track */}
-              <use href="#arch-path" fill="none" stroke="rgba(49,66,156,0.15)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+              {/* Node dots at each card top — flex matches card layout */}
+              <div className="absolute inset-x-0 flex gap-4" style={{ top: "-5px" }}>
+                {[0, 1, 2, 3, 4].map(i => (
+                  <div key={i} className="flex-1 flex justify-center">
+                    <div style={{
+                      width: 9, height: 9, borderRadius: "50%",
+                      background: "#31429C",
+                      boxShadow: "0 0 0 3px rgba(49,66,156,0.15), 0 0 8px rgba(49,66,156,0.5)",
+                      animation: "node-pulse 2.5s ease-in-out infinite",
+                      animationDelay: `${i * 0.25}s`,
+                    }} />
+                  </div>
+                ))}
+              </div>
 
-              {/* 3 glowing circle dots travelling the arches */}
-              {[0, 1, 2].map(i => (
-                <circle key={i} r="6" fill="#31429C" filter="url(#dot-glow)">
-                  <animateMotion dur="4s" repeatCount="indefinite" begin={`${-i * 1.33}s`}>
-                    <mpath href="#arch-path" />
-                  </animateMotion>
-                </circle>
-              ))}
-            </svg>
+              {/* SVG dashed arch + 2 traveling dots */}
+              <svg
+                className="absolute inset-x-0"
+                style={{ top: 0, height: "1px", overflow: "visible" }}
+                viewBox="0 0 1000 1"
+                preserveAspectRatio="none"
+                aria-hidden
+              >
+                <defs>
+                  <path id="arch-path" d="M 95,0 C 95,-55 295,-55 295,0 C 295,-55 505,-55 505,0 C 505,-55 705,-55 705,0 C 705,-55 905,-55 905,0" />
+                  <filter id="dot-glow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                {/* Dashed arch track */}
+                <use href="#arch-path" fill="none" stroke="rgba(49,66,156,0.3)"
+                  strokeWidth="1.5" strokeDasharray="6 10" vectorEffect="non-scaling-stroke" />
+                {/* 2 traveling dots — 2s stagger = always on opposite halves */}
+                {[0, 1].map(i => (
+                  <circle key={i} r="5" fill="#31429C" filter="url(#dot-glow)">
+                    <animateMotion dur="4s" repeatCount="indefinite" begin={`${-i * 2}s`}>
+                      <mpath href="#arch-path" />
+                    </animateMotion>
+                  </circle>
+                ))}
+              </svg>
+            </div>
 
             {/* Cards — no gap, cards sit flush with track visible between */}
             <div className="flex items-stretch gap-4 relative" style={{ zIndex: 1 }}>
