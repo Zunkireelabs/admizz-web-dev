@@ -412,18 +412,19 @@ function Step1({ form, set, theme }: { form: FormData; set: (p: Partial<FormData
 }
 
 const STEP2_HEADINGS = [
-  { title: () => "Where do you want to study?", subtitle: "Pick your destination" },
-  { title: () => "What do you want to study?",  subtitle: "Choose your field of study."  },
+  { greeting: (name: string) => name ? `Hello ${name},` : "Hello,", title: "where do you want to study?", subtitle: "Pick your destination" },
+  { greeting: (name: string) => name ? `And ${name},` : "And,",    title: "what do you want to study?", subtitle: "" },
 ];
 
 function Step2({
-  form, set, theme, subStep, setSubStep,
+  form, set, theme, subStep, setSubStep, firstName,
 }: {
   form: FormData;
   set: (p: Partial<FormData>) => void;
   theme: StepTheme;
   subStep: number;
   setSubStep: React.Dispatch<React.SetStateAction<number>>;
+  firstName: string;
 }) {
   const heading = STEP2_HEADINGS[subStep];
 
@@ -442,16 +443,24 @@ function Step2({
       </div>
 
       <div className="mb-5">
-        <motion.h3
+        <motion.div
           key={subStep}
           initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[20px] md:text-[22px] font-bold mb-1"
-          style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}
         >
-          {heading.title()}
-        </motion.h3>
-        <p className="text-[13px]" style={{ color: "#5C7189" }}>{heading.subtitle}</p>
+          <p className="text-[15px] font-semibold mb-0.5" style={{ color: "#5C7189" }}>
+            {heading.greeting(firstName)}
+          </p>
+          <h3
+            className="text-[20px] md:text-[22px] font-bold mb-1"
+            style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}
+          >
+            {heading.title}
+          </h3>
+        </motion.div>
+        {heading.subtitle && (
+          <p className="text-[13px]" style={{ color: "#5C7189" }}>{heading.subtitle}</p>
+        )}
       </div>
 
       <AnimatePresence mode="wait">
@@ -669,7 +678,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           >
             {step === 0 && <Step1 form={form} set={set} theme={theme} />}
-            {step === 1 && <Step2 form={form} set={set} theme={theme} subStep={step2SubStep} setSubStep={setStep2SubStep} />}
+            {step === 1 && <Step2 form={form} set={set} theme={theme} subStep={step2SubStep} setSubStep={setStep2SubStep} firstName={firstName} />}
             {step === 2 && <Step3 form={form} set={set} firstName={firstName} theme={theme} />}
           </motion.div>
         </AnimatePresence>
