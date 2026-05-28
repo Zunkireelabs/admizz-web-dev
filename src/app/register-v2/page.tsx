@@ -201,6 +201,10 @@ export default function RegisterPage() {
             from { opacity: 0; transform: translateY(8px); }
             to   { opacity: 1; transform: translateY(0); }
           }
+          @keyframes arch-dot {
+            from { stroke-dashoffset: 0; }
+            to   { stroke-dashoffset: -1000; }
+          }
         `}</style>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 md:mb-10">
@@ -289,33 +293,42 @@ export default function RegisterPage() {
           {/* ── Desktop: horizontal stepper with animated dot track ── */}
           <div className="hidden md:block relative">
 
-            {/* Animated dot track — sits behind cards at icon height */}
-            <div
-              className="absolute inset-x-0 overflow-hidden pointer-events-none"
-              style={{ top: "37px", height: "2px", zIndex: 0 }}
+            {/* Arched SVG connector — curves over top of cards between each step */}
+            <svg
+              className="absolute inset-x-0 pointer-events-none"
+              style={{ top: 0, height: "1px", overflow: "visible", zIndex: 0 }}
+              viewBox="0 0 1000 1"
+              preserveAspectRatio="none"
+              aria-hidden
             >
-              {/* Track line */}
-              <div className="absolute inset-0" style={{ background: "rgba(49,66,156,0.12)" }} />
-              {/* Moving dots */}
-              {[0, 1, 2, 3].map(i => (
-                <div
+              {/* Faint arch track */}
+              <path
+                d="M 95,0 C 95,-52 295,-52 295,0 C 295,-52 505,-52 505,0 C 505,-52 705,-52 705,0 C 705,-52 905,-52 905,0"
+                fill="none"
+                stroke="rgba(49,66,156,0.18)"
+                strokeWidth="1.5"
+                vectorEffect="non-scaling-stroke"
+              />
+              {/* 3 animated dots travelling the arches */}
+              {[0, 1, 2].map(i => (
+                <path
                   key={i}
-                  className="absolute"
+                  d="M 95,0 C 95,-52 295,-52 295,0 C 295,-52 505,-52 505,0 C 505,-52 705,-52 705,0 C 705,-52 905,-52 905,0"
+                  fill="none"
+                  stroke="#31429C"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  pathLength="1000"
+                  strokeDasharray="12 988"
+                  vectorEffect="non-scaling-stroke"
                   style={{
-                    top: "50%",
-                    width: 8,
-                    height: 8,
-                    borderRadius: "50%",
-                    background: "#31429C",
-                    boxShadow: "0 0 6px rgba(49,66,156,0.6)",
-                    transform: "translateY(-50%)",
-                    animation: `journey-dot 3.6s linear infinite`,
-                    animationDelay: `${i * 0.9}s`,
-                    opacity: 0,
+                    animation: "arch-dot 4s linear infinite",
+                    animationDelay: `${-i * 1.33}s`,
+                    filter: "drop-shadow(0 0 4px rgba(49,66,156,0.7))",
                   }}
                 />
               ))}
-            </div>
+            </svg>
 
             {/* Cards — no gap, cards sit flush with track visible between */}
             <div className="flex items-stretch gap-4 relative" style={{ zIndex: 1 }}>
