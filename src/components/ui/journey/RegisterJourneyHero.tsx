@@ -85,105 +85,19 @@ export default function RegisterJourneyHero() {
     <section
       className="relative py-10 md:py-12"
       style={{
-        background:
-          "linear-gradient(135deg, #030C25 0%, #051535 35%, #071A45 65%, #060F38 100%)",
+        background: "linear-gradient(135deg, #001353 0%, #0066cc 100%)",
       }}
     >
-      {/* Keyframes for aurora drift + badge pulse */}
+      {/* Keyframes */}
       <style>{`
-        @keyframes rjhA {
-          0%,100% { transform: translate(0,0) scale(1); }
-          33%      { transform: translate(-38px,-48px) scale(1.07); }
-          66%      { transform: translate(20px,-24px) scale(0.96); }
-        }
-        @keyframes rjhB {
-          0%,100% { transform: translate(0,0) scale(1); }
-          33%      { transform: translate(30px,-38px) scale(1.05); }
-          66%      { transform: translate(-20px,26px) scale(1.08); }
-        }
-        @keyframes rjhC {
-          0%,100% { transform: translate(0,0) scale(1); }
-          50%      { transform: translate(-24px,36px) scale(1.06); }
-        }
-        @keyframes rjhD {
-          0%,100% { transform: translate(0,0) scale(1); }
-          50%      { transform: translate(36px,-20px) scale(0.95); }
-        }
-        @keyframes rjhPulse {
-          0%,100% { opacity: 1; transform: scale(1); }
-          50%      { opacity: 0.4; transform: scale(1.5); }
-        }
         @keyframes rjhFadeUp {
           from { opacity: 0; transform: translateY(16px); }
           to   { opacity: 1; transform: translateY(0); }
         }
       `}</style>
 
-      {/* Background layers — clipped independently so content is never cut */}
+      {/* Subtle dot grid overlay */}
       <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Aurora blob 1 — electric royal blue, top-right */}
-        <div
-          className="absolute -top-36 -right-28 w-[620px] h-[620px] rounded-full"
-          style={{
-            background: "radial-gradient(circle, #1E6DEB 0%, #0044CC 45%, transparent 70%)",
-            filter: "blur(130px)",
-            opacity: 0.55,
-            animation: "rjhB 40s ease-in-out infinite",
-            willChange: "transform",
-          }}
-        />
-        {/* Aurora blob 2 — warm amber/gold, top-left */}
-        <div
-          className="absolute -top-48 -left-48 w-[560px] h-[560px] rounded-full"
-          style={{
-            background: "radial-gradient(circle, #FCB730 0%, #E07800 50%, transparent 70%)",
-            filter: "blur(150px)",
-            opacity: 0.28,
-            animation: "rjhA 34s ease-in-out infinite",
-            willChange: "transform",
-          }}
-        />
-        {/* Aurora blob 3 — deep indigo/violet, bottom-center-left */}
-        <div
-          className="absolute -bottom-52 left-1/4 w-[680px] h-[680px] rounded-full"
-          style={{
-            background: "radial-gradient(circle, #6366F1 0%, #4338CA 50%, transparent 70%)",
-            filter: "blur(180px)",
-            opacity: 0.38,
-            animation: "rjhC 46s ease-in-out infinite",
-            willChange: "transform",
-          }}
-        />
-        {/* Aurora blob 4 — teal/cyan, bottom-right */}
-        <div
-          className="absolute -bottom-40 -right-36 w-[500px] h-[500px] rounded-full"
-          style={{
-            background: "radial-gradient(circle, #22D3EE 0%, #0891B2 48%, transparent 70%)",
-            filter: "blur(155px)",
-            opacity: 0.25,
-            animation: "rjhD 38s ease-in-out infinite",
-            willChange: "transform",
-          }}
-        />
-        {/* Central luminous spotlight */}
-        <div
-          className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full"
-          style={{
-            background: "radial-gradient(circle, rgba(80,140,255,0.22) 0%, rgba(40,90,220,0.12) 38%, transparent 68%)",
-            filter: "blur(60px)",
-          }}
-        />
-        {/* Grain texture */}
-        <svg
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.032 }}
-        >
-          <filter id="rjh-grain">
-            <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch" />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#rjh-grain)" />
-        </svg>
-        {/* Dot grid */}
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -201,28 +115,6 @@ export default function RegisterJourneyHero() {
             className="text-center lg:text-left lg:flex-1 mb-8 lg:mb-0 px-4 sm:px-0"
             style={{ animation: "rjhFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) both" }}
           >
-            {/* Badge — live pulse dot + sharper contrast */}
-            <span
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.16em] mb-5"
-              style={{
-                background: "rgba(100,160,255,0.12)",
-                color: "#B8D8FF",
-                border: "1px solid rgba(100,160,255,0.40)",
-                boxShadow: "0 0 0 1px rgba(100,160,255,0.08) inset",
-                letterSpacing: "0.16em",
-              }}
-            >
-              {/* Animated live dot */}
-              <span className="relative flex-shrink-0 w-1.5 h-1.5">
-                <span
-                  className="absolute inset-0 rounded-full"
-                  style={{ background: "#60AEFF", animation: "rjhPulse 2.2s ease-in-out infinite" }}
-                />
-                <span className="absolute inset-0 rounded-full" style={{ background: "#93BFFF" }} />
-              </span>
-              {submitted ? "Step 1 of 5 · Complete" : "Your journey · Step 1 of 5"}
-            </span>
-
             {/* Heading — gradient accent on the last word */}
             <h1
               className="font-bold leading-[1.05] tracking-[-0.02em] mb-4"
