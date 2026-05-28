@@ -126,7 +126,7 @@ export default function RegisterJourneyHero() {
               }}
             >
               <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#4ade80" }} />
-              {submitted ? "Step 1 of 5 · Complete" : "Your Journey · Step 1 of 5"}
+              {submitted ? "Your Journey · Complete" : "Your Journey"}
             </span>
 
             {/* Heading — gradient accent on the last word */}
