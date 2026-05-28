@@ -311,12 +311,10 @@ function ChipPicker({
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               className={`rounded-full text-[13px] font-semibold flex items-center gap-1.5 transition-all duration-200 ${grid ? "px-3 py-1.5 justify-center" : "px-4 py-2"}`}
               style={{
-                background: selected
-                  ? `linear-gradient(135deg, ${theme.accent}, ${theme.deep})`
-                  : "#FFFFFF",
-                color: selected ? "#FFFFFF" : "#374151",
-                border: `1.5px solid ${selected ? "transparent" : "#E0E6F2"}`,
-                boxShadow: selected ? `0 4px 14px ${theme.shadow}` : "0 1px 3px rgba(0,0,0,0.06)",
+                background: selected ? "#FDED22" : "#FFFFFF",
+                color: selected ? "#001353" : "#374151",
+                border: `1.5px solid ${selected ? "#FDED22" : "#E0E6F2"}`,
+                boxShadow: selected ? "0 4px 14px rgba(253,237,34,0.45)" : "0 1px 3px rgba(0,0,0,0.06)",
               }}
             >
               <AnimatePresence>
@@ -324,7 +322,7 @@ function ChipPicker({
                   <motion.svg key="chip-check"
                     initial={{ opacity: 0, width: 0 }} animate={{ opacity: 1, width: 13 }} exit={{ opacity: 0, width: 0 }}
                     transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"
+                    viewBox="0 0 24 24" fill="none" stroke="#001353" strokeWidth="3"
                     strokeLinecap="round" strokeLinejoin="round"
                     style={{ height: 13, flexShrink: 0 }}
                   >
