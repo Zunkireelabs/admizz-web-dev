@@ -1,26 +1,26 @@
 "use client";
 
-import type { MockAffiliate, MockApplication, MockReferral } from "@/data/affiliate/mockData";
+import type { Affiliate, AffiliateApplication, AffiliateReferral } from "@/lib/affiliate/types";
 
 interface Props {
-  affiliates: MockAffiliate[];
-  applications: MockApplication[];
-  referrals: MockReferral[];
+  affiliates: Affiliate[];
+  applications: AffiliateApplication[];
+  referrals: AffiliateReferral[];
 }
 
 export default function OverviewStats({ affiliates, applications, referrals }: Props) {
   const totalAffiliates = affiliates.filter(a => a.status === "active").length;
-  const pendingApps = applications.filter(a => a.status === "pending").length;
+  const pendingApps = applications.filter(a => a.status === "new").length;
   const totalReferrals = referrals.length;
   const commissionsOwed = referrals
     .filter(r => r.status === "converted")
     .reduce((sum, r) => sum + r.commission, 0);
 
   const stats = [
-    { label: "Active Affiliates",    value: String(totalAffiliates),                   sub: "enrolled",       highlight: false },
+    { label: "Active Affiliates",    value: String(totalAffiliates),                   sub: "enrolled",        highlight: false },
     { label: "Pending Applications", value: String(pendingApps),                       sub: "awaiting review", highlight: pendingApps > 0 },
-    { label: "Total Referrals",      value: String(totalReferrals),                    sub: "all time",       highlight: false },
-    { label: "Commissions Owed",     value: `NPR ${commissionsOwed.toLocaleString()}`, sub: "unpaid",         highlight: true  },
+    { label: "Total Referrals",      value: String(totalReferrals),                    sub: "all time",        highlight: false },
+    { label: "Commissions Owed",     value: `NPR ${commissionsOwed.toLocaleString()}`, sub: "unpaid",          highlight: true  },
   ];
 
   return (
@@ -40,10 +40,7 @@ export default function OverviewStats({ affiliates, applications, referrals }: P
             style={{ background: s.highlight ? "#FCB730" : "rgba(252,183,48,0.35)" }}
           />
           <span className="text-2xl font-extrabold text-white tracking-tight">{s.value}</span>
-          <span
-            className="text-[11px] font-bold uppercase tracking-widest mt-0.5"
-            style={{ color: "rgba(255,255,255,0.45)" }}
-          >
+          <span className="text-[11px] font-bold uppercase tracking-widest mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>
             {s.label}
           </span>
           <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.25)" }}>{s.sub}</span>

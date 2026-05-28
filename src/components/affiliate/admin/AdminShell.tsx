@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { MockAffiliate, MockApplication, MockReferral } from "@/data/affiliate/mockData";
+import type { Affiliate, AffiliateApplication, AffiliateReferral } from "@/lib/affiliate/types";
 import OverviewStats from "./OverviewStats";
 import ApplicationsTab from "./ApplicationsTab";
 import AffiliatesTab from "./AffiliatesTab";
@@ -11,26 +11,26 @@ import PayoutsTab from "./PayoutsTab";
 type Tab = "applications" | "affiliates" | "referrals" | "payouts";
 
 interface Props {
-  affiliates: MockAffiliate[];
-  applications: MockApplication[];
-  referrals: MockReferral[];
+  affiliates: Affiliate[];
+  applications: AffiliateApplication[];
+  referrals: AffiliateReferral[];
   onLogout: () => void;
+  onRefresh: () => Promise<void>;
 }
 
-export default function AdminShell({ affiliates, applications, referrals, onLogout }: Props) {
+export default function AdminShell({ affiliates, applications, referrals, onLogout, onRefresh }: Props) {
   const [tab, setTab] = useState<Tab>("applications");
-  const pendingCount = applications.filter(a => a.status === "pending").length;
+  const pendingCount = applications.filter(a => a.status === "new").length;
 
   const tabs: { key: Tab; label: string; badge?: number }[] = [
     { key: "applications", label: "Applications", badge: pendingCount },
-    { key: "affiliates", label: "Affiliates" },
-    { key: "referrals", label: "Referrals" },
-    { key: "payouts", label: "Payouts" },
+    { key: "affiliates",   label: "Affiliates" },
+    { key: "referrals",    label: "Referrals" },
+    { key: "payouts",      label: "Payouts" },
   ];
 
   return (
     <div style={{ background: "#020818", minHeight: "100vh" }}>
-      {/* Top bar */}
       <div
         className="sticky top-0 z-40 px-4 sm:px-6 flex items-center justify-between"
         style={{
@@ -51,21 +51,31 @@ export default function AdminShell({ affiliates, applications, referrals, onLogo
             <p className="text-[11px] mt-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>Affiliate Program Management</p>
           </div>
         </div>
-        <button
-          onClick={onLogout}
-          className="text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
-          style={{ color: "rgba(255,255,255,0.5)", border: "1px solid rgba(255,255,255,0.1)" }}
-          onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; }}
-          onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
-        >
-          Sign out
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={onRefresh}
+            className="text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
+            style={{ color: "rgba(255,255,255,0.5)", border: "1px solid rgba(255,255,255,0.1)" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
+          >
+            ↻ Refresh
+          </button>
+          <button
+            onClick={onLogout}
+            className="text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
+            style={{ color: "rgba(255,255,255,0.5)", border: "1px solid rgba(255,255,255,0.1)" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
+          >
+            Sign out
+          </button>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         <OverviewStats affiliates={affiliates} applications={applications} referrals={referrals} />
 
-        {/* Tabs */}
         <div
           className="flex flex-wrap gap-2 mb-7 p-1.5 rounded-2xl w-fit"
           style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
@@ -96,11 +106,10 @@ export default function AdminShell({ affiliates, applications, referrals, onLogo
           ))}
         </div>
 
-        {/* Tab content */}
-        {tab === "applications" && <ApplicationsTab initialApplications={applications} />}
-        {tab === "affiliates" && <AffiliatesTab affiliates={affiliates} />}
-        {tab === "referrals" && <ReferralsTab referrals={referrals} />}
-        {tab === "payouts" && <PayoutsTab referrals={referrals} />}
+        {tab === "applications" && <ApplicationsTab initialApplications={applications} onRefresh={onRefresh} />}
+        {tab === "affiliates"   && <AffiliatesTab affiliates={affiliates} onRefresh={onRefresh} />}
+        {tab === "referrals"    && <ReferralsTab referrals={referrals} affiliates={affiliates} onRefresh={onRefresh} />}
+        {tab === "payouts"      && <PayoutsTab referrals={referrals} affiliates={affiliates} onRefresh={onRefresh} />}
       </div>
     </div>
   );

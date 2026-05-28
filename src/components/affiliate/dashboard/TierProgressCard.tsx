@@ -1,7 +1,7 @@
 "use client";
 
-import type { MockAffiliate } from "@/data/affiliate/mockData";
-import { getNextTierInfo, getTierThresholds } from "@/lib/affiliate/api";
+import type { Affiliate } from "@/lib/affiliate/types";
+import { getNextTierInfo } from "@/lib/affiliate/api";
 
 const TIER_COLORS: Record<string, string> = {
   "Starter":       "#94a3b8",
@@ -10,103 +10,84 @@ const TIER_COLORS: Record<string, string> = {
   "Admizz Legend": "#FDED22",
 };
 
+const TIER_PERKS: Record<string, string[]> = {
+  "Starter":       ["Base commission", "Affiliate kit", "Certificate", "Community access"],
+  "Rising Star":   ["Higher commission", "Priority support", "Newsletter feature"],
+  "Elite Partner": ["Premium commission", "Branded swag", "University fair invites", "Social co-features"],
+  "Admizz Legend": ["Top-tier commission", "Monthly co-marketing", "Direct leadership access", "Annual recognition"],
+};
+
 interface Props {
-  affiliate: MockAffiliate;
+  affiliate: Affiliate;
 }
 
 export default function TierProgressCard({ affiliate }: Props) {
-  const info = getNextTierInfo(affiliate.referralCount);
-  const thresholds = getTierThresholds();
-  const color = TIER_COLORS[info.currentTier] ?? "#FCB730";
-  const currentIdx = thresholds.findIndex(t => t.tier === info.currentTier);
+  const { currentTier, nextTier, progressPercent, remaining } = getNextTierInfo(affiliate.total_referrals);
+  const color = TIER_COLORS[currentTier] ?? "#FCB730";
+  const perks = TIER_PERKS[currentTier] ?? [];
 
   return (
     <div
-      className="rounded-[12px] px-5 py-5 flex flex-col gap-4"
-      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+      className="rounded-2xl p-6 flex flex-col gap-5"
+      style={{
+        background: "rgba(13,25,80,0.6)",
+        border: "1px solid rgba(255,255,255,0.07)",
+        boxShadow: "0 2px 16px rgba(0,0,0,0.3)",
+      }}
     >
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.45)" }}>
-          Your Tier
-        </span>
-        <span
-          className="text-xs font-extrabold px-3 py-1 rounded-full"
-          style={{ background: color + "22", color, border: `1px solid ${color}55` }}
-        >
-          {info.currentTier}
-        </span>
-      </div>
-
-      {/* Tier milestone steps */}
-      <div className="relative">
-        <div className="flex items-center justify-between relative">
-          {/* Track line */}
-          <div className="absolute top-3 left-0 right-0 h-[2px]" style={{ background: "rgba(255,255,255,0.08)" }} />
-          <div
-            className="absolute top-3 left-0 h-[2px] transition-all duration-1000"
-            style={{
-              width: `${(currentIdx / (thresholds.length - 1)) * 100}%`,
-              background: "linear-gradient(90deg, #FCB730, #FDED22)",
-            }}
-          />
-
-          {thresholds.map((t, i) => {
-            const isReached = i <= currentIdx;
-            const isCurrent = i === currentIdx;
-            const tc = TIER_COLORS[t.tier] ?? "#6b7280";
-            return (
-              <div key={t.tier} className="relative flex flex-col items-center gap-1.5 z-10">
-                <div
-                  className="w-6 h-6 rounded-full flex items-center justify-center transition-all duration-500"
-                  style={{
-                    background: isReached ? tc : "rgba(255,255,255,0.08)",
-                    border: isCurrent ? `2px solid ${tc}` : "2px solid transparent",
-                    boxShadow: isCurrent ? `0 0 10px ${tc}66` : "none",
-                  }}
-                >
-                  {isReached && (
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 5l2.5 2.5L8 3" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  )}
-                </div>
-                <span
-                  className="text-[9px] font-bold text-center leading-tight whitespace-nowrap"
-                  style={{ color: isReached ? tc : "rgba(255,255,255,0.3)", maxWidth: 56 }}
-                >
-                  {t.tier.split(" ")[0]}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Progress bar */}
-      {info.nextTier ? (
+      <div className="flex items-start justify-between">
         <div>
-          <div className="flex justify-between text-xs mb-1.5" style={{ color: "rgba(255,255,255,0.4)" }}>
-            <span>{affiliate.referralCount} referrals</span>
-            <span style={{ color: TIER_COLORS[info.nextTier] ?? "#fff" }}>
-              {info.remaining} more → {info.nextTier.split(" ")[0]}
+          <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.4)" }}>
+            Your Tier
+          </p>
+          <p className="text-xl font-extrabold" style={{ color }}>{currentTier}</p>
+        </div>
+        <span
+          className="text-xs font-bold px-3 py-1.5 rounded-full"
+          style={{ background: color + "18", color, border: `1px solid ${color}40` }}
+        >
+          {affiliate.total_referrals} referral{affiliate.total_referrals !== 1 ? "s" : ""}
+        </span>
+      </div>
+
+      {nextTier ? (
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>
+              Progress to <span style={{ color: TIER_COLORS[nextTier] ?? "#fff" }}>{nextTier}</span>
+            </span>
+            <span className="text-xs font-bold" style={{ color: "rgba(255,255,255,0.6)" }}>
+              {remaining} more to go
             </span>
           </div>
-          <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.07)" }}>
+          <div className="h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
             <div
-              className="h-full rounded-full transition-all duration-1000"
-              style={{
-                width: `${info.progressPercent}%`,
-                background: "linear-gradient(90deg, #FCB730, #FDED22)",
-                boxShadow: "0 0 8px rgba(252,183,48,0.5)",
-              }}
+              className="h-full rounded-full transition-all duration-700"
+              style={{ width: `${progressPercent}%`, background: `linear-gradient(90deg, ${color}, ${TIER_COLORS[nextTier] ?? color})` }}
             />
           </div>
+          <p className="text-xs mt-2" style={{ color: "rgba(255,255,255,0.3)" }}>
+            {progressPercent}% of the way there
+          </p>
         </div>
       ) : (
-        <p className="text-sm font-bold" style={{ color: "#FCB730" }}>
-          Top tier — Admizz Legend
+        <p className="text-sm font-semibold" style={{ color: "#FDED22" }}>
+          🏆 You&apos;ve reached the highest tier!
         </p>
       )}
+
+      <div>
+        <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.35)" }}>
+          Your perks
+        </p>
+        <ul className="space-y-1.5">
+          {perks.map(perk => (
+            <li key={perk} className="flex items-center gap-2 text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
+              <span style={{ color }}>✓</span> {perk}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { MockAffiliate, MockApplication, MockReferral } from "@/data/affiliate/mockData";
 import { getAllAffiliates, getAllApplications, getAllReferrals } from "@/lib/affiliate/api";
+import type { Affiliate, AffiliateApplication, AffiliateReferral } from "@/lib/affiliate/types";
 import AdminLogin from "@/components/affiliate/admin/AdminLogin";
 import AdminShell from "@/components/affiliate/admin/AdminShell";
 
@@ -11,9 +11,9 @@ const SESSION_KEY = "admizz_admin_session";
 export default function AffiliateAdminPage() {
   const [authed, setAuthed] = useState(false);
   const [hydrated, setHydrated] = useState(false);
-  const [affiliates, setAffiliates] = useState<MockAffiliate[]>([]);
-  const [applications, setApplications] = useState<MockApplication[]>([]);
-  const [referrals, setReferrals] = useState<MockReferral[]>([]);
+  const [affiliates, setAffiliates] = useState<Affiliate[]>([]);
+  const [applications, setApplications] = useState<AffiliateApplication[]>([]);
+  const [referrals, setReferrals] = useState<AffiliateReferral[]>([]);
 
   useEffect(() => {
     try {
@@ -42,6 +42,17 @@ export default function AffiliateAdminPage() {
     setAuthed(false);
   };
 
+  const refreshData = async () => {
+    const [affs, apps, refs] = await Promise.all([
+      getAllAffiliates(),
+      getAllApplications(),
+      getAllReferrals(),
+    ]);
+    setAffiliates(affs);
+    setApplications(apps);
+    setReferrals(refs);
+  };
+
   if (!hydrated) return null;
   if (!authed) return <AdminLogin onLogin={handleLogin} />;
 
@@ -51,6 +62,7 @@ export default function AffiliateAdminPage() {
       applications={applications}
       referrals={referrals}
       onLogout={handleLogout}
+      onRefresh={refreshData}
     />
   );
 }

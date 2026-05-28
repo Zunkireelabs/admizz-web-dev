@@ -1,7 +1,6 @@
 "use client";
 
-import type { MockAffiliate, MockReferral } from "@/data/affiliate/mockData";
-import type { LeaderboardEntry } from "@/lib/affiliate/api";
+import type { Affiliate, AffiliateReferral, LeaderboardEntry } from "@/lib/affiliate/types";
 import StatsRow from "./StatsRow";
 import TierProgressCard from "./TierProgressCard";
 import ReferralLinkBox from "./ReferralLinkBox";
@@ -18,20 +17,19 @@ const TIER_COLORS: Record<string, string> = {
 };
 
 interface Props {
-  affiliate: MockAffiliate;
-  referrals: MockReferral[];
+  affiliate: Affiliate;
+  referrals: AffiliateReferral[];
   leaderboard: LeaderboardEntry[];
   onLogout: () => void;
 }
 
 export default function DashboardShell({ affiliate, referrals, leaderboard, onLogout }: Props) {
-  const firstName = affiliate.fullName.split(" ")[0];
+  const firstName = affiliate.full_name.split(" ")[0];
   const tierColor = TIER_COLORS[affiliate.tier] ?? "#FCB730";
-  const myRank = leaderboard.find(e => e.affiliateId === affiliate.id)?.rank ?? 0;
+  const myRank = leaderboard.find(e => e.affiliate_id === affiliate.id)?.rank ?? 0;
 
   return (
     <div style={{ background: "#020818", minHeight: "100vh" }}>
-      {/* Top bar */}
       <div
         className="sticky top-0 z-40 px-4 sm:px-6 flex items-center justify-between"
         style={{
@@ -84,30 +82,21 @@ export default function DashboardShell({ affiliate, referrals, leaderboard, onLo
         </div>
       </div>
 
-      {/* Main content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-6">
-
-        {/* Stats */}
         <StatsRow affiliate={affiliate} rank={myRank} />
 
-        {/* Row: Tier Progress + Referral Link */}
         <div className="grid grid-cols-1 tablet:grid-cols-2 gap-5">
           <TierProgressCard affiliate={affiliate} />
           <ReferralLinkBox affiliate={affiliate} />
         </div>
 
-        {/* Performance chart */}
-        <PerformanceChart affiliate={affiliate} />
-
-        {/* Referral table */}
+        <PerformanceChart referrals={referrals} />
         <ReferralTable referrals={referrals} />
 
-        {/* Row: Leaderboard + Resources */}
         <div className="grid grid-cols-1 tablet:grid-cols-2 gap-5">
           <LeaderboardCard leaderboard={leaderboard} currentAffiliateId={affiliate.id} />
           <ResourcesQuickAccess />
         </div>
-
       </div>
     </div>
   );

@@ -311,6 +311,18 @@ export default function ApplicationForm() {
         return;
       }
 
+      // Read referral attribution cookie (first-touch)
+      let affiliateCode: string | null = null;
+      try {
+        const raw = localStorage.getItem("admizz_ref");
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed?.code && Date.now() < parsed.expiresAt) {
+            affiliateCode = parsed.code;
+          }
+        }
+      } catch { /* ignore */ }
+
       const { error: insertError } = await supabase.from("affiliate_leads").insert({
         full_name:        form.fullName.trim(),
         email,
@@ -325,6 +337,7 @@ export default function ApplicationForm() {
         motivation:       form.motivation.trim(),
         status:           "new",
         source:           "website",
+        affiliate_code:   affiliateCode,
       });
       if (insertError) throw insertError;
       setDone(true);

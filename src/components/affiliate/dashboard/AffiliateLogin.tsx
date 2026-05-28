@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import type { MockAffiliate } from "@/data/affiliate/mockData";
-import { getAffiliateByCredentials } from "@/lib/affiliate/api";
 
 interface Props {
-  onLogin: (affiliate: MockAffiliate) => void;
+  onLogin: (email: string, code: string) => Promise<boolean>;
 }
 
 export default function AffiliateLogin({ onLogin }: Props) {
@@ -18,25 +16,16 @@ export default function AffiliateLogin({ onLogin }: Props) {
     e.preventDefault();
     setError("");
     setLoading(true);
-    const affiliate = await getAffiliateByCredentials(email, code);
+    const ok = await onLogin(email.trim(), code.trim().toUpperCase());
     setLoading(false);
-    if (!affiliate) {
+    if (!ok) {
       setError("Invalid email or referral code. Check your approval email.");
-      return;
     }
-    try {
-      localStorage.setItem("admizz_affiliate_session", JSON.stringify(affiliate));
-    } catch { /* ignore */ }
-    onLogin(affiliate);
   };
 
   return (
-    <div
-      className="min-h-screen flex flex-col items-center justify-center px-4"
-      style={{ background: "#020818" }}
-    >
+    <div className="min-h-screen flex flex-col items-center justify-center px-4" style={{ background: "#020818" }}>
       <div className="w-full max-w-sm">
-        {/* Logo */}
         <div className="text-center mb-8">
           <a href="/affiliate-program" className="inline-block mb-6">
             <img
@@ -57,7 +46,6 @@ export default function AffiliateLogin({ onLogin }: Props) {
           </p>
         </div>
 
-        {/* Card */}
         <form
           onSubmit={handleSubmit}
           className="rounded-2xl p-6 space-y-4"
@@ -92,7 +80,7 @@ export default function AffiliateLogin({ onLogin }: Props) {
               type="text"
               value={code}
               onChange={e => setCode(e.target.value.toUpperCase())}
-              placeholder="e.g. ROHAN2026"
+              placeholder="e.g. FIRSTNAME2026"
               required
               className="w-full px-4 py-3 rounded-xl text-sm font-mono font-bold outline-none tracking-widest"
               style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "#FCB730" }}
@@ -113,38 +101,9 @@ export default function AffiliateLogin({ onLogin }: Props) {
             className="w-full py-3.5 rounded-[10px] text-sm font-extrabold text-black transition-all duration-200"
             style={{ background: loading ? "rgba(253,237,34,0.6)" : "#FDED22" }}
           >
-            {loading ? "Checking..." : "Access My Dashboard →"}
+            {loading ? "Checking…" : "Access My Dashboard →"}
           </button>
         </form>
-
-        {/* Demo credentials */}
-        <details className="mt-4 rounded-xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
-          <summary
-            className="px-4 py-3 text-xs font-semibold cursor-pointer select-none"
-            style={{ color: "rgba(255,255,255,0.4)", background: "rgba(255,255,255,0.03)" }}
-          >
-            Demo credentials ▾
-          </summary>
-          <div className="px-4 py-3 space-y-1.5" style={{ background: "rgba(255,255,255,0.02)" }}>
-            {[
-              { email: "rohan@demo.com", code: "ROHAN2026", tier: "Elite Partner" },
-              { email: "priya@demo.com", code: "PRIYA2026", tier: "Rising Star" },
-              { email: "sunita@demo.com", code: "SUNITA2026", tier: "Starter" },
-            ].map(d => (
-              <button
-                key={d.code}
-                type="button"
-                onClick={() => { setEmail(d.email); setCode(d.code); setError(""); }}
-                className="w-full text-left px-3 py-2 rounded-lg text-xs transition-all duration-150"
-                style={{ background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.6)" }}
-              >
-                <span className="font-mono text-yellow-300">{d.code}</span>
-                <span className="ml-2">{d.email}</span>
-                <span className="ml-1 opacity-50">— {d.tier}</span>
-              </button>
-            ))}
-          </div>
-        </details>
 
         <p className="text-center mt-5 text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
           Don&apos;t have a code?{" "}

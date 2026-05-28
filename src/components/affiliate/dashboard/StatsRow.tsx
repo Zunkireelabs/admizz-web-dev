@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { MockAffiliate } from "@/data/affiliate/mockData";
+import type { Affiliate } from "@/lib/affiliate/types";
 
 function useCountUp(target: number, duration = 1100) {
   const [value, setValue] = useState(0);
@@ -22,21 +22,21 @@ function useCountUp(target: number, duration = 1100) {
 }
 
 interface Props {
-  affiliate: MockAffiliate;
+  affiliate: Affiliate;
   rank: number;
 }
 
 export default function StatsRow({ affiliate, rank }: Props) {
-  const referrals = useCountUp(affiliate.referralCount);
-  const converted = useCountUp(affiliate.convertedCount);
-  const earned = useCountUp(affiliate.totalEarned);
-  const rankVal = useCountUp(rank);
+  const referrals = useCountUp(affiliate.total_referrals);
+  const converted = useCountUp(affiliate.total_converted);
+  const earned    = useCountUp(affiliate.total_earned);
+  const rankVal   = useCountUp(rank);
 
   const stats = [
     { label: "Referred Students",  value: String(referrals),                  sub: "total sent",  highlight: false },
     { label: "Converted",          value: String(converted),                  sub: "enrolled",    highlight: false },
     { label: "Commissions Earned", value: `NPR ${earned.toLocaleString()}`,   sub: "all time",    highlight: true  },
-    { label: "Leaderboard Rank",   value: rankVal > 0 ? `#${rankVal}` : "—", sub: "this month",  highlight: false },
+    { label: "Leaderboard Rank",   value: rankVal > 0 ? `#${rankVal}` : "—", sub: "vs all affiliates", highlight: false },
   ];
 
   return (
@@ -56,10 +56,7 @@ export default function StatsRow({ affiliate, rank }: Props) {
             style={{ background: s.highlight ? "#FCB730" : "rgba(252,183,48,0.35)" }}
           />
           <span className="text-2xl font-extrabold text-white tracking-tight">{s.value}</span>
-          <span
-            className="text-[11px] font-bold uppercase tracking-widest mt-0.5"
-            style={{ color: "rgba(255,255,255,0.45)" }}
-          >
+          <span className="text-[11px] font-bold uppercase tracking-widest mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>
             {s.label}
           </span>
           <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.25)" }}>{s.sub}</span>
