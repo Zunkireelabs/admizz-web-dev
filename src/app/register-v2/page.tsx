@@ -167,20 +167,20 @@ export default function RegisterPage() {
       {/* ===== TRUST STRIP ===== */}
       <section className="bg-white border-b border-[#F0F0F0]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-8">
+          <div className="flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {[
               { icon: "🎁", bold: "Real Rewards,", text: "Real Students" },
               { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
               { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item, i, arr) => (
-              <div key={item.bold} className="flex items-center gap-5">
-                <div className="flex items-center gap-2 text-[13px] sm:text-[14px] font-semibold text-[#001353] whitespace-nowrap">
-                  <span className="text-base">{item.icon}</span>
+              <div key={item.bold} className="flex items-center gap-4 flex-shrink-0">
+                <div className="flex items-center gap-1.5 text-[12px] sm:text-[13px] font-semibold text-[#001353] whitespace-nowrap">
+                  <span className="text-sm">{item.icon}</span>
                   <span><strong>{item.bold}</strong> {item.text}</span>
                 </div>
                 {i < arr.length - 1 && (
-                  <div className="hidden sm:block w-px h-5 bg-[#D0D5E0] flex-shrink-0" />
+                  <div className="w-px h-5 bg-[#D0D5E0] flex-shrink-0" />
                 )}
               </div>
             ))}
