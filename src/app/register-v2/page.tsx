@@ -102,8 +102,6 @@ export default function RegisterPage() {
   const [showSticky, setShowSticky] = useState(false);
   const [mobileCarouselIndex, setMobileCarouselIndex] = useState(0);
   const mobileScrollRef = useRef<HTMLDivElement>(null);
-  const slideIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 420);
@@ -111,43 +109,17 @@ export default function RegisterPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Mobile carousel auto-slide
+  // Track active card on manual swipe
   useEffect(() => {
     const el = mobileScrollRef.current;
     if (!el) return;
-    const CARD_WIDTH = 270 + 16; // card width + gap-4
+    const CARD_WIDTH = 270 + 16;
     const TOTAL = journeySteps.length;
-
-    const tick = () => {
-      const currentIndex = Math.round(el.scrollLeft / CARD_WIDTH);
-      const next = (currentIndex + 1) % TOTAL;
-      el.scrollTo({ left: next * CARD_WIDTH, behavior: "smooth" });
-    };
-
-    const start = () => {
-      slideIntervalRef.current = setInterval(tick, 3000);
-    };
-
-    const pause = () => {
-      if (slideIntervalRef.current) clearInterval(slideIntervalRef.current);
-      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
-      resumeTimeoutRef.current = setTimeout(start, 5000);
-    };
-
     const onCarouselScroll = () => {
       setMobileCarouselIndex(Math.min(TOTAL - 1, Math.max(0, Math.round(el.scrollLeft / CARD_WIDTH))));
     };
-
-    start();
-    el.addEventListener("touchstart", pause, { passive: true });
     el.addEventListener("scroll", onCarouselScroll, { passive: true });
-
-    return () => {
-      if (slideIntervalRef.current) clearInterval(slideIntervalRef.current);
-      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
-      el.removeEventListener("touchstart", pause);
-      el.removeEventListener("scroll", onCarouselScroll);
-    };
+    return () => el.removeEventListener("scroll", onCarouselScroll);
   }, []);
 
   return (
@@ -197,8 +169,34 @@ export default function RegisterPage() {
             </h2>
           </div>
 
-          {/* ── Mobile: auto-sliding carousel ── */}
-          <div ref={mobileScrollRef} className="md:hidden -mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {/* ── Mobile: manual swipe carousel ── */}
+          <div className="md:hidden relative">
+            {/* Dot track behind cards */}
+            <div
+              className="absolute inset-x-4 overflow-hidden pointer-events-none"
+              style={{ top: "40px", height: "2px", zIndex: 0 }}
+            >
+              <div className="absolute inset-0" style={{ background: "rgba(49,66,156,0.12)" }} />
+              {[0, 1, 2, 3].map(i => (
+                <div
+                  key={i}
+                  className="absolute"
+                  style={{
+                    top: "50%",
+                    width: 8,
+                    height: 8,
+                    borderRadius: "50%",
+                    background: "#31429C",
+                    boxShadow: "0 0 6px rgba(49,66,156,0.6)",
+                    transform: "translateY(-50%)",
+                    animation: `journey-dot 3.6s linear infinite`,
+                    animationDelay: `${i * 0.9}s`,
+                    opacity: 0,
+                  }}
+                />
+              ))}
+            </div>
+          <div ref={mobileScrollRef} className="-mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" style={{ position: "relative", zIndex: 1 }}>
             <div className="flex gap-4 w-max">
               {journeySteps.map((step) => (
                 <div key={step.id} className="w-[270px] flex-shrink-0 relative rounded-2xl p-4" style={{ background: "#F8F9FF", border: "1px solid #E0E6F2" }}>
@@ -216,6 +214,7 @@ export default function RegisterPage() {
                 </div>
               ))}
             </div>
+          </div>
           </div>
 
           {/* ── Mobile: scroll dot indicator ── */}
