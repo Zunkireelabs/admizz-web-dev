@@ -79,6 +79,34 @@ const stats = [
 
 
 /* ------------------------------------------------------------------ */
+/*  Sliding testimonials data                                          */
+/* ------------------------------------------------------------------ */
+
+const SLIDING_TESTIMONIALS = [
+  {
+    initial: "N",
+    name: "Niraj Bhattarai",
+    university: "University of West of Scotland",
+    route: "🇳🇵 → 🇬🇧",
+    text: "From university selection to visa approval, Admizz Education provided exceptional support and made my journey to the UK effortless. I highly recommend them.",
+  },
+  {
+    initial: "Y",
+    name: "Yousuf Abdirahman",
+    university: "Kalinga Institute of Industrial Technology",
+    route: "🇸🇴 → 🇮🇳",
+    text: "I appreciated your unlimited help for my MBA career. It was very tough but I gained a very solid educational background. Thanks Admizz!",
+  },
+  {
+    initial: "B",
+    name: "Basant Khadka",
+    university: "Weber State University",
+    route: "🇳🇵 → 🇺🇸",
+    text: "The journey to college can be overwhelming, but Admizz Education made applying to Weber State University effortless. Thanks to their guidance.",
+  },
+];
+
+/* ------------------------------------------------------------------ */
 /*  Stars component                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -101,12 +129,21 @@ function Stars({ count = 5 }: { count?: number }) {
 export default function RegisterPage() {
   const [showSticky, setShowSticky] = useState(false);
   const [mobileCarouselIndex, setMobileCarouselIndex] = useState(0);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
   const mobileScrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setShowSticky(window.scrollY > 420);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Auto-rotate testimonials every 4s
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTestimonialIndex(i => (i + 1) % SLIDING_TESTIMONIALS.length);
+    }, 4000);
+    return () => clearInterval(id);
   }, []);
 
   // Track active card on manual swipe
@@ -159,6 +196,10 @@ export default function RegisterPage() {
             4%   { opacity: 1; }
             96%  { opacity: 1; }
             100% { left: 101%; opacity: 0; }
+          }
+          @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
           }
         `}</style>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -338,26 +379,70 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            {/* Card 2: Testimonial — TEAL */}
+            {/* Card 2: Sliding Testimonials — TEAL */}
             <div className="group bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.04)" }}>
               <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #2F9D85, #4FBFA8)" }} />
-              <div className="p-4 md:p-6">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor: "#EDFAF7" }}>
-                  <svg className="w-6 h-6" fill="none" stroke="#2F9D85" strokeWidth={1.8} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
-                  </svg>
+              <div className="p-4 md:p-6 flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#EDFAF7" }}>
+                    <svg className="w-6 h-6" fill="none" stroke="#2F9D85" strokeWidth={1.8} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                    </svg>
+                  </div>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: "#2F9D85" }}>Real stories</p>
                 </div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] mb-2" style={{ color: "#2F9D85" }}>Real stories</p>
-                <p className="text-[14px] leading-relaxed italic mb-5" style={{ color: "#0D1282" }}>
-                  &ldquo;Admizz helped me figure out the right country, the right course, and got me there. Best decision I made.&rdquo;
-                </p>
-                <div className="flex items-center gap-3 pt-4 border-t" style={{ borderColor: "#F0F0F0" }}>
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-bold flex-shrink-0" style={{ background: "linear-gradient(135deg, #4FBFA8, #2F9D85)", color: "#FFFFFF" }}>N</div>
+
+                {/* Quote — transitions on index change */}
+                <div className="flex-1 min-h-[90px]">
+                  <p
+                    key={testimonialIndex}
+                    className="text-[14px] leading-relaxed italic"
+                    style={{ color: "#0D1282", animation: "fadeSlideIn 0.4s ease" }}
+                  >
+                    &ldquo;{SLIDING_TESTIMONIALS[testimonialIndex].text}&rdquo;
+                  </p>
+                </div>
+
+                {/* Profile */}
+                <div
+                  key={`profile-${testimonialIndex}`}
+                  className="flex items-center gap-3 pt-4 mt-4 border-t"
+                  style={{ borderColor: "#F0F0F0", animation: "fadeSlideIn 0.4s ease" }}
+                >
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-bold flex-shrink-0" style={{ background: "linear-gradient(135deg, #4FBFA8, #2F9D85)", color: "#FFFFFF" }}>
+                    {SLIDING_TESTIMONIALS[testimonialIndex].initial}
+                  </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[13px] font-bold leading-tight" style={{ color: "#0D1282" }}>Neharika Gurung</p>
-                    <p className="text-[11px] mt-0.5 leading-tight" style={{ color: "#5C7189" }}>Coventry University · 🇳🇵 → 🇬🇧</p>
+                    <p className="text-[13px] font-bold leading-tight" style={{ color: "#0D1282" }}>
+                      {SLIDING_TESTIMONIALS[testimonialIndex].name}
+                    </p>
+                    <p className="text-[11px] mt-0.5 leading-tight" style={{ color: "#5C7189" }}>
+                      {SLIDING_TESTIMONIALS[testimonialIndex].university} · {SLIDING_TESTIMONIALS[testimonialIndex].route}
+                    </p>
                   </div>
                   <div className="flex-shrink-0"><Stars count={5} /></div>
+                </div>
+
+                {/* Dot nav */}
+                <div className="flex items-center justify-center gap-2 mt-4">
+                  {SLIDING_TESTIMONIALS.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setTestimonialIndex(i)}
+                      aria-label={`Testimonial ${i + 1}`}
+                      style={{
+                        width: i === testimonialIndex ? 20 : 8,
+                        height: 8,
+                        borderRadius: 99,
+                        background: i === testimonialIndex ? "#2F9D85" : "#D7DAE8",
+                        border: "none",
+                        padding: 0,
+                        cursor: "pointer",
+                        transition: "width 0.3s ease, background 0.3s ease",
+                      }}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
