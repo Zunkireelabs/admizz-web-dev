@@ -301,32 +301,30 @@ export default function RegisterPage() {
               preserveAspectRatio="none"
               aria-hidden
             >
-              {/* Faint arch track */}
-              <path
-                d="M 95,0 C 95,-52 295,-52 295,0 C 295,-52 505,-52 505,0 C 505,-52 705,-52 705,0 C 705,-52 905,-52 905,0"
-                fill="none"
-                stroke="rgba(49,66,156,0.18)"
-                strokeWidth="1.5"
-                vectorEffect="non-scaling-stroke"
-              />
-              {/* 3 animated dots travelling the arches */}
-              {[0, 1, 2].map(i => (
+              <defs>
                 <path
-                  key={i}
-                  d="M 95,0 C 95,-52 295,-52 295,0 C 295,-52 505,-52 505,0 C 505,-52 705,-52 705,0 C 705,-52 905,-52 905,0"
-                  fill="none"
-                  stroke="#31429C"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  pathLength="1000"
-                  strokeDasharray="12 988"
-                  vectorEffect="non-scaling-stroke"
-                  style={{
-                    animation: "arch-dot 4s linear infinite",
-                    animationDelay: `${-i * 1.33}s`,
-                    filter: "drop-shadow(0 0 4px rgba(49,66,156,0.7))",
-                  }}
+                  id="arch-path"
+                  d="M 95,0 C 95,-55 295,-55 295,0 C 295,-55 505,-55 505,0 C 505,-55 705,-55 705,0 C 705,-55 905,-55 905,0"
                 />
+                <filter id="dot-glow" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              {/* Faint arch track */}
+              <use href="#arch-path" fill="none" stroke="rgba(49,66,156,0.15)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+
+              {/* 3 glowing circle dots travelling the arches */}
+              {[0, 1, 2].map(i => (
+                <circle key={i} r="6" fill="#31429C" filter="url(#dot-glow)">
+                  <animateMotion dur="4s" repeatCount="indefinite" begin={`${-i * 1.33}s`}>
+                    <mpath href="#arch-path" />
+                  </animateMotion>
+                </circle>
               ))}
             </svg>
 
@@ -364,33 +362,46 @@ export default function RegisterPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {/* Card 1: Trust — DEEP BLUE */}
-            <div className="group bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.04)" }}>
-              <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #2954C7, #4F7DEB)" }} />
-              <div className="p-4 md:p-6">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor: "#EBF3FF" }}>
-                  <svg className="w-6 h-6" fill="none" stroke="#2954C7" strokeWidth={1.8} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>
+            {/* Card 1: Sliding Testimonials — BLUE (offset index) */}
+            {(() => {
+              const idx = (testimonialIndex + 1) % SLIDING_TESTIMONIALS.length;
+              return (
+                <div className="group bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.04)" }}>
+                  <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #2954C7, #4F7DEB)" }} />
+                  <div className="p-4 md:p-6 flex flex-col h-full">
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#EBF3FF" }}>
+                        <svg className="w-6 h-6" fill="none" stroke="#2954C7" strokeWidth={1.8} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                      </div>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: "#2954C7" }}>Real stories</p>
+                    </div>
+                    <div className="flex-1 min-h-[90px]">
+                      <p key={idx} className="text-[14px] leading-relaxed italic" style={{ color: "#0D1282", animation: "fadeSlideIn 0.4s ease" }}>
+                        &ldquo;{SLIDING_TESTIMONIALS[idx].text}&rdquo;
+                      </p>
+                    </div>
+                    <div key={`p1-${idx}`} className="flex items-center gap-3 pt-4 mt-4 border-t" style={{ borderColor: "#F0F0F0", animation: "fadeSlideIn 0.4s ease" }}>
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-bold flex-shrink-0" style={{ background: "linear-gradient(135deg, #4F7DEB, #2954C7)", color: "#FFFFFF" }}>
+                        {SLIDING_TESTIMONIALS[idx].initial}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[13px] font-bold leading-tight" style={{ color: "#0D1282" }}>{SLIDING_TESTIMONIALS[idx].name}</p>
+                        <p className="text-[11px] mt-0.5 leading-tight" style={{ color: "#5C7189" }}>{SLIDING_TESTIMONIALS[idx].university} · {SLIDING_TESTIMONIALS[idx].route}</p>
+                      </div>
+                      <div className="flex-shrink-0"><Stars count={5} /></div>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 mt-4">
+                      {SLIDING_TESTIMONIALS.map((_, i) => (
+                        <button key={i} onClick={() => setTestimonialIndex((i - 1 + SLIDING_TESTIMONIALS.length) % SLIDING_TESTIMONIALS.length)} aria-label={`Testimonial ${i + 1}`}
+                          style={{ width: i === idx ? 20 : 8, height: 8, borderRadius: 99, background: i === idx ? "#2954C7" : "#D7DAE8", border: "none", padding: 0, cursor: "pointer", transition: "width 0.3s ease, background 0.3s ease" }} />
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] mb-2" style={{ color: "#2954C7" }}>Trust</p>
-                <h3 className="text-[18px] font-bold mb-3" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}>A decade of getting it right</h3>
-                <ul className="space-y-2 text-[13px]" style={{ color: "#5C7189" }}>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-4 h-4 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#4F7DEB" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><polyline points="20 6 9 17 4 12" /></svg>
-                    <span><strong style={{ color: "#0D1282" }}>ICEF-Accredited</strong> agency</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-4 h-4 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#4F7DEB" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><polyline points="20 6 9 17 4 12" /></svg>
-                    <span><strong style={{ color: "#0D1282" }}>10+ years</strong> of excellence</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-4 h-4 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#4F7DEB" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><polyline points="20 6 9 17 4 12" /></svg>
-                    <span><strong style={{ color: "#0D1282" }}>2,000+ students</strong> enrolled</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+              );
+            })()}
 
             {/* Card 2: Sliding Testimonials — TEAL */}
             <div className="group bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.04)" }}>
