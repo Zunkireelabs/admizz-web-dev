@@ -8,7 +8,7 @@ import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { value: "99%", label: "Visa Success Rate" },
+  { value: "95%", label: "Visa Success Rate" },
   { value: "100+", label: "Prestigious Institutions" },
   { value: "1500+", label: "Students Enrolled" },
   { value: "$2M+", label: "Scholarships Awarded" },
@@ -18,7 +18,7 @@ const services = [
   {
     title: "UK Study Visa",
     description:
-      "Expert guidance for your UK student visa application with 99% success rate.",
+      "Expert guidance for your UK student visa application with 95% success rate.",
     icon: (
       <svg
         className="w-12 h-12 text-blue-royal mx-auto"

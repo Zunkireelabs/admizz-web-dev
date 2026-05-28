@@ -71,8 +71,6 @@ const destinations = [
   { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand/" },
   { name: "Study in Finland", image: "/images/destinations/finland1.webp", href: "/study-in-finland/" },
   { name: "Study in Germany", image: "/images/destinations/germany1.webp", href: "/study-in-germany/" },
-  { name: "Study in Denmark", image: "/images/destinations/denmark1.webp", href: "/study-in-denmark/" },
-  { name: "Study in the UAE", image: "/images/destinations/uae1.webp", href: "/study-in-dubai/" },
   { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france/" },
 ];
 
@@ -137,7 +135,7 @@ const faqItems = [
   {
     question: "2. Which countries can I apply to through Admizz Education?",
     answer:
-      "You can apply to leading study-abroad destinations such as the USA, UK, Canada, Australia, New Zealand, India, Dubai, and other top European countries. Admizz provides end-to-end admission support for undergraduate, postgraduate, diploma, and pathway programs.",
+      "You can apply to leading study-abroad destinations such as the USA, UK, Canada, Australia, New Zealand, India, and other top European countries. Admizz provides end-to-end admission support for undergraduate, postgraduate, diploma, and pathway programs.",
   },
   {
     question: "3. Does Admizz Education help with university shortlisting?",
@@ -243,17 +241,6 @@ const allUniversities = [
   { name: "Queen's University", logo: "/images/universities/canada/queens-university.webp", country: "Canada" },
   { name: "Simon Fraser University", logo: "/images/universities/canada/simon-fraser-university.webp", country: "Canada" },
   { name: "Dalhousie University", logo: "/images/universities/canada/dalhousie-university.webp", country: "Canada" },
-  // UAE
-  { name: "United Arab Emirates University", logo: "/images/universities/uae/uaeu.webp", country: "UAE" },
-  { name: "Khalifa University", logo: "/images/universities/uae/khalifa-university.webp", country: "UAE" },
-  { name: "American University of Sharjah", logo: "/images/universities/uae/american-university-of-sharjah.webp", country: "UAE" },
-  { name: "Zayed University", logo: "/images/universities/uae/zayed-university.webp", country: "UAE" },
-  { name: "University of Sharjah", logo: "/images/universities/uae/university-of-sharjah.webp", country: "UAE" },
-  { name: "American University in Dubai", logo: "/images/universities/uae/american-university-in-dubai.webp", country: "UAE" },
-  { name: "University of Wollongong in Dubai", logo: "/images/universities/uae/university-of-wollongong-dubai.webp", country: "UAE" },
-  { name: "Heriot-Watt University Dubai", logo: "/images/universities/uae/heriot-watt-university-dubai.webp", country: "UAE" },
-  { name: "Canadian University Dubai", logo: "/images/universities/uae/canadian-university-dubai.webp", country: "UAE" },
-  { name: "Middlesex University Dubai", logo: "/images/universities/uae/middlesex-university-dubai.webp", country: "UAE" },
   // France
   { name: "Sorbonne University", logo: "/images/universities/france/sorbonne-university.webp", country: "France" },
   { name: "Universite PSL", logo: "/images/universities/france/universite-psl.svg", country: "France" },
@@ -265,17 +252,6 @@ const allUniversities = [
   { name: "Ecole Polytechnique", logo: "/images/universities/france/ecole-polytechnique.webp", country: "France" },
   { name: "Universite de Lille", logo: "/images/universities/france/universite-de-lille.webp", country: "France" },
   { name: "University of Paris-Saclay", logo: "/images/universities/france/university-of-paris-saclay.webp", country: "France" },
-  // Denmark
-  { name: "University of Copenhagen", logo: "/images/universities/denmark/university-of-copenhagen.webp", country: "Denmark" },
-  { name: "Aarhus University", logo: "/images/universities/denmark/aarhus-university.webp", country: "Denmark" },
-  { name: "Technical University of Denmark", logo: "/images/universities/denmark/technical-university-of-denmark.webp", country: "Denmark" },
-  { name: "University of Southern Denmark", logo: "/images/universities/denmark/university-of-southern-denmark.webp", country: "Denmark" },
-  { name: "Aalborg University", logo: "/images/universities/denmark/aalborg-university.webp", country: "Denmark" },
-  { name: "Copenhagen Business School", logo: "/images/universities/denmark/copenhagen-business-school.webp", country: "Denmark" },
-  { name: "Roskilde University", logo: "/images/universities/denmark/roskilde-university.webp", country: "Denmark" },
-  { name: "IT University of Copenhagen", logo: "/images/universities/denmark/it-university-of-copenhagen.webp", country: "Denmark" },
-  { name: "VIA University College", logo: "/images/universities/denmark/via-university-college.webp", country: "Denmark" },
-  { name: "University College Copenhagen", logo: "/images/universities/denmark/university-college-copenhagen.webp", country: "Denmark" },
   // Finland
   { name: "Haaga-Helia University of Applied Science", logo: "/images/universities/finland/haaga-helia.webp", country: "Finland" },
   { name: "South-Eastern Finland University of Applied Science", logo: "/images/universities/finland/south-eastern-finland.webp", country: "Finland" },
@@ -461,13 +437,13 @@ export default function Home() {
           <h2 className="text-[28px] md:text-[36px] font-bold text-center mb-4" style={{ color: "#0D1282" }}>Find Your Perfect Study Country</h2>
           <p className="text-center text-[15px] max-w-2xl mx-auto mb-12" style={{ color: "#5a6275" }}>Discover top international study destinations and take confident steps toward a successful education abroad.</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-12 gap-4 sm:gap-5">
-            {destinations.slice(0, 6).map((dest) => (
-              <div key={dest.name} className="lg:col-span-2">
+            {destinations.slice(0, 5).map((dest, i) => (
+              <div key={dest.name} className={`lg:col-span-2 ${i === 0 ? "lg:col-start-2" : ""}`}>
                 <CountryCard {...dest} />
               </div>
             ))}
-            {destinations.slice(6).map((dest, i) => (
-              <div key={dest.name} className={`lg:col-span-2 ${i === 0 ? "lg:col-start-2" : ""}`}>
+            {destinations.slice(5).map((dest, i) => (
+              <div key={dest.name} className={`lg:col-span-2 ${i === 0 ? "lg:col-start-3" : ""}`}>
                 <CountryCard {...dest} />
               </div>
             ))}

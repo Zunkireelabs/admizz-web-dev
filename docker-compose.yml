@@ -44,8 +44,32 @@ services:
       - "traefik.http.middlewares.admizz-prod-floating-btn.redirectregex.regex=^(https?://[^/]+)/e-floating-buttons/.*$$"
       - "traefik.http.middlewares.admizz-prod-floating-btn.redirectregex.replacement=$${1}/"
       - "traefik.http.middlewares.admizz-prod-floating-btn.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-prod-birgunj.redirectregex.regex=^(https?://[^/]+)/study-abroad-from-birgunj$$"
+      - "traefik.http.middlewares.admizz-prod-birgunj.redirectregex.replacement=$${1}/birgunj"
+      - "traefik.http.middlewares.admizz-prod-birgunj.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-prod-janakpur.redirectregex.regex=^(https?://[^/]+)/study-abroad-from-janakpur$$"
+      - "traefik.http.middlewares.admizz-prod-janakpur.redirectregex.replacement=$${1}/janakpur"
+      - "traefik.http.middlewares.admizz-prod-janakpur.redirectregex.permanent=true"
       # Chain all middlewares (www-redirect first)
-      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect,admizz-prod-trailing-slash,admizz-prod-test-prep,admizz-prod-consultation,admizz-prod-campaign,admizz-prod-newzealand,admizz-prod-tag,admizz-prod-author,admizz-prod-blogs-page,admizz-prod-floating-btn"
+      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect,admizz-prod-trailing-slash,admizz-prod-test-prep,admizz-prod-consultation,admizz-prod-campaign,admizz-prod-newzealand,admizz-prod-tag,admizz-prod-author,admizz-prod-blogs-page,admizz-prod-floating-btn,admizz-prod-birgunj,admizz-prod-janakpur"
+      # careers.admizzeducation.com → admizzeducation.com/careers (308)
+      - "traefik.http.routers.admizz-careers-subdomain.rule=Host(`careers.admizzeducation.com`)"
+      - "traefik.http.routers.admizz-careers-subdomain.entrypoints=websecure"
+      - "traefik.http.routers.admizz-careers-subdomain.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.admizz-careers-subdomain.service=admizz-edu-web-prod"
+      - "traefik.http.middlewares.admizz-careers-subdomain-redirect.redirectregex.regex=^https?://careers\\.admizzeducation\\.com.*"
+      - "traefik.http.middlewares.admizz-careers-subdomain-redirect.redirectregex.replacement=https://admizzeducation.com/careers"
+      - "traefik.http.middlewares.admizz-careers-subdomain-redirect.redirectregex.permanent=true"
+      - "traefik.http.routers.admizz-careers-subdomain.middlewares=admizz-careers-subdomain-redirect"
+      # events.admizzeducation.com/* → admizzeducation.com/events/* (308, path-preserving)
+      - "traefik.http.routers.admizz-events-subdomain.rule=Host(`events.admizzeducation.com`)"
+      - "traefik.http.routers.admizz-events-subdomain.entrypoints=websecure"
+      - "traefik.http.routers.admizz-events-subdomain.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.admizz-events-subdomain.service=admizz-edu-web-prod"
+      - "traefik.http.middlewares.admizz-events-subdomain-redirect.redirectregex.regex=^https?://events\\.admizzeducation\\.com/?(.*)"
+      - "traefik.http.middlewares.admizz-events-subdomain-redirect.redirectregex.replacement=https://admizzeducation.com/events/$${1}"
+      - "traefik.http.middlewares.admizz-events-subdomain-redirect.redirectregex.permanent=true"
+      - "traefik.http.routers.admizz-events-subdomain.middlewares=admizz-events-subdomain-redirect"
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
       interval: 30s

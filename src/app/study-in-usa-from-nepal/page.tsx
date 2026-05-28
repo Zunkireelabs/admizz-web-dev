@@ -77,7 +77,7 @@ const pageData: NepalVariantData = {
     "Scholarship assistance – $5M+ awarded to our students",
     "F-1 visa support – 95% visa approval success rate",
     "End-to-end support – From Nepal to USA and beyond",
-    "Proven track record – 10,000+ successful placements",
+    "Proven track record – 2,000+ successful placements",
   ],
 
   topCoursesTitle: "Best Courses to Study in the USA",

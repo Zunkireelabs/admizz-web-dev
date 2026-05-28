@@ -215,8 +215,6 @@ export default function TestPrepPage() {
     { label: "New Zealand", flag: "🇳🇿" },
     { label: "Finland", flag: "🇫🇮" },
     { label: "Germany", flag: "🇩🇪" },
-    { label: "Denmark", flag: "🇩🇰" },
-    { label: "UAE", flag: "🇦🇪" },
     { label: "France", flag: "🇫🇷" },
   ];
 

@@ -13,6 +13,8 @@ interface FAQProps {
   twoColumn?: boolean;
   sidebar?: boolean;
   sidebarSubtitle?: string;
+  compact?: boolean;
+  bgColor?: string;
 }
 
 function FAQAccordionItem({
@@ -206,6 +208,8 @@ export default function FAQ({
   twoColumn = false,
   sidebar = false,
   sidebarSubtitle = "Still wondering about studying abroad, and how Admizz can get you there? Read these answers to our most commonly asked questions.",
+  compact = false,
+  bgColor,
 }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -257,11 +261,14 @@ export default function FAQ({
     const rightItems = items.slice(mid);
 
     return (
-      <section className="py-16" style={{ background: "#e8f0fe" }}>
+      <section
+        className={compact ? "py-10 md:py-12" : "py-16"}
+        style={{ background: bgColor ?? "#e8f0fe" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {title && (
             <h2
-              className="text-2xl md:text-[36px] font-bold text-navy text-center mb-10"
+              className={`font-bold text-navy text-center ${compact ? "text-xl md:text-[28px] mb-7" : "text-2xl md:text-[36px] mb-10"}`}
               style={{ fontFamily: "var(--font-rubik), sans-serif" }}
             >
               {title}

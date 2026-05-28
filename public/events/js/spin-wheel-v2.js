@@ -24,8 +24,8 @@
 
     var DESTINATION_FLAGS = {
         'UK': '🇬🇧', 'USA': '🇺🇸', 'Australia': '🇦🇺', 'Canada': '🇨🇦',
-        'Denmark': '🇩🇰', 'Finland': '🇫🇮', 'Germany': '🇩🇪', 'India': '🇮🇳',
-        'New Zealand': '🇳🇿', 'UAE': '🇦🇪', 'France': '🇫🇷', 'Dubai': '🇦🇪',
+        'Finland': '🇫🇮', 'Germany': '🇩🇪', 'India': '🇮🇳',
+        'New Zealand': '🇳🇿', 'France': '🇫🇷',
         'South Korea': '🇰🇷', 'Nepal': '🇳🇵', 'Japan': '🇯🇵'
     };
 
@@ -102,16 +102,16 @@
             var n = spinsRemaining();
             var label;
             if (isFormSubmitted()) {
-                label = 'You’re all set!';
+                label = "You're all set!";
                 counterEl.dataset.state = 'done';
             } else if (n === 0) {
-                label = 'No free spins left';
+                label = 'No chances remaining';
                 counterEl.dataset.state = 'empty';
             } else if (n === 1) {
-                label = '1 spin remaining';
+                label = '1 chance remaining';
                 counterEl.dataset.state = 'low';
             } else {
-                label = n + ' spins remaining';
+                label = n + ' chances remaining';
                 counterEl.dataset.state = 'ok';
             }
             counterEl.textContent = label;
@@ -129,7 +129,7 @@
                 spinBtn.textContent = 'Fill Form to Spin';
                 spinBtn.classList.add('is-gated');
             } else {
-                spinBtn.textContent = 'SPIN!';
+                spinBtn.textContent = 'Discover';
                 spinBtn.classList.remove('is-gated');
                 spinBtn.classList.add('is-ready');
             }
@@ -212,8 +212,8 @@
             isAnimating = true;
             var spinDuration = 5000;
 
-            // Excluded: Laptop (0), Phone (1), Tablet (2). 6 winnable segments.
-            var commonSegments = [3, 4, 5, 6, 7, 8];
+            // Excluded: Laptop (0), Phone (1), Tablet (2), Flight (5). 5 winnable segments.
+            var commonSegments = [3, 4, 6, 7, 8];
             var targetSegment = commonSegments[Math.floor(Math.random() * commonSegments.length)];
 
             var segStart = targetSegment * SEGMENT_ANGLE - Math.PI / 2;
@@ -397,8 +397,8 @@
                 var intro = document.createElement('div');
                 intro.className = 'sd-gate-intro';
                 intro.innerHTML =
-                    '<div class="sd-gate-prize">You won: <strong>' + escapeHtml(lastPrize || 'a prize') + '</strong></div>' +
-                    '<p>You’ve used all 3 free spins. Tell us a bit about yourself to claim your prize.</p>';
+                    '<div class="sd-gate-prize">Your exclusive reward: <strong>' + escapeHtml(lastPrize || 'a reward') + '</strong></div>' +
+                    "<p>You've used all 3 chances. Tell us a bit about yourself to claim your reward.</p>";
                 wrap.appendChild(intro);
             }
 
@@ -472,7 +472,6 @@
             { code: 'NZ', dial: '+64',  name: 'New Zealand' },
             { code: 'DE', dial: '+49',  name: 'Germany' },
             { code: 'FR', dial: '+33',  name: 'France' },
-            { code: 'DK', dial: '+45',  name: 'Denmark' },
             { code: 'FI', dial: '+358', name: 'Finland' },
             { code: 'AE', dial: '+971', name: 'United Arab Emirates' },
             { code: 'SG', dial: '+65',  name: 'Singapore' },
@@ -512,7 +511,7 @@
             c.innerHTML =
                 '<label class="sd-consent">' +
                 '<input type="checkbox" id="sdTerms"' + (formData.terms ? ' checked' : '') + '>' +
-                '<span>I agree to the <a href="https://admizzeducation.com/privacy-policy" target="_blank" rel="noopener noreferrer" class="sd-consent-link">Terms &amp; Conditions</a> and to be contacted by Admizz about my prize.</span>' +
+                '<span>I agree to the <a href="https://admizzeducation.com/events/spin-and-win-terms-and-conditions" target="_blank" rel="noopener noreferrer" class="sd-consent-link">Terms &amp; Conditions</a> and to be contacted by Admizz about my prize.</span>' +
                 '</label>';
         }
 
@@ -800,8 +799,8 @@
             formBody.innerHTML =
                 '<div class="sd-success">' +
                 '<div class="sd-success-icon">🎉</div>' +
-                '<h2>You’re all set!</h2>' +
-                '<p>We’ll be in touch about your <strong>' + escapeHtml(lastPrize || 'prize') + '</strong>.</p>' +
+                "<h2>You're all set!</h2>" +
+                '<p>We\'ll be in touch about your <strong>' + escapeHtml(lastPrize || 'prize') + '</strong>.</p>' +
                 '<p class="sd-success-sub">Redirecting you in a moment…</p>' +
                 '</div>';
             formNextBtn.style.display = 'none';

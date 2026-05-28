@@ -12,7 +12,7 @@ const quickLinks: { name: string; href: string; external?: boolean }[] = [
 
 const companyLinks = [
   { name: "About", href: "/about" },
-  { name: "Careers", href: "https://careers.admizzeducation.com" },
+  { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact" },
   { name: "Privacy Policy", href: "/privacy-policy" },
 ];

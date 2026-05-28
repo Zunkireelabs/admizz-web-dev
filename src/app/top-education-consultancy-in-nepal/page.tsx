@@ -106,8 +106,6 @@ const features = [
 const destinations = [
   { name: "Study in Australia", image: "/images/destinations/aus1.webp", href: "/study-in-australia", description: "Globally ranked universities, excellent research facilities, and post-study work opportunities." },
   { name: "Study in Canada", image: "/images/destinations/canada1.webp", href: "/study-in-canada", description: "Affordable education, multicultural communities, and permanent residency pathways." },
-  { name: "Study in Denmark", image: "/images/destinations/denmark1.webp", href: "/study-in-denmark", description: "Known for innovation and cutting-edge research programs." },
-  { name: "Study in Dubai", image: "/images/destinations/uae1.webp", href: "/study-in-dubai", description: "A modern hub offering global education and career opportunities in one of the fastest-growing economies." },
   { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france", description: "Famous for arts, fashion, business, and technology programs." },
   { name: "Study in India", image: "/images/destinations/india1.webp", href: "/study-in-india", description: "Affordable education options in a culturally diverse environment for international students." },
   { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand", description: "Safe, welcoming, and focused on hands-on, career-oriented education." },
@@ -210,7 +208,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Which countries are most popular for Nepali students?",
     answer:
-      "USA, UK, Canada, Australia, UAE, and India are among the top choices. We help you evaluate each destination based on your goals and budget.",
+      "USA, UK, Canada, Australia, and India are among the top choices. We help you evaluate each destination based on your goals and budget.",
   },
   {
     question: "Do I need to take an English proficiency test?",

@@ -89,7 +89,7 @@ const services = [
   {
     title: "Proven Success Stories",
     description:
-      "With over 1,500 students placed in top universities worldwide and a 95% visa approval rate, our track record speaks for itself.",
+      "With over 2,000+ students placed in top universities worldwide and a 95% visa approval rate, our track record speaks for itself.",
     icon: (
       <svg className="w-8 h-8 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -101,8 +101,6 @@ const services = [
 const destinations = [
   { name: "Study in Australia", image: "/images/destinations/aus1.webp", href: "/study-in-australia", description: "Globally ranked universities, excellent research facilities, and post-study work opportunities." },
   { name: "Study in Canada", image: "/images/destinations/canada1.webp", href: "/study-in-canada", description: "Affordable education, multicultural communities, and permanent residency pathways." },
-  { name: "Study in Denmark", image: "/images/destinations/denmark1.webp", href: "/study-in-denmark", description: "Known for innovation and cutting-edge research programs." },
-  { name: "Study in Dubai", image: "/images/destinations/uae1.webp", href: "/study-in-dubai", description: "A modern hub offering global education and career opportunities in one of the fastest-growing economies." },
   { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france", description: "Famous for arts, fashion, business, and technology programs." },
   { name: "Study in India", image: "/images/destinations/india1.webp", href: "/study-in-india", description: "Affordable education options in a culturally diverse environment for international students." },
   { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand", description: "Safe, welcoming, and focused on hands-on, career-oriented education." },
@@ -173,7 +171,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Which countries can I study in through Admizz Education?",
     answer:
-      "We support students looking to study in the USA, UK, Canada, Australia, New Zealand, France, Denmark, Dubai, South Korea, India, and several other destinations. Our partnerships with 100+ institutions worldwide ensure you have access to a wide range of programs and universities.",
+      "We support students looking to study in the USA, UK, Canada, Australia, New Zealand, France, South Korea, India, and several other destinations. Our partnerships with 100+ institutions worldwide ensure you have access to a wide range of programs and universities.",
   },
   {
     question: "What documents are typically required for a study abroad application?",
@@ -354,7 +352,7 @@ export default async function BestEducationConsultancyPage() {
             Ready to Begin Your Study Abroad Journey?
           </h2>
           <p className="mt-4 text-[15px] text-white/90 leading-relaxed max-w-xl mx-auto">
-            Join over 1,500 students who have achieved their dream of studying at top universities
+            Join over 2,000+ students who have achieved their dream of studying at top universities
             worldwide. Book your free counselling session today and take the first step toward a
             brighter future.
           </p>

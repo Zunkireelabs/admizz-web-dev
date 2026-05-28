@@ -19,8 +19,6 @@ const studyDestinations = [
   { name: "Study in Nepal", href: "/study-in-nepal", flag: "np" },
   { name: "Study in India", href: "/study-in-india", flag: "in" },
   { name: "Study in France", href: "/study-in-france", flag: "fr" },
-  { name: "Study in Denmark", href: "/study-in-denmark", flag: "dk" },
-  { name: "Study in UAE", href: "/study-in-dubai", flag: "ae" },
   { name: "Study in Germany", href: "/study-in-germany", flag: "de" },
   { name: "Study in Finland", href: "/study-in-finland", flag: "fi" },
 ];

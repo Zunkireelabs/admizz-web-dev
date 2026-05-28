@@ -27,6 +27,7 @@ const client = createClient({
 // Static pages with priorities (no trailing slashes, no thank-you/utility pages)
 const staticPages = [
   { path: "/", priority: 1.0, freq: "daily" },
+  { path: "/find-your-destination", priority: 0.9, freq: "monthly" },
   { path: "/about", priority: 0.8, freq: "monthly" },
   { path: "/contact", priority: 0.8, freq: "monthly" },
   { path: "/blogs", priority: 0.9, freq: "daily" },
@@ -36,6 +37,9 @@ const staticPages = [
   { path: "/privacy-policy", priority: 0.3, freq: "yearly" },
   { path: "/universities", priority: 0.7, freq: "monthly" },
   { path: "/recruitment-partners", priority: 0.7, freq: "monthly" },
+  { path: "/affiliate-program", priority: 0.8, freq: "monthly" },
+  { path: "/affiliate-dashboard", priority: 0.5, freq: "monthly" },
+  { path: "/careers", priority: 0.6, freq: "monthly" },
   // Country pages (main)
   { path: "/study-in-the-usa", priority: 0.8, freq: "monthly" },
   { path: "/study-in-the-uk", priority: 0.8, freq: "monthly" },
@@ -45,17 +49,12 @@ const staticPages = [
   { path: "/study-in-south-korea", priority: 0.8, freq: "monthly" },
   { path: "/study-in-india", priority: 0.8, freq: "monthly" },
   { path: "/study-in-france", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-denmark", priority: 0.8, freq: "monthly" },
-  { path: "/study-in-dubai", priority: 0.8, freq: "monthly" },
   { path: "/study-in-germany", priority: 0.8, freq: "monthly" },
   // Nepal variant pages
   { path: "/study-in-canada-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-south-korea-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-india-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-france-from-nepal", priority: 0.7, freq: "monthly" },
-  { path: "/study-in-denmark-from-nepal", priority: 0.7, freq: "monthly" },
-  { path: "/study-in-dubai-from-nepal", priority: 0.7, freq: "monthly" },
-  { path: "/study-in-uae-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-newzealand-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-uk-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-usa-from-nepal", priority: 0.7, freq: "monthly" },
@@ -68,11 +67,13 @@ const staticPages = [
   { path: "/top-education-consultancy-in-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-abroad-consultants-in-kathmandu", priority: 0.7, freq: "monthly" },
   // City landing pages
-  { path: "/study-abroad-from-birgunj", priority: 0.7, freq: "monthly" },
-  { path: "/study-abroad-from-janakpur", priority: 0.7, freq: "monthly" },
+  { path: "/birgunj", priority: 0.7, freq: "monthly" },
+  { path: "/janakpur", priority: 0.7, freq: "monthly" },
   // Campaign pages
   { path: "/campaign", priority: 0.5, freq: "monthly" },
   { path: "/campaign-uk", priority: 0.5, freq: "monthly" },
+  // Event legal pages
+  { path: "/events/spin-and-win-terms-and-conditions", priority: 0.3, freq: "yearly" },
 ];
 
 function escapeXml(str) {

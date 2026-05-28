@@ -52,7 +52,7 @@ const offices = [
       {
         name: "Birgunj",
         address: "4th Floor, Link Road, Birgunj, Parsa, Nepal",
-        phone: "+977-051-592226",
+        phone: "+977-9856100444",
       },
     ],
     email: "hello@admizz.com",
@@ -203,7 +203,7 @@ export default function RegisterPage() {
                 </div>
                 <h3 className="text-[15px] font-bold mb-2" style={{ color: "#1E6DEB" }}>Why Students Trust Us?</h3>
                 <p className="text-[13px] text-gray-dark leading-relaxed">
-                  <strong className="text-[#0D1282]">ICEF-Accredited Agency</strong> | <strong className="text-[#0D1282]">10+ Years of Excellence</strong> | <strong className="text-[#0D1282]">10,000+ Students Counselled</strong>
+                  <strong className="text-[#0D1282]">ICEF-Accredited Agency</strong> | <strong className="text-[#0D1282]">10+ Years of Excellence</strong> | <strong className="text-[#0D1282]">2,000+ Students Enrolled</strong>
                 </p>
               </div>
             </div>

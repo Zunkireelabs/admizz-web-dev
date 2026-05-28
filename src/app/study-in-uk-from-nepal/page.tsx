@@ -28,7 +28,7 @@ const pageData: NepalVariantData = {
   countryCategorySlug: "uk",
   heroHeading: "Study in UK from Nepal",
   heroSubheading:
-    "From university selection to visa approval, we guide Nepali students through every step of their UK education journey. Join 1,500+ students who achieved their British university dreams with Admizz Education.",
+    "From university selection to visa approval, we guide Nepali students through every step of their UK education journey. Join 2,000+ students who achieved their British university dreams with Admizz Education.",
 
   introTitle: "Study in UK from Nepal with Expert Guidance",
   introContent:
@@ -77,7 +77,7 @@ const pageData: NepalVariantData = {
     "Scholarship assistance – $5M+ awarded to our students",
     "Visa support – 95% visa approval success rate",
     "Complete support – From Nepal to UK and beyond",
-    "Proven track record – 10,000+ successful placements",
+    "Proven track record – 2,000+ successful placements",
   ],
 
   topCoursesTitle: "Best Courses to Study in the UK",

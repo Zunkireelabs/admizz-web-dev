@@ -39,8 +39,14 @@ services:
       - "traefik.http.middlewares.admizz-dev-floating-btn.redirectregex.regex=^(https?://[^/]+)/e-floating-buttons/.*$$"
       - "traefik.http.middlewares.admizz-dev-floating-btn.redirectregex.replacement=$${1}/"
       - "traefik.http.middlewares.admizz-dev-floating-btn.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-dev-birgunj.redirectregex.regex=^(https?://[^/]+)/study-abroad-from-birgunj$$"
+      - "traefik.http.middlewares.admizz-dev-birgunj.redirectregex.replacement=$${1}/birgunj"
+      - "traefik.http.middlewares.admizz-dev-birgunj.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-dev-janakpur.redirectregex.regex=^(https?://[^/]+)/study-abroad-from-janakpur$$"
+      - "traefik.http.middlewares.admizz-dev-janakpur.redirectregex.replacement=$${1}/janakpur"
+      - "traefik.http.middlewares.admizz-dev-janakpur.redirectregex.permanent=true"
       # Chain all middlewares on router
-      - "traefik.http.routers.admizz-edu-web-dev.middlewares=admizz-dev-trailing-slash,admizz-dev-test-prep,admizz-dev-consultation,admizz-dev-campaign,admizz-dev-newzealand,admizz-dev-tag,admizz-dev-author,admizz-dev-blogs-page,admizz-dev-floating-btn"
+      - "traefik.http.routers.admizz-edu-web-dev.middlewares=admizz-dev-trailing-slash,admizz-dev-test-prep,admizz-dev-consultation,admizz-dev-campaign,admizz-dev-newzealand,admizz-dev-tag,admizz-dev-author,admizz-dev-blogs-page,admizz-dev-floating-btn,admizz-dev-birgunj,admizz-dev-janakpur"
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
       interval: 30s

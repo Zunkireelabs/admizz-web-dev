@@ -37,7 +37,7 @@ const whyPartnerFeatures = [
     icon: "🌍",
     title: "100+ Partner Universities",
     description:
-      "Refer to a global network of universities across UK, USA, Canada, Australia, Europe, UAE and more — through direct partnerships.",
+      "Refer to a global network of universities across UK, USA, Canada, Australia, Europe, and more — through direct partnerships.",
   },
   {
     icon: "⚡",
@@ -212,7 +212,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What countries and programs can I refer students to?",
     answer:
-      "Our network includes 100+ partner universities across the UK, USA, Canada, Australia, New Zealand, Germany, France, Denmark, Finland, UAE, and India. Programs supported include undergraduate, postgraduate, PhD, foundation, pathway, and diploma courses.",
+      "Our network includes 100+ partner universities across the UK, USA, Canada, Australia, New Zealand, Germany, France, Finland, and India. Programs supported include undergraduate, postgraduate, PhD, foundation, pathway, and diploma courses.",
   },
   {
     question: "Do I need to handle the application or visa process myself?",
@@ -251,13 +251,11 @@ const REGION_MAP: Record<string, string> = {
   UK: "Europe",
   France: "Europe",
   Germany: "Europe",
-  Denmark: "Europe",
   Finland: "Europe",
   USA: "North America",
   Canada: "North America",
   Australia: "Oceania",
   "New Zealand": "Oceania",
-  UAE: "Middle East",
   India: "Asia",
 };
 

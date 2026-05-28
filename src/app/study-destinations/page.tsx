@@ -39,22 +39,10 @@ const destinations = [
     href: "/study-in-canada/",
   },
   {
-    name: "Study in Denmark",
-    description:
-      "Known for innovation and cutting-edge research programs.",
-    href: "/study-in-denmark/",
-  },
-  {
     name: "Study in Finland",
     description:
       "Top-ranked education, affordable tuition, and strong post-study work opportunities in the happiest country.",
     href: "/study-in-finland/",
-  },
-  {
-    name: "Study in UAE",
-    description:
-      "A modern hub offering global education and career opportunities in one of the fastest-growing economies.",
-    href: "/study-in-dubai/",
   },
   {
     name: "Study in France",

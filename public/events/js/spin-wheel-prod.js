@@ -14,6 +14,9 @@
     var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxkc2dzZGppeHpzbGpna2NrdHF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3NTU1NDEsImV4cCI6MjA4NTMzMTU0MX0.855wGImOj-uNFYSqIyXF-Id4B9dO1siQoT2WdQKxusA';
     var SB_HEADERS = { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' };
 
+    var CRM_ENDPOINT = 'https://dev-lead-crm.zunkireelabs.com/api/public/submit/admizz/spin-win';
+    var CRM_API_KEY  = 'crm_live_UVtPfdXD6lIZ0S5lSeny9Clv3jKzbGUGM8sgK2Gm3tw';
+
     // Affiliate attribution — read first-touch referral code from cookie
     function getReferrerCode() {
         try {
@@ -24,8 +27,8 @@
 
     var DESTINATION_FLAGS = {
         'UK': '🇬🇧', 'USA': '🇺🇸', 'Australia': '🇦🇺', 'Canada': '🇨🇦',
-        'Denmark': '🇩🇰', 'Finland': '🇫🇮', 'Germany': '🇩🇪', 'India': '🇮🇳',
-        'New Zealand': '🇳🇿', 'UAE': '🇦🇪', 'France': '🇫🇷', 'Dubai': '🇦🇪',
+        'Finland': '🇫🇮', 'Germany': '🇩🇪', 'India': '🇮🇳',
+        'New Zealand': '🇳🇿', 'France': '🇫🇷',
         'South Korea': '🇰🇷', 'Nepal': '🇳🇵', 'Japan': '🇯🇵'
     };
 
@@ -102,16 +105,16 @@
             var n = spinsRemaining();
             var label;
             if (isFormSubmitted()) {
-                label = 'You’re all set!';
+                label = "You're all set!";
                 counterEl.dataset.state = 'done';
             } else if (n === 0) {
-                label = 'No free spins left';
+                label = 'No chances remaining';
                 counterEl.dataset.state = 'empty';
             } else if (n === 1) {
-                label = '1 spin remaining';
+                label = '1 chance remaining';
                 counterEl.dataset.state = 'low';
             } else {
-                label = n + ' spins remaining';
+                label = n + ' chances remaining';
                 counterEl.dataset.state = 'ok';
             }
             counterEl.textContent = label;
@@ -129,7 +132,7 @@
                 spinBtn.textContent = 'Fill Form to Spin';
                 spinBtn.classList.add('is-gated');
             } else {
-                spinBtn.textContent = 'SPIN!';
+                spinBtn.textContent = 'Discover';
                 spinBtn.classList.remove('is-gated');
                 spinBtn.classList.add('is-ready');
             }
@@ -212,8 +215,8 @@
             isAnimating = true;
             var spinDuration = 5000;
 
-            // Excluded: Laptop (0), Phone (1), Tablet (2). 6 winnable segments.
-            var commonSegments = [3, 4, 5, 6, 7, 8];
+            // Excluded: Laptop (0), Phone (1), Tablet (2), Flight (5). 5 winnable segments.
+            var commonSegments = [3, 4, 6, 7, 8];
             var targetSegment = commonSegments[Math.floor(Math.random() * commonSegments.length)];
 
             var segStart = targetSegment * SEGMENT_ANGLE - Math.PI / 2;
@@ -398,8 +401,8 @@
                 var intro = document.createElement('div');
                 intro.className = 'sd-gate-intro';
                 intro.innerHTML =
-                    '<div class="sd-gate-prize">You won: <strong>' + escapeHtml(lastPrize || 'a prize') + '</strong></div>' +
-                    '<p>You’ve used all 3 free spins. Tell us a bit about yourself to claim your prize.</p>';
+                    '<div class="sd-gate-prize">Your exclusive reward: <strong>' + escapeHtml(lastPrize || 'a reward') + '</strong></div>' +
+                    "<p>You've used all 3 chances. Tell us a bit about yourself to claim your reward.</p>";
                 wrap.appendChild(intro);
             }
 
@@ -473,7 +476,6 @@
             { code: 'NZ', dial: '+64',  name: 'New Zealand' },
             { code: 'DE', dial: '+49',  name: 'Germany' },
             { code: 'FR', dial: '+33',  name: 'France' },
-            { code: 'DK', dial: '+45',  name: 'Denmark' },
             { code: 'FI', dial: '+358', name: 'Finland' },
             { code: 'AE', dial: '+971', name: 'United Arab Emirates' },
             { code: 'SG', dial: '+65',  name: 'Singapore' },
@@ -513,7 +515,7 @@
             c.innerHTML =
                 '<label class="sd-consent">' +
                 '<input type="checkbox" id="sdTerms"' + (formData.terms ? ' checked' : '') + '>' +
-                '<span>I agree to the <a href="https://admizzeducation.com/privacy-policy" target="_blank" rel="noopener noreferrer" class="sd-consent-link">Terms &amp; Conditions</a> and to be contacted by Admizz about my prize.</span>' +
+                '<span>I agree to the <a href="https://admizzeducation.com/events/spin-and-win-terms-and-conditions" target="_blank" rel="noopener noreferrer" class="sd-consent-link">Terms &amp; Conditions</a> and to be contacted by Admizz about my prize.</span>' +
                 '</label>';
         }
 
@@ -699,12 +701,28 @@
             return code || '';
         }
 
+        function getDialCode(code) {
+            for (var i = 0; i < COUNTRY_LIST.length; i++) {
+                if (COUNTRY_LIST[i].code === code) return COUNTRY_LIST[i].dial;
+            }
+            return '';
+        }
+
+        function buildPhone() {
+            var dial = getDialCode(formData.country);
+            var num  = (formData.phone || '').trim();
+            if (!num) return '';
+            // avoid double-prefixing if user already typed the dial code
+            if (num.startsWith('+') || num.startsWith('00')) return num;
+            return dial ? dial + ' ' + num : num;
+        }
+
         function saveToSupabase() {
             var payload = {
                 first_name:            formData.firstName || '',
                 last_name:             formData.lastName  || '',
                 email:                 formData.email     || '',
-                phone:                 formData.phone     || '',
+                phone:                 buildPhone(),
                 country:               getCountryName(formData.country),
                 city:                  formData.city      || '',
                 preferred_destination: formData.preferedDestination || '',
@@ -724,6 +742,29 @@
             }).catch(function (err) {
                 console.warn('Supabase save failed:', err);
             });
+        }
+
+        // ---- Submit to CRM ----
+        function postToCRM() {
+            fetch(CRM_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + CRM_API_KEY },
+                body: JSON.stringify({
+                    first_name: formData.firstName || '',
+                    last_name:  formData.lastName  || '',
+                    email:      formData.email      || '',
+                    phone:      buildPhone(),
+                    custom_fields: {
+                        country:               getCountryName(formData.country),
+                        city:                  formData.city                  || '',
+                        preferred_destination: formData.preferedDestination   || '',
+                        study_level:           formData.studyLevel            || '',
+                        study_program:         formData.studyProgram          || '',
+                        prize:                 lastPrize                      || '',
+                        source:                'spin-and-win'
+                    }
+                })
+            }).catch(function (err) { console.warn('CRM submit failed:', err); });
         }
 
         // ---- Submit to Google Sheets ----
@@ -759,6 +800,7 @@
             formNextBtn.textContent = 'Submitting…';
             var fd = buildPayload();
             saveToSupabase();
+            postToCRM();
             var country = formData.country;
             var requests;
             if (country === 'NP') {
@@ -801,8 +843,8 @@
             formBody.innerHTML =
                 '<div class="sd-success">' +
                 '<div class="sd-success-icon">🎉</div>' +
-                '<h2>You’re all set!</h2>' +
-                '<p>We’ll be in touch about your <strong>' + escapeHtml(lastPrize || 'prize') + '</strong>.</p>' +
+                "<h2>You're all set!</h2>" +
+                '<p>We\'ll be in touch about your <strong>' + escapeHtml(lastPrize || 'prize') + '</strong>.</p>' +
                 '<p class="sd-success-sub">Redirecting you in a moment…</p>' +
                 '</div>';
             formNextBtn.style.display = 'none';

@@ -5,8 +5,8 @@ import FAQ from "@/components/ui/FAQ";
 import type { AlumniCard } from "@/components/ui/AlumniSection";
 
 export const metadata: Metadata = {
-  title: "Spin and Win | Admizz Education",
-  description: "Your study abroad journey starts with a spin. Win laptops, flight tickets & more - plus get free expert counseling from Admizz Education's ICEF-accredited agency.",
+  title: "Study Abroad Rewards Event | Admizz Education",
+  description: "Unlock exclusive rewards on your study abroad journey. Discover laptops, flight tickets & more — plus free expert counselling from Admizz Education's ICEF-accredited agency.",
 };
 
 const SPIN_AND_WIN_ALUMNI_ROW1 = [
@@ -49,43 +49,43 @@ const SPIN_AND_WIN_ALUMNI_ROW2 = [
 
 const faqItems = [
   {
-    question: "1. What is Admizz Education and how does it help students study abroad?",
+    question: "What is Admizz Education and how does it help students study abroad?",
     answer: "Admizz Education is a global study-abroad platform that helps students find, apply, and secure admissions to top universities worldwide. From course shortlisting to application guidance, scholarships, SOP support, and visa processing, Admizz simplifies every step of the international education journey.",
   },
   {
-    question: "2. Which countries can I apply to through Admizz Education?",
+    question: "Which countries can I apply to through Admizz Education?",
     answer: "You can apply to leading study-abroad destinations such as the USA, UK, Canada, Australia, New Zealand, India, Dubai, and other top European countries. Admizz provides end-to-end admission support for undergraduate, postgraduate, diploma, and pathway programs.",
   },
   {
-    question: "3. Does Admizz Education help with university shortlisting?",
+    question: "Does Admizz Education help with university shortlisting?",
     answer: "Yes. Admizz uses expert counsellors and AI-assisted tools to shortlist universities that match your academic profile, preferred country, career goals, and budget. You receive a personalized list of universities with high acceptance chances.",
   },
   {
-    question: "4. Can Admizz assist with SOP, LOR, and application documents?",
+    question: "Can Admizz assist with SOP, LOR, and application documents?",
     answer: "Absolutely. Admizz provides professional guidance for SOPs, LORs, resumes, essays, and application forms. The team ensures your documents meet global university standards and increase your chances of admission.",
   },
   {
-    question: "5. Does Admizz help students with scholarships and fee waivers?",
+    question: "Does Admizz help students with scholarships and fee waivers?",
     answer: "Yes. Admizz identifies eligible scholarship opportunities based on your academic performance, program selection, and country preferences. You also receive support for university fee waivers and financial documentation for visa applications.",
   },
   {
-    question: "6. What is the process to apply for a study-abroad program through Admizz Education?",
+    question: "What is the process to apply for a study-abroad program through Admizz Education?",
     answer: "The process includes: 1. Profile evaluation 2. Course and country selection 3. University shortlisting 4. Application submission 5. Document preparation 6. Offer letter guidance 7. Visa application support 8. Pre-departure assistance. Admizz makes the entire process fast, transparent, and stress-free.",
   },
   {
-    question: "7. Does Admizz provide visa guidance for international students?",
+    question: "Does Admizz provide visa guidance for international students?",
     answer: "Yes. Admizz offers end-to-end visa support including document preparation, financial planning, interview training, and step-by-step guidance to ensure a smooth and successful student visa application.",
   },
   {
-    question: "8. Is Admizz Education free for students?",
+    question: "Is Admizz Education free for students?",
     answer: "Admizz offers free counselling and guidance for many services. Some specialized services—like premium documentation, fast-track applications, and certain country-specific processing—may involve additional charges. Students are always informed upfront.",
   },
   {
-    question: "9. How long does it take to get admission through Admizz Education?",
+    question: "How long does it take to get admission through Admizz Education?",
     answer: "The timeline depends on the country, intake, university, and program. Typically, the entire admission cycle—shortlisting, application submission, and receiving an offer—takes 2 to 12 weeks. Early applicants usually receive faster decisions.",
   },
   {
-    question: "10. Why should I choose Admizz Education over other study-abroad consultancies?",
+    question: "Why should I choose Admizz Education over other study-abroad consultancies?",
     answer: "Admizz combines expert counsellors with advanced technology to offer accurate university matches, faster processing, transparent workflows, and a higher visa success rate. Students benefit from personalized support, global partner universities, and a seamless digital platform.",
   },
 ];
@@ -107,17 +107,26 @@ export default function SpinAndWinPage() {
         <section className="sd-hero" id="spinWheelSection">
           <div className="sd-hero-inner">
             <div className="sd-hero-text">
-              <p className="sd-eyebrow">🎯 Spin &amp; Win</p>
-              <h1>Spin to Win Amazing Prizes!</h1>
-              <p className="sd-hero-sub">3 free spins. Land on a prize, claim it instantly. No form needed to spin.</p>
-              <div className="sd-spin-counter" id="sdSpinCounter" data-state="ok">3 spins remaining</div>
+              <p className="sd-eyebrow">🎓 Exclusive Rewards Event</p>
+              <h1>Unlock Your Study Abroad Reward</h1>
+              <p className="sd-hero-sub">3 complimentary chances to unlock an exclusive reward. Discover yours and take the first step toward your study abroad journey.</p>
+              <div className="sd-spin-counter" id="sdSpinCounter" data-state="ok">3 chances remaining</div>
             </div>
             <div className="sd-wheel-stage">
               <div className="sd-wheel-frame">
                 <div className="wheel-pointer"></div>
                 <canvas id="wheelCanvas" width="340" height="340"></canvas>
               </div>
-              <button type="button" id="sdSpinBtn" className="sd-spin-btn is-ready">SPIN!</button>
+              <button type="button" id="sdSpinBtn" className="sd-spin-btn is-ready">Discover</button>
+              <p style={{ marginTop: "14px", fontSize: "13px", color: "rgba(255,255,255,0.75)", textAlign: "center", lineHeight: 1.5 }}>
+                By spinning, you agree to our{" "}
+                <a
+                  href="/events/spin-and-win-terms-and-conditions"
+                  style={{ color: "rgba(255,255,255,0.95)", textDecoration: "underline" }}
+                >
+                  Terms &amp; Conditions
+                </a>
+              </p>
             </div>
           </div>
         </section>
@@ -126,7 +135,7 @@ export default function SpinAndWinPage() {
         <section className="trust-section">
           <div className="container">
             <div className="trust-inline">
-              <div className="trust-badge"><span className="trust-icon">🎁</span><span className="trust-text"><strong>Real Prizes,</strong> Real Winners</span></div>
+              <div className="trust-badge"><span className="trust-icon">🎁</span><span className="trust-text"><strong>Real Rewards,</strong> Real Students</span></div>
               <div className="trust-divider"></div>
               <div className="trust-badge"><span className="trust-icon">🎓</span><span className="trust-text"><strong>2,000+</strong> Students Admitted</span></div>
               <div className="trust-divider"></div>
@@ -141,12 +150,12 @@ export default function SpinAndWinPage() {
         <div className="sd-modal sd-result-modal" id="sdResultModal" aria-hidden="true" role="dialog">
           <div className="sd-modal-card">
             <div className="sd-confetti">🎉</div>
-            <h2>Congratulations!</h2>
-            <p>You won:</p>
+            <h2>You&apos;ve Unlocked a Reward!</h2>
+            <p>Your exclusive reward:</p>
             <div className="sd-prize" id="sdResultPrize">—</div>
-            <button type="button" className="sd-btn-primary" id="sdClaimBtn">Claim Prize</button>
+            <button type="button" className="sd-btn-primary" id="sdClaimBtn">Claim Your Reward</button>
             <button type="button" className="sd-btn-secondary" id="sdTryAgainBtn">
-              Try Again (<span id="sdSpinsLeft">2</span> left)
+              Try Again (<span id="sdSpinsLeft">2</span> chances left)
             </button>
           </div>
         </div>
@@ -156,7 +165,6 @@ export default function SpinAndWinPage() {
           <div className="sd-form-shell">
             <header>
               <button type="button" id="sdFormBack" aria-label="Back">←</button>
-              <div className="sd-progress" id="sdProgress"></div>
               <button type="button" id="sdFormClose" aria-label="Close">×</button>
             </header>
             <div className="sd-form-body" id="sdFormBody"></div>
@@ -205,7 +213,7 @@ export default function SpinAndWinPage() {
             <p className="section-subtitle">Unlike single-country consultancies, we offer:</p>
             <div className="why-cards">
               {[
-                { icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z", title: "Multi-Destination Expertise", desc: "8+ countries, one consultancy. Not limited to single-country advice." },
+                { icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z", title: "Multi-Destination Expertise", desc: "11+ countries, one consultancy. Not limited to single-country advice." },
                 { icon: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z", title: "Switch Without Losing Time", desc: "Change your destination and keep your intake timeline intact." },
                 { icon: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z", title: "Transparent Guidance", desc: "Real talk on visa strength, finances & realistic backup options." },
               ].map((w) => (
@@ -218,7 +226,7 @@ export default function SpinAndWinPage() {
             </div>
             <div className="why-trust-bar">
               <span>🏆 ICEF Accredited Agency</span><span>•</span>
-              <span>🪃 10,000+ Students Supported</span><span>•</span>
+              <span>🪃 2,000+ Students Enrolled</span><span>•</span>
               <span>🌍 100+ Partner Universities</span><span>•</span>
               <span>🎯 95% Visa Approval Rate</span>
             </div>
@@ -243,9 +251,9 @@ export default function SpinAndWinPage() {
               </div>
             </div>
             <div className="partners-filters">
-              {["all", "USA", "UK", "Australia", "Canada", "India", "New Zealand", "Finland", "Germany", "Denmark", "UAE", "France"].map((c) => (
+              {["all", "USA", "UK", "Australia", "Canada", "India", "New Zealand", "Finland", "Germany", "France"].map((c) => (
                 <button key={c} className={`partners-filter-btn${c === "UK" ? " active" : ""}`} data-country={c}>
-                  {c === "all" ? "All" : c === "USA" ? "🇺🇸 USA" : c === "UK" ? "🇬🇧 UK" : c === "Australia" ? "🇦🇺 Australia" : c === "Canada" ? "🇨🇦 Canada" : c === "India" ? "🇮🇳 India" : c === "New Zealand" ? "🇳🇿 New Zealand" : c === "Finland" ? "🇫🇮 Finland" : c === "Germany" ? "🇩🇪 Germany" : c === "Denmark" ? "🇩🇰 Denmark" : c === "UAE" ? "🇦🇪 UAE" : "🇫🇷 France"}
+                  {c === "all" ? "All" : c === "USA" ? "🇺🇸 USA" : c === "UK" ? "🇬🇧 UK" : c === "Australia" ? "🇦🇺 Australia" : c === "Canada" ? "🇨🇦 Canada" : c === "India" ? "🇮🇳 India" : c === "New Zealand" ? "🇳🇿 New Zealand" : c === "Finland" ? "🇫🇮 Finland" : c === "Germany" ? "🇩🇪 Germany" : "🇫🇷 France"}
                 </button>
               ))}
             </div>
