@@ -163,10 +163,11 @@ export default function RegisterJourneyHero() {
           <div className="relative lg:flex-1">
 
             {/* Shared centering wrapper — both strip and donut align to this */}
-            <div className="mx-auto w-full max-w-[520px] px-4 sm:px-8 lg:max-w-[460px] lg:px-10 pb-2 sm:pb-0">
+            <div className="mx-auto w-full max-w-[520px] px-0 sm:px-8 lg:max-w-[460px] lg:px-10 pb-2 sm:pb-0">
 
             {/* Step info strip */}
             {!submitted && (
+              <div className="px-3 sm:px-0">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={donutActive}
@@ -200,6 +201,7 @@ export default function RegisterJourneyHero() {
                   </div>
                 </motion.div>
               </AnimatePresence>
+              </div>
             )}
 
             {/* Donut wheel */}

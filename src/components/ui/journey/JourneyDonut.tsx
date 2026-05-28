@@ -78,7 +78,7 @@ export default function JourneyDonut({
   const centerStrokeColor = isCompletedActive ? COMPLETE_COLOR : active.color;
 
   return (
-    <div className="relative w-full max-w-[560px] mx-auto aspect-square overflow-hidden sm:overflow-visible">
+    <div className="relative w-full max-w-[560px] mx-auto aspect-square overflow-visible">
       {onCtaClick && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 10 }}>
           <button
