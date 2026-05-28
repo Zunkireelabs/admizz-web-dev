@@ -65,7 +65,7 @@ const DIAL_CODES = [
   { code: "+971", label: "🇦🇪 +971" },
 ];
 
-const COUNTRIES = ["🇬🇧 UK", "🇺🇸 USA", "🇨🇦 Canada", "🇦🇺 Australia", "🇪🇺 Europe", "🌍 Other"];
+const COUNTRIES = ["🇬🇧 UK", "🇺🇸 USA", "🇨🇦 Canada", "🇦🇺 Australia", "🇮🇳 India", "🇩🇪 Germany", "🌍 Other"];
 const INTAKES   = ["Fall 2026", "Spring 2027", "Fall 2027", "Still exploring"];
 
 const FIELD_OTHER = "✏️ Other";
@@ -410,7 +410,7 @@ function Step1({ form, set, theme }: { form: FormData; set: (p: Partial<FormData
 }
 
 const STEP2_HEADINGS = [
-  { title: (name: string) => name ? `Hi ${name}, where to study?` : "Where do you want to study?", subtitle: "Pick up to 3 destinations." },
+  { title: () => "Where do you want to study?", subtitle: "Pick your destination" },
   { title: () => "When do you plan to start?",  subtitle: "Pick your intended intake."   },
   { title: () => "What do you want to study?",  subtitle: "Choose your field of study."  },
 ];
@@ -452,7 +452,7 @@ function Step2({
           className="text-[20px] md:text-[22px] font-bold mb-1"
           style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}
         >
-          {heading.title(firstName)}
+          {heading.title()}
         </motion.h3>
         <p className="text-[13px]" style={{ color: "#5C7189" }}>{heading.subtitle}</p>
       </div>
@@ -465,7 +465,7 @@ function Step2({
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
           >
             <ChipPicker
-              label="Destinations" helper={`Up to 3 · ${form.countries.length}/3`}
+              label="Destinations"
               options={COUNTRIES} value={form.countries}
               onChange={(v) => set({ countries: v as string[] })}
               multi max={3} theme={theme}
