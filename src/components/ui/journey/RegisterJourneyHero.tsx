@@ -115,6 +115,20 @@ export default function RegisterJourneyHero() {
             className="text-center lg:text-left lg:flex-1 mb-8 lg:mb-0 px-4 sm:px-0"
             style={{ animation: "rjhFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) both" }}
           >
+            {/* Badge */}
+            <span
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.16em] mb-5"
+              style={{
+                background: "rgba(255,255,255,0.12)",
+                color: "rgba(255,255,255,0.85)",
+                border: "1px solid rgba(255,255,255,0.25)",
+                letterSpacing: "0.16em",
+              }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#4ade80" }} />
+              {submitted ? "Step 1 of 5 · Complete" : "Your Journey · Step 1 of 5"}
+            </span>
+
             {/* Heading — gradient accent on the last word */}
             <h1
               className="font-bold leading-[1.05] tracking-[-0.02em] mb-4"
@@ -205,7 +219,7 @@ export default function RegisterJourneyHero() {
             )}
 
             {/* Donut wheel */}
-            <div className="relative w-full pt-0 pb-6">
+            <div className="relative w-full pt-0 pb-6 scale-[1.25] sm:scale-100 origin-top">
               <JourneyDonut
                 activeIndex={donutActive}
                 onSelect={(i) => {
