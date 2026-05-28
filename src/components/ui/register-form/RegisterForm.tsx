@@ -28,7 +28,8 @@ type StepTheme = typeof STEP_THEME[number];
 /* ------------------------------------------------------------------ */
 
 type FormData = {
-  fullName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   dialCode: string;
   phone: string;
@@ -40,7 +41,8 @@ type FormData = {
 };
 
 const INITIAL: FormData = {
-  fullName: "",
+  firstName: "",
+  lastName: "",
   email: "",
   dialCode: "+977",
   phone: "",
@@ -98,7 +100,7 @@ const CONTACT_PREFS = ["📞 Phone call", "💬 WhatsApp", "↔️ Either"];
 function isStepValid(step: number, form: FormData): boolean {
   if (step === 0)
     return (
-      form.fullName.trim().length >= 2 &&
+      form.firstName.trim().length >= 2 &&
       /^\S+@\S+\.\S+$/.test(form.email.trim()) &&
       form.phone.trim().replace(/\D/g, "").length >= 6
     );
@@ -112,8 +114,8 @@ function isStepValid(step: number, form: FormData): boolean {
 }
 
 function fieldError(field: keyof FormData, form: FormData): string | null {
-  if (field === "fullName" && form.fullName.length > 0 && form.fullName.trim().length < 2)
-    return "Please enter your full name.";
+  if (field === "firstName" && form.firstName.length > 0 && form.firstName.trim().length < 2)
+    return "Please enter your first name.";
   if (field === "email" && form.email.length > 0 && !/^\S+@\S+\.\S+$/.test(form.email.trim()))
     return "Please enter a valid email address.";
   if (field === "phone" && form.phone.length > 0 && form.phone.replace(/\D/g, "").length < 6)
@@ -364,9 +366,15 @@ function Step1({ form, set, theme }: { form: FormData; set: (p: Partial<FormData
     <div>
       <StepHeading title="Tell us about yourself" subtitle="Quick basics — under 30 seconds." />
       <div className="space-y-4">
-        <TextField label="Full name" name="fullName" value={form.fullName} placeholder="Your name"
-          autoComplete="name" onChange={(v) => set({ fullName: v })}
-          error={fieldError("fullName", form)} isValid={form.fullName.trim().length >= 2} theme={theme} />
+        {/* First + Last name side by side */}
+        <div className="grid grid-cols-2 gap-3">
+          <TextField label="First name" name="firstName" value={form.firstName} placeholder="First name"
+            autoComplete="given-name" onChange={(v) => set({ firstName: v })}
+            error={fieldError("firstName", form)} isValid={form.firstName.trim().length >= 2} theme={theme} />
+          <TextField label="Last name" name="lastName" value={form.lastName} placeholder="Last name"
+            autoComplete="family-name" onChange={(v) => set({ lastName: v })}
+            error={null} isValid={form.lastName.trim().length >= 1} theme={theme} />
+        </div>
         <TextField label="Email" name="email" type="email" value={form.email} placeholder="you@example.com"
           autoComplete="email" onChange={(v) => set({ email: v })}
           error={fieldError("email", form)} isValid={/^\S+@\S+\.\S+$/.test(form.email.trim())} theme={theme} />
@@ -622,7 +630,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
   useEffect(() => { if (step !== 1) setStep2SubStep(0); }, [step]);
 
   const set       = (patch: Partial<FormData>) => setForm((f) => ({ ...f, ...patch }));
-  const firstName = form.fullName.trim().split(/\s+/)[0] ?? "";
+  const firstName = form.firstName.trim();
   const theme     = STEP_THEME[step];
   const stepValid = isStepValid(step, form);
 
@@ -633,9 +641,6 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
   };
 
   const postToCRM = (payload: FormData) => {
-    const nameParts = payload.fullName.trim().split(/\s+/);
-    const firstName = nameParts[0] ?? "";
-    const lastName  = nameParts.slice(1).join(" ") || null;
     return fetch(CRM_ENDPOINT, {
       method: "POST",
       headers: {
@@ -643,8 +648,8 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
         "Authorization": `Bearer ${CRM_API_KEY}`,
       },
       body: JSON.stringify({
-        first_name: firstName,
-        last_name:  lastName,
+        first_name: payload.firstName.trim(),
+        last_name:  payload.lastName.trim() || null,
         email:      payload.email.trim(),
         phone:      `${payload.dialCode} ${payload.phone.trim()}`,
         custom_fields: {
@@ -666,7 +671,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
       const [supabaseResult] = await Promise.allSettled([
         supabase.from("register_leads").insert({
           id:           crypto.randomUUID(),
-          full_name:    form.fullName.trim(),
+          full_name:    `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
           email:        form.email.trim(),
           phone:        `${form.dialCode} ${form.phone.trim()}`,
           countries:    form.countries.join(", "),
