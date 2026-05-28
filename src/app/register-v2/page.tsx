@@ -180,8 +180,15 @@ export default function RegisterPage() {
       </section>
 
       {/* ===== "WHAT HAPPENS NEXT" — 3-step process panel ===== */}
-      <section id="enquiry-form" className="py-12 md:py-16 relative overflow-hidden bg-white">
-        <div className="hidden md:block absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full opacity-[0.08] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, #1E6DEB 0%, transparent 70%)" }} />
+      <section id="enquiry-form" className="py-12 md:py-16 relative overflow-hidden" style={{ background: "#F8F9FF" }}>
+        <style>{`
+          @keyframes journey-dot {
+            0%   { left: -1%; opacity: 0; }
+            4%   { opacity: 1; }
+            96%  { opacity: 1; }
+            100% { left: 101%; opacity: 0; }
+          }
+        `}</style>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 md:mb-10">
             <p className="text-[12px] font-semibold uppercase tracking-[0.18em] mb-2" style={{ color: "#1E6DEB" }}>What happens next</p>
@@ -239,11 +246,41 @@ export default function RegisterPage() {
             })}
           </div>
 
-          {/* ── Desktop: horizontal stepper with connectors ── */}
-          <div className="hidden md:flex items-stretch gap-2">
-            {journeySteps.flatMap((step, i) => {
-              const card = (
-                <div key={`card-${step.id}`} className="flex-1 min-w-0 relative rounded-2xl p-4 lg:p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ background: "#F8F9FF", border: "1px solid #E0E6F2" }}>
+          {/* ── Desktop: horizontal stepper with animated dot track ── */}
+          <div className="hidden md:block relative">
+
+            {/* Animated dot track — sits behind cards at icon height */}
+            <div
+              className="absolute inset-x-0 overflow-hidden pointer-events-none"
+              style={{ top: "37px", height: "2px", zIndex: 0 }}
+            >
+              {/* Track line */}
+              <div className="absolute inset-0" style={{ background: "rgba(49,66,156,0.12)" }} />
+              {/* Moving dots */}
+              {[0, 1, 2, 3].map(i => (
+                <div
+                  key={i}
+                  className="absolute"
+                  style={{
+                    top: "50%",
+                    width: 8,
+                    height: 8,
+                    borderRadius: "50%",
+                    background: "#31429C",
+                    boxShadow: "0 0 6px rgba(49,66,156,0.6)",
+                    transform: "translateY(-50%)",
+                    animation: `journey-dot 3.6s linear infinite`,
+                    animationDelay: `${i * 0.9}s`,
+                    opacity: 0,
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Cards — no gap, cards sit flush with track visible between */}
+            <div className="flex items-stretch gap-4 relative" style={{ zIndex: 1 }}>
+              {journeySteps.map((step) => (
+                <div key={`card-${step.id}`} className="flex-1 min-w-0 relative rounded-2xl p-4 lg:p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ background: "#ffffff", border: "1px solid #E0E6F2" }}>
                   <span aria-hidden className="absolute -top-2 right-1 font-extrabold leading-none select-none pointer-events-none" style={{ fontFamily: "var(--font-rubik), sans-serif", fontSize: "clamp(44px, 4.5vw, 68px)", background: "linear-gradient(180deg, rgba(13,18,130,0.07) 0%, rgba(13,18,130,0) 90%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{String(step.id).padStart(2, "0")}</span>
                   <p className="relative text-[10px] font-bold uppercase tracking-[0.18em] mb-3" style={{ color: step.colorDeep }}>Step {step.id} of 5</p>
                   <div className="relative flex items-center gap-2 mb-3">
@@ -256,16 +293,8 @@ export default function RegisterPage() {
                   <p className="relative text-[12px] leading-relaxed" style={{ color: "#5C7189" }}>{step.description}</p>
                   <div className="relative mt-4 h-[2px] w-10 rounded-full" style={{ background: `linear-gradient(90deg, ${step.color} 0%, ${step.colorDeep} 100%)` }} />
                 </div>
-              );
-              const connector = i < journeySteps.length - 1 ? (
-                <div key={`conn-${step.id}`} className="flex items-center justify-center flex-shrink-0 w-5">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ stroke: "#D0D5E8" }}>
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </div>
-              ) : null;
-              return connector ? [card, connector] : [card];
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </section>
