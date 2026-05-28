@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import * as THREE from "three";
 
 /* ─── City coordinates (lat/lng → 3D) ─────────────────────────────── */
@@ -53,10 +53,13 @@ function hexToColor(hex: string) { return new THREE.Color(hex); }
 
 /* ─── Count-up hook ───────────────────────────────────────────────── */
 function useCountUp(target: number, duration = 1800, active = false) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target); // start at final value — no flash
+  const animated = useRef(false);
   useEffect(() => {
-    if (!active) return;
+    if (!active || animated.current) return;
+    animated.current = true;
     let start = 0;
+    setCount(0);
     const step = target / (duration / 16);
     const id = setInterval(() => {
       start = Math.min(start + step, target);
@@ -313,12 +316,8 @@ function GlobeCanvas() {
 /* ─── Main Hero ──────────────────────────────────────────────────── */
 export default function AffiliateHero() {
   const reduce = useReducedMotion();
-  const [statsActive, setStatsActive] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setStatsActive(true), 900);
-    return () => clearTimeout(t);
-  }, []);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statsActive = useInView(statsRef, { once: true, margin: "-10% 0px" });
 
   return (
     <section
@@ -524,7 +523,7 @@ export default function AffiliateHero() {
         </div>
 
         {/* ── STATS BAR ── */}
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-10">
+        <div ref={statsRef} className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-10">
           <motion.div
             className="rounded-2xl overflow-hidden"
             style={{

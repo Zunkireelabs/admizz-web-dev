@@ -86,6 +86,10 @@ export default function AffiliateTestimonials() {
           <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.55)" }}>
             People just like you are already winning.
           </p>
+          {/* TODO: Replace with real affiliate quotes — remove this notice before launch */}
+          <p className="mt-3 text-xs italic" style={{ color: "rgba(255,255,255,0.2)" }}>
+            Sample testimonials shown — replace with verified affiliate quotes before launch
+          </p>
         </motion.div>
 
         {/* Testimonial cards */}
@@ -129,13 +133,20 @@ export default function AffiliateTestimonials() {
                 {/* Profile row */}
                 <div className="flex items-center gap-3 mt-auto">
                   <div
-                    className="w-11 h-11 rounded-full flex items-center justify-center text-xs font-extrabold flex-shrink-0"
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-extrabold flex-shrink-0 relative"
                     style={{
                       background: `linear-gradient(135deg, ${t.avatarFrom}, ${t.avatarTo})`,
                       color: t.name === "Sunita Gurung" ? "#001353" : "#fff",
+                      boxShadow: `0 0 0 2px ${t.accentColor}40, 0 4px 12px rgba(0,0,0,0.4)`,
                     }}
                   >
                     {t.initials}
+                    <span
+                      className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full flex items-center justify-center"
+                      style={{ background: t.accentColor, fontSize: "8px" }}
+                    >
+                      ✓
+                    </span>
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-bold text-white">{t.name}</p>
