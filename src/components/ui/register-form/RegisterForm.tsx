@@ -68,20 +68,17 @@ const DIAL_CODES = [
 ];
 
 const COUNTRIES = ["🇬🇧 UK", "🇺🇸 USA", "🇨🇦 Canada", "🇦🇺 Australia", "🇮🇳 India", "🇩🇪 Germany", "🌍 Other"];
-const INTAKES   = ["Fall 2026", "Spring 2027", "Fall 2027", "Still exploring"];
 
-const FIELD_OTHER = "✏️ Other";
 const FIELDS = [
-  "💼 Business & Management",
-  "⚙️ Engineering & Technology",
-  "💻 IT & Computer Science",
-  "🏥 Nursing & Healthcare",
-  "🏨 Hospitality & Tourism",
-  "⚖️ Law",
-  "📚 Education & Teaching",
-  "🔬 Sciences",
-  "🎨 Arts & Design",
-  FIELD_OTHER,
+  "Engineering & Technology",
+  "Allied Health Sciences",
+  "Humanities & Social Sciences",
+  "Business & Management",
+  "Law & Legal Studies",
+  "Architecture & Design",
+  "Applied Sciences",
+  "Medical & Pharmacy",
+  "Other",
 ];
 
 const EDUCATION_LEVELS = [
@@ -105,8 +102,7 @@ function isStepValid(step: number, form: FormData): boolean {
       form.phone.trim().replace(/\D/g, "").length >= 6
     );
   if (step === 1) {
-    const fieldValid = form.field.trim().length >= 2 && form.field !== FIELD_OTHER;
-    return form.countries.length >= 1 && form.countries.length <= 3 && form.intake.length > 0 && fieldValid;
+    return form.countries.length >= 1 && form.countries.length <= 3 && form.field.trim().length >= 2;
   }
   if (step === 2)
     return form.education.length > 0 && form.contactPref.length > 0;
@@ -417,30 +413,25 @@ function Step1({ form, set, theme }: { form: FormData; set: (p: Partial<FormData
 
 const STEP2_HEADINGS = [
   { title: () => "Where do you want to study?", subtitle: "Pick your destination" },
-  { title: () => "When do you plan to start?",  subtitle: "Pick your intended intake."   },
   { title: () => "What do you want to study?",  subtitle: "Choose your field of study."  },
 ];
 
 function Step2({
-  form, set, firstName, theme, subStep, setSubStep,
+  form, set, theme, subStep, setSubStep,
 }: {
   form: FormData;
   set: (p: Partial<FormData>) => void;
-  firstName: string;
   theme: StepTheme;
   subStep: number;
   setSubStep: React.Dispatch<React.SetStateAction<number>>;
 }) {
-  const chipValue  = form.field === "" || FIELDS.includes(form.field) ? form.field : FIELD_OTHER;
-  const showCustom = form.field === FIELD_OTHER || (form.field !== "" && !FIELDS.includes(form.field));
-  const customText = FIELDS.includes(form.field) ? "" : form.field;
-  const heading    = STEP2_HEADINGS[subStep];
+  const heading = STEP2_HEADINGS[subStep];
 
   return (
     <div>
-      {/* Sub-step progress bar */}
+      {/* Sub-step progress bar — 2 bars */}
       <div className="flex gap-1.5 mb-5">
-        {[0, 1, 2].map((i) => (
+        {[0, 1].map((i) => (
           <motion.div
             key={i}
             className="h-1 rounded-full flex-1"
@@ -484,11 +475,7 @@ function Step2({
                   type="button"
                   onClick={() => setSubStep(1)}
                   className="mt-5 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[13px] font-bold"
-                  style={{
-                    background: `linear-gradient(135deg, ${theme.accent}, ${theme.deep})`,
-                    color: "#FFFFFF",
-                    boxShadow: `0 4px 14px ${theme.shadow}`,
-                  }}
+                  style={{ background: "#FDED22", color: "#001353", boxShadow: "0 4px 14px rgba(253,237,34,0.4)" }}
                 >
                   Next
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -502,41 +489,15 @@ function Step2({
 
         {subStep === 1 && (
           <motion.div
-            key="intake"
-            initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <ChipPicker
-              label="Intake" options={INTAKES} value={form.intake}
-              onChange={(v) => { set({ intake: v as string }); setTimeout(() => setSubStep(2), 320); }}
-              theme={theme}
-            />
-          </motion.div>
-        )}
-
-        {subStep === 2 && (
-          <motion.div
             key="field"
             initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
           >
             <ChipPicker
-              label="Field of study" options={FIELDS} value={chipValue}
+              label="Field of study" options={FIELDS} value={form.field}
               onChange={(v) => set({ field: v as string })}
               theme={theme} grid
             />
-            {showCustom && (
-              <motion.input
-                initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                type="text" value={customText}
-                onChange={(e) => set({ field: e.target.value })}
-                placeholder="Please specify your field…"
-                className="mt-3 w-full rounded-xl px-4 py-3 text-[14px] outline-none transition-all"
-                style={{ background: theme.bg, border: `1.5px solid ${theme.accent}`, color: "#0D1282" }}
-                autoFocus
-              />
-            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -708,7 +669,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           >
             {step === 0 && <Step1 form={form} set={set} theme={theme} />}
-            {step === 1 && <Step2 form={form} set={set} firstName={firstName} theme={theme} subStep={step2SubStep} setSubStep={setStep2SubStep} />}
+            {step === 1 && <Step2 form={form} set={set} theme={theme} subStep={step2SubStep} setSubStep={setStep2SubStep} />}
             {step === 2 && <Step3 form={form} set={set} firstName={firstName} theme={theme} />}
           </motion.div>
         </AnimatePresence>
