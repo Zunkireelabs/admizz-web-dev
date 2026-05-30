@@ -78,14 +78,6 @@ const FIELDS = [
   "Architecture & Design",
   "Applied Sciences",
   "Medical & Pharmacy",
-  "Other",
-];
-
-const EDUCATION_LEVELS = [
-  "🏫 High school / +2",
-  "🎓 Bachelor's degree",
-  "📜 Master's degree",
-  "📋 Other",
 ];
 
 const CONTACT_PREFS = ["📞 Phone call", "💬 WhatsApp", "↔️ Either"];
@@ -105,7 +97,7 @@ function isStepValid(step: number, form: FormData): boolean {
     return form.countries.length >= 1 && form.countries.length <= 3 && form.field.trim().length >= 2;
   }
   if (step === 2)
-    return form.education.length > 0 && form.contactPref.length > 0;
+    return form.contactPref.length > 0;
   return false;
 }
 
@@ -305,7 +297,7 @@ function ChipPicker({
               whileTap={{ scale: 0.92 }}
               animate={selected ? { scale: [1, 1.06, 1] } : { scale: 1 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className={`rounded-full text-[13px] font-semibold flex items-center gap-1.5 transition-all duration-200 ${grid ? "px-3 py-1.5 justify-center" : "px-4 py-2"}`}
+              className={`font-semibold flex items-center gap-1.5 transition-all duration-200 ${grid ? "rounded-2xl text-[12.5px] px-2.5 py-1.5 justify-center whitespace-nowrap" : "rounded-full text-[13px] px-4 py-2"}`}
               style={{
                 background: selected ? "#FDED22" : "#FFFFFF",
                 color: selected ? "#001353" : "#374151",
@@ -417,13 +409,12 @@ const STEP2_HEADINGS = [
 ];
 
 function Step2({
-  form, set, theme, subStep, setSubStep, firstName,
+  form, set, theme, subStep, firstName,
 }: {
   form: FormData;
   set: (p: Partial<FormData>) => void;
   theme: StepTheme;
   subStep: number;
-  setSubStep: React.Dispatch<React.SetStateAction<number>>;
   firstName: string;
 }) {
   const heading = STEP2_HEADINGS[subStep];
@@ -476,23 +467,6 @@ function Step2({
               onChange={(v) => set({ countries: v as string[] })}
               multi max={3} theme={theme}
             />
-            <AnimatePresence>
-              {form.countries.length >= 1 && (
-                <motion.button
-                  initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  type="button"
-                  onClick={() => setSubStep(1)}
-                  className="mt-5 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[13px] font-bold"
-                  style={{ background: "#FDED22", color: "#001353", boxShadow: "0 4px 14px rgba(253,237,34,0.4)" }}
-                >
-                  Next
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </motion.button>
-              )}
-            </AnimatePresence>
           </motion.div>
         )}
 
@@ -519,11 +493,9 @@ function Step3({ form, set, firstName, theme }: { form: FormData; set: (p: Parti
     <div>
       <StepHeading
         title={firstName ? `Almost done, ${firstName}!` : "Almost done"}
-        subtitle="Two more taps and a counsellor will reach out."
+        subtitle="One quick tap and a counsellor will reach out."
       />
-      <div className="space-y-5">
-        <ChipPicker label="Highest education completed" options={EDUCATION_LEVELS}
-          value={form.education} onChange={(v) => set({ education: v as string })} theme={theme} />
+      <div className="mt-2 pb-2">
         <ChipPicker label="How should we reach you?" options={CONTACT_PREFS}
           value={form.contactPref} onChange={(v) => set({ contactPref: v as string })} theme={theme} />
       </div>
@@ -535,7 +507,7 @@ function Step3({ form, set, firstName, theme }: { form: FormData; set: (p: Parti
 /*  Success state                                                      */
 /* ------------------------------------------------------------------ */
 
-function SuccessCard() {
+function SuccessCard({ firstName }: { firstName: string }) {
   return (
     <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -556,10 +528,10 @@ function SuccessCard() {
       </motion.div>
       <h3 className="text-[22px] md:text-[24px] font-bold mb-2"
         style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}>
-        We&rsquo;ve got your details!
+        {firstName ? `We've got your details, ${firstName}!` : "We've got your details!"}
       </h3>
       <p className="text-[14px] md:text-[15px] leading-relaxed mb-7" style={{ color: "#5C7189" }}>
-        A counsellor will reach out within 24 hours. No pressure, no spam.
+        A counsellor will reach out within 24 hours.
       </p>
       <a href="https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%20just%20registered"
         target="_blank" rel="noopener noreferrer"
@@ -600,9 +572,14 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
   const set       = (patch: Partial<FormData>) => setForm((f) => ({ ...f, ...patch }));
   const firstName = form.firstName.trim();
   const theme     = STEP_THEME[step];
-  const stepValid = isStepValid(step, form);
+  const step2Sub0Valid = form.countries.length >= 1 && form.countries.length <= 3;
+  const stepValid = step === 1 && step2SubStep === 0 ? step2Sub0Valid : isStepValid(step, form);
 
-  const next = () => { if (!stepValid) return; setStep((s) => Math.min(s + 1, 2)); };
+  const next = () => {
+    if (!stepValid) return;
+    if (step === 1 && step2SubStep === 0) { setStep2SubStep(1); return; }
+    setStep((s) => Math.min(s + 1, 2));
+  };
   const back = () => {
     if (step === 1 && step2SubStep > 0) { setStep2SubStep((s) => s - 1); return; }
     setStep((s) => Math.max(s - 1, 0));
@@ -665,7 +642,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
     }
   };
 
-  if (done && !hideInternalSuccess) return <SuccessCard />;
+  if (done && !hideInternalSuccess) return <SuccessCard firstName={firstName} />;
   if (done && hideInternalSuccess) return null;
 
   return (
@@ -678,7 +655,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           >
             {step === 0 && <Step1 form={form} set={set} theme={theme} />}
-            {step === 1 && <Step2 form={form} set={set} theme={theme} subStep={step2SubStep} setSubStep={setStep2SubStep} firstName={firstName} />}
+            {step === 1 && <Step2 form={form} set={set} theme={theme} subStep={step2SubStep} firstName={firstName} />}
             {step === 2 && <Step3 form={form} set={set} firstName={firstName} theme={theme} />}
           </motion.div>
         </AnimatePresence>
@@ -708,11 +685,11 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
             whileTap={stepValid ? { scale: 0.96 } : {}}
             className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[13px] font-bold transition-all"
             style={{
-              background: stepValid ? `linear-gradient(135deg, ${theme.accent}, ${theme.deep})` : "#F0F0F0",
+              background: stepValid ? `linear-gradient(135deg, ${STEP_THEME[0].accent}, ${STEP_THEME[0].deep})` : "#F0F0F0",
               color: stepValid ? "#FFFFFF" : "#9CA3B5",
               minHeight: 48,
               cursor: stepValid ? "pointer" : "not-allowed",
-              boxShadow: stepValid ? `0 6px 20px ${theme.shadow}` : "none",
+              boxShadow: stepValid ? `0 6px 20px ${STEP_THEME[0].shadow}` : "none",
             }}
             onMouseEnter={(e) => { if (stepValid) e.currentTarget.style.transform = "translateY(-2px)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; }}
@@ -727,11 +704,11 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
             whileTap={stepValid && !submitting ? { scale: 0.96 } : {}}
             className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[13px] font-bold transition-all"
             style={{
-              background: stepValid && !submitting ? `linear-gradient(135deg, ${theme.accent}, ${theme.deep})` : "#F0F0F0",
+              background: stepValid && !submitting ? `linear-gradient(135deg, ${STEP_THEME[0].accent}, ${STEP_THEME[0].deep})` : "#F0F0F0",
               color: stepValid && !submitting ? "#FFFFFF" : "#9CA3B5",
               minHeight: 48,
               cursor: stepValid && !submitting ? "pointer" : "not-allowed",
-              boxShadow: stepValid && !submitting ? `0 6px 20px ${theme.shadow}` : "none",
+              boxShadow: stepValid && !submitting ? `0 6px 20px ${STEP_THEME[0].shadow}` : "none",
             }}
           >
             {submitting ? (
