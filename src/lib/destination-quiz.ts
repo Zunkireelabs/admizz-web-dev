@@ -30,7 +30,7 @@ export interface Destination {
 
 export const destinations: Record<DestinationKey, Destination> = {
   uk: {
-    emoji: "🎩",
+    emoji: "🇬🇧",
     country: "United Kingdom",
     flag: "🇬🇧 UK — Excellence & Prestige",
     tagline:
@@ -48,7 +48,7 @@ export const destinations: Record<DestinationKey, Destination> = {
     ],
   },
   usa: {
-    emoji: "🗽",
+    emoji: "🇺🇸",
     country: "United States",
     flag: "🇺🇸 USA — Innovation & Opportunity",
     tagline:
@@ -66,7 +66,7 @@ export const destinations: Record<DestinationKey, Destination> = {
     ],
   },
   canada: {
-    emoji: "🍁",
+    emoji: "🇨🇦",
     country: "Canada",
     flag: "🇨🇦 Canada — Safe & PR-Friendly",
     tagline:
@@ -84,7 +84,7 @@ export const destinations: Record<DestinationKey, Destination> = {
     ],
   },
   australia: {
-    emoji: "🦘",
+    emoji: "🇦🇺",
     country: "Australia",
     flag: "🇦🇺 Australia — Sun, Study & Success",
     tagline:
@@ -102,7 +102,7 @@ export const destinations: Record<DestinationKey, Destination> = {
     ],
   },
   germany: {
-    emoji: "🏰",
+    emoji: "🇩🇪",
     country: "Germany",
     flag: "🇩🇪 Germany — Free Tuition, World-Class",
     tagline:
@@ -120,7 +120,7 @@ export const destinations: Record<DestinationKey, Destination> = {
     ],
   },
   nz: {
-    emoji: "🌿",
+    emoji: "🇳🇿",
     country: "New Zealand",
     flag: "🇳🇿 NZ — Beautiful & Welcoming",
     tagline:
@@ -153,33 +153,33 @@ export const DEST_SCORES: Record<
 > = {
   uk: {
     field:     { "Business & Management": 33, "Technology & Engineering": 18, "Health & Medicine": 25, "Arts & Social Science": 33 },
-    lifestyle: { "Big City Energy": 33, "Safe & Peaceful": 14, "Multicultural Hub": 28, "Nature & Adventure": 8 },
-    budget:    { "Budget Friendly": 22, "Mid Range": 30, "Premium": 28, "Scholarship Needed": 28 },
+    lifestyle: { "Big City": 33, "Safe & Quiet": 14, "Diverse & Global": 28, "Nature & Outdoors": 8 },
+    budget:    { "Under $15,000": 22, "$15,000 – $30,000": 30, "Above $30,000": 28, "I Need a Scholarship": 28 },
   },
   usa: {
     field:     { "Business & Management": 28, "Technology & Engineering": 33, "Health & Medicine": 22, "Arts & Social Science": 22 },
-    lifestyle: { "Big City Energy": 33, "Safe & Peaceful": 12, "Multicultural Hub": 28, "Nature & Adventure": 10 },
-    budget:    { "Budget Friendly": 8,  "Mid Range": 18, "Premium": 33, "Scholarship Needed": 10 },
+    lifestyle: { "Big City": 33, "Safe & Quiet": 12, "Diverse & Global": 28, "Nature & Outdoors": 10 },
+    budget:    { "Under $15,000": 8,  "$15,000 – $30,000": 18, "Above $30,000": 33, "I Need a Scholarship": 10 },
   },
   canada: {
     field:     { "Business & Management": 26, "Technology & Engineering": 26, "Health & Medicine": 30, "Arts & Social Science": 24 },
-    lifestyle: { "Big City Energy": 18, "Safe & Peaceful": 30, "Multicultural Hub": 26, "Nature & Adventure": 24 },
-    budget:    { "Budget Friendly": 24, "Mid Range": 33, "Premium": 26, "Scholarship Needed": 24 },
+    lifestyle: { "Big City": 18, "Safe & Quiet": 30, "Diverse & Global": 26, "Nature & Outdoors": 24 },
+    budget:    { "Under $15,000": 24, "$15,000 – $30,000": 33, "Above $30,000": 26, "I Need a Scholarship": 24 },
   },
   australia: {
     field:     { "Business & Management": 24, "Technology & Engineering": 22, "Health & Medicine": 33, "Arts & Social Science": 22 },
-    lifestyle: { "Big City Energy": 22, "Safe & Peaceful": 26, "Multicultural Hub": 33, "Nature & Adventure": 28 },
-    budget:    { "Budget Friendly": 20, "Mid Range": 30, "Premium": 24, "Scholarship Needed": 20 },
+    lifestyle: { "Big City": 22, "Safe & Quiet": 26, "Diverse & Global": 33, "Nature & Outdoors": 28 },
+    budget:    { "Under $15,000": 20, "$15,000 – $30,000": 30, "Above $30,000": 24, "I Need a Scholarship": 20 },
   },
   germany: {
     field:     { "Business & Management": 14, "Technology & Engineering": 33, "Health & Medicine": 16, "Arts & Social Science": 25 },
-    lifestyle: { "Big City Energy": 20, "Safe & Peaceful": 33, "Multicultural Hub": 18, "Nature & Adventure": 20 },
-    budget:    { "Budget Friendly": 33, "Mid Range": 22, "Premium": 8,  "Scholarship Needed": 33 },
+    lifestyle: { "Big City": 20, "Safe & Quiet": 33, "Diverse & Global": 18, "Nature & Outdoors": 20 },
+    budget:    { "Under $15,000": 33, "$15,000 – $30,000": 22, "Above $30,000": 8,  "I Need a Scholarship": 33 },
   },
   nz: {
     field:     { "Business & Management": 20, "Technology & Engineering": 18, "Health & Medicine": 26, "Arts & Social Science": 30 },
-    lifestyle: { "Big City Energy": 8,  "Safe & Peaceful": 30, "Multicultural Hub": 16, "Nature & Adventure": 33 },
-    budget:    { "Budget Friendly": 26, "Mid Range": 28, "Premium": 20, "Scholarship Needed": 26 },
+    lifestyle: { "Big City": 8,  "Safe & Quiet": 30, "Diverse & Global": 16, "Nature & Outdoors": 33 },
+    budget:    { "Under $15,000": 26, "$15,000 – $30,000": 28, "Above $30,000": 20, "I Need a Scholarship": 26 },
   },
 };
 
@@ -211,38 +211,38 @@ export function getDestKey(answers: QuizAnswers): DestinationKey {
 export const QUIZ_QUESTIONS = [
   {
     id: "q1" as const,
-    icon: "🎓",
-    title: "What lights you up academically?",
-    sub: "Pick the field that excites you most",
+    icon: "study",
+    title: "What do you want to study?",
+    sub: "Choose the subject that interests you most",
     options: [
-      { emoji: "💼", label: "Business & Management",    desc: "MBA · Finance · Marketing · HR" },
-      { emoji: "💻", label: "Technology & Engineering", desc: "CS · AI · Data · Robotics" },
-      { emoji: "🏥", label: "Health & Medicine",        desc: "Nursing · Pharmacy · Medical Sciences" },
-      { emoji: "🎨", label: "Arts & Social Science",    desc: "Design · Law · Psychology · Media" },
+      { emoji: "💼", label: "Business & Management",    desc: "MBA, Finance, Marketing, HR" },
+      { emoji: "💻", label: "Technology & Engineering", desc: "Computer Science, AI, Data, Robotics" },
+      { emoji: "🩺", label: "Health & Medicine",        desc: "Nursing, Pharmacy, Medical Sciences" },
+      { emoji: "🎨", label: "Arts & Social Science",    desc: "Design, Law, Psychology, Media" },
     ],
   },
   {
     id: "q2" as const,
-    icon: "🌆",
-    title: "Where do you actually want to wake up every morning?",
-    sub: "Pick the vibe that feels right",
+    icon: "lifestyle",
+    title: "What kind of place do you want to live in?",
+    sub: "Think about your day-to-day life abroad",
     options: [
-      { emoji: "🏙️", label: "Big City Energy",     desc: "Urban, vibrant, fast-paced" },
-      { emoji: "🏔️", label: "Safe & Peaceful",     desc: "Calm, clean, welcoming" },
-      { emoji: "🌏", label: "Multicultural Hub",   desc: "Diverse, global community" },
-      { emoji: "🌿", label: "Nature & Adventure",  desc: "Outdoors, scenic, relaxed" },
+      { emoji: "🏙️", label: "Big City",          desc: "Busy, lively, lots to do" },
+      { emoji: "🏡", label: "Safe & Quiet",      desc: "Calm, clean, friendly people" },
+      { emoji: "🌏", label: "Diverse & Global",  desc: "People from all over the world" },
+      { emoji: "🌿", label: "Nature & Outdoors", desc: "Fresh air, scenery, relaxed pace" },
     ],
   },
   {
     id: "q3" as const,
-    icon: "💰",
-    title: "What's a comfortable annual investment for you?",
-    sub: "Tuition + living, per year",
+    icon: "budget",
+    title: "What's your ideal budget for studying abroad?",
+    sub: "Include tuition and living costs — we'll find the best fit",
     options: [
-      { emoji: "🪙", label: "Budget Friendly",    desc: "Under $15,000/year" },
-      { emoji: "💵", label: "Mid Range",          desc: "$15,000 – $30,000/year" },
-      { emoji: "💎", label: "Premium",            desc: "$30,000+ / year" },
-      { emoji: "🎖️", label: "Scholarship Needed", desc: "Financial aid required" },
+      { emoji: "💚", label: "Under $15,000",         desc: "Looking for the most affordable option" },
+      { emoji: "💰", label: "$15,000 – $30,000",    desc: "A reasonable budget with some flexibility" },
+      { emoji: "⭐", label: "Above $30,000",         desc: "Happy to invest in a top-tier experience" },
+      { emoji: "🤝", label: "I Need a Scholarship",  desc: "Financial support is essential for me" },
     ],
   },
 ];

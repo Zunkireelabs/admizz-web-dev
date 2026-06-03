@@ -15,9 +15,10 @@ export default function AdmizzionWeekPage() {
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+        precedence="default"
       />
       {/* Admission Page CSS */}
-      <link rel="stylesheet" href="/events/css/admission-page.css" />
+      <link rel="stylesheet" href="/events/css/admission-page.css" precedence="default" />
 
       {/* Hero Section */}
       <section className="admission-hero">

@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import DestinationQuiz from "./DestinationQuiz";
 
-const PAGE_URL = "https://admizzeducation.com/find-your-destination";
+const PAGE_URL = "https://admizzeducation.com/match-your-destination";
 
 export const metadata: Metadata = {
-  title: "Find Your Dream Study Destination — Free 60-Second Quiz | Admizz Education",
+  title: "Match Your Destination — Free 60-Second Quiz | Admizz Education",
   description:
     "Take Admizz Education's free 60-second quiz and discover your perfect study-abroad destination. Personalised country, top universities, scholarship picks, and visa guidance — all free.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "Find Your Dream Study Destination — Free 60-Second Quiz",
+    title: "Match Your Destination — Free 60-Second Quiz",
     description:
       "Answer 3 quick questions and we'll match you to the country that fits your study field, lifestyle, and budget.",
     url: PAGE_URL,
@@ -27,7 +27,7 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": PAGE_URL,
       url: PAGE_URL,
-      name: "Find Your Dream Study Destination — Free 60-Second Quiz",
+      name: "Match Your Destination — Free 60-Second Quiz",
       description: "Take Admizz Education's free 60-second quiz.",
       datePublished: "2026-05-25",
       dateModified: "2026-05-25",
@@ -38,14 +38,14 @@ const jsonLd = {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://admizzeducation.com" },
-        { "@type": "ListItem", position: 2, name: "Find Your Destination", item: PAGE_URL },
+        { "@type": "ListItem", position: 2, name: "Match Your Destination", item: PAGE_URL },
       ],
     },
   ],
 };
 
 
-export default function FindYourDestinationPage() {
+export default function MatchYourDestinationPage() {
   return (
     <main>
       <script
@@ -81,14 +81,11 @@ export default function FindYourDestinationPage() {
           </div>
 
           {/* Quiz card */}
-          <div className="max-w-[600px] mx-auto">
+          <div className="max-w-[860px] mx-auto">
             <DestinationQuiz />
           </div>
         </div>
       </section>
-
-
-
     </main>
   );
 }

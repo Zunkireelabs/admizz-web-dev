@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import UKAdmissionsInit from "./UKAdmissionsInit";
+import UniversityPartners from "../../UniversityPartners";
+import { allUniversities } from "@/lib/universities";
 
 export const metadata: Metadata = {
   title: "UK Admission Day - March 17, 2026 | Admizz Education",
@@ -13,8 +15,9 @@ export default function UKAdmissionsDayPage() {
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+        precedence="default"
       />
-      <link rel="stylesheet" href="/events/css/admission-page.css" />
+      <link rel="stylesheet" href="/events/css/admission-page.css" precedence="default" />
 
       {/* Hero */}
       <section className="admission-hero">
@@ -260,58 +263,7 @@ export default function UKAdmissionsDayPage() {
       </section>
 
       {/* Trusted Partners */}
-      <section className="partners-section">
-        <div className="container">
-          <p className="partners-eyebrow">TRUSTED PARTNERS</p>
-          <h2 className="partners-heading">
-            Trusted by 100+ Universities, Colleges &amp; Schools Worldwide
-          </h2>
-          <p className="partners-subtext">
-            We partner with leading institutions worldwide to provide our
-            students with the best opportunities.
-          </p>
-
-          <div className="partners-trust-badges">
-            <div className="partners-trust-item">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#001353">
-                <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
-              </svg>
-              <span>100+ Institutions</span>
-            </div>
-            <div className="partners-trust-divider"></div>
-            <div className="partners-trust-item">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#001353">
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
-              </svg>
-              <span>Verified Partners</span>
-            </div>
-          </div>
-
-          <div className="partners-filters">
-            <button className="partners-filter-btn" data-country="all">All</button>
-            <button className="partners-filter-btn" data-country="USA">🇺🇸 USA</button>
-            <button className="partners-filter-btn active" data-country="UK">🇬🇧 UK</button>
-            <button className="partners-filter-btn" data-country="Australia">🇦🇺 Australia</button>
-            <button className="partners-filter-btn" data-country="Canada">🇨🇦 Canada</button>
-            <button className="partners-filter-btn" data-country="India">🇮🇳 India</button>
-            <button className="partners-filter-btn" data-country="New Zealand">🇳🇿 New Zealand</button>
-            <button className="partners-filter-btn" data-country="Finland">🇫🇮 Finland</button>
-            <button className="partners-filter-btn" data-country="Germany">🇩🇪 Germany</button>
-            <button className="partners-filter-btn" data-country="France">🇫🇷 France</button>
-          </div>
-        </div>
-
-        <div className="partners-marquee-wrap">
-          <div className="partners-fade partners-fade-left"></div>
-          <div className="partners-fade partners-fade-right"></div>
-          <div className="partners-marquee partners-marquee-row1" id="partnersRow1"></div>
-        </div>
-        <div className="partners-marquee-wrap">
-          <div className="partners-fade partners-fade-left"></div>
-          <div className="partners-fade partners-fade-right"></div>
-          <div className="partners-marquee partners-marquee-row2" id="partnersRow2"></div>
-        </div>
-      </section>
+      <UniversityPartners universities={allUniversities} />
 
       {/* Prizes / Spin Wheel */}
       <section className="prizes-section prizes-section--white" id="spinWheelSection">
