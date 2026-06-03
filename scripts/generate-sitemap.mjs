@@ -27,7 +27,7 @@ const client = createClient({
 // Static pages with priorities (no trailing slashes, no thank-you/utility pages)
 const staticPages = [
   { path: "/", priority: 1.0, freq: "daily" },
-  { path: "/find-your-destination", priority: 0.9, freq: "monthly" },
+  { path: "/match-your-destination", priority: 0.9, freq: "monthly" },
   { path: "/about", priority: 0.8, freq: "monthly" },
   { path: "/contact", priority: 0.8, freq: "monthly" },
   { path: "/blogs", priority: 0.9, freq: "daily" },
