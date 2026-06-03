@@ -1,24 +1,44 @@
 "use client";
 
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 interface Props {
   onLogin: () => void;
 }
 
 export default function AdminLogin({ onLogin }: Props) {
+  const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
-  const [shake, setShake] = useState(false);
+  const [error, setError]       = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [shake, setShake]       = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === "admizz@admin2026") {
+    setError(null);
+    setSubmitting(true);
+    try {
+      const { data, error: signInError } = await supabase.auth.signInWithPassword({
+        email:    email.trim(),
+        password,
+      });
+      if (signInError || !data.session) {
+        throw signInError ?? new Error("Sign-in failed");
+      }
+      // Verify the signed-in user is actually flagged as admin via RPC
+      const { data: isAdmin, error: rpcErr } = await supabase.rpc("is_admin");
+      if (rpcErr || !isAdmin) {
+        await supabase.auth.signOut();
+        throw new Error("This account does not have admin access.");
+      }
       onLogin();
-    } else {
-      setError(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Sign-in failed");
       setShake(true);
       setTimeout(() => setShake(false), 500);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -61,7 +81,7 @@ export default function AdminLogin({ onLogin }: Props) {
             Affiliate Admin
           </h1>
           <p className="mt-2 text-sm" style={{ color: "#475569" }}>
-            Manage applications, affiliates, referrals, and payouts.
+            Sign in with your admin Supabase account.
           </p>
         </div>
 
@@ -76,33 +96,41 @@ export default function AdminLogin({ onLogin }: Props) {
           }}
         >
           <div className="space-y-1.5">
-            <label
-              className="text-[11px] font-bold uppercase"
-              style={{ color: "#475569", letterSpacing: "0.12em" }}
-            >
-              Admin Password
+            <label className="text-[11px] font-bold uppercase" style={{ color: "#475569", letterSpacing: "0.12em" }}>
+              Admin Email
             </label>
             <input
-              type="password"
-              value={password}
-              onChange={e => { setPassword(e.target.value); setError(false); }}
-              placeholder="Enter your password"
+              type="email"
+              value={email}
+              onChange={e => { setEmail(e.target.value); setError(null); }}
+              placeholder="admin@admizz.example"
               required
+              autoComplete="email"
               className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
               style={{
                 background: "#FAFAFB",
                 border: `1px solid ${error ? "rgba(220,38,38,0.4)" : "#EAECF0"}`,
                 color: "#001353",
               }}
-              onFocus={e => {
-                e.target.style.borderColor = "#31429C";
-                e.target.style.background = "#FFFFFF";
-                e.target.style.boxShadow = "0 0 0 3px rgba(49,66,156,0.1)";
-              }}
-              onBlur={e => {
-                e.target.style.borderColor = error ? "rgba(220,38,38,0.4)" : "#EAECF0";
-                e.target.style.background = "#FAFAFB";
-                e.target.style.boxShadow = "none";
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-[11px] font-bold uppercase" style={{ color: "#475569", letterSpacing: "0.12em" }}>
+              Admin Password
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={e => { setPassword(e.target.value); setError(null); }}
+              placeholder="Enter your password"
+              required
+              autoComplete="current-password"
+              className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
+              style={{
+                background: "#FAFAFB",
+                border: `1px solid ${error ? "rgba(220,38,38,0.4)" : "#EAECF0"}`,
+                color: "#001353",
               }}
             />
           </div>
@@ -119,30 +147,35 @@ export default function AdminLogin({ onLogin }: Props) {
               <svg className="w-3.5 h-3.5 flex-shrink-0 mt-px" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
               </svg>
-              <span className="leading-snug">Incorrect password. Please try again.</span>
+              <span className="leading-snug">{error}</span>
             </div>
           )}
 
           <button
             type="submit"
+            disabled={submitting}
             className="w-full py-3.5 rounded-xl text-sm font-extrabold transition-all duration-200 flex items-center justify-center gap-2"
             style={{
               background: "#FDED22",
               color: "#001353",
               boxShadow: "0 4px 16px rgba(253,237,34,0.4)",
+              opacity: submitting ? 0.7 : 1,
+              cursor: submitting ? "wait" : "pointer",
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = "#FCB730"; e.currentTarget.style.boxShadow = "0 6px 24px rgba(252,183,48,0.5)"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "#FDED22"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(253,237,34,0.4)"; }}
           >
-            Continue to Admin
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            {submitting ? "Signing in…" : (
+              <>
+                Continue to Admin
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </>
+            )}
           </button>
         </form>
 
         <p className="text-center mt-6 text-xs" style={{ color: "#64748B" }}>
-          Authorized personnel only · All actions are logged
+          Authorized personnel only · Admin role required
         </p>
 
         <style>{`

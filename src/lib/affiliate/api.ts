@@ -78,55 +78,63 @@ export async function generateUniqueReferralCode(fullName: string): Promise<stri
 }
 
 // ─── Affiliate login ───────────────────────────────────────────────────────
+// All affiliate-facing reads go through SECURITY DEFINER RPCs (defined in
+// supabase/migrations/002_rls_and_auth.sql). The anon key cannot SELECT
+// directly from the affiliates / affiliate_referrals / affiliate_clicks
+// tables — RLS blocks it. The RPCs validate (email + referral_code) on
+// every call and return only that affiliate's own data.
+
+interface AffiliateCredentials {
+  email: string;
+  code: string;
+}
 
 export async function getAffiliateByCredentials(
   email: string,
   code: string
 ): Promise<Affiliate | null> {
-  const { data, error } = await supabase
-    .from("affiliates")
-    .select("*")
-    .eq("email", email.trim().toLowerCase())
-    .eq("referral_code", code.trim().toUpperCase())
-    .eq("status", "active")
-    .maybeSingle();
-
+  const { data, error } = await supabase.rpc("affiliate_login", {
+    p_email: email.trim().toLowerCase(),
+    p_code:  code.trim().toUpperCase(),
+  });
   if (error) { console.error("[affiliate login]", error.message); return null; }
-  return data ?? null;
+  // RPC returns a single affiliates row (or null if no match)
+  if (!data) return null;
+  return Array.isArray(data) ? (data[0] ?? null) : (data as Affiliate);
 }
 
 // ─── Affiliate dashboard ───────────────────────────────────────────────────
 
-// Re-fetch the affiliate row so totals/tier reflect server state, not stale localStorage.
-export async function getAffiliateById(id: string): Promise<Affiliate | null> {
-  const { data, error } = await supabase
-    .from("affiliates")
-    .select("*")
-    .eq("id", id)
-    .maybeSingle();
-  if (error) { console.error("[affiliate refresh]", error.message); return null; }
-  return data ?? null;
+// Re-fetch the affiliate row so totals/tier reflect server state, not stale
+// localStorage. We re-validate the credentials on every call so RLS is honored.
+export async function refreshAffiliate(creds: AffiliateCredentials): Promise<Affiliate | null> {
+  return getAffiliateByCredentials(creds.email, creds.code);
 }
 
-export async function getAffiliateReferrals(affiliateId: string): Promise<AffiliateReferral[]> {
-  const { data, error } = await supabase
-    .from("affiliate_referrals")
-    .select("*")
-    .eq("affiliate_id", affiliateId)
-    .order("created_at", { ascending: false });
+// Back-compat shim — old callsites still pass an id. We can't fetch by id under
+// RLS, so this just returns null. Callers should migrate to refreshAffiliate(creds).
+export async function getAffiliateById(_id: string): Promise<Affiliate | null> {
+  console.warn("[getAffiliateById] deprecated under RLS — use refreshAffiliate(creds) instead");
+  return null;
+}
 
+// RLS-aware version — pass credentials so the RPC can authorize the read.
+export async function getAffiliateReferrals(creds: AffiliateCredentials): Promise<AffiliateReferral[]> {
+  const { data, error } = await supabase.rpc("affiliate_self_referrals", {
+    p_email: creds.email.trim().toLowerCase(),
+    p_code:  creds.code.trim().toUpperCase(),
+  });
   if (error) { console.error("[affiliate referrals]", error.message); return []; }
-  return data ?? [];
+  return (data ?? []) as AffiliateReferral[];
 }
 
+// Public leaderboard via dedicated VIEW — anon can SELECT this only.
 export async function getLeaderboard(): Promise<LeaderboardEntry[]> {
   const { data, error } = await supabase
-    .from("affiliates")
+    .from("affiliate_leaderboard_public")
     .select("id, full_name, city, total_referrals, tier")
-    .eq("status", "active")
     .order("total_referrals", { ascending: false })
     .limit(8);
-
   if (error) { console.error("[leaderboard]", error.message); return []; }
   return (data ?? []).map((a, i) => ({
     rank: i + 1,
@@ -139,25 +147,22 @@ export async function getLeaderboard(): Promise<LeaderboardEntry[]> {
 }
 
 // ─── Affiliate clicks / funnel ─────────────────────────────────────────────
+// Reads go through the affiliate_self_clicks RPC (credential-validated).
+// Direct SELECT on affiliate_clicks is blocked by RLS.
 
-export async function getAffiliateClickCount(code: string): Promise<number> {
-  const { count, error } = await supabase
-    .from("affiliate_clicks")
-    .select("id", { count: "exact", head: true })
-    .eq("code", code.trim().toUpperCase());
-  if (error) { console.error("[click count]", error.message); return 0; }
-  return count ?? 0;
-}
-
-export async function getAffiliateClicks(code: string, limit = 50): Promise<AffiliateClick[]> {
-  const { data, error } = await supabase
-    .from("affiliate_clicks")
-    .select("*")
-    .eq("code", code.trim().toUpperCase())
-    .order("created_at", { ascending: false })
-    .limit(limit);
+export async function getAffiliateClicks(creds: AffiliateCredentials, limit = 200): Promise<AffiliateClick[]> {
+  const { data, error } = await supabase.rpc("affiliate_self_clicks", {
+    p_email: creds.email.trim().toLowerCase(),
+    p_code:  creds.code.trim().toUpperCase(),
+    p_limit: limit,
+  });
   if (error) { console.error("[affiliate clicks]", error.message); return []; }
   return (data ?? []) as AffiliateClick[];
+}
+
+// Count is derived from the array length on the client to avoid a separate query.
+export function getAffiliateClickCountFromList(clicks: AffiliateClick[]): number {
+  return clicks.length;
 }
 
 // Derived client-side from the referrals already loaded — no extra query.

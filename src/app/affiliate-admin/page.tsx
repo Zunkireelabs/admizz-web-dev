@@ -1,32 +1,52 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 import { getAllAffiliates, getAllApplications, getAllReferrals, getAllClicks } from "@/lib/affiliate/api";
 import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick } from "@/lib/affiliate/types";
 import AdminLogin from "@/components/affiliate/admin/AdminLogin";
 import AdminShell from "@/components/affiliate/admin/AdminShell";
 
-const SESSION_KEY = "admizz_admin_session";
-
 export default function AffiliateAdminPage() {
-  const [authed, setAuthed] = useState(false);
-  const [hydrated, setHydrated] = useState(false);
-  const [affiliates, setAffiliates] = useState<Affiliate[]>([]);
+  const [authed, setAuthed]           = useState(false);
+  const [hydrated, setHydrated]       = useState(false);
+  const [affiliates, setAffiliates]   = useState<Affiliate[]>([]);
   const [applications, setApplications] = useState<AffiliateApplication[]>([]);
-  const [referrals, setReferrals] = useState<AffiliateReferral[]>([]);
-  const [clicks, setClicks] = useState<AffiliateClick[]>([]);
+  const [referrals, setReferrals]     = useState<AffiliateReferral[]>([]);
+  const [clicks, setClicks]           = useState<AffiliateClick[]>([]);
 
+  // On mount: check if a Supabase Auth session exists and confirm admin role.
   useEffect(() => {
-    try {
-      if (sessionStorage.getItem(SESSION_KEY) === "1") {
-        handleLogin();
+    let cancelled = false;
+    (async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) {
+          const { data: isAdmin } = await supabase.rpc("is_admin");
+          if (isAdmin && !cancelled) {
+            await onLogin();
+          } else if (!isAdmin) {
+            await supabase.auth.signOut();
+          }
+        }
+      } catch { /* ignore */ }
+      if (!cancelled) setHydrated(true);
+    })();
+
+    // React to sign-out from other tabs / token expiry
+    const { data: subscription } = supabase.auth.onAuthStateChange((event) => {
+      if (event === "SIGNED_OUT" || event === "TOKEN_REFRESHED") {
+        if (event === "SIGNED_OUT") setAuthed(false);
       }
-    } catch { /* ignore */ }
-    setHydrated(true);
+    });
+
+    return () => {
+      cancelled = true;
+      subscription.subscription.unsubscribe();
+    };
   }, []);
 
-  const handleLogin = async () => {
-    try { sessionStorage.setItem(SESSION_KEY, "1"); } catch { /* ignore */ }
+  const onLogin = async () => {
     const [affs, apps, refs, clks] = await Promise.all([
       getAllAffiliates(),
       getAllApplications(),
@@ -40,9 +60,13 @@ export default function AffiliateAdminPage() {
     setAuthed(true);
   };
 
-  const handleLogout = () => {
-    try { sessionStorage.removeItem(SESSION_KEY); } catch { /* ignore */ }
+  const onLogout = async () => {
+    await supabase.auth.signOut();
     setAuthed(false);
+    setAffiliates([]);
+    setApplications([]);
+    setReferrals([]);
+    setClicks([]);
   };
 
   const refreshData = async () => {
@@ -59,7 +83,7 @@ export default function AffiliateAdminPage() {
   };
 
   if (!hydrated) return null;
-  if (!authed) return <AdminLogin onLogin={handleLogin} />;
+  if (!authed) return <AdminLogin onLogin={onLogin} />;
 
   return (
     <AdminShell
@@ -67,7 +91,7 @@ export default function AffiliateAdminPage() {
       applications={applications}
       referrals={referrals}
       clicks={clicks}
-      onLogout={handleLogout}
+      onLogout={onLogout}
       onRefresh={refreshData}
     />
   );

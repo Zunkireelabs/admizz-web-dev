@@ -24,20 +24,21 @@ export default function AffiliateRefCapture() {
       const ref = params.get("ref");
       if (!ref) return;
 
-      // Fire-and-forget insert (never awaited — page is unaffected)
+      // Validated insert via RPC — unknown codes are rejected server-side so
+      // affiliate_clicks can't be spammed for arbitrary codes.
       supabase
-        .from("affiliate_clicks")
-        .insert({
-          code: ref,
-          landing_page: window.location.pathname,
-          referrer: document.referrer || null,
-          utm_source:   params.get("utm_source"),
-          utm_medium:   params.get("utm_medium"),
-          utm_campaign: params.get("utm_campaign"),
-          user_agent: navigator.userAgent,
+        .rpc("record_affiliate_click", {
+          p_code:         ref,
+          p_landing_page: window.location.pathname,
+          p_referrer:     document.referrer || null,
+          p_utm_source:   params.get("utm_source"),
+          p_utm_medium:   params.get("utm_medium"),
+          p_utm_campaign: params.get("utm_campaign"),
+          p_user_agent:   navigator.userAgent,
         })
-        .then(({ error }) => {
-          if (error) console.warn("[ref capture] insert failed:", error.message);
+        .then(({ error, data }) => {
+          if (error) console.warn("[ref capture] rpc failed:", error.message);
+          else if (data === false) console.info("[ref capture] code not active:", ref);
         });
 
       // First-touch attribution — don't overwrite existing cookie
