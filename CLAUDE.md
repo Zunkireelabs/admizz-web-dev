@@ -328,6 +328,47 @@ Defined via `@theme` in `src/app/globals.css`. Use class names directly (e.g. `b
 
 ---
 
+## Events System
+
+### How the `/events` listing works
+
+Event cards on `/events` are auto-detected at build time via `meta.json` files.
+
+**To add a new event to the listing:**
+1. Create `src/app/events/your-event/page.tsx` (the event page)
+2. Create `src/app/events/your-event/meta.json` (the card data)
+3. Deploy — card appears automatically, no changes to `events/page.tsx` needed
+
+**No `meta.json` = page exists but won't appear in the listing** (e.g. `spin-and-win-v2`, `spin-and-win-terms-and-conditions`)
+
+**Tab sorting is automatic** — `EventsInit.tsx` reads `endDate` from each card and moves past events to the Past tab at runtime.
+
+**`meta.json` required fields:**
+```json
+{
+  "title": "Event Name — Location",
+  "eyebrow": "Admizz Education Presents",
+  "bannerTitle": "EVENT NAME",
+  "subtitle": "Short tagline",
+  "description": "Card body text (1–2 sentences).",
+  "dateLabel": "March 17, 2026 • 10:00 AM",
+  "ctaText": "Register Now →",
+  "endDate": "2026-03-17T17:00:00",
+  "gradient": "linear-gradient(135deg, #012169 0%, #C8102E 100%)",
+  "mode": "in-person",
+  "overlayLight": true,
+  "href": "/events/your-event"
+}
+```
+
+- `mode`: `"online"` or `"in-person"`
+- `overlayLight`: `true` for dark gradients (light text overlay), `false` for light gradients
+- `endDate`: ISO datetime — past = moves to Past tab, future = stays in Upcoming tab
+
+**Exception — Spin & Win is hardcoded** in `events/page.tsx` because the `spin-and-win` folder is owned by root (permission issue prevents writing `meta.json`). Do not remove the hardcoded card until the permission is fixed.
+
+---
+
 ## Gotchas & Hard-Won Lessons
 
 | Gotcha | Detail |
