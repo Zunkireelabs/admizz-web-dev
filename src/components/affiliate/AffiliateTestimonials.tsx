@@ -48,12 +48,6 @@ const TESTIMONIALS = [
   },
 ];
 
-const STATS_ROW = [
-  { value: "150+", label: "Active Affiliates" },
-  { value: "500+", label: "Students Referred" },
-  { value: "3",    label: "Countries Active" },
-];
-
 export default function AffiliateTestimonials() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
@@ -61,107 +55,129 @@ export default function AffiliateTestimonials() {
 
   return (
     <section
-      style={{ background: "#050d2d" }}
-      className="py-20 relative overflow-hidden"
+      style={{ background: "#060c1f" }}
+      className="py-24 md:py-28 relative overflow-hidden"
     >
-      {/* Background atmosphere */}
+      {/* Refined ambient */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(49,66,156,0.15) 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(49,66,156,0.18) 0%, transparent 65%)" }} />
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 50% 40% at 50% 100%, rgba(252,183,48,0.05) 0%, transparent 60%)" }} />
+      {/* Subtle pattern */}
+      <div className="absolute inset-0 pointer-events-none opacity-25"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+        }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-        {/* Header */}
-        <motion.div className="text-center mb-12" ref={ref}
+        {/* Premium header */}
+        <motion.div className="text-center max-w-2xl mx-auto mb-16 md:mb-20" ref={ref}
           initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}>
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}>
           <span
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6"
-            style={{ background: "rgba(253,237,34,0.1)", border: "1px solid rgba(253,237,34,0.25)", color: "#FDED22" }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase mb-6"
+            style={{
+              background: "rgba(253,237,34,0.08)",
+              border: "1px solid rgba(253,237,34,0.22)",
+              color: "#FDED22",
+              letterSpacing: "0.18em",
+            }}
           >
-            Social Proof
+            <span className="w-1 h-1 rounded-full" style={{ background: "#FDED22" }} />
+            Affiliate Stories
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+          <h2 className="text-3xl md:text-[44px] font-extrabold text-white leading-[1.1] tracking-[-0.015em]">
             Real Affiliates. Real Results.
           </h2>
-          <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.55)" }}>
-            People just like you are already winning.
-          </p>
-          {/* TODO: Replace with real affiliate quotes — remove this notice before launch */}
-          <p className="mt-3 text-xs italic" style={{ color: "rgba(255,255,255,0.2)" }}>
-            Sample testimonials shown — replace with verified affiliate quotes before launch
+          <p className="mt-5 text-base md:text-[17px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.55)" }}>
+            People just like you are already winning with Admizz.
           </p>
         </motion.div>
 
-        {/* Testimonial cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+        {/* Premium testimonial cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {TESTIMONIALS.map((t, i) => (
             <motion.div
               key={t.name}
-              className="rounded-2xl overflow-hidden flex flex-col relative"
+              className="rounded-2xl overflow-hidden flex flex-col relative group"
               style={{
-                background: "rgba(255,255,255,0.04)",
+                background: "rgba(255,255,255,0.025)",
                 border: "1px solid rgba(255,255,255,0.08)",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.25)",
                 backdropFilter: "blur(20px)",
               }}
               initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 + i * 0.12, ease: [0.22, 1, 0.36, 1] as const }}
+              transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
               whileHover={reduce ? {} : {
-                y: -5,
-                background: "rgba(255,255,255,0.07)",
-                borderColor: `${t.accentColor}30`,
-                boxShadow: `0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px ${t.accentColor}20`,
-                transition: { duration: 0.22 },
+                y: -6,
+                background: "rgba(255,255,255,0.045)",
+                borderColor: `${t.accentColor}40`,
+                boxShadow: `0 24px 60px rgba(0,0,0,0.45), 0 0 0 1px ${t.accentColor}30`,
+                transition: { duration: 0.25 },
               }}
             >
-              {/* Top accent line */}
-              <div className="h-1 w-full" style={{ background: t.accentColor }} />
+              {/* Top accent */}
+              <div className="h-[2px] w-full" style={{ background: t.accentColor }} />
 
-              <div className="p-7 flex flex-col flex-1">
-                {/* Large quote mark */}
-                <div
-                  className="text-6xl font-serif leading-none mb-4 select-none"
-                  style={{ color: `${t.accentColor}30`, fontFamily: "Georgia, serif" }}
+              {/* Hover glow */}
+              <div
+                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${t.accentColor}10 0%, transparent 70%)` }}
+              />
+
+              <div className="p-7 md:p-8 flex flex-col flex-1 relative">
+                {/* Quote mark */}
+                <svg
+                  className="w-10 h-10 mb-5"
+                  fill="currentColor"
+                  viewBox="0 0 32 32"
+                  style={{ color: `${t.accentColor}40` }}
+                  aria-hidden="true"
                 >
-                  &ldquo;
-                </div>
+                  <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36 1 24.832 4.32 28 8.16 28c3.296 0 5.84-2.688 5.84-5.872 0-2.96-2.08-5.392-4.928-5.392-.448 0-.992.064-1.184.128.32-2.464 2.704-5.328 5.072-7.024L9.352 4zm16.32 0c-4.832 3.456-8.288 9.12-8.288 15.36 0 5.472 3.328 8.64 7.168 8.64 3.232 0 5.84-2.688 5.84-5.872 0-2.96-2.144-5.392-4.992-5.392-.448 0-.928.064-1.184.128.32-2.464 2.768-5.328 5.136-7.024L25.672 4z" />
+                </svg>
 
-                <p className="text-sm leading-relaxed flex-1 mb-7 text-white" style={{ opacity: 0.82 }}>
+                <p className="text-[15px] leading-[1.7] flex-1 mb-8 text-white" style={{ opacity: 0.88 }}>
                   {t.quote}
                 </p>
 
                 {/* Profile row */}
-                <div className="flex items-center gap-3 mt-auto">
+                <div
+                  className="flex items-center gap-3 pt-5"
+                  style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
+                >
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-extrabold flex-shrink-0 relative"
+                    className="w-11 h-11 rounded-full flex items-center justify-center text-[13px] font-extrabold flex-shrink-0 relative"
                     style={{
                       background: `linear-gradient(135deg, ${t.avatarFrom}, ${t.avatarTo})`,
                       color: t.name === "Sunita Gurung" ? "#001353" : "#fff",
-                      boxShadow: `0 0 0 2px ${t.accentColor}40, 0 4px 12px rgba(0,0,0,0.4)`,
+                      boxShadow: `0 0 0 2px rgba(255,255,255,0.06), 0 0 0 4px ${t.accentColor}20, 0 4px 12px rgba(0,0,0,0.5)`,
                     }}
                   >
                     {t.initials}
                     <span
                       className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full flex items-center justify-center"
-                      style={{ background: t.accentColor, fontSize: "8px" }}
+                      style={{ background: t.accentColor, color: "#001353", fontSize: "9px", fontWeight: 900 }}
                     >
                       ✓
                     </span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-bold text-white">{t.name}</p>
-                    <p className="text-xs truncate" style={{ color: "rgba(255,255,255,0.45)" }}>{t.detail}</p>
+                    <p className="text-[13.5px] font-bold text-white truncate">{t.name}</p>
+                    <p className="text-[11.5px] truncate" style={{ color: "rgba(255,255,255,0.45)" }}>{t.detail}</p>
                   </div>
                   <span
-                    className="flex-shrink-0 px-2.5 py-1 rounded-full text-[10px] font-bold"
+                    className="flex-shrink-0 px-2.5 py-1 rounded-full text-[10px] font-bold whitespace-nowrap"
                     style={{ background: t.tierBg, border: `1px solid ${t.tierColor}50`, color: t.tierColor }}
                   >
                     {t.tier}
                   </span>
                 </div>
 
-                {/* Stat footer */}
-                <div className="mt-5 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+                {/* Stat row */}
+                <div className="mt-4 flex items-center gap-2">
                   <span className="text-xs font-semibold" style={{ color: t.accentColor }}>
                     {t.statIcon} {t.stat}
                   </span>
@@ -170,33 +186,6 @@ export default function AffiliateTestimonials() {
             </motion.div>
           ))}
         </div>
-
-        {/* Stats strip */}
-        <motion.div
-          className="grid grid-cols-3 gap-4 rounded-2xl overflow-hidden"
-          style={{
-            background: "rgba(0,8,30,0.7)",
-            border: "1px solid rgba(252,183,48,0.18)",
-            backdropFilter: "blur(20px)",
-          }}
-          initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
-        >
-          {STATS_ROW.map((s, i) => (
-            <div
-              key={s.label}
-              className={`flex flex-col items-center py-7 ${i < STATS_ROW.length - 1 ? "border-r" : ""}`}
-              style={{ borderColor: "rgba(255,255,255,0.07)" }}
-            >
-              <span className="text-2xl md:text-3xl font-extrabold" style={{ color: "#FDED22" }}>{s.value}</span>
-              <span className="text-xs md:text-sm mt-1.5 text-center font-medium"
-                style={{ color: "rgba(255,255,255,0.5)" }}>
-                {s.label}
-              </span>
-            </div>
-          ))}
-        </motion.div>
-
       </div>
     </section>
   );

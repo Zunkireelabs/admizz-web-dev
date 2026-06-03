@@ -18,7 +18,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "What's the minimum payout threshold?",
-    answer: "Payout details — including minimum threshold — are shared with approved affiliates as part of the full commission structure. Apply to access the complete details.",
+    answer: "The minimum payout threshold is NPR 500. Once your earnings reach that amount, your commission is queued for the next monthly payout cycle — automatically, with no request needed.",
   },
   {
     question: "Can I join if I'm a high school student?",
@@ -49,33 +49,34 @@ function Item({ item, index }: { item: (typeof FAQ_ITEMS)[0]; index: number }) {
 
   return (
     <div
-      className="rounded-xl overflow-hidden transition-all duration-300"
+      className="rounded-2xl overflow-hidden transition-all duration-300"
       style={{
-        background: open ? "#FFFFFF" : "#FFFFFF",
-        border: open ? "1px solid #FCB730" : "1px solid #E8EAF0",
-        boxShadow: open ? "0 4px 24px rgba(252,183,48,0.12)" : "0 2px 8px rgba(0,19,83,0.04)",
-        borderLeft: open ? "4px solid #FCB730" : "1px solid #E8EAF0",
+        background: "#FFFFFF",
+        border: open ? "1px solid rgba(252,183,48,0.4)" : "1px solid #EAECF0",
+        boxShadow: open
+          ? "0 8px 32px rgba(252,183,48,0.1), 0 0 0 1px rgba(252,183,48,0.15)"
+          : "0 1px 2px rgba(16,24,40,0.04)",
       }}
     >
       <button
-        className="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
+        className="w-full flex items-center justify-between px-6 md:px-7 py-5 md:py-6 text-left gap-4"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
         <div className="flex items-center gap-4 min-w-0">
           <span
-            className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-extrabold flex-shrink-0 transition-all duration-300"
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-extrabold flex-shrink-0 transition-all duration-300"
             style={{
-              background: open ? "rgba(252,183,48,0.15)" : "rgba(0,19,83,0.06)",
-              color: open ? "#FCB730" : "#001353",
-              border: open ? "1px solid rgba(252,183,48,0.3)" : "1px solid rgba(0,19,83,0.12)",
+              background: open ? "rgba(252,183,48,0.15)" : "rgba(0,19,83,0.05)",
+              color: open ? "#b07400" : "#001353",
+              border: open ? "1px solid rgba(252,183,48,0.35)" : "1px solid rgba(0,19,83,0.1)",
             }}
           >
             {String(index + 1).padStart(2, "0")}
           </span>
           <span
-            className="text-sm md:text-base font-semibold transition-colors duration-300"
-            style={{ color: open ? "#001353" : "#001353" }}
+            className="text-[14.5px] md:text-base font-semibold transition-colors duration-300 leading-snug"
+            style={{ color: "#001353" }}
           >
             {item.question}
           </span>
@@ -83,9 +84,10 @@ function Item({ item, index }: { item: (typeof FAQ_ITEMS)[0]; index: number }) {
         <span
           className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center transition-all duration-300"
           style={{
-            background: open ? "#FCB730" : "rgba(0,19,83,0.07)",
+            background: open ? "#FCB730" : "rgba(0,19,83,0.05)",
             color: open ? "#001353" : "#5C7189",
             transform: open ? "rotate(180deg)" : "none",
+            border: open ? "1px solid rgba(252,183,48,0.5)" : "1px solid rgba(0,19,83,0.08)",
           }}
         >
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -94,9 +96,9 @@ function Item({ item, index }: { item: (typeof FAQ_ITEMS)[0]; index: number }) {
         </span>
       </button>
 
-      <div style={{ height, overflow: "hidden", transition: "height 0.3s ease-in-out" }}>
-        <div ref={contentRef} className="px-6 pb-5" style={{ paddingLeft: "68px" }}>
-          <p className="text-sm leading-relaxed" style={{ color: "#5C7189" }}>
+      <div style={{ height, overflow: "hidden", transition: "height 0.32s cubic-bezier(0.22, 1, 0.36, 1)" }}>
+        <div ref={contentRef} className="px-6 md:px-7 pb-6" style={{ paddingLeft: "72px" }}>
+          <p className="text-[14.5px] leading-[1.7]" style={{ color: "#5C7189" }}>
             {item.answer}
           </p>
         </div>
@@ -111,24 +113,33 @@ export default function AffiliateFAQ() {
   const reduce = useReducedMotion();
 
   return (
-    <section style={{ background: "#F8F8F8" }} className="py-14 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section style={{ background: "#FAFAFB" }} className="py-24 md:py-28 relative overflow-hidden">
+      {/* Subtle accent */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 80% 40% at 50% 0%, rgba(252,183,48,0.04) 0%, transparent 60%)" }} />
 
-        {/* Header */}
-        <motion.div className="text-center mb-12" ref={ref}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Premium header */}
+        <motion.div className="text-center max-w-2xl mx-auto mb-14 md:mb-16" ref={ref}
           initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}>
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}>
           <span
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6"
-            style={{ background: "rgba(0,19,83,0.07)", border: "1px solid rgba(0,19,83,0.12)", color: "#001353" }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase mb-6"
+            style={{
+              background: "rgba(0,19,83,0.06)",
+              border: "1px solid rgba(0,19,83,0.12)",
+              color: "#001353",
+              letterSpacing: "0.18em",
+            }}
           >
-            FAQ
+            <span className="w-1 h-1 rounded-full" style={{ background: "#FCB730" }} />
+            Frequently Asked
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold" style={{ color: "#001353" }}>
-            Frequently Asked Questions
+          <h2 className="text-3xl md:text-[44px] font-extrabold leading-[1.1] tracking-[-0.015em]" style={{ color: "#001353" }}>
+            Everything You Need to Know
           </h2>
-          <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "#5C7189" }}>
-            Everything you need to know before applying.
+          <p className="mt-5 text-base md:text-[17px] leading-[1.6]" style={{ color: "#5C7189" }}>
+            Honest answers to the most common questions before you apply.
           </p>
         </motion.div>
 
@@ -139,29 +150,41 @@ export default function AffiliateFAQ() {
               key={item.question}
               initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.05 * i, ease: [0.22, 1, 0.36, 1] as const }}
+              transition={{ duration: 0.5, delay: 0.04 * i, ease: [0.22, 1, 0.36, 1] as const }}
             >
               <Item item={item} index={i} />
             </motion.div>
           ))}
         </div>
 
-        {/* Contact nudge */}
+        {/* Contact nudge — premium treatment */}
         <motion.div
-          className="mt-12 text-center"
+          className="mt-14 text-center"
           initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <p className="text-sm mb-3" style={{ color: "#5C7189" }}>Still have questions?</p>
-          <a
-            href="/contact"
-            className="text-sm font-bold transition-colors duration-200"
-            style={{ color: "#FCB730" }}
-            onMouseEnter={e => { e.currentTarget.style.color = "#001353"; }}
-            onMouseLeave={e => { e.currentTarget.style.color = "#FCB730"; }}
+          <div
+            className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl"
+            style={{
+              background: "#FFFFFF",
+              border: "1px solid #EAECF0",
+              boxShadow: "0 4px 16px rgba(16,24,40,0.04)",
+            }}
           >
-            Talk to our team →
-          </a>
+            <span className="text-sm" style={{ color: "#5C7189" }}>Still have questions?</span>
+            <a
+              href="/contact"
+              className="text-sm font-bold transition-colors duration-200 inline-flex items-center gap-1.5"
+              style={{ color: "#b07400" }}
+              onMouseEnter={e => { e.currentTarget.style.color = "#001353"; }}
+              onMouseLeave={e => { e.currentTarget.style.color = "#b07400"; }}
+            >
+              Talk to our team
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

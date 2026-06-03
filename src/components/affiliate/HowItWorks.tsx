@@ -6,48 +6,103 @@ import { useRef } from "react";
 const STEPS = [
   {
     num: "01",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-      </svg>
-    ),
     title: "Apply in 5 Minutes",
     body: "Tell us who you are, how you'll share Admizz, and why you want to join. No follower count needed. No experience required.",
     tag: "⏱ Takes 5 minutes",
-    tagBg: "rgba(0,19,83,0.07)",
-    tagColor: "#001353",
-    tagBorder: "rgba(0,19,83,0.15)",
+    tagBg: "rgba(49,66,156,0.08)",
+    tagColor: "#31429C",
+    tagBorder: "rgba(49,66,156,0.22)",
+    accent: "#31429C",
+    accentText: "#fff",
+    preview: (
+      <div className="w-full rounded-2xl bg-white p-5 md:p-6" style={{ border: "1px solid #EAECF0", boxShadow: "0 4px 16px rgba(16,24,40,0.04)" }}>
+        <p className="text-[10.5px] font-bold uppercase mb-4" style={{ color: "#5C7189", letterSpacing: "0.15em" }}>Application Form</p>
+        <div className="space-y-3">
+          {["Full Name", "Email Address", "How will you share Admizz?"].map(f => (
+            <div key={f}>
+              <p className="text-[10px] font-semibold mb-1.5" style={{ color: "#5C7189" }}>{f}</p>
+              <div className="h-9 rounded-lg" style={{ background: "#F8F9FC", border: "1px solid #EAECF0" }} />
+            </div>
+          ))}
+          <div className="mt-4 h-10 rounded-lg flex items-center justify-center"
+            style={{ background: "linear-gradient(135deg, #31429C, #0D1282)" }}>
+            <span className="text-[11px] font-bold text-white">Submit Application →</span>
+          </div>
+        </div>
+      </div>
+    ),
   },
   {
     num: "02",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-      </svg>
-    ),
     title: "Receive Your Affiliate Kit",
     body: "Your unique referral link, ready-to-use marketing pack, and dashboard access to track every click and conversion in real time.",
     tag: "✓ Approval within 48 hours",
     tagBg: "rgba(252,183,48,0.1)",
     tagColor: "#b07400",
     tagBorder: "rgba(252,183,48,0.3)",
+    accent: "#FCB730",
+    accentText: "#001353",
+    preview: (
+      <div className="w-full rounded-2xl bg-white p-5 md:p-6" style={{ border: "1px solid #EAECF0", boxShadow: "0 4px 16px rgba(16,24,40,0.04)" }}>
+        <p className="text-[10.5px] font-bold uppercase mb-4" style={{ color: "#5C7189", letterSpacing: "0.15em" }}>Your Dashboard</p>
+        <div className="grid grid-cols-2 gap-2.5 mb-3">
+          {[
+            { label: "Clicks", val: "128" },
+            { label: "Referrals", val: "7" },
+            { label: "Pending", val: "3" },
+            { label: "Earned", val: "NPR 8,200" },
+          ].map(s => (
+            <div key={s.label} className="rounded-lg p-3" style={{ background: "#F8F9FC", border: "1px solid #EAECF0" }}>
+              <p className="text-[9px] font-bold uppercase tracking-wide" style={{ color: "#5C7189" }}>{s.label}</p>
+              <p className="text-sm font-extrabold mt-1" style={{ color: "#001353" }}>{s.val}</p>
+            </div>
+          ))}
+        </div>
+        <div className="h-9 rounded-lg flex items-center px-3 gap-2"
+          style={{ background: "rgba(252,183,48,0.1)", border: "1px solid rgba(252,183,48,0.3)" }}>
+          <span className="text-[10px] font-semibold" style={{ color: "#5C7189" }}>admizz.com/ref/</span>
+          <span className="text-[10px] font-bold" style={{ color: "#31429C" }}>yourname123</span>
+          <span className="ml-auto text-[9px] font-bold" style={{ color: "#b07400" }}>Copy</span>
+        </div>
+      </div>
+    ),
   },
   {
     num: "03",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
     title: "Share Your Link & Earn",
     body: "Post on Instagram, share in WhatsApp groups, put it in your bio. Every successful student referral earns you a commission.",
     tag: "🚀 No earning limit",
-    tagBg: "rgba(0,19,83,0.07)",
-    tagColor: "#001353",
-    tagBorder: "rgba(0,19,83,0.15)",
+    tagBg: "rgba(253,237,34,0.1)",
+    tagColor: "#7a6f00",
+    tagBorder: "rgba(253,237,34,0.32)",
+    accent: "#FDED22",
+    accentText: "#001353",
+    preview: (
+      <div className="w-full rounded-2xl bg-white p-5 md:p-6" style={{ border: "1px solid #EAECF0", boxShadow: "0 4px 16px rgba(16,24,40,0.04)" }}>
+        <p className="text-[10.5px] font-bold uppercase mb-4" style={{ color: "#5C7189", letterSpacing: "0.15em" }}>Earnings Summary</p>
+        <div className="space-y-2">
+          {[
+            { event: "Consultation booked", amount: "+NPR 400", color: "#31429C" },
+            { event: "Service enrollment", amount: "+NPR 2,000", color: "#FCB730" },
+            { event: "University confirmed", amount: "+NPR 6,500", color: "#4ade80" },
+          ].map(e => (
+            <div key={e.event} className="flex items-center justify-between py-2 border-b last:border-0"
+              style={{ borderColor: "rgba(0,19,83,0.06)" }}>
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: e.color }} />
+                <span className="text-[11px] font-medium" style={{ color: "#5C7189" }}>{e.event}</span>
+              </div>
+              <span className="text-[12px] font-extrabold" style={{ color: e.color }}>{e.amount}</span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 pt-3 flex items-center justify-between"
+          style={{ borderTop: "1px solid rgba(0,19,83,0.08)" }}>
+          <span className="text-[11px] font-semibold" style={{ color: "#5C7189" }}>Total earned</span>
+          <span className="text-base font-extrabold tracking-tight" style={{ color: "#001353" }}>NPR 8,900</span>
+        </div>
+      </div>
+    ),
   },
 ];
 
@@ -57,155 +112,102 @@ export default function HowItWorks() {
   const reduce = useReducedMotion();
 
   return (
-    <section
-      id="how-it-works"
-      style={{ background: "#F8F8F8" }}
-      className="py-16 relative overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="py-24 md:py-28 relative overflow-hidden" style={{ background: "#FAFAFB" }}>
+      {/* Subtle ambient */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 70% 40% at 50% 0%, rgba(252,183,48,0.04) 0%, transparent 60%)" }} />
 
-        {/* Header */}
-        <motion.div className="text-center mb-14" ref={ref}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Premium header */}
+        <motion.div className="text-center max-w-2xl mx-auto mb-16 md:mb-20" ref={ref}
           initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}>
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}>
           <span
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6"
-            style={{ background: "rgba(0,19,83,0.07)", border: "1px solid rgba(0,19,83,0.12)", color: "#001353" }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase mb-6"
+            style={{
+              background: "rgba(0,19,83,0.06)",
+              border: "1px solid rgba(0,19,83,0.12)",
+              color: "#001353",
+              letterSpacing: "0.18em",
+            }}
           >
+            <span className="w-1 h-1 rounded-full" style={{ background: "#FCB730" }} />
             Process
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold" style={{ color: "#001353" }}>
-            Get Started in 3 Simple Steps
+          <h2 className="text-3xl md:text-[44px] font-extrabold leading-[1.1] tracking-[-0.015em]" style={{ color: "#001353" }}>
+            From Application to Earning<br className="hidden sm:block" /> in Under 48 Hours
           </h2>
-          <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "#5C7189" }}>
-            From application to earning — in under 48 hours.
+          <p className="mt-5 text-base md:text-[17px] leading-[1.6]" style={{ color: "#5C7189" }}>
+            Three steps. No friction. No experience required.
           </p>
         </motion.div>
 
-        {/* ── DESKTOP: horizontal steps ── */}
-        <div className="hidden lg:block relative">
-          {/* Track line */}
-          <div className="absolute top-[26px] left-[16%] right-[16%] h-px" style={{ background: "#E8EAF0" }} />
-          {/* Animated golden fill */}
-          <div className="absolute top-[26px] left-[16%] right-[16%] h-px overflow-hidden">
-            <motion.div
-              className="h-full w-full"
-              style={{
-                background: "linear-gradient(90deg, #FCB730 0%, #FDED22 60%, #FCB730 100%)",
-                transformOrigin: "left",
-              }}
-              initial={{ scaleX: 0 }}
-              animate={inView ? { scaleX: 1 } : {}}
-              transition={{ duration: 1.4, delay: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
-            />
-          </div>
+        {/* Premium steps grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8 relative">
+          {/* Desktop connector */}
+          <div className="hidden lg:block absolute top-[24px] left-[calc(33.33%+18px)] right-[calc(33.33%+18px)] h-[2px] pointer-events-none"
+            style={{
+              background: "linear-gradient(90deg, #31429C 0%, #FCB730 50%, #FDED22 100%)",
+              opacity: 0.4,
+            }} />
 
-          <div className="grid grid-cols-3 gap-8">
-            {STEPS.map((step, i) => (
-              <motion.div
-                key={step.num}
-                className="flex flex-col items-center text-center"
-                initial={reduce ? { opacity: 0 } : { opacity: 0, y: 32 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.35 + i * 0.18, ease: [0.22, 1, 0.36, 1] as const }}
-              >
-                {/* Step node */}
-                <motion.div
-                  className="relative w-[52px] h-[52px] rounded-full flex items-center justify-center mb-8 z-10 bg-white"
-                  style={{
-                    border: "2px solid #FCB730",
-                    boxShadow: "0 0 0 6px rgba(252,183,48,0.1), 0 2px 16px rgba(0,19,83,0.12)",
-                    color: "#001353",
-                  }}
-                  animate={inView ? {
-                    boxShadow: [
-                      "0 0 0 6px rgba(252,183,48,0.1), 0 2px 16px rgba(0,19,83,0.12)",
-                      "0 0 0 12px rgba(252,183,48,0.06), 0 2px 24px rgba(252,183,48,0.25)",
-                      "0 0 0 6px rgba(252,183,48,0.1), 0 2px 16px rgba(0,19,83,0.12)",
-                    ],
-                  } : {}}
-                  transition={{ duration: 2.5, delay: 1 + i * 0.3, repeat: Infinity, repeatDelay: 2 }}
-                >
-                  {step.icon}
-                  <span
-                    className="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-extrabold"
-                    style={{ background: "#FDED22", color: "#001353" }}
-                  >
-                    {i + 1}
-                  </span>
-                </motion.div>
-
-                <h3 className="text-xl font-bold mb-3" style={{ color: "#001353" }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed mb-5 max-w-xs" style={{ color: "#5C7189" }}>
-                  {step.body}
-                </p>
-                <span
-                  className="inline-block px-3 py-1.5 rounded-full text-xs font-semibold"
-                  style={{
-                    background: step.tagBg,
-                    border: `1px solid ${step.tagBorder}`,
-                    color: step.tagColor,
-                  }}
-                >
-                  {step.tag}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── MOBILE: vertical steps ── */}
-        <div className="lg:hidden space-y-0">
           {STEPS.map((step, i) => (
             <motion.div
               key={step.num}
-              className="flex gap-5"
-              initial={reduce ? { opacity: 0 } : { opacity: 0, x: -20 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.15 + i * 0.14, ease: [0.22, 1, 0.36, 1] as const }}
+              className="relative flex flex-col"
+              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 32 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + i * 0.14, ease: [0.22, 1, 0.36, 1] as const }}
             >
-              <div className="flex flex-col items-center">
+              {/* Step header */}
+              <div className="flex gap-4 items-start mb-7">
                 <div
-                  className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 bg-white"
-                  style={{ border: "2px solid #FCB730", color: "#001353", boxShadow: "0 2px 12px rgba(252,183,48,0.2)" }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center text-base font-extrabold flex-shrink-0 relative z-10"
+                  style={{
+                    background: step.accent,
+                    color: step.accentText,
+                    boxShadow: `0 0 0 4px rgba(255,255,255,0.95), 0 8px 24px ${step.accent}60`,
+                  }}
                 >
-                  {step.icon}
+                  {i + 1}
                 </div>
-                {i < STEPS.length - 1 && (
-                  <motion.div
-                    className="w-px flex-1 mt-2 mb-2 min-h-[40px]"
-                    style={{ background: "linear-gradient(180deg, #FCB730, rgba(252,183,48,0.2))" }}
-                    initial={{ scaleY: 0, transformOrigin: "top" }}
-                    animate={inView ? { scaleY: 1 } : {}}
-                    transition={{ duration: 0.5, delay: 0.5 + i * 0.2 }}
-                  />
-                )}
+                <div className="pt-1.5 flex-1">
+                  <h3 className="text-[19px] md:text-[20px] font-extrabold tracking-tight mb-2" style={{ color: "#001353" }}>
+                    {step.title}
+                  </h3>
+                  <p className="text-[14.5px] leading-[1.65] mb-4" style={{ color: "#5C7189" }}>
+                    {step.body}
+                  </p>
+                  <span
+                    className="inline-block px-3 py-1.5 rounded-full text-[11.5px] font-bold"
+                    style={{
+                      background: step.tagBg,
+                      border: `1px solid ${step.tagBorder}`,
+                      color: step.tagColor,
+                    }}
+                  >
+                    {step.tag}
+                  </span>
+                </div>
               </div>
-              <div className="pb-10">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-extrabold opacity-25" style={{ color: "#001353" }}>{step.num}</span>
-                  <h3 className="text-lg font-bold" style={{ color: "#001353" }}>{step.title}</h3>
-                </div>
-                <p className="text-sm leading-relaxed mb-3" style={{ color: "#5C7189" }}>{step.body}</p>
-                <span
-                  className="inline-block px-3 py-1 rounded-full text-xs font-semibold"
-                  style={{ background: step.tagBg, border: `1px solid ${step.tagBorder}`, color: step.tagColor }}
-                >
-                  {step.tag}
-                </span>
+
+              {/* Visual preview */}
+              <div className="px-0">
+                {step.preview}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA nudge */}
-        <motion.div className="mt-16 text-center"
+        {/* CTA */}
+        <motion.div className="mt-16 md:mt-20 text-center"
           initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.7 }}>
+          transition={{ duration: 0.6, delay: 0.75 }}>
           <motion.button
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-[10px] font-extrabold text-[15px] text-black"
-            style={{ background: "#FDED22", boxShadow: "0 4px 28px rgba(253,237,34,0.45)" }}
-            whileHover={reduce ? {} : { scale: 1.04, boxShadow: "0 6px 36px rgba(253,237,34,0.6)" }}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-[12px] font-extrabold text-[14.5px] text-black bg-yellow"
+            style={{ boxShadow: "0 4px 28px rgba(253,237,34,0.4)" }}
+            whileHover={reduce ? {} : { scale: 1.04, boxShadow: "0 8px 40px rgba(253,237,34,0.6)" }}
             whileTap={{ scale: 0.97 }}
             onClick={() => document.getElementById("apply-form")?.scrollIntoView({ behavior: "smooth" })}
           >

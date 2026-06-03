@@ -7,9 +7,10 @@ import HowItWorks from "@/components/affiliate/HowItWorks";
 import CommissionTable from "@/components/affiliate/CommissionTable";
 import AffiliateTiers from "@/components/affiliate/AffiliateTiers";
 import ResourcesSection from "@/components/affiliate/ResourcesSection";
-import AffiliateTestimonials from "@/components/affiliate/AffiliateTestimonials";
+import SocialProofBar from "@/components/affiliate/SocialProofBar";
 import AffiliateFAQ from "@/components/affiliate/AffiliateFAQ";
 import ApplicationForm from "@/components/affiliate/ApplicationForm";
+import AffiliateTestimonials from "@/components/affiliate/AffiliateTestimonials";
 import FinalCTA from "@/components/affiliate/FinalCTA";
 
 export const metadata: Metadata = {
@@ -66,9 +67,10 @@ export default function AffiliateProgramPage() {
         <WhoIsThisFor />
         <BenefitsBento />
         <HowItWorks />
+        <ResourcesSection />
         <CommissionTable />
         <AffiliateTiers />
-        <ResourcesSection />
+        <SocialProofBar />
         <AffiliateTestimonials />
         <AffiliateFAQ />
         <ApplicationForm />

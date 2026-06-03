@@ -74,11 +74,17 @@ function useCountUp(target: number, duration = 1800, active = false) {
 function StatItem({ value, suffix, label, active }: { value: number; suffix: string; label: string; active: boolean }) {
   const n = useCountUp(value, 1800, active);
   return (
-    <div className="flex flex-col items-center px-4 py-5">
-      <span className="text-2xl md:text-3xl font-extrabold" style={{ color: "#FCB730" }}>
+    <div className="flex flex-col items-center px-4 py-6">
+      <span
+        className="text-2xl md:text-[32px] font-extrabold tracking-tight"
+        style={{
+          color: "#FCB730",
+          textShadow: "0 0 20px rgba(252,183,48,0.25)",
+        }}
+      >
         {n}{suffix}
       </span>
-      <span className="text-xs mt-1 text-center font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>{label}</span>
+      <span className="text-[11px] md:text-[12px] mt-1.5 text-center font-medium uppercase" style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "0.08em" }}>{label}</span>
     </div>
   );
 }
@@ -355,15 +361,20 @@ export default function AffiliateHero() {
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
             >
               <span
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase"
+                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[11px] font-bold uppercase"
                 style={{
                   background: "rgba(253,237,34,0.08)",
-                  border: "1px solid rgba(253,237,34,0.28)",
+                  border: "1px solid rgba(253,237,34,0.3)",
                   color: "#FDED22",
-                  boxShadow: "0 0 24px rgba(253,237,34,0.1)",
+                  boxShadow: "0 0 32px rgba(253,237,34,0.12), 0 4px 16px rgba(0,0,0,0.3)",
+                  backdropFilter: "blur(12px)",
+                  letterSpacing: "0.18em",
                 }}
               >
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#4ade80" }} />
+                <span className="relative flex">
+                  <span className="w-1.5 h-1.5 rounded-full animate-ping absolute" style={{ background: "#4ade80" }} />
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#4ade80" }} />
+                </span>
                 Nepal&apos;s #1 Student Affiliate Program
               </span>
             </motion.div>
@@ -444,14 +455,17 @@ export default function AffiliateHero() {
 
             {/* Trust micro-copy */}
             <motion.div
-              className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm"
-              style={{ color: "rgba(255,255,255,0.38)" }}
+              className="mt-8 flex flex-wrap gap-x-5 gap-y-2.5 text-[13px] font-medium"
+              style={{ color: "rgba(255,255,255,0.45)" }}
               initial={{ opacity: 0 }} animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.85 }}
             >
               {["Free to join", "Approved in 48 hrs", "No audience required"].map(t => (
                 <span key={t} className="flex items-center gap-1.5">
-                  <span style={{ color: "#FCB730" }}>✓</span> {t}
+                  <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="#FCB730" strokeWidth={2.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {t}
                 </span>
               ))}
             </motion.div>
@@ -520,6 +534,40 @@ export default function AffiliateHero() {
               </motion.span>
             </motion.div>
           </motion.div>
+        </div>
+
+        {/* ── LIVE ACTIVITY TICKER ── */}
+        <div className="relative z-10 w-full overflow-hidden border-y border-white/10 bg-white/[0.03] backdrop-blur-sm py-3 mb-2">
+          <div
+            className="flex gap-10 whitespace-nowrap"
+            style={{ animation: "ticker-scroll 28s linear infinite" }}
+          >
+            {[
+              "🟢 Sushant K. just earned a commission",
+              "⭐ Priya R. reached Rising Star",
+              "🎓 Bibek T. referred 3 students this week",
+              "💰 Anisha M. hit Elite Partner status",
+              "🟢 Rohan K. received a payout via eSewa",
+              "⭐ Sunita G. referred 5 new students",
+              "🎓 Anil S. unlocked Admizz Legend",
+              "💰 847 active affiliates this month",
+              "🟢 Sushant K. just earned a commission",
+              "⭐ Priya R. reached Rising Star",
+              "🎓 Bibek T. referred 3 students this week",
+              "💰 Anisha M. hit Elite Partner status",
+            ].map((msg, i) => (
+              <span key={i} className="text-xs font-semibold" style={{ color: "rgba(255,255,255,0.55)" }}>
+                {msg}
+                <span className="mx-5 opacity-30">·</span>
+              </span>
+            ))}
+          </div>
+          <style jsx>{`
+            @keyframes ticker-scroll {
+              0%   { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}</style>
         </div>
 
         {/* ── STATS BAR ── */}

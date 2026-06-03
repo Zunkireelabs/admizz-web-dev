@@ -3,94 +3,49 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 
-const RESOURCES = [
+const FEATURED = [
   {
+    title: "Social Media Kit",
+    body: "Instagram posts, TikTok templates, WhatsApp messages, and story graphics — all pre-made with your referral link slot ready to fill in. Download and post in under a minute.",
+    items: ["Instagram & TikTok posts", "WhatsApp message templates", "Stories and banners"],
+    accentColor: "#FCB730",
+    accentBg: "rgba(252,183,48,0.12)",
+    accentBorder: "rgba(252,183,48,0.3)",
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-      </svg>
-    ),
-    title: "Unique Referral Link",
-    body: "Your personal tracking link with a real-time dashboard. See every click, every conversion.",
-    accent: "#FCB730",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7}
           d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
     ),
-    title: "Instagram & TikTok Posts",
-    body: "Ready-made captions and graphics. Just download and post.",
-    accent: "#FCB730",
   },
   {
+    title: "Tracking Dashboard",
+    body: "Your unique referral link with a real-time dashboard. See every click, every consultation booked, every conversion — live. Know exactly what's working.",
+    items: ["Personal referral link", "Real-time click tracking", "Conversion analytics"],
+    accentColor: "#FDED22",
+    accentBg: "rgba(253,237,34,0.12)",
+    accentBorder: "rgba(253,237,34,0.3)",
+    featured: true,
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7}
+          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
       </svg>
     ),
-    title: "WhatsApp Message Templates",
-    body: "Pre-written messages to send to your contacts instantly.",
-    accent: "#31429C",
   },
   {
+    title: "Partner Support",
+    body: "A dedicated support line for affiliates. Real humans, fast responses on WhatsApp or email. Plus a monthly newsletter with strategy tips and top performer features.",
+    items: ["WhatsApp & email support", "Brand style guide", "Monthly affiliate newsletter"],
+    accentColor: "#31429C",
+    accentBg: "rgba(49,66,156,0.18)",
+    accentBorder: "rgba(49,66,156,0.35)",
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: "Email Copy Templates",
-    body: "For professionals and bloggers with an email list.",
-    accent: "#FCB730",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-      </svg>
-    ),
-    title: "Banners & Graphics",
-    body: "All sizes for stories, posts, and website placements.",
-    accent: "#FDED22",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-      </svg>
-    ),
-    title: "Brand Style Guide",
-    body: "Use Admizz logos and colors correctly — we make it foolproof.",
-    accent: "#31429C",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7}
           d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
     ),
-    title: "Dedicated Affiliate Support",
-    body: "Reach us on WhatsApp or email. Real humans, fast responses.",
-    accent: "#FCB730",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-      </svg>
-    ),
-    title: "Monthly Affiliate Newsletter",
-    body: "Tips, strategy, top performer features, and program updates.",
-    accent: "#FDED22",
   },
 ];
 
@@ -100,84 +55,143 @@ export default function ResourcesSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section style={{ background: "#ffffff" }} className="py-16 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 md:py-28 relative overflow-hidden" style={{ background: "#0a1226" }}>
+      {/* Refined ambient */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(252,183,48,0.08) 0%, transparent 65%)" }} />
+      <div className="absolute inset-0 pointer-events-none opacity-25"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "46px 46px",
+        }} />
 
-        {/* Header */}
-        <motion.div className="text-center mb-12" ref={ref}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Premium header */}
+        <motion.div className="text-center max-w-2xl mx-auto mb-16 md:mb-20" ref={ref}
           initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}>
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}>
           <span
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6"
-            style={{ background: "rgba(0,19,83,0.07)", border: "1px solid rgba(0,19,83,0.12)", color: "#001353" }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase mb-6"
+            style={{
+              background: "rgba(253,237,34,0.08)",
+              border: "1px solid rgba(253,237,34,0.22)",
+              color: "#FDED22",
+              letterSpacing: "0.18em",
+            }}
           >
+            <span className="w-1 h-1 rounded-full" style={{ background: "#FDED22" }} />
             Your Kit
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold" style={{ color: "#001353" }}>
-            We Give You Everything You Need
+          <h2 className="text-3xl md:text-[44px] font-extrabold text-white leading-[1.1] tracking-[-0.015em]">
+            Everything You Need, Day One.
           </h2>
-          <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "#5C7189" }}>
-            Your affiliate kit — ready from day one. No guesswork.
+          <p className="mt-5 text-base md:text-[17px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.55)" }}>
+            No guesswork. Your complete affiliate kit is ready the moment you&apos;re approved.
           </p>
         </motion.div>
 
-        {/* Resource cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {RESOURCES.map((r, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {FEATURED.map((r, i) => (
             <motion.div
               key={r.title}
-              className="rounded-2xl p-6 flex flex-col bg-white group relative overflow-hidden"
+              className="relative rounded-2xl overflow-hidden flex flex-col group transition-all duration-300"
               style={{
-                border: "1px solid #E8EAF0",
-                boxShadow: "0 2px 16px rgba(0,19,83,0.06)",
+                background: r.featured ? "rgba(253,237,34,0.04)" : "rgba(255,255,255,0.025)",
+                border: r.featured
+                  ? "1px solid rgba(253,237,34,0.25)"
+                  : "1px solid rgba(255,255,255,0.08)",
+                boxShadow: r.featured
+                  ? "0 0 40px rgba(253,237,34,0.08), 0 8px 32px rgba(0,0,0,0.3)"
+                  : "0 4px 24px rgba(0,0,0,0.25)",
+                backdropFilter: "blur(20px)",
               }}
-              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
+              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.06 * i, ease: [0.22, 1, 0.36, 1] as const }}
+              transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
               whileHover={reduce ? {} : {
-                y: -4,
-                boxShadow: "0 12px 40px rgba(0,19,83,0.12)",
-                borderColor: "#FCB730",
-                transition: { duration: 0.22 },
+                y: -6,
+                background: r.featured ? "rgba(253,237,34,0.06)" : "rgba(255,255,255,0.045)",
+                borderColor: r.accentBorder,
+                boxShadow: `0 24px 60px rgba(0,0,0,0.45), 0 0 0 1px ${r.accentBorder}`,
+                transition: { duration: 0.25 },
               }}
             >
-              {/* Icon in golden circle */}
-              <div
-                className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300"
-                style={{ background: "rgba(252,183,48,0.12)", color: "#FCB730" }}
-              >
-                {r.icon}
+              {/* Top accent bar */}
+              <div className="h-[2px] w-full" style={{ background: r.accentColor }} />
+
+              {/* Featured glow */}
+              {r.featured && (
+                <div className="absolute inset-0 pointer-events-none"
+                  style={{ background: `radial-gradient(ellipse 90% 60% at 50% 0%, ${r.accentColor}10 0%, transparent 70%)` }} />
+              )}
+
+              <div className="p-7 md:p-8 flex flex-col flex-1 relative">
+                {r.featured && (
+                  <span
+                    className="self-start px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase mb-5"
+                    style={{
+                      background: "rgba(253,237,34,0.15)",
+                      border: "1px solid rgba(253,237,34,0.3)",
+                      color: "#FDED22",
+                      letterSpacing: "0.15em",
+                    }}
+                  >
+                    ★ Most Used
+                  </span>
+                )}
+
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
+                  style={{ background: r.accentBg, color: r.accentColor, border: `1px solid ${r.accentBorder}` }}
+                >
+                  {r.icon}
+                </div>
+
+                <h3 className="text-lg md:text-[20px] font-bold text-white mb-3 tracking-tight">{r.title}</h3>
+                <p className="text-[14.5px] leading-[1.65] mb-7 flex-1" style={{ color: "rgba(255,255,255,0.6)" }}>
+                  {r.body}
+                </p>
+
+                <ul className="space-y-2.5 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                  {r.items.map(item => (
+                    <li key={item} className="flex items-center gap-2.5 text-[13.5px]"
+                      style={{ color: "rgba(255,255,255,0.65)" }}>
+                      <span
+                        className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
+                        style={{ background: r.accentBg, color: r.accentColor }}
+                      >
+                        <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              <h3 className="text-sm font-bold mb-2" style={{ color: "#001353" }}>{r.title}</h3>
-              <p className="text-xs leading-relaxed flex-1" style={{ color: "#5C7189" }}>{r.body}</p>
-
-              {/* Bottom golden accent on hover */}
-              <div
-                className="mt-4 h-0.5 w-0 group-hover:w-full transition-all duration-500 rounded-full"
-                style={{ background: r.accent }}
-              />
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
-          className="mt-14 text-center"
+          className="mt-14 md:mt-16 text-center"
           initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <p className="text-sm mb-5" style={{ color: "#5C7189" }}>
+          <p className="text-[14px] mb-5" style={{ color: "rgba(255,255,255,0.5)" }}>
             Everything above is included when you join — completely free.
           </p>
           <motion.button
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-[10px] font-extrabold text-[15px] text-black"
-            style={{ background: "#FDED22", boxShadow: "0 4px 28px rgba(253,237,34,0.45)" }}
-            whileHover={reduce ? {} : { scale: 1.04, boxShadow: "0 6px 36px rgba(253,237,34,0.6)" }}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-[12px] font-extrabold text-[14.5px] text-black bg-yellow"
+            style={{ boxShadow: "0 4px 28px rgba(253,237,34,0.4)" }}
+            whileHover={reduce ? {} : { scale: 1.04, boxShadow: "0 8px 40px rgba(253,237,34,0.6)" }}
             whileTap={{ scale: 0.97 }}
             onClick={() => document.getElementById("apply-form")?.scrollIntoView({ behavior: "smooth" })}
           >
-            Apply Now — It&apos;s Free →
+            Apply Now — It&apos;s Free
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </motion.button>
         </motion.div>
       </div>
