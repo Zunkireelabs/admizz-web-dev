@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getAffiliateByCredentials, getAffiliateReferrals, getLeaderboard, getAffiliateClicks } from "@/lib/affiliate/api";
+import { getAffiliateByCredentials, getAffiliateById, getAffiliateReferrals, getLeaderboard, getAffiliateClicks } from "@/lib/affiliate/api";
 import type { Affiliate, AffiliateReferral, LeaderboardEntry, AffiliateClick } from "@/lib/affiliate/types";
 import AffiliateLogin from "@/components/affiliate/dashboard/AffiliateLogin";
 import DashboardShell from "@/components/affiliate/dashboard/DashboardShell";
@@ -47,11 +47,17 @@ export default function AffiliateDashboardPage() {
   const loadDashboard = async (aff: Affiliate) => {
     try {
       setAffiliate(aff);
-      const [refs, lb, clk] = await Promise.all([
+      const [fresh, refs, lb, clk] = await Promise.all([
+        getAffiliateById(aff.id).catch(() => null),
         getAffiliateReferrals(aff.id).catch(() => [] as AffiliateReferral[]),
         getLeaderboard().catch(() => [] as LeaderboardEntry[]),
         getAffiliateClicks(aff.referral_code, 200).catch(() => [] as AffiliateClick[]),
       ]);
+      // Server is authoritative for totals/tier — refresh + update cached session.
+      if (fresh) {
+        setAffiliate(fresh);
+        try { localStorage.setItem(SESSION_KEY, JSON.stringify(fresh)); } catch { /* ignore */ }
+      }
       setReferrals(refs);
       setLeaderboard(lb);
       setClicks(clk);

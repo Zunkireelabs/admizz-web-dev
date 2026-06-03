@@ -96,6 +96,17 @@ export async function getAffiliateByCredentials(
 
 // ─── Affiliate dashboard ───────────────────────────────────────────────────
 
+// Re-fetch the affiliate row so totals/tier reflect server state, not stale localStorage.
+export async function getAffiliateById(id: string): Promise<Affiliate | null> {
+  const { data, error } = await supabase
+    .from("affiliates")
+    .select("*")
+    .eq("id", id)
+    .maybeSingle();
+  if (error) { console.error("[affiliate refresh]", error.message); return null; }
+  return data ?? null;
+}
+
 export async function getAffiliateReferrals(affiliateId: string): Promise<AffiliateReferral[]> {
   const { data, error } = await supabase
     .from("affiliate_referrals")
