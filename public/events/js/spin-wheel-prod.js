@@ -25,6 +25,93 @@
         } catch (e) { return null; }
     }
 
+    // ─── Affiliate referral creation (mirrors event-form.js + RegisterForm) ───
+    var REGISTER_LEADS_URL = 'https://ldsgsdjixzsljgkcktqu.supabase.co/rest/v1/register_leads';
+    var AFFILIATES_URL     = 'https://ldsgsdjixzsljgkcktqu.supabase.co/rest/v1/affiliates';
+    var REFERRALS_URL      = 'https://ldsgsdjixzsljgkcktqu.supabase.co/rest/v1/affiliate_referrals';
+
+    function _admizzGenUuid() {
+        if (window.crypto && typeof window.crypto.randomUUID === 'function') return window.crypto.randomUUID();
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    function _admizzCalcTier(count) {
+        if (count >= 30) return 'Admizz Legend';
+        if (count >= 15) return 'Elite Partner';
+        if (count >= 5)  return 'Rising Star';
+        return 'Starter';
+    }
+
+    function _admizzPersistSpinReferral(data) {
+        var refCode = getReferrerCode();
+        var leadId = _admizzGenUuid();
+
+        var leadRow = {
+            id:           leadId,
+            full_name:    ((data.firstName || '') + ' ' + (data.lastName || '')).trim(),
+            email:        (data.email || '').trim(),
+            phone:        data.phone || '',
+            countries:    data.preferedDestination || '',
+            intake:       '',
+            field:        data.studyProgram || '',
+            education:    data.studyLevel || '',
+            contact_pref: '',
+            status:       'new',
+            source:       'event-spin-and-win',
+        };
+
+        fetch(REGISTER_LEADS_URL, {
+            method: 'POST',
+            headers: Object.assign({}, SB_HEADERS, { 'Prefer': 'return=minimal' }),
+            body: JSON.stringify(leadRow),
+        }).then(function (r) {
+            if (!r.ok) { console.warn('[admizz spin lead]', r.status); return; }
+            if (!refCode) return;
+
+            return fetch(
+                AFFILIATES_URL + '?select=id,referral_code,total_referrals,status&referral_code=eq.'
+                    + encodeURIComponent(refCode.toUpperCase()) + '&limit=1',
+                { headers: SB_HEADERS }
+            ).then(function (rr) { return rr.ok ? rr.json() : []; }).then(function (rows) {
+                var aff = rows && rows[0];
+                if (!aff || aff.status !== 'active') return;
+
+                var destinationName = data.preferedDestination || 'Other';
+                var flag = DESTINATION_FLAGS[destinationName] || '🌍';
+                var firstName = (data.firstName || '').trim();
+                var lastInitial = (data.lastName || '').trim().charAt(0).toUpperCase();
+                var studentDisplay = lastInitial ? firstName + ' ' + lastInitial + '.' : (firstName || 'Anonymous');
+
+                return fetch(REFERRALS_URL, {
+                    method: 'POST',
+                    headers: Object.assign({}, SB_HEADERS, { 'Prefer': 'return=minimal' }),
+                    body: JSON.stringify({
+                        affiliate_id:    aff.id,
+                        affiliate_code:  aff.referral_code,
+                        student_display: studentDisplay,
+                        destination:     destinationName,
+                        flag_emoji:      flag,
+                        stage:           'Consultation',
+                        status:          'pending',
+                        commission:      0,
+                        lead_id:         leadId,
+                        email:           leadRow.email.toLowerCase(),
+                    }),
+                }).then(function () {
+                    var newReferrals = (aff.total_referrals || 0) + 1;
+                    return fetch(AFFILIATES_URL + '?id=eq.' + encodeURIComponent(aff.id), {
+                        method: 'PATCH',
+                        headers: Object.assign({}, SB_HEADERS, { 'Prefer': 'return=minimal' }),
+                        body: JSON.stringify({ total_referrals: newReferrals, tier: _admizzCalcTier(newReferrals) }),
+                    });
+                });
+            });
+        }).catch(function (err) { console.warn('[admizz spin tracking]', err && err.message); });
+    }
+
     var DESTINATION_FLAGS = {
         'UK': '🇬🇧', 'USA': '🇺🇸', 'Australia': '🇦🇺', 'Canada': '🇨🇦',
         'Finland': '🇫🇮', 'Germany': '🇩🇪', 'India': '🇮🇳',
@@ -801,6 +888,18 @@
             var fd = buildPayload();
             saveToSupabase();
             postToCRM();
+            // Fire-and-forget: write a register_leads mirror + credit the affiliate (if cookie present).
+            try {
+                _admizzPersistSpinReferral({
+                    firstName:           formData.firstName,
+                    lastName:            formData.lastName,
+                    email:               formData.email,
+                    phone:               buildPhone(),
+                    preferedDestination: formData.preferedDestination,
+                    studyLevel:          formData.studyLevel,
+                    studyProgram:        formData.studyProgram,
+                });
+            } catch (_) { /* ignore */ }
             var country = formData.country;
             var requests;
             if (country === 'NP') {

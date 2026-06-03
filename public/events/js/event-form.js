@@ -1,4 +1,139 @@
 // Event Form JavaScript - Validation & Submission
+
+// ─── Affiliate tracking helpers ──────────────────────────────────────────
+// Mirror of src/lib/affiliate/* — we duplicate here so this vanilla-JS file
+// stays self-contained. Keys are NEXT_PUBLIC_* equivalents (public by design).
+// Read from window if Init component injected them (preferred), else fall back to baked constants.
+// The fallback only matters until next deploy — the Init component sets these from NEXT_PUBLIC_* env vars.
+var ADMIZZ_SB_URL  = (window.__ADMIZZ_SB_URL  || 'https://ldsgsdjixzsljgkcktqu.supabase.co');
+var ADMIZZ_SB_ANON = (window.__ADMIZZ_SB_ANON || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxkc2dzZGppeHpzbGpna2NrdHF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3NTU1NDEsImV4cCI6MjA4NTMzMTU0MX0.855wGImOj-uNFYSqIyXF-Id4B9dO1siQoT2WdQKxusA');
+
+function _admizzReadRefCookie() {
+    var match = (document.cookie || '').split('; ').find(function (c) { return c.indexOf('admizz_ref=') === 0; });
+    if (!match) return null;
+    try { return decodeURIComponent(match.split('=')[1] || '') || null; }
+    catch (_) { return null; }
+}
+
+function _admizzGenUuid() {
+    if (window.crypto && typeof window.crypto.randomUUID === 'function') return window.crypto.randomUUID();
+    // RFC4122 v4 fallback
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+function _admizzSbHeaders() {
+    return {
+        'apikey': ADMIZZ_SB_ANON,
+        'Authorization': 'Bearer ' + ADMIZZ_SB_ANON,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=representation',
+    };
+}
+
+function _admizzCalcTier(count) {
+    if (count >= 30) return 'Admizz Legend';
+    if (count >= 15) return 'Elite Partner';
+    if (count >= 5)  return 'Rising Star';
+    return 'Starter';
+}
+
+// Flag-emoji lookup matching createReferralFromRegistration parsing
+var _ADMIZZ_FLAGS = {
+    'UK': '🇬🇧', 'United Kingdom': '🇬🇧',
+    'USA': '🇺🇸', 'United States': '🇺🇸',
+    'Canada': '🇨🇦',
+    'Australia': '🇦🇺',
+    'New Zealand': '🇳🇿',
+    'Germany': '🇩🇪', 'France': '🇫🇷',
+    'India': '🇮🇳', 'Nepal': '🇳🇵',
+    'South Korea': '🇰🇷', 'Korea': '🇰🇷',
+    'UAE': '🇦🇪', 'Dubai': '🇦🇪',
+    'Other': '🌍',
+};
+
+// Fire-and-forget: write a register_leads row + (if cookie present) an
+// affiliate_referrals row. Never blocks the user's success redirect.
+function _admizzPersistEventLead(payload) {
+    var leadId = _admizzGenUuid();
+    var refCode = _admizzReadRefCookie();
+    var pageSlug = (window.location.pathname || '').replace(/^\/+|\/+$/g, '').replace(/\//g, '-') || 'event';
+    var source = 'event-' + pageSlug.replace(/^events-/, '');
+
+    var leadRow = {
+        id:           leadId,
+        full_name:    (payload.firstName + ' ' + payload.lastName).trim(),
+        email:        (payload.email || '').trim(),
+        phone:        (payload.phone || '').trim(),
+        countries:    payload.studyDestination || '',
+        intake:       '',
+        field:        payload.studyProgram || '',
+        education:    payload.studyLevel || '',
+        contact_pref: '',
+        status:       'new',
+        source:       source,
+    };
+
+    // Step 1: insert the lead
+    fetch(ADMIZZ_SB_URL + '/rest/v1/register_leads', {
+        method: 'POST',
+        headers: _admizzSbHeaders(),
+        body: JSON.stringify(leadRow),
+    })
+    .then(function (r) {
+        if (!r.ok) { console.warn('[admizz lead]', r.status); return; }
+        if (!refCode) return; // no affiliate to credit
+
+        // Step 2: look up the affiliate by code
+        return fetch(
+            ADMIZZ_SB_URL + '/rest/v1/affiliates?select=id,referral_code,total_referrals,status&referral_code=eq.'
+                + encodeURIComponent(refCode.toUpperCase()) + '&limit=1',
+            { headers: _admizzSbHeaders() }
+        ).then(function (rr) { return rr.ok ? rr.json() : []; }).then(function (rows) {
+            var aff = rows && rows[0];
+            if (!aff || aff.status !== 'active') return;
+
+            var destinationName = (payload.studyDestination || 'Other').toString();
+            var flag = _ADMIZZ_FLAGS[destinationName] || '🌍';
+            var firstName = (payload.firstName || '').trim();
+            var lastInitial = (payload.lastName || '').trim().charAt(0).toUpperCase();
+            var studentDisplay = lastInitial ? firstName + ' ' + lastInitial + '.' : (firstName || 'Anonymous');
+
+            // Step 3: insert the referral row
+            return fetch(ADMIZZ_SB_URL + '/rest/v1/affiliate_referrals', {
+                method: 'POST',
+                headers: _admizzSbHeaders(),
+                body: JSON.stringify({
+                    affiliate_id:    aff.id,
+                    affiliate_code:  aff.referral_code,
+                    student_display: studentDisplay,
+                    destination:     destinationName,
+                    flag_emoji:      flag,
+                    stage:           'Consultation',
+                    status:          'pending',
+                    commission:      0,
+                    lead_id:         leadId,
+                    email:           leadRow.email.toLowerCase(),
+                }),
+            }).then(function () {
+                // Step 4: bump affiliate totals + tier
+                var newReferrals = (aff.total_referrals || 0) + 1;
+                return fetch(
+                    ADMIZZ_SB_URL + '/rest/v1/affiliates?id=eq.' + encodeURIComponent(aff.id),
+                    {
+                        method: 'PATCH',
+                        headers: _admizzSbHeaders(),
+                        body: JSON.stringify({ total_referrals: newReferrals, tier: _admizzCalcTier(newReferrals) }),
+                    }
+                );
+            });
+        });
+    })
+    .catch(function (err) { console.warn('[admizz event tracking]', err && err.message); });
+}
+
 function _eventFormInit() {
     const eventForm = document.getElementById('eventDetailsForm') || document.getElementById('admissionForm');
     const submitBtn = document.getElementById('submit');
@@ -11,13 +146,13 @@ function _eventFormInit() {
     const countryCode = document.getElementById('countryCode');
     const phoneNumber = document.getElementById('phoneNumber');
     const studyDestination = document.getElementById('studyDestination');
+    const studyLevel = document.getElementById('studyLevel');
+    const studyProgram = document.getElementById('studyProgram');
+    const cityName = document.getElementById('cityName');
     const termsConditions = document.getElementById('termsConditions');
 
-    const SCRIPT_URLS = {
-        primary: "https://script.google.com/macros/s/AKfycbxeAGAIM_pZTsgj-7-cqvt__hBfI4wbQRztMVfZ2jaF9LarsRcbl0FRvkco_R8R9KWxkQ/exec",
-        secondary: "https://script.google.com/macros/s/AKfycbwEhcdBi59eIdC45UQ8bHWYuOQYyP929Hipq93d9Rp6ILzRX7ZJCCGH6OoGbn2OPprL/exec",
-        nepal: "https://script.google.com/macros/s/AKfycbx_eRs4VvnE3Mcd2dz8jO6e5E1MzcWmGxfO6vXgYqoubjTkg0DiIq3aARfVkIl8_m3KAg/exec"
-    };
+    const CRM_ENDPOINT = 'https://dev-lead-crm.zunkireelabs.com/api/public/submit/admizz/uk-education-expo-2026';
+    const CRM_API_KEY  = 'crm_live_UVtPfdXD6lIZ0S5lSeny9Clv3jKzbGUGM8sgK2Gm3tw';
 
     if (countryCode && phoneNumber) {
         function getDialCode() {
@@ -102,22 +237,7 @@ function _eventFormInit() {
 
         if (!isValid) return;
 
-        const dateInput = document.getElementById('date-input');
-        const timeInput = document.getElementById('time-input');
-        const currentDateTime = new Date();
-        if (dateInput) dateInput.value = currentDateTime.toDateString();
-        if (timeInput) timeInput.value = currentDateTime.toLocaleTimeString();
-
         const urlParams = new URLSearchParams(window.location.search);
-        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(field => {
-            const element = document.getElementById(field);
-            if (element) element.value = urlParams.get(field) || '';
-        });
-
-        const referrerUrl = document.getElementById('referrer_url');
-        const landingPage = document.getElementById('landing_page');
-        if (referrerUrl) referrerUrl.value = document.referrer || 'Direct';
-        if (landingPage) landingPage.value = window.location.href;
 
         submitBtn.disabled = true;
         const originalText = submitBtn.textContent;
@@ -125,18 +245,46 @@ function _eventFormInit() {
         submitBtn.style.opacity = '0.7';
 
         try {
-            if (countryCode && countryCode.value === 'NP') {
-                await Promise.all([
-                    fetch(SCRIPT_URLS.primary, { method: 'POST', body: new FormData(eventForm) }),
-                    fetch(SCRIPT_URLS.secondary, { method: 'POST', body: new FormData(eventForm) }),
-                    fetch(SCRIPT_URLS.nepal, { method: 'POST', body: new FormData(eventForm) })
-                ]);
-            } else {
-                await Promise.all([
-                    fetch(SCRIPT_URLS.primary, { method: 'POST', body: new FormData(eventForm) }),
-                    fetch(SCRIPT_URLS.secondary, { method: 'POST', body: new FormData(eventForm) })
-                ]);
-            }
+            await fetch(CRM_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + CRM_API_KEY,
+                },
+                body: JSON.stringify({
+                    first_name: firstName.value.trim(),
+                    last_name:  lastName.value.trim(),
+                    email:      email.value.trim(),
+                    phone:      phoneNumber.value.trim(),
+                    custom_fields: {
+                        study_destination: studyDestination ? studyDestination.value : '',
+                        study_level:       studyLevel       ? studyLevel.value       : '',
+                        study_program:     studyProgram     ? studyProgram.value     : '',
+                        city:              cityName         ? cityName.value.trim()  : '',
+                        utm_source:        urlParams.get('utm_source')   || '',
+                        utm_medium:        urlParams.get('utm_medium')   || '',
+                        utm_campaign:      urlParams.get('utm_campaign') || '',
+                        utm_term:          urlParams.get('utm_term')     || '',
+                        utm_content:       urlParams.get('utm_content')  || '',
+                        referrer_url:      document.referrer || 'Direct',
+                        landing_page:      window.location.href,
+                    },
+                }),
+            });
+
+            // Fire-and-forget: write a local lead row + (if cookie present) credit the affiliate.
+            // Never blocks the redirect — tracking failures are silent.
+            try {
+                _admizzPersistEventLead({
+                    firstName:        firstName.value.trim(),
+                    lastName:         lastName.value.trim(),
+                    email:            email.value.trim(),
+                    phone:            phoneNumber.value.trim(),
+                    studyDestination: studyDestination ? studyDestination.value : '',
+                    studyLevel:       studyLevel       ? studyLevel.value       : '',
+                    studyProgram:     studyProgram     ? studyProgram.value     : '',
+                });
+            } catch (_) { /* ignore */ }
 
             const thankYouUrl = eventForm.getAttribute('data-thank-you') || 'https://admizzeducation.com/thank-you/';
             window.location.href = thankYouUrl;
