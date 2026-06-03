@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
+import { readAffiliateRefCookie } from "@/lib/affiliate/refCookie";
 
 type FormData = {
   fullName: string;
@@ -12,7 +13,6 @@ type FormData = {
   organization: string;
   promotionMethod: string;
   platform: string;
-  audienceSize: string;
   profileLink: string;
   hasReferred: string;
   motivation: string;
@@ -20,7 +20,7 @@ type FormData = {
 
 const EMPTY: FormData = {
   fullName: "", email: "", phone: "", city: "", organization: "",
-  promotionMethod: "", platform: "", audienceSize: "", profileLink: "",
+  promotionMethod: "", platform: "", profileLink: "",
   hasReferred: "", motivation: "",
 };
 
@@ -150,32 +150,6 @@ function Select({
           </option>
         ))}
       </select>
-    </div>
-  );
-}
-
-// ─── Preview referral code box ────────────────────────────────────────
-
-function PreviewCodeBox({ code }: { code: string }) {
-  const [copied, setCopied] = useState(false);
-  const copy = () => {
-    navigator.clipboard.writeText(code).catch(() => {});
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-  return (
-    <div
-      className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl font-mono text-base font-bold"
-      style={{ background: "rgba(252,183,48,0.08)", border: "1px solid rgba(252,183,48,0.35)", color: "#FCB730" }}
-    >
-      <span>{code}</span>
-      <button
-        onClick={copy}
-        className="text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-200"
-        style={{ background: copied ? "rgba(252,183,48,0.25)" : "rgba(252,183,48,0.12)", color: "#FCB730" }}
-      >
-        {copied ? "Copied ✓" : "Copy"}
-      </button>
     </div>
   );
 }
@@ -311,17 +285,8 @@ export default function ApplicationForm() {
         return;
       }
 
-      // Read referral attribution cookie (first-touch)
-      let affiliateCode: string | null = null;
-      try {
-        const raw = localStorage.getItem("admizz_ref");
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          if (parsed?.code && Date.now() < parsed.expiresAt) {
-            affiliateCode = parsed.code;
-          }
-        }
-      } catch { /* ignore */ }
+      // Read first-touch referral cookie (single source of truth across forms)
+      const affiliateCode = readAffiliateRefCookie();
 
       const { error: insertError } = await supabase.from("affiliate_leads").insert({
         full_name:        form.fullName.trim(),
@@ -331,7 +296,6 @@ export default function ApplicationForm() {
         organization:     form.organization.trim() || null,
         promotion_method: form.promotionMethod,
         platform:         form.platform || null,
-        audience_size:    form.audienceSize || null,
         profile_link:     form.profileLink.trim() || null,
         has_referred:     form.hasReferred,
         motivation:       form.motivation.trim(),
@@ -360,65 +324,102 @@ export default function ApplicationForm() {
   const charCount = form.motivation.length;
   const overLimit = charCount > MOTIVATION_MAX;
 
-  const previewCode = (form.fullName.split(" ")[0] ?? "AFFILIATE")
-    .toUpperCase().replace(/[^A-Z]/g, "") + "2026";
-
   const TRUST_ITEMS = ["Free to join", "Response within 48h", "No referral targets"];
 
   return (
     <section
       id="apply-form"
-      className="py-24 relative overflow-hidden"
-      style={{ background: "#020818" }}
+      className="py-24 md:py-28 relative overflow-hidden"
+      style={{ background: "#020613" }}
     >
-      {/* Atmosphere */}
+      {/* Premium atmosphere */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 70% 55% at 50% 0%, rgba(49,66,156,0.25) 0%, transparent 65%)" }}
+        style={{ background: "radial-gradient(ellipse 70% 55% at 50% 0%, rgba(49,66,156,0.3) 0%, transparent 65%)" }}
       />
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.15]"
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 50% 40% at 50% 100%, rgba(252,183,48,0.06) 0%, transparent 60%)" }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.18]"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)",
           backgroundSize: "44px 44px",
         }}
       />
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px"
+        style={{ background: "linear-gradient(90deg, transparent, rgba(252,183,48,0.4), transparent)" }} />
 
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 md:mb-14">
           <span
-            className="inline-block px-4 py-1.5 rounded-full text-[11px] font-extrabold tracking-widest uppercase mb-5"
-            style={{ background: "rgba(253,237,34,0.08)", border: "1px solid rgba(253,237,34,0.2)", color: "#FDED22" }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase mb-6"
+            style={{
+              background: "rgba(253,237,34,0.08)",
+              border: "1px solid rgba(253,237,34,0.22)",
+              color: "#FDED22",
+              letterSpacing: "0.18em",
+            }}
           >
+            <span className="w-1 h-1 rounded-full" style={{ background: "#FDED22" }} />
             Join the Program
           </span>
-          <h2 className="text-4xl md:text-[52px] font-extrabold text-white leading-tight">
+          <h2 className="text-[40px] md:text-[52px] font-extrabold text-white leading-[1.05] tracking-[-0.02em]">
             Apply in 5 Minutes
           </h2>
-          <p className="mt-4 text-base" style={{ color: "rgba(255,255,255,0.45)" }}>
+          <p className="mt-5 text-base md:text-[17px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.5)" }}>
             Free to join. Approval within 48 hours. No referral targets.
           </p>
+          {/* Social proof trust signal */}
+          <div className="mt-6 inline-flex items-center gap-3 px-4 py-2.5 rounded-full"
+            style={{
+              background: "rgba(252,183,48,0.08)",
+              border: "1px solid rgba(252,183,48,0.25)",
+              backdropFilter: "blur(12px)",
+            }}>
+            <div className="flex -space-x-2">
+              {["#31429C", "#FCB730", "#4ade80", "#FDED22"].map((c, i) => (
+                <div key={i} className="w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-extrabold"
+                  style={{
+                    background: c,
+                    border: "2px solid #020613",
+                    color: i === 1 || i === 3 ? "#001353" : "#fff",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                  }}>
+                  {["PS", "RK", "BT", "AM"][i]}
+                </div>
+              ))}
+            </div>
+            <span className="text-[13px] font-semibold" style={{ color: "rgba(255,255,255,0.65)" }}>
+              Join <span style={{ color: "#FCB730", fontWeight: 800 }}>847+</span> active Admizz affiliates
+            </span>
+          </div>
         </div>
 
-        {/* Form card */}
+        {/* Premium form card */}
         <div
-          className="rounded-2xl overflow-hidden"
+          className="rounded-3xl overflow-hidden relative"
           style={{
-            background: "rgba(13,25,80,0.6)",
-            border: "1px solid rgba(255,255,255,0.08)",
-            backdropFilter: "blur(20px)",
-            boxShadow: "0 0 80px rgba(49,66,156,0.18), 0 1px 0 rgba(252,183,48,0.15) inset",
+            background: "linear-gradient(180deg, rgba(13,25,80,0.65) 0%, rgba(8,18,55,0.65) 100%)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            backdropFilter: "blur(24px)",
+            boxShadow: "0 0 100px rgba(49,66,156,0.22), 0 24px 60px rgba(0,0,0,0.4), 0 1px 0 rgba(252,183,48,0.18) inset",
           }}
         >
-          {/* Gold accent top line */}
+          {/* Premium gold accent top line */}
           <div
             className="h-[2px] w-full"
-            style={{ background: "linear-gradient(90deg, transparent, #FCB730 25%, #FDED22 50%, #FCB730 75%, transparent)" }}
+            style={{ background: "linear-gradient(90deg, transparent, #FCB730 20%, #FDED22 50%, #FCB730 80%, transparent)" }}
           />
+          {/* Subtle inner glow at top */}
+          <div className="absolute top-0 left-0 right-0 h-32 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse 80% 100% at 50% 0%, rgba(252,183,48,0.06) 0%, transparent 70%)" }} />
 
-          <div className="p-8 md:p-10">
+          <div className="p-8 md:p-10 relative">
             <AnimatePresence mode="wait">
               {done ? (
                 /* ── Success state ── */
@@ -470,24 +471,22 @@ export default function ApplicationForm() {
                     ))}
                   </div>
 
-                  {/* Preview referral code */}
-                  <div className="mt-6 w-full max-w-xs">
-                    <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.35)" }}>
-                      Your preview referral code
-                    </p>
-                    <PreviewCodeBox code={previewCode} />
-                    <p className="text-xs mt-2" style={{ color: "rgba(255,255,255,0.3)" }}>
-                      Activates once your application is approved.
-                    </p>
-                  </div>
-
-                  <div className="mt-7 w-full max-w-xs">
+                  <div className="mt-7 w-full max-w-xs flex flex-col gap-3">
                     <a
-                      href="/"
+                      href="/affiliate-program#how-it-works"
                       className="block w-full px-5 py-3.5 rounded-xl text-sm font-extrabold text-black text-center transition-all duration-200"
                       style={{ background: "#FDED22" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FCB730"; }}
                       onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FDED22"; }}
+                    >
+                      Review How It Works →
+                    </a>
+                    <a
+                      href="/"
+                      className="block w-full px-5 py-3 rounded-xl text-sm font-semibold text-center transition-all duration-200"
+                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.55)" }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.1)"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.06)"; }}
                     >
                       Back to Home
                     </a>
@@ -538,25 +537,19 @@ export default function ApplicationForm() {
                               ]}
                             />
                           </div>
-                          <Select label="Primary Platform" name="platform" value={form.platform} onChange={update}
-                            options={[
-                              { value: "instagram", label: "Instagram" },
-                              { value: "tiktok", label: "TikTok" },
-                              { value: "youtube", label: "YouTube" },
-                              { value: "facebook", label: "Facebook" },
-                              { value: "linkedin", label: "LinkedIn" },
-                              { value: "whatsapp", label: "WhatsApp Groups" },
-                              { value: "other", label: "Other / None" },
-                            ]}
-                          />
-                          <Select label="Audience / Reach Size" name="audienceSize" value={form.audienceSize} onChange={update}
-                            options={[
-                              { value: "under500", label: "Under 500" },
-                              { value: "500-2k", label: "500 – 2,000" },
-                              { value: "2k-10k", label: "2,000 – 10,000" },
-                              { value: "10k+", label: "10,000+" },
-                            ]}
-                          />
+                          <div className="sm:col-span-2">
+                            <Select label="Primary Platform" name="platform" value={form.platform} onChange={update}
+                              options={[
+                                { value: "instagram", label: "Instagram" },
+                                { value: "tiktok", label: "TikTok" },
+                                { value: "youtube", label: "YouTube" },
+                                { value: "facebook", label: "Facebook" },
+                                { value: "linkedin", label: "LinkedIn" },
+                                { value: "whatsapp", label: "WhatsApp Groups" },
+                                { value: "other", label: "Other / None" },
+                              ]}
+                            />
+                          </div>
                           <div className="sm:col-span-2">
                             <Input label="Link to your profile / blog (optional)" name="profileLink" type="url"
                               value={form.profileLink} onChange={update} placeholder="https://instagram.com/yourhandle" />
@@ -737,11 +730,11 @@ export default function ApplicationForm() {
           </div>
         </div>
 
-        {/* Trust strip */}
-        <div className="mt-6 flex items-center justify-center gap-6 flex-wrap">
+        {/* Premium trust strip */}
+        <div className="mt-8 flex items-center justify-center gap-x-6 gap-y-3 flex-wrap">
           {TRUST_ITEMS.map(t => (
-            <span key={t} className="flex items-center gap-1.5 text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
-              <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="#FCB730" strokeWidth={2.5} viewBox="0 0 24 24">
+            <span key={t} className="flex items-center gap-1.5 text-[12.5px] font-medium" style={{ color: "rgba(255,255,255,0.4)" }}>
+              <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="#FCB730" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
               {t}

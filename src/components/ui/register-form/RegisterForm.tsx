@@ -5,18 +5,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { supabase } from "@/lib/supabase";
 import { createReferralFromRegistration } from "@/lib/affiliate/api";
-
-// Read the first-touch affiliate referral cookie (set by AffiliateRefCapture).
-function readAffiliateRefCookie(): string | null {
-  if (typeof document === "undefined") return null;
-  const match = document.cookie.split("; ").find(c => c.startsWith("admizz_ref="));
-  if (!match) return null;
-  try {
-    return decodeURIComponent(match.split("=")[1] ?? "");
-  } catch {
-    return null;
-  }
-}
+import { readAffiliateRefCookie } from "@/lib/affiliate/refCookie";
 
 interface RegisterFormProps {
   onStepChange?: (step: number) => void;
