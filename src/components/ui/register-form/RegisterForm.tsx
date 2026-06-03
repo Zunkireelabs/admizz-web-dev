@@ -626,9 +626,10 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
     if (!stepValid) return;
     setSubmitting(true);
     try {
+      const leadId = crypto.randomUUID();
       const [supabaseResult] = await Promise.allSettled([
         supabase.from("register_leads").insert({
-          id:           crypto.randomUUID(),
+          id:           leadId,
           full_name:    `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
           email:        form.email.trim(),
           phone:        `${form.dialCode} ${form.phone.trim()}`,
@@ -653,6 +654,8 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
         createReferralFromRegistration(refCode, {
           full_name: `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
           countries: form.countries.join(", "),
+          lead_id:   leadId,
+          email:     form.email.trim(),
         })
           .then(result => {
             if (!result.ok) {
