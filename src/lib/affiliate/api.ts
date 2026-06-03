@@ -8,6 +8,7 @@ import type {
   ActivityEvent,
   LeaderboardEntry,
   RegisterLead,
+  AdminLeadRow,
   Tier,
 } from "./types";
 
@@ -222,6 +223,77 @@ export async function getAllClicks(limit = 1000): Promise<AffiliateClick[]> {
     .limit(limit);
   if (error) { console.error("[admin clicks]", error.message); return []; }
   return (data ?? []) as AffiliateClick[];
+}
+
+// All register_leads, joined with their affiliate_referral (if any) and the
+// best-effort matching click (for landing-page + UTM context). Admin-only —
+// RLS blocks anon SELECT on all three tables.
+export async function getAllLeads(limit = 500): Promise<AdminLeadRow[]> {
+  // Fetch in parallel; client-side join keeps the query shape simple.
+  const [
+    { data: leads,        error: leadErr      },
+    { data: referrals,    error: refErr       },
+    { data: affiliates,   error: affErr       },
+    { data: clicks,       error: clickErr     },
+  ] = await Promise.all([
+    supabase.from("register_leads").select("*").order("created_at", { ascending: false }).limit(limit),
+    supabase.from("affiliate_referrals").select("*"),
+    supabase.from("affiliates").select("id, full_name, referral_code"),
+    supabase.from("affiliate_clicks").select("code, landing_page, utm_source, created_at").order("created_at", { ascending: false }).limit(2000),
+  ]);
+
+  if (leadErr || refErr || affErr || clickErr) {
+    console.error("[admin leads fetch]",
+      leadErr?.message, refErr?.message, affErr?.message, clickErr?.message);
+    return [];
+  }
+
+  const refByLeadId = new Map<string, AffiliateReferral>();
+  for (const r of (referrals ?? []) as AffiliateReferral[]) {
+    if (r.lead_id) refByLeadId.set(r.lead_id, r);
+  }
+  const affById = new Map<string, { full_name: string; referral_code: string }>();
+  for (const a of (affiliates ?? [])) affById.set(a.id, a);
+
+  // For each referral, find a click on the same code at-or-before the lead.created_at
+  // as the "first touch" — best-effort, since we don't have a per-link id yet.
+  const clicksByCode = new Map<string, typeof clicks>();
+  for (const c of (clicks ?? [])) {
+    const key = (c.code || "").toUpperCase();
+    const arr = clicksByCode.get(key); if (arr) arr.push(c); else clicksByCode.set(key, [c]);
+  }
+
+  return ((leads ?? []) as RegisterLead[]).map(lead => {
+    const ref = refByLeadId.get(lead.id) ?? null;
+    const aff = ref ? affById.get(ref.affiliate_id) ?? null : null;
+
+    let landing_page: string | null = null;
+    let channel:      string | null = null;
+    let first_click_at: string | null = null;
+    if (ref) {
+      const codeClicks = clicksByCode.get(ref.affiliate_code.toUpperCase()) ?? [];
+      // Click(s) at or before the lead, pick the earliest as "first touch"
+      const leadTs = new Date(lead.created_at).getTime();
+      const eligible = codeClicks
+        .filter(c => new Date(c.created_at).getTime() <= leadTs + 60_000) // +60s grace
+        .sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+      const first = eligible[0];
+      if (first) {
+        landing_page   = first.landing_page;
+        channel        = first.utm_source ?? null;
+        first_click_at = first.created_at;
+      }
+    }
+
+    return {
+      lead,
+      referral:        ref,
+      affiliate_name:  aff?.full_name ?? null,
+      landing_page,
+      channel,
+      first_click_at,
+    };
+  });
 }
 
 // ─── Admin: drill into the originating register_leads row ─────────────────
@@ -532,5 +604,5 @@ export async function createReferralFromRegistration(
 }
 
 // Re-export types for convenience
-export type { Affiliate, AffiliateReferral, AffiliateApplication, AffiliateClick, CountryBreakdownEntry, ActivityEvent, LeaderboardEntry, RegisterLead, Tier, ReferralStatus } from "./types";
+export type { Affiliate, AffiliateReferral, AffiliateApplication, AffiliateClick, CountryBreakdownEntry, ActivityEvent, LeaderboardEntry, RegisterLead, AdminLeadRow, Tier, ReferralStatus } from "./types";
 type ReferralStatus = import("./types").ReferralStatus;

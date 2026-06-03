@@ -105,6 +105,17 @@ export interface ActivityEvent {
   status?: ReferralStatus;
 }
 
+// Aggregated lead row for the admin Leads tab — register_leads + (optionally)
+// the affiliate_referral and click that brought them in.
+export interface AdminLeadRow {
+  lead: RegisterLead;
+  referral: AffiliateReferral | null;   // null = direct registration, no affiliate
+  affiliate_name: string | null;        // denormalized for display
+  landing_page: string | null;          // from the click that converted (best guess)
+  channel: string | null;               // utm_source from the click
+  first_click_at: string | null;        // when the cookie was set
+}
+
 export interface LeaderboardEntry {
   rank: number;
   name: string;

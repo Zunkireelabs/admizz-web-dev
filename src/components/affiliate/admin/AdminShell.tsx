@@ -1,24 +1,26 @@
 "use client";
 
 import { useMemo, useState, type ReactNode } from "react";
-import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick } from "@/lib/affiliate/types";
+import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick, AdminLeadRow } from "@/lib/affiliate/types";
 import { buildCountryBreakdown, buildActivityFeed } from "@/lib/affiliate/api";
 import OverviewStats from "./OverviewStats";
 import ApplicationsTab from "./ApplicationsTab";
 import AffiliatesTab from "./AffiliatesTab";
 import ReferralsTab from "./ReferralsTab";
 import PayoutsTab from "./PayoutsTab";
+import LeadsTab from "./LeadsTab";
 import FunnelCard from "../dashboard/FunnelCard";
 import CountryBreakdownCard from "../dashboard/CountryBreakdownCard";
 import ActivityTimelineCard from "../dashboard/ActivityTimelineCard";
 
-type Tab = "applications" | "affiliates" | "referrals" | "payouts";
+type Tab = "applications" | "affiliates" | "referrals" | "payouts" | "leads";
 
 interface Props {
   affiliates: Affiliate[];
   applications: AffiliateApplication[];
   referrals: AffiliateReferral[];
   clicks: AffiliateClick[];
+  leads: AdminLeadRow[];
   onLogout: () => void;
   onRefresh: () => Promise<void>;
 }
@@ -28,9 +30,10 @@ const TAB_DESCRIPTIONS: Record<Tab, string> = {
   affiliates:   "Manage approved affiliates and their account status.",
   referrals:    "Track and update referral stages and statuses.",
   payouts:      "Process commission payouts to converted affiliates.",
+  leads:        "Every lead captured via the website, with affiliate attribution and full journey.",
 };
 
-export default function AdminShell({ affiliates, applications, referrals, clicks, onLogout, onRefresh }: Props) {
+export default function AdminShell({ affiliates, applications, referrals, clicks, leads, onLogout, onRefresh }: Props) {
   const [tab, setTab] = useState<Tab>("applications");
   const [refreshing, setRefreshing] = useState(false);
   const pendingCount = applications.filter(a => a.status === "new").length;
@@ -80,6 +83,16 @@ export default function AdminShell({ affiliates, applications, referrals, clicks
       icon: (
         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+    },
+    {
+      key: "leads",
+      label: "Leads",
+      badge: leads.length,
+      icon: (
+        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       ),
     },
@@ -231,6 +244,7 @@ export default function AdminShell({ affiliates, applications, referrals, clicks
         {tab === "affiliates"   && <AffiliatesTab affiliates={affiliates} referrals={referrals} clicks={clicks} onRefresh={onRefresh} />}
         {tab === "referrals"    && <ReferralsTab referrals={referrals} affiliates={affiliates} onRefresh={onRefresh} />}
         {tab === "payouts"      && <PayoutsTab referrals={referrals} affiliates={affiliates} onRefresh={onRefresh} />}
+        {tab === "leads"        && <LeadsTab leads={leads} onRefresh={onRefresh} />}
       </div>
     </div>
   );

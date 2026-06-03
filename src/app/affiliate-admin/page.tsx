@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { getAllAffiliates, getAllApplications, getAllReferrals, getAllClicks } from "@/lib/affiliate/api";
-import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick } from "@/lib/affiliate/types";
+import { getAllAffiliates, getAllApplications, getAllReferrals, getAllClicks, getAllLeads } from "@/lib/affiliate/api";
+import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick, AdminLeadRow } from "@/lib/affiliate/types";
 import AdminLogin from "@/components/affiliate/admin/AdminLogin";
 import AdminShell from "@/components/affiliate/admin/AdminShell";
 
@@ -14,6 +14,7 @@ export default function AffiliateAdminPage() {
   const [applications, setApplications] = useState<AffiliateApplication[]>([]);
   const [referrals, setReferrals]     = useState<AffiliateReferral[]>([]);
   const [clicks, setClicks]           = useState<AffiliateClick[]>([]);
+  const [leads, setLeads]             = useState<AdminLeadRow[]>([]);
 
   // On mount: check if a Supabase Auth session exists and confirm admin role.
   useEffect(() => {
@@ -47,16 +48,18 @@ export default function AffiliateAdminPage() {
   }, []);
 
   const onLogin = async () => {
-    const [affs, apps, refs, clks] = await Promise.all([
+    const [affs, apps, refs, clks, lds] = await Promise.all([
       getAllAffiliates(),
       getAllApplications(),
       getAllReferrals(),
       getAllClicks(2000),
+      getAllLeads(500),
     ]);
     setAffiliates(affs);
     setApplications(apps);
     setReferrals(refs);
     setClicks(clks);
+    setLeads(lds);
     setAuthed(true);
   };
 
@@ -67,19 +70,22 @@ export default function AffiliateAdminPage() {
     setApplications([]);
     setReferrals([]);
     setClicks([]);
+    setLeads([]);
   };
 
   const refreshData = async () => {
-    const [affs, apps, refs, clks] = await Promise.all([
+    const [affs, apps, refs, clks, lds] = await Promise.all([
       getAllAffiliates(),
       getAllApplications(),
       getAllReferrals(),
       getAllClicks(2000),
+      getAllLeads(500),
     ]);
     setAffiliates(affs);
     setApplications(apps);
     setReferrals(refs);
     setClicks(clks);
+    setLeads(lds);
   };
 
   if (!hydrated) return null;
@@ -91,6 +97,7 @@ export default function AffiliateAdminPage() {
       applications={applications}
       referrals={referrals}
       clicks={clicks}
+      leads={leads}
       onLogout={onLogout}
       onRefresh={refreshData}
     />
