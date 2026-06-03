@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import fs from 'fs';
+import path from 'path';
 import EventsInit from './EventsInit';
 
 export const metadata: Metadata = {
@@ -6,10 +8,44 @@ export const metadata: Metadata = {
   description: 'Admizz Education Events — Study Abroad Guidance & Opportunities. Discover upcoming and past events to support your study-abroad journey.',
 };
 
+interface EventMeta {
+  title: string;
+  eyebrow: string;
+  bannerTitle: string;
+  subtitle: string;
+  description: string;
+  dateLabel: string;
+  ctaText: string;
+  endDate: string;
+  gradient: string;
+  mode: 'online' | 'in-person';
+  overlayLight?: boolean;
+  href: string;
+}
+
+function getEvents(): EventMeta[] {
+  const eventsDir = path.join(process.cwd(), 'src/app/events');
+  const entries = fs.readdirSync(eventsDir, { withFileTypes: true });
+
+  const events: EventMeta[] = [];
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const metaPath = path.join(eventsDir, entry.name, 'meta.json');
+    if (!fs.existsSync(metaPath)) continue;
+    const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8')) as EventMeta;
+    events.push(meta);
+  }
+
+  // Sort by endDate descending so newest events appear first
+  return events.sort((a, b) => new Date(b.endDate).getTime() - new Date(a.endDate).getTime());
+}
+
 export default function EventsPage() {
+  const events = getEvents();
+
   return (
     <>
-      <link rel="stylesheet" href="/events/css/events-listing.css" />
+      <link rel="stylesheet" href="/events/css/events-listing.css" precedence="default" />
       <EventsInit />
 
       {/* Hero */}
@@ -32,9 +68,9 @@ export default function EventsPage() {
             <button className="events-tab" data-tab="past">Past</button>
           </div>
 
-          {/* Upcoming Grid — Spin & Win still listed; client JS moves past events to Past tab */}
+          {/* All events start here — EventsInit moves past ones to the past grid automatically */}
           <div className="events-grid" id="upcoming-events">
-            {/* Spin & Win */}
+            {/* Spin & Win — hardcoded (folder permission prevents meta.json) */}
             <a href="/events/spin-and-win" className="event-card" data-event-end="2026-12-31T23:59:59">
               <div className="event-card-image" style={{ background: 'linear-gradient(135deg, #FFD93D 0%, #FF6B35 100%)' }}>
                 <div className="event-card-overlay">
@@ -56,6 +92,32 @@ export default function EventsPage() {
                 <span className="event-card-cta">Try Now →</span>
               </div>
             </a>
+            {events.map((event) => (
+              <a
+                key={event.href}
+                href={event.href}
+                className="event-card"
+                data-event-end={event.endDate}
+              >
+                <div className="event-card-image" style={{ background: event.gradient }}>
+                  <div className={`event-card-overlay${event.overlayLight ? ' event-card-overlay--light' : ''}`}>
+                    <span className="event-card-eyebrow">{event.eyebrow}</span>
+                    <h3 className="event-card-banner-title">{event.bannerTitle}</h3>
+                    <p className="event-card-banner-subtitle">{event.subtitle}</p>
+                  </div>
+                  <span className={`event-mode-badge event-mode-${event.mode === 'online' ? 'online' : 'inperson'}`}>
+                    <span className="mode-dot"></span>
+                    {event.mode === 'online' ? 'Online' : 'In-Person'}
+                  </span>
+                </div>
+                <div className="event-card-content">
+                  <p className="event-card-date">{event.dateLabel}</p>
+                  <h3 className="event-card-title">{event.title}</h3>
+                  <p className="event-card-description">{event.description}</p>
+                  <span className="event-card-cta">{event.ctaText}</span>
+                </div>
+              </a>
+            ))}
           </div>
 
           {/* Upcoming Empty State */}
@@ -65,56 +127,8 @@ export default function EventsPage() {
             <p>Check back soon for new events!</p>
           </div>
 
-          {/* Past Grid */}
-          <div className="events-grid" id="past-events" style={{ display: 'none' }}>
-            {/* UK Admissions Day */}
-            <a href="/uk-admissions-day/" className="event-card event-card-past" data-event-end="2026-03-17T17:00:00">
-              <div className="event-card-image" style={{ background: 'linear-gradient(135deg, #012169 0%, #C8102E 100%)' }}>
-                <div className="event-card-overlay event-card-overlay--light">
-                  <span className="event-card-eyebrow">Admizz Education Presents</span>
-                  <h3 className="event-card-banner-title">UK ADMISSION DAY 2026</h3>
-                  <p className="event-card-banner-subtitle">Your Direct Pathway to Top UK Universities</p>
-                </div>
-                <span className="event-mode-badge event-mode-inperson">
-                  <span className="mode-dot"></span>
-                  In-Person
-                </span>
-                <span className="event-past-badge">Past Event</span>
-              </div>
-              <div className="event-card-content">
-                <p className="event-card-date">March 17, 2026 • 10:00 AM</p>
-                <h3 className="event-card-title">UK Admission Day — Putalisadak, Kathmandu</h3>
-                <p className="event-card-description">
-                  On-the-spot assessment, scholarship guidance, and expert counselling for UK universities — all in one day.
-                </p>
-                <span className="event-card-cta">View Details →</span>
-              </div>
-            </a>
-
-            {/* Admizzion Week */}
-            <a href="/admizzion-week/" className="event-card event-card-past" data-event-end="2026-02-20T17:00:00">
-              <div className="event-card-image" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
-                <div className="event-card-overlay event-card-overlay--light">
-                  <span className="event-card-eyebrow">Admizz Education Presents</span>
-                  <h3 className="event-card-banner-title">ADMIZZION WEEK 2026</h3>
-                  <p className="event-card-banner-subtitle">Visa Rejected or Stuck Mid-Journey?</p>
-                </div>
-                <span className="event-mode-badge event-mode-inperson">
-                  <span className="mode-dot"></span>
-                  In-Person
-                </span>
-                <span className="event-past-badge">Past Event</span>
-              </div>
-              <div className="event-card-content">
-                <p className="event-card-date">Feb 12 – 20, 2026 • 10:00 AM</p>
-                <h3 className="event-card-title">Admizzion Week — Kathmandu &amp; Birgunj</h3>
-                <p className="event-card-description">
-                  Confused or facing delays? Get a FREE second opinion from our multi-destination experts for UK, USA, Australia and more.
-                </p>
-                <span className="event-card-cta">View Details →</span>
-              </div>
-            </a>
-          </div>
+          {/* Past Grid — populated by EventsInit at runtime */}
+          <div className="events-grid" id="past-events" style={{ display: 'none' }}></div>
 
           {/* Past Empty State */}
           <div className="events-empty" id="past-empty" style={{ display: 'none' }}>

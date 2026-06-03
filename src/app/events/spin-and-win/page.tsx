@@ -96,8 +96,8 @@ export default function SpinAndWinPage() {
     <>
       {/* Event-specific CSS */}
       {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-      <link rel="stylesheet" href="/events/css/admission-page.css" />
-      <link rel="stylesheet" href="/events/css/spin-demo.css" />
+      <link rel="stylesheet" href="/events/css/admission-page.css" precedence="default" />
+      <link rel="stylesheet" href="/events/css/spin-demo.css" precedence="default" />
       {/* Critical inline CSS — prevents white FOUC before external stylesheets load */}
       <style>{`html,body{background:#050d2d}.spin-demo{background:#050d2d;min-height:100vh}.spin-demo .sd-hero{background:linear-gradient(135deg,#001353 0%,#0066cc 100%)}.spin-demo .trust-section{background:#fff}`}</style>
 
