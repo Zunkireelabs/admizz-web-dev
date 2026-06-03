@@ -45,14 +45,19 @@
         return 'Starter';
     }
 
+    // Writes a register_leads mirror + (if cookie present) credits the affiliate
+    // via the create_referral_for_registration RPC. Single RPC call replaces the
+    // 3-step lookup/insert/update because anon can't SELECT affiliates under RLS.
     function _admizzPersistSpinReferral(data) {
         var refCode = getReferrerCode();
-        var leadId = _admizzGenUuid();
+        var leadId  = _admizzGenUuid();
+        var fullName = ((data.firstName || '') + ' ' + (data.lastName || '')).trim();
+        var email    = (data.email || '').trim();
 
         var leadRow = {
             id:           leadId,
-            full_name:    ((data.firstName || '') + ' ' + (data.lastName || '')).trim(),
-            email:        (data.email || '').trim(),
+            full_name:    fullName,
+            email:        email,
             phone:        data.phone || '',
             countries:    data.preferedDestination || '',
             intake:       '',
@@ -71,42 +76,24 @@
             if (!r.ok) { console.warn('[admizz spin lead]', r.status); return; }
             if (!refCode) return;
 
-            return fetch(
-                AFFILIATES_URL + '?select=id,referral_code,total_referrals,status&referral_code=eq.'
-                    + encodeURIComponent(refCode.toUpperCase()) + '&limit=1',
-                { headers: SB_HEADERS }
-            ).then(function (rr) { return rr.ok ? rr.json() : []; }).then(function (rows) {
-                var aff = rows && rows[0];
-                if (!aff || aff.status !== 'active') return;
+            var destinationName = data.preferedDestination || 'Other';
+            var flag = DESTINATION_FLAGS[destinationName] || '🌍';
 
-                var destinationName = data.preferedDestination || 'Other';
-                var flag = DESTINATION_FLAGS[destinationName] || '🌍';
-                var firstName = (data.firstName || '').trim();
-                var lastInitial = (data.lastName || '').trim().charAt(0).toUpperCase();
-                var studentDisplay = lastInitial ? firstName + ' ' + lastInitial + '.' : (firstName || 'Anonymous');
-
-                return fetch(REFERRALS_URL, {
-                    method: 'POST',
-                    headers: Object.assign({}, SB_HEADERS, { 'Prefer': 'return=minimal' }),
-                    body: JSON.stringify({
-                        affiliate_id:    aff.id,
-                        affiliate_code:  aff.referral_code,
-                        student_display: studentDisplay,
-                        destination:     destinationName,
-                        flag_emoji:      flag,
-                        stage:           'Consultation',
-                        status:          'pending',
-                        commission:      0,
-                        lead_id:         leadId,
-                        email:           leadRow.email.toLowerCase(),
-                    }),
-                }).then(function () {
-                    var newReferrals = (aff.total_referrals || 0) + 1;
-                    return fetch(AFFILIATES_URL + '?id=eq.' + encodeURIComponent(aff.id), {
-                        method: 'PATCH',
-                        headers: Object.assign({}, SB_HEADERS, { 'Prefer': 'return=minimal' }),
-                        body: JSON.stringify({ total_referrals: newReferrals, tier: _admizzCalcTier(newReferrals) }),
-                    });
+            return fetch('https://ldsgsdjixzsljgkcktqu.supabase.co/rest/v1/rpc/create_referral_for_registration', {
+                method: 'POST',
+                headers: SB_HEADERS,
+                body: JSON.stringify({
+                    p_code:        refCode,
+                    p_lead_id:     leadId,
+                    p_email:       email,
+                    p_full_name:   fullName,
+                    p_destination: destinationName,
+                    p_flag_emoji:  flag,
+                }),
+            }).then(function (rr) {
+                if (!rr.ok) { console.warn('[admizz spin referral rpc]', rr.status); return; }
+                return rr.json().then(function (ok) {
+                    if (ok === false) console.info('[admizz spin referral] code not active:', refCode);
                 });
             });
         }).catch(function (err) { console.warn('[admizz spin tracking]', err && err.message); });

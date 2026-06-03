@@ -505,40 +505,27 @@ export async function createReferralFromRegistration(
     const code = refCode.trim().toUpperCase();
     if (!code) return { ok: false, error: "Empty referral code" };
 
-    // Look up the affiliate (must be active)
-    const { data: aff, error: affErr } = await supabase
-      .from("affiliates")
-      .select("id, referral_code, total_referrals, total_converted, total_earned, status")
-      .eq("referral_code", code)
-      .maybeSingle();
-
-    if (affErr) return { ok: false, error: affErr.message };
-    if (!aff) return { ok: false, error: `Affiliate with code ${code} not found` };
-    if (aff.status !== "active") return { ok: false, error: `Affiliate ${code} is not active` };
-
     const { name: destination, flag: flag_emoji } = parseFirstCountry(registration.countries);
-    const student_display = buildStudentDisplay(registration.full_name);
 
-    // Create the referral row (default: Consultation / pending / NPR 0)
-    const { error: insertError } = await supabase.from("affiliate_referrals").insert({
-      affiliate_id:    aff.id,
-      affiliate_code:  aff.referral_code,
-      student_display,
-      destination,
-      flag_emoji,
-      stage:           "Consultation",
-      status:          "pending",
-      commission:      0,
-      lead_id:         registration.lead_id ?? null,
-      email:           registration.email?.trim().toLowerCase() ?? null,
+    // Under RLS, anon can't SELECT or UPDATE affiliates. The RPC is SECURITY
+    // DEFINER and handles the whole lookup → insert → recompute flow server-side.
+    const { data, error } = await supabase.rpc("create_referral_for_registration", {
+      p_code:        code,
+      p_lead_id:     registration.lead_id ?? null,
+      p_email:       registration.email ?? null,
+      p_full_name:   registration.full_name,
+      p_destination: destination,
+      p_flag_emoji:  flag_emoji,
     });
 
-    if (insertError) {
-      console.error("[auto referral insert]", insertError.message);
-      return { ok: false, error: insertError.message };
+    if (error) {
+      console.error("[auto referral rpc]", error.message);
+      return { ok: false, error: error.message };
     }
-
-    return recomputeAffiliateTotals(aff.id);
+    if (data === false) {
+      return { ok: false, error: `Affiliate with code ${code} not found or inactive` };
+    }
+    return { ok: true, data: true };
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }

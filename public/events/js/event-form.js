@@ -56,16 +56,21 @@ var _ADMIZZ_FLAGS = {
 
 // Fire-and-forget: write a register_leads row + (if cookie present) an
 // affiliate_referrals row. Never blocks the user's success redirect.
+// RLS blocks direct anon access to the affiliates table, so we go through
+// create_referral_for_registration() which is SECURITY DEFINER.
 function _admizzPersistEventLead(payload) {
     var leadId = _admizzGenUuid();
     var refCode = _admizzReadRefCookie();
     var pageSlug = (window.location.pathname || '').replace(/^\/+|\/+$/g, '').replace(/\//g, '-') || 'event';
     var source = 'event-' + pageSlug.replace(/^events-/, '');
 
+    var fullName = ((payload.firstName || '') + ' ' + (payload.lastName || '')).trim();
+    var email    = (payload.email || '').trim();
+
     var leadRow = {
         id:           leadId,
-        full_name:    (payload.firstName + ' ' + payload.lastName).trim(),
-        email:        (payload.email || '').trim(),
+        full_name:    fullName,
+        email:        email,
         phone:        (payload.phone || '').trim(),
         countries:    payload.studyDestination || '',
         intake:       '',
@@ -76,7 +81,7 @@ function _admizzPersistEventLead(payload) {
         source:       source,
     };
 
-    // Step 1: insert the lead
+    // Step 1: insert the lead (anon INSERT is allowed by RLS)
     fetch(ADMIZZ_SB_URL + '/rest/v1/register_leads', {
         method: 'POST',
         headers: _admizzSbHeaders(),
@@ -86,48 +91,26 @@ function _admizzPersistEventLead(payload) {
         if (!r.ok) { console.warn('[admizz lead]', r.status); return; }
         if (!refCode) return; // no affiliate to credit
 
-        // Step 2: look up the affiliate by code
-        return fetch(
-            ADMIZZ_SB_URL + '/rest/v1/affiliates?select=id,referral_code,total_referrals,status&referral_code=eq.'
-                + encodeURIComponent(refCode.toUpperCase()) + '&limit=1',
-            { headers: _admizzSbHeaders() }
-        ).then(function (rr) { return rr.ok ? rr.json() : []; }).then(function (rows) {
-            var aff = rows && rows[0];
-            if (!aff || aff.status !== 'active') return;
+        // Step 2: single RPC call handles lookup + insert + recompute under
+        // elevated privileges. Returns true if credited, false if code unknown.
+        var destinationName = (payload.studyDestination || 'Other').toString();
+        var flag = _ADMIZZ_FLAGS[destinationName] || '🌍';
 
-            var destinationName = (payload.studyDestination || 'Other').toString();
-            var flag = _ADMIZZ_FLAGS[destinationName] || '🌍';
-            var firstName = (payload.firstName || '').trim();
-            var lastInitial = (payload.lastName || '').trim().charAt(0).toUpperCase();
-            var studentDisplay = lastInitial ? firstName + ' ' + lastInitial + '.' : (firstName || 'Anonymous');
-
-            // Step 3: insert the referral row
-            return fetch(ADMIZZ_SB_URL + '/rest/v1/affiliate_referrals', {
-                method: 'POST',
-                headers: _admizzSbHeaders(),
-                body: JSON.stringify({
-                    affiliate_id:    aff.id,
-                    affiliate_code:  aff.referral_code,
-                    student_display: studentDisplay,
-                    destination:     destinationName,
-                    flag_emoji:      flag,
-                    stage:           'Consultation',
-                    status:          'pending',
-                    commission:      0,
-                    lead_id:         leadId,
-                    email:           leadRow.email.toLowerCase(),
-                }),
-            }).then(function () {
-                // Step 4: bump affiliate totals + tier
-                var newReferrals = (aff.total_referrals || 0) + 1;
-                return fetch(
-                    ADMIZZ_SB_URL + '/rest/v1/affiliates?id=eq.' + encodeURIComponent(aff.id),
-                    {
-                        method: 'PATCH',
-                        headers: _admizzSbHeaders(),
-                        body: JSON.stringify({ total_referrals: newReferrals, tier: _admizzCalcTier(newReferrals) }),
-                    }
-                );
+        return fetch(ADMIZZ_SB_URL + '/rest/v1/rpc/create_referral_for_registration', {
+            method: 'POST',
+            headers: _admizzSbHeaders(),
+            body: JSON.stringify({
+                p_code:        refCode,
+                p_lead_id:     leadId,
+                p_email:       email,
+                p_full_name:   fullName,
+                p_destination: destinationName,
+                p_flag_emoji:  flag,
+            }),
+        }).then(function (rr) {
+            if (!rr.ok) { console.warn('[admizz referral rpc]', rr.status); return; }
+            return rr.json().then(function (ok) {
+                if (ok === false) console.info('[admizz referral] code not active:', refCode);
             });
         });
     })
