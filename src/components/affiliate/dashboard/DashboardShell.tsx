@@ -1,7 +1,12 @@
 "use client";
 
-import type { Affiliate, AffiliateReferral, LeaderboardEntry } from "@/lib/affiliate/types";
+import { useEffect, useMemo, useState } from "react";
+import type { Affiliate, AffiliateReferral, AffiliateClick, LeaderboardEntry } from "@/lib/affiliate/types";
+import { buildCountryBreakdown, buildActivityFeed } from "@/lib/affiliate/api";
 import StatsRow from "./StatsRow";
+import FunnelCard from "./FunnelCard";
+import CountryBreakdownCard from "./CountryBreakdownCard";
+import ActivityTimelineCard from "./ActivityTimelineCard";
 import TierProgressCard from "./TierProgressCard";
 import ReferralLinkBox from "./ReferralLinkBox";
 import PerformanceChart from "./PerformanceChart";
@@ -9,52 +14,85 @@ import ReferralTable from "./ReferralTable";
 import LeaderboardCard from "./LeaderboardCard";
 import ResourcesQuickAccess from "./ResourcesQuickAccess";
 
-const TIER_COLORS: Record<string, string> = {
-  "Starter":       "#94a3b8",
-  "Rising Star":   "#31429C",
-  "Elite Partner": "#FCB730",
-  "Admizz Legend": "#FDED22",
+function getTimeBasedGreeting(): string {
+  const h = new Date().getHours();
+  if (h < 12) return "Good morning";
+  if (h < 18) return "Good afternoon";
+  return "Good evening";
+}
+
+function formatToday(): string {
+  return new Date().toLocaleDateString("en-GB", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
+}
+
+const TIER_COLORS: Record<string, { bg: string; text: string; border: string }> = {
+  "Starter":       { bg: "rgba(148,163,184,0.1)",  text: "#475569", border: "rgba(148,163,184,0.3)" },
+  "Rising Star":   { bg: "rgba(49,66,156,0.08)",   text: "#31429C", border: "rgba(49,66,156,0.25)" },
+  "Elite Partner": { bg: "rgba(252,183,48,0.1)",   text: "#b07400", border: "rgba(252,183,48,0.3)"  },
+  "Admizz Legend": { bg: "rgba(253,237,34,0.12)",  text: "#7a6f00", border: "rgba(253,237,34,0.4)"  },
 };
 
 interface Props {
   affiliate: Affiliate;
   referrals: AffiliateReferral[];
   leaderboard: LeaderboardEntry[];
+  clicks: AffiliateClick[];
   onLogout: () => void;
 }
 
-export default function DashboardShell({ affiliate, referrals, leaderboard, onLogout }: Props) {
+export default function DashboardShell({ affiliate, referrals, leaderboard, clicks, onLogout }: Props) {
   const firstName = affiliate.full_name.split(" ")[0];
-  const tierColor = TIER_COLORS[affiliate.tier] ?? "#FCB730";
+  const tier = TIER_COLORS[affiliate.tier] ?? TIER_COLORS["Starter"];
   const myRank = leaderboard.find(e => e.affiliate_id === affiliate.id)?.rank ?? 0;
 
+  const breakdown = useMemo(() => buildCountryBreakdown(referrals), [referrals]);
+  const activity  = useMemo(() => buildActivityFeed(clicks, referrals, 30), [clicks, referrals]);
+  const clickCount = clicks.length;
+
+  // Time-aware greeting + date (client-only to avoid SSR mismatch)
+  const [greeting, setGreeting] = useState("Hello");
+  const [today, setToday] = useState("");
+  useEffect(() => {
+    setGreeting(getTimeBasedGreeting());
+    setToday(formatToday());
+  }, []);
+
   return (
-    <div style={{ background: "#020818", minHeight: "100vh" }}>
+    <div style={{ background: "#FAFAFB", minHeight: "100vh" }}>
+      {/* Premium white top bar */}
       <div
-        className="sticky top-0 z-40 px-4 sm:px-6 flex items-center justify-between"
+        className="sticky top-0 z-40 px-4 sm:px-6 lg:px-8 flex items-center justify-between"
         style={{
-          background: "rgba(0,8,30,0.97)",
-          borderBottom: "1px solid rgba(252,183,48,0.2)",
-          backdropFilter: "blur(16px)",
-          height: "60px",
+          background: "rgba(255,255,255,0.95)",
+          borderBottom: "1px solid #EAECF0",
+          backdropFilter: "blur(20px)",
+          height: "64px",
+          boxShadow: "0 1px 3px rgba(16,24,40,0.04)",
         }}
       >
-        <div className="flex items-center gap-4">
-          <a href="/affiliate-program">
+        <div className="flex items-center gap-4 min-w-0">
+          <a href="/affiliate-program" className="flex-shrink-0">
             <img
-              src="/images/logos/Admizz-Education-New-Logo-For-Dark-Background-1.png-1-1024x331.webp"
+              src="/images/logos/Admizz-Education-New-Logo-For-Light-Background.webp"
               alt="Admizz Education"
               className="h-7 w-auto"
             />
           </a>
-          <div className="hidden sm:flex items-center gap-2" style={{ borderLeft: "1px solid rgba(255,255,255,0.1)", paddingLeft: "16px" }}>
-            <div>
-              <p className="text-sm font-bold text-white leading-none">{firstName}</p>
-              <p className="text-[11px] mt-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>Affiliate Dashboard</p>
+          <div
+            className="hidden sm:flex items-center gap-3 min-w-0"
+            style={{ borderLeft: "1px solid #EAECF0", paddingLeft: "16px" }}
+          >
+            <div className="min-w-0">
+              <p className="text-sm font-bold leading-none truncate" style={{ color: "#001353" }}>{firstName}</p>
+              <p className="text-[11px] mt-1" style={{ color: "#64748B" }}>Affiliate Dashboard</p>
             </div>
             <span
-              className="text-[11px] font-extrabold px-2.5 py-1 rounded-full"
-              style={{ background: tierColor + "18", color: tierColor, border: `1px solid ${tierColor}40` }}
+              className="text-[11px] font-extrabold px-2.5 py-1 rounded-full whitespace-nowrap"
+              style={{ background: tier.bg, color: tier.text, border: `1px solid ${tier.border}` }}
             >
               {affiliate.tier}
             </span>
@@ -63,27 +101,47 @@ export default function DashboardShell({ affiliate, referrals, leaderboard, onLo
         <div className="flex items-center gap-2">
           <a
             href="/affiliate-program"
-            className="hidden sm:inline-flex items-center gap-1 text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
-            style={{ color: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.08)" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.06)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
+            style={{ color: "#475569", border: "1px solid #EAECF0", background: "#FFFFFF" }}
+            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#F8F9FC"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#D7DAE8"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FFFFFF"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#EAECF0"; }}
           >
-            ← Program page
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Program page
           </a>
           <button
             onClick={onLogout}
             className="text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
-            style={{ color: "rgba(255,255,255,0.5)", border: "1px solid rgba(255,255,255,0.1)" }}
-            onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
+            style={{ color: "#475569", border: "1px solid #EAECF0", background: "#FFFFFF" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#F8F9FC"; e.currentTarget.style.color = "#001353"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "#FFFFFF"; e.currentTarget.style.color = "#475569"; }}
           >
             Sign out
           </button>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-6">
-        <StatsRow affiliate={affiliate} rank={myRank} />
+      {/* Page content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+        {/* Welcome */}
+        <div className="mb-2">
+          <h1 className="text-2xl md:text-[28px] font-extrabold tracking-tight" style={{ color: "#001353" }}>
+            {greeting}, {firstName}
+          </h1>
+          <p className="text-sm mt-1.5" style={{ color: "#475569" }}>
+            {today ? `${today} · ` : ""}Here&apos;s your affiliate performance summary.
+          </p>
+        </div>
+
+        <StatsRow affiliate={affiliate} rank={myRank} clicks={clickCount} />
+
+        <FunnelCard
+          clicks={clickCount}
+          registrations={affiliate.total_referrals}
+          conversions={affiliate.total_converted}
+        />
 
         <div className="grid grid-cols-1 tablet:grid-cols-2 gap-5">
           <TierProgressCard affiliate={affiliate} />
@@ -91,6 +149,12 @@ export default function DashboardShell({ affiliate, referrals, leaderboard, onLo
         </div>
 
         <PerformanceChart referrals={referrals} />
+
+        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-5">
+          <CountryBreakdownCard breakdown={breakdown} />
+          <ActivityTimelineCard events={activity} />
+        </div>
+
         <ReferralTable referrals={referrals} />
 
         <div className="grid grid-cols-1 tablet:grid-cols-2 gap-5">

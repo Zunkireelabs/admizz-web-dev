@@ -51,6 +51,43 @@ export interface AffiliateApplication {
   created_at: string;
 }
 
+export interface AffiliateClick {
+  id: string;
+  code: string;
+  lead_id: string | null;
+  landing_page: string;
+  referrer: string | null;
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
+  user_agent: string | null;
+  created_at: string;
+}
+
+export interface CountryBreakdownEntry {
+  destination: string;
+  flag_emoji: string;
+  count: number;
+}
+
+export type ActivityEventKind = "click" | "registration";
+
+export interface ActivityEvent {
+  id: string;
+  kind: ActivityEventKind;
+  at: string;
+  // click fields
+  landing_page?: string;
+  utm_source?: string | null;
+  referrer?: string | null;
+  // registration fields
+  student_display?: string;
+  destination?: string;
+  flag_emoji?: string;
+  stage?: AffiliateReferral["stage"];
+  status?: ReferralStatus;
+}
+
 export interface LeaderboardEntry {
   rank: number;
   name: string;

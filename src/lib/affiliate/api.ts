@@ -3,6 +3,9 @@ import type {
   Affiliate,
   AffiliateReferral,
   AffiliateApplication,
+  AffiliateClick,
+  CountryBreakdownEntry,
+  ActivityEvent,
   LeaderboardEntry,
   Tier,
 } from "./types";
@@ -121,6 +124,72 @@ export async function getLeaderboard(): Promise<LeaderboardEntry[]> {
     tier: a.tier as Tier,
     affiliate_id: a.id,
   }));
+}
+
+// ─── Affiliate clicks / funnel ─────────────────────────────────────────────
+
+export async function getAffiliateClickCount(code: string): Promise<number> {
+  const { count, error } = await supabase
+    .from("affiliate_clicks")
+    .select("id", { count: "exact", head: true })
+    .eq("code", code.trim().toUpperCase());
+  if (error) { console.error("[click count]", error.message); return 0; }
+  return count ?? 0;
+}
+
+export async function getAffiliateClicks(code: string, limit = 50): Promise<AffiliateClick[]> {
+  const { data, error } = await supabase
+    .from("affiliate_clicks")
+    .select("*")
+    .eq("code", code.trim().toUpperCase())
+    .order("created_at", { ascending: false })
+    .limit(limit);
+  if (error) { console.error("[affiliate clicks]", error.message); return []; }
+  return (data ?? []) as AffiliateClick[];
+}
+
+// Derived client-side from the referrals already loaded — no extra query.
+export function buildCountryBreakdown(referrals: AffiliateReferral[]): CountryBreakdownEntry[] {
+  const map = new Map<string, CountryBreakdownEntry>();
+  for (const r of referrals) {
+    const key = r.destination || "Other";
+    const existing = map.get(key);
+    if (existing) {
+      existing.count += 1;
+    } else {
+      map.set(key, { destination: key, flag_emoji: r.flag_emoji || "🌍", count: 1 });
+    }
+  }
+  return Array.from(map.values()).sort((a, b) => b.count - a.count);
+}
+
+// Merge clicks + referrals into a unified, time-sorted activity feed.
+export function buildActivityFeed(
+  clicks: AffiliateClick[],
+  referrals: AffiliateReferral[],
+  limit = 25,
+): ActivityEvent[] {
+  const feed: ActivityEvent[] = [
+    ...clicks.map<ActivityEvent>(c => ({
+      id: `c-${c.id}`,
+      kind: "click",
+      at: c.created_at,
+      landing_page: c.landing_page,
+      utm_source: c.utm_source,
+      referrer: c.referrer,
+    })),
+    ...referrals.map<ActivityEvent>(r => ({
+      id: `r-${r.id}`,
+      kind: "registration",
+      at: r.created_at,
+      student_display: r.student_display,
+      destination: r.destination,
+      flag_emoji: r.flag_emoji,
+      stage: r.stage,
+      status: r.status,
+    })),
+  ];
+  return feed.sort((a, b) => +new Date(b.at) - +new Date(a.at)).slice(0, limit);
 }
 
 // ─── Admin: read ───────────────────────────────────────────────────────────
@@ -449,5 +518,5 @@ export async function createReferralFromRegistration(
 }
 
 // Re-export types for convenience
-export type { Affiliate, AffiliateReferral, AffiliateApplication, LeaderboardEntry, Tier, ReferralStatus } from "./types";
+export type { Affiliate, AffiliateReferral, AffiliateApplication, AffiliateClick, CountryBreakdownEntry, ActivityEvent, LeaderboardEntry, Tier, ReferralStatus } from "./types";
 type ReferralStatus = import("./types").ReferralStatus;
