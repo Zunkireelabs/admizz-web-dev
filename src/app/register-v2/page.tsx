@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
 import UniversityPartners from "@/app/UniversityPartners";
 import { allUniversities } from "@/lib/universities";
 import GlobalPresence from "@/components/ui/GlobalPresence";
 import AlumniSection from "@/components/ui/AlumniSection";
 import TestimonialsSection from "@/components/ui/TestimonialsSection";
-import RegisterJourneyHero from "@/components/ui/journey/RegisterJourneyHero";
-import { journeySteps } from "@/components/ui/journey/journey.data";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -79,34 +77,6 @@ const stats = [
 
 
 /* ------------------------------------------------------------------ */
-/*  Sliding testimonials data                                          */
-/* ------------------------------------------------------------------ */
-
-const SLIDING_TESTIMONIALS = [
-  {
-    initial: "N",
-    name: "Niraj Bhattarai",
-    university: "University of West of Scotland",
-    route: "🇳🇵 → 🇬🇧",
-    text: "From university selection to visa approval, Admizz Education provided exceptional support and made my journey to the UK effortless. I highly recommend them.",
-  },
-  {
-    initial: "Y",
-    name: "Yousuf Abdirahman",
-    university: "Kalinga Institute of Industrial Technology",
-    route: "🇸🇴 → 🇮🇳",
-    text: "I appreciated your unlimited help for my MBA career. It was very tough but I gained a very solid educational background. Thanks Admizz!",
-  },
-  {
-    initial: "B",
-    name: "Basant Khadka",
-    university: "Weber State University",
-    route: "🇳🇵 → 🇺🇸",
-    text: "The journey to college can be overwhelming, but Admizz Education made applying to Weber State University effortless. Thanks to their guidance.",
-  },
-];
-
-/* ------------------------------------------------------------------ */
 /*  Stars component                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -127,366 +97,159 @@ function Stars({ count = 5 }: { count?: number }) {
 /* ------------------------------------------------------------------ */
 
 export default function RegisterPage() {
-  const [showSticky, setShowSticky] = useState(false);
-  const [mobileCarouselIndex, setMobileCarouselIndex] = useState(0);
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
-  const mobileScrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setShowSticky(window.scrollY > 420);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Auto-rotate testimonials every 4s
-  useEffect(() => {
-    const id = setInterval(() => {
-      setTestimonialIndex(i => (i + 1) % SLIDING_TESTIMONIALS.length);
-    }, 4000);
-    return () => clearInterval(id);
-  }, []);
-
-  // Track active card on manual swipe
-  useEffect(() => {
-    const el = mobileScrollRef.current;
-    if (!el) return;
-    const CARD_WIDTH = 270 + 16;
-    const TOTAL = journeySteps.length;
-    const onCarouselScroll = () => {
-      setMobileCarouselIndex(Math.min(TOTAL - 1, Math.max(0, Math.round(el.scrollLeft / CARD_WIDTH))));
-    };
-    el.addEventListener("scroll", onCarouselScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onCarouselScroll);
-  }, []);
-
   return (
-    <main className={`${showSticky ? "pb-20" : "pb-0"} md:pb-0`}>
-      {/* ===== JOURNEY-SYNCED HERO (donut + form live state-bound) ===== */}
-      <RegisterJourneyHero />
+    <main className="pb-20 md:pb-0">
+      {/* ===== HERO STRIP (compact, refined) ===== */}
+      <section
+        className="py-4 md:py-6 relative"
+        style={{ background: "linear-gradient(180deg, #F4F7FF 0%, #EEF2FF 100%)" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-6">
+            <h1
+              className="text-[17px] sm:text-[20px] md:text-[22px] font-bold leading-snug md:leading-tight"
+              style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}
+            >
+              Get one-on-one help with your study abroad journey
+            </h1>
 
-      {/* ===== TRUST STRIP ===== */}
-      <section className="bg-white border-b border-[#F0F0F0]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex flex-wrap items-center gap-x-2.5 sm:gap-x-3 gap-y-1.5 md:flex-shrink-0">
+              <div className="flex items-center gap-1.5">
+                <Stars count={5} />
+                <span className="text-[12px] sm:text-[13px] font-semibold text-[#0D1282]">4.8</span>
+              </div>
+              <span className="text-[#9CA3B5]">·</span>
+              <span className="text-[12px] sm:text-[13px] text-[#5C7189]">
+                Trusted by <strong className="text-[#0D1282]">2,000+</strong> students
+              </span>
+            </div>
+          </div>
+        </div>
+        {/* Gold accent line at bottom edge */}
+        <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent 0%, #FCB730 30%, #FCB730 70%, transparent 100%)" }} />
+      </section>
+
+      {/* ===== FORM + CONVERSION STACK (side by side) ===== */}
+      <section id="enquiry-form" className="py-8 md:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* --- LEFT: Enquiry Form (iframe) --- */}
+          <div>
+            <h2
+              className="text-xl md:text-[26px] font-semibold text-[#0D1282] mb-2"
+              style={{ fontFamily: 'var(--font-rubik), sans-serif' }}
+            >
+              Enquiry Form
+            </h2>
+            <p className="text-sm text-gray-dark mb-6 leading-relaxed">
+              Share your details and our expert team will guide you step-by-step
+              toward your dream university abroad.
+            </p>
+
+            <div
+              className="p-3 sm:p-5"
+              style={{
+                border: "1px solid #D4955A",
+                borderRadius: 24,
+                background: "linear-gradient(to bottom, #F0ECF9, #FFFFFF)",
+                maxWidth: 600,
+              }}
+            >
+              <CRMFormEmbed />
+            </div>
+          </div>
+
+          {/* --- RIGHT: What Happens Next — 3 steps vertically, full height --- */}
+          <div className="flex flex-col h-full gap-5">
+            <div>
+              <p className="text-[13px] font-semibold uppercase tracking-[0.14em] mb-1" style={{ color: "#1E6DEB" }}>What happens next</p>
+              <h2 className="text-[20px] md:text-[24px] font-bold leading-tight" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
+                From form to roadmap in 3 simple steps
+              </h2>
+            </div>
+
             {[
-              { icon: "🎁", bold: "Real Rewards,", text: "Real Students" },
-              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
-              { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
-              { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
-            ].map((item, i, arr) => (
-              <div key={item.bold} className="flex items-center gap-4 flex-shrink-0">
-                <div className="flex items-center gap-1.5 text-[12px] sm:text-[13px] font-semibold text-[#001353] whitespace-nowrap">
-                  <span className="text-sm">{item.icon}</span>
-                  <span><strong>{item.bold}</strong> {item.text}</span>
+              { step: "Step 1", emoji: "📝", title: "Share your details", desc: "Tell us your target country, field of study, and budget. Takes under 2 minutes.", accent: "#1E6DEB", bg: "#EBF3FF" },
+              { step: "Step 2", emoji: "📞", title: "Your counsellor calls within 24 hours", desc: "They'll map out your options, answer your questions, and explain exactly what comes next — no pressure.", accent: "#3FB5A0", bg: "#EDFAF7" },
+              { step: "Step 3", emoji: "🎯", title: "Receive your personalized roadmap", desc: "A curated university shortlist with deadlines, scholarship options, and a clear action plan.", accent: "#E86F3C", bg: "#FFF4EE" },
+            ].map((s) => (
+              <div key={s.step} className="flex-1 bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md flex flex-col" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 10px rgba(13,18,130,0.04)" }}>
+                <div className="h-[3px]" style={{ background: s.accent }} />
+                <div className="p-5 flex flex-col justify-center flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center text-[22px] flex-shrink-0" style={{ background: s.bg }}>{s.emoji}</div>
+                    <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em]" style={{ background: `${s.accent}14`, color: s.accent }}>{s.step}</span>
+                  </div>
+                  <h3 className="text-[15px] font-bold mb-1" style={{ color: "#0D1282" }}>{s.title}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ color: "#5C7189" }}>{s.desc}</p>
                 </div>
-                {i < arr.length - 1 && (
-                  <div className="w-px h-5 bg-[#D0D5E0] flex-shrink-0" />
-                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== "WHAT HAPPENS NEXT" — 3-step process panel ===== */}
-      <section id="enquiry-form" className="py-12 md:py-16 relative overflow-hidden" style={{ background: "#F8F9FF" }}>
-        <style>{`
-          @keyframes journey-dot {
-            0%   { left: -1%; opacity: 0; }
-            4%   { opacity: 1; }
-            96%  { opacity: 1; }
-            100% { left: 101%; opacity: 0; }
-          }
-          @keyframes fadeSlideIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6 md:mb-10">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] mb-2" style={{ color: "#1E6DEB" }}>What happens next</p>
-            <h2 className="text-[22px] md:text-[32px] font-bold leading-tight" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
-              Your complete journey in 5 steps
-            </h2>
-          </div>
-
-          {/* ── Mobile: manual swipe carousel ── */}
-          <div className="md:hidden relative">
-            {/* Dot track behind cards */}
-            <div
-              className="absolute inset-x-4 overflow-hidden pointer-events-none"
-              style={{ top: "40px", height: "2px", zIndex: 0 }}
-            >
-              <div className="absolute inset-0" style={{ background: "rgba(49,66,156,0.12)" }} />
-              {[0, 1, 2, 3].map(i => (
-                <div
-                  key={i}
-                  className="absolute"
-                  style={{
-                    top: "50%",
-                    width: 8,
-                    height: 8,
-                    borderRadius: "50%",
-                    background: "#31429C",
-                    boxShadow: "0 0 6px rgba(49,66,156,0.6)",
-                    transform: "translateY(-50%)",
-                    animation: `journey-dot 3.6s linear infinite`,
-                    animationDelay: `${i * 0.9}s`,
-                    opacity: 0,
-                  }}
-                />
-              ))}
-            </div>
-          <div ref={mobileScrollRef} className="-mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" style={{ position: "relative", zIndex: 1 }}>
-            <div className="flex gap-4 w-max">
-              {journeySteps.map((step) => (
-                <div key={step.id} className="w-[270px] flex-shrink-0 relative rounded-2xl p-4" style={{ background: "#F8F9FF", border: "1px solid #E0E6F2" }}>
-                  <span aria-hidden className="absolute -top-3 right-0 font-extrabold leading-none select-none pointer-events-none" style={{ fontFamily: "var(--font-rubik), sans-serif", fontSize: "72px", background: "linear-gradient(180deg, rgba(13,18,130,0.07) 0%, rgba(13,18,130,0) 90%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{String(step.id).padStart(2, "0")}</span>
-                  <p className="relative text-[11px] font-semibold uppercase tracking-[0.18em] mb-4" style={{ color: step.colorDeep }}>Step {step.id} of 5</p>
-                  <div className="relative flex items-center gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-[12px] flex items-center justify-center flex-shrink-0" style={{ background: `${step.bgTint}`, border: `1px solid ${step.color}40` }}>
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke={step.colorDeep} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d={step.iconPath} /></svg>
-                    </div>
-                    <span className="inline-flex items-center rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.1em]" style={{ background: `${step.bgTint}`, color: step.colorDeep, border: `1px solid ${step.color}40` }}>{step.duration.toUpperCase()}</span>
-                  </div>
-                  <h3 className="relative text-[17px] font-bold mb-2" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}>{step.title}</h3>
-                  <p className="relative text-[13px] leading-relaxed" style={{ color: "#5C7189" }}>{step.description}</p>
-                  <div className="relative mt-5 h-[2px] w-14 rounded-full" style={{ background: `linear-gradient(90deg, ${step.color} 0%, ${step.colorDeep} 100%)` }} />
-                </div>
-              ))}
-            </div>
-          </div>
-          </div>
-
-          {/* ── Mobile: scroll dot indicator ── */}
-          <div className="md:hidden flex items-center justify-center gap-2 mt-4">
-            {journeySteps.map((step, i) => {
-              const isActive = i === mobileCarouselIndex;
-              return (
-                <button
-                  key={step.id}
-                  aria-label={`Go to step ${step.id}`}
-                  onClick={() => {
-                    const el = mobileScrollRef.current;
-                    if (!el) return;
-                    el.scrollTo({ left: i * (270 + 16), behavior: "smooth" });
-                  }}
-                  style={{
-                    height: 8,
-                    width: isActive ? 24 : 8,
-                    borderRadius: 99,
-                    background: isActive ? step.colorDeep : "#D7DAE8",
-                    transition: "width 0.3s ease, background 0.3s ease",
-                    border: "none",
-                    padding: 0,
-                    cursor: "pointer",
-                  }}
-                />
-              );
-            })}
-          </div>
-
-          {/* ── Desktop: horizontal stepper with animated dot track ── */}
-          <div className="hidden md:block relative">
-
-            {/* Arch connector — dashed line + node dots */}
-            <div className="absolute inset-x-0 pointer-events-none" style={{ top: 0, zIndex: 0 }}>
-
-              {/* Node dots at each card top — flex matches card layout */}
-              <div className="absolute inset-x-0 flex gap-4" style={{ top: 0 }}>
-                {[0, 1, 2, 3, 4].map(i => (
-                  <div key={i} className="flex-1 flex justify-center">
-                    <div style={{
-                      width: 9, height: 9, borderRadius: "50%",
-                      background: "#31429C",
-                      boxShadow: "0 0 0 3px rgba(49,66,156,0.15), 0 0 8px rgba(49,66,156,0.5)",
-                      transform: "translateY(-50%)",
-                    }} />
-                  </div>
-                ))}
-              </div>
-
-              {/* SVG dashed arch */}
-              <svg
-                className="absolute inset-x-0"
-                style={{ top: 0, height: "1px", overflow: "visible" }}
-                viewBox="0 0 1000 1"
-                preserveAspectRatio="none"
-                aria-hidden
-              >
-                <path
-                  d="M 95,0 C 95,-55 295,-55 295,0 C 295,-55 505,-55 505,0 C 505,-55 705,-55 705,0 C 705,-55 905,-55 905,0"
-                  fill="none"
-                  stroke="rgba(49,66,156,0.3)"
-                  strokeWidth="1.5"
-                  strokeDasharray="6 10"
-                  vectorEffect="non-scaling-stroke"
-                />
-              </svg>
-            </div>
-
-            {/* Cards — no gap, cards sit flush with track visible between */}
-            <div className="flex items-stretch gap-4 relative" style={{ zIndex: 1 }}>
-              {journeySteps.map((step) => (
-                <div key={`card-${step.id}`} className="flex-1 min-w-0 relative rounded-2xl p-4 lg:p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ background: "#ffffff", border: "1px solid #E0E6F2" }}>
-                  <span aria-hidden className="absolute -top-2 right-1 font-extrabold leading-none select-none pointer-events-none" style={{ fontFamily: "var(--font-rubik), sans-serif", fontSize: "clamp(44px, 4.5vw, 68px)", background: "linear-gradient(180deg, rgba(13,18,130,0.07) 0%, rgba(13,18,130,0) 90%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{String(step.id).padStart(2, "0")}</span>
-                  <p className="relative text-[10px] font-bold uppercase tracking-[0.18em] mb-3" style={{ color: step.colorDeep }}>Step {step.id} of 5</p>
-                  <div className="relative flex items-center gap-2 mb-3">
-                    <div className="w-10 h-10 rounded-[10px] flex items-center justify-center flex-shrink-0" style={{ background: step.bgTint, border: `1px solid ${step.color}40` }}>
-                      <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke={step.colorDeep} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d={step.iconPath} /></svg>
-                    </div>
-                    <span className="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em]" style={{ background: step.bgTint, color: step.colorDeep, border: `1px solid ${step.color}40` }}>{step.duration.toUpperCase()}</span>
-                  </div>
-                  <h3 className="relative text-[14px] lg:text-[15px] font-bold mb-1.5 leading-snug" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}>{step.title}</h3>
-                  <p className="relative text-[12px] leading-relaxed" style={{ color: "#5C7189" }}>{step.description}</p>
-                  <div className="relative mt-4 h-[2px] w-10 rounded-full" style={{ background: `linear-gradient(90deg, ${step.color} 0%, ${step.colorDeep} 100%)` }} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ===== TRUST CARDS (horizontal, below form) ===== */}
-      <section className="py-10 md:py-20 bg-white">
+      <section className="py-6 md:py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] mb-2" style={{ color: "#1E6DEB" }}>
-              Why Admizz
-            </p>
-            <h2 className="text-[24px] md:text-[34px] font-bold leading-tight" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
-              Three reasons families choose us
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {/* Card 1: Sliding Testimonials — BLUE (offset index) */}
-            {(() => {
-              const idx = (testimonialIndex + 1) % SLIDING_TESTIMONIALS.length;
-              return (
-                <div className="group bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.04)" }}>
-                  <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #2954C7, #4F7DEB)" }} />
-                  <div className="p-4 md:p-6 flex flex-col h-full">
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#EBF3FF" }}>
-                        <svg className="w-6 h-6" fill="none" stroke="#2954C7" strokeWidth={1.8} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                      </div>
-                      <p className="text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: "#2954C7" }}>Real stories</p>
-                    </div>
-                    <div className="flex-1 min-h-[90px]">
-                      <p key={idx} className="text-[14px] leading-relaxed italic" style={{ color: "#0D1282", animation: "fadeSlideIn 0.4s ease" }}>
-                        &ldquo;{SLIDING_TESTIMONIALS[idx].text}&rdquo;
-                      </p>
-                    </div>
-                    <div key={`p1-${idx}`} className="flex items-center gap-3 pt-4 mt-4 border-t" style={{ borderColor: "#F0F0F0", animation: "fadeSlideIn 0.4s ease" }}>
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-bold flex-shrink-0" style={{ background: "linear-gradient(135deg, #4F7DEB, #2954C7)", color: "#FFFFFF" }}>
-                        {SLIDING_TESTIMONIALS[idx].initial}
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-[13px] font-bold leading-tight" style={{ color: "#0D1282" }}>{SLIDING_TESTIMONIALS[idx].name}</p>
-                        <p className="text-[11px] mt-0.5 leading-tight" style={{ color: "#5C7189" }}>{SLIDING_TESTIMONIALS[idx].university} · {SLIDING_TESTIMONIALS[idx].route}</p>
-                      </div>
-                      <div className="flex-shrink-0"><Stars count={5} /></div>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 mt-4">
-                      {SLIDING_TESTIMONIALS.map((_, i) => (
-                        <button key={i} onClick={() => setTestimonialIndex((i - 1 + SLIDING_TESTIMONIALS.length) % SLIDING_TESTIMONIALS.length)} aria-label={`Testimonial ${i + 1}`}
-                          style={{ width: i === idx ? 20 : 8, height: 8, borderRadius: 99, background: i === idx ? "#2954C7" : "#D7DAE8", border: "none", padding: 0, cursor: "pointer", transition: "width 0.3s ease, background 0.3s ease" }} />
-                      ))}
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+            {/* Card 1: Trust — BLUE */}
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md" style={{ border: "1px solid #F0F0F0" }}>
+              <div className="h-[3px]" style={{ backgroundColor: "#1E6DEB" }} />
+              <div className="p-5">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: "#EBF3FF" }}>
+                  <svg className="w-5 h-5" fill="none" stroke="#1E6DEB" strokeWidth={1.8} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
                 </div>
-              );
-            })()}
+                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#1E6DEB" }}>Why Students Trust Us?</h3>
+                <p className="text-[13px] text-gray-dark leading-relaxed">
+                  <strong className="text-[#0D1282]">ICEF-Accredited Agency</strong> | <strong className="text-[#0D1282]">10+ Years of Excellence</strong> | <strong className="text-[#0D1282]">2,000+ Students Enrolled</strong>
+                </p>
+              </div>
+            </div>
 
-            {/* Card 2: Sliding Testimonials — TEAL */}
-            <div className="group bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.04)" }}>
-              <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #2F9D85, #4FBFA8)" }} />
-              <div className="p-4 md:p-6 flex flex-col h-full">
-                {/* Header */}
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#EDFAF7" }}>
-                    <svg className="w-6 h-6" fill="none" stroke="#2F9D85" strokeWidth={1.8} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
-                    </svg>
-                  </div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: "#2F9D85" }}>Real stories</p>
+            {/* Card 2: Testimonial — GREEN */}
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md" style={{ border: "1px solid #F0F0F0" }}>
+              <div className="h-[3px]" style={{ backgroundColor: "#3FB5A0" }} />
+              <div className="p-5">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: "#EDFAF7" }}>
+                  <svg className="w-5 h-5" fill="none" stroke="#3FB5A0" strokeWidth={1.8} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                  </svg>
                 </div>
-
-                {/* Quote — transitions on index change */}
-                <div className="flex-1 min-h-[90px]">
-                  <p
-                    key={testimonialIndex}
-                    className="text-[14px] leading-relaxed italic"
-                    style={{ color: "#0D1282", animation: "fadeSlideIn 0.4s ease" }}
-                  >
-                    &ldquo;{SLIDING_TESTIMONIALS[testimonialIndex].text}&rdquo;
-                  </p>
-                </div>
-
-                {/* Profile */}
-                <div
-                  key={`profile-${testimonialIndex}`}
-                  className="flex items-center gap-3 pt-4 mt-4 border-t"
-                  style={{ borderColor: "#F0F0F0", animation: "fadeSlideIn 0.4s ease" }}
-                >
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-bold flex-shrink-0" style={{ background: "linear-gradient(135deg, #4FBFA8, #2F9D85)", color: "#FFFFFF" }}>
-                    {SLIDING_TESTIMONIALS[testimonialIndex].initial}
-                  </div>
+                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#3FB5A0" }}>What Students Say?</h3>
+                <p className="text-[13px] text-gray-dark leading-relaxed italic mb-4">
+                  &ldquo;Admizz helped me figure out the right country, the right course, and got me there. Best decision I made.&rdquo;
+                </p>
+                <div className="flex items-center gap-3 pt-3 border-t" style={{ borderColor: "#F0F0F0" }}>
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center text-[14px] font-bold flex-shrink-0" style={{ background: "rgba(30,109,235,0.12)", color: "#1E6DEB" }}>N</div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[13px] font-bold leading-tight" style={{ color: "#0D1282" }}>
-                      {SLIDING_TESTIMONIALS[testimonialIndex].name}
-                    </p>
-                    <p className="text-[11px] mt-0.5 leading-tight" style={{ color: "#5C7189" }}>
-                      {SLIDING_TESTIMONIALS[testimonialIndex].university} · {SLIDING_TESTIMONIALS[testimonialIndex].route}
-                    </p>
+                    <p className="text-[13px] font-bold leading-tight" style={{ color: "#0D1282" }}>Neharika Gurung</p>
+                    <p className="text-[11px] mt-0.5 leading-tight" style={{ color: "#5C7189" }}>Coventry University · 🇳🇵 → 🇬🇧</p>
                   </div>
                   <div className="flex-shrink-0"><Stars count={5} /></div>
                 </div>
-
-                {/* Dot nav */}
-                <div className="flex items-center justify-center gap-2 mt-4">
-                  {SLIDING_TESTIMONIALS.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setTestimonialIndex(i)}
-                      aria-label={`Testimonial ${i + 1}`}
-                      style={{
-                        width: i === testimonialIndex ? 20 : 8,
-                        height: 8,
-                        borderRadius: 99,
-                        background: i === testimonialIndex ? "#2F9D85" : "#D7DAE8",
-                        border: "none",
-                        padding: 0,
-                        cursor: "pointer",
-                        transition: "width 0.3s ease, background 0.3s ease",
-                      }}
-                    />
-                  ))}
-                </div>
               </div>
             </div>
 
-            {/* Card 3: Chat */}
-            <div className="group bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.04)" }}>
-              <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #D89218, #F5B544)" }} />
-              <div className="p-4 md:p-6 flex flex-col h-full">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor: "#FFF8E5" }}>
-                  <svg className="w-6 h-6" fill="none" stroke="#D89218" strokeWidth={1.8} viewBox="0 0 24 24">
+            {/* Card 3: Chat — GOLD */}
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md" style={{ border: "1px solid #F0F0F0" }}>
+              <div className="h-[3px]" style={{ backgroundColor: "#FCB730" }} />
+              <div className="p-5">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: "#FFF8E5" }}>
+                  <svg className="w-5 h-5" fill="none" stroke="#FCB730" strokeWidth={1.8} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
                   </svg>
                 </div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] mb-2" style={{ color: "#D89218" }}>Prefer to chat?</p>
-                <h3 className="text-[18px] font-bold mb-3" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}>Talk to a real human</h3>
-                <p className="text-[13px] leading-relaxed mb-5 flex-1" style={{ color: "#5C7189" }}>
-                  Skip the form — message a counsellor directly on WhatsApp. Real people, real answers, no bots.
+                <h3 className="text-[15px] font-bold mb-2" style={{ color: "#FCB730" }}>Prefer to Chat Instead?</h3>
+                <p className="text-[13px] text-gray-dark leading-relaxed mb-4">
+                  Talk to one of our counselor directly on WhatsApp. Real people, real answers.
                 </p>
                 <a
                   href="https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-[13px] font-bold transition-all hover:-translate-y-0.5 hover:shadow-md"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-[13px] font-semibold transition-all hover:-translate-y-0.5 hover:shadow-md"
                   style={{ background: "#25D366", color: "#FFFFFF", minHeight: 44 }}
                 >
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -503,77 +266,73 @@ export default function RegisterPage() {
       {/* ===== Alumni Section ===== */}
       <AlumniSection />
 
-      {/* ===== COUNSELLOR FACES BAND ===== */}
-      <section className="py-10 md:py-20 relative overflow-hidden" style={{ background: "#F8F9FF" }}>
-        <div className="hidden md:block absolute top-20 right-0 w-[360px] h-[360px] rounded-full opacity-[0.12] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, #4F7DEB 0%, transparent 70%)" }} />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-7 md:mb-14">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] mb-2" style={{ color: "#1E6DEB" }}>
+      {/* ===== COUNSELLOR FACES BAND (NEW — preview only) ===== */}
+      <section className="py-10 md:py-16" style={{ background: "#F8F9FF" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 md:mb-10">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.14em] mb-2" style={{ color: "#1E6DEB" }}>
               Real people, real expertise
             </p>
-            <h2 className="text-[26px] md:text-[36px] font-bold leading-tight mb-3" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
+            <h2 className="text-[22px] md:text-[32px] font-bold leading-tight mb-3" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
               Meet your counsellors
             </h2>
-            <p className="text-[14px] md:text-[16px] max-w-xl mx-auto" style={{ color: "#5C7189" }}>
+            <p className="text-[14px] md:text-[15px] max-w-xl mx-auto" style={{ color: "#5C7189" }}>
               Speak with the right counsellor for your goal — they&rsquo;ll guide you personally through every step.
             </p>
           </div>
 
-          {(() => {
-            const counsellors = [
-              { initial: "A", name: "Aarav Sharma", role: "Senior Counsellor", langs: ["EN", "NE", "HI"], color: "#4F7DEB", deep: "#2954C7" },
-              { initial: "P", name: "Priya Gurung", role: "UK Programs Lead", langs: ["EN", "NE"], color: "#4FBFA8", deep: "#2F9D85" },
-              { initial: "S", name: "Sita Tamang", role: "USA Programs Lead", langs: ["EN", "NE"], color: "#F08A5F", deep: "#D76A3D" },
-              { initial: "R", name: "Rajesh KC", role: "Visa Specialist", langs: ["EN", "NE", "HI"], color: "#B373E5", deep: "#8B47C2" },
-              { initial: "M", name: "Manish Adhikari", role: "Test Prep Lead", langs: ["EN", "NE"], color: "#E04562", deep: "#B72D47" },
-            ];
-            const Card = ({ c, size = "lg" }: { c: typeof counsellors[number]; size?: "sm" | "lg" }) => (
-              <div className="bg-white rounded-2xl p-5 md:p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex-shrink-0" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.05)", width: size === "sm" ? 168 : undefined }}>
-                <div className="mx-auto mb-4 rounded-full flex items-center justify-center font-bold" style={{
-                  width: size === "sm" ? 72 : 92,
-                  height: size === "sm" ? 72 : 92,
-                  padding: 3,
-                  background: `linear-gradient(135deg, ${c.color}, ${c.deep})`,
-                }}>
-                  <div className="w-full h-full rounded-full flex items-center justify-center bg-white">
-                    <span className="font-extrabold" style={{ color: c.deep, fontSize: size === "sm" ? 28 : 36, fontFamily: "var(--font-rubik), sans-serif" }}>{c.initial}</span>
+          {/* Mobile: horizontal swipe carousel. md+: 5-col grid */}
+          <div className="md:hidden -mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex gap-4 w-max">
+              {[
+                { initial: "A", name: "Aarav Sharma", role: "Senior Counsellor", langs: "EN · NE · HI", color: "#1E6DEB", bg: "#EBF3FF" },
+                { initial: "P", name: "Priya Gurung", role: "UK Programs Lead", langs: "EN · NE", color: "#3FB5A0", bg: "#EDFAF7" },
+                { initial: "S", name: "Sita Tamang", role: "USA Programs Lead", langs: "EN · NE", color: "#E86F3C", bg: "#FFF4EE" },
+                { initial: "R", name: "Rajesh KC", role: "Visa Specialist", langs: "EN · NE · HI", color: "#BB5FEC", bg: "#F8F0FF" },
+                { initial: "M", name: "Manish Adhikari", role: "Test Prep Lead", langs: "EN · NE", color: "#E04562", bg: "#FFF0F4" },
+              ].map((c) => (
+                <div key={c.name} className="bg-white rounded-2xl p-5 text-center flex-shrink-0 w-[150px]" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 10px rgba(13,18,130,0.04)" }}>
+                  <div className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-3 text-[28px] font-bold" style={{ background: c.bg, color: c.color }}>
+                    {c.initial}
                   </div>
+                  <p className="text-[13px] font-bold leading-tight" style={{ color: "#0D1282" }}>{c.name}</p>
+                  <p className="text-[11px] mt-1 leading-tight" style={{ color: "#5C7189" }}>{c.role}</p>
+                  <p className="text-[10px] mt-2 font-medium" style={{ color: "#8892A6" }}>{c.langs}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="hidden md:grid md:grid-cols-5 gap-4 md:gap-6">
+            {[
+              { initial: "A", name: "Aarav Sharma", role: "Senior Counsellor", langs: "EN · NE · HI", color: "#1E6DEB", bg: "#EBF3FF" },
+              { initial: "P", name: "Priya Gurung", role: "UK Programs Lead", langs: "EN · NE", color: "#3FB5A0", bg: "#EDFAF7" },
+              { initial: "S", name: "Sita Tamang", role: "USA Programs Lead", langs: "EN · NE", color: "#E86F3C", bg: "#FFF4EE" },
+              { initial: "R", name: "Rajesh KC", role: "Visa Specialist", langs: "EN · NE · HI", color: "#BB5FEC", bg: "#F8F0FF" },
+              { initial: "M", name: "Manish Adhikari", role: "Test Prep Lead", langs: "EN · NE", color: "#E04562", bg: "#FFF0F4" },
+            ].map((c) => (
+              <div key={c.name} className="bg-white rounded-2xl p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 10px rgba(13,18,130,0.04)" }}>
+                <div className="mx-auto w-20 h-20 rounded-full flex items-center justify-center mb-3 text-[32px] font-bold" style={{ background: c.bg, color: c.color }}>
+                  {c.initial}
                 </div>
                 <p className="text-[14px] font-bold leading-tight" style={{ color: "#0D1282" }}>{c.name}</p>
                 <p className="text-[12px] mt-1" style={{ color: "#5C7189" }}>{c.role}</p>
-                <div className="flex justify-center flex-wrap gap-1 mt-3">
-                  {c.langs.map((l) => (
-                    <span key={l} className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: `${c.color}14`, color: c.deep, letterSpacing: "0.08em" }}>{l}</span>
-                  ))}
-                </div>
+                <p className="text-[11px] mt-2 font-medium" style={{ color: "#8892A6" }}>{c.langs}</p>
               </div>
-            );
-            return (
-              <>
-                <div className="md:hidden -mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                  <div className="flex gap-4 w-max">
-                    {counsellors.map((c) => <Card key={c.name} c={c} size="sm" />)}
-                  </div>
-                </div>
-                <div className="hidden md:grid md:grid-cols-5 gap-5 lg:gap-6">
-                  {counsellors.map((c) => <Card key={c.name} c={c} />)}
-                </div>
-              </>
-            );
-          })()}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ===== FAQ ACCORDION ===== */}
-      <section className="py-10 md:py-20 relative overflow-hidden bg-white">
-        <div className="hidden md:block absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full opacity-[0.08] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, #B373E5 0%, transparent 70%)" }} />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-7 md:mb-14">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] mb-2" style={{ color: "#1E6DEB" }}>
+      {/* ===== FAQ ACCORDION (NEW — preview only) ===== */}
+      <section className="py-10 md:py-16" style={{ background: "#F8F9FF" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.14em] mb-2" style={{ color: "#1E6DEB" }}>
               Common questions
             </p>
-            <h2 className="text-[26px] md:text-[36px] font-bold leading-tight" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
-              Everything you might be wondering
+            <h2 className="text-[24px] md:text-[32px] font-bold leading-tight" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
+              Quick answers to what you might be wondering
             </h2>
           </div>
 
@@ -606,19 +365,16 @@ export default function RegisterPage() {
             ].map((item) => (
               <details
                 key={item.q}
-                className="group bg-white rounded-2xl overflow-hidden transition-all duration-200 hover:shadow-lg"
-                style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.04)" }}
+                className="group bg-white rounded-2xl overflow-hidden transition-shadow duration-200 hover:shadow-md"
+                style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 10px rgba(13,18,130,0.04)" }}
               >
-                <summary className="cursor-pointer list-none p-4 md:p-6 flex items-start justify-between gap-4 text-[15px] md:text-[16px] font-semibold leading-snug select-none" style={{ color: "#0D1282" }}>
-                  <span className="pt-0.5">{item.q}</span>
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 group-open:rotate-45" style={{ background: "#EBF3FF", color: "#2954C7" }}>
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                      <line x1="12" y1="5" x2="12" y2="19" />
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                  </span>
+                <summary className="cursor-pointer list-none p-5 flex items-start justify-between gap-3 text-[15px] font-semibold leading-snug" style={{ color: "#0D1282" }}>
+                  <span>{item.q}</span>
+                  <svg className="w-5 h-5 flex-shrink-0 mt-0.5 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="#1E6DEB" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                 </summary>
-                <div className="px-4 pb-4 md:px-6 md:pb-6 -mt-1 text-[14px] leading-relaxed" style={{ color: "#5C7189" }}>
+                <div className="px-5 pb-5 text-[14px] leading-relaxed" style={{ color: "#5C7189" }}>
                   {item.a}
                 </div>
               </details>
@@ -627,46 +383,24 @@ export default function RegisterPage() {
         </div>
       </section>
 
-      {/* ===== STATS — Trust banner ===== */}
-      <section className="relative py-12 md:py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #0a0f5c 0%, #0D1282 40%, #1a3aad 100%)" }}>
-        <div className="hidden sm:block absolute top-0 left-1/4 w-[480px] h-[480px] rounded-full opacity-[0.08] blur-3xl" style={{ background: "radial-gradient(circle, #4F7DEB, transparent 70%)" }} />
-        <div className="hidden sm:block absolute bottom-0 right-1/4 w-[360px] h-[360px] rounded-full opacity-[0.08] blur-3xl" style={{ background: "radial-gradient(circle, #4FBFA8, transparent 70%)" }} />
+      {/* ===== 3. STATS — Trust banner ===== */}
+      <section className="relative py-16 md:py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #0a0f5c 0%, #0D1282 40%, #1a3aad 100%)" }}>
+        <div className="hidden sm:block absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full opacity-[0.06]" style={{ background: "radial-gradient(circle, #1E6DEB, transparent 70%)" }} />
+        <div className="hidden sm:block absolute bottom-0 right-1/4 w-[300px] h-[300px] rounded-full opacity-[0.06]" style={{ background: "radial-gradient(circle, #3FB5A0, transparent 70%)" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-16">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] mb-3" style={{ color: "#FCB730" }}>Proven results</p>
-            <h2 className="text-[22px] md:text-[40px] font-bold text-white mb-4 leading-tight" style={{ fontFamily: "var(--font-rubik), sans-serif" }}>
-              Trusted by students worldwide
-            </h2>
-            <p className="text-[15px] md:text-[16px] text-white/55 max-w-xl mx-auto">
-              Our numbers speak for themselves — proven outcomes families and students trust.
-            </p>
-          </div>
+          <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-center mb-3" style={{ color: "#FCB730" }}>Why Choose Us</p>
+          <h2 className="text-[26px] md:text-[34px] font-bold text-center text-white mb-4">Trusted by Students Worldwide</h2>
+          <p className="text-center text-[15px] text-white/50 max-w-xl mx-auto mb-12">Our numbers speak for themselves — proven results that families and students trust.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {stats.map((stat) => (
-              <div key={stat.label} className="relative text-center rounded-2xl px-3 py-5 md:px-5 md:py-12 transition-all duration-300 hover:-translate-y-1 overflow-hidden" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", backdropFilter: "blur(10px)" }}>
-                <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(90deg, transparent, ${stat.accent}, transparent)` }} />
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl mx-auto mb-3 md:mb-5 flex items-center justify-center" style={{ background: `${stat.accent}22`, border: `1px solid ${stat.accent}40` }}>
-                  <svg className="w-5 h-5" fill="none" stroke={stat.accent} strokeWidth={1.9} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d={stat.icon} /></svg>
+              <div key={stat.label} className="text-center rounded-2xl px-3 py-6 md:px-4 md:py-10 transition-all duration-300 hover:-translate-y-1" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", backdropFilter: "blur(8px)" }}>
+                <div className="w-12 h-12 rounded-xl mx-auto mb-5 flex items-center justify-center" style={{ background: `${stat.accent}20` }}>
+                  <svg className="w-5 h-5" fill="none" stroke={stat.accent} strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d={stat.icon} /></svg>
                 </div>
-                <p className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-white mb-2 leading-none" style={{ fontFamily: "var(--font-rubik), sans-serif" }}>{stat.value}</p>
-                <p className="text-[12px] md:text-[13px] font-medium text-white/55 leading-snug">{stat.label}</p>
+                <p className="text-[26px] sm:text-[34px] md:text-[42px] font-bold text-white mb-2 leading-none">{stat.value}</p>
+                <p className="text-[13px] font-medium text-white/50 leading-snug">{stat.label}</p>
               </div>
             ))}
-          </div>
-
-          <div className="mt-12 md:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <p className="text-[14px] md:text-[15px] text-white/70">Ready to be the next success story?</p>
-            <a
-              href="#enquiry-form"
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[14px] font-bold transition-all hover:-translate-y-0.5 hover:shadow-lg"
-              style={{ background: "#FDED22", color: "#0D1282", minHeight: 48 }}
-            >
-              Book free consultation
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
           </div>
         </div>
       </section>
@@ -680,41 +414,29 @@ export default function RegisterPage() {
       {/* ===== 5. GLOBAL PRESENCE (Tab-based) ===== */}
       <GlobalPresence />
 
-      {/* ===== MOBILE STICKY CTA BAR (mobile only, appears after scrolling past hero) ===== */}
+      {/* ===== MOBILE STICKY CTA BAR (mobile only) ===== */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-40 md:hidden p-3 grid grid-cols-2 gap-2"
+        className="fixed bottom-0 left-0 right-0 z-40 md:hidden p-3"
         style={{
           background: "rgba(255,255,255,0.96)",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
           borderTop: "1px solid #E0E6F2",
-          boxShadow: "0 -6px 20px rgba(13,18,130,0.1)",
+          boxShadow: "0 -4px 16px rgba(13,18,130,0.08)",
           paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 12px)",
-          transform: showSticky ? "translateY(0)" : "translateY(100%)",
-          transition: "transform 0.35s cubic-bezier(0.22,1,0.36,1)",
         }}
       >
-        <a
-          href="tel:+9779856100444"
-          className="inline-flex items-center justify-center gap-2 rounded-xl py-3 text-[13px] font-bold"
-          style={{ background: "#FDED22", color: "#0D1282", minHeight: 48 }}
-        >
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-          </svg>
-          Call us
-        </a>
         <a
           href="https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 rounded-xl py-3 text-[13px] font-bold"
-          style={{ background: "#25D366", color: "#FFFFFF", minHeight: 48 }}
+          className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3 text-[14px] font-semibold"
+          style={{ background: "#25D366", color: "#FFFFFF", minHeight: 44 }}
         >
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
           </svg>
-          WhatsApp
+          WhatsApp Us
         </a>
       </div>
     </main>

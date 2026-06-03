@@ -213,7 +213,7 @@ export default function RegisterJourneyHero() {
             )}
 
             {/* Donut wheel */}
-            <div className="relative w-full pt-0 pb-6 scale-[1.25] sm:scale-100 origin-top">
+            <div className="relative w-full pt-0 pb-6 mb-20 sm:mb-0 scale-[1.25] sm:scale-100 origin-top">
               <JourneyDonut
                 activeIndex={donutActive}
                 onSelect={(i) => {

@@ -182,16 +182,33 @@ export default function RegisterPage() {
   }, []);
 
   return (
-    <main className="pb-0 md:pb-0">
+    <main className="pb-0 md:pb-0 overflow-x-hidden">
       {/* ===== JOURNEY-SYNCED HERO (donut + form live state-bound) ===== */}
       <RegisterJourneyHero />
 
       {/* ===== TRUST STRIP ===== */}
-      <section className="bg-white border-b border-[#F0F0F0]">
+      <section className="bg-white border-b border-[#F0F0F0] overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {/* Mobile: 2×2 grid cards */}
+          <div className="grid grid-cols-2 gap-3 sm:hidden">
             {[
-              { icon: "🎁", bold: "Real Rewards,", text: "Real Students" },
+              { icon: "📋", bold: "Free 1-on-1,", text: "Counselling" },
+              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
+              { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
+              { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
+            ].map((item) => (
+              <div key={item.bold} className="flex items-center gap-2.5 bg-[#F8F9FF] rounded-xl px-3 py-3">
+                <span className="text-2xl flex-shrink-0">{item.icon}</span>
+                <div className="text-[13px] font-semibold text-[#001353] leading-snug">
+                  <strong>{item.bold}</strong><br />{item.text}
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Desktop: single row */}
+          <div className="hidden sm:flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {[
+              { icon: "📋", bold: "Free 1-on-1,", text: "Counselling" },
               { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
               { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
@@ -227,7 +244,7 @@ export default function RegisterPage() {
           </div>
 
           {/* ── Mobile: manual swipe carousel ── */}
-          <div className="md:hidden relative">
+          <div className="md:hidden relative overflow-hidden">
           <div ref={mobileScrollRef} className="-mx-4 px-4 pt-2 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" style={{ position: "relative", zIndex: 1 }}>
             {/* Arch + node-dot track — scrolls in lockstep with cards */}
             <div className="flex gap-4 w-max relative pointer-events-none" style={{ height: 0 }}>
@@ -373,7 +390,7 @@ export default function RegisterPage() {
               Why Admizz
             </p>
             <h2 className="text-[24px] md:text-[34px] font-bold leading-tight" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
-              Three reasons families choose us
+              The reasons families choose us
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
@@ -545,37 +562,41 @@ export default function RegisterPage() {
 
           {(() => {
             const counsellors = [
-              { name: "Mrs. Mamata", region: "India & Nepal", flags: "🇮🇳🇳🇵", image: "/images/counsellors/mamata.jpeg", color: "#4F7DEB", deep: "#2954C7" },
+              { name: "Mr. Bijay", region: "Australia & UK", flags: "🇦🇺🇬🇧", image: "/images/counsellors/bijay.jpeg", color: "#E04562", deep: "#B72D47" },
               { name: "Mr. Nikhil", region: "USA & Canada", flags: "🇺🇸🇨🇦", image: "/images/counsellors/nikhil.jpeg", color: "#4FBFA8", deep: "#2F9D85" },
               { name: "Mr. Amit", region: "Australia & India", flags: "🇦🇺🇮🇳", image: "/images/counsellors/amit.jpeg", color: "#F08A5F", deep: "#D76A3D" },
               { name: "Mr. Gautam", region: "UK & Europe", flags: "🇬🇧🇪🇺", image: "/images/counsellors/gautam.jpeg", color: "#B373E5", deep: "#8B47C2" },
-              { name: "Mr. Bijay", region: "Australia & UK", flags: "🇦🇺🇬🇧", image: "/images/counsellors/bijay.jpeg", color: "#E04562", deep: "#B72D47" },
+              { name: "Mrs. Mamata", region: "India & Nepal", flags: "🇮🇳🇳🇵", image: "/images/counsellors/mamata.jpeg", color: "#4F7DEB", deep: "#2954C7" },
             ];
             const Card = ({ c, size = "lg" }: { c: typeof counsellors[number]; size?: "sm" | "lg" }) => (
-              <div className="bg-white rounded-2xl overflow-hidden flex-shrink-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.05)", width: size === "sm" ? 200 : undefined }}>
-                <div className="relative w-full" style={{ aspectRatio: "3 / 4" }}>
-                  <Image src={c.image} alt={c.name} fill sizes={size === "sm" ? "200px" : "(min-width: 1024px) 240px, 200px"} className="object-cover object-top" />
+              <div className="bg-white rounded-2xl overflow-hidden flex-shrink-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.05)", width: size === "sm" ? 160 : undefined }}>
+                <div className="relative w-full" style={{ aspectRatio: "3 / 4", background: c.color + "22" }}>
+                  <Image src={c.image} alt={c.name} fill sizes={size === "sm" ? "160px" : "(min-width: 1024px) 240px, 200px"} className="object-cover object-top" loading="lazy" />
                 </div>
                 <div className="h-1" style={{ background: `linear-gradient(90deg, ${c.color}, ${c.deep})` }} />
                 <div className="p-4 md:p-5 text-center">
                   <p className="text-[10px] font-bold uppercase tracking-[0.14em] mb-1.5" style={{ color: c.deep }}>Career Counselor</p>
                   <p className="text-[15px] font-bold leading-tight" style={{ color: "#0D1282" }}>{c.name}</p>
-                  <p className="text-[12px] mt-1.5 flex items-center justify-center gap-1.5" style={{ color: "#5C7189" }}>
-                    <span aria-hidden>{c.flags}</span>
-                    <span>{c.region}</span>
+                  <p className="text-[10px] mt-1.5 flex flex-nowrap items-center justify-center gap-1" style={{ color: "#5C7189" }}>
+                    <span aria-hidden className="whitespace-nowrap">{c.flags}</span>
+                    <span className="whitespace-nowrap">{c.region}</span>
                   </p>
                 </div>
               </div>
             );
             return (
               <>
-                <div className="md:hidden -mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                  <div className="flex gap-4 w-max">
-                    {counsellors.map((c) => <Card key={c.name} c={c} size="sm" />)}
+                <div className="md:hidden overflow-hidden">
+                  <div className="-mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                    <div className="flex gap-4 w-max">
+                      {counsellors.map((c) => <Card key={c.name} c={c} size="sm" />)}
+                    </div>
                   </div>
                 </div>
-                <div className="hidden md:grid md:grid-cols-5 gap-5 lg:gap-6">
-                  {counsellors.map((c) => <Card key={c.name} c={c} />)}
+                <div className="hidden md:block max-w-4xl mx-auto">
+                  <div className="grid grid-cols-5 gap-4">
+                    {counsellors.map((c) => <Card key={c.name} c={c} />)}
+                  </div>
                 </div>
               </>
             );
