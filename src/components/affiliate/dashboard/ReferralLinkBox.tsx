@@ -10,8 +10,15 @@ interface Props {
   affiliate: Affiliate;
 }
 
-const BASE_URL          = "https://admizzeducation.com";
-const ALLOWED_HOSTS     = new Set(["admizzeducation.com", "www.admizzeducation.com"]);
+// Default origin for generated links + quick-pick chips. Picks up the current
+// host so the dashboard works correctly on dev (dev-web.admizzeducation.com)
+// AND prod (admizzeducation.com) without hardcoding either.
+const PROD_ORIGIN = "https://admizzeducation.com";
+const DEFAULT_ORIGIN = typeof window !== "undefined" && window.location.origin
+  ? window.location.origin
+  : PROD_ORIGIN;
+// Any *.admizzeducation.com subdomain is acceptable (prod, www, dev-web, staging).
+const ADMIZZ_HOST_RX = /(^|\.)admizzeducation\.com$/i;
 const HISTORY_KEY_PREFIX = "admizz_affiliate_links:";
 const HISTORY_MAX       = 10;
 
@@ -25,9 +32,10 @@ interface SavedLink {
 }
 
 // Parse + sanitize what the affiliate typed into the URL field.
-// Returns { ok: false, error } for non-admizz URLs and { ok: true, path } for valid ones.
+// Accepts any *.admizzeducation.com (prod, www, dev-web, staging) and preserves
+// the host in the generated link so dev shortcuts stay dev, prod stays prod.
 type ParseResult =
-  | { ok: true; path: string; search: URLSearchParams; hash: string }
+  | { ok: true; origin: string; path: string; search: URLSearchParams; hash: string }
   | { ok: false; error: string };
 
 function parseAdmizzUrl(raw: string): ParseResult {
@@ -41,7 +49,7 @@ function parseAdmizzUrl(raw: string): ParseResult {
   try { url = new URL(withScheme); }
   catch { return { ok: false, error: "That doesn't look like a valid URL." }; }
 
-  if (!ALLOWED_HOSTS.has(url.hostname.toLowerCase())) {
+  if (!ADMIZZ_HOST_RX.test(url.hostname)) {
     return { ok: false, error: "Use a URL on admizzeducation.com" };
   }
 
@@ -52,7 +60,7 @@ function parseAdmizzUrl(raw: string): ParseResult {
     if (k.startsWith("utm_")) search.delete(k);
   }
 
-  return { ok: true, path: url.pathname || "/", search, hash: url.hash };
+  return { ok: true, origin: url.origin, path: url.pathname || "/", search, hash: url.hash };
 }
 
 function buildUrl(parsed: ParseResult, code: string, channel: ChannelPreset | null): string {
@@ -64,7 +72,7 @@ function buildUrl(parsed: ParseResult, code: string, channel: ChannelPreset | nu
     params.set("utm_medium", channel.medium);
   }
   const qs = params.toString();
-  return `${BASE_URL}${parsed.path}${qs ? "?" + qs : ""}${parsed.hash}`;
+  return `${parsed.origin}${parsed.path}${qs ? "?" + qs : ""}${parsed.hash}`;
 }
 
 function loadHistory(code: string): SavedLink[] {
@@ -103,7 +111,7 @@ export default function ReferralLinkBox({ affiliate }: Props) {
   const code = affiliate.referral_code;
 
   const [tab, setTab]             = useState<Tab>("link");
-  const [destInput, setDestInput] = useState(`${BASE_URL}/register`);
+  const [destInput, setDestInput] = useState(`${DEFAULT_ORIGIN}/register`);
   const [channelId, setChannelId] = useState<string>("");
   const [copied, setCopied]       = useState<"link" | "code" | null>(null);
   const [history, setHistory]     = useState<SavedLink[]>([]);
@@ -209,7 +217,7 @@ export default function ReferralLinkBox({ affiliate }: Props) {
           {QUICK_PICK_DESTINATIONS.map(d => (
             <button
               key={d.path}
-              onClick={() => setDestInput(`${BASE_URL}${d.path}`)}
+              onClick={() => setDestInput(`${DEFAULT_ORIGIN}${d.path}`)}
               className="px-3 py-1.5 rounded-full text-[12px] font-semibold transition-all"
               style={{
                 background: "#FFFFFF",
