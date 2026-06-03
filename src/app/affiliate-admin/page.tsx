@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getAllAffiliates, getAllApplications, getAllReferrals } from "@/lib/affiliate/api";
-import type { Affiliate, AffiliateApplication, AffiliateReferral } from "@/lib/affiliate/types";
+import { getAllAffiliates, getAllApplications, getAllReferrals, getAllClicks } from "@/lib/affiliate/api";
+import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick } from "@/lib/affiliate/types";
 import AdminLogin from "@/components/affiliate/admin/AdminLogin";
 import AdminShell from "@/components/affiliate/admin/AdminShell";
 
@@ -14,6 +14,7 @@ export default function AffiliateAdminPage() {
   const [affiliates, setAffiliates] = useState<Affiliate[]>([]);
   const [applications, setApplications] = useState<AffiliateApplication[]>([]);
   const [referrals, setReferrals] = useState<AffiliateReferral[]>([]);
+  const [clicks, setClicks] = useState<AffiliateClick[]>([]);
 
   useEffect(() => {
     try {
@@ -26,14 +27,16 @@ export default function AffiliateAdminPage() {
 
   const handleLogin = async () => {
     try { sessionStorage.setItem(SESSION_KEY, "1"); } catch { /* ignore */ }
-    const [affs, apps, refs] = await Promise.all([
+    const [affs, apps, refs, clks] = await Promise.all([
       getAllAffiliates(),
       getAllApplications(),
       getAllReferrals(),
+      getAllClicks(2000),
     ]);
     setAffiliates(affs);
     setApplications(apps);
     setReferrals(refs);
+    setClicks(clks);
     setAuthed(true);
   };
 
@@ -43,14 +46,16 @@ export default function AffiliateAdminPage() {
   };
 
   const refreshData = async () => {
-    const [affs, apps, refs] = await Promise.all([
+    const [affs, apps, refs, clks] = await Promise.all([
       getAllAffiliates(),
       getAllApplications(),
       getAllReferrals(),
+      getAllClicks(2000),
     ]);
     setAffiliates(affs);
     setApplications(apps);
     setReferrals(refs);
+    setClicks(clks);
   };
 
   if (!hydrated) return null;
@@ -61,6 +66,7 @@ export default function AffiliateAdminPage() {
       affiliates={affiliates}
       applications={applications}
       referrals={referrals}
+      clicks={clicks}
       onLogout={handleLogout}
       onRefresh={refreshData}
     />

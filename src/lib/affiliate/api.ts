@@ -204,6 +204,18 @@ export function buildActivityFeed(
   return feed.sort((a, b) => +new Date(b.at) - +new Date(a.at)).slice(0, limit);
 }
 
+// ─── Admin: program-wide reads ─────────────────────────────────────────────
+
+export async function getAllClicks(limit = 1000): Promise<AffiliateClick[]> {
+  const { data, error } = await supabase
+    .from("affiliate_clicks")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(limit);
+  if (error) { console.error("[admin clicks]", error.message); return []; }
+  return (data ?? []) as AffiliateClick[];
+}
+
 // ─── Admin: drill into the originating register_leads row ─────────────────
 
 export async function getLeadById(id: string): Promise<RegisterLead | null> {
