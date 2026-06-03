@@ -3,34 +3,68 @@
 import { useEffect, useMemo, useState } from "react";
 import QRCode from "qrcode";
 import type { Affiliate } from "@/lib/affiliate/types";
-import { LINK_DESTINATIONS, DEFAULT_DESTINATION, type LinkDestination } from "@/lib/affiliate/linkDestinations";
+import { QUICK_PICK_DESTINATIONS } from "@/lib/affiliate/linkDestinations";
 import { CHANNEL_PRESETS, type ChannelPreset } from "@/lib/affiliate/channelPresets";
 
 interface Props {
   affiliate: Affiliate;
 }
 
-const BASE_URL = "https://admizzeducation.com";
+const BASE_URL          = "https://admizzeducation.com";
+const ALLOWED_HOSTS     = new Set(["admizzeducation.com", "www.admizzeducation.com"]);
 const HISTORY_KEY_PREFIX = "admizz_affiliate_links:";
-const HISTORY_MAX = 10;
+const HISTORY_MAX       = 10;
 
 type Tab = "link" | "qr";
 
 interface SavedLink {
   url:         string;
-  destination: string;   // path
-  channel:     string;   // channel id or "" for none
-  at:          string;   // ISO timestamp
+  destination: string;
+  channel:     string;
+  at:          string;
 }
 
-function buildUrl(dest: LinkDestination, code: string, channel: ChannelPreset | null): string {
-  const params = new URLSearchParams();
+// Parse + sanitize what the affiliate typed into the URL field.
+// Returns { ok: false, error } for non-admizz URLs and { ok: true, path } for valid ones.
+type ParseResult =
+  | { ok: true; path: string; search: URLSearchParams; hash: string }
+  | { ok: false; error: string };
+
+function parseAdmizzUrl(raw: string): ParseResult {
+  const trimmed = raw.trim();
+  if (!trimmed) return { ok: false, error: "" };
+
+  // Allow bare admizzeducation.com/path without scheme
+  const withScheme = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed.replace(/^\/+/, "")}`;
+
+  let url: URL;
+  try { url = new URL(withScheme); }
+  catch { return { ok: false, error: "That doesn't look like a valid URL." }; }
+
+  if (!ALLOWED_HOSTS.has(url.hostname.toLowerCase())) {
+    return { ok: false, error: "Use a URL on admizzeducation.com" };
+  }
+
+  // Strip any existing ref / utm_* the user may have pasted in by accident
+  const search = url.searchParams;
+  search.delete("ref");
+  for (const k of [...search.keys()]) {
+    if (k.startsWith("utm_")) search.delete(k);
+  }
+
+  return { ok: true, path: url.pathname || "/", search, hash: url.hash };
+}
+
+function buildUrl(parsed: ParseResult, code: string, channel: ChannelPreset | null): string {
+  if (!parsed.ok) return "";
+  const params = new URLSearchParams(parsed.search);
   params.set("ref", code);
   if (channel) {
     params.set("utm_source", channel.source);
     params.set("utm_medium", channel.medium);
   }
-  return `${BASE_URL}${dest.path}?${params.toString()}`;
+  const qs = params.toString();
+  return `${BASE_URL}${parsed.path}${qs ? "?" + qs : ""}${parsed.hash}`;
 }
 
 function loadHistory(code: string): SavedLink[] {
@@ -47,7 +81,6 @@ function saveToHistory(code: string, entry: SavedLink) {
   if (typeof window === "undefined") return;
   try {
     const current = loadHistory(code);
-    // De-dupe — if the same URL is already top of history, don't push
     if (current[0]?.url === entry.url) return;
     const next = [entry, ...current.filter(e => e.url !== entry.url)].slice(0, HISTORY_MAX);
     localStorage.setItem(HISTORY_KEY_PREFIX + code, JSON.stringify(next));
@@ -57,61 +90,51 @@ function saveToHistory(code: string, entry: SavedLink) {
 function formatRelative(iso: string): string {
   const diff = Date.now() - new Date(iso).getTime();
   const m = Math.floor(diff / 60_000);
-  if (m < 1)    return "Just now";
-  if (m < 60)   return `${m}m ago`;
+  if (m < 1)  return "Just now";
+  if (m < 60) return `${m}m ago`;
   const h = Math.floor(m / 60);
-  if (h < 24)   return `${h}h ago`;
+  if (h < 24) return `${h}h ago`;
   const d = Math.floor(h / 24);
-  if (d < 7)    return `${d}d ago`;
+  if (d < 7)  return `${d}d ago`;
   return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short" });
 }
 
 export default function ReferralLinkBox({ affiliate }: Props) {
   const code = affiliate.referral_code;
 
-  const [tab, setTab]                 = useState<Tab>("link");
-  const [destPath, setDestPath]       = useState(DEFAULT_DESTINATION.path);
-  const [channelId, setChannelId]     = useState<string>("");
-  const [copied, setCopied]           = useState<"link" | "code" | null>(null);
-  const [history, setHistory]         = useState<SavedLink[]>([]);
-  const [qrDataUrl, setQrDataUrl]     = useState<string>("");
+  const [tab, setTab]             = useState<Tab>("link");
+  const [destInput, setDestInput] = useState(`${BASE_URL}/register`);
+  const [channelId, setChannelId] = useState<string>("");
+  const [copied, setCopied]       = useState<"link" | "code" | null>(null);
+  const [history, setHistory]     = useState<SavedLink[]>([]);
+  const [qrDataUrl, setQrDataUrl] = useState<string>("");
 
-  const destination = useMemo(
-    () => LINK_DESTINATIONS.find(d => d.path === destPath) ?? DEFAULT_DESTINATION,
-    [destPath],
-  );
-  const channel = useMemo(
-    () => CHANNEL_PRESETS.find(c => c.id === channelId) ?? null,
-    [channelId],
-  );
-  const url = useMemo(
-    () => buildUrl(destination, code, channel),
-    [destination, code, channel],
-  );
+  const parsed  = useMemo(() => parseAdmizzUrl(destInput), [destInput]);
+  const channel = useMemo(() => CHANNEL_PRESETS.find(c => c.id === channelId) ?? null, [channelId]);
+  const url     = useMemo(() => buildUrl(parsed, code, channel), [parsed, code, channel]);
+  const error   = parsed.ok ? null : (parsed.error || null);
 
-  // Load history once on mount, per affiliate code
+  useEffect(() => { setHistory(loadHistory(code)); }, [code]);
+
   useEffect(() => {
-    setHistory(loadHistory(code));
-  }, [code]);
-
-  // Generate QR whenever URL changes and QR tab is shown (small, cheap)
-  useEffect(() => {
-    if (tab !== "qr") return;
+    if (tab !== "qr" || !url) { setQrDataUrl(""); return; }
     let cancelled = false;
     QRCode.toDataURL(url, { width: 320, margin: 1, color: { dark: "#001353", light: "#FFFFFF" } })
-      .then(dataUrl => { if (!cancelled) setQrDataUrl(dataUrl); })
+      .then(d => { if (!cancelled) setQrDataUrl(d); })
       .catch(() => { if (!cancelled) setQrDataUrl(""); });
     return () => { cancelled = true; };
   }, [url, tab]);
 
   const persistUse = () => {
-    const entry: SavedLink = { url, destination: destPath, channel: channelId, at: new Date().toISOString() };
+    if (!parsed.ok || !url) return;
+    const entry: SavedLink = { url, destination: parsed.path, channel: channelId, at: new Date().toISOString() };
     saveToHistory(code, entry);
     setHistory(loadHistory(code));
   };
 
   const copy = (what: "link" | "code") => {
     const text = what === "link" ? url : code;
+    if (!text) return;
     navigator.clipboard.writeText(text).catch(() => {});
     setCopied(what);
     if (what === "link") persistUse();
@@ -120,9 +143,10 @@ export default function ReferralLinkBox({ affiliate }: Props) {
 
   const downloadQr = () => {
     if (!qrDataUrl) return;
+    const slug = parsed.ok ? parsed.path.replace(/\//g, "-") : "link";
     const a = document.createElement("a");
     a.href = qrDataUrl;
-    a.download = `admizz-${code}-${destination.path.replace(/\//g, "-")}.png`;
+    a.download = `admizz-${code}${slug}.png`;
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -130,6 +154,7 @@ export default function ReferralLinkBox({ affiliate }: Props) {
   };
 
   const shareWhatsApp = () => {
+    if (!url) return;
     const msg = `Hi! If you're planning to study abroad, I highly recommend Admizz Education. They've helped 1,500+ students get into top universities worldwide.\n\nGet a free consultation through my link: ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
     persistUse();
@@ -150,7 +175,7 @@ export default function ReferralLinkBox({ affiliate }: Props) {
           Your Referral Link
         </p>
         <p className="text-[13px] leading-[1.55]" style={{ color: "#475569" }}>
-          Pick a destination, optionally tag the channel — every click is tracked, every conversion credits you.
+          Paste any admizzeducation.com URL — we&apos;ll tag it with your code so every click and conversion credits you.
         </p>
       </div>
 
@@ -175,30 +200,71 @@ export default function ReferralLinkBox({ affiliate }: Props) {
         })}
       </div>
 
-      {/* Destination select */}
+      {/* Quick-pick row */}
       <div>
         <label className="text-[12px] font-bold uppercase mb-1.5 block" style={{ color: "#64748B", letterSpacing: "0.06em" }}>
-          Destination page
+          Quick picks <span style={{ color: "#94A3B8", letterSpacing: 0 }}>(or paste any URL below)</span>
         </label>
-        <select
-          value={destPath}
-          onChange={e => setDestPath(e.target.value)}
-          className="w-full px-3.5 py-2.5 rounded-xl text-sm outline-none transition-all"
-          style={{ background: "#FFFFFF", border: "1px solid #EAECF0", color: "#001353" }}
-        >
-          {LINK_DESTINATIONS.map(d => (
-            <option key={d.path} value={d.path}>
-              {d.badge ? `[${d.badge}] ` : ""}{d.label}
-            </option>
+        <div className="flex flex-wrap gap-1.5">
+          {QUICK_PICK_DESTINATIONS.map(d => (
+            <button
+              key={d.path}
+              onClick={() => setDestInput(`${BASE_URL}${d.path}`)}
+              className="px-3 py-1.5 rounded-full text-[12px] font-semibold transition-all"
+              style={{
+                background: "#FFFFFF",
+                color: "#475569",
+                border: "1px solid #EAECF0",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#F8F9FC"; e.currentTarget.style.borderColor = "#D7DAE8"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#FFFFFF"; e.currentTarget.style.borderColor = "#EAECF0"; }}
+            >
+              {d.label}
+            </button>
           ))}
-        </select>
-        <p className="text-[11.5px] mt-1.5" style={{ color: "#94A3B8" }}>{destination.hint}</p>
+        </div>
+      </div>
+
+      {/* Destination URL input */}
+      <div>
+        <label className="text-[12px] font-bold uppercase mb-1.5 block" style={{ color: "#64748B", letterSpacing: "0.06em" }}>
+          Destination URL
+        </label>
+        <input
+          type="url"
+          value={destInput}
+          onChange={e => setDestInput(e.target.value)}
+          placeholder="https://admizzeducation.com/any-page"
+          className="w-full px-3.5 py-2.5 rounded-xl text-sm outline-none transition-all"
+          style={{
+            background: "#FFFFFF",
+            border: `1px solid ${error ? "rgba(220,38,38,0.4)" : "#EAECF0"}`,
+            color: "#001353",
+            fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+          }}
+          onFocus={e => {
+            e.target.style.borderColor = error ? "rgba(220,38,38,0.4)" : "#31429C";
+            e.target.style.boxShadow   = error ? "0 0 0 3px rgba(220,38,38,0.08)" : "0 0 0 3px rgba(49,66,156,0.08)";
+          }}
+          onBlur={e => {
+            e.target.style.borderColor = error ? "rgba(220,38,38,0.4)" : "#EAECF0";
+            e.target.style.boxShadow   = "none";
+          }}
+        />
+        {error && (
+          <p className="text-[11.5px] mt-1.5 flex items-center gap-1.5" style={{ color: "#b91d3f" }}>
+            <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+            </svg>
+            {error}
+          </p>
+        )}
       </div>
 
       {/* Channel preset chips */}
       <div>
         <label className="text-[12px] font-bold uppercase mb-1.5 block" style={{ color: "#64748B", letterSpacing: "0.06em" }}>
-          Where will you share it? <span style={{ color: "#94A3B8", letterSpacing: 0 }}>(optional — helps you see what's working)</span>
+          Where will you share it? <span style={{ color: "#94A3B8", letterSpacing: 0 }}>(optional — helps you see what&apos;s working)</span>
         </label>
         <div className="flex flex-wrap gap-1.5">
           <ChannelChip active={channelId === ""} onClick={() => setChannelId("")} emoji="—" label="None" />
@@ -218,19 +284,23 @@ export default function ReferralLinkBox({ affiliate }: Props) {
       {tab === "link" ? (
         <div
           className="flex items-center gap-3 px-4 py-3 rounded-xl"
-          style={{ background: "#FAFAFB", border: "1px solid #EAECF0" }}
+          style={{ background: "#FAFAFB", border: "1px solid #EAECF0", opacity: url ? 1 : 0.5 }}
         >
           <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" style={{ color: "#64748B" }}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
           </svg>
-          <span className="flex-1 text-[12.5px] font-mono truncate" style={{ color: "#001353" }}>{url}</span>
+          <span className="flex-1 text-[12.5px] font-mono truncate" style={{ color: "#001353" }}>
+            {url || "Enter a destination URL above…"}
+          </span>
           <button
             onClick={() => copy("link")}
+            disabled={!url}
             className="flex-shrink-0 text-xs font-bold px-3 py-1.5 rounded-lg transition-all"
             style={{
               background: copied === "link" ? "rgba(34,197,94,0.12)" : "#FFFFFF",
               color:      copied === "link" ? "#16a34a" : "#b07400",
               border:     copied === "link" ? "1px solid rgba(34,197,94,0.3)" : "1px solid rgba(252,183,48,0.32)",
+              cursor: url ? "pointer" : "not-allowed",
             }}
           >
             {copied === "link" ? "Copied" : "Copy"}
@@ -242,8 +312,8 @@ export default function ReferralLinkBox({ affiliate }: Props) {
             // eslint-disable-next-line @next/next/no-img-element
             <img src={qrDataUrl} alt={`QR code for ${url}`} className="w-48 h-48 rounded-lg" style={{ border: "1px solid #EAECF0" }} />
           ) : (
-            <div className="w-48 h-48 rounded-lg flex items-center justify-center text-[12px]" style={{ background: "#FFFFFF", border: "1px solid #EAECF0", color: "#94A3B8" }}>
-              Generating…
+            <div className="w-48 h-48 rounded-lg flex items-center justify-center text-[12px] text-center px-4" style={{ background: "#FFFFFF", border: "1px solid #EAECF0", color: "#94A3B8" }}>
+              {url ? "Generating…" : "Enter a destination URL above to generate a QR code."}
             </div>
           )}
           <p className="text-[11.5px] text-center" style={{ color: "#64748B" }}>
@@ -269,14 +339,17 @@ export default function ReferralLinkBox({ affiliate }: Props) {
       {/* WhatsApp share */}
       <button
         onClick={shareWhatsApp}
+        disabled={!url}
         className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200"
         style={{
           background: "#25D366",
           color: "#FFFFFF",
           boxShadow: "0 2px 8px rgba(37,211,102,0.25)",
+          opacity: url ? 1 : 0.5,
+          cursor: url ? "pointer" : "not-allowed",
         }}
-        onMouseEnter={e => { e.currentTarget.style.background = "#22c35e"; }}
-        onMouseLeave={e => { e.currentTarget.style.background = "#25D366"; }}
+        onMouseEnter={e => { if (url) e.currentTarget.style.background = "#22c35e"; }}
+        onMouseLeave={e => { if (url) e.currentTarget.style.background = "#25D366"; }}
       >
         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -313,7 +386,6 @@ export default function ReferralLinkBox({ affiliate }: Props) {
           </p>
           <ul className="space-y-1.5">
             {history.map(h => {
-              const d = LINK_DESTINATIONS.find(x => x.path === h.destination);
               const c = CHANNEL_PRESETS.find(x => x.id === h.channel);
               return (
                 <li
@@ -323,7 +395,7 @@ export default function ReferralLinkBox({ affiliate }: Props) {
                 >
                   <div className="flex-1 min-w-0">
                     <div className="font-semibold truncate" style={{ color: "#001353" }}>
-                      {d?.label ?? h.destination}
+                      {h.destination}
                       {c && <span style={{ color: "#94A3B8" }}> · {c.emoji} {c.label}</span>}
                     </div>
                     <div className="text-[11px]" style={{ color: "#94A3B8" }}>{formatRelative(h.at)} · <span className="font-mono">{h.url}</span></div>
