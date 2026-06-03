@@ -371,7 +371,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 font-semibold text-[16px] px-8 py-4 rounded-lg transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
                 style={{ background: "#FFD800", color: "#0D1282" }}
               >
-                Book a Free Consultation
+                Start Your Journey
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
@@ -508,7 +508,7 @@ export default function Home() {
               <p className="text-[13px] font-semibold uppercase tracking-[0.12em] mb-4" style={{ color: "#FCB730" }}>Why Admizz?</p>
               <h3 className="text-white font-bold text-[22px] md:text-[26px] leading-tight mb-4">We Are Not Just An Education Consultancy</h3>
               <p className="text-white/80 text-[15px] leading-[1.7] mb-8">We Are the Future of International Student Recruitment.</p>
-              <Link href="/register" className="inline-flex items-center gap-2 font-bold text-[15px] px-7 py-3.5 rounded-lg self-start transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5" style={{ background: "#FFD800", color: "#0D1282" }}>Start Your Journey <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></Link>
+              <Link href="/register" className="inline-flex items-center gap-2 font-bold text-[15px] px-7 py-3.5 rounded-lg self-start transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5" style={{ background: "#FFD800", color: "#0D1282" }}>Book a Free Counseling <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></Link>
             </div>
           </div>
         </div>

@@ -24,6 +24,7 @@ const studyDestinations = [
 ];
 
 const navLinks = [
+  { name: "Match Your Destination", href: "/match-your-destination" },
   { name: "Test Prep", href: "/test-prep" },
   { name: "About", href: "/about" },
   { name: "Blogs", href: "/blogs" },
@@ -140,7 +141,7 @@ export default function Header() {
               href="/register"
               className="ml-4 bg-yellow text-black font-semibold text-[15px] px-6 py-2.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
             >
-              Register
+              Book a Free Counseling
             </Link>
           </nav>
 
@@ -236,7 +237,7 @@ export default function Header() {
               className="block text-center bg-yellow text-black font-semibold text-[15px] px-6 py-3.5 rounded-[10px] mt-3"
               onClick={() => setMobileOpen(false)}
             >
-              Register
+              Book a Free Counseling
             </Link>
           </div>
         </div>
