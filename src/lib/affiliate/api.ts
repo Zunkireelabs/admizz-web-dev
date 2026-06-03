@@ -359,6 +359,35 @@ export async function updateAffiliateStatus(
   }
 }
 
+// ─── Aggregate recompute ──────────────────────────────────────────────────
+// Rebuild the affiliate's totals + tier directly from the referrals table.
+// Called after ANY mutation that affects referrals (insert / status change /
+// commission edit). Idempotent — works no matter how many times it runs.
+export async function recomputeAffiliateTotals(affiliateId: string): Promise<AdminResult<true>> {
+  try {
+    const { data: rows, error } = await supabase
+      .from("affiliate_referrals")
+      .select("status, commission")
+      .eq("affiliate_id", affiliateId);
+    if (error) return { ok: false, error: error.message };
+
+    const refs = rows ?? [];
+    const total_referrals = refs.length;
+    const total_converted = refs.filter(r => r.status === "converted" || r.status === "paid").length;
+    const total_earned    = refs.filter(r => r.status === "paid").reduce((s, r) => s + (r.commission ?? 0), 0);
+    const tier            = calculateTier(total_referrals);
+
+    const { error: updErr } = await supabase
+      .from("affiliates")
+      .update({ total_referrals, total_converted, total_earned, tier })
+      .eq("id", affiliateId);
+    if (updErr) return { ok: false, error: updErr.message };
+    return { ok: true, data: true };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
 // ─── Admin: referral management ────────────────────────────────────────────
 
 export async function addReferral(referral: {
@@ -377,29 +406,7 @@ export async function addReferral(referral: {
       console.error("[add referral]", error.message);
       return { ok: false, error: error.message };
     }
-
-    // Update affiliate totals + tier
-    const { data: aff, error: affErr } = await supabase
-      .from("affiliates")
-      .select("total_referrals, total_converted, total_earned, tier")
-      .eq("id", referral.affiliate_id)
-      .maybeSingle();
-
-    if (affErr) return { ok: false, error: affErr.message };
-
-    if (aff) {
-      const newReferrals = aff.total_referrals + 1;
-      const newConverted = referral.status !== "pending" ? aff.total_converted + 1 : aff.total_converted;
-      const newEarned    = referral.status === "paid" ? aff.total_earned + referral.commission : aff.total_earned;
-      const newTier      = calculateTier(newReferrals);
-
-      const { error: updErr } = await supabase
-        .from("affiliates")
-        .update({ total_referrals: newReferrals, total_converted: newConverted, total_earned: newEarned, tier: newTier })
-        .eq("id", referral.affiliate_id);
-      if (updErr) return { ok: false, error: updErr.message };
-    }
-    return { ok: true, data: true };
+    return recomputeAffiliateTotals(referral.affiliate_id);
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }
@@ -411,6 +418,15 @@ export async function updateReferralStatus(
   commission: number
 ): Promise<AdminResult<true>> {
   try {
+    // We need the affiliate_id so we can recompute totals after the change.
+    const { data: existing, error: fetchErr } = await supabase
+      .from("affiliate_referrals")
+      .select("affiliate_id")
+      .eq("id", id)
+      .maybeSingle();
+    if (fetchErr) return { ok: false, error: fetchErr.message };
+    if (!existing) return { ok: false, error: "Referral not found" };
+
     const { error } = await supabase
       .from("affiliate_referrals")
       .update({ status, commission, updated_at: new Date().toISOString() })
@@ -419,35 +435,16 @@ export async function updateReferralStatus(
       console.error("[update referral status]", error.message);
       return { ok: false, error: error.message };
     }
-    return { ok: true, data: true };
+    return recomputeAffiliateTotals(existing.affiliate_id);
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }
 }
 
-export async function markReferralPaid(id: string, affiliateId: string, commission: number): Promise<AdminResult<true>> {
-  const r = await updateReferralStatus(id, "paid", commission);
-  if (!r.ok) return r;
-
-  try {
-    const { data: aff, error: affErr } = await supabase
-      .from("affiliates")
-      .select("total_earned")
-      .eq("id", affiliateId)
-      .maybeSingle();
-    if (affErr) return { ok: false, error: affErr.message };
-
-    if (aff) {
-      const { error: updErr } = await supabase
-        .from("affiliates")
-        .update({ total_earned: aff.total_earned + commission })
-        .eq("id", affiliateId);
-      if (updErr) return { ok: false, error: updErr.message };
-    }
-    return { ok: true, data: true };
-  } catch (e) {
-    return { ok: false, error: e instanceof Error ? e.message : String(e) };
-  }
+// affiliateId kept in the signature for callsite compatibility — the recompute
+// inside updateReferralStatus reads it from the referral row itself.
+export async function markReferralPaid(id: string, _affiliateId: string, commission: number): Promise<AdminResult<true>> {
+  return updateReferralStatus(id, "paid", commission);
 }
 
 // ─── Auto-referral creation from student registration ────────────────────
@@ -521,21 +518,7 @@ export async function createReferralFromRegistration(
       return { ok: false, error: insertError.message };
     }
 
-    // Update affiliate totals + tier
-    const newReferrals = aff.total_referrals + 1;
-    const newTier      = calculateTier(newReferrals);
-
-    const { error: updErr } = await supabase
-      .from("affiliates")
-      .update({ total_referrals: newReferrals, tier: newTier })
-      .eq("id", aff.id);
-
-    if (updErr) {
-      console.error("[auto referral update affiliate]", updErr.message);
-      return { ok: false, error: updErr.message };
-    }
-
-    return { ok: true, data: true };
+    return recomputeAffiliateTotals(aff.id);
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }
