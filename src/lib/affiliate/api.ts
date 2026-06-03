@@ -98,9 +98,12 @@ export async function getAffiliateByCredentials(
     p_code:  code.trim().toUpperCase(),
   });
   if (error) { console.error("[affiliate login]", error.message); return null; }
-  // RPC returns a single affiliates row (or null if no match)
   if (!data) return null;
-  return Array.isArray(data) ? (data[0] ?? null) : (data as Affiliate);
+  const row = Array.isArray(data) ? data[0] : (data as Affiliate);
+  // Postgres functions returning a composite type return an all-NULL row when
+  // no record matched (instead of NULL). Treat missing id as no-match.
+  if (!row || !row.id) return null;
+  return row;
 }
 
 // ─── Affiliate dashboard ───────────────────────────────────────────────────
