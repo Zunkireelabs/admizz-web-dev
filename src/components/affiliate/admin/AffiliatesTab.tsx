@@ -2,9 +2,14 @@
 
 import { Fragment, useMemo, useState } from "react";
 import type { Affiliate, AffiliateReferral, AffiliateClick } from "@/lib/affiliate/types";
-import { updateAffiliateStatus, buildCountryBreakdown } from "@/lib/affiliate/api";
+import { updateAffiliateStatus, buildCountryBreakdown, buildActivityFeed } from "@/lib/affiliate/api";
 import FunnelCard from "../dashboard/FunnelCard";
 import CountryBreakdownCard from "../dashboard/CountryBreakdownCard";
+import ActivityTimelineCard from "../dashboard/ActivityTimelineCard";
+import StatsRow from "../dashboard/StatsRow";
+import TierProgressCard from "../dashboard/TierProgressCard";
+import PerformanceChart from "../dashboard/PerformanceChart";
+import ReferralsTab from "./ReferralsTab";
 
 const TIER_STYLE: Record<string, { bg: string; text: string; border: string }> = {
   "Starter":       { bg: "rgba(148,163,184,0.1)",  text: "#475569", border: "rgba(148,163,184,0.3)" },
@@ -213,7 +218,8 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
                           <AffiliateDrillIn
                             affiliate={a}
                             referrals={affReferrals}
-                            clickCount={affClicks.length}
+                            clicks={affClicks}
+                            onRefresh={onRefresh}
                           />
                         </td>
                       </tr>
@@ -229,55 +235,122 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
   );
 }
 
-function AffiliateDrillIn({ affiliate, referrals, clickCount }: { affiliate: Affiliate; referrals: AffiliateReferral[]; clickCount: number }) {
-  const breakdown = useMemo(() => buildCountryBreakdown(referrals), [referrals]);
-  const converted = referrals.filter(r => r.status === "converted" || r.status === "paid").length;
-  const recentReferrals = [...referrals].sort((a, b) => +new Date(b.created_at) - +new Date(a.created_at)).slice(0, 5);
+function AffiliateDrillIn({
+  affiliate, referrals, clicks, onRefresh,
+}: {
+  affiliate: Affiliate;
+  referrals: AffiliateReferral[];
+  clicks: AffiliateClick[];
+  onRefresh: () => Promise<void>;
+}) {
+  const breakdown  = useMemo(() => buildCountryBreakdown(referrals), [referrals]);
+  const activity   = useMemo(() => buildActivityFeed(clicks, referrals, 30), [clicks, referrals]);
+  const converted  = referrals.filter(r => r.status === "converted" || r.status === "paid").length;
+  const refLink    = `https://admizzeducation.com/register?ref=${affiliate.referral_code}`;
+  const joined     = new Date(affiliate.joined_at ?? affiliate.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 
   return (
     <div className="space-y-4">
+      {/* Header chip */}
       <div className="flex items-center gap-2">
         <span className="text-[11px] font-bold uppercase px-2 py-0.5 rounded-md" style={{ background: "#E0E7FF", color: "#3730A3", letterSpacing: "0.06em" }}>
-          Performance · {affiliate.full_name}
+          Affiliate detail · admin view
         </span>
         <span className="text-[12px]" style={{ color: "#64748B" }}>
-          Last updated {new Date(affiliate.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+          Joined {joined}
         </span>
       </div>
 
-      <FunnelCard clicks={clickCount} registrations={referrals.length} conversions={converted} />
+      {/* Profile card — full PII for admin */}
+      <div
+        className="rounded-2xl p-5"
+        style={{ background: "#FFFFFF", border: "1px solid #EAECF0", boxShadow: "0 1px 3px rgba(16,24,40,0.04)" }}
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-3 mb-4">
+          <Field label="Full name"        value={affiliate.full_name} />
+          <Field label="Email"            value={affiliate.email} mono />
+          <Field label="Phone"            value={affiliate.phone ?? "—"} mono />
+          <Field label="City"             value={affiliate.city ?? "—"} />
+          <Field label="Referral code"    value={affiliate.referral_code} mono />
+          <Field label="Tier"             value={affiliate.tier} />
+          <Field label="Status"           value={affiliate.status} />
+          <Field label="Application id"   value={affiliate.application_id ?? "—"} mono small />
+        </div>
 
-      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
-        <CountryBreakdownCard breakdown={breakdown} />
-        <div className="rounded-2xl p-5" style={{ background: "#FFFFFF", border: "1px solid #EAECF0", boxShadow: "0 1px 3px rgba(16,24,40,0.04)" }}>
-          <div className="mb-3">
-            <h3 className="text-[15px] font-bold" style={{ color: "#001353" }}>Recent referrals</h3>
-            <p className="text-[12px] mt-0.5" style={{ color: "#64748B" }}>Last 5 — manage in the Referrals tab</p>
-          </div>
-          {recentReferrals.length === 0 ? (
-            <p className="text-[13px]" style={{ color: "#94A3B8" }}>No referrals yet.</p>
-          ) : (
-            <ul className="space-y-2">
-              {recentReferrals.map(r => (
-                <li key={r.id} className="flex items-center justify-between text-[13px] py-1.5" style={{ borderBottom: "1px solid #F1F5F9" }}>
-                  <div>
-                    <span className="font-semibold" style={{ color: "#001353" }}>{r.student_display}</span>
-                    <span style={{ color: "#64748B" }}> · {r.flag_emoji} {r.destination}</span>
-                  </div>
-                  <span
-                    className="text-[11px] font-bold px-2 py-0.5 rounded-full"
-                    style={{
-                      background: r.status === "paid" ? "rgba(252,183,48,0.1)" : r.status === "converted" ? "rgba(34,197,94,0.1)" : "rgba(148,163,184,0.1)",
-                      color:      r.status === "paid" ? "#b07400" : r.status === "converted" ? "#15803d" : "#475569",
-                    }}
-                  >
-                    {r.status === "pending" ? "Pending verification" : r.status === "converted" ? "Converted" : "Paid"}
-                  </span>
-                </li>
-              ))}
-            </ul>
+        <div className="flex flex-wrap items-center gap-2 pt-3" style={{ borderTop: "1px solid #F1F5F9" }}>
+          <span className="text-[11px] font-bold uppercase" style={{ color: "#94A3B8", letterSpacing: "0.06em" }}>Personal link</span>
+          <code className="text-[12px] px-2 py-1 rounded-md font-mono" style={{ background: "#FAFAFB", color: "#001353", border: "1px solid #EAECF0" }}>{refLink}</code>
+          <button
+            onClick={() => { navigator.clipboard.writeText(refLink).catch(() => {}); }}
+            className="text-[11px] font-bold px-2.5 py-1 rounded-md"
+            style={{ background: "#FFFFFF", color: "#b07400", border: "1px solid rgba(252,183,48,0.32)" }}
+          >
+            Copy link
+          </button>
+          <a
+            href={`mailto:${affiliate.email}`}
+            className="text-[11px] font-bold px-2.5 py-1 rounded-md"
+            style={{ background: "#001353", color: "#FFFFFF" }}
+          >
+            Email
+          </a>
+          {affiliate.phone && (
+            <a
+              href={`https://wa.me/${affiliate.phone.replace(/[^0-9]/g, "")}`}
+              target="_blank" rel="noopener noreferrer"
+              className="text-[11px] font-bold px-2.5 py-1 rounded-md"
+              style={{ background: "#25D366", color: "#FFFFFF" }}
+            >
+              WhatsApp
+            </a>
           )}
         </div>
+      </div>
+
+      {/* Stats parity with the affiliate's own dashboard */}
+      <StatsRow affiliate={affiliate} rank={0} clicks={clicks.length} />
+
+      {/* Funnel */}
+      <FunnelCard clicks={clicks.length} registrations={referrals.length} conversions={converted} />
+
+      {/* Tier progress + performance chart side by side */}
+      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
+        <TierProgressCard affiliate={affiliate} />
+        <PerformanceChart referrals={referrals} />
+      </div>
+
+      {/* Country + activity timeline */}
+      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
+        <CountryBreakdownCard breakdown={breakdown} />
+        <ActivityTimelineCard events={activity} />
+      </div>
+
+      {/* Full referrals table with per-row lead drill-in (Email/WhatsApp/student info).
+          Reuses the Referrals tab UI — filtered to this affiliate, so admin can manage
+          status mutations + see linked register_leads rows without leaving the panel. */}
+      <div>
+        <p className="text-[12px] font-bold uppercase mb-2" style={{ color: "#64748B", letterSpacing: "0.08em" }}>
+          Referrals — click any row to see the full lead
+        </p>
+        <ReferralsTab referrals={referrals} affiliates={[affiliate]} onRefresh={onRefresh} />
+      </div>
+    </div>
+  );
+}
+
+function Field({ label, value, mono = false, small = false }: { label: string; value: string; mono?: boolean; small?: boolean }) {
+  return (
+    <div>
+      <div className="text-[11px] font-bold uppercase mb-0.5" style={{ color: "#94A3B8", letterSpacing: "0.06em" }}>{label}</div>
+      <div
+        className="font-semibold break-words"
+        style={{
+          color: "#001353",
+          fontSize: small ? 11 : 13,
+          fontFamily: mono ? "ui-monospace, SFMono-Regular, Menlo, monospace" : undefined,
+        }}
+      >
+        {value}
       </div>
     </div>
   );
