@@ -31,6 +31,23 @@ export interface AffiliateReferral {
   commission: number;
   created_at: string;
   updated_at: string;
+  lead_id: string | null;
+  email: string | null;
+}
+
+export interface RegisterLead {
+  id: string;
+  full_name: string;
+  email: string;
+  phone: string | null;
+  countries: string | null;
+  intake: string | null;
+  field: string | null;
+  education: string | null;
+  contact_pref: string | null;
+  status: string | null;
+  source: string | null;
+  created_at: string;
 }
 
 export interface AffiliateApplication {

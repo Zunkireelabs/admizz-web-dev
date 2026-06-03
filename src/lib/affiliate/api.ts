@@ -7,6 +7,7 @@ import type {
   CountryBreakdownEntry,
   ActivityEvent,
   LeaderboardEntry,
+  RegisterLead,
   Tier,
 } from "./types";
 
@@ -201,6 +202,18 @@ export function buildActivityFeed(
     })),
   ];
   return feed.sort((a, b) => +new Date(b.at) - +new Date(a.at)).slice(0, limit);
+}
+
+// ─── Admin: drill into the originating register_leads row ─────────────────
+
+export async function getLeadById(id: string): Promise<RegisterLead | null> {
+  const { data, error } = await supabase
+    .from("register_leads")
+    .select("*")
+    .eq("id", id)
+    .maybeSingle();
+  if (error) { console.error("[lead drill-in]", error.message); return null; }
+  return data ?? null;
 }
 
 // ─── Admin: read ───────────────────────────────────────────────────────────
@@ -529,5 +542,5 @@ export async function createReferralFromRegistration(
 }
 
 // Re-export types for convenience
-export type { Affiliate, AffiliateReferral, AffiliateApplication, AffiliateClick, CountryBreakdownEntry, ActivityEvent, LeaderboardEntry, Tier, ReferralStatus } from "./types";
+export type { Affiliate, AffiliateReferral, AffiliateApplication, AffiliateClick, CountryBreakdownEntry, ActivityEvent, LeaderboardEntry, RegisterLead, Tier, ReferralStatus } from "./types";
 type ReferralStatus = import("./types").ReferralStatus;
