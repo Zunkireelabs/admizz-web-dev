@@ -4,6 +4,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import React from "react";
 import { supabase } from "@/lib/supabase";
+import { createReferralFromRegistration } from "@/lib/affiliate/api";
+
+// Read the first-touch affiliate referral cookie (set by AffiliateRefCapture).
+function readAffiliateRefCookie(): string | null {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.split("; ").find(c => c.startsWith("admizz_ref="));
+  if (!match) return null;
+  try {
+    return decodeURIComponent(match.split("=")[1] ?? "");
+  } catch {
+    return null;
+  }
+}
 
 interface RegisterFormProps {
   onStepChange?: (step: number) => void;
@@ -632,6 +645,22 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
 
       if (supabaseResult.status === "rejected") throw supabaseResult.reason;
       if (supabaseResult.value.error) throw supabaseResult.value.error;
+
+      // Auto-link this registration to the referring affiliate (if any).
+      // Fire-and-forget: never blocks the student's success screen.
+      const refCode = readAffiliateRefCookie();
+      if (refCode) {
+        createReferralFromRegistration(refCode, {
+          full_name: `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
+          countries: form.countries.join(", "),
+        })
+          .then(result => {
+            if (!result.ok) {
+              console.warn("[affiliate referral] not created:", result.error);
+            }
+          })
+          .catch(err => console.warn("[affiliate referral] unexpected:", err));
+      }
 
       setDone(true);
       onSubmitSuccess?.();
