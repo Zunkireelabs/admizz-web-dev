@@ -88,7 +88,9 @@ export default function ActivityTimelineCard({ events }: Props) {
                       <p className="text-[11px] mt-0.5 flex items-center gap-1.5" style={{ color: "#94A3B8" }}>
                         <span>{ev.stage}</span>
                         <span>·</span>
-                        <span style={{ color: dot, fontWeight: 600 }}>{ev.status}</span>
+                        <span style={{ color: dot, fontWeight: 600 }}>
+                          {ev.status === "pending" ? "Pending verification" : ev.status}
+                        </span>
                       </p>
                     </>
                   )}

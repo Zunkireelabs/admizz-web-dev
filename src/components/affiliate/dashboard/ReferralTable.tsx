@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { AffiliateReferral, ReferralStatus } from "@/lib/affiliate/types";
 
 const STATUS_STYLE: Record<ReferralStatus, { bg: string; color: string; border: string; label: string; dot: string }> = {
-  pending:   { bg: "rgba(148,163,184,0.1)",  color: "#475569", border: "rgba(148,163,184,0.3)", label: "Awaiting conversion", dot: "#64748B" },
+  pending:   { bg: "rgba(148,163,184,0.1)",  color: "#475569", border: "rgba(148,163,184,0.3)", label: "Pending verification", dot: "#64748B" },
   converted: { bg: "rgba(34,197,94,0.1)",    color: "#15803d", border: "rgba(34,197,94,0.25)",  label: "Converted",            dot: "#16a34a" },
   paid:      { bg: "rgba(252,183,48,0.1)",   color: "#b07400", border: "rgba(252,183,48,0.3)",  label: "Paid out",             dot: "#FCB730" },
 };
