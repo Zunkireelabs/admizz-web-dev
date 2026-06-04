@@ -42,30 +42,22 @@ const CHANNEL_LABEL: Record<string, { emoji: string; name: string }> = {
   email:     { emoji: "✉️", name: "Email"     },
 };
 
-type AttribFilter = "all" | "affiliated" | "direct";
-
 export default function LeadsTab({ leads, onRefresh }: Props) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [search,     setSearch]     = useState("");
-  const [filter,     setFilter]     = useState<AttribFilter>("all");
   const [updatingId, setUpdatingId] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
+    if (!q) return leads;
     return leads.filter(row => {
-      if (filter === "affiliated" && !row.referral) return false;
-      if (filter === "direct"     &&  row.referral) return false;
-      if (!q) return true;
       const hay = [
         row.lead.full_name, row.lead.email, row.lead.phone, row.lead.source,
         row.affiliate_name, row.referral?.affiliate_code,
       ].filter(Boolean).join(" ").toLowerCase();
       return hay.includes(q);
     });
-  }, [leads, search, filter]);
-
-  const totalAffiliated = leads.filter(r => r.referral).length;
-  const totalDirect     = leads.length - totalAffiliated;
+  }, [leads, search]);
 
   const changeStatus = async (row: AdminLeadRow, status: ReferralStatus) => {
     if (!row.referral) return;
@@ -85,14 +77,13 @@ export default function LeadsTab({ leads, onRefresh }: Props) {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="text-[12px] font-bold uppercase mb-1" style={{ color: "#64748B", letterSpacing: "0.08em" }}>
-            Lead Inbox
+            Affiliate Leads
           </p>
           <h3 className="text-base font-extrabold tracking-tight" style={{ color: "#001353" }}>
-            {leads.length} total {leads.length === 1 ? "lead" : "leads"}
-            <span style={{ color: "#64748B", fontWeight: 500 }}> · {totalAffiliated} via affiliate · {totalDirect} direct</span>
+            {leads.length} affiliate {leads.length === 1 ? "lead" : "leads"}
           </h3>
           <p className="text-xs mt-0.5" style={{ color: "#64748B" }}>
-            Every lead captured via the website. Click a row to see the full journey + update status.
+            Leads captured via affiliate links. Click a row to see the full journey + update status.
           </p>
         </div>
         <div className="relative w-full sm:w-auto">
@@ -110,31 +101,6 @@ export default function LeadsTab({ leads, onRefresh }: Props) {
         </div>
       </div>
 
-      {/* Filters */}
-      <div className="flex flex-wrap gap-1.5">
-        {([
-          { key: "all" as AttribFilter,        label: "All",        count: leads.length },
-          { key: "affiliated" as AttribFilter, label: "Affiliated", count: totalAffiliated },
-          { key: "direct" as AttribFilter,     label: "Direct",     count: totalDirect },
-        ]).map(f => {
-          const active = filter === f.key;
-          return (
-            <button
-              key={f.key}
-              onClick={() => setFilter(f.key)}
-              className="px-3 py-1.5 rounded-full text-xs font-bold transition-all"
-              style={{
-                background: active ? "#001353" : "#FFFFFF",
-                color:      active ? "#FFFFFF" : "#475569",
-                border:     active ? "1px solid #001353" : "1px solid #EAECF0",
-              }}
-            >
-              {f.label} <span style={{ opacity: 0.6 }}>({f.count})</span>
-            </button>
-          );
-        })}
-      </div>
-
       {/* Banner: scope limitation */}
       <div
         className="flex items-start gap-2 px-3.5 py-2.5 rounded-xl text-[12px]"
@@ -144,7 +110,7 @@ export default function LeadsTab({ leads, onRefresh }: Props) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
         <span>
-          Shows website-captured leads. Iframe forms (test-prep, register-v2) and CRM-direct entries are not yet integrated — coming soon.
+          Shows leads attributed to an affiliate. Iframe forms (test-prep, register-v2) don&apos;t yet pass the referral code through — coming soon.
         </span>
       </div>
 
@@ -179,12 +145,12 @@ export default function LeadsTab({ leads, onRefresh }: Props) {
                         </svg>
                       </div>
                       <p className="text-sm font-semibold" style={{ color: "#001353" }}>
-                        {leads.length === 0 ? "No leads yet" : "No leads match this filter"}
+                        {leads.length === 0 ? "No affiliate leads yet" : "No leads match your search"}
                       </p>
                       <p className="text-xs mt-1" style={{ color: "#64748B" }}>
                         {leads.length === 0
-                          ? "Leads will appear here as students register through the website."
-                          : "Try a different search or filter."}
+                          ? "Leads will appear here as students register through affiliate links."
+                          : "Try a different search term."}
                       </p>
                     </div>
                   </td>
@@ -227,17 +193,12 @@ export default function LeadsTab({ leads, onRefresh }: Props) {
                         {row.lead.phone ?? "—"}
                       </td>
                       <td className="px-4 py-3.5 whitespace-nowrap text-[13px]">
-                        {row.referral ? (
+                        {row.referral && (
                           <div className="flex items-center gap-1.5">
                             <span className="font-bold" style={{ color: "#b07400" }}>{row.referral.affiliate_code}</span>
                             <span style={{ color: "#64748B" }}>· {row.affiliate_name?.split(" ")[0] ?? ""}</span>
                             {chan && <span style={{ color: "#94A3B8" }}>· {chan.emoji} {chan.name}</span>}
                           </div>
-                        ) : (
-                          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold" style={{ background: "rgba(148,163,184,0.1)", color: "#64748B", border: "1px solid rgba(148,163,184,0.3)" }}>
-                            <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#94A3B8" }} />
-                            Direct
-                          </span>
                         )}
                       </td>
                       <td className="px-4 py-3.5 whitespace-nowrap text-[12.5px]" style={{ color: "#475569" }}>
@@ -356,16 +317,6 @@ function LeadDrillIn({
                   {referral.commission > 0 && <span> · NPR {referral.commission.toLocaleString()}</span>}
                 </div>
                 <div className="text-[11px]" style={{ color: "#94A3B8" }}>last updated {formatAbs(referral.updated_at)}</div>
-              </div>
-            </li>
-          )}
-          {!referral && (
-            <li className="flex items-start gap-3">
-              <span className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style={{ background: "#94A3B8" }} />
-              <div>
-                <div style={{ color: "#475569" }}>
-                  <span className="font-bold">No affiliate attribution</span> — direct registration
-                </div>
               </div>
             </li>
           )}

@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
+import { Suspense, useMemo, useState, type ReactNode } from "react";
+import { useSearchParams } from "next/navigation";
 import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick, AdminLeadRow } from "@/lib/affiliate/types";
 import { buildCountryBreakdown, buildActivityFeed } from "@/lib/affiliate/api";
 import OverviewStats from "./OverviewStats";
@@ -33,8 +34,23 @@ const TAB_DESCRIPTIONS: Record<Tab, string> = {
   leads:        "Every lead captured via the website, with affiliate attribution and full journey.",
 };
 
-export default function AdminShell({ affiliates, applications, referrals, clicks, leads, onLogout, onRefresh }: Props) {
-  const [tab, setTab] = useState<Tab>("applications");
+export default function AdminShell(props: Props) {
+  return (
+    <Suspense fallback={null}>
+      <AdminShellInner {...props} />
+    </Suspense>
+  );
+}
+
+const VALID_TABS: Tab[] = ["applications", "affiliates", "referrals", "payouts", "leads"];
+
+function AdminShellInner({ affiliates, applications, referrals, clicks, leads, onLogout, onRefresh }: Props) {
+  const params = useSearchParams();
+  const initialTab: Tab = (() => {
+    const q = params.get("tab");
+    return q && (VALID_TABS as string[]).includes(q) ? (q as Tab) : "applications";
+  })();
+  const [tab, setTab] = useState<Tab>(initialTab);
   const [refreshing, setRefreshing] = useState(false);
   const pendingCount = applications.filter(a => a.status === "new").length;
 

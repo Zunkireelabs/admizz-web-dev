@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { getAllAffiliates, getAllApplications, getAllReferrals, getAllClicks, getAllLeads } from "@/lib/affiliate/api";
+import { getAllAffiliates, getAllApplications, getAllReferrals, getAllClicks, getAffiliateLeads } from "@/lib/affiliate/api";
 import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick, AdminLeadRow } from "@/lib/affiliate/types";
 import AdminLogin from "@/components/affiliate/admin/AdminLogin";
 import AdminShell from "@/components/affiliate/admin/AdminShell";
@@ -53,7 +53,7 @@ export default function AffiliateAdminPage() {
       getAllApplications(),
       getAllReferrals(),
       getAllClicks(2000),
-      getAllLeads(500),
+      getAffiliateLeads(500),
     ]);
     setAffiliates(affs);
     setApplications(apps);
@@ -79,7 +79,7 @@ export default function AffiliateAdminPage() {
       getAllApplications(),
       getAllReferrals(),
       getAllClicks(2000),
-      getAllLeads(500),
+      getAffiliateLeads(500),
     ]);
     setAffiliates(affs);
     setApplications(apps);
