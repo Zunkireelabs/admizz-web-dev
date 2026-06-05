@@ -4,10 +4,12 @@ import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { readAffiliateRefCookie } from "@/lib/affiliate/refCookie";
+import { DIAL_CODES, dialSpec, phoneDigits } from "@/lib/dialCodes";
 
 type FormData = {
   fullName: string;
   email: string;
+  dialCode: string;
   phone: string;
   city: string;
   organization: string;
@@ -19,7 +21,7 @@ type FormData = {
 };
 
 const EMPTY: FormData = {
-  fullName: "", email: "", phone: "", city: "", organization: "",
+  fullName: "", email: "", dialCode: "NP", phone: "", city: "", organization: "",
   promotionMethod: "", platform: "", profileLink: "",
   hasReferred: "", motivation: "",
 };
@@ -68,8 +70,17 @@ function Input({
 
 // ─── Phone input with +977 prefix ────────────────────────────────────
 
-function PhoneInput({ value, onChange }: { value: string; onChange: (n: keyof FormData, v: string) => void }) {
+function PhoneInput({
+  dialCodeKey,
+  phone,
+  onChange,
+}: {
+  dialCodeKey: string;
+  phone: string;
+  onChange: (n: keyof FormData, v: string) => void;
+}) {
   const [focused, setFocused] = useState(false);
+  const spec = dialSpec(dialCodeKey);
   return (
     <div className="flex flex-col gap-1.5">
       <label className="text-[11px] font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.5)" }}>
@@ -83,23 +94,36 @@ function PhoneInput({ value, onChange }: { value: string; onChange: (n: keyof Fo
           boxShadow: focused ? "0 0 0 3px rgba(252,183,48,0.12)" : "none",
         }}
       >
-        <span
-          className="px-3.5 flex items-center text-sm font-bold select-none flex-shrink-0"
+        <select
+          value={dialCodeKey}
+          onChange={e => onChange("dialCode", e.target.value)}
+          className="px-2.5 sm:px-3 py-3 text-sm font-bold outline-none flex-shrink-0 cursor-pointer"
           style={{
-            borderRight: "1px solid rgba(255,255,255,0.1)",
-            color: focused ? "#FCB730" : "rgba(255,255,255,0.4)",
             background: "rgba(255,255,255,0.04)",
+            color: focused ? "#FCB730" : "#fff",
+            borderRight: "1px solid rgba(255,255,255,0.1)",
             transition: "color 0.2s",
+            appearance: "none",
+            paddingRight: "1.75rem",
+            backgroundImage:
+              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23FCB730' d='M0 0l5 6 5-6z'/></svg>\")",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "right 0.6rem center",
           }}
+          aria-label="Country dial code"
         >
-          +977
-        </span>
+          {DIAL_CODES.map(d => (
+            <option key={d.key} value={d.key} style={{ background: "#0a1f6b", color: "#fff" }}>
+              {d.label}
+            </option>
+          ))}
+        </select>
         <input
           type="tel"
-          value={value}
+          value={phone}
           onChange={e => onChange("phone", e.target.value)}
-          placeholder="98XXXXXXXX"
-          className="flex-1 px-3 py-3 text-sm outline-none"
+          placeholder={"X".repeat(spec.digits)}
+          className="flex-1 px-3 py-3 text-sm outline-none min-w-0"
           style={{ background: "transparent", color: "#fff" }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -223,7 +247,10 @@ function validate(step: number, form: FormData): string | null {
   if (step === 0) {
     if (!form.fullName.trim()) return "Please enter your full name.";
     if (!form.email.trim() || !form.email.includes("@")) return "Please enter a valid email address.";
-    if (!form.phone.trim()) return "Please enter your phone number.";
+    const spec = dialSpec(form.dialCode);
+    const digits = phoneDigits(form.phone);
+    if (!digits) return "Please enter your phone number.";
+    if (digits.length !== spec.digits) return `${spec.country} numbers must be ${spec.digits} digits.`;
     if (!form.city.trim()) return "Please enter your city.";
   }
   if (step === 1) {
@@ -231,14 +258,16 @@ function validate(step: number, form: FormData): string | null {
   }
   if (step === 2) {
     if (!form.hasReferred) return "Please select whether you have referred students before.";
-    if (form.motivation.trim().length < 20) return "Please write at least 20 characters about your motivation.";
   }
   return null;
 }
 
 // ─── Main component ───────────────────────────────────────────────────
 
-export default function ApplicationForm() {
+export default function ApplicationForm({
+  mode = "section",
+}: { mode?: "section" | "modal" } = {}) {
+  const isModal = mode === "modal";
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormData>(EMPTY);
   const [done, setDone] = useState(false);
@@ -291,7 +320,7 @@ export default function ApplicationForm() {
       const { error: insertError } = await supabase.from("affiliate_leads").insert({
         full_name:        form.fullName.trim(),
         email,
-        phone:            `+977${form.phone.trim()}`,
+        phone:            `${dialSpec(form.dialCode).dial}${phoneDigits(form.phone)}`,
         city:             form.city.trim(),
         organization:     form.organization.trim() || null,
         promotion_method: form.promotionMethod,
@@ -300,14 +329,14 @@ export default function ApplicationForm() {
         has_referred:     form.hasReferred,
         motivation:       form.motivation.trim(),
         status:           "new",
-        source:           "website",
         affiliate_code:   affiliateCode,
       });
       if (insertError) throw insertError;
       setDone(true);
     } catch (err) {
       console.error("Affiliate application submit failed:", err);
-      setError("Something went wrong. Please try again in a moment.");
+      const msg = err instanceof Error ? err.message : "Unknown error";
+      setError(`Submit failed: ${msg}`);
     } finally {
       setSubmitting(false);
     }
@@ -328,36 +357,45 @@ export default function ApplicationForm() {
 
   return (
     <section
-      id="apply-form"
-      className="py-24 md:py-28 relative overflow-hidden"
-      style={{ background: "#020613" }}
+      id={isModal ? undefined : "apply-form"}
+      className={isModal ? "relative" : "py-16 md:py-28 relative overflow-hidden"}
+      style={isModal ? undefined : { background: "#060c1f" }}
     >
-      {/* Premium atmosphere */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 70% 55% at 50% 0%, rgba(49,66,156,0.3) 0%, transparent 65%)" }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 50% 40% at 50% 100%, rgba(252,183,48,0.06) 0%, transparent 60%)" }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.18]"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)",
-          backgroundSize: "44px 44px",
-        }}
-      />
-      {/* Top accent line */}
-      <div className="absolute top-0 left-0 right-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(252,183,48,0.4), transparent)" }} />
+      {!isModal && (
+        <>
+          {/* Top hairline — designed seam with light neighbor */}
+          <div
+            className="absolute top-0 left-0 right-0 h-px pointer-events-none z-10"
+            style={{ background: "linear-gradient(90deg, transparent, rgba(252,183,48,0.55), transparent)" }}
+          />
+          {/* Premium atmosphere */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse 70% 55% at 50% 0%, rgba(49,66,156,0.3) 0%, transparent 65%)" }}
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse 50% 40% at 50% 100%, rgba(252,183,48,0.06) 0%, transparent 60%)" }}
+          />
+          <div
+            className="absolute inset-0 pointer-events-none opacity-[0.18]"
+            style={{
+              backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)",
+              backgroundSize: "44px 44px",
+            }}
+          />
+          {/* Top accent line */}
+          <div className="absolute top-0 left-0 right-0 h-px"
+            style={{ background: "linear-gradient(90deg, transparent, rgba(252,183,48,0.4), transparent)" }} />
+        </>
+      )}
 
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-12 md:mb-14">
+        <div className={isModal ? "flex flex-col items-center gap-3 mb-8" : "text-center mb-12 md:mb-14"}>
           <span
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase mb-6"
+            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase ${isModal ? "" : "mb-6"}`}
             style={{
               background: "rgba(253,237,34,0.08)",
               border: "1px solid rgba(253,237,34,0.22)",
@@ -368,14 +406,18 @@ export default function ApplicationForm() {
             <span className="w-1 h-1 rounded-full" style={{ background: "#FDED22" }} />
             Join the Program
           </span>
-          <h2 className="text-[40px] md:text-[52px] font-extrabold text-white leading-[1.05] tracking-[-0.02em]">
-            Apply in 5 Minutes
-          </h2>
-          <p className="mt-5 text-base md:text-[17px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.5)" }}>
-            Free to join. Approval within 48 hours. No referral targets.
-          </p>
+          {!isModal && (
+            <>
+              <h2 className="text-[40px] md:text-[52px] font-extrabold text-white leading-[1.05] tracking-[-0.02em]">
+                Sign up in 5 minutes
+              </h2>
+              <p className="mt-5 text-base md:text-[17px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.5)" }}>
+                Free to join. Approval within 48 hours. No referral targets.
+              </p>
+            </>
+          )}
           {/* Social proof trust signal */}
-          <div className="mt-6 inline-flex items-center gap-3 px-4 py-2.5 rounded-full"
+          <div className={`${isModal ? "mt-0" : "mt-6"} inline-flex items-center gap-3 px-4 py-2.5 rounded-full`}
             style={{
               background: "rgba(252,183,48,0.08)",
               border: "1px solid rgba(252,183,48,0.25)",
@@ -419,7 +461,7 @@ export default function ApplicationForm() {
           <div className="absolute top-0 left-0 right-0 h-32 pointer-events-none"
             style={{ background: "radial-gradient(ellipse 80% 100% at 50% 0%, rgba(252,183,48,0.06) 0%, transparent 70%)" }} />
 
-          <div className="p-8 md:p-10 relative">
+          <div className="p-5 sm:p-8 md:p-10 relative">
             <AnimatePresence mode="wait">
               {done ? (
                 /* ── Success state ── */
@@ -511,10 +553,10 @@ export default function ApplicationForm() {
                           </div>
                           <Input label="Email Address" name="email" type="email" value={form.email} onChange={update}
                             placeholder="you@email.com" required />
-                          <PhoneInput value={form.phone} onChange={update} />
+                          <PhoneInput dialCodeKey={form.dialCode} phone={form.phone} onChange={update} />
                           <Input label="City" name="city" value={form.city} onChange={update}
                             placeholder="Kathmandu" required />
-                          <Input label="College / University / Organization" name="organization" value={form.organization}
+                          <Input label="Institution / Organization" name="organization" value={form.organization}
                             onChange={update} placeholder="Where are you based?" />
                         </motion.div>
                       )}
@@ -600,7 +642,6 @@ export default function ApplicationForm() {
                             <label className="text-[11px] font-bold uppercase tracking-widest"
                               style={{ color: "rgba(255,255,255,0.5)" }}>
                               Why do you want to join Admizz Affiliates?
-                              <span className="ml-1" style={{ color: "#FCB730" }}>*</span>
                             </label>
                             <textarea
                               rows={5}
@@ -625,7 +666,7 @@ export default function ApplicationForm() {
                             />
                             <div className="flex items-center justify-between">
                               <span className="text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
-                                Minimum 20 characters
+                                Optional
                               </span>
                               <span
                                 className="text-xs font-medium transition-colors duration-200"
@@ -684,7 +725,7 @@ export default function ApplicationForm() {
                         <motion.button
                           type="button"
                           onClick={next}
-                          className="px-8 py-3.5 rounded-[10px] text-sm font-extrabold text-black"
+                          className="px-6 sm:px-8 py-3.5 rounded-[10px] text-sm font-extrabold text-black"
                           style={{ background: "#FDED22", boxShadow: "0 4px 20px rgba(253,237,34,0.3)" }}
                           whileHover={reduce ? {} : { scale: 1.04, boxShadow: "0 6px 28px rgba(253,237,34,0.5)" }}
                           whileTap={{ scale: 0.97 }}
@@ -695,7 +736,7 @@ export default function ApplicationForm() {
                         <motion.button
                           type="submit"
                           disabled={overLimit || submitting}
-                          className="px-8 py-3.5 rounded-[10px] text-sm font-extrabold text-black transition-opacity duration-200 flex items-center gap-2"
+                          className="px-6 sm:px-8 py-3.5 rounded-[10px] text-sm font-extrabold text-black transition-opacity duration-200 flex items-center gap-2"
                           style={{
                             background: "#FDED22",
                             boxShadow: "0 4px 20px rgba(253,237,34,0.3)",
@@ -718,7 +759,7 @@ export default function ApplicationForm() {
                               Submitting…
                             </>
                           ) : (
-                            "Submit Application →"
+                            "Sign Up →"
                           )}
                         </motion.button>
                       )}

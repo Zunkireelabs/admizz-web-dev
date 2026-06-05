@@ -46,7 +46,7 @@ const INITIAL: FormData = {
   firstName: "",
   lastName: "",
   email: "",
-  dialCode: "+977",
+  dialCode: "NP",
   phone: "",
   countries: [],
   intake: "",
@@ -55,19 +55,22 @@ const INITIAL: FormData = {
   contactPref: "",
 };
 
-const DIAL_CODES = [
-  { code: "+977", label: "🇳🇵 +977" },
-  { code: "+91",  label: "🇮🇳 +91"  },
-  { code: "+880", label: "🇧🇩 +880" },
-  { code: "+260", label: "🇿🇲 +260" },
-  { code: "+44",  label: "🇬🇧 +44"  },
-  { code: "+1",   label: "🇺🇸 +1"   },
-  { code: "+61",  label: "🇦🇺 +61"  },
-  { code: "+1",   label: "🇨🇦 +1"   },
-  { code: "+64",  label: "🇳🇿 +64"  },
-  { code: "+49",  label: "🇩🇪 +49"  },
-  { code: "+971", label: "🇦🇪 +971" },
+const DIAL_CODES: { key: string; dial: string; label: string; digits: number; country: string }[] = [
+  { key: "NP", dial: "+977", label: "🇳🇵 +977", digits: 10, country: "Nepal" },
+  { key: "IN", dial: "+91",  label: "🇮🇳 +91",  digits: 10, country: "India" },
+  { key: "BD", dial: "+880", label: "🇧🇩 +880", digits: 10, country: "Bangladesh" },
+  { key: "ZM", dial: "+260", label: "🇿🇲 +260", digits: 9,  country: "Zambia" },
+  { key: "GB", dial: "+44",  label: "🇬🇧 +44",  digits: 10, country: "UK" },
+  { key: "US", dial: "+1",   label: "🇺🇸 +1",   digits: 10, country: "USA" },
+  { key: "AU", dial: "+61",  label: "🇦🇺 +61",  digits: 9,  country: "Australia" },
+  { key: "CA", dial: "+1",   label: "🇨🇦 +1",   digits: 10, country: "Canada" },
+  { key: "NZ", dial: "+64",  label: "🇳🇿 +64",  digits: 9,  country: "New Zealand" },
+  { key: "DE", dial: "+49",  label: "🇩🇪 +49",  digits: 11, country: "Germany" },
+  { key: "AE", dial: "+971", label: "🇦🇪 +971", digits: 9,  country: "UAE" },
 ];
+
+const dialSpec = (key: string) => DIAL_CODES.find(d => d.key === key) ?? DIAL_CODES[0];
+const phoneDigits = (s: string) => s.replace(/\D/g, "");
 
 const COUNTRIES = ["🇬🇧 UK", "🇺🇸 USA", "🇨🇦 Canada", "🇦🇺 Australia", "🇮🇳 India", "🇩🇪 Germany", "🌍 Other"];
 
@@ -93,7 +96,7 @@ function isStepValid(step: number, form: FormData): boolean {
     return (
       form.firstName.trim().length >= 2 &&
       /^\S+@\S+\.\S+$/.test(form.email.trim()) &&
-      form.phone.trim().replace(/\D/g, "").length >= 6
+      phoneDigits(form.phone).length === dialSpec(form.dialCode).digits
     );
   if (step === 1) {
     return form.countries.length >= 1 && form.countries.length <= 3 && form.field.trim().length >= 2;
@@ -108,8 +111,11 @@ function fieldError(field: keyof FormData, form: FormData): string | null {
     return "Please enter your first name.";
   if (field === "email" && form.email.length > 0 && !/^\S+@\S+\.\S+$/.test(form.email.trim()))
     return "Please enter a valid email address.";
-  if (field === "phone" && form.phone.length > 0 && form.phone.replace(/\D/g, "").length < 6)
-    return "Please enter a valid phone number.";
+  if (field === "phone" && form.phone.length > 0) {
+    const spec = dialSpec(form.dialCode);
+    if (phoneDigits(form.phone).length !== spec.digits)
+      return `${spec.country} numbers must be ${spec.digits} digits.`;
+  }
   return null;
 }
 
@@ -372,28 +378,42 @@ function Step1({ form, set, theme }: { form: FormData; set: (p: Partial<FormData
           <div className="flex gap-2">
             <select
               value={form.dialCode}
-              onChange={(e) => set({ dialCode: e.target.value })}
+              onChange={(e) => {
+                const nextDigits = dialSpec(e.target.value).digits;
+                set({ dialCode: e.target.value, phone: phoneDigits(form.phone).slice(0, nextDigits) });
+              }}
               className="rounded-xl px-3 py-3 text-[13px] outline-none flex-shrink-0"
               style={{ border: "1.5px solid #E0E6F2", color: "#0D1282", background: "#FFFFFF", minWidth: 104 }}
             >
               {DIAL_CODES.map((d) => (
-                <option key={d.label} value={d.code}>{d.label}</option>
+                <option key={d.key} value={d.key}>{d.label}</option>
               ))}
             </select>
             <div className="relative flex-1">
-              <input
-                type="tel"
-                value={form.phone}
-                onChange={(e) => set({ phone: e.target.value })}
-                placeholder="98xxxxxxxx"
-                autoComplete="tel-national"
-                className="w-full rounded-xl px-4 py-3 text-[14px] outline-none transition-all duration-200"
-                style={{
-                  border: `1.5px solid ${fieldError("phone", form) && form.phone.length > 0 ? "#E04562" : form.phone.replace(/\D/g, "").length >= 6 ? theme.accent : "#E0E6F2"}`,
-                  color: "#0D1282",
-                  background: form.phone.replace(/\D/g, "").length >= 6 ? theme.bg : "#FFFFFF",
-                }}
-              />
+              {(() => {
+                const spec = dialSpec(form.dialCode);
+                const isComplete = phoneDigits(form.phone).length === spec.digits;
+                return (
+                  <input
+                    type="tel"
+                    inputMode="numeric"
+                    value={form.phone}
+                    onChange={(e) => {
+                      const next = phoneDigits(e.target.value).replace(/^0+/, "");
+                      set({ phone: next.slice(0, spec.digits) });
+                    }}
+                    maxLength={spec.digits}
+                    placeholder={"x".repeat(spec.digits)}
+                    autoComplete="tel-national"
+                    className="w-full rounded-xl px-4 py-3 text-[14px] outline-none transition-all duration-200"
+                    style={{
+                      border: `1.5px solid ${fieldError("phone", form) && form.phone.length > 0 ? "#E04562" : isComplete ? theme.accent : "#E0E6F2"}`,
+                      color: "#0D1282",
+                      background: isComplete ? theme.bg : "#FFFFFF",
+                    }}
+                  />
+                );
+              })()}
             </div>
           </div>
           {fieldError("phone", form) && form.phone.length > 0 && (
@@ -598,7 +618,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
         first_name: payload.firstName.trim(),
         last_name:  payload.lastName.trim() || null,
         email:      payload.email.trim(),
-        phone:      `${payload.dialCode} ${payload.phone.trim()}`,
+        phone:      `${dialSpec(payload.dialCode).dial} ${payload.phone.trim()}`,
         custom_fields: {
           countries:          payload.countries.join(", "),
           intake:             payload.intake,
@@ -621,7 +641,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
           id:           leadId,
           full_name:    `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
           email:        form.email.trim(),
-          phone:        `${form.dialCode} ${form.phone.trim()}`,
+          phone:        `${dialSpec(form.dialCode).dial} ${form.phone.trim()}`,
           countries:    form.countries.join(", "),
           intake:       form.intake,
           field:        form.field,

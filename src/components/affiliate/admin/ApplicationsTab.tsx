@@ -4,6 +4,68 @@ import { useState } from "react";
 import type { AffiliateApplication } from "@/lib/affiliate/types";
 import { approveApplication, rejectApplication } from "@/lib/affiliate/api";
 
+function DetailRow({
+  label, value, copyable = false, link, multiline = false, mono = false, className = "",
+}: {
+  label: string;
+  value: string;
+  copyable?: boolean;
+  link?: string;
+  multiline?: boolean;
+  mono?: boolean;
+  className?: string;
+}) {
+  const isEmpty = !value || value.trim() === "";
+  return (
+    <div className={`flex flex-col gap-1 ${className}`}>
+      <span
+        className="text-[10.5px] font-bold uppercase tracking-widest"
+        style={{ color: "#94A3B8" }}
+      >
+        {label}
+      </span>
+      {isEmpty ? (
+        <span className="text-[13px]" style={{ color: "#CBD5E1", fontStyle: "italic" }}>—</span>
+      ) : link ? (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[13px] font-medium underline break-all"
+          style={{ color: "#b07400" }}
+        >
+          {value}
+        </a>
+      ) : (
+        <div className="flex items-start gap-2">
+          <span
+            className={`text-[13.5px] ${multiline ? "" : "truncate"} ${mono ? "font-mono" : "font-medium"}`}
+            style={{
+              color: "#1f2a47",
+              whiteSpace: multiline ? "pre-wrap" : "normal",
+              wordBreak: "break-word",
+            }}
+          >
+            {value}
+          </span>
+          {copyable && (
+            <button
+              type="button"
+              onClick={() => navigator.clipboard?.writeText(value)}
+              className="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded transition-colors flex-shrink-0"
+              style={{ background: "#F1F2F6", color: "#64748B", letterSpacing: "0.06em" }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#FCB73022"; e.currentTarget.style.color = "#b07400"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#F1F2F6"; e.currentTarget.style.color = "#64748B"; }}
+            >
+              Copy
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function formatRelativeDate(iso: string): string {
   const date = new Date(iso);
   const now = new Date();
@@ -28,6 +90,7 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
   const [approvedCodes, setApprovedCodes] = useState<Record<string, string>>({});
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const showError = (msg: string) => {
     setErrorMsg(msg);
@@ -152,21 +215,30 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
         const isLoading = loadingId === app.id;
         const assignedCode = approvedCodes[app.id];
         const isPending = app.status === "new";
+        const isExpanded = expandedId === app.id;
         return (
           <div
             key={app.id}
-            className="rounded-2xl px-5 py-5 transition-all duration-200"
+            className="rounded-2xl px-5 py-5 transition-all duration-200 cursor-pointer"
             style={{
               background: "#FFFFFF",
               border: isPending ? "1px solid #EAECF0" : "1px solid #F1F2F6",
               boxShadow: isPending ? "0 1px 3px rgba(16,24,40,0.04)" : "none",
               opacity: isPending ? 1 : 0.7,
             }}
+            onClick={() => setExpandedId(isExpanded ? null : app.id)}
           >
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="flex-1 min-w-0">
                 {/* Name + status */}
                 <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <svg
+                    className="w-4 h-4 transition-transform duration-200"
+                    style={{ color: "#94A3B8", transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)" }}
+                    fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
                   <span className="font-bold text-base" style={{ color: "#001353" }}>{app.full_name}</span>
                   {app.status === "approved" && (
                     <span
@@ -275,7 +347,7 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
 
               {/* Action buttons */}
               {isPending && (
-                <div className="flex gap-2 flex-shrink-0">
+                <div className="flex gap-2 flex-shrink-0" onClick={e => e.stopPropagation()}>
                   <button
                     onClick={() => handleApprove(app)}
                     disabled={isLoading}
@@ -321,6 +393,30 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
                 </div>
               )}
             </div>
+
+            {/* Expanded detail panel */}
+            {isExpanded && (
+              <div
+                className="mt-4 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-[13px]"
+                style={{ borderTop: "1px solid #EAECF0", color: "#1f2a47" }}
+                onClick={e => e.stopPropagation()}
+              >
+                <DetailRow label="Full name" value={app.full_name} />
+                <DetailRow label="Email" value={app.email} copyable />
+                <DetailRow label="Phone" value={app.phone} copyable />
+                <DetailRow label="City" value={app.city} />
+                <DetailRow label="Institution / Organization" value={app.organization} />
+                <DetailRow label="Promotion method" value={app.promotion_method} />
+                <DetailRow label="Platform" value={app.platform} />
+                <DetailRow label="Audience size" value={app.audience_size} />
+                <DetailRow label="Prior referral experience" value={app.has_referred ? "Yes" : "No"} />
+                <DetailRow label="Affiliate code (referrer)" value={app.affiliate_code ?? ""} mono />
+                <DetailRow label="Application status" value={app.status} />
+                <DetailRow label="Submitted at" value={new Date(app.created_at).toLocaleString("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })} />
+                <DetailRow label="Profile link" value={app.profile_link} link={app.profile_link} className="sm:col-span-2" />
+                <DetailRow label="Motivation (full)" value={app.motivation} multiline className="sm:col-span-2" />
+              </div>
+            )}
           </div>
         );
       })}

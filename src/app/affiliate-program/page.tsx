@@ -4,14 +4,11 @@ import AffiliateHero from "@/components/affiliate/AffiliateHero";
 import WhoIsThisFor from "@/components/affiliate/WhoIsThisFor";
 import BenefitsBento from "@/components/affiliate/BenefitsBento";
 import HowItWorks from "@/components/affiliate/HowItWorks";
-import CommissionTable from "@/components/affiliate/CommissionTable";
-import AffiliateTiers from "@/components/affiliate/AffiliateTiers";
-import ResourcesSection from "@/components/affiliate/ResourcesSection";
-import SocialProofBar from "@/components/affiliate/SocialProofBar";
-import AffiliateFAQ from "@/components/affiliate/AffiliateFAQ";
-import ApplicationForm from "@/components/affiliate/ApplicationForm";
+import EarningsAndTiers from "@/components/affiliate/EarningsAndTiers";
 import AffiliateTestimonials from "@/components/affiliate/AffiliateTestimonials";
-import FinalCTA from "@/components/affiliate/FinalCTA";
+import AffiliateFAQ from "@/components/affiliate/AffiliateFAQ";
+import SignupCTA from "@/components/affiliate/SignupCTA";
+import { SignupModalProvider } from "@/components/affiliate/SignupModal";
 
 export const metadata: Metadata = {
   title: "Affiliate Program — Admizz Education",
@@ -61,21 +58,19 @@ export default function AffiliateProgramPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main style={{ backgroundColor: "#020818" }}>
-        <AffiliateLoginBanner />
-        <AffiliateHero />
-        <WhoIsThisFor />
-        <BenefitsBento />
-        <HowItWorks />
-        <ResourcesSection />
-        <CommissionTable />
-        <AffiliateTiers />
-        <SocialProofBar />
-        <AffiliateTestimonials />
-        <AffiliateFAQ />
-        <ApplicationForm />
-        <FinalCTA />
-      </main>
+      <SignupModalProvider>
+        <main style={{ backgroundColor: "#060c1f" }}>
+          <AffiliateLoginBanner />
+          <AffiliateHero />
+          <WhoIsThisFor />
+          <BenefitsBento />
+          <HowItWorks />
+          <EarningsAndTiers />
+          <AffiliateTestimonials />
+          <AffiliateFAQ />
+          <SignupCTA />
+        </main>
+      </SignupModalProvider>
     </>
   );
 }

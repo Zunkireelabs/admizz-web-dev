@@ -5,46 +5,49 @@ import { useRef } from "react";
 
 const TESTIMONIALS = [
   {
-    initials: "PS",
-    name: "Priya Sharma",
-    detail: "Kathmandu University",
-    tier: "Rising Star",
-    tierColor: "#6b80d4",
-    tierBg: "rgba(49,66,156,0.25)",
-    avatarFrom: "#31429C",
-    avatarTo: "#0D1282",
-    quote: "I referred 8 students in my first semester and the experience was incredible. The marketing materials made it so easy — I just shared the link and Admizz did the rest.",
-    stat: "8 students referred",
-    statIcon: "📊",
-    accentColor: "#31429C",
-  },
-  {
-    initials: "RK",
-    name: "Rohan Khadka",
-    detail: "YouTuber · 12K subscribers",
-    tier: "Elite Partner",
-    tierColor: "#FCB730",
-    tierBg: "rgba(252,183,48,0.2)",
-    avatarFrom: "#FCB730",
-    avatarTo: "#0D1282",
-    quote: "As a study abroad content creator, the Admizz affiliate program is the most transparent I've joined. I can track every click in real time. Payouts are always on time.",
-    stat: "Elite Partner · Creator",
-    statIcon: "⭐",
-    accentColor: "#FCB730",
-  },
-  {
-    initials: "SG",
-    name: "Sunita Gurung",
-    detail: "Education Counselor · Bhaktapur",
+    initials: "AB",
+    name: "Campus Ambassador",
+    detail: "Engineering undergrad · Kathmandu",
     tier: "Starter",
     tierColor: "#FDED22",
     tierBg: "rgba(253,237,34,0.18)",
     avatarFrom: "#FDED22",
     avatarTo: "#FCB730",
-    quote: "I referred 4 of my coaching students and all of them got university placements. It's genuinely the most rewarding partnership I've had in my career.",
-    stat: "4 students placed",
+    quote:
+      "Friends were already asking me about applying abroad. Now when I introduce them to Admizz, I actually get a commission when they enroll. The dashboard is clear, and I always know where each referral stands.",
+    stat: "Active ambassador",
     statIcon: "🎓",
     accentColor: "#FDED22",
+  },
+  {
+    initials: "CC",
+    name: "Content Creator",
+    detail: "Education content · Nepal",
+    tier: "Rising Star",
+    tierColor: "#6b80d4",
+    tierBg: "rgba(49,66,156,0.25)",
+    avatarFrom: "#31429C",
+    avatarTo: "#0D1282",
+    quote:
+      "I'd been mentioning study-abroad consultancies on my channel for a while without earning from any of them. Joining as an Admizz affiliate finally made that work make sense — the link is easy to drop and the commissions are paid out monthly.",
+    stat: "Monthly payouts",
+    statIcon: "📊",
+    accentColor: "#31429C",
+  },
+  {
+    initials: "EP",
+    name: "Education Professional",
+    detail: "IELTS coach · Bhaktapur",
+    tier: "Elite Partner",
+    tierColor: "#FCB730",
+    tierBg: "rgba(252,183,48,0.2)",
+    avatarFrom: "#FCB730",
+    avatarTo: "#0D1282",
+    quote:
+      "My students were already going through Admizz for their applications. The affiliate program just added a clean way to be credited for the referrals I was already making. Support has been responsive when I've had questions.",
+    stat: "Elite Partner",
+    statIcon: "⭐",
+    accentColor: "#FCB730",
   },
 ];
 
@@ -55,18 +58,25 @@ export default function AffiliateTestimonials() {
 
   return (
     <section
-      style={{ background: "#060c1f" }}
-      className="py-24 md:py-28 relative overflow-hidden"
+      style={{ background: "#F6F2E8" }}
+      className="py-20 md:py-32 relative overflow-hidden"
     >
-      {/* Refined ambient */}
+      {/* Top hairline — designed seam */}
+      <div className="absolute top-0 left-0 right-0 h-px pointer-events-none z-20"
+        style={{ background: "linear-gradient(90deg, transparent, rgba(252,183,48,0.55), transparent)" }} />
+      {/* Bottom hairline — designed seam */}
+      <div className="absolute bottom-0 left-0 right-0 h-px pointer-events-none z-20"
+        style={{ background: "linear-gradient(90deg, transparent, rgba(252,183,48,0.55), transparent)" }} />
+      {/* Top-side lit-from-above glow */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none"
+        style={{ height: "260px", background: "radial-gradient(ellipse 70% 100% at 50% 0%, rgba(252,183,48,0.20) 0%, rgba(252,183,48,0.05) 40%, transparent 75%)" }} />
+      {/* Cool aurora — blue bottom-right */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(49,66,156,0.18) 0%, transparent 65%)" }} />
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 50% 40% at 50% 100%, rgba(252,183,48,0.05) 0%, transparent 60%)" }} />
-      {/* Subtle pattern */}
-      <div className="absolute inset-0 pointer-events-none opacity-25"
+        style={{ background: "radial-gradient(ellipse 55% 50% at 85% 80%, rgba(49,66,156,0.12) 0%, transparent 60%)" }} />
+      {/* Faint dot grid */}
+      <div className="absolute inset-0 pointer-events-none opacity-40"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(0,19,83,0.06) 1px, transparent 1px)",
           backgroundSize: "44px 44px",
         }} />
 
@@ -78,20 +88,20 @@ export default function AffiliateTestimonials() {
           <span
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase mb-6"
             style={{
-              background: "rgba(253,237,34,0.08)",
-              border: "1px solid rgba(253,237,34,0.22)",
-              color: "#FDED22",
+              background: "rgba(252,183,48,0.18)",
+              border: "1px solid rgba(252,183,48,0.45)",
+              color: "#8a5a00",
               letterSpacing: "0.18em",
             }}
           >
-            <span className="w-1 h-1 rounded-full" style={{ background: "#FDED22" }} />
-            Affiliate Stories
+            <span className="w-1 h-1 rounded-full" style={{ background: "#FCB730" }} />
+            Who joins this program
           </span>
-          <h2 className="text-3xl md:text-[44px] font-extrabold text-white leading-[1.1] tracking-[-0.015em]">
-            Real Affiliates. Real Results.
+          <h2 className="text-3xl md:text-[44px] font-extrabold leading-[1.1] tracking-[-0.015em]" style={{ color: "#001353" }}>
+            Three types of affiliates already using Admizz.
           </h2>
-          <p className="mt-5 text-base md:text-[17px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.55)" }}>
-            People just like you are already winning with Admizz.
+          <p className="mt-5 text-base md:text-[17px] leading-[1.6]" style={{ color: "#5C7189" }}>
+            Names withheld for privacy. What each is doing inside the program is real.
           </p>
         </motion.div>
 
@@ -102,19 +112,16 @@ export default function AffiliateTestimonials() {
               key={t.name}
               className="rounded-2xl overflow-hidden flex flex-col relative group"
               style={{
-                background: "rgba(255,255,255,0.025)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 4px 24px rgba(0,0,0,0.25)",
-                backdropFilter: "blur(20px)",
+                background: "#FFFFFF",
+                border: "1px solid rgba(0,19,83,0.08)",
+                boxShadow: "0 6px 20px rgba(0,19,83,0.06)",
               }}
               initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
               whileHover={reduce ? {} : {
                 y: -6,
-                background: "rgba(255,255,255,0.045)",
-                borderColor: `${t.accentColor}40`,
-                boxShadow: `0 24px 60px rgba(0,0,0,0.45), 0 0 0 1px ${t.accentColor}30`,
+                boxShadow: `0 22px 50px rgba(0,19,83,0.14), 0 0 0 1px ${t.accentColor}55`,
                 transition: { duration: 0.25 },
               }}
             >
@@ -124,36 +131,36 @@ export default function AffiliateTestimonials() {
               {/* Hover glow */}
               <div
                 className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${t.accentColor}10 0%, transparent 70%)` }}
+                style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${t.accentColor}1a 0%, transparent 70%)` }}
               />
 
-              <div className="p-7 md:p-8 flex flex-col flex-1 relative">
+              <div className="p-5 sm:p-7 md:p-8 flex flex-col flex-1 relative">
                 {/* Quote mark */}
                 <svg
                   className="w-10 h-10 mb-5"
                   fill="currentColor"
                   viewBox="0 0 32 32"
-                  style={{ color: `${t.accentColor}40` }}
+                  style={{ color: "rgba(0,19,83,0.18)" }}
                   aria-hidden="true"
                 >
                   <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36 1 24.832 4.32 28 8.16 28c3.296 0 5.84-2.688 5.84-5.872 0-2.96-2.08-5.392-4.928-5.392-.448 0-.992.064-1.184.128.32-2.464 2.704-5.328 5.072-7.024L9.352 4zm16.32 0c-4.832 3.456-8.288 9.12-8.288 15.36 0 5.472 3.328 8.64 7.168 8.64 3.232 0 5.84-2.688 5.84-5.872 0-2.96-2.144-5.392-4.992-5.392-.448 0-.928.064-1.184.128.32-2.464 2.768-5.328 5.136-7.024L25.672 4z" />
                 </svg>
 
-                <p className="text-[15px] leading-[1.7] flex-1 mb-8 text-white" style={{ opacity: 0.88 }}>
+                <p className="text-[15px] leading-[1.7] flex-1 mb-8" style={{ color: "#27314a" }}>
                   {t.quote}
                 </p>
 
                 {/* Profile row */}
                 <div
                   className="flex items-center gap-3 pt-5"
-                  style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
+                  style={{ borderTop: "1px solid rgba(0,19,83,0.08)" }}
                 >
                   <div
                     className="w-11 h-11 rounded-full flex items-center justify-center text-[13px] font-extrabold flex-shrink-0 relative"
                     style={{
                       background: `linear-gradient(135deg, ${t.avatarFrom}, ${t.avatarTo})`,
-                      color: t.name === "Sunita Gurung" ? "#001353" : "#fff",
-                      boxShadow: `0 0 0 2px rgba(255,255,255,0.06), 0 0 0 4px ${t.accentColor}20, 0 4px 12px rgba(0,0,0,0.5)`,
+                      color: t.accentColor === "#FDED22" ? "#001353" : "#fff",
+                      boxShadow: `0 0 0 2px #FFFFFF, 0 0 0 3px ${t.accentColor}55, 0 4px 12px rgba(0,19,83,0.18)`,
                     }}
                   >
                     {t.initials}
@@ -165,12 +172,16 @@ export default function AffiliateTestimonials() {
                     </span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[13.5px] font-bold text-white truncate">{t.name}</p>
-                    <p className="text-[11.5px] truncate" style={{ color: "rgba(255,255,255,0.45)" }}>{t.detail}</p>
+                    <p className="text-[13.5px] font-bold truncate" style={{ color: "#001353" }}>{t.name}</p>
+                    <p className="text-[11.5px] truncate" style={{ color: "#5C7189" }}>{t.detail}</p>
                   </div>
                   <span
                     className="flex-shrink-0 px-2.5 py-1 rounded-full text-[10px] font-bold whitespace-nowrap"
-                    style={{ background: t.tierBg, border: `1px solid ${t.tierColor}50`, color: t.tierColor }}
+                    style={{
+                      background: t.tierBg,
+                      border: `1px solid ${t.accentColor}55`,
+                      color: t.accentColor === "#FDED22" || t.accentColor === "#FCB730" ? "#7a4c00" : "#1f2a6b",
+                    }}
                   >
                     {t.tier}
                   </span>
@@ -178,7 +189,10 @@ export default function AffiliateTestimonials() {
 
                 {/* Stat row */}
                 <div className="mt-4 flex items-center gap-2">
-                  <span className="text-xs font-semibold" style={{ color: t.accentColor }}>
+                  <span
+                    className="text-xs font-semibold"
+                    style={{ color: t.accentColor === "#FDED22" || t.accentColor === "#FCB730" ? "#7a4c00" : "#1f2a6b" }}
+                  >
                     {t.statIcon} {t.stat}
                   </span>
                 </div>

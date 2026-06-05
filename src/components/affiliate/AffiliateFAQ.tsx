@@ -113,7 +113,17 @@ export default function AffiliateFAQ() {
   const reduce = useReducedMotion();
 
   return (
-    <section style={{ background: "#FAFAFB" }} className="py-24 md:py-28 relative overflow-hidden">
+    <section style={{ background: "#FAFAFB" }} className="py-16 md:py-28 relative overflow-hidden">
+      {/* Top hairline — designed seam with dark neighbor */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px pointer-events-none z-10"
+        style={{ background: "linear-gradient(90deg, transparent, rgba(252,183,48,0.55), transparent)" }}
+      />
+      {/* Bottom hairline — designed seam with dark neighbor */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px pointer-events-none z-10"
+        style={{ background: "linear-gradient(90deg, transparent, rgba(252,183,48,0.55), transparent)" }}
+      />
       {/* Subtle accent */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 80% 40% at 50% 0%, rgba(252,183,48,0.04) 0%, transparent 60%)" }} />

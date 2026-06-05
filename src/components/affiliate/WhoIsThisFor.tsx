@@ -2,6 +2,7 @@
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, useState } from "react";
+import { useSignupModal } from "./SignupModal";
 
 const PATHWAYS = [
   {
@@ -15,7 +16,7 @@ const PATHWAYS = [
       "Earn a commission per enrolled referral",
       "No follower count or experience needed",
     ],
-    cta: "Apply as Campus Ambassador",
+    cta: "Sign up as Campus Ambassador",
     accent: "#31429C",
     accentSoft: "rgba(49,66,156,0.12)",
     accentBorder: "rgba(49,66,156,0.25)",
@@ -36,7 +37,7 @@ const PATHWAYS = [
       "Co-branded content templates provided",
       "Real-time dashboard to track clicks",
     ],
-    cta: "Apply as Content Creator",
+    cta: "Sign up as Content Creator",
     accent: "#FCB730",
     accentSoft: "rgba(252,183,48,0.14)",
     accentBorder: "rgba(252,183,48,0.32)",
@@ -58,7 +59,7 @@ const PATHWAYS = [
       "Earn on every referral you send",
       "Works for independent counselors & tutors",
     ],
-    cta: "Apply as Professional",
+    cta: "Sign up as Professional",
     accent: "#FDED22",
     accentSoft: "rgba(253,237,34,0.12)",
     accentBorder: "rgba(253,237,34,0.3)",
@@ -75,9 +76,10 @@ export default function WhoIsThisFor() {
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
   const reduce = useReducedMotion();
   const [active, setActive] = useState<string | null>(null);
+  const { open } = useSignupModal();
 
   return (
-    <section className="py-24 md:py-28 relative overflow-hidden" style={{ background: "#060c1f" }}>
+    <section className="py-16 md:py-28 relative overflow-hidden" style={{ background: "#060c1f" }}>
       {/* Refined ambient depth */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(49,66,156,0.18) 0%, transparent 60%)" }} />
@@ -89,6 +91,9 @@ export default function WhoIsThisFor() {
           backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }} />
+      {/* Hero seam absorber — fades hero's bright end into this section's bg */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none"
+        style={{ height: "180px", background: "linear-gradient(to bottom, #0c1270 0%, rgba(12,18,112,0.55) 35%, rgba(6,12,31,0) 100%)" }} />
       {/* Top gradient line — visual continuity */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: "linear-gradient(90deg, transparent, rgba(252,183,48,0.25), transparent)" }} />
@@ -139,7 +144,7 @@ export default function WhoIsThisFor() {
               onHoverStart={() => setActive(p.id)}
               onHoverEnd={() => setActive(null)}
               whileHover={reduce ? {} : { y: -6, transition: { duration: 0.22 } }}
-              onClick={() => document.getElementById("apply-form")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={open}
             >
               {/* Featured top accent */}
               {p.featured && (
@@ -162,7 +167,7 @@ export default function WhoIsThisFor() {
                 style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${p.accent}10 0%, transparent 70%)` }}
               />
 
-              <div className="relative p-7 md:p-8 flex flex-col flex-1">
+              <div className="relative p-5 sm:p-7 md:p-8 flex flex-col flex-1">
                 {/* Eyebrow */}
                 <span
                   className="inline-flex self-start px-2.5 py-1 rounded-md text-[10px] font-bold uppercase mb-7"
@@ -236,7 +241,7 @@ export default function WhoIsThisFor() {
           transition={{ duration: 0.6, delay: 0.55 }}>
           Not sure which fits you?{" "}
           <a href="/contact" className="font-bold transition-colors duration-200 hover:text-yellow" style={{ color: "#FCB730" }}>
-            Talk to our team →
+            Email us
           </a>
         </motion.p>
       </div>
