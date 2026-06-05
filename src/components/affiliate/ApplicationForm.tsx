@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { readAffiliateRefCookie } from "@/lib/affiliate/refCookie";
-import { DIAL_CODES, dialSpec, phoneDigits } from "@/lib/dialCodes";
+import { DIAL_CODES, dialSpec, phoneDigits, isValidPhoneLength } from "@/lib/dialCodes";
 
 type FormData = {
   fullName: string;
@@ -80,54 +80,165 @@ function PhoneInput({
   onChange: (n: keyof FormData, v: string) => void;
 }) {
   const [focused, setFocused] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const rootRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const spec = dialSpec(dialCodeKey);
+
+  // Close on outside click
+  useEffect(() => {
+    if (!open) return;
+    const onDocClick = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  // Focus search on open
+  useEffect(() => {
+    if (open) {
+      setSearch("");
+      // Defer to next tick to ensure input is mounted
+      requestAnimationFrame(() => searchInputRef.current?.focus());
+    }
+  }, [open]);
+
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return DIAL_CODES;
+    return DIAL_CODES.filter(
+      d => d.country.toLowerCase().includes(q) || d.dial.includes(q) || d.key.toLowerCase().includes(q)
+    );
+  }, [search]);
+
+  const pick = (key: string) => {
+    onChange("dialCode", key);
+    setOpen(false);
+  };
+
   return (
     <div className="flex flex-col gap-1.5">
       <label className="text-[11px] font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.5)" }}>
         Phone Number<span className="ml-1" style={{ color: "#FCB730" }}>*</span>
       </label>
       <div
-        className="flex rounded-xl overflow-hidden transition-all duration-200"
+        ref={rootRef}
+        className="relative flex rounded-xl transition-all duration-200"
         style={{
           background: "rgba(255,255,255,0.07)",
-          border: `1px solid ${focused ? "#FCB730" : "rgba(255,255,255,0.12)"}`,
-          boxShadow: focused ? "0 0 0 3px rgba(252,183,48,0.12)" : "none",
+          border: `1px solid ${focused || open ? "#FCB730" : "rgba(255,255,255,0.12)"}`,
+          boxShadow: focused || open ? "0 0 0 3px rgba(252,183,48,0.12)" : "none",
         }}
       >
-        <select
-          value={dialCodeKey}
-          onChange={e => onChange("dialCode", e.target.value)}
-          className="px-2.5 sm:px-3 py-3 text-sm font-bold outline-none flex-shrink-0 cursor-pointer"
+        <button
+          type="button"
+          onClick={() => setOpen(o => !o)}
+          className="flex items-center gap-1.5 px-3 sm:px-3.5 py-3 text-sm font-bold outline-none flex-shrink-0 cursor-pointer rounded-l-xl"
           style={{
             background: "rgba(255,255,255,0.04)",
-            color: focused ? "#FCB730" : "#fff",
+            color: focused || open ? "#FCB730" : "#fff",
             borderRight: "1px solid rgba(255,255,255,0.1)",
             transition: "color 0.2s",
-            appearance: "none",
-            paddingRight: "1.75rem",
-            backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23FCB730' d='M0 0l5 6 5-6z'/></svg>\")",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "right 0.6rem center",
           }}
-          aria-label="Country dial code"
+          aria-label="Choose country dial code"
+          aria-expanded={open}
         >
-          {DIAL_CODES.map(d => (
-            <option key={d.key} value={d.key} style={{ background: "#0a1f6b", color: "#fff" }}>
-              {d.label}
-            </option>
-          ))}
-        </select>
+          <span className="whitespace-nowrap">{spec.label}</span>
+          <svg
+            className="w-3 h-3 transition-transform"
+            style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+            fill="none" stroke="#FCB730" strokeWidth={2.5} viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
         <input
           type="tel"
+          inputMode="numeric"
           value={phone}
-          onChange={e => onChange("phone", e.target.value)}
-          placeholder={"X".repeat(spec.digits)}
-          className="flex-1 px-3 py-3 text-sm outline-none min-w-0"
+          onChange={e => onChange("phone", phoneDigits(e.target.value).slice(0, 15))}
+          placeholder="Phone number"
+          className="flex-1 px-3 py-3 text-sm outline-none min-w-0 rounded-r-xl"
           style={{ background: "transparent", color: "#fff" }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
+          maxLength={15}
         />
+
+        {/* Dropdown popover */}
+        {open && (
+          <div
+            className="absolute z-50 top-full left-0 mt-2 w-full sm:w-[320px] rounded-xl overflow-hidden"
+            style={{
+              background: "#0a1230",
+              border: "1px solid rgba(252,183,48,0.35)",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
+            }}
+          >
+            <div className="p-2.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+              <input
+                ref={searchInputRef}
+                type="text"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="Search country or dial code…"
+                className="w-full px-3 py-2 rounded-lg text-sm outline-none"
+                style={{
+                  background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "#fff",
+                }}
+                onFocus={e => { e.target.style.borderColor = "#FCB730"; }}
+                onBlur={e => { e.target.style.borderColor = "rgba(255,255,255,0.1)"; }}
+              />
+            </div>
+            <ul className="max-h-64 overflow-y-auto py-1" role="listbox">
+              {filtered.length === 0 ? (
+                <li className="px-4 py-3 text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>
+                  No matches
+                </li>
+              ) : (
+                filtered.map(d => {
+                  const active = d.key === dialCodeKey;
+                  return (
+                    <li
+                      key={d.key}
+                      role="option"
+                      aria-selected={active}
+                      onClick={() => pick(d.key)}
+                      className="flex items-center justify-between gap-3 px-3 py-2 cursor-pointer text-sm"
+                      style={{
+                        background: active ? "rgba(252,183,48,0.12)" : "transparent",
+                        color: active ? "#FCB730" : "rgba(255,255,255,0.85)",
+                      }}
+                      onMouseEnter={e => {
+                        if (!active) e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                      }}
+                      onMouseLeave={e => {
+                        if (!active) e.currentTarget.style.background = "transparent";
+                      }}
+                    >
+                      <span className="flex items-center gap-2 min-w-0">
+                        <span className="text-lg flex-shrink-0">{d.label.split(" ")[0]}</span>
+                        <span className="truncate">{d.country}</span>
+                      </span>
+                      <span className="text-[12px] font-bold flex-shrink-0" style={{ color: active ? "#FCB730" : "rgba(255,255,255,0.5)" }}>
+                        {d.dial}
+                      </span>
+                    </li>
+                  );
+                })
+              )}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -247,10 +358,8 @@ function validate(step: number, form: FormData): string | null {
   if (step === 0) {
     if (!form.fullName.trim()) return "Please enter your full name.";
     if (!form.email.trim() || !form.email.includes("@")) return "Please enter a valid email address.";
-    const spec = dialSpec(form.dialCode);
-    const digits = phoneDigits(form.phone);
-    if (!digits) return "Please enter your phone number.";
-    if (digits.length !== spec.digits) return `${spec.country} numbers must be ${spec.digits} digits.`;
+    if (!form.phone.trim()) return "Please enter your phone number.";
+    if (!isValidPhoneLength(form.phone)) return "Please enter a valid phone number.";
     if (!form.city.trim()) return "Please enter your city.";
   }
   if (step === 1) {
