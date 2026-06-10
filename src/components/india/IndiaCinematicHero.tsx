@@ -1,0 +1,220 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import CTAForm from "@/components/ui/CTAForm";
+
+interface Props {
+  heading: string;
+  subheading: string;
+  ctaText?: string;
+  ctaHref?: string;
+  countryName: string;
+}
+
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2000&q=80";
+
+export default function IndiaCinematicHero({
+  heading,
+  subheading,
+  ctaText = "Book Free Counselling",
+  ctaHref = "#why",
+  countryName,
+}: Props) {
+  const rootRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    const root = rootRef.current;
+    if (!root) return;
+
+    let cancelled = false;
+    import("gsap").then(({ gsap }) => {
+      if (cancelled || !root) return;
+      const ctx = gsap.context(() => {
+        gsap.from("[data-hero-layer]", {
+          opacity: 0,
+          y: 18,
+          duration: 1.1,
+          stagger: 0.14,
+          ease: "power3.out",
+        });
+        gsap.from("[data-hero-headline] > span", {
+          opacity: 0,
+          y: 28,
+          duration: 0.9,
+          stagger: 0.08,
+          ease: "power3.out",
+          delay: 0.25,
+        });
+        gsap.from("[data-hero-content]", {
+          opacity: 0,
+          y: 20,
+          duration: 1,
+          delay: 0.55,
+          ease: "power3.out",
+        });
+      }, root);
+      // store on element so cleanup works
+      (root as unknown as { __gsapCtx?: gsap.Context }).__gsapCtx = ctx;
+    });
+    return () => {
+      cancelled = true;
+      const ctx = (root as unknown as { __gsapCtx?: { revert: () => void } }).__gsapCtx;
+      if (ctx) ctx.revert();
+    };
+  }, []);
+
+  // Split headline into words for word-by-word reveal
+  const words = heading.split(" ");
+
+  // Tricolour mapping for the headline — saffron / white / green
+  // Defaults assume heading is "Study in India from Nepal"
+  const wordColor = (word: string): string => {
+    const w = word.toLowerCase().replace(/[^a-z]/g, "");
+    if (w === "study") return "#FF9933"; // saffron
+    if (w === "india") return "#3FB55F"; // green (brightened for legibility)
+    return "#FFFFFF"; // white default
+  };
+
+  return (
+    <section
+      ref={rootRef}
+      className="relative overflow-hidden text-white"
+      style={{ minHeight: "min(720px, 92vh)" }}
+    >
+      {/* L1: Taj Mahal photo background */}
+      <div
+        className="absolute inset-0"
+        data-hero-layer
+        style={{
+          backgroundImage: `url("${HERO_IMAGE}")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* L2: Dark overlay for text legibility */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(115deg, rgba(11,20,40,0.82) 0%, rgba(11,20,40,0.55) 55%, rgba(11,20,40,0.72) 100%)",
+        }}
+      />
+
+      {/* L3: Top + bottom vignette */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.35) 100%)",
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+        <div data-hero-content>
+          {/* Eyebrow — saffron */}
+          <div className="flex items-center gap-3 mb-6">
+            <span className="h-px w-10" style={{ background: "#FF9933", opacity: 0.85 }} />
+            <span
+              className="text-[11px] uppercase tracking-[0.28em] font-semibold"
+              style={{ color: "#FF9933" }}
+            >
+              From Nepal · To India
+            </span>
+          </div>
+
+          {/* Headline — word-by-word reveal */}
+          <h1
+            data-hero-headline
+            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6"
+            style={{ fontFamily: '"Playfair Display", Georgia, serif', textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}
+          >
+            {words.map((w, i) => (
+              <span key={i} className="inline-block mr-3" style={{ color: wordColor(w) }}>
+                {w}
+              </span>
+            ))}
+          </h1>
+
+          {/* Tricolour flourish — saffron, white star, green */}
+          <div className="flex items-center gap-2 mb-6">
+            <span className="h-[2px] w-12 rounded-full" style={{ background: "#FF9933" }} />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true">
+              <path d="M12 2 L14 9 L21 10 L15.5 14.5 L17 21 L12 17.5 L7 21 L8.5 14.5 L3 10 L10 9 Z" />
+            </svg>
+            <span className="h-[2px] w-12 rounded-full" style={{ background: "#138808" }} />
+          </div>
+
+          <p className="text-base md:text-lg text-white/90 max-w-xl mb-8 leading-relaxed">
+            {subheading}
+          </p>
+
+          {/* Trust pills — saffron / white / green tricolour */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            {[
+              { label: "No Visa Required", color: "#FF9933", border: "rgba(255,153,51,0.5)" },
+              { label: "Open Border Access", color: "#FFFFFF", border: "rgba(255,255,255,0.55)" },
+              { label: "SAARC Scholarships", color: "#3FB55F", border: "rgba(63,181,95,0.6)" },
+            ].map((b) => (
+              <span
+                key={b.label}
+                className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-medium backdrop-blur-sm"
+                style={{
+                  background: "rgba(255,255,255,0.10)",
+                  border: `1px solid ${b.border}`,
+                  color: "#fff",
+                }}
+              >
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke={b.color} strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                {b.label}
+              </span>
+            ))}
+          </div>
+
+          <a
+            href={ctaHref}
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-all hover:scale-[1.02] hover:shadow-2xl"
+            style={{
+              background: "#FF6B1A",
+              color: "#fff",
+              boxShadow: "0 10px 30px rgba(255,107,26,0.45)",
+            }}
+          >
+            {ctaText}
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div data-hero-content className="relative z-10">
+          <CTAForm defaultDestination={countryName} />
+        </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div
+        className="absolute left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1.5 pointer-events-none"
+        data-hero-layer
+        style={{ bottom: 24, color: "rgba(255,255,255,0.7)" }}
+        aria-hidden="true"
+      >
+        <span className="text-[10px] uppercase tracking-[0.25em] font-semibold">Scroll</span>
+        <svg width="14" height="22" viewBox="0 0 14 22" fill="none">
+          <rect x="0.5" y="0.5" width="13" height="21" rx="6.5" stroke="currentColor" />
+          <circle cx="7" cy="6" r="1.5" fill="currentColor">
+            <animate attributeName="cy" values="6;14;6" dur="2s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+      </div>
+    </section>
+  );
+}

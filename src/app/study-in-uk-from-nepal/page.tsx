@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
-import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
+import type { NepalVariantData, CountryTheme } from "@/components/ui/NepalVariantTemplate";
+import UKCinematicHero from "@/components/uk/UKCinematicHero";
+import UKWhyNarrative from "@/components/uk/UKWhyNarrative";
+import UKCityMap from "@/components/uk/UKCityMap";
+import UKCostViz from "@/components/uk/UKCostViz";
+import UKStickyMobileCTA from "@/components/uk/UKStickyMobileCTA";
+import CrownDivider from "@/components/uk/CrownDivider";
 import { client } from "@/lib/sanity";
 import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
@@ -68,28 +74,6 @@ const pageData: NepalVariantData = {
       description:
         "All universities rigorously quality-checked. Qualifications recognized globally. High employability after graduation.",
     },
-  ],
-
-  whyAdmizzTitle: "Why Choose Admizz Education?",
-  whyAdmizzPoints: [
-    "Free career counselling – Expert guidance tailored to your goals",
-    "University shortlisting – Access to 160+ partner universities",
-    "Scholarship assistance – $5M+ awarded to our students",
-    "Visa support – 95% visa approval success rate",
-    "Complete support – From Nepal to UK and beyond",
-    "Proven track record – 2,000+ successful placements",
-  ],
-
-  topCoursesTitle: "Best Courses to Study in the UK",
-  topCourses: [
-    "Business & Management",
-    "Data Science & AI",
-    "Computer Science & IT",
-    "Engineering",
-    "Health Sciences & Nursing",
-    "Finance & Accounting",
-    "Law & International Relations",
-    "Marketing & Digital Media",
   ],
 
   visaTitle: "UK Student Visa Process – Step by Step",
@@ -279,10 +263,118 @@ const pageData: NepalVariantData = {
     "Our expert consultants are here to guide you every step of the way.",
 };
 
+const ukTheme: CountryTheme = {
+  primary: "#1E3A8A",
+  primaryDeep: "#0A1F44",
+  accent: "#C8102E",
+  accentSoft: "#E63946",
+  gold: "#B08D57",
+  surfaceTint: "#F5F3EE",
+  ink: "#1A1A1A",
+
+  heroImage:
+    "https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&w=2000&q=80",
+  heroEyebrow: "Pursue your British education",
+  heroGradient:
+    "linear-gradient(115deg, rgba(10,31,68,0.92) 0%, rgba(10,31,68,0.7) 45%, rgba(200,16,46,0.55) 100%)",
+
+  dividerStyle: "crown",
+  showFlagStripeOnCards: true,
+  flagColors: ["#C8102E", "#FFFFFF", "#012169"],
+  serifHeadings: true,
+  heritagePattern: true,
+  towerBridgeTransition: true,
+  crownTabIcon: true,
+  benefitLandmarks: [
+    "big-ben",
+    "tower-bridge",
+    "oxford-spires",
+    "kings-college",
+    "edinburgh-castle",
+    "manchester-town-hall",
+  ],
+  universitiesBackdrop: "oxford-spires",
+  universitiesEyebrow: "Renowned British Institutions",
+  ctaLandmarks: { left: "big-ben", right: "tower-bridge" },
+  journeyStrip: {
+    stats: [
+      { value: "2000+", label: "Nepali students placed in UK universities" },
+      { value: "97%", label: "UK Student Visa Approval Rate" },
+      { value: "£3M+", label: "In Scholarships Secured for Our Students" },
+    ],
+    eyebrow: "Study Across the United Kingdom",
+    accentColor: "#C8102E",
+    accentSoftColor: "#E63946",
+    ringColor: "#B08D57",
+    bgGradient: "linear-gradient(180deg, #F5F3EE 0%, #FFFFFF 100%)",
+    cities: [
+      {
+        name: "London",
+        landmark: "Big Ben",
+        image: "https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        name: "Edinburgh",
+        landmark: "Edinburgh Castle",
+        image: "https://images.unsplash.com/photo-1546617605-31567bc8c7d3?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        name: "Oxford",
+        landmark: "Radcliffe Camera",
+        image: "https://images.unsplash.com/photo-1568792923760-d70635a89fdc?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        name: "Cambridge",
+        landmark: "King's College",
+        image: "https://images.unsplash.com/photo-1504817343863-5092a923803e?auto=format&fit=crop&w=400&q=80",
+      },
+      {
+        name: "Manchester",
+        landmark: "Town Hall",
+        image: "https://images.unsplash.com/photo-1577310528320-fb74a8d5a99e?auto=format&fit=crop&w=400&q=80",
+      },
+    ],
+  },
+};
+
 export default async function StudyInUKFromNepalPage() {
   const blogPosts: SanityPost[] = await client.fetch(
     postsByCategoryQuery,
     { categorySlug: "uk" }
   );
-  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
+  return (
+    <>
+      <NepalVariantTemplate
+        data={pageData}
+        blogPosts={blogPosts}
+        theme={ukTheme}
+        customHero={
+          <>
+            <UKCinematicHero
+              heading={pageData.heroHeading}
+              subheading={pageData.heroSubheading}
+              countryName={pageData.countryName}
+            />
+            <CrownDivider />
+          </>
+        }
+        replaceWhySection={<UKWhyNarrative />}
+        insertAfterIntakes={
+          <>
+            <CrownDivider />
+            <UKCityMap />
+            <CrownDivider />
+          </>
+        }
+        replaceCostSection={
+          <UKCostViz
+            scholarshipsTitle={pageData.scholarshipsTitle}
+            scholarshipsIntro={pageData.scholarshipsIntro}
+            scholarships={pageData.scholarships}
+          />
+        }
+      />
+      <UKStickyMobileCTA />
+    </>
+  );
 }

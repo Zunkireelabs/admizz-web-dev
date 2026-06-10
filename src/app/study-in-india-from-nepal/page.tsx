@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
-import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
+import type { NepalVariantData, CountryTheme } from "@/components/ui/NepalVariantTemplate";
+import IndiaAnimations from "@/components/india/IndiaAnimations";
+import IndiaCinematicHero from "@/components/india/IndiaCinematicHero";
+import IndiaCostViz from "@/components/india/IndiaCostViz";
+import IndiaCityMap from "@/components/india/IndiaCityMap";
+import IndiaWhyNarrative from "@/components/india/IndiaWhyNarrative";
+import IndiaStickyMobileCTA from "@/components/india/IndiaStickyMobileCTA";
 import { client } from "@/lib/sanity";
 import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
@@ -272,7 +278,71 @@ const pageData: NepalVariantData = {
   ctaContent: "India offers top-tier education, cultural connection, and cost-effective learning with hundreds of globally recognized institutions across medicine, engineering, business, IT, and humanities. Admizz helps you choose the right college/university, navigate entrance exams, secure scholarships, and complete admission formalities. Thousands of students from Nepal are already studying in India and building successful careers. Now it's your turn!"
 };
 
+const indiaTheme: CountryTheme = {
+  primary: "#1C5D3F",
+  primaryDeep: "#0B3D2E",
+  accent: "#FF6B1A",
+  accentSoft: "#FFB870",
+  gold: "#C9A961",
+  surfaceTint: "#FFF8F1",
+  ink: "#1A1A1A",
+
+  heroImage:
+    "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2000&q=80",
+  heroGradient:
+    "linear-gradient(115deg, rgba(11,61,46,0.92) 0%, rgba(11,61,46,0.7) 45%, rgba(255,107,26,0.55) 100%)",
+
+  showChakraDividers: true,
+  dividerStyle: "filigree",
+  heritagePattern: true,
+  serifHeadings: true,
+  showFlagStripeOnCards: true,
+  benefitLandmarks: [
+    "taj-mahal",
+    "lotus-temple",
+    "hawa-mahal",
+    "india-gate",
+    "mysore-palace",
+    "red-fort",
+  ],
+  universitiesBackdrop: "gateway-of-india",
+  ctaLandmarks: { left: "charminar", right: "victoria-memorial" },
+  journeyStrip: {
+    stats: [
+      { value: "1500+", label: "Students successfully enrolled worldwide" },
+      { value: "95%", label: "Student Visa Approval Rate with Expert Guidance" },
+      { value: "$2M+", label: "In Scholarships Awarded to Our Students" },
+    ],
+  },
+};
+
 export default async function StudyInIndiaFromNepalPage() {
   const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "india" });
-  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
+  return (
+    <>
+      <NepalVariantTemplate
+        data={pageData}
+        blogPosts={blogPosts}
+        theme={indiaTheme}
+        customHero={
+          <IndiaCinematicHero
+            heading={pageData.heroHeading}
+            subheading={pageData.heroSubheading}
+            countryName={pageData.countryName}
+          />
+        }
+        replaceWhySection={<IndiaWhyNarrative />}
+        insertAfterIntakes={<IndiaCityMap />}
+        replaceCostSection={
+          <IndiaCostViz
+            scholarshipsTitle={pageData.scholarshipsTitle}
+            scholarshipsIntro={pageData.scholarshipsIntro}
+            scholarships={pageData.scholarships}
+          />
+        }
+      />
+      <IndiaAnimations />
+      <IndiaStickyMobileCTA />
+    </>
+  );
 }

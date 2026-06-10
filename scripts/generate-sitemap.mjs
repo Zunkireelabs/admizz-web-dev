@@ -74,6 +74,8 @@ const staticPages = [
   { path: "/campaign-uk", priority: 0.5, freq: "monthly" },
   // Event legal pages
   { path: "/events/spin-and-win-terms-and-conditions", priority: 0.3, freq: "yearly" },
+  // World Cup 2026 campaign
+  { path: "/events/worldcup-2026", priority: 0.7, freq: "weekly" },
 ];
 
 function escapeXml(str) {
