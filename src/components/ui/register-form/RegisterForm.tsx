@@ -39,7 +39,9 @@ type FormData = {
   intake: string;
   field: string;
   education: string;
-  contactPref: string;
+  hearAbout: string;
+  hearAboutReferrer: string;
+  hearAboutSocial: string;
 };
 
 const INITIAL: FormData = {
@@ -52,7 +54,9 @@ const INITIAL: FormData = {
   intake: "",
   field: "",
   education: "",
-  contactPref: "",
+  hearAbout: "",
+  hearAboutReferrer: "",
+  hearAboutSocial: "",
 };
 
 const DIAL_CODES: { key: string; dial: string; label: string; digits: number; country: string }[] = [
@@ -85,7 +89,8 @@ const FIELDS = [
   "Medical & Pharmacy",
 ];
 
-const CONTACT_PREFS = ["📞 Phone call", "💬 WhatsApp", "↔️ Either"];
+const HEAR_OPTIONS = ["Student referral", "Social media", "Walk-in", "Direct / Google"] as const;
+const SOCIAL_OPTIONS = ["Facebook", "Instagram", "TikTok", "LinkedIn"] as const;
 
 /* ------------------------------------------------------------------ */
 /*  Validation                                                         */
@@ -101,8 +106,12 @@ function isStepValid(step: number, form: FormData): boolean {
   if (step === 1) {
     return form.countries.length >= 1 && form.countries.length <= 3 && form.field.trim().length >= 2;
   }
-  if (step === 2)
-    return form.contactPref.length > 0;
+  if (step === 2) {
+    if (!form.hearAbout) return false;
+    if (form.hearAbout === "Student referral" && form.hearAboutReferrer.trim().length < 2) return false;
+    if (form.hearAbout === "Social media" && !form.hearAboutSocial) return false;
+    return true;
+  }
   return false;
 }
 
@@ -517,9 +526,227 @@ function Step3({ form, set, firstName, theme }: { form: FormData; set: (p: Parti
         title={firstName ? `Almost done, ${firstName}!` : "Almost done"}
         subtitle="One quick tap and a counsellor will reach out."
       />
-      <div className="mt-2 pb-2">
-        <ChipPicker label="How should we reach you?" options={CONTACT_PREFS}
-          value={form.contactPref} onChange={(v) => set({ contactPref: v as string })} theme={theme} />
+      <div className="mt-2 pb-2 space-y-2">
+        <span className="block text-[12px] font-bold uppercase tracking-[0.12em] mb-3" style={{ color: "#0D1282" }}>
+          Where did you hear about us?
+        </span>
+
+        {/* Row 1: Student referral + Social media */}
+        <div className="grid grid-cols-2 gap-2">
+          {([
+            {
+              opt: "Student referral" as const,
+              icon: (
+                <svg className="w-[18px] h-[18px] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              ),
+            },
+            {
+              opt: "Social media" as const,
+              icon: (
+                <svg className="w-[18px] h-[18px] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                </svg>
+              ),
+            },
+          ] as const).map(({ opt, icon }) => {
+            const selected = form.hearAbout === opt;
+            return (
+              <motion.button
+                key={opt}
+                type="button"
+                onClick={() => set({ hearAbout: opt, hearAboutReferrer: "", hearAboutSocial: "" })}
+                whileTap={{ scale: 0.95 }}
+                animate={selected ? { scale: [1, 1.03, 1] } : { scale: 1 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                className="rounded-xl px-3 py-3.5 text-[13px] font-semibold text-left transition-all duration-200"
+                style={{
+                  background: selected ? "#FDED22" : "#FFFFFF",
+                  color: selected ? "#001353" : "#374151",
+                  border: `1.5px solid ${selected ? "#e8d800" : "#E0E6F2"}`,
+                  boxShadow: selected ? "0 4px 16px rgba(253,237,34,0.40)" : "0 1px 4px rgba(0,0,0,0.06)",
+                }}
+              >
+                <div className="flex items-center gap-2">
+                  <span style={{ color: selected ? "#001353" : "#9CA3AF" }}>{icon}</span>
+                  <span className="leading-tight">{opt}</span>
+                  <AnimatePresence>
+                    {selected && (
+                      <motion.svg key="check" className="ml-auto flex-shrink-0"
+                        initial={{ opacity: 0, scale: 0.4 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.4 }}
+                        transition={{ duration: 0.18 }}
+                        width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#001353" strokeWidth="3"
+                        strokeLinecap="round" strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </motion.svg>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.button>
+            );
+          })}
+        </div>
+
+        {/* Conditional inputs — slot between row 1 and row 2 */}
+        <AnimatePresence initial={false}>
+          {form.hearAbout === "Student referral" && (
+            <motion.div
+              key="referrer-input"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              style={{ overflow: "hidden" }}
+            >
+            <div
+              className="rounded-xl overflow-hidden"
+              style={{ border: "1.5px solid #E8D800", background: "#FFFDE7" }}
+            >
+              <div className="flex items-center gap-2 px-3 pt-2.5 pb-1">
+                <svg className="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#A86E0E" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                <span className="text-[10px] font-bold uppercase tracking-[0.12em]" style={{ color: "#A86E0E" }}>Who referred you?</span>
+              </div>
+              <div className="px-2 pb-2">
+                <input
+                  type="text"
+                  value={form.hearAboutReferrer}
+                  onChange={(e) => set({ hearAboutReferrer: e.target.value })}
+                  placeholder="Enter their full name"
+                  autoFocus
+                  className="w-full rounded-lg px-3 py-2.5 text-[14px] outline-none transition-all duration-200"
+                  style={{
+                    border: `1.5px solid ${form.hearAboutReferrer.trim().length >= 2 ? "#e8d800" : "#F0E68C"}`,
+                    color: "#0D1282",
+                    background: "#FFFFFF",
+                  }}
+                />
+              </div>
+            </div>
+            </motion.div>
+          )}
+          {form.hearAbout === "Social media" && (
+            <motion.div
+              key="social-chips"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              style={{ overflow: "hidden" }}
+            >
+            <div
+              className="rounded-xl p-3"
+              style={{ border: "1.5px solid #E8D800", background: "#FFFDE7" }}
+            >
+              <p className="text-[10px] font-bold uppercase tracking-[0.12em] mb-2.5" style={{ color: "#A86E0E" }}>Which platform?</p>
+              <div className="flex flex-wrap gap-2">
+                {([
+                  { name: "Facebook", color: "#1877F2" },
+                  { name: "Instagram", color: "#E1306C" },
+                  { name: "TikTok", color: "#010101" },
+                  { name: "LinkedIn", color: "#0A66C2" },
+                ] as const).map(({ name, color }) => {
+                  const sel = form.hearAboutSocial === name;
+                  return (
+                    <motion.button
+                      key={name}
+                      type="button"
+                      onClick={() => set({ hearAboutSocial: name })}
+                      whileTap={{ scale: 0.92 }}
+                      animate={sel ? { scale: [1, 1.06, 1] } : { scale: 1 }}
+                      transition={{ duration: 0.2 }}
+                      className="rounded-full px-3.5 py-1.5 text-[12px] font-bold transition-all duration-200 flex items-center gap-1.5"
+                      style={{
+                        background: sel ? color : "#FFFFFF",
+                        color: sel ? "#FFFFFF" : "#374151",
+                        border: `1.5px solid ${sel ? color : "#E0E6F2"}`,
+                        boxShadow: sel ? `0 3px 10px ${color}55` : "0 1px 3px rgba(0,0,0,0.06)",
+                      }}
+                    >
+                      <AnimatePresence>
+                        {sel && (
+                          <motion.svg key="check"
+                            initial={{ opacity: 0, width: 0 }} animate={{ opacity: 1, width: 11 }} exit={{ opacity: 0, width: 0 }}
+                            transition={{ duration: 0.15 }}
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"
+                            strokeLinecap="round" strokeLinejoin="round" style={{ height: 11, flexShrink: 0 }}
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </motion.svg>
+                        )}
+                      </AnimatePresence>
+                      {name}
+                    </motion.button>
+                  );
+                })}
+              </div>
+            </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Row 2: Walk-in + Direct / Google */}
+        <div className="grid grid-cols-2 gap-2">
+          {([
+            {
+              opt: "Walk-in" as const,
+              icon: (
+                <svg className="w-[18px] h-[18px] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="5" r="1" /><path d="m9 20 3-6 2 2 2-8" /><path d="m6 10 2-2 4 1 3-3" />
+                </svg>
+              ),
+            },
+            {
+              opt: "Direct / Google" as const,
+              icon: (
+                <svg className="w-[18px] h-[18px] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+              ),
+            },
+          ] as const).map(({ opt, icon }) => {
+            const selected = form.hearAbout === opt;
+            return (
+              <motion.button
+                key={opt}
+                type="button"
+                onClick={() => set({ hearAbout: opt, hearAboutReferrer: "", hearAboutSocial: "" })}
+                whileTap={{ scale: 0.95 }}
+                animate={selected ? { scale: [1, 1.03, 1] } : { scale: 1 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                className="rounded-xl px-3 py-3.5 text-[13px] font-semibold text-left transition-all duration-200"
+                style={{
+                  background: selected ? "#FDED22" : "#FFFFFF",
+                  color: selected ? "#001353" : "#374151",
+                  border: `1.5px solid ${selected ? "#e8d800" : "#E0E6F2"}`,
+                  boxShadow: selected ? "0 4px 16px rgba(253,237,34,0.40)" : "0 1px 4px rgba(0,0,0,0.06)",
+                }}
+              >
+                <div className="flex items-center gap-2">
+                  <span style={{ color: selected ? "#001353" : "#9CA3AF" }}>{icon}</span>
+                  <span className="leading-tight">{opt}</span>
+                  <AnimatePresence>
+                    {selected && (
+                      <motion.svg key="check" className="ml-auto flex-shrink-0"
+                        initial={{ opacity: 0, scale: 0.4 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.4 }}
+                        transition={{ duration: 0.18 }}
+                        width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#001353" strokeWidth="3"
+                        strokeLinecap="round" strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </motion.svg>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -607,6 +834,14 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
     setStep((s) => Math.max(s - 1, 0));
   };
 
+  const buildHearAbout = (payload: FormData): string => {
+    if (payload.hearAbout === "Student referral")
+      return `Student referral${payload.hearAboutReferrer.trim() ? `: ${payload.hearAboutReferrer.trim()}` : ""}`;
+    if (payload.hearAbout === "Social media")
+      return `Social media${payload.hearAboutSocial ? `: ${payload.hearAboutSocial}` : ""}`;
+    return payload.hearAbout;
+  };
+
   const postToCRM = (payload: FormData) => {
     return fetch(CRM_ENDPOINT, {
       method: "POST",
@@ -620,12 +855,12 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
         email:      payload.email.trim(),
         phone:      `${dialSpec(payload.dialCode).dial} ${payload.phone.trim()}`,
         custom_fields: {
-          countries:          payload.countries.join(", "),
-          intake:             payload.intake,
-          field_of_study:     payload.field,
-          education_level:    payload.education,
-          contact_preference: payload.contactPref,
-          source:             "website",
+          countries:       payload.countries.join(", "),
+          intake:          payload.intake,
+          field_of_study:  payload.field,
+          education_level: payload.education,
+          hear_about:      buildHearAbout(payload),
+          source:          "website",
         },
       }),
     });
@@ -646,7 +881,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
           intake:       form.intake,
           field:        form.field,
           education:    form.education,
-          contact_pref: form.contactPref,
+          contact_pref: buildHearAbout(form),
           status:       "new",
           source:       "website",
         }),

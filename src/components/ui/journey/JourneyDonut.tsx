@@ -130,21 +130,43 @@ export default function JourneyDonut({
               boxShadow: "inset 0 3px 8px rgba(255,255,255,0.5), inset 0 -2px 4px rgba(160,100,0,0.35)",
               filter: pressed ? "brightness(92%)" : "brightness(100%)",
             }}>
-              <span style={{
-                position: "relative", zIndex: 4,
-                fontSize: "clamp(12px, 2.5vw, 15px)",
-                fontWeight: 900,
-                color: "#1A237E",
-                fontFamily: "var(--font-rubik), sans-serif",
-                letterSpacing: "-0.01em",
-                pointerEvents: "none",
-                whiteSpace: "nowrap",
-                userSelect: "none",
-                textShadow: "0 1px 0 rgba(255,255,255,0.6)",
-                transform: pressed ? "scale(0.95)" : "scale(1)",
-                transition: pressed ? "transform 40ms ease" : "transform 500ms cubic-bezier(0.34,1.56,0.64,1)",
-              }}>
-                Let&rsquo;s begin →
+              {/* Mobile: two-line stacked, no arrow */}
+              <span
+                className="sm:hidden flex flex-col items-center"
+                style={{
+                  position: "relative", zIndex: 4,
+                  fontWeight: 900,
+                  color: "#1A237E",
+                  fontFamily: "var(--font-rubik), sans-serif",
+                  pointerEvents: "none",
+                  userSelect: "none",
+                  textShadow: "0 1px 0 rgba(255,255,255,0.6)",
+                  transform: pressed ? "scale(0.95)" : "scale(1)",
+                  transition: pressed ? "transform 40ms ease" : "transform 500ms cubic-bezier(0.34,1.56,0.64,1)",
+                }}
+              >
+                <span style={{ fontSize: "clamp(14px, 4.5vw, 17px)", lineHeight: 1.2, letterSpacing: "-0.01em" }}>Register</span>
+                <span style={{ fontSize: "clamp(14px, 4.5vw, 17px)", lineHeight: 1.2, letterSpacing: "-0.01em" }}>Now</span>
+              </span>
+              {/* Desktop: single line with arrow */}
+              <span
+                className="hidden sm:block"
+                style={{
+                  position: "relative", zIndex: 4,
+                  fontSize: "clamp(12px, 2.5vw, 15px)",
+                  fontWeight: 900,
+                  color: "#1A237E",
+                  fontFamily: "var(--font-rubik), sans-serif",
+                  letterSpacing: "-0.01em",
+                  pointerEvents: "none",
+                  whiteSpace: "nowrap",
+                  userSelect: "none",
+                  textShadow: "0 1px 0 rgba(255,255,255,0.6)",
+                  transform: pressed ? "scale(0.95)" : "scale(1)",
+                  transition: pressed ? "transform 40ms ease" : "transform 500ms cubic-bezier(0.34,1.56,0.64,1)",
+                }}
+              >
+                Register Now →
               </span>
             </div>
           </button>

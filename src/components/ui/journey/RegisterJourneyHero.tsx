@@ -31,6 +31,13 @@ export default function RegisterJourneyHero() {
   const [formOpen, setFormOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
+  // Listen for external open trigger (e.g. "Book free consultation" button)
+  useEffect(() => {
+    const handler = () => setFormOpen(true);
+    document.addEventListener("admizz:open-register", handler);
+    return () => document.removeEventListener("admizz:open-register", handler);
+  }, []);
+
   // Lock body scroll + bind ESC to close while overlay is open
   useEffect(() => {
     if (!formOpen) return;
