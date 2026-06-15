@@ -35,6 +35,7 @@ type FormData = {
   email: string;
   dialCode: string;
   phone: string;
+  city: string;
   countries: string[];
   intake: string;
   field: string;
@@ -50,6 +51,7 @@ const INITIAL: FormData = {
   email: "",
   dialCode: "NP",
   phone: "",
+  city: "",
   countries: [],
   intake: "",
   field: "",
@@ -101,7 +103,8 @@ function isStepValid(step: number, form: FormData): boolean {
     return (
       form.firstName.trim().length >= 2 &&
       /^\S+@\S+\.\S+$/.test(form.email.trim()) &&
-      phoneDigits(form.phone).length === dialSpec(form.dialCode).digits
+      phoneDigits(form.phone).length === dialSpec(form.dialCode).digits &&
+      form.city.trim().length >= 2
     );
   if (step === 1) {
     return form.countries.length >= 1 && form.countries.length <= 3 && form.field.trim().length >= 2;
@@ -429,6 +432,9 @@ function Step1({ form, set, theme }: { form: FormData; set: (p: Partial<FormData
             <span className="block mt-1.5 text-[12px] font-medium" style={{ color: "#E04562" }}>{fieldError("phone", form)}</span>
           )}
         </div>
+        <TextField label="Your city" name="city" value={form.city} placeholder="e.g. Kathmandu"
+          autoComplete="address-level2" onChange={(v) => set({ city: v })}
+          error={null} isValid={form.city.trim().length >= 2} theme={theme} />
       </div>
     </div>
   );
@@ -854,7 +860,9 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
         last_name:  payload.lastName.trim() || null,
         email:      payload.email.trim(),
         phone:      `${dialSpec(payload.dialCode).dial} ${payload.phone.trim()}`,
+        source:     "website",
         custom_fields: {
+          city:            payload.city.trim() || null,
           countries:       payload.countries.join(", "),
           intake:          payload.intake,
           field_of_study:  payload.field,
@@ -877,6 +885,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
           full_name:    `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
           email:        form.email.trim(),
           phone:        `${dialSpec(form.dialCode).dial} ${form.phone.trim()}`,
+          city:         form.city.trim() || null,
           countries:    form.countries.join(", "),
           intake:       form.intake,
           field:        form.field,

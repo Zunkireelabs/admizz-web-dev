@@ -132,7 +132,7 @@ export default function JourneyDonut({
             }}>
               {/* Mobile: two-line stacked, no arrow */}
               <span
-                className="sm:hidden flex flex-col items-center"
+                className="sm:hidden flex flex-col items-center gap-0.5"
                 style={{
                   position: "relative", zIndex: 4,
                   fontWeight: 900,
@@ -145,8 +145,21 @@ export default function JourneyDonut({
                   transition: pressed ? "transform 40ms ease" : "transform 500ms cubic-bezier(0.34,1.56,0.64,1)",
                 }}
               >
+                <style>{`
+                  @keyframes tapBounce {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-3px); }
+                  }
+                `}</style>
                 <span style={{ fontSize: "clamp(14px, 4.5vw, 17px)", lineHeight: 1.2, letterSpacing: "-0.01em" }}>Register</span>
                 <span style={{ fontSize: "clamp(14px, 4.5vw, 17px)", lineHeight: 1.2, letterSpacing: "-0.01em" }}>Now</span>
+                <svg
+                  width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  style={{ animation: "tapBounce 1.4s ease-in-out infinite", opacity: 0.75, marginTop: "10px" }}
+                  aria-hidden
+                >
+                  <path d="M7 2.5C7 1.7 7.7 1 8.5 1S10 1.7 10 2.5V8c.3-.2.7-.4 1.2-.4.8 0 1.5.5 1.7 1.2.3-.2.7-.3 1.1-.3.8 0 1.5.5 1.7 1.2.3-.2.7-.3 1.1-.3.9 0 1.7.7 1.7 1.6V14c0 3.3-2.7 6-6 6h-1c-1.9 0-3.7-.9-4.8-2.4L2.8 14c-.5-.7-.4-1.7.4-2.2.7-.5 1.6-.4 2.1.2L7 14V2.5Z" stroke="#1A237E" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </span>
               {/* Desktop: single line with arrow */}
               <span
