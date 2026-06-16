@@ -4,9 +4,9 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 
 const REWARDS = [
-  { label: "Consultation booked",  base: "NPR 200 – 500"     },
-  { label: "Service enrollment",   base: "NPR 1,000 – 3,000" },
-  { label: "Visa approval bonus",  base: "NPR 500 – 1,500"   },
+  { label: "Consultation booked",  base: "USD 200 – 500"     },
+  { label: "Service enrollment",   base: "USD 1,000 – 3,000" },
+  { label: "Visa approval bonus",  base: "USD 500 – 1,500"   },
 ];
 
 const TIERS = [

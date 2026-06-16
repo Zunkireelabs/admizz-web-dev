@@ -18,7 +18,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "What's the minimum payout threshold?",
-    answer: "The minimum payout threshold is NPR 500. Once your earnings reach that amount, your commission is queued for the next monthly payout cycle — automatically, with no request needed.",
+    answer: "The minimum payout threshold is USD 500. Once your earnings reach that amount, your commission is queued for the next monthly payout cycle — automatically, with no request needed.",
   },
   {
     question: "Can I join if I'm a high school student?",

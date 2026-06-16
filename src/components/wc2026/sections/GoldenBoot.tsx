@@ -98,13 +98,13 @@ export default function GoldenBoot() {
   const rest = topScorers.slice(1, 8);
 
   return (
-    <section className="wc-section" id="scorers">
+    <section className="wc-section" id="scorers" style={{ background: "var(--wc-bg-alt)" }}>
       <div className="wc-section-inner">
         <div className="wc-section-header">
           <div className="wc-section-title-block">
-            <span className="wc-section-eyebrow">Golden Boot Race</span>
+            <span className="wc-section-eyebrow wc-section-eyebrow--gold">Golden Boot Race</span>
             <h2 className="wc-section-title">
-              The Hunt for <span className="wc-section-title-accent">Gold.</span>
+              The Hunt for <span className="wc-section-title-accent wc-section-title-accent--gold">Gold.</span>
             </h2>
             <p className="wc-section-lede">
               {tournamentStarted

@@ -125,3 +125,33 @@ export const PodiumIcon = ({ size = 24, className = "", strokeWidth = 1.6 }: Ico
     <rect x="16" y="9" width="6" height="11" />
   </svg>
 );
+
+export const LaptopIcon = ({ size = 24, className = "", strokeWidth = 1.6 }: IconProps) => (
+  <svg {...baseProps(size, className, strokeWidth)}>
+    <rect x="3" y="5" width="18" height="11" rx="2" />
+    <path d="M2 20h20" />
+    <path d="M10 20v-1h4v1" />
+  </svg>
+);
+
+export const PhoneIcon = ({ size = 24, className = "", strokeWidth = 1.6 }: IconProps) => (
+  <svg {...baseProps(size, className, strokeWidth)}>
+    <rect x="7" y="2" width="10" height="20" rx="2" />
+    <path d="M11 18h2" />
+  </svg>
+);
+
+export const WatchIcon = ({ size = 24, className = "", strokeWidth = 1.6 }: IconProps) => (
+  <svg {...baseProps(size, className, strokeWidth)}>
+    <rect x="6" y="7" width="12" height="10" rx="2.5" />
+    <path d="M9 7V4h6v3" />
+    <path d="M9 17v3h6v-3" />
+    <path d="M12 11v2l1.5 1" />
+  </svg>
+);
+
+export const JerseyIcon = ({ size = 24, className = "", strokeWidth = 1.6 }: IconProps) => (
+  <svg {...baseProps(size, className, strokeWidth)}>
+    <path d="M8 3l2 2h4l2-2 4 2-2 5h-2v11H8V10H6L4 5z" />
+  </svg>
+);

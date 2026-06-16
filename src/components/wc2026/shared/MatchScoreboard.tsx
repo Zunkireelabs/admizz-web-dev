@@ -13,6 +13,7 @@ const STADIUM_BG =
 interface MatchScoreboardProps {
   match: MatchWithTeams;
   compact?: boolean;
+  children?: React.ReactNode;
 }
 
 function StatusPill({ match }: { match: MatchWithTeams }) {
@@ -39,7 +40,7 @@ function FormPills({ form }: { form?: ("W" | "D" | "L")[] }) {
   );
 }
 
-export default function MatchScoreboard({ match, compact = false }: MatchScoreboardProps) {
+export default function MatchScoreboard({ match, compact = false, children }: MatchScoreboardProps) {
   const status = match.score?.status ?? "UPCOMING";
   const isLive = status === "LIVE" || status === "HT";
   const isFt = status === "FT";
@@ -116,6 +117,8 @@ export default function MatchScoreboard({ match, compact = false }: MatchScorebo
             <FormPills form={match.teamBData.form} />
           </div>
         </div>
+
+        {children}
 
         <div className="wc-motd-venue-line">
           <PinIcon size={14} />

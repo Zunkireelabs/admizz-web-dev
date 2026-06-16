@@ -12,7 +12,7 @@ const TIER_COLORS: Record<string, { primary: string; soft: string; border: strin
 
 const TIER_PERKS: Record<string, string[]> = {
   "Starter":       [
-    "1× base commission · NPR 500–1,000 per enrolled referral",
+    "1× base commission · USD 500–1,000 per enrolled referral",
     "Complete marketing toolkit on approval",
     "Official Admizz affiliate certificate",
     "Private affiliate community access",

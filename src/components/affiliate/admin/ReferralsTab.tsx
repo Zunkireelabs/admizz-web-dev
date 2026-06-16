@@ -280,7 +280,7 @@ export default function ReferralsTab({ referrals, affiliates, onRefresh }: Props
 
             <div>
               <label className="text-[12px] font-bold uppercase mb-1.5 block" style={{ color: "#64748B", letterSpacing: "0.08em" }}>
-                Commission (NPR)
+                Commission (USD)
               </label>
               <input
                 type="number"
@@ -432,7 +432,7 @@ export default function ReferralsTab({ referrals, affiliates, onRefresh }: Props
                         </select>
                       </td>
                       <td className="px-4 py-3.5 font-bold whitespace-nowrap text-[13px]" style={{ color: r.commission > 0 ? "#b07400" : "#64748B" }}>
-                        {r.commission > 0 ? `NPR ${r.commission.toLocaleString()}` : "—"}
+                        {r.commission > 0 ? `USD ${r.commission.toLocaleString()}` : "—"}
                       </td>
                     </tr>
                     {isOpen && (

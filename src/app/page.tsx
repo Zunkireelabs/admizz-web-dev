@@ -7,7 +7,7 @@ import HomepageFAQ from "./HomepageFAQ";
 import UniversityPartners from "./UniversityPartners";
 import CommunityReels from "./CommunityReels";
 import LazyMount from "@/components/LazyMount";
-import HeroPromoOverlay from "@/components/ui/HeroPromoOverlay";
+import PredictWinPromoOverlay from "@/components/ui/PredictWinPromoOverlay";
 
 export const metadata: Metadata = {
   title: "Your Partner in Study Abroad - Admizz Education",
@@ -318,28 +318,12 @@ export default function Home() {
       `}</style>
 
       {/* Promotional overlay — appears 3.5s after page load */}
-      <HeroPromoOverlay
-        id="test-prep-np-2083"
-        eyebrow="🇳🇵 Only for Nepalese Students"
-        headline={
-          <>
-            नयाँ वर्ष २०८३ को{" "}
-            <span style={{ color: "#FCB730" }}>धमाकेदार Offer!</span>
-          </>
-        }
-        subhead="Your Global Dreams at a Special Price!"
-        offerLine={
-          <>
-            IELTS · PTE · Duolingo{" "}
-            <span style={{ color: "#888" }}>@ just</span>{" "}
-            <span style={{ color: "#001353", fontSize: "18px", whiteSpace: "nowrap" }}>Rs. 2,083/-</span>
-          </>
-        }
-        ctaText="Book a Demo Class Today!"
-        ctaHref="/test-prep"
-        validityNote="*Limited Seats Remaining  •  *Unlimited Mock Test"
-        imageSrc="/images/lady-promo-2083.jpg"
-        imageAlt="Admizz Education New Year 2083 Offer"
+      <PredictWinPromoOverlay
+        id="wc2026-predict-win"
+        imageSrc="/images/promos/predict-and-win-2026.jpg"
+        imageAlt="Predict & Win — FIFA World Cup 2026"
+        ctaText="Predict & Win →"
+        ctaHref="/events/worldcup-2026"
         delayMs={3500}
       />
 

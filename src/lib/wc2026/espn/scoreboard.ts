@@ -65,6 +65,13 @@ function mapRound(headline?: string): string {
   return "Group Stage";
 }
 
+function mapGroup(headline: string | undefined, round: string): string {
+  if (round !== "Group Stage") return round;
+  if (!headline) return "—";
+  const m = headline.match(/Group\s+([A-L])/i);
+  return m ? m[1].toUpperCase() : "—";
+}
+
 function parseForm(form: string | undefined): ("W" | "D" | "L")[] {
   if (!form) return [];
   return form.split("").filter((c) => c === "W" || c === "D" || c === "L") as ("W" | "D" | "L")[];
@@ -99,7 +106,7 @@ function mapEvent(e: EspnEvent, idx: number): MatchWithTeams | null {
   const round = mapRound(comp.notes?.[0]?.headline);
   return {
     id: `espn-${e.id}`,
-    group: round === "Group Stage" ? "—" : round,
+    group: mapGroup(comp.notes?.[0]?.headline, round),
     round,
     teamA: home.team.abbreviation,
     teamB: away.team.abbreviation,

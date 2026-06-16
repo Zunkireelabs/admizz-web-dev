@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { useLive } from "@/lib/wc2026/LiveProvider";
 import { formatKickoff } from "@/lib/wc2026/format";
 import { useTimezone } from "@/lib/wc2026/TimezoneProvider";
-import { ArrowRightIcon } from "../shared/Icons";
+import { ArrowRightIcon, LaptopIcon, PhoneIcon, WatchIcon, JerseyIcon } from "../shared/Icons";
 import FloatingNav from "../shared/FloatingNav";
 
+const WC_LOGO_URL = "/images/wc/wc2026-emblem.png";
+
 const HERO_PHOTO =
-  "https://images.unsplash.com/photo-1522778034537-20a2486be803?auto=format&fit=crop&w=2400&q=80";
+  "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=2400&q=80";
 
 const PARTICLES = Array.from({ length: 18 }).map((_, i) => ({
   left: (i * 53) % 100,
@@ -84,37 +86,75 @@ export default function HeroCinematic() {
       </div>
 
       <div className="wc-hero-content">
-        <div className="wc-hero-eyebrow">
-          <span className="wc-hero-eyebrow-dot" />
-          Admizz × FIFA World Cup 2026
-        </div>
+        <div className="wc-hero-top">
+          <div className="wc-hero-main">
+            <div className="wc-hero-eyebrow">
+              <span className="wc-hero-eyebrow-dot" />
+              Admizz × FIFA World Cup 2026
+            </div>
 
-        <h1 className="wc-hero-title wc-display">
-          PREDICT THE<br />
-          <span className="wc-hero-title-accent">WORLD CUP.</span><br />
-          WIN YOUR FUTURE.
-        </h1>
+            <h1 className="wc-hero-title wc-display">
+              PREDICT THE<br />
+              <span className="wc-hero-title-accent">WORLD CUP.</span><br />
+              WIN YOUR FUTURE.
+            </h1>
 
-        <p className="wc-hero-lede">
-          The world&apos;s biggest tournament. One match at a time. Predict the winner, follow the bracket, watch the standings, win prizes — and unlock a free study-abroad counselling session with Admizz Education.
-        </p>
+            <p className="wc-hero-lede">
+              The world&apos;s biggest tournament. One match at a time. Predict the winner, follow the bracket, watch the standings, win prizes — and unlock free IELTS, PTE test-prep and a study-abroad counselling session with Admizz Education.
+            </p>
 
-        <div className="wc-hero-ctas">
-          <a href="#match" className="wc-btn-primary">
-            Predict Now
-            <ArrowRightIcon size={16} strokeWidth={2.2} />
-          </a>
-          <a href="#bracket" className="wc-btn-ghost">
-            View Bracket
-          </a>
-        </div>
+            <div className="wc-hero-ctas">
+              <a href="#match" className="wc-btn-primary">
+                Predict Now
+                <ArrowRightIcon size={16} strokeWidth={2.2} />
+              </a>
+              <a href="#bracket" className="wc-btn-ghost">
+                View Bracket
+              </a>
+            </div>
 
-        <div className="wc-host-strip">
-          <span className="wc-host-strip-label">Hosted by</span>
-          <span className="wc-host-badge"><span style={{ fontSize: 16 }}>🇨🇦</span> Canada</span>
-          <span className="wc-host-badge"><span style={{ fontSize: 16 }}>🇺🇸</span> USA</span>
-          <span className="wc-host-badge"><span style={{ fontSize: 16 }}>🇲🇽</span> Mexico</span>
-          <span className="wc-host-strip-label" style={{ marginLeft: "auto" }}>16 cities · 48 nations · 104 matches</span>
+            <div className="wc-host-strip">
+              <span className="wc-host-strip-label">Hosted by</span>
+              <span className="wc-host-badge"><span style={{ fontSize: 16 }}>🇨🇦</span> Canada</span>
+              <span className="wc-host-badge"><span style={{ fontSize: 16 }}>🇺🇸</span> USA</span>
+              <span className="wc-host-badge"><span style={{ fontSize: 16 }}>🇲🇽</span> Mexico</span>
+              <span className="wc-host-strip-label" style={{ marginLeft: "auto" }}>16 cities · 48 nations · 104 matches</span>
+            </div>
+          </div>
+
+          <aside className="wc-hero-prizes" aria-label="Predict & Win prizes">
+            <div className="wc-hero-prizes-sticker" aria-hidden="false">
+              <span className="wc-hero-prizes-sticker-icon"><JerseyIcon size={18} strokeWidth={2} /></span>
+              <span className="wc-hero-prizes-sticker-text">
+                Jersey<br />Giveaway
+                <span className="wc-hero-prizes-sticker-sub">In Selected Matches</span>
+              </span>
+            </div>
+
+            <div className="wc-hero-prizes-badge">
+              <img src={WC_LOGO_URL} alt="FIFA World Cup 2026" className="wc-hero-prizes-logo" />
+            </div>
+            <div className="wc-hero-prizes-header">Grand Prizes</div>
+
+            <ul className="wc-hero-prizes-list">
+              <li className="wc-hero-prize-row">
+                <span className="wc-hero-prize-rank wc-hero-prize-rank--1">1<small>st</small></span>
+                <span className="wc-hero-prize-name">Laptop</span>
+                <span className="wc-hero-prize-icon"><LaptopIcon size={22} /></span>
+              </li>
+              <li className="wc-hero-prize-row">
+                <span className="wc-hero-prize-rank wc-hero-prize-rank--2">2<small>nd</small></span>
+                <span className="wc-hero-prize-name">Smartphone</span>
+                <span className="wc-hero-prize-icon"><PhoneIcon size={22} /></span>
+              </li>
+              <li className="wc-hero-prize-row">
+                <span className="wc-hero-prize-rank wc-hero-prize-rank--3">3<small>rd</small></span>
+                <span className="wc-hero-prize-name">Smartwatch</span>
+                <span className="wc-hero-prize-icon"><WatchIcon size={22} /></span>
+              </li>
+            </ul>
+
+          </aside>
         </div>
 
         <FloatingNav />

@@ -314,7 +314,7 @@ function LeadDrillIn({
                   <span className="font-bold">Credited to {affiliate_name ?? "affiliate"}</span> <span style={{ color: "#b07400" }}>· {referral.affiliate_code}</span> ·
                   current status <strong style={{ color: ss?.color ?? "#64748B" }}>{ss?.label ?? referral.status}</strong> ·
                   stage <strong>{referral.stage}</strong>
-                  {referral.commission > 0 && <span> · NPR {referral.commission.toLocaleString()}</span>}
+                  {referral.commission > 0 && <span> · USD {referral.commission.toLocaleString()}</span>}
                 </div>
                 <div className="text-[11px]" style={{ color: "#94A3B8" }}>last updated {formatAbs(referral.updated_at)}</div>
               </div>

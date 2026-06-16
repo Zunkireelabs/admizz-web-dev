@@ -84,6 +84,15 @@ interface Props {
   onRefresh: () => Promise<void>;
 }
 
+type StatusFilter = "all" | "new" | "approved" | "rejected";
+
+const STATUS_PILLS: { label: string; value: StatusFilter }[] = [
+  { label: "All",      value: "all"      },
+  { label: "New",      value: "new"      },
+  { label: "Approved", value: "approved" },
+  { label: "Rejected", value: "rejected" },
+];
+
 export default function ApplicationsTab({ initialApplications, onRefresh }: Props) {
   const [apps, setApps] = useState(initialApplications);
   const [loadingId, setLoadingId] = useState<string | null>(null);
@@ -91,6 +100,8 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
 
   const showError = (msg: string) => {
     setErrorMsg(msg);
@@ -134,6 +145,14 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
   const pending = apps.filter(a => a.status === "new");
   const decided = apps.filter(a => a.status !== "new");
 
+  const q = search.trim().toLowerCase();
+  const filtered = [...pending, ...decided].filter(a => {
+    const matchesStatus = statusFilter === "all" || a.status === statusFilter;
+    const matchesSearch = !q || [a.full_name, a.email, a.city, a.organization]
+      .some(v => v?.toLowerCase().includes(q));
+    return matchesStatus && matchesSearch;
+  });
+
   return (
     <div className="space-y-4">
       {/* Toast strip */}
@@ -164,8 +183,67 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
         </div>
       )}
 
+      {/* Search + filter bar */}
+      <div className="flex flex-col sm:flex-row gap-3">
+        <div className="relative flex-1">
+          <svg
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none"
+            style={{ color: "#94A3B8" }}
+            fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
+          </svg>
+          <input
+            type="text"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Search by name, email, city, organization…"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl text-sm outline-none transition-all duration-200"
+            style={{ background: "#FFFFFF", border: "1px solid #EAECF0", color: "#001353" }}
+            onFocus={e => { e.target.style.borderColor = "#FCB730"; e.target.style.boxShadow = "0 0 0 3px rgba(252,183,48,0.12)"; }}
+            onBlur={e => { e.target.style.borderColor = "#EAECF0"; e.target.style.boxShadow = "none"; }}
+          />
+          {search && (
+            <button
+              type="button"
+              onClick={() => setSearch("")}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full flex items-center justify-center transition-colors"
+              style={{ background: "#E2E8F0", color: "#64748B" }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#CBD5E1"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#E2E8F0"; }}
+            >
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
+        </div>
+        <div className="flex items-center gap-1.5 flex-shrink-0">
+          {STATUS_PILLS.map(pill => (
+            <button
+              key={pill.value}
+              type="button"
+              onClick={() => setStatusFilter(pill.value)}
+              className="px-3 py-2 rounded-xl text-xs font-bold transition-all duration-150"
+              style={
+                statusFilter === pill.value
+                  ? { background: "#001353", color: "#FFFFFF", border: "1px solid #001353" }
+                  : { background: "#FFFFFF", color: "#475569", border: "1px solid #EAECF0" }
+              }
+            >
+              {pill.label}
+              {pill.value !== "all" && (
+                <span className="ml-1.5 opacity-60">
+                  {apps.filter(a => a.status === pill.value).length}
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Section header */}
-      {pending.length > 0 && (
+      {pending.length > 0 && statusFilter === "all" && !q && (
         <div className="mb-2">
           <p
             className="text-[12px] font-bold uppercase mb-1"
@@ -211,7 +289,20 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
         </div>
       )}
 
-      {[...pending, ...decided].map(app => {
+      {filtered.length === 0 && (q || statusFilter !== "all") && apps.length > 0 && (
+        <div
+          className="rounded-2xl p-10 flex flex-col items-center justify-center text-center"
+          style={{ background: "#FFFFFF", border: "1px solid #EAECF0" }}
+        >
+          <svg className="w-8 h-8 mb-3" style={{ color: "#CBD5E1" }} fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
+          </svg>
+          <p className="text-sm font-semibold" style={{ color: "#001353" }}>No results found</p>
+          <p className="text-xs mt-1" style={{ color: "#64748B" }}>Try a different search term or filter.</p>
+        </div>
+      )}
+
+      {filtered.map(app => {
         const isLoading = loadingId === app.id;
         const assignedCode = approvedCodes[app.id];
         const isPending = app.status === "new";

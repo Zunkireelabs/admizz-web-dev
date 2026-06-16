@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { MatchWithTeams, PredictionChoice, PredictionLead } from "@/lib/wc2026/types";
 import { savePrediction } from "@/lib/wc2026/predictions";
 import { DIAL_CODES, dialSpec, phoneDigits } from "@/lib/dialCodes";
@@ -29,6 +30,7 @@ interface PredictionModalProps {
   choice: PredictionChoice | null;
   onClose: () => void;
   onSubmitted: () => void;
+  onPredictNext?: () => void;
 }
 
 function pickLabel(match: MatchWithTeams, choice: PredictionChoice): string {
@@ -37,13 +39,16 @@ function pickLabel(match: MatchWithTeams, choice: PredictionChoice): string {
   return "A draw at full time";
 }
 
-export default function PredictionModal({ open, match, choice, onClose, onSubmitted }: PredictionModalProps) {
+export default function PredictionModal({ open, match, choice, onClose, onSubmitted, onPredictNext }: PredictionModalProps) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [dialKey, setDialKey] = useState("NP");
   const [phone, setPhone] = useState("");
   const [dialOpen, setDialOpen] = useState(false);
   const [dialSearch, setDialSearch] = useState("");
+  const [studyAbroad, setStudyAbroad] = useState<"yes" | "no" | null>(null);
+  const [agreedToTerms, setAgreedToTerms] = useState(true);
+  const [termsOpen, setTermsOpen] = useState(false);
   const dialRootRef = useRef<HTMLDivElement>(null);
   const dialSearchRef = useRef<HTMLInputElement>(null);
   const spec = dialSpec(dialKey);
@@ -54,11 +59,30 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
       if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", onKey);
-    const original = document.body.style.overflow;
+
+    // Bulletproof scroll lock — preserves scroll position, works on iOS,
+    // immune to transformed ancestors.
+    const scrollY = window.scrollY;
+    const original = {
+      position: document.body.style.position,
+      top: document.body.style.top,
+      width: document.body.style.width,
+      overflow: document.body.style.overflow,
+    };
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
     document.body.style.overflow = "hidden";
+    document.body.classList.add("wc-modal-active");
+
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = original;
+      document.body.style.position = original.position;
+      document.body.style.top = original.top;
+      document.body.style.width = original.width;
+      document.body.style.overflow = original.overflow;
+      document.body.classList.remove("wc-modal-active");
+      window.scrollTo(0, scrollY);
     };
   }, [open, onClose]);
 
@@ -68,6 +92,9 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
       setPhone("");
       setDialKey("NP");
       setDialOpen(false);
+      setStudyAbroad(null);
+      setAgreedToTerms(true);
+      setTermsOpen(false);
     }
   }, [open, match?.id, choice]);
 
@@ -101,10 +128,13 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
   }, [dialSearch]);
 
   if (!open || !match || !choice) return null;
+  if (typeof document === "undefined") return null;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (phone.length < 7) return;
+    if (!studyAbroad) return;
+    if (!agreedToTerms) return;
     setSubmitting(true);
     const formData = new FormData(e.currentTarget);
     const lead: PredictionLead = {
@@ -135,30 +165,47 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
           form_config_id:  CRM_FORM_CONFIG_ID,
           session_id:      sessionId,
           idempotency_key: `${sessionId}-final`,
-          intake_source:   "form",
-          intake_medium:   null,
-          intake_campaign: null,
+          intake_source:   "worldcup-predict-win",
+          intake_medium:   "web",
+          intake_campaign: "wc2026-predict-and-win",
           status:          "new",
           step:            1,
           is_final:        true,
           file_urls:       [],
-          country:         null,
+
+          // Identity
           first_name:      names.first_name || null,
           last_name:       names.last_name,
           phone:           lead.phone,
           email:           lead.email,
           city:            lead.city,
+
+          // Explicit overrides — clear any defaults baked into the form config
+          // (the form_config_id was originally used for a UK Humanities Student form).
+          source:          "worldcup-predict-win",
+          country:         null,
+          countries:       [],
+          field_of_study:  null,
+          field_of_studies: [],
+          contact_preference: null,
+          preferred_contact:  null,
+          tag:             "wc2026-predict-win",
+          tags:            ["wc2026-predict-win"],
+          lead_tag:        "wc2026-predict-win",
+
           custom_fields: {
-            full_name:       lead.name,
-            phone_number:    phoneLocalDigits,
-            dial_code:       lead.dialCode,
-            city:            lead.city,
-            source:          lead.source,
-            match_id:        lead.matchId,
-            match_label:     lead.matchLabel,
-            prediction:      lead.prediction,
-            prediction_text: pickLabel(match, choice),
-            submitted_at:    lead.submittedAt,
+            full_name:                lead.name,
+            phone_number:             phoneLocalDigits,
+            dial_code:                lead.dialCode,
+            city:                     lead.city,
+            source:                   lead.source,
+            match_id:                 lead.matchId,
+            match_label:              lead.matchLabel,
+            prediction:               lead.prediction,
+            prediction_text:          pickLabel(match, choice),
+            submitted_at:             lead.submittedAt,
+            study_abroad_interest:    studyAbroad,
+            agreed_to_terms:          agreedToTerms,
           },
         }),
       });
@@ -179,7 +226,8 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
 
   const team = choice === "team_a" ? match.teamAData : choice === "team_b" ? match.teamBData : null;
 
-  return (
+  return createPortal(
+    <>
     <div className="wc-modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label="Prediction form">
       <div className="wc-modal" onClick={(e) => e.stopPropagation()}>
         <button type="button" className="wc-modal-close" onClick={onClose} aria-label="Close">
@@ -198,8 +246,20 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
             <p className="wc-modal-success-text">
               Your prediction is recorded and your free counselling slot is reserved. The Admizz team will reach out shortly.
             </p>
-            <button type="button" className="wc-btn-primary" onClick={onClose}>
-              Continue exploring
+            {onPredictNext && (
+              <button
+                type="button"
+                className="wc-btn-primary wc-modal-predict-next-btn"
+                onClick={() => { onClose(); onPredictNext(); }}
+              >
+                Predict Next Match
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
+            <button type="button" className="wc-modal-skip-btn" onClick={onClose}>
+              {onPredictNext ? "Skip for now" : "Continue exploring"}
             </button>
           </div>
         ) : (
@@ -329,11 +389,70 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
                     <input id="wc-pf-city" className="wc-input" type="text" name="city" placeholder="e.g. Kathmandu, London, Lagos" required />
                   </div>
                 </div>
-                <button type="submit" className="wc-submit" disabled={submitting}>
+                <div className="wc-field">
+                  <span className="wc-field-label">
+                    Are you interested in studying abroad?<span className="wc-field-required">*</span>
+                  </span>
+                  <div className="wc-form-yesno" role="radiogroup" aria-label="Are you interested in studying abroad?">
+                    <button
+                      type="button"
+                      role="radio"
+                      aria-checked={studyAbroad === "yes"}
+                      className={`wc-form-yesno-btn${studyAbroad === "yes" ? " wc-form-yesno-btn--active" : ""}`}
+                      onClick={() => setStudyAbroad("yes")}
+                    >
+                      Yes
+                    </button>
+                    <button
+                      type="button"
+                      role="radio"
+                      aria-checked={studyAbroad === "no"}
+                      className={`wc-form-yesno-btn${studyAbroad === "no" ? " wc-form-yesno-btn--active" : ""}`}
+                      onClick={() => setStudyAbroad("no")}
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+
+                <label className="wc-form-terms">
+                  <input
+                    type="checkbox"
+                    className="wc-form-terms-input"
+                    checked={agreedToTerms}
+                    onChange={(e) => setAgreedToTerms(e.target.checked)}
+                  />
+                  <span className="wc-form-terms-box" aria-hidden="true">
+                    {agreedToTerms && (
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    )}
+                  </span>
+                  <span className="wc-form-terms-label">
+                    I agree to the{" "}
+                    <button
+                      type="button"
+                      className="wc-form-terms-link"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setTermsOpen(true);
+                      }}
+                    >
+                      terms and conditions
+                    </button>
+                  </span>
+                </label>
+
+                <button
+                  type="submit"
+                  className="wc-submit"
+                  disabled={submitting || !studyAbroad || !agreedToTerms}
+                >
                   {submitting ? "Locking in…" : "Lock in my prediction"}
                 </button>
                 <p className="wc-form-note">
-                  By submitting, you agree to be contacted by Admizz Education about your study-abroad plans.
+                  Unlock a free test-prep consultation and study-abroad counselling session with Admizz Education.
                 </p>
               </form>
             </div>
@@ -341,5 +460,39 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
         )}
       </div>
     </div>
+
+    <div
+      className={`wc-terms-banner${termsOpen ? " wc-terms-banner--open" : ""}`}
+      role="dialog"
+      aria-modal="false"
+      aria-label="Terms and conditions"
+      aria-hidden={!termsOpen}
+    >
+      <div className="wc-terms-banner-inner">
+        <div className="wc-terms-banner-content">
+          <h3 className="wc-terms-banner-title">Terms &amp; Conditions</h3>
+          <ul className="wc-terms-banner-list">
+            <li>
+              By submitting this form, you agree to be contacted by Admizz Education about your study-abroad plans.
+            </li>
+            <li>
+              Jerseys and footballs will be awarded only on selected match days, at Admizz Education&apos;s discretion.
+            </li>
+            <li>
+              This is a free-entry campaign — no purchase or monetary contribution is required to participate, and prizes are not redeemable for cash.
+            </li>
+          </ul>
+        </div>
+        <button
+          type="button"
+          className="wc-terms-banner-close"
+          onClick={() => setTermsOpen(false)}
+        >
+          Got it
+        </button>
+      </div>
+    </div>
+    </>,
+    document.body
   );
 }

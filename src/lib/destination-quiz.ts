@@ -152,32 +152,32 @@ export const DEST_SCORES: Record<
   { field: Record<string, number>; lifestyle: Record<string, number>; budget: Record<string, number> }
 > = {
   uk: {
-    field:     { "Business & Management": 33, "Technology & Engineering": 18, "Health & Medicine": 25, "Arts & Social Science": 33 },
+    field:     { "Engineering & Technology": 24, "Allied Health Sciences": 26, "Humanities & Social Sciences": 33, "Business & Management": 33, "Law & Legal Studies": 33, "Architecture & Design": 30, "Applied Sciences": 22, "Medical & Pharmacy": 25 },
     lifestyle: { "Big City": 33, "Safe & Quiet": 14, "Diverse & Global": 28, "Nature & Outdoors": 8 },
     budget:    { "Under $15,000": 22, "$15,000 – $30,000": 30, "Above $30,000": 28, "I Need a Scholarship": 28 },
   },
   usa: {
-    field:     { "Business & Management": 28, "Technology & Engineering": 33, "Health & Medicine": 22, "Arts & Social Science": 22 },
+    field:     { "Engineering & Technology": 33, "Allied Health Sciences": 24, "Humanities & Social Sciences": 24, "Business & Management": 30, "Law & Legal Studies": 28, "Architecture & Design": 26, "Applied Sciences": 33, "Medical & Pharmacy": 28 },
     lifestyle: { "Big City": 33, "Safe & Quiet": 12, "Diverse & Global": 28, "Nature & Outdoors": 10 },
     budget:    { "Under $15,000": 8,  "$15,000 – $30,000": 18, "Above $30,000": 33, "I Need a Scholarship": 10 },
   },
   canada: {
-    field:     { "Business & Management": 26, "Technology & Engineering": 26, "Health & Medicine": 30, "Arts & Social Science": 24 },
+    field:     { "Engineering & Technology": 28, "Allied Health Sciences": 30, "Humanities & Social Sciences": 24, "Business & Management": 28, "Law & Legal Studies": 22, "Architecture & Design": 24, "Applied Sciences": 28, "Medical & Pharmacy": 28 },
     lifestyle: { "Big City": 18, "Safe & Quiet": 30, "Diverse & Global": 26, "Nature & Outdoors": 24 },
     budget:    { "Under $15,000": 24, "$15,000 – $30,000": 33, "Above $30,000": 26, "I Need a Scholarship": 24 },
   },
   australia: {
-    field:     { "Business & Management": 24, "Technology & Engineering": 22, "Health & Medicine": 33, "Arts & Social Science": 22 },
+    field:     { "Engineering & Technology": 26, "Allied Health Sciences": 33, "Humanities & Social Sciences": 22, "Business & Management": 26, "Law & Legal Studies": 22, "Architecture & Design": 28, "Applied Sciences": 24, "Medical & Pharmacy": 30 },
     lifestyle: { "Big City": 22, "Safe & Quiet": 26, "Diverse & Global": 33, "Nature & Outdoors": 28 },
     budget:    { "Under $15,000": 20, "$15,000 – $30,000": 30, "Above $30,000": 24, "I Need a Scholarship": 20 },
   },
   germany: {
-    field:     { "Business & Management": 14, "Technology & Engineering": 33, "Health & Medicine": 16, "Arts & Social Science": 25 },
+    field:     { "Engineering & Technology": 33, "Allied Health Sciences": 18, "Humanities & Social Sciences": 22, "Business & Management": 18, "Law & Legal Studies": 18, "Architecture & Design": 26, "Applied Sciences": 33, "Medical & Pharmacy": 20 },
     lifestyle: { "Big City": 20, "Safe & Quiet": 33, "Diverse & Global": 18, "Nature & Outdoors": 20 },
     budget:    { "Under $15,000": 33, "$15,000 – $30,000": 22, "Above $30,000": 8,  "I Need a Scholarship": 33 },
   },
   nz: {
-    field:     { "Business & Management": 20, "Technology & Engineering": 18, "Health & Medicine": 26, "Arts & Social Science": 30 },
+    field:     { "Engineering & Technology": 20, "Allied Health Sciences": 28, "Humanities & Social Sciences": 26, "Business & Management": 22, "Law & Legal Studies": 20, "Architecture & Design": 26, "Applied Sciences": 22, "Medical & Pharmacy": 24 },
     lifestyle: { "Big City": 8,  "Safe & Quiet": 30, "Diverse & Global": 16, "Nature & Outdoors": 33 },
     budget:    { "Under $15,000": 26, "$15,000 – $30,000": 28, "Above $30,000": 20, "I Need a Scholarship": 26 },
   },
@@ -215,10 +215,14 @@ export const QUIZ_QUESTIONS = [
     title: "What do you want to study?",
     sub: "Choose the subject that interests you most",
     options: [
-      { emoji: "💼", label: "Business & Management",    desc: "MBA, Finance, Marketing, HR" },
-      { emoji: "💻", label: "Technology & Engineering", desc: "Computer Science, AI, Data, Robotics" },
-      { emoji: "🩺", label: "Health & Medicine",        desc: "Nursing, Pharmacy, Medical Sciences" },
-      { emoji: "🎨", label: "Arts & Social Science",    desc: "Design, Law, Psychology, Media" },
+      { emoji: "⚙️", label: "Engineering & Technology",    desc: "" },
+      { emoji: "🩺", label: "Allied Health Sciences",      desc: "" },
+      { emoji: "🌍", label: "Humanities & Social Sciences", desc: "" },
+      { emoji: "💼", label: "Business & Management",       desc: "" },
+      { emoji: "⚖️", label: "Law & Legal Studies",         desc: "" },
+      { emoji: "🏛️", label: "Architecture & Design",       desc: "" },
+      { emoji: "🔬", label: "Applied Sciences",            desc: "" },
+      { emoji: "💊", label: "Medical & Pharmacy",          desc: "" },
     ],
   },
   {

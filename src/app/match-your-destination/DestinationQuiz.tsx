@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   destinations,
@@ -86,7 +86,11 @@ export default function DestinationQuiz() {
   const [submitting, setSubmitting] = useState(false);
   const [calcMatch, setCalcMatch]   = useState<number>(0);
 
+  // Skip scroll on initial mount so the page lands on the hero (eyebrow + H1);
+  // only scroll the quiz card into view on subsequent phase/step changes.
+  const didMount = useRef(false);
   useEffect(() => {
+    if (!didMount.current) { didMount.current = true; return; }
     const el = document.getElementById("quiz");
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [phase, step]);
@@ -160,10 +164,10 @@ export default function DestinationQuiz() {
             <motion.div key="intro" {...SLIDE}>
               <CardHeader phase="intro" step={0} />
 
-              <div className="relative px-7 pt-6 pb-5 md:px-10 md:pt-8 md:pb-6 text-center">
+              <div className="relative px-7 pt-4 pb-4 md:px-10 md:pt-5 md:pb-5 text-center">
                 {/* Globe orb — contained, no overflow bleed */}
-                <div className="flex justify-center mb-4">
-                  <div className="relative flex items-center justify-center w-24 h-24 md:w-28 md:h-28 flex-shrink-0">
+                <div className="flex justify-center mb-2">
+                  <div className="relative flex items-center justify-center w-20 h-20 md:w-24 md:h-24 flex-shrink-0">
                     {/* Outer diffuse halo — fixed size, never escapes */}
                     <div className="absolute inset-0 rounded-full pointer-events-none"
                       style={{ background: "radial-gradient(circle, rgba(49,66,156,0.10) 0%, transparent 70%)" }} />
@@ -180,16 +184,16 @@ export default function DestinationQuiz() {
                 </div>
 
                 {/* Headline */}
-                <h2 className="text-[22px] md:text-[28px] font-bold text-navy leading-[1.08] mb-2 tracking-tight">
+                <h2 className="text-[22px] md:text-[28px] font-bold text-navy leading-[1.08] mb-1.5 tracking-tight">
                   Find Your <span className="text-blue-royal">Perfect Match</span>
                 </h2>
 
-                <p className="text-[13px] text-gray-dark leading-relaxed max-w-[300px] mx-auto mb-4">
+                <p className="text-[13px] text-gray-dark leading-snug max-w-[300px] mx-auto mb-3">
                   Tell us your goals — we'll match you to the right country, universities &amp; scholarships in 60 seconds.
                 </p>
 
                 {/* Destination flags */}
-                <div className="flex items-center justify-center gap-2 mb-4 flex-wrap">
+                <div className="flex items-center justify-center gap-2 mb-3 flex-wrap">
                   {DEST_FLAGS.map((d, i) => (
                     <motion.div key={d.label}
                       initial={{ opacity: 0, scale: 0.85 }}
@@ -203,7 +207,7 @@ export default function DestinationQuiz() {
                 </div>
 
                 {/* Social proof */}
-                <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="flex items-center justify-center gap-3 mb-3">
                   <div className="flex -space-x-2">
                     {BRAND_AVATARS.map((a, i) => (
                       <div key={i} className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[11px] font-bold shadow-sm"
@@ -220,7 +224,7 @@ export default function DestinationQuiz() {
                 {/* CTA */}
                 <motion.button type="button" onClick={() => setPhase("quiz")}
                   whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-                  className="w-full max-w-[300px] mx-auto flex items-center justify-center gap-2.5 bg-yellow text-black font-bold text-[16px] py-4 rounded-[14px]"
+                  className="w-full max-w-[300px] mx-auto flex items-center justify-center gap-2.5 bg-yellow text-black font-bold text-[16px] py-3.5 rounded-[14px]"
                   style={{ boxShadow: "0 0 28px rgba(253,237,34,0.4)" }}>
                   Start the Quiz
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -276,17 +280,19 @@ export default function DestinationQuiz() {
                         whileTap={{ scale: 0.97 }}
                         animate={{ scale: sel ? 1.02 : 1 }}
                         transition={{ duration: 0.15 }}
-                        className={`relative text-left p-3 rounded-[14px] border-2 transition-all duration-200 ${
+                        className={`relative ${opt.desc ? "text-left" : "text-center"} p-3 rounded-[14px] border-2 transition-all duration-200 ${
                           sel ? "border-blue-royal bg-blue-royal/5 shadow-[0_4px_20px_rgba(49,66,156,0.14)]"
                              : "border-border-light bg-white hover:border-blue-royal/40 hover:bg-off-white/70"}`}>
                         {sel && (
                           <span className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-blue-royal text-white text-[11px] font-bold flex items-center justify-center">✓</span>
                         )}
-                        <div className="flex flex-col items-start gap-1.5">
+                        <div className={`flex flex-col gap-1.5 ${opt.desc ? "items-start" : "items-center justify-center min-h-[68px]"}`}>
                           <span className="text-2xl leading-none">{opt.emoji}</span>
-                          <div>
+                          <div className={opt.desc ? "" : "w-full"}>
                             <div className="text-[13px] font-bold text-navy leading-tight">{opt.label}</div>
-                            <div className="text-[11px] text-gray-dark mt-0.5 leading-snug">{opt.desc}</div>
+                            {opt.desc && (
+                              <div className="text-[11px] text-gray-dark mt-0.5 leading-snug">{opt.desc}</div>
+                            )}
                           </div>
                         </div>
                       </motion.button>

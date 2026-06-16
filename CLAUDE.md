@@ -365,6 +365,14 @@ Event cards on `/events` are auto-detected at build time via `meta.json` files.
 - `overlayLight`: `true` for dark gradients (light text overlay), `false` for light gradients
 - `endDate`: ISO datetime — past = moves to Past tab, future = stays in Upcoming tab
 
+**Build-time validation** (`scripts/validate-events.mjs`, runs in `prebuild`):
+Every `meta.json` is checked before build. The build **fails** if any event has:
+- a missing or invalid `endDate`
+- an `endDate` matching the `*-12-31T23:59:59` placeholder pattern
+- a `dateLabel` containing `Coming Soon`, `TBA`, `TBD`, or `Stay Tuned`
+
+Rule of thumb: never ship an event with a placeholder date. If the real date isn't known yet, don't create the `meta.json` until it is — the event page can exist without it (the card just won't appear in the listing).
+
 **Exception — Spin & Win is hardcoded** in `events/page.tsx` because the `spin-and-win` folder is owned by root (permission issue prevents writing `meta.json`). Do not remove the hardcoded card until the permission is fixed.
 
 ---

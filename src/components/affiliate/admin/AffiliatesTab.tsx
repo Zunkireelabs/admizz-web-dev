@@ -187,7 +187,7 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
                     </td>
                     <td className="px-4 py-3.5 font-semibold tabular-nums" style={{ color: "#16a34a" }}>{a.total_converted}</td>
                     <td className="px-4 py-3.5 font-bold tabular-nums whitespace-nowrap" style={{ color: "#b07400" }}>
-                      NPR {a.total_earned.toLocaleString()}
+                      USD {a.total_earned.toLocaleString()}
                     </td>
                     <td className="px-4 py-3.5" onClick={e => e.stopPropagation()}>
                       <button

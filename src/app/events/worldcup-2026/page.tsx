@@ -9,6 +9,7 @@ import BracketViz from "@/components/wc2026/sections/BracketViz";
 import GroupStandings from "@/components/wc2026/sections/GroupStandings";
 import GoldenBoot from "@/components/wc2026/sections/GoldenBoot";
 import PredictionCenter from "@/components/wc2026/sections/PredictionCenter";
+import Leaderboard from "@/components/wc2026/sections/Leaderboard";
 import AdmizzStory from "@/components/wc2026/sections/AdmizzStory";
 
 const CANONICAL = "https://admizzeducation.com/events/worldcup-2026";
@@ -51,7 +52,7 @@ const EVENT_JSON_LD = {
 export default function WorldCup2026Page() {
   return (
     <div className="wc-root">
-      <link rel="stylesheet" href="/events/css/worldcup-2026.css" precedence="default" />
+      <link rel="stylesheet" href="/events/css/worldcup-2026.css?v=20260612-mobile-polish" precedence="default" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(EVENT_JSON_LD) }}
@@ -66,6 +67,7 @@ export default function WorldCup2026Page() {
           <BracketViz />
           <GroupStandings />
           <GoldenBoot />
+          <Leaderboard />
           <PredictionCenter />
           <AdmizzStory />
         </LiveProvider>

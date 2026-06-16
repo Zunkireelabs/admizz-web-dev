@@ -9,9 +9,11 @@ import { CheckIcon } from "../shared/Icons";
 interface Props {
   match: MatchWithTeams;
   now: number;
+  onPredicted?: () => void;
+  onPredictNext?: () => void;
 }
 
-export default function InlinePredict({ match, now }: Props) {
+export default function InlinePredict({ match, now, onPredicted, onPredictNext }: Props) {
   const [stored, setStored] = useState<ReturnType<typeof loadStoredPredictions>>({});
   const [modalOpen, setModalOpen] = useState(false);
   const [choice, setChoice] = useState<PredictionChoice | null>(null);
@@ -79,7 +81,8 @@ export default function InlinePredict({ match, now }: Props) {
         match={match}
         choice={choice}
         onClose={() => setModalOpen(false)}
-        onSubmitted={() => setStored(loadStoredPredictions())}
+        onSubmitted={() => { setStored(loadStoredPredictions()); onPredicted?.(); }}
+        onPredictNext={onPredictNext}
       />
     </>
   );

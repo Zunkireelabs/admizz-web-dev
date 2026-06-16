@@ -7,6 +7,7 @@ import SiteChrome from "@/components/layout/SiteChrome";
 import ScrollToTop from "@/components/ScrollToTop";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import AffiliateRefCapture from "@/components/AffiliateRefCapture";
+import AuthTokenCatcher from "@/components/AuthTokenCatcher";
 
 const montserrat = localFont({
   src: "../../node_modules/@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2",
@@ -124,6 +125,7 @@ export default function RootLayout({
             }),
           }}
         />
+        <AuthTokenCatcher />
         <ScrollToTop />
         <AffiliateRefCapture />
         <Suspense fallback={null}>

@@ -139,12 +139,22 @@ const Slot = ({
   );
 };
 
+function getCompletedRounds(nowMs: number): Set<BracketSlot["round"]> {
+  const today = isoDay(nowMs);
+  const done = new Set<BracketSlot["round"]>();
+  for (const r of ORDER) {
+    if (today > ROUND_DATES[r].end) done.add(r);
+  }
+  return done;
+}
+
 function RoundColumn({
   round,
   slots,
   isFinalRound,
   isActive,
   isNext,
+  isDone,
   registerSlot,
 }: {
   round: BracketSlot["round"];
@@ -152,10 +162,11 @@ function RoundColumn({
   isFinalRound?: boolean;
   isActive?: boolean;
   isNext?: boolean;
+  isDone?: boolean;
   registerSlot?: (round: BracketSlot["round"], idx: number, el: HTMLDivElement | null) => void;
 }) {
   const meta = ROUND_META[round];
-  const stateClass = isActive ? "wc-br-col--active" : isNext ? "wc-br-col--next" : "";
+  const stateClass = isActive ? "wc-br-col--active" : isNext ? "wc-br-col--next" : isDone ? "wc-br-col--done" : "";
   return (
     <div className={`wc-br-col wc-br-col--${round.toLowerCase()} ${stateClass}`}>
       <div className="wc-br-col-header">
@@ -241,6 +252,7 @@ export default function BracketViz() {
   const bracket = useMemo(() => buildBracket(matches), [matches]);
   const [activeRound, setActiveRound] = useState<BracketSlot["round"] | null>(null);
   const [nextRound, setNextRound] = useState<BracketSlot["round"] | null>(null);
+  const [completedRounds, setCompletedRounds] = useState<Set<BracketSlot["round"]>>(new Set());
   const [activeTab, setActiveTab] = useState<BracketSlot["round"]>("R32");
   const [isMobile, setIsMobile] = useState(false);
   const [paths, setPaths] = useState<ConnectorPath[]>([]);
@@ -254,6 +266,7 @@ export default function BracketViz() {
     const next = getNextRound(now);
     setActiveRound(active);
     setNextRound(next);
+    setCompletedRounds(getCompletedRounds(now));
     if (active) setActiveTab(active);
     else if (next) setActiveTab(next);
   }, [now]);
@@ -298,11 +311,11 @@ export default function BracketViz() {
   }, [isMobile, activeRound, bracket]);
 
   return (
-    <section className="wc-section" id="bracket" ref={sectionRef}>
+    <section className="wc-section" id="bracket" ref={sectionRef} style={{ background: "var(--wc-bg-alt)" }}>
       <div className="wc-section-inner">
         <div className="wc-section-header">
           <div className="wc-section-title-block">
-            <span className="wc-section-eyebrow">Knockout Bracket</span>
+            <span className="wc-section-eyebrow wc-section-eyebrow--gold">Knockout Bracket</span>
             <h2 className="wc-section-title">
               The Road to <span className="wc-section-title-accent">MetLife.</span>
             </h2>
@@ -316,7 +329,7 @@ export default function BracketViz() {
         <div className="wc-br-trophy">
           <div className="wc-br-trophy-glow" />
           <div className="wc-br-trophy-icon">
-            <TrophyIcon size={24} strokeWidth={1.6} />
+            <TrophyIcon size={30} strokeWidth={1.5} />
           </div>
           <div className="wc-br-trophy-label">FIFA World Cup 2026</div>
           <div className="wc-br-trophy-venue">Final · 19 July · MetLife Stadium</div>
@@ -348,6 +361,7 @@ export default function BracketViz() {
                 isFinalRound={activeTab === "F"}
                 isActive={activeRound === activeTab}
                 isNext={activeRound !== activeTab && nextRound === activeTab}
+                isDone={completedRounds.has(activeTab)}
               />
               {activeTab === "F" && bracket["3RD"].length > 0 && (
                 <div className="wc-br-third-mobile">
@@ -386,6 +400,7 @@ export default function BracketViz() {
                     isFinalRound={round === "F"}
                     isActive={activeRound === round}
                     isNext={activeRound !== round && nextRound === round}
+                    isDone={completedRounds.has(round)}
                     registerSlot={registerSlot}
                   />
                 ))}

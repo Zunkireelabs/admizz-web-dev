@@ -115,7 +115,7 @@ const STEPS: Step[] = [
             { label: "Clicks",    val: "128"        },
             { label: "Referrals", val: "7"          },
             { label: "Pending",   val: "3"          },
-            { label: "Earned",    val: "NPR 8,200"  },
+            { label: "Earned",    val: "USD 8,200"  },
           ].map((s) => (
             <div key={s.label} className="rounded-lg p-3" style={{ background: "#F8F9FC", border: "1px solid #EAECF0" }}>
               <p className="text-[9px] font-bold uppercase tracking-wide" style={{ color: "#5C7189" }}>
@@ -161,9 +161,9 @@ const STEPS: Step[] = [
         </p>
         <div className="space-y-2">
           {[
-            { event: "Consultation booked",  amount: "+NPR 400",   color: "#31429C" },
-            { event: "Service enrollment",   amount: "+NPR 2,000", color: "#FCB730" },
-            { event: "University confirmed", amount: "+NPR 6,500", color: "#4ade80" },
+            { event: "Consultation booked",  amount: "+USD 400",   color: "#31429C" },
+            { event: "Service enrollment",   amount: "+USD 2,000", color: "#FCB730" },
+            { event: "University confirmed", amount: "+USD 6,500", color: "#4ade80" },
           ].map((e) => (
             <div
               key={e.event}
@@ -190,7 +190,7 @@ const STEPS: Step[] = [
             Total earned
           </span>
           <span className="text-base font-extrabold tracking-tight" style={{ color: "#001353" }}>
-            NPR 8,900
+            USD 8,900
           </span>
         </div>
       </>

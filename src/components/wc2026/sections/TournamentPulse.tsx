@@ -24,7 +24,7 @@ export default function TournamentPulse() {
             <div className="wc-pulse-progress">
               <div className="wc-pulse-progress-fill" style={{ width: `${matchProgress}%` }} />
             </div>
-            <div className="wc-pulse-meta">{Math.round(matchProgress)}% of the tournament</div>
+            <div className="wc-pulse-meta">{pulse.matchesPlayed} played · {pulse.matchesTotal - pulse.matchesPlayed} remaining</div>
           </div>
 
           <div className="wc-pulse-card">
@@ -44,8 +44,24 @@ export default function TournamentPulse() {
             <div className="wc-pulse-value" style={{ fontSize: 28, lineHeight: 1.1 }}>
               {top ? top.name : "TBD"}
             </div>
-            <div className="wc-pulse-meta">
-              {top ? `${top.countryFlag} ${top.team} · ${top.goals} goal${top.goals === 1 ? "" : "s"}` : "Race begins June 11"}
+            <div className="wc-pulse-meta" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+              {top ? (
+                <>
+                  {top.countryFlag && top.countryFlag.startsWith("http") ? (
+                    <img
+                      src={top.countryFlag}
+                      alt=""
+                      aria-hidden="true"
+                      style={{ width: 14, height: 14, objectFit: "contain", verticalAlign: "middle" }}
+                    />
+                  ) : (
+                    <span>{top.countryFlag}</span>
+                  )}
+                  <span>{top.team} · {top.goals} goal{top.goals === 1 ? "" : "s"}</span>
+                </>
+              ) : (
+                "Race begins June 11"
+              )}
             </div>
           </div>
 

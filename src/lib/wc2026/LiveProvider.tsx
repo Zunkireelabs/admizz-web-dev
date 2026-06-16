@@ -14,6 +14,7 @@ interface LiveData {
   topScorers: TopScorer[];
   pulse: TournamentPulseData;
   nextMatch: MatchWithTeams | null;
+  nextTwoMatches: MatchWithTeams[];
   liveMatches: MatchWithTeams[];
   upcomingMatches: MatchWithTeams[];
   recentMatches: MatchWithTeams[];
@@ -72,6 +73,7 @@ function deriveLiveData(
       daysUntilFinal,
     },
     nextMatch: live[0] ?? upcoming[0] ?? null,
+    nextTwoMatches: upcoming.slice(0, 2),
     liveMatches: live,
     upcomingMatches: upcoming,
     recentMatches: recent,
@@ -99,7 +101,25 @@ export function LiveProvider({ children }: { children: ReactNode }) {
         fetchStandings().catch(() => [] as GroupStanding[]),
       ]);
       if (!active) return;
-      const finalMatches = matches.length > 0 ? matches : seed;
+      const rawMatches = matches.length > 0 ? matches : seed;
+
+      // ESPN scoreboard doesn't include group letter on matches.
+      // Cross-reference standings (group → teams) to enrich each group-stage match.
+      const teamToGroup = new Map<string, string>();
+      for (const g of standings) {
+        for (const e of g.entries) {
+          if (e.team.code) teamToGroup.set(e.team.code, g.group);
+        }
+      }
+      const finalMatches = rawMatches.map((m) => {
+        if (m.round !== "Group Stage") return m;
+        if (m.group && m.group !== "—") return m;
+        const ga = teamToGroup.get(m.teamA);
+        const gb = teamToGroup.get(m.teamB);
+        if (ga && ga === gb) return { ...m, group: ga };
+        return m;
+      });
+
       const tournamentStarted = finalMatches.some(
         (m) => m.score?.status === "LIVE" || m.score?.status === "HT" || m.score?.status === "FT",
       );

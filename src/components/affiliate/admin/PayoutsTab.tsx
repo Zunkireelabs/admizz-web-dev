@@ -90,7 +90,7 @@ export default function PayoutsTab({ referrals, affiliates, onRefresh }: Props) 
             className="text-[28px] md:text-[32px] font-extrabold tracking-tight"
             style={{ color: "#001353" }}
           >
-            NPR {totalDue.toLocaleString()}
+            USD {totalDue.toLocaleString()}
           </div>
           <p className="text-xs" style={{ color: "#64748B" }}>
             Pending settlement
@@ -152,7 +152,7 @@ export default function PayoutsTab({ referrals, affiliates, onRefresh }: Props) 
                   <div className="flex items-center gap-3 flex-shrink-0">
                     <div className="text-right">
                       <div className="text-lg font-extrabold tabular-nums tracking-tight" style={{ color: "#001353" }}>
-                        NPR {total.toLocaleString()}
+                        USD {total.toLocaleString()}
                       </div>
                       <p className="text-[11px]" style={{ color: "#64748B" }}>
                         Total owed
@@ -204,7 +204,7 @@ export default function PayoutsTab({ referrals, affiliates, onRefresh }: Props) 
                       <span>{ref.flag_emoji}</span>
                       {ref.student_display}
                       <span className="font-bold" style={{ color: "#b07400" }}>
-                        NPR {ref.commission.toLocaleString()}
+                        USD {ref.commission.toLocaleString()}
                       </span>
                     </span>
                   ))}

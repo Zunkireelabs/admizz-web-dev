@@ -48,7 +48,7 @@ function GroupTable({ group, refCb }: { group: GroupStanding; refCb: (el: HTMLDi
           <div className="wc-stand-cell wc-stand-cell--num-h">PTS</div>
         </div>
         <div className="wc-stand-body">
-          {group.entries.map((e) => (
+          {[...group.entries].sort((a, b) => a.rank - b.rank).map((e) => (
             <Row key={e.team.code} e={e} />
           ))}
         </div>
@@ -154,7 +154,7 @@ export default function GroupStandings() {
       <div className="wc-section-inner">
         <div className="wc-section-header">
           <div className="wc-section-title-block">
-            <span className="wc-section-eyebrow">Group Stage</span>
+            <span className="wc-section-eyebrow wc-section-eyebrow--navy">Group Stage</span>
             <h2 className="wc-section-title">
               Twelve Groups. <span className="wc-section-title-accent">One Bracket.</span>
             </h2>

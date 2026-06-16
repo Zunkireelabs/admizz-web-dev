@@ -181,7 +181,7 @@ export default function ReferralTable({ referrals }: Props) {
                       className="px-5 py-4 font-bold whitespace-nowrap text-[13px]"
                       style={{ color: r.commission > 0 ? "#b07400" : "#64748B" }}
                     >
-                      {r.commission > 0 ? `NPR ${r.commission.toLocaleString()}` : "—"}
+                      {r.commission > 0 ? `USD ${r.commission.toLocaleString()}` : "—"}
                     </td>
                   </tr>
                 );

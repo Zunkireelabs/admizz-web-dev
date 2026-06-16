@@ -18,6 +18,8 @@ export default function CountUp({ value, duration = 1400, className = "", suffix
     const node = elRef.current;
     if (!node) return;
 
+    startedRef.current = false;
+
     const start = () => {
       if (startedRef.current) return;
       startedRef.current = true;
