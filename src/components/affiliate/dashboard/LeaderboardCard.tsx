@@ -120,7 +120,7 @@ export default function LeaderboardCard({ leaderboard, currentAffiliateId }: Pro
                     className="text-[12px] font-bold px-2 py-0.5 rounded-full"
                     style={{ background: tier.bg, color: tier.text, border: `1px solid ${tier.border}` }}
                   >
-                    {entry.tier.split(" ")[0]}
+                    {(entry.tier ?? "Starter").split(" ")[0]}
                   </span>
                   <span
                     className="text-[15px] font-extrabold tabular-nums tracking-tight"

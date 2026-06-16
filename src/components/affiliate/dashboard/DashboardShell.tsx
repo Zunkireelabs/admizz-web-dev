@@ -13,6 +13,7 @@ import PerformanceChart from "./PerformanceChart";
 import ReferralTable from "./ReferralTable";
 import LeaderboardCard from "./LeaderboardCard";
 import ResourcesQuickAccess from "./ResourcesQuickAccess";
+import ProfileEditModal from "./ProfileEditModal";
 
 function getTimeBasedGreeting(): string {
   const h = new Date().getHours();
@@ -42,12 +43,16 @@ interface Props {
   leaderboard: LeaderboardEntry[];
   clicks: AffiliateClick[];
   onLogout: () => void;
+  affiliateCode: string;
 }
 
-export default function DashboardShell({ affiliate, referrals, leaderboard, clicks, onLogout }: Props) {
-  const firstName = affiliate.full_name.split(" ")[0];
-  const tier = TIER_COLORS[affiliate.tier] ?? TIER_COLORS["Starter"];
-  const myRank = leaderboard.find(e => e.affiliate_id === affiliate.id)?.rank ?? 0;
+export default function DashboardShell({ affiliate, referrals, leaderboard, clicks, onLogout, affiliateCode }: Props) {
+  const [localAffiliate, setLocalAffiliate] = useState<Affiliate>(affiliate);
+  const [profileOpen, setProfileOpen] = useState(false);
+
+  const firstName = (localAffiliate.full_name ?? "Affiliate").split(" ")[0];
+  const tier = TIER_COLORS[localAffiliate.tier] ?? TIER_COLORS["Starter"];
+  const myRank = leaderboard.find(e => e.affiliate_id === localAffiliate.id)?.rank ?? 0;
 
   const breakdown = useMemo(() => buildCountryBreakdown(referrals), [referrals]);
   const activity  = useMemo(() => buildActivityFeed(clicks, referrals, 30), [clicks, referrals]);
@@ -112,6 +117,18 @@ export default function DashboardShell({ affiliate, referrals, leaderboard, clic
             Program page
           </a>
           <button
+            onClick={() => setProfileOpen(true)}
+            className="text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200 flex items-center gap-1.5"
+            style={{ color: "#475569", border: "1px solid #EAECF0", background: "#FFFFFF" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#F8F9FC"; e.currentTarget.style.color = "#001353"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "#FFFFFF"; e.currentTarget.style.color = "#475569"; }}
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+            <span className="hidden sm:inline">Edit profile</span>
+          </button>
+          <button
             onClick={onLogout}
             className="text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
             style={{ color: "#475569", border: "1px solid #EAECF0", background: "#FFFFFF" }}
@@ -135,17 +152,17 @@ export default function DashboardShell({ affiliate, referrals, leaderboard, clic
           </p>
         </div>
 
-        <StatsRow affiliate={affiliate} rank={myRank} clicks={clickCount} />
+        <StatsRow affiliate={localAffiliate} rank={myRank} clicks={clickCount} />
 
         <FunnelCard
           clicks={clickCount}
-          registrations={affiliate.total_referrals}
-          conversions={affiliate.total_converted}
+          registrations={localAffiliate.total_referrals}
+          conversions={localAffiliate.total_converted}
         />
 
         <div className="grid grid-cols-1 tablet:grid-cols-2 gap-5">
-          <TierProgressCard affiliate={affiliate} />
-          <ReferralLinkBox affiliate={affiliate} />
+          <TierProgressCard affiliate={localAffiliate} />
+          <ReferralLinkBox affiliate={localAffiliate} />
         </div>
 
         <PerformanceChart referrals={referrals} />
@@ -158,10 +175,18 @@ export default function DashboardShell({ affiliate, referrals, leaderboard, clic
         <ReferralTable referrals={referrals} />
 
         <div className="grid grid-cols-1 tablet:grid-cols-2 gap-5">
-          <LeaderboardCard leaderboard={leaderboard} currentAffiliateId={affiliate.id} />
+          <LeaderboardCard leaderboard={leaderboard} currentAffiliateId={localAffiliate.id} />
           <ResourcesQuickAccess />
         </div>
       </div>
+
+      {profileOpen && (
+        <ProfileEditModal
+          affiliate={localAffiliate}
+          onClose={() => setProfileOpen(false)}
+          onSaved={(updated) => setLocalAffiliate(prev => ({ ...prev, ...updated }))}
+        />
+      )}
     </div>
   );
 }

@@ -51,31 +51,34 @@ export function getNextTierInfo(referralCount: number): {
   };
 }
 
-export function generateReferralCode(fullName: string): string {
-  const first = fullName.trim().split(" ")[0] ?? "AFFILIATE";
-  return first.toUpperCase().replace(/[^A-Z]/g, "") + "2026";
+function randomSuffix(len = 4): string {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // no 0/O/1/I to avoid confusion
+  let out = "";
+  for (let i = 0; i < len; i++) out += chars[Math.floor(Math.random() * chars.length)];
+  return out;
 }
 
-// Returns a unique referral code by appending A, B, C... if the base collides.
+export function generateReferralCode(fullName: string): string {
+  const first = (fullName.trim().split(" ")[0] ?? "AFFILIATE")
+    .toUpperCase()
+    .replace(/[^A-Z]/g, "")
+    .slice(0, 8); // cap prefix at 8 chars
+  return `${first}-${randomSuffix(4)}`;
+}
+
+// Returns a unique referral code — retries with a fresh random suffix on collision.
 export async function generateUniqueReferralCode(fullName: string): Promise<string> {
-  const base = generateReferralCode(fullName);
-  const { data } = await supabase
-    .from("affiliates")
-    .select("referral_code")
-    .eq("referral_code", base)
-    .maybeSingle();
-  if (!data) return base;
-  for (let i = 0; i < 26; i++) {
-    const candidate = base + String.fromCharCode(65 + i); // A, B, C, ...
-    const { data: collision } = await supabase
+  for (let attempt = 0; attempt < 10; attempt++) {
+    const candidate = generateReferralCode(fullName);
+    const { data } = await supabase
       .from("affiliates")
       .select("referral_code")
       .eq("referral_code", candidate)
       .maybeSingle();
-    if (!collision) return candidate;
+    if (!data) return candidate;
   }
-  // Fallback: random 3-char suffix
-  return base + Math.random().toString(36).slice(2, 5).toUpperCase();
+  // Extremely unlikely fallback
+  return `AFF-${randomSuffix(6)}`;
 }
 
 // ─── Affiliate login ───────────────────────────────────────────────────────
@@ -142,7 +145,10 @@ export async function getLeaderboard(): Promise<LeaderboardEntry[]> {
   if (error) { console.error("[leaderboard]", error.message); return []; }
   return (data ?? []).map((a, i) => ({
     rank: i + 1,
-    name: a.full_name.split(" ")[0] + " " + (a.full_name.split(" ")[1]?.[0] ?? "") + ".",
+    name: (() => {
+      const parts = (a.full_name ?? "Affiliate").split(" ");
+      return parts[0] + " " + (parts[1]?.[0] ?? "") + ".";
+    })(),
     city: a.city ?? "",
     referral_count: a.total_referrals,
     tier: a.tier as Tier,
@@ -211,6 +217,26 @@ export function buildActivityFeed(
     })),
   ];
   return feed.sort((a, b) => +new Date(b.at) - +new Date(a.at)).slice(0, limit);
+}
+
+// ─── Affiliate: self profile update ───────────────────────────────────────
+// Calls the affiliate_update_profile RPC (SECURITY DEFINER) which verifies
+// email + code before applying any changes — direct UPDATE is blocked by RLS.
+
+export async function updateAffiliateProfile(
+  email: string,
+  code: string,
+  updates: { full_name: string; phone: string }
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  const { data, error } = await supabase.rpc("affiliate_update_profile", {
+    p_email:     email.trim().toLowerCase(),
+    p_code:      code.trim().toUpperCase(),
+    p_full_name: updates.full_name.trim(),
+    p_phone:     updates.phone.trim() || null,
+  });
+  if (error) return { ok: false, error: error.message };
+  if (data === false) return { ok: false, error: "Auth failed — wrong email or password." };
+  return { ok: true };
 }
 
 // ─── Admin: program-wide reads ─────────────────────────────────────────────
@@ -368,53 +394,36 @@ export type AdminResult<T> = { ok: true; data: T } | { ok: false; error: string 
 
 export async function approveApplication(app: AffiliateApplication): Promise<AdminResult<{ code: string }>> {
   try {
-    // Already approved? Return existing code.
-    const { data: existing, error: existingError } = await supabase
-      .from("affiliates")
-      .select("id, referral_code")
-      .eq("email", app.email.toLowerCase())
-      .maybeSingle();
+    // Get the current admin session JWT — the Edge Function verifies this
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) return { ok: false, error: "Not authenticated — please log in again." };
 
-    if (existingError) return { ok: false, error: existingError.message };
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const fnUrl = `${supabaseUrl}/functions/v1/affiliate-approve`;
 
-    if (existing) {
-      const { error: updErr } = await supabase
-        .from("affiliate_leads")
-        .update({ status: "approved" })
-        .eq("id", app.id);
-      if (updErr) return { ok: false, error: updErr.message };
-      return { ok: true, data: { code: existing.referral_code } };
-    }
+    // Tell the Edge Function which origin to send the invite email back to,
+    // so dev approvals link to dev and prod approvals link to prod.
+    const redirectOrigin =
+      typeof window !== "undefined" ? window.location.origin : undefined;
 
-    // Generate a unique code (handles name collisions automatically)
-    const code = await generateUniqueReferralCode(app.full_name);
-
-    const { error: insertError } = await supabase.from("affiliates").insert({
-      application_id:  app.id,
-      full_name:       app.full_name,
-      email:           app.email.toLowerCase(),
-      phone:           app.phone || null,
-      city:            app.city || null,
-      referral_code:   code,
-      tier:            "Starter",
-      status:          "active",
-      total_referrals: 0,
-      total_converted: 0,
-      total_earned:    0,
+    const res = await fetch(fnUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type":  "application/json",
+        "Authorization": `Bearer ${session.access_token}`,
+      },
+      body: JSON.stringify({ app, redirectOrigin }),
     });
 
-    if (insertError) {
-      console.error("[approve application]", insertError.message);
-      return { ok: false, error: insertError.message };
+    const json = await res.json();
+
+    if (!res.ok || !json.ok) {
+      const msg = json?.error ?? `Server error ${res.status}`;
+      console.error("[approve application]", msg);
+      return { ok: false, error: msg };
     }
 
-    const { error: leadErr } = await supabase
-      .from("affiliate_leads")
-      .update({ status: "approved" })
-      .eq("id", app.id);
-    if (leadErr) return { ok: false, error: leadErr.message };
-
-    return { ok: true, data: { code } };
+    return { ok: true, data: { code: json.data.code } };
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }

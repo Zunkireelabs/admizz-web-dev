@@ -380,7 +380,6 @@ export default function ApplicationForm({
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormData>(EMPTY);
   const [done, setDone] = useState(false);
-  const [dir, setDir] = useState(1);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const reduce = useReducedMotion();
@@ -394,13 +393,11 @@ export default function ApplicationForm({
     const err = validate(step, form);
     if (err) { setError(err); return; }
     setError(null);
-    setDir(1);
     setStep(s => s + 1);
   };
 
   const back = () => {
     setError(null);
-    setDir(-1);
     setStep(s => s - 1);
   };
 
@@ -451,12 +448,17 @@ export default function ApplicationForm({
     }
   };
 
+  // Static variants only — the previous dynamic-variant (function of direction)
+  // implementation crashed under Next 16 / current framer-motion when transitioning
+  // between steps and into the success view ("Cannot read properties of undefined
+  // (reading 'x')"). The crash deterministically froze the submit button. Drop the
+  // directional swing in favor of a single fade+translate that works reliably.
   const slide = reduce
     ? { enter: { opacity: 0 }, center: { opacity: 1 }, exit: { opacity: 0 } }
     : {
-        enter: (d: number) => ({ opacity: 0, x: d * 32 }),
-        center: { opacity: 1, x: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] as const } },
-        exit: (d: number) => ({ opacity: 0, x: d * -32, transition: { duration: 0.18 } }),
+        enter:  { opacity: 0, x: 24 },
+        center: { opacity: 1, x: 0,  transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] as const } },
+        exit:   { opacity: 0, x: -24, transition: { duration: 0.18 } },
       };
 
   const charCount = form.motivation.length;
@@ -650,11 +652,11 @@ export default function ApplicationForm({
                   <StepIndicator step={step} />
 
                   <form onSubmit={submit}>
-                    <AnimatePresence mode="wait" custom={dir}>
+                    <AnimatePresence mode="wait">
 
                       {/* ── Step 0: About You ── */}
                       {step === 0 && (
-                        <motion.div key="s0" custom={dir} variants={slide} initial="enter" animate="center" exit="exit"
+                        <motion.div key="s0" variants={slide} initial="enter" animate="center" exit="exit"
                           className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div className="sm:col-span-2">
                             <Input label="Full Name" name="fullName" value={form.fullName} onChange={update}
@@ -672,7 +674,7 @@ export default function ApplicationForm({
 
                       {/* ── Step 1: Your Presence ── */}
                       {step === 1 && (
-                        <motion.div key="s1" custom={dir} variants={slide} initial="enter" animate="center" exit="exit"
+                        <motion.div key="s1" variants={slide} initial="enter" animate="center" exit="exit"
                           className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div className="sm:col-span-2">
                             <Select
@@ -713,7 +715,7 @@ export default function ApplicationForm({
 
                       {/* ── Step 2: Motivation ── */}
                       {step === 2 && (
-                        <motion.div key="s2" custom={dir} variants={slide} initial="enter" animate="center" exit="exit"
+                        <motion.div key="s2" variants={slide} initial="enter" animate="center" exit="exit"
                           className="space-y-6">
 
                           {/* Yes / No toggle */}

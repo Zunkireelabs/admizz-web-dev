@@ -4,9 +4,10 @@ import { useState } from "react";
 
 interface Props {
   onLogin: (email: string, code: string) => Promise<boolean>;
+  notice?: string | null;
 }
 
-export default function AffiliateLogin({ onLogin }: Props) {
+export default function AffiliateLogin({ onLogin, notice }: Props) {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
@@ -16,10 +17,10 @@ export default function AffiliateLogin({ onLogin }: Props) {
     e.preventDefault();
     setError("");
     setLoading(true);
-    const ok = await onLogin(email.trim(), code.trim().toUpperCase());
+    const ok = await onLogin(email.trim(), code.trim());
     setLoading(false);
     if (!ok) {
-      setError("These credentials don't match our records. Make sure you're using the email and referral code from your approval email.");
+      setError("Incorrect email or password. Check your approval email for your login credentials.");
     }
   };
 
@@ -115,19 +116,19 @@ export default function AffiliateLogin({ onLogin }: Props) {
               className="text-[11px] font-bold uppercase"
               style={{ color: "#475569", letterSpacing: "0.12em" }}
             >
-              Referral code
+              Password
             </label>
             <input
-              type="text"
+              type="password"
               value={code}
-              onChange={e => setCode(e.target.value.toUpperCase())}
-              placeholder="e.g. FIRSTNAME2026"
+              onChange={e => setCode(e.target.value)}
+              placeholder="Your account password"
               required
-              className="w-full px-4 py-3 rounded-xl text-sm font-mono font-bold outline-none transition-all duration-200 tracking-widest"
+              className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
               style={{
                 background: "#FAFAFB",
                 border: "1px solid #EAECF0",
-                color: "#b07400",
+                color: "#001353",
               }}
               onFocus={e => {
                 e.target.style.borderColor = "#FCB730";
@@ -141,6 +142,22 @@ export default function AffiliateLogin({ onLogin }: Props) {
               }}
             />
           </div>
+
+          {notice && !error && (
+            <div
+              className="flex items-start gap-2 px-3.5 py-3 rounded-xl text-xs"
+              style={{
+                background: "rgba(252,183,48,0.08)",
+                color: "#92580a",
+                border: "1px solid rgba(252,183,48,0.3)",
+              }}
+            >
+              <svg className="w-3.5 h-3.5 flex-shrink-0 mt-px" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="leading-snug">{notice}</span>
+            </div>
+          )}
 
           {error && (
             <div
@@ -189,7 +206,7 @@ export default function AffiliateLogin({ onLogin }: Props) {
         </form>
 
         <p className="text-center mt-6 text-xs" style={{ color: "#64748B" }}>
-          Don&apos;t have a code yet?{" "}
+          Not an affiliate yet?{" "}
           <a href="/affiliate-program#apply-form" className="font-bold transition-colors" style={{ color: "#b07400" }}>
             Apply to join the program →
           </a>
