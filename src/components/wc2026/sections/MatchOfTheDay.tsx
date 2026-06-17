@@ -51,6 +51,10 @@ export default function MatchOfTheDay() {
   const isFt1 = status1 === "FT";
   const match1Predicted = !!storedPreds[match1.id];
   const match2Predicted = match2 ? !!storedPreds[match2.id] : false;
+  // Match 1 is "done" for gating purposes once it's predicted OR no longer predictable
+  // (live/finished). Otherwise users locked out of Match 1's window can't reach Match 2.
+  const match1Closed = isLive1 || isFt1;
+  const match1Done = match1Predicted || match1Closed;
 
   const m2kickoff = match2 ? formatKickoff(match2.kickoffISO) : null;
 
@@ -81,10 +85,14 @@ export default function MatchOfTheDay() {
 
         {/* Banner — always visible when match2 exists. Locked before match1 predicted, unlocked after. */}
         {match2 && !showSecond && (
-          <div className={`wc-motd-next-banner${!match1Predicted ? " wc-motd-next-banner--locked" : ""}`}>
+          <div className={`wc-motd-next-banner${!match1Done ? " wc-motd-next-banner--locked" : ""}`}>
             <div className="wc-motd-next-banner-left">
               <span className="wc-motd-next-banner-eyebrow">
-                {match1Predicted ? "⚽ 1 more match to predict today" : "🔒 Predict Match 1 first to unlock"}
+                {match1Predicted
+                  ? "⚽ 1 more match to predict today"
+                  : match1Closed
+                    ? "⚽ Match 1 in progress — predict the next one"
+                    : "🔒 Predict Match 1 first to unlock"}
               </span>
               <span className="wc-motd-next-banner-match">
                 {match2.teamAData.name} <span>vs</span> {match2.teamBData.name}
@@ -93,7 +101,7 @@ export default function MatchOfTheDay() {
                 <span className="wc-motd-next-banner-time">{m2kickoff.day} · {m2kickoff.time}</span>
               )}
             </div>
-            {match1Predicted && (
+            {match1Done && (
               <button type="button" className="wc-motd-next-banner-btn" onClick={revealMatch2}>
                 Predict Now
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
