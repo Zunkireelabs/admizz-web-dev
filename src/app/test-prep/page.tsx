@@ -6,7 +6,6 @@ import FAQ from "@/components/ui/FAQ";
 import AlumniSection from "@/components/ui/AlumniSection";
 import TestimonialsSection from "@/components/ui/TestimonialsSection";
 import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
-import TopPromoBanner from "@/components/city-landing/sections/TopPromoBanner";
 import { allUniversities } from "@/lib/universities";
 
 /* ------------------------------------------------------------------ */
@@ -233,22 +232,6 @@ export default function TestPrepPage() {
 
   return (
     <main>
-      <TopPromoBanner
-        banner={{
-          id: "test-prep-rs-2083",
-          variant: "campaign",
-          eyebrow: "Only for Nepalese Students",
-          title: (
-            <>
-              Test Prep starting at just{" "}
-              <span style={{ color: "#001353", fontWeight: 800 }}>Rs. 2,083</span>
-            </>
-          ),
-          subtitle: "IELTS · PTE · Duolingo",
-          dismissible: false,
-        }}
-      />
-
       {/* ===== 1. HERO (heading + features + stats on LEFT, form on RIGHT) ===== */}
       <section id="book-demo" className="pt-10 pb-6" style={{ background: "linear-gradient(180deg, #e8f0fe 0%, #f5f7f8 100%)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[55fr_45fr] gap-10 items-start">
