@@ -329,6 +329,10 @@ export default function PredictorsCircle() {
           {filtered.length === 0 && (
             <div className="wc-pc-empty">No winners yet in this stage. Predict the upcoming matches to be the first.</div>
           )}
+
+          <div className="wc-pc-eligibility">
+            All above winners are eligible for our grand prizes
+          </div>
         </div>
 
         {/* ── Layer 3 — CTA with next-match countdown ── */}

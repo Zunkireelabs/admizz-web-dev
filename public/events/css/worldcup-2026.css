@@ -6125,6 +6125,20 @@ body.wc-modal-active .wc-nav-sticky {
   border-radius: 10px;
 }
 
+.wc-pc-eligibility {
+  margin-top: 20px;
+  padding: 14px 20px;
+  text-align: center;
+  font-family: var(--font-inter), Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--wc-text);
+  background: linear-gradient(90deg, rgba(252, 183, 48, 0.08), rgba(252, 183, 48, 0.14), rgba(252, 183, 48, 0.08));
+  border: 1px solid rgba(252, 183, 48, 0.35);
+  border-radius: 10px;
+}
+
 /* ============================================================
    Layer 3 — CTA
    ============================================================ */
