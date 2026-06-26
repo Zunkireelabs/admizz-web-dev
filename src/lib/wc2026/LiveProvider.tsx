@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { fetchMatches } from "./espn/scoreboard";
 import { fetchStandings } from "./espn/standings";
 import { fetchTopScorers } from "./espn/leaders";
@@ -15,6 +15,7 @@ interface LiveData {
   pulse: TournamentPulseData;
   nextMatch: MatchWithTeams | null;
   nextTwoMatches: MatchWithTeams[];
+  predictable24h: MatchWithTeams[];
   liveMatches: MatchWithTeams[];
   upcomingMatches: MatchWithTeams[];
   recentMatches: MatchWithTeams[];
@@ -31,7 +32,8 @@ const STABLE_REFERENCE_TIME = new Date("2026-06-09T00:00:00Z").getTime();
 
 function makeInitial(): LiveData {
   const seed = getSeedMatches();
-  return deriveLiveData(seed, [], getTopScorers(false), STABLE_REFERENCE_TIME);
+  const data = deriveLiveData(seed, [], getTopScorers(false), STABLE_REFERENCE_TIME);
+  return { ...data, loading: true };
 }
 
 const initial: LiveData = makeInitial();
@@ -74,6 +76,10 @@ function deriveLiveData(
     },
     nextMatch: live[0] ?? upcoming[0] ?? null,
     nextTwoMatches: upcoming.slice(0, 2),
+    predictable24h: upcoming.filter((m) => {
+      const k = new Date(m.kickoffISO).getTime();
+      return k >= now && k <= now + 24 * 60 * 60 * 1000;
+    }),
     liveMatches: live,
     upcomingMatches: upcoming,
     recentMatches: recent,
@@ -84,15 +90,21 @@ function deriveLiveData(
 
 export function LiveProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<LiveData>(initial);
+  // Holds the last resolved top-scorers list so we can render matches+standings
+  // immediately without waiting for the leaders aggregator to finish.
+  const topScorersRef = useRef<TopScorer[]>(getTopScorers(false));
 
   useEffect(() => {
     let active = true;
     let timer: ReturnType<typeof setInterval> | null = null;
-
-    // First post-mount tick: snap to real Date.now() with seed data so the
-    // live countdowns, "next match" picker etc. all reflect actual time.
     const seed = getSeedMatches();
-    setState(deriveLiveData(seed, [], getTopScorers(false), Date.now()));
+
+    // ESPN-down fallback: after 3s, if we still haven't loaded, drop the
+    // skeleton and show seed data so the page never traps the user.
+    const fallback = setTimeout(() => {
+      if (!active) return;
+      setState((s) => (s.loading ? deriveLiveData(seed, [], topScorersRef.current, Date.now()) : s));
+    }, 3000);
 
     const tick = async () => {
       const now = Date.now();
@@ -123,13 +135,21 @@ export function LiveProvider({ children }: { children: ReactNode }) {
       const tournamentStarted = finalMatches.some(
         (m) => m.score?.status === "LIVE" || m.score?.status === "HT" || m.score?.status === "FT",
       );
+
+      // Render matches + standings immediately — don't block on leaders aggregation.
+      // topScorersRef.current holds either the last fetched list or the favourites
+      // fallback, so the Golden Boot section shows something useful right away.
+      setState(deriveLiveData(finalMatches, standings, topScorersRef.current, now));
+
+      // Fetch top scorers non-blocking — updates state again when ready.
       const favourites = getTopScorers(tournamentStarted);
-      // Top scorers fetcher has its own 5-min TTL + incremental aggregation.
-      // It runs in parallel and either returns the live aggregate or the
-      // favourites fallback if the tournament hasn't produced data yet.
-      const topScorers = await fetchTopScorers(finalMatches, favourites).catch(() => favourites);
-      if (!active) return;
-      setState(deriveLiveData(finalMatches, standings, topScorers, now));
+      fetchTopScorers(finalMatches, favourites)
+        .catch(() => favourites)
+        .then((topScorers) => {
+          if (!active) return;
+          topScorersRef.current = topScorers;
+          setState(deriveLiveData(finalMatches, standings, topScorers, now));
+        });
     };
 
     tick();
@@ -137,6 +157,7 @@ export function LiveProvider({ children }: { children: ReactNode }) {
 
     return () => {
       active = false;
+      clearTimeout(fallback);
       if (timer) clearInterval(timer);
     };
   }, []);

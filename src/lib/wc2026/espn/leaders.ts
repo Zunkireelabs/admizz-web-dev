@@ -4,6 +4,8 @@ const SUMMARY_URL = (eventId: string) =>
   `https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/summary?event=${eventId}`;
 
 const REFRESH_TTL_MS = 5 * 60_000;
+const STORAGE_KEY = "wc26-scorers-v1";
+const STORAGE_TTL_MS = 6 * 60 * 60_000; // restore up to 6 hours old
 
 // Persistent aggregator state (in-memory, lives for the tab lifetime)
 interface PlayerAgg {
@@ -14,11 +16,53 @@ interface PlayerAgg {
   assists: number;
 }
 
+interface StoredCache {
+  scorers: TopScorer[];
+  processedIds: string[];
+  goals: [string, PlayerAgg][];
+  savedAt: number;
+}
+
 const goalsByPlayerId = new Map<string, PlayerAgg>();
 const processedMatchIds = new Set<string>();
 let cachedTopScorers: TopScorer[] | null = null;
 let lastRefreshAt = 0;
 let inflight: Promise<TopScorer[]> | null = null;
+let storageRestored = false;
+
+// Restore aggregator state from localStorage so repeat visitors skip re-fetching
+// all FT match summaries. Only runs once per tab; safe-guarded against SSR.
+function ensureStorageRestored() {
+  if (storageRestored || typeof window === "undefined") return;
+  storageRestored = true;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const stored: StoredCache = JSON.parse(raw);
+    if (Date.now() - stored.savedAt > STORAGE_TTL_MS) return;
+    stored.processedIds.forEach((id) => processedMatchIds.add(id));
+    stored.goals.forEach(([id, agg]) => goalsByPlayerId.set(id, agg));
+    cachedTopScorers = stored.scorers;
+    lastRefreshAt = stored.savedAt;
+  } catch {
+    // corrupt storage — ignore, will re-fetch
+  }
+}
+
+function persistToStorage() {
+  if (typeof window === "undefined") return;
+  try {
+    const stored: StoredCache = {
+      scorers: cachedTopScorers ?? [],
+      processedIds: Array.from(processedMatchIds),
+      goals: Array.from(goalsByPlayerId.entries()),
+      savedAt: lastRefreshAt,
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
+  } catch {
+    // storage full or blocked — ignore
+  }
+}
 
 interface EspnGoalEvent {
   scoringPlay: boolean;
@@ -39,7 +83,9 @@ function extractEspnId(matchId: string): string {
 async function fetchMatchGoals(matchId: string): Promise<EspnGoalEvent[]> {
   const espnId = extractEspnId(matchId);
   try {
-    const res = await fetch(SUMMARY_URL(espnId), { cache: "no-store" });
+    // FT match summaries never change — use browser default caching so ESPN's
+    // CDN cache headers are respected and repeat fetches are served locally.
+    const res = await fetch(SUMMARY_URL(espnId));
     if (!res.ok) return [];
     const data = (await res.json()) as SummaryResponse;
     // Exclude shootout goals — penalty shootout strikes don't count toward
@@ -104,7 +150,7 @@ function buildTeamMap(matches: MatchWithTeams[]): Map<string, TeamInfo> {
 async function fetchInBatches<T, R>(
   items: T[],
   worker: (item: T) => Promise<R>,
-  concurrency = 4,
+  concurrency = 8,
 ): Promise<R[]> {
   const results: R[] = [];
   for (let i = 0; i < items.length; i += concurrency) {
@@ -119,6 +165,9 @@ export async function fetchTopScorers(
   matches: MatchWithTeams[],
   fallback: TopScorer[],
 ): Promise<TopScorer[]> {
+  // Restore persisted aggregator state on first call (skips re-fetching already-seen matches)
+  ensureStorageRestored();
+
   const now = Date.now();
 
   // Serve from cache while fresh
@@ -136,7 +185,6 @@ export async function fetchTopScorers(
         const results = await fetchInBatches(
           newMatches,
           (m) => fetchMatchGoals(m.id),
-          4,
         );
         results.forEach((events, idx) => {
           aggregateGoals(events);
@@ -172,6 +220,7 @@ export async function fetchTopScorers(
 
       cachedTopScorers = ranked;
       lastRefreshAt = now;
+      persistToStorage();
       return ranked;
     } finally {
       inflight = null;
