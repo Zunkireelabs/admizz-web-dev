@@ -131,10 +131,10 @@ Deno.serve(async (req: Request) => {
     .maybeSingle();
 
   if (existing) {
-    // Already approved — just sync the lead status and return
+    // Already approved — sync lead status and write the assigned code back so the admin UI shows it correctly
     await adminClient
       .from("affiliate_leads")
-      .update({ status: "approved" })
+      .update({ status: "approved", affiliate_code: existing.referral_code })
       .eq("id", app.id);
 
     return json({ ok: true, data: { code: existing.referral_code, already_existed: true } });
@@ -194,7 +194,7 @@ Deno.serve(async (req: Request) => {
 
     if (insertErr) return json({ ok: false, error: insertErr.message }, 400);
 
-    await adminClient.from("affiliate_leads").update({ status: "approved" }).eq("id", app.id);
+    await adminClient.from("affiliate_leads").update({ status: "approved", affiliate_code: referralCode }).eq("id", app.id);
     return json({ ok: true, data: { code: referralCode } });
   }
 
@@ -220,10 +220,10 @@ Deno.serve(async (req: Request) => {
     return json({ ok: false, error: insertErr.message }, 400);
   }
 
-  // ── 7. Mark application as approved ───────────────────────────────────
+  // ── 7. Mark application as approved + write assigned code back so admin UI persists it ──
   await adminClient
     .from("affiliate_leads")
-    .update({ status: "approved" })
+    .update({ status: "approved", affiliate_code: referralCode })
     .eq("id", app.id);
 
   return json({ ok: true, data: { code: referralCode } });

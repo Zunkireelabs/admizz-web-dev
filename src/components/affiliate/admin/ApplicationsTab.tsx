@@ -85,12 +85,19 @@ interface Props {
 }
 
 type StatusFilter = "all" | "new" | "approved" | "rejected";
+type TypeFilter = "all" | "affiliate" | "employee";
 
 const STATUS_PILLS: { label: string; value: StatusFilter }[] = [
   { label: "All",      value: "all"      },
   { label: "New",      value: "new"      },
   { label: "Approved", value: "approved" },
   { label: "Rejected", value: "rejected" },
+];
+
+const TYPE_PILLS: { label: string; value: TypeFilter }[] = [
+  { label: "All types", value: "all"       },
+  { label: "Affiliates", value: "affiliate" },
+  { label: "Employees",  value: "employee"  },
 ];
 
 export default function ApplicationsTab({ initialApplications, onRefresh }: Props) {
@@ -102,6 +109,7 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [typeFilter, setTypeFilter] = useState<TypeFilter>("all");
 
   const showError = (msg: string) => {
     setErrorMsg(msg);
@@ -148,9 +156,10 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
   const q = search.trim().toLowerCase();
   const filtered = [...pending, ...decided].filter(a => {
     const matchesStatus = statusFilter === "all" || a.status === statusFilter;
+    const matchesType = typeFilter === "all" || a.lead_type === typeFilter;
     const matchesSearch = !q || [a.full_name, a.email, a.city, a.organization]
       .some(v => v?.toLowerCase().includes(q));
-    return matchesStatus && matchesSearch;
+    return matchesStatus && matchesType && matchesSearch;
   });
 
   return (
@@ -218,7 +227,7 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
             </button>
           )}
         </div>
-        <div className="flex items-center gap-1.5 flex-shrink-0">
+        <div className="flex items-center gap-1.5 flex-shrink-0 flex-wrap">
           {STATUS_PILLS.map(pill => (
             <button
               key={pill.value}
@@ -240,6 +249,30 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
             </button>
           ))}
         </div>
+      </div>
+
+      {/* Lead-type filter row */}
+      <div className="flex items-center gap-1.5 flex-wrap">
+        {TYPE_PILLS.map(pill => (
+          <button
+            key={pill.value}
+            type="button"
+            onClick={() => setTypeFilter(pill.value)}
+            className="px-3 py-1.5 rounded-xl text-[11px] font-bold uppercase tracking-[0.06em] transition-all duration-150"
+            style={
+              typeFilter === pill.value
+                ? { background: "#6D28D9", color: "#FFFFFF", border: "1px solid #6D28D9" }
+                : { background: "#FFFFFF", color: "#475569", border: "1px solid #EAECF0" }
+            }
+          >
+            {pill.label}
+            {pill.value !== "all" && (
+              <span className="ml-1.5 opacity-60">
+                {apps.filter(a => a.lead_type === pill.value).length}
+              </span>
+            )}
+          </button>
+        ))}
       </div>
 
       {/* Section header */}
@@ -331,6 +364,17 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
                   <span className="font-bold text-base" style={{ color: "#001353" }}>{app.full_name}</span>
+                  {app.lead_type === "employee" && (
+                    <span
+                      className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-[0.06em] px-2 py-0.5 rounded-full"
+                      style={{ background: "rgba(109,40,217,0.08)", color: "#6D28D9", border: "1px solid rgba(109,40,217,0.3)" }}
+                    >
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      Employee
+                    </span>
+                  )}
                   {app.status === "approved" && (
                     <span
                       className="inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-full"
@@ -501,8 +545,14 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
                 <DetailRow label="Platform" value={app.platform} />
                 <DetailRow label="Audience size" value={app.audience_size} />
                 <DetailRow label="Prior referral experience" value={app.has_referred ? "Yes" : "No"} />
-                <DetailRow label="Affiliate code (referrer)" value={app.affiliate_code ?? ""} mono />
+                <DetailRow
+                  label={app.status === "approved" ? "Assigned referral code" : "Referred by (affiliate code)"}
+                  value={app.status === "approved" ? (assignedCode ?? app.affiliate_code ?? "") : (app.affiliate_code ?? "")}
+                  mono
+                  copyable={app.status === "approved"}
+                />
                 <DetailRow label="Application status" value={app.status} />
+                <DetailRow label="Lead type" value={app.lead_type === "employee" ? "Employee" : "Affiliate"} />
                 <DetailRow label="Submitted at" value={new Date(app.created_at).toLocaleString("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })} />
                 <DetailRow label="Profile link" value={app.profile_link} link={app.profile_link} className="sm:col-span-2" />
                 <DetailRow label="Motivation (full)" value={app.motivation} multiline className="sm:col-span-2" />
