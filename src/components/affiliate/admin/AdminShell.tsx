@@ -2,7 +2,7 @@
 
 import { Suspense, useMemo, useState, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
-import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick, AdminLeadRow } from "@/lib/affiliate/types";
+import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick, AdminLeadRow, AffiliateAuthStatus } from "@/lib/affiliate/types";
 import { buildCountryBreakdown, buildActivityFeed } from "@/lib/affiliate/api";
 import OverviewStats from "./OverviewStats";
 import ApplicationsTab from "./ApplicationsTab";
@@ -22,6 +22,7 @@ interface Props {
   referrals: AffiliateReferral[];
   clicks: AffiliateClick[];
   leads: AdminLeadRow[];
+  authStatuses: AffiliateAuthStatus[];
   onLogout: () => void;
   onRefresh: () => Promise<void>;
 }
@@ -44,7 +45,7 @@ export default function AdminShell(props: Props) {
 
 const VALID_TABS: Tab[] = ["applications", "affiliates", "referrals", "payouts", "leads"];
 
-function AdminShellInner({ affiliates, applications, referrals, clicks, leads, onLogout, onRefresh }: Props) {
+function AdminShellInner({ affiliates, applications, referrals, clicks, leads, authStatuses, onLogout, onRefresh }: Props) {
   const params = useSearchParams();
   const initialTab: Tab = (() => {
     const q = params.get("tab");
@@ -257,7 +258,7 @@ function AdminShellInner({ affiliates, applications, referrals, clicks, leads, o
         </div>
 
         {tab === "applications" && <ApplicationsTab initialApplications={applications} onRefresh={onRefresh} />}
-        {tab === "affiliates"   && <AffiliatesTab affiliates={affiliates} referrals={referrals} clicks={clicks} onRefresh={onRefresh} />}
+        {tab === "affiliates"   && <AffiliatesTab affiliates={affiliates} referrals={referrals} clicks={clicks} authStatuses={authStatuses} onRefresh={onRefresh} />}
         {tab === "referrals"    && <ReferralsTab referrals={referrals} affiliates={affiliates} onRefresh={onRefresh} />}
         {tab === "payouts"      && <PayoutsTab referrals={referrals} affiliates={affiliates} onRefresh={onRefresh} />}
         {tab === "leads"        && <LeadsTab leads={leads} onRefresh={onRefresh} />}

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { getAllAffiliates, getAllApplications, getAllReferrals, getAllClicks, getAffiliateLeads } from "@/lib/affiliate/api";
-import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick, AdminLeadRow } from "@/lib/affiliate/types";
+import { getAllAffiliates, getAllApplications, getAllReferrals, getAllClicks, getAffiliateLeads, getAffiliateAuthStatuses } from "@/lib/affiliate/api";
+import type { Affiliate, AffiliateApplication, AffiliateReferral, AffiliateClick, AdminLeadRow, AffiliateAuthStatus } from "@/lib/affiliate/types";
 import AdminLogin from "@/components/affiliate/admin/AdminLogin";
 import AdminShell from "@/components/affiliate/admin/AdminShell";
 
@@ -15,6 +15,7 @@ export default function AffiliateAdminPage() {
   const [referrals, setReferrals]     = useState<AffiliateReferral[]>([]);
   const [clicks, setClicks]           = useState<AffiliateClick[]>([]);
   const [leads, setLeads]             = useState<AdminLeadRow[]>([]);
+  const [authStatuses, setAuthStatuses] = useState<AffiliateAuthStatus[]>([]);
 
   // On mount: check if a Supabase Auth session exists and confirm admin role.
   useEffect(() => {
@@ -73,18 +74,20 @@ export default function AffiliateAdminPage() {
 
   const onLogin = async () => {
     await prewarmJwt();
-    const [affs, apps, refs, clks, lds] = await Promise.all([
+    const [affs, apps, refs, clks, lds, authSts] = await Promise.all([
       getAllAffiliates(),
       getAllApplications(),
       getAllReferrals(),
       getAllClicks(2000),
       getAffiliateLeads(500),
+      getAffiliateAuthStatuses(),
     ]);
     setAffiliates(affs);
     setApplications(apps);
     setReferrals(refs);
     setClicks(clks);
     setLeads(lds);
+    setAuthStatuses(authSts);
     setAuthed(true);
   };
 
@@ -96,22 +99,25 @@ export default function AffiliateAdminPage() {
     setReferrals([]);
     setClicks([]);
     setLeads([]);
+    setAuthStatuses([]);
   };
 
   const refreshData = async () => {
     await prewarmJwt();
-    const [affs, apps, refs, clks, lds] = await Promise.all([
+    const [affs, apps, refs, clks, lds, authSts] = await Promise.all([
       getAllAffiliates(),
       getAllApplications(),
       getAllReferrals(),
       getAllClicks(2000),
       getAffiliateLeads(500),
+      getAffiliateAuthStatuses(),
     ]);
     setAffiliates(affs);
     setApplications(apps);
     setReferrals(refs);
     setClicks(clks);
     setLeads(lds);
+    setAuthStatuses(authSts);
   };
 
   if (!hydrated) return null;
@@ -124,6 +130,7 @@ export default function AffiliateAdminPage() {
       referrals={referrals}
       clicks={clicks}
       leads={leads}
+      authStatuses={authStatuses}
       onLogout={onLogout}
       onRefresh={refreshData}
     />

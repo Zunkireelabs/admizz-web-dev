@@ -119,6 +119,12 @@ export interface AdminLeadRow {
   affiliate_lead_type: "affiliate" | "employee" | null; // type of the referring affiliate
 }
 
+export interface AffiliateAuthStatus {
+  email: string;
+  email_confirmed_at: string | null;
+  last_sign_in_at: string | null;
+}
+
 export interface LeaderboardEntry {
   rank: number;
   name: string;

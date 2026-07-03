@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import type { Affiliate, AffiliateReferral, AffiliateClick } from "@/lib/affiliate/types";
+import type { Affiliate, AffiliateReferral, AffiliateClick, AffiliateAuthStatus } from "@/lib/affiliate/types";
 import { updateAffiliateStatus, resendAffiliateInvite } from "@/lib/affiliate/api";
 
 const TIER_STYLE: Record<string, { bg: string; text: string; border: string }> = {
@@ -13,13 +13,14 @@ const TIER_STYLE: Record<string, { bg: string; text: string; border: string }> =
 };
 
 interface Props {
-  affiliates:  Affiliate[];
-  referrals:   AffiliateReferral[];
-  clicks:      AffiliateClick[];
-  onRefresh:   () => Promise<void>;
+  affiliates:   Affiliate[];
+  referrals:    AffiliateReferral[];
+  clicks:       AffiliateClick[];
+  authStatuses: AffiliateAuthStatus[];
+  onRefresh:    () => Promise<void>;
 }
 
-export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh }: Props) {
+export default function AffiliatesTab({ affiliates, referrals, clicks, authStatuses, onRefresh }: Props) {
   const router = useRouter();
   const [search, setSearch] = useState("");
   const [sortDesc, setSortDesc] = useState(true);
@@ -47,6 +48,13 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
     }
     return m;
   }, [referrals]);
+
+  // Map email → auth status for O(1) lookup in the table
+  const authByEmail = useMemo(() => {
+    const m = new Map<string, AffiliateAuthStatus>();
+    for (const s of authStatuses) m.set(s.email.toLowerCase(), s);
+    return m;
+  }, [authStatuses]);
 
   const filtered = [...affiliates]
     .filter(a => !search || a.full_name.toLowerCase().includes(search.toLowerCase()) || (a.city ?? "").toLowerCase().includes(search.toLowerCase()))
@@ -137,6 +145,7 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
                   { label: "Conv. %" },
                   { label: "Converted" },
                   { label: "Earned" },
+                  { label: "Activation" },
                   { label: "Status" },
                   { label: "Actions" },
                 ].map(h => (
@@ -154,7 +163,7 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
             <tbody>
               {filtered.length === 0 && (
                 <tr>
-                  <td colSpan={12} className="px-4 py-10 text-center text-sm" style={{ color: "#64748B" }}>
+                  <td colSpan={13} className="px-4 py-10 text-center text-sm" style={{ color: "#64748B" }}>
                     No affiliates match &ldquo;{search}&rdquo;
                   </td>
                 </tr>
@@ -164,6 +173,8 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
                 const status = statuses[a.id] ?? a.status;
                 const isToggling = togglingId === a.id;
 
+                const authStatus   = authByEmail.get(a.email.toLowerCase());
+                const isActivated  = !!authStatus?.email_confirmed_at;
                 const affClicks    = clicksByCode.get(a.referral_code.toUpperCase()) ?? [];
                 const affReferrals = referralsById.get(a.id) ?? [];
                 const convRate     = affReferrals.length > 0
@@ -207,6 +218,27 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
                     <td className="px-4 py-3.5 font-bold tabular-nums whitespace-nowrap" style={{ color: "#b07400" }}>
                       USD {a.total_earned.toLocaleString()}
                     </td>
+                    <td className="px-4 py-3.5">
+                      {authStatus === undefined ? (
+                        <span className="text-[12px]" style={{ color: "#94A3B8" }}>—</span>
+                      ) : isActivated ? (
+                        <span
+                          className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold whitespace-nowrap"
+                          style={{ background: "rgba(34,197,94,0.08)", color: "#15803d", border: "1px solid rgba(34,197,94,0.25)" }}
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#16a34a" }} />
+                          Activated
+                        </span>
+                      ) : (
+                        <span
+                          className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold whitespace-nowrap"
+                          style={{ background: "rgba(220,38,38,0.06)", color: "#b91d3f", border: "1px solid rgba(220,38,38,0.2)" }}
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#dc2626" }} />
+                          Not activated
+                        </span>
+                      )}
+                    </td>
                     <td className="px-4 py-3.5" onClick={e => e.stopPropagation()}>
                       <button
                         onClick={() => toggleStatus(a.id)}
@@ -245,7 +277,7 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
                             cursor: resendingId === a.id ? "wait" : "pointer",
                           }}
                         >
-                          {resendingId === a.id ? "Sending…" : "Resend Invite"}
+                          {resendingId === a.id ? "Sending…" : isActivated ? "Send Password Reset" : "Resend Invite"}
                         </button>
                       )}
                     </td>

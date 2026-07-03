@@ -2,7 +2,10 @@
 // affiliate-resend-invite — Supabase Edge Function
 // ============================================================================
 // Called by the admin panel when an admin clicks "Resend Invite" on an affiliate.
-// Sends a fresh activation email with a new magic link (24h expiry).
+//
+// Behaviour:
+//   - Not yet confirmed (never set password) → resend invite magic link
+//   - Already confirmed (set password before) → send password reset link
 //
 // POST body: { email: string, redirectOrigin?: string }
 // Auth:      Bearer <admin JWT>
@@ -57,28 +60,40 @@ Deno.serve(async (req: Request) => {
   }
 
   const baseUrl = redirectOrigin && /^https?:\/\//i.test(redirectOrigin) ? redirectOrigin : SITE_URL;
-  const inviteRedirectTo = `${baseUrl.replace(/\/$/, "")}/affiliate-dashboard`;
+  const dashboardUrl = `${baseUrl.replace(/\/$/, "")}/affiliate-dashboard`;
 
-  // ── 3. Look up the existing auth user to preserve their metadata ─────────
+  // ── 3. Look up existing auth user ────────────────────────────────────────
   const { data: { users }, error: listErr } = await adminClient.auth.admin.listUsers();
   if (listErr) return json({ error: "Could not fetch users" }, 500);
 
   const existingUser = users.find(u => u.email?.toLowerCase() === email);
-  if (!existingUser) return json({ error: "No auth user found for this email. Have they been approved yet?" }, 404);
+  if (!existingUser) {
+    return json({ error: "No auth user found for this email. Have they been approved yet?" }, 404);
+  }
 
-  // Preserve must_change_password: if they've already set a password, don't force it again.
+  const isConfirmed = !!existingUser.email_confirmed_at;
+
+  if (isConfirmed) {
+    // ── Already confirmed: send password reset so they can log back in ──────
+    const { error: resetErr } = await adminClient.auth.admin.generateLink({
+      type: "recovery",
+      email,
+      options: { redirectTo: dashboardUrl },
+    });
+    if (resetErr) return json({ ok: false, error: `Failed to send reset email: ${resetErr.message}` }, 400);
+    return json({ ok: true, method: "password-reset" });
+  }
+
+  // ── Not yet confirmed: resend the original invite magic link ─────────────
   const mustChangePassword = existingUser.user_metadata?.must_change_password !== false;
-
-  // ── 4. Re-send the invite (generates a fresh magic link) ─────────────────
   const { error: inviteErr } = await adminClient.auth.admin.inviteUserByEmail(email, {
-    redirectTo: inviteRedirectTo,
+    redirectTo: dashboardUrl,
     data: {
       ...existingUser.user_metadata,
       must_change_password: mustChangePassword,
     },
   });
-
   if (inviteErr) return json({ ok: false, error: `Failed to resend invite: ${inviteErr.message}` }, 400);
 
-  return json({ ok: true });
+  return json({ ok: true, method: "invite" });
 });

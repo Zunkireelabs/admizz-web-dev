@@ -9,6 +9,7 @@ import type {
   LeaderboardEntry,
   RegisterLead,
   AdminLeadRow,
+  AffiliateAuthStatus,
   Tier,
 } from "./types";
 
@@ -460,6 +461,15 @@ export async function approveApplication(app: AffiliateApplication): Promise<Adm
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }
+}
+
+export async function getAffiliateAuthStatuses(): Promise<AffiliateAuthStatus[]> {
+  const { data, error } = await supabase.rpc("get_affiliate_auth_statuses");
+  if (error) {
+    console.error("[getAffiliateAuthStatuses]", error.message);
+    return [];
+  }
+  return (data ?? []) as AffiliateAuthStatus[];
 }
 
 export async function resendAffiliateInvite(email: string): Promise<AdminResult<true>> {
