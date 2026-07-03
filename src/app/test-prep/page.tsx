@@ -356,7 +356,7 @@ export default function TestPrepPage() {
               Book a Free Demo Class
             </p>
             <CRMFormEmbed
-              src="https://dev-lead-crm.zunkireelabs.com/form/admizz/test-prep?bg=F0ECF9"
+              src="https://edgex.zunkireelabs.com/form/admizz/test-prep?bg=F0ECF9"
               height={540}
               title="Test Prep Enquiry Form"
             />

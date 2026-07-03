@@ -811,7 +811,7 @@ function SuccessCard({ firstName }: { firstName: string }) {
 /*  Main component                                                     */
 /* ------------------------------------------------------------------ */
 
-const CRM_ENDPOINT = "https://dev-lead-crm.zunkireelabs.com/api/public/submit/admizz/registration-form";
+const CRM_ENDPOINT = "https://edgex.zunkireelabs.com/api/public/submit/admizz/registration-form";
 const CRM_API_KEY  = "crm_live_UVtPfdXD6lIZ0S5lSeny9Clv3jKzbGUGM8sgK2Gm3tw";
 
 export default function RegisterForm({ onStepChange, onSubmitSuccess, hideInternalSuccess }: RegisterFormProps = {}) {

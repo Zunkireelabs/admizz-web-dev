@@ -78,7 +78,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://cdn.sanity.io" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
-        <link rel="dns-prefetch" href="https://dev-lead-crm.zunkireelabs.com" />
+        <link rel="dns-prefetch" href="https://edgex.zunkireelabs.com" />
       </head>
       <body suppressHydrationWarning>
         <script

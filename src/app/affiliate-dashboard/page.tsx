@@ -31,9 +31,10 @@ function readUrlError(): string | null {
 }
 
 type InviteFromUrl =
-  | { kind: "hash";  access_token: string; refresh_token: string }
-  | { kind: "pkce";  code: string }
-  | { kind: "error"; description: string }
+  | { kind: "hash";     access_token: string; refresh_token: string }
+  | { kind: "recovery"; access_token: string; refresh_token: string }
+  | { kind: "pkce";     code: string }
+  | { kind: "error";    description: string }
   | { kind: "none" };
 
 // Single source of truth for what's in the URL when the page mounts. The
@@ -52,6 +53,10 @@ function classifyInviteUrl(): InviteFromUrl {
   const access  = hash.get("access_token");
   const refresh = hash.get("refresh_token");
   if (access && refresh) {
+    const type = hash.get("type");
+    if (type === "recovery") {
+      return { kind: "recovery", access_token: access, refresh_token: refresh };
+    }
     return { kind: "hash", access_token: access, refresh_token: refresh };
   }
 
@@ -100,7 +105,52 @@ export default function AffiliateDashboardPage() {
         return;
       }
 
-      // 2. Fresh invite tokens in URL — establish a clean session deterministically.
+      // 2. Password-reset link (type=recovery in hash) — establish session and go
+      //    straight to SetPassword regardless of must_change_password flag.
+      if (urlState.kind === "recovery") {
+        setView("activating");
+        void supabase.auth.signOut().catch(() => {});
+
+        const EXCHANGE_TIMEOUT_MS = 8_000;
+        const exchangePromise = supabase.auth.setSession({
+          access_token:  urlState.access_token,
+          refresh_token: urlState.refresh_token,
+        });
+        const timeoutPromise = new Promise<{ __timeout: true }>(resolve =>
+          setTimeout(() => resolve({ __timeout: true }), EXCHANGE_TIMEOUT_MS),
+        );
+
+        const exchanged = await Promise.race([exchangePromise, timeoutPromise]);
+        scrubUrl();
+
+        let fresh: Session | null = null;
+        if ("__timeout" in exchanged) {
+          const { data } = await Promise.race([
+            supabase.auth.getSession(),
+            new Promise<{ data: { session: null } }>(resolve =>
+              setTimeout(() => resolve({ data: { session: null } }), 3_000),
+            ),
+          ]);
+          fresh = data.session ?? null;
+        } else if (!exchanged.error && exchanged.data.session) {
+          fresh = exchanged.data.session;
+        }
+
+        if (!fresh) {
+          setLoginNotice("Your password reset link has expired. Please request a new one.");
+          if (!cancelled) setView("login");
+          void supabase.auth.signOut().catch(() => {});
+          return;
+        }
+
+        console.info("[affiliate-dashboard] recovery session established for", fresh.user.email);
+        if (cancelled) return;
+        setSession(fresh);
+        setView("set-password");
+        return;
+      }
+
+      // 3. Fresh invite tokens in URL — establish a clean session deterministically.
       //    Any stale session in localStorage is wiped first so we can never be
       //    fooled into rendering SetPassword against a dead session.
       if (urlState.kind === "hash" || urlState.kind === "pkce") {
@@ -163,7 +213,7 @@ export default function AffiliateDashboardPage() {
         return;
       }
 
-      // 3. No invite in URL — fall back to whatever session is already stored.
+      // 4. No invite in URL — fall back to whatever session is already stored.
       const { data: { session } } = await supabase.auth.getSession();
       if (cancelled) return;
 

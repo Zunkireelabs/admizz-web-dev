@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { readAffiliateRefCookie } from "@/lib/affiliate/refCookie";
 
-const DEFAULT_FORM_URL = "https://dev-lead-crm.zunkireelabs.com/form/admizz?bg=F0ECF9";
+const DEFAULT_FORM_URL = "https://edgex.zunkireelabs.com/form/admizz?bg=F0ECF9";
 
 interface CRMFormEmbedProps {
   height?: number;

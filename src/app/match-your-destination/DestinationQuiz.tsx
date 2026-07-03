@@ -124,7 +124,7 @@ export default function DestinationQuiz() {
     setLead(finalLead);
 
     // Send to CRM (fire-and-forget)
-    fetch("https://dev-lead-crm.zunkireelabs.com/api/public/submit/admizz/find-your-destination", {
+    fetch("https://edgex.zunkireelabs.com/api/public/submit/admizz/find-your-destination", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
