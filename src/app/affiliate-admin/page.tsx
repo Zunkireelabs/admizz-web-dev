@@ -47,7 +47,32 @@ export default function AffiliateAdminPage() {
     };
   }, []);
 
+  // Keep the admin JWT alive: while the tab is open and authed, force a
+  // refresh every 4 minutes (well inside the 1-hour token lifetime). Without
+  // this, an idle tab can drift past expiry and the next click — Approve,
+  // Reject, anything — bombs with "Not authenticated".
+  useEffect(() => {
+    if (!authed) return;
+    const id = setInterval(() => {
+      supabase.auth.refreshSession().catch(() => { /* ignore */ });
+    }, 4 * 60 * 1000);
+    return () => clearInterval(id);
+  }, [authed]);
+
+  // Force any pending JWT refresh to settle BEFORE we fire parallel RPCs.
+  // Without this, the refresh runs concurrently with every RPC and a slow
+  // refresh drags them all down — which the user perceives as a timeout / logout.
+  const prewarmJwt = async () => {
+    try {
+      await Promise.race([
+        supabase.auth.getSession(),
+        new Promise(resolve => setTimeout(resolve, 4_000)),
+      ]);
+    } catch { /* ignore */ }
+  };
+
   const onLogin = async () => {
+    await prewarmJwt();
     const [affs, apps, refs, clks, lds] = await Promise.all([
       getAllAffiliates(),
       getAllApplications(),
@@ -74,6 +99,7 @@ export default function AffiliateAdminPage() {
   };
 
   const refreshData = async () => {
+    await prewarmJwt();
     const [affs, apps, refs, clks, lds] = await Promise.all([
       getAllAffiliates(),
       getAllApplications(),

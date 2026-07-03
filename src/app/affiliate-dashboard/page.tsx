@@ -9,7 +9,7 @@ import AffiliateLogin from "@/components/affiliate/dashboard/AffiliateLogin";
 import DashboardShell from "@/components/affiliate/dashboard/DashboardShell";
 import SetPassword from "@/components/affiliate/dashboard/SetPassword";
 
-type View = "loading" | "activating" | "login" | "set-password" | "dashboard";
+type View = "loading" | "activating" | "login" | "set-password" | "dashboard" | "load-error";
 
 function needsPasswordChange(session: Session): boolean {
   return session.user.user_metadata?.must_change_password === true;
@@ -74,6 +74,8 @@ export default function AffiliateDashboardPage() {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [clicks,      setClicks]      = useState<AffiliateClick[]>([]);
   const [loginNotice, setLoginNotice] = useState<string | null>(null);
+  const [loadErrorMsg, setLoadErrorMsg] = useState<string | null>(null);
+  const [retrying,    setRetrying]    = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -210,12 +212,25 @@ export default function AffiliateDashboardPage() {
     };
   }, []);
 
+  // Pre-warm the JWT before firing parallel RPCs. supabase-js queues the next
+  // refresh internally; calling getSession() forces it to settle here (in
+  // series) instead of every parallel RPC blocking behind it. Wrapped in its
+  // own short timeout so a hung refresh doesn't trap us — we just proceed
+  // optimistically with the existing token.
+  const prewarmJwt = async () => {
+    try {
+      await Promise.race([
+        supabase.auth.getSession(),
+        new Promise(resolve => setTimeout(resolve, 4_000)),
+      ]);
+    } catch { /* ignore — caller will fall through with current token */ }
+  };
+
   const loadDashboard = async (sess: Session) => {
-    // Wrap each request in a per-call timeout so a single hung RPC can't trap
-    // the page on "Loading…" forever. Observed: Supabase Auth API occasionally
-    // hangs the JWT refresh that runs ahead of authenticated requests, which
-    // takes every parallel RPC down with it.
-    const LOAD_TIMEOUT_MS = 10_000;
+    // Per-call timeout so a single hung RPC can't trap the page on "Loading…"
+    // forever. Bumped to 25s to swallow slow JWT refreshes on poor networks —
+    // the older 10s was below the long tail of Supabase Auth response times.
+    const LOAD_TIMEOUT_MS = 25_000;
     const withTimeout = <T,>(label: string, p: PromiseLike<T>): Promise<T | { __timeout: true }> => {
       return Promise.race<T | { __timeout: true }>([
         Promise.resolve(p),
@@ -229,22 +244,36 @@ export default function AffiliateDashboardPage() {
     };
 
     console.info("[dashboard load] starting for", sess.user.email);
+    setLoadErrorMsg(null);
+
+    // Force any pending JWT refresh to complete BEFORE we fire parallel RPCs.
+    await prewarmJwt();
+
+    const runOnce = async () => Promise.all([
+      withTimeout("affiliate_me",            supabase.rpc("affiliate_me")),
+      withTimeout("affiliate_self_referrals", supabase.rpc("affiliate_self_referrals")),
+      withTimeout("getLeaderboard",          getLeaderboard()),
+      withTimeout("affiliate_self_clicks",    supabase.rpc("affiliate_self_clicks", { p_limit: 200 })),
+    ]);
 
     try {
-      const [affRes, refRes, lb, clkRes] = await Promise.all([
-        withTimeout("affiliate_me",            supabase.rpc("affiliate_me")),
-        withTimeout("affiliate_self_referrals", supabase.rpc("affiliate_self_referrals")),
-        withTimeout("getLeaderboard",          getLeaderboard()),
-        withTimeout("affiliate_self_clicks",    supabase.rpc("affiliate_self_clicks", { p_limit: 200 })),
-      ]);
+      let [affRes, refRes, lb, clkRes] = await runOnce();
 
-      // If the primary call (affiliate_me) timed out, we have nothing useful to
-      // render — sign the user out and let them re-enter their password.
+      // Silent single retry if the primary RPC timed out — most slow refreshes
+      // resolve on the second try once the new token is in hand.
       if (affRes && typeof affRes === "object" && "__timeout" in affRes) {
-        console.warn("[dashboard load] affiliate_me timed out — forcing re-login");
-        setLoginNotice("Your session expired. Please log in again.");
-        setView("login");
-        void supabase.auth.signOut().catch(() => {});
+        console.warn("[dashboard load] affiliate_me timed out — retrying once");
+        await prewarmJwt();
+        [affRes, refRes, lb, clkRes] = await runOnce();
+      }
+
+      // Still timing out — keep the session intact and show a retry banner
+      // instead of signing the user out. The session is almost certainly fine;
+      // Supabase or the network is just slow.
+      if (affRes && typeof affRes === "object" && "__timeout" in affRes) {
+        console.warn("[dashboard load] affiliate_me still timed out — showing retry UI");
+        setLoadErrorMsg("We couldn't load your dashboard. Your connection looks slow — give it another try.");
+        setView("load-error");
         return;
       }
 
@@ -271,9 +300,27 @@ export default function AffiliateDashboardPage() {
       console.info("[dashboard load] done");
     } catch (err) {
       console.error("[dashboard load] unexpected error:", err);
-      setLoginNotice("Something went wrong loading the dashboard. Please log in again.");
-      setView("login");
-      void supabase.auth.signOut().catch(() => {});
+      // Keep the session — surface a retry, not a logout. A thrown error here
+      // is almost always a transient network blip, not an auth failure.
+      setLoadErrorMsg("Something went wrong loading your dashboard. Please try again.");
+      setView("load-error");
+    }
+  };
+
+  const handleRetryLoad = async () => {
+    if (retrying) return;
+    setRetrying(true);
+    try {
+      const { data: { session: sess } } = await supabase.auth.getSession();
+      if (!sess) {
+        setLoginNotice("Your session expired. Please log in again.");
+        setView("login");
+        return;
+      }
+      setView("loading");
+      await loadDashboard(sess);
+    } finally {
+      setRetrying(false);
     }
   };
 
@@ -322,6 +369,46 @@ export default function AffiliateDashboardPage() {
 
   if (view === "set-password") {
     return <SetPassword onComplete={handlePasswordSet} />;
+  }
+
+  if (view === "load-error") {
+    return (
+      <div
+        className="min-h-screen flex flex-col items-center justify-center px-4"
+        style={{ background: "#FAFAFB" }}
+      >
+        <img
+          src="/images/logos/Admizz-Education-New-Logo-For-Light-Background.webp"
+          alt="Admizz Education"
+          className="h-8 w-auto mb-8"
+          style={{ opacity: 0.85 }}
+        />
+        <div className="max-w-md w-full text-center">
+          <p className="text-base font-semibold mb-2" style={{ color: "#0F172A" }}>
+            We couldn’t load your dashboard
+          </p>
+          <p className="text-sm mb-6" style={{ color: "#64748B" }}>
+            {loadErrorMsg ?? "Your connection looks slow — give it another try."}
+          </p>
+          <button
+            onClick={handleRetryLoad}
+            disabled={retrying}
+            className="px-6 py-2.5 rounded-lg text-sm font-semibold transition-opacity"
+            style={{
+              background: "#FCB730",
+              color: "#0F172A",
+              opacity: retrying ? 0.7 : 1,
+              cursor: retrying ? "wait" : "pointer",
+            }}
+          >
+            {retrying ? "Retrying…" : "Retry"}
+          </button>
+          <p className="text-xs mt-4" style={{ color: "#94A3B8" }}>
+            You’re still signed in — no need to log in again.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   if (view === "login" || !affiliate) {
