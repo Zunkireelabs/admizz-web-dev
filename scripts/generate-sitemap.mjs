@@ -37,7 +37,7 @@ const staticPages = [
   { path: "/privacy-policy", priority: 0.3, freq: "yearly" },
   { path: "/universities", priority: 0.7, freq: "monthly" },
   { path: "/recruitment-partners", priority: 0.7, freq: "monthly" },
-  { path: "/affiliate-program", priority: 0.8, freq: "monthly" },
+  { path: "/affiliate", priority: 0.8, freq: "monthly" },
   { path: "/affiliate-dashboard", priority: 0.5, freq: "monthly" },
   { path: "/careers", priority: 0.6, freq: "monthly" },
   // Country pages (main)
