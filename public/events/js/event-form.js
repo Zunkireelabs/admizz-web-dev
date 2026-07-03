@@ -134,7 +134,7 @@ function _eventFormInit() {
     const cityName = document.getElementById('cityName');
     const termsConditions = document.getElementById('termsConditions');
 
-    const CRM_ENDPOINT = 'https://dev-lead-crm.zunkireelabs.com/api/public/submit/admizz/uk-education-expo-2026';
+    const CRM_ENDPOINT = 'https://edgex.zunkireelabs.com/api/public/submit/admizz/uk-education-expo-2026';
     const CRM_API_KEY  = 'crm_live_UVtPfdXD6lIZ0S5lSeny9Clv3jKzbGUGM8sgK2Gm3tw';
 
     if (countryCode && phoneNumber) {

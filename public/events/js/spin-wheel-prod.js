@@ -14,7 +14,7 @@
     var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxkc2dzZGppeHpzbGpna2NrdHF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3NTU1NDEsImV4cCI6MjA4NTMzMTU0MX0.855wGImOj-uNFYSqIyXF-Id4B9dO1siQoT2WdQKxusA';
     var SB_HEADERS = { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' };
 
-    var CRM_ENDPOINT = 'https://dev-lead-crm.zunkireelabs.com/api/public/submit/admizz/spin-win';
+    var CRM_ENDPOINT = 'https://edgex.zunkireelabs.com/api/public/submit/admizz/spin-win';
     var CRM_API_KEY  = 'crm_live_UVtPfdXD6lIZ0S5lSeny9Clv3jKzbGUGM8sgK2Gm3tw';
 
     // Affiliate attribution — read first-touch referral code from cookie
