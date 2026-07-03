@@ -462,6 +462,33 @@ export async function approveApplication(app: AffiliateApplication): Promise<Adm
   }
 }
 
+export async function resendAffiliateInvite(email: string): Promise<AdminResult<true>> {
+  try {
+    const token = await getAdminAccessTokenOrReauth();
+    if (!token) return { ok: false, error: "Not authenticated — please log in again." };
+
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const fnUrl = `${supabaseUrl}/functions/v1/affiliate-resend-invite`;
+    const redirectOrigin = typeof window !== "undefined" ? window.location.origin : undefined;
+
+    const res = await fetch(fnUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+      body: JSON.stringify({ email, redirectOrigin }),
+    });
+
+    const json = await res.json();
+    if (!res.ok || !json.ok) {
+      const msg = json.error ?? `HTTP ${res.status}`;
+      console.error("[resend invite]", msg);
+      return { ok: false, error: msg };
+    }
+    return { ok: true, data: true };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
 export async function rejectApplication(id: string): Promise<AdminResult<true>> {
   try {
     const { error } = await supabase

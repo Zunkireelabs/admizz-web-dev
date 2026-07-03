@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Affiliate, AffiliateReferral, AffiliateClick } from "@/lib/affiliate/types";
-import { updateAffiliateStatus } from "@/lib/affiliate/api";
+import { updateAffiliateStatus, resendAffiliateInvite } from "@/lib/affiliate/api";
 
 const TIER_STYLE: Record<string, { bg: string; text: string; border: string }> = {
   "Starter":       { bg: "rgba(148,163,184,0.1)",  text: "#475569", border: "rgba(148,163,184,0.3)" },
@@ -26,7 +26,9 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
   const [statuses, setStatuses] = useState<Record<string, "active" | "suspended">>(
     Object.fromEntries(affiliates.map(a => [a.id, a.status]))
   );
-  const [togglingId, setTogglingId] = useState<string | null>(null);
+  const [togglingId,  setTogglingId]  = useState<string | null>(null);
+  const [resendingId, setResendingId] = useState<string | null>(null);
+  const [resendMsg,   setResendMsg]   = useState<{ id: string; ok: boolean; text: string } | null>(null);
 
   // Pre-bucket clicks & referrals by affiliate code/id once
   const clicksByCode = useMemo(() => {
@@ -63,6 +65,21 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
 
   const openDetail = (id: string) => {
     router.push(`/affiliate-admin/affiliate?id=${id}`);
+  };
+
+  const handleResendInvite = async (e: React.MouseEvent, id: string, email: string) => {
+    e.stopPropagation();
+    setResendingId(id);
+    setResendMsg(null);
+    const result = await resendAffiliateInvite(email);
+    setResendMsg({
+      id,
+      ok: result.ok,
+      text: result.ok ? "Invite sent!" : (result.error ?? "Failed to send"),
+    });
+    setResendingId(null);
+    // Clear the message after 4 seconds
+    setTimeout(() => setResendMsg(prev => prev?.id === id ? null : prev), 4000);
   };
 
   if (affiliates.length === 0) {
@@ -121,6 +138,7 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
                   { label: "Converted" },
                   { label: "Earned" },
                   { label: "Status" },
+                  { label: "Actions" },
                 ].map(h => (
                   <th
                     key={h.label || "expand"}
@@ -136,7 +154,7 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
             <tbody>
               {filtered.length === 0 && (
                 <tr>
-                  <td colSpan={11} className="px-4 py-10 text-center text-sm" style={{ color: "#64748B" }}>
+                  <td colSpan={12} className="px-4 py-10 text-center text-sm" style={{ color: "#64748B" }}>
                     No affiliates match &ldquo;{search}&rdquo;
                   </td>
                 </tr>
@@ -205,6 +223,31 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, onRefresh
                         <span className="w-1.5 h-1.5 rounded-full" style={{ background: status === "active" ? "#16a34a" : "#dc2626" }} />
                         {status === "active" ? "Active" : "Suspended"}
                       </button>
+                    </td>
+                    <td className="px-4 py-3.5" onClick={e => e.stopPropagation()}>
+                      {resendMsg?.id === a.id ? (
+                        <span
+                          className="text-[12px] font-semibold"
+                          style={{ color: resendMsg.ok ? "#16a34a" : "#dc2626" }}
+                        >
+                          {resendMsg.text}
+                        </span>
+                      ) : (
+                        <button
+                          onClick={e => handleResendInvite(e, a.id, a.email)}
+                          disabled={resendingId === a.id}
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[12px] font-bold transition-all whitespace-nowrap"
+                          style={{
+                            background: "rgba(49,66,156,0.07)",
+                            color:      "#31429C",
+                            border:     "1px solid rgba(49,66,156,0.2)",
+                            opacity: resendingId === a.id ? 0.5 : 1,
+                            cursor: resendingId === a.id ? "wait" : "pointer",
+                          }}
+                        >
+                          {resendingId === a.id ? "Sending…" : "Resend Invite"}
+                        </button>
+                      )}
                     </td>
                   </tr>
                 );
