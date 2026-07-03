@@ -2,8 +2,10 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import type { MatchWithTeams, PredictionChoice, PredictionLead } from "@/lib/wc2026/types";
-import { savePrediction } from "@/lib/wc2026/predictions";
+import type { MatchWithTeams, PredictionChoice } from "@/lib/wc2026/types";
+import { savePrediction, loadStoredPredictions } from "@/lib/wc2026/predictions";
+import { useLive } from "@/lib/wc2026/LiveProvider";
+import { loadProfile, saveProfile, type SavedProfile } from "@/lib/wc2026/userProfile";
 import { DIAL_CODES, dialSpec, phoneDigits } from "@/lib/dialCodes";
 import Flag from "./Flag";
 import { CheckIcon } from "./Icons";
@@ -22,6 +24,92 @@ function splitName(full: string): { first_name: string; last_name: string | null
   const idx = trimmed.indexOf(" ");
   if (idx === -1) return { first_name: trimmed, last_name: null };
   return { first_name: trimmed.slice(0, idx), last_name: trimmed.slice(idx + 1) };
+}
+
+function stripDial(fullPhone: string, dial: string): string {
+  // Returns the local part of a stored phone like "+977 9812345678" → "9812345678"
+  const prefix = dial.trim();
+  const after = fullPhone.startsWith(prefix) ? fullPhone.slice(prefix.length) : fullPhone;
+  return after.replace(/\D/g, "");
+}
+
+async function submitLead(
+  profile: SavedProfile,
+  match: MatchWithTeams,
+  choice: PredictionChoice,
+): Promise<boolean> {
+  const names = splitName(profile.name);
+  const dialDigits = profile.dialCode.replace(/\D/g, "");
+  const phoneAllDigits = profile.phone.replace(/\D/g, "");
+  const phoneLocalDigits = phoneAllDigits.startsWith(dialDigits)
+    ? phoneAllDigits.slice(dialDigits.length)
+    : phoneAllDigits;
+  const sessionId = makeSessionId();
+  const matchLabel = `${match.teamAData.name} vs ${match.teamBData.name}`;
+  const submittedAt = new Date().toISOString();
+  try {
+    const res = await fetch(CRM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tenant_id:       CRM_TENANT_ID,
+        form_config_id:  CRM_FORM_CONFIG_ID,
+        session_id:      sessionId,
+        idempotency_key: `${sessionId}-final`,
+        intake_source:   "worldcup-predict-win",
+        intake_medium:   "web",
+        intake_campaign: "wc2026-predict-and-win",
+        status:          "new",
+        step:            1,
+        is_final:        true,
+        file_urls:       [],
+
+        first_name:      names.first_name || null,
+        last_name:       names.last_name,
+        phone:           profile.phone,
+        email:           profile.email,
+        city:            profile.city,
+
+        source:          "worldcup-predict-win",
+        country:         null,
+        countries:       [],
+        field_of_study:  null,
+        field_of_studies: [],
+        contact_preference: null,
+        preferred_contact:  null,
+        tag:             "wc2026-predict-win",
+        tags:            ["wc2026-predict-win"],
+        lead_tag:        "wc2026-predict-win",
+
+        custom_fields: {
+          full_name:                profile.name,
+          phone_number:             phoneLocalDigits,
+          dial_code:                profile.dialCode,
+          city:                     profile.city,
+          source:                   "worldcup-predict-win",
+          match_id:                 match.id,
+          match_label:              matchLabel,
+          prediction:               choice,
+          prediction_text:          pickLabel(match, choice),
+          submitted_at:             submittedAt,
+          study_abroad_interest:    profile.studyAbroad,
+          agreed_to_terms:          profile.agreedToTerms,
+        },
+      }),
+    });
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      console.error("[wc2026] CRM submit failed", res.status, body);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error("[wc2026] CRM submit error", err);
+    return false;
+  } finally {
+    savePrediction(match.id, choice, matchLabel);
+    if (typeof window !== "undefined") window.sessionStorage.removeItem("wc26-pending-pick");
+  }
 }
 
 interface PredictionModalProps {
@@ -49,6 +137,17 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
   const [studyAbroad, setStudyAbroad] = useState<"yes" | "no" | null>(null);
   const [agreedToTerms, setAgreedToTerms] = useState(true);
   const [termsOpen, setTermsOpen] = useState(false);
+  const [storedProfile, setStoredProfile] = useState<SavedProfile | null>(null);
+  const [useStored, setUseStored] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [localChoice, setLocalChoice] = useState<PredictionChoice | null>(choice);
+  const [previousPick, setPreviousPick] = useState<{
+    label: string;
+    matchLabel: string;
+    flag: string | null;
+    isDraw: boolean;
+  } | null>(null);
+  const { matches } = useLive();
   const dialRootRef = useRef<HTMLDivElement>(null);
   const dialSearchRef = useRef<HTMLInputElement>(null);
   const spec = dialSpec(dialKey);
@@ -89,14 +188,63 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
   useEffect(() => {
     if (open) {
       setSubmitted(false);
-      setPhone("");
-      setDialKey("NP");
+      setSubmitError(null);
       setDialOpen(false);
-      setStudyAbroad(null);
-      setAgreedToTerms(true);
       setTermsOpen(false);
+      setLocalChoice(choice);
+
+      // Build the "Your last pick" reminder: most recent prediction that
+      // isn't for the current match. Helps the user keep track as they
+      // work through the 24h queue.
+      const stored = loadStoredPredictions();
+      const prior = Object.values(stored)
+        .filter((p) => p.matchId !== match?.id)
+        .sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime())[0];
+      if (prior && prior.matchLabel) {
+        const parts = prior.matchLabel.split(/\s+vs\s+/i);
+        const teamA = parts[0]?.trim() ?? "";
+        const teamB = parts[1]?.trim() ?? "";
+        const label =
+          prior.prediction === "team_a" ? `${teamA} to win` :
+          prior.prediction === "team_b" ? `${teamB} to win` :
+          "Draw";
+        const priorMatch = matches.find((m) => m.id === prior.matchId);
+        const flag = priorMatch
+          ? prior.prediction === "team_a"
+            ? priorMatch.teamAData.flag
+            : prior.prediction === "team_b"
+              ? priorMatch.teamBData.flag
+              : null
+          : null;
+        setPreviousPick({
+          label,
+          matchLabel: prior.matchLabel,
+          flag,
+          isDraw: prior.prediction === "draw",
+        });
+      } else {
+        setPreviousPick(null);
+      }
+
+      const profile = loadProfile();
+      setStoredProfile(profile);
+      if (profile) {
+        // Returning user — silent-confirm path
+        setUseStored(true);
+        setPhone(stripDial(profile.phone, profile.dialCode));
+        setDialKey(profile.dialKey || "NP");
+        setStudyAbroad(profile.studyAbroad);
+        setAgreedToTerms(profile.agreedToTerms);
+      } else {
+        // First-time user — full form
+        setUseStored(false);
+        setPhone("");
+        setDialKey("NP");
+        setStudyAbroad(null);
+        setAgreedToTerms(true);
+      }
     }
-  }, [open, match?.id, choice]);
+  }, [open, match?.id, choice, matches]);
 
   useEffect(() => {
     if (!dialOpen) return;
@@ -130,101 +278,115 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
   if (!open || !match || !choice) return null;
   if (typeof document === "undefined") return null;
 
+  const effectiveChoice: PredictionChoice = localChoice ?? choice;
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (phone.length < 7) return;
     if (!studyAbroad) return;
     if (!agreedToTerms) return;
     setSubmitting(true);
+    setSubmitError(null);
     const formData = new FormData(e.currentTarget);
-    const lead: PredictionLead = {
+    const profile: SavedProfile = {
       name: String(formData.get("name") || ""),
       email: String(formData.get("email") || ""),
       phone: `${spec.dial} ${phone}`,
       dialCode: spec.dial,
+      dialKey: dialKey,
       city: String(formData.get("city") || ""),
-      source: "worldcup-predict-win",
-      matchId: match.id,
-      matchLabel: `${match.teamAData.name} vs ${match.teamBData.name}`,
-      prediction: choice,
-      submittedAt: new Date().toISOString(),
+      studyAbroad: studyAbroad,
+      agreedToTerms: agreedToTerms,
+      savedAt: new Date().toISOString(),
     };
-    try {
-      const names = splitName(lead.name);
-      const dialDigits = lead.dialCode.replace(/\D/g, "");
-      const phoneAllDigits = lead.phone.replace(/\D/g, "");
-      const phoneLocalDigits = phoneAllDigits.startsWith(dialDigits)
-        ? phoneAllDigits.slice(dialDigits.length)
-        : phoneAllDigits;
-      const sessionId = makeSessionId();
-      const res = await fetch(CRM_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          tenant_id:       CRM_TENANT_ID,
-          form_config_id:  CRM_FORM_CONFIG_ID,
-          session_id:      sessionId,
-          idempotency_key: `${sessionId}-final`,
-          intake_source:   "worldcup-predict-win",
-          intake_medium:   "web",
-          intake_campaign: "wc2026-predict-and-win",
-          status:          "new",
-          step:            1,
-          is_final:        true,
-          file_urls:       [],
-
-          // Identity
-          first_name:      names.first_name || null,
-          last_name:       names.last_name,
-          phone:           lead.phone,
-          email:           lead.email,
-          city:            lead.city,
-
-          // Explicit overrides — clear any defaults baked into the form config
-          // (the form_config_id was originally used for a UK Humanities Student form).
-          source:          "worldcup-predict-win",
-          country:         null,
-          countries:       [],
-          field_of_study:  null,
-          field_of_studies: [],
-          contact_preference: null,
-          preferred_contact:  null,
-          tag:             "wc2026-predict-win",
-          tags:            ["wc2026-predict-win"],
-          lead_tag:        "wc2026-predict-win",
-
-          custom_fields: {
-            full_name:                lead.name,
-            phone_number:             phoneLocalDigits,
-            dial_code:                lead.dialCode,
-            city:                     lead.city,
-            source:                   lead.source,
-            match_id:                 lead.matchId,
-            match_label:              lead.matchLabel,
-            prediction:               lead.prediction,
-            prediction_text:          pickLabel(match, choice),
-            submitted_at:             lead.submittedAt,
-            study_abroad_interest:    studyAbroad,
-            agreed_to_terms:          agreedToTerms,
-          },
-        }),
-      });
-      if (!res.ok) {
-        const body = await res.text().catch(() => "");
-        console.error("[wc2026] CRM submit failed", res.status, body);
-      }
-    } catch (err) {
-      console.error("[wc2026] CRM submit error", err);
-    } finally {
-      savePrediction(match.id, choice, lead.matchLabel);
-      if (typeof window !== "undefined") window.sessionStorage.removeItem("wc26-pending-pick");
-      setSubmitting(false);
+    const ok = await submitLead(profile, match, effectiveChoice);
+    if (ok) saveProfile(profile);
+    setSubmitting(false);
+    if (ok) {
       setSubmitted(true);
       onSubmitted();
+    } else {
+      setSubmitError("We couldn't lock in your prediction. Please try again.");
     }
   };
 
-  const team = choice === "team_a" ? match.teamAData : choice === "team_b" ? match.teamBData : null;
+  const handleQuickSubmit = async () => {
+    if (!storedProfile) return;
+    setSubmitting(true);
+    setSubmitError(null);
+    const ok = await submitLead(storedProfile, match, effectiveChoice);
+    setSubmitting(false);
+    if (ok) {
+      setSubmitted(true);
+      onSubmitted();
+    } else {
+      setSubmitError("We couldn't lock in your prediction. Please try again.");
+    }
+  };
+
+  const team = effectiveChoice === "team_a" ? match.teamAData : effectiveChoice === "team_b" ? match.teamBData : null;
+
+  const previousPickChip = previousPick ? (
+    <div className="wc-modal-prev-pick" aria-label="Your previous prediction">
+      <span className="wc-modal-prev-pick-eyebrow">
+        <span className="wc-modal-prev-pick-check" aria-hidden>
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </span>
+        Your last pick
+      </span>
+      <span className="wc-modal-prev-pick-body">
+        {previousPick.flag && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={previousPick.flag} alt="" className="wc-modal-prev-pick-flag" />
+        )}
+        {previousPick.isDraw && (
+          <span className="wc-modal-prev-pick-draw" aria-hidden>=</span>
+        )}
+        <strong className="wc-modal-prev-pick-label">{previousPick.label}</strong>
+        <span className="wc-modal-prev-pick-sep" aria-hidden>·</span>
+        <span className="wc-modal-prev-pick-sub">{previousPick.matchLabel}</span>
+      </span>
+    </div>
+  ) : null;
+
+  const choiceSwap = (
+    <div className="wc-modal-choice-swap" role="radiogroup" aria-label="Swap your pick">
+      <button
+        type="button"
+        role="radio"
+        aria-checked={effectiveChoice === "team_a"}
+        className={`wc-modal-choice-chip${effectiveChoice === "team_a" ? " wc-modal-choice-chip--active" : ""}`}
+        onClick={() => setLocalChoice("team_a")}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={match.teamAData.flag} alt="" className="wc-modal-choice-flag" />
+        <span>{match.teamAData.name} WIN</span>
+      </button>
+      <button
+        type="button"
+        role="radio"
+        aria-checked={effectiveChoice === "draw"}
+        className={`wc-modal-choice-chip${effectiveChoice === "draw" ? " wc-modal-choice-chip--active" : ""}`}
+        onClick={() => setLocalChoice("draw")}
+      >
+        <span className="wc-modal-choice-draw" aria-hidden>=</span>
+        <span>Draw</span>
+      </button>
+      <button
+        type="button"
+        role="radio"
+        aria-checked={effectiveChoice === "team_b"}
+        className={`wc-modal-choice-chip${effectiveChoice === "team_b" ? " wc-modal-choice-chip--active" : ""}`}
+        onClick={() => setLocalChoice("team_b")}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={match.teamBData.flag} alt="" className="wc-modal-choice-flag" />
+        <span>{match.teamBData.name} WIN</span>
+      </button>
+    </div>
+  );
 
   return createPortal(
     <>
@@ -262,8 +424,60 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
               {onPredictNext ? "Skip for now" : "Continue exploring"}
             </button>
           </div>
+        ) : useStored && storedProfile ? (
+          <>
+            {previousPickChip}
+            <div className="wc-modal-header">
+              <span className="wc-modal-eyebrow">Confirm your pick</span>
+              <div className="wc-modal-pick">
+                {team && (
+                  <div className="wc-modal-pick-flag">
+                    <Flag src={team.flag} fitParent />
+                  </div>
+                )}
+                {!team && <div className="wc-modal-pick-flag wc-modal-pick-flag--draw">=</div>}
+                <div>
+                  <div className="wc-modal-pick-label">{pickLabel(match, effectiveChoice)}</div>
+                  <div className="wc-modal-pick-match">
+                    {match.teamAData.name} <span style={{ color: "var(--wc-text-faint)" }}>vs</span> {match.teamBData.name}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="wc-modal-body">
+              {choiceSwap}
+              <p className="wc-modal-intro">
+                Locking in as <strong>{storedProfile.name}</strong> ({storedProfile.phone}).
+                One more entry to your Admizz Predict &amp; Win record — no form to refill.
+              </p>
+              {submitError && (
+                <p className="wc-modal-error" role="alert">{submitError}</p>
+              )}
+              <button
+                type="button"
+                className="wc-submit"
+                onClick={handleQuickSubmit}
+                disabled={submitting}
+              >
+                {submitting ? "Locking in…" : "Lock in my prediction"}
+              </button>
+              <button
+                type="button"
+                className="wc-modal-switch-btn"
+                onClick={() => { setUseStored(false); setSubmitError(null); }}
+                disabled={submitting}
+              >
+                Use different details
+              </button>
+              <p className="wc-form-note">
+                Recorded against your existing Admizz lead — your counsellor will know it&apos;s you.
+              </p>
+            </div>
+          </>
         ) : (
           <>
+            {previousPickChip}
             <div className="wc-modal-header">
               <span className="wc-modal-eyebrow">Your prediction</span>
               <div className="wc-modal-pick">
@@ -274,7 +488,7 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
                 )}
                 {!team && <div className="wc-modal-pick-flag wc-modal-pick-flag--draw">=</div>}
                 <div>
-                  <div className="wc-modal-pick-label">{pickLabel(match, choice)}</div>
+                  <div className="wc-modal-pick-label">{pickLabel(match, effectiveChoice)}</div>
                   <div className="wc-modal-pick-match">
                     {match.teamAData.name} <span style={{ color: "var(--wc-text-faint)" }}>vs</span> {match.teamBData.name}
                   </div>
@@ -283,22 +497,26 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
             </div>
 
             <div className="wc-modal-body">
+              {choiceSwap}
               <p className="wc-modal-intro">
                 Drop your details to lock in your prediction. Every entry includes a free Admizz counselling session — no purchase, no obligation.
               </p>
+              {submitError && (
+                <p className="wc-modal-error" role="alert">{submitError}</p>
+              )}
               <form className="wc-modal-form" onSubmit={handleSubmit}>
                 <div className="wc-form-row">
                   <div className="wc-field">
                     <label className="wc-field-label" htmlFor="wc-pf-name">
                       Full name<span className="wc-field-required">*</span>
                     </label>
-                    <input id="wc-pf-name" className="wc-input" type="text" name="name" placeholder="Your name" required autoFocus />
+                    <input id="wc-pf-name" className="wc-input" type="text" name="name" placeholder="Your name" required autoFocus defaultValue={storedProfile?.name ?? ""} />
                   </div>
                   <div className="wc-field">
                     <label className="wc-field-label" htmlFor="wc-pf-email">
                       Email address<span className="wc-field-required">*</span>
                     </label>
-                    <input id="wc-pf-email" className="wc-input" type="email" name="email" placeholder="you@example.com" required />
+                    <input id="wc-pf-email" className="wc-input" type="email" name="email" placeholder="you@example.com" required defaultValue={storedProfile?.email ?? ""} />
                   </div>
                 </div>
                 <div className="wc-form-row">
@@ -386,7 +604,7 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
                     <label className="wc-field-label" htmlFor="wc-pf-city">
                       Which city are you in?<span className="wc-field-required">*</span>
                     </label>
-                    <input id="wc-pf-city" className="wc-input" type="text" name="city" placeholder="e.g. Kathmandu, London, Lagos" required />
+                    <input id="wc-pf-city" className="wc-input" type="text" name="city" placeholder="e.g. Kathmandu, London, Lagos" required defaultValue={storedProfile?.city ?? ""} />
                   </div>
                 </div>
                 <div className="wc-field">

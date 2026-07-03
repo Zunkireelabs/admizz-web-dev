@@ -26,6 +26,7 @@ interface EspnEvent {
   date: string;
   name: string;
   shortName: string;
+  season?: { year?: number; type?: number; slug?: string };
   competitions: Array<{
     id: string;
     date: string;
@@ -53,15 +54,27 @@ function mapStatus(state: string, name: string): MatchStatus {
   return "UPCOMING";
 }
 
-function mapRound(headline?: string): string {
-  if (!headline) return "Group Stage";
-  const h = headline.toLowerCase();
-  if (h.includes("final") && !h.includes("semi") && !h.includes("quarter") && !h.includes("third")) return "Final";
-  if (h.includes("third") || h.includes("3rd")) return "Third Place";
-  if (h.includes("semi")) return "Semi-final";
-  if (h.includes("quarter")) return "Quarter-final";
-  if (h.includes("round of 16")) return "Round of 16";
-  if (h.includes("round of 32")) return "Round of 32";
+function mapRound(headline?: string, seasonSlug?: string): string {
+  // Primary: parse headline from competition notes
+  if (headline) {
+    const h = headline.toLowerCase();
+    if (h.includes("final") && !h.includes("semi") && !h.includes("quarter") && !h.includes("third")) return "Final";
+    if (h.includes("third") || h.includes("3rd")) return "Third Place";
+    if (h.includes("semi")) return "Semi-final";
+    if (h.includes("quarter")) return "Quarter-final";
+    if (h.includes("round of 16")) return "Round of 16";
+    if (h.includes("round of 32")) return "Round of 32";
+  }
+  // Fallback: ESPN omits notes for knockout rounds but sets event.season.slug
+  if (seasonSlug) {
+    const s = seasonSlug.toLowerCase();
+    if (s === "final") return "Final";
+    if (s.includes("third") || s.includes("3rd")) return "Third Place";
+    if (s.includes("semi")) return "Semi-final";
+    if (s.includes("quarter")) return "Quarter-final";
+    if (s.includes("round-of-16") || s.includes("round of 16")) return "Round of 16";
+    if (s.includes("round-of-32") || s.includes("round of 32")) return "Round of 32";
+  }
   return "Group Stage";
 }
 
@@ -103,7 +116,7 @@ function mapEvent(e: EspnEvent, idx: number): MatchWithTeams | null {
     status === "UPCOMING"
       ? null
       : { a: parseInt(home.score || "0", 10), b: parseInt(away.score || "0", 10), minute, status };
-  const round = mapRound(comp.notes?.[0]?.headline);
+  const round = mapRound(comp.notes?.[0]?.headline, e.season?.slug);
   return {
     id: `espn-${e.id}`,
     group: mapGroup(comp.notes?.[0]?.headline, round),

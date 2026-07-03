@@ -5,9 +5,10 @@ import { useLive } from "@/lib/wc2026/LiveProvider";
 import { buildBracket } from "@/lib/wc2026/bracket";
 import { formatKickoff } from "@/lib/wc2026/format";
 import { useTimezone } from "@/lib/wc2026/TimezoneProvider";
-import type { BracketSlot } from "@/lib/wc2026/types";
+import type { BracketSlot, MatchWithTeams, PredictionChoice } from "@/lib/wc2026/types";
 import Flag from "../shared/Flag";
 import { TrophyIcon } from "../shared/Icons";
+import PredictionModal from "../shared/PredictionModal";
 
 const ROUND_LABELS: Record<BracketSlot["round"], string> = {
   R32: "Round of 32",
@@ -59,6 +60,30 @@ function getNextRound(nowMs: number): BracketSlot["round"] | null {
   return null;
 }
 
+function getCompletedRounds(nowMs: number): Set<BracketSlot["round"]> {
+  const today = isoDay(nowMs);
+  const done = new Set<BracketSlot["round"]>();
+  for (const r of ORDER) {
+    if (today > ROUND_DATES[r].end) done.add(r);
+  }
+  return done;
+}
+
+// Returns a chain of { round → position } from the selected slot forward to the Final.
+// Used to highlight connector paths leading toward the trophy.
+function getSelectedChain(round: BracketSlot["round"], position: number): Map<string, number> {
+  const chain = new Map<string, number>();
+  const startIdx = ORDER.indexOf(round);
+  if (startIdx === -1) return chain;
+  let pos = position;
+  chain.set(round, pos);
+  for (let i = startIdx; i < ORDER.length - 1; i++) {
+    pos = Math.floor(pos / 2);
+    chain.set(ORDER[i + 1], pos);
+  }
+  return chain;
+}
+
 function SlotRow({
   team,
   label,
@@ -72,9 +97,8 @@ function SlotRow({
   isLoser?: boolean;
   score?: number;
 }) {
-  const className = `wc-br-row ${isWinner ? "wc-br-row--winner" : ""} ${isLoser ? "wc-br-row--loser" : ""}`;
   return (
-    <div className={className}>
+    <div className={`wc-br-row ${isWinner ? "wc-br-row--winner" : ""} ${isLoser ? "wc-br-row--loser" : ""}`}>
       <div className="wc-br-row-flag">
         {team ? <Flag src={team.flag} fitParent /> : <span className="wc-br-row-flag-empty" />}
       </div>
@@ -90,10 +114,20 @@ const Slot = ({
   slot,
   isFinal,
   slotRef,
+  isSelected,
+  onSelect,
+  onPredict,
+  match,
+  now,
 }: {
   slot: BracketSlot;
   isFinal?: boolean;
   slotRef?: (el: HTMLDivElement | null) => void;
+  isSelected?: boolean;
+  onSelect?: () => void;
+  onPredict?: (match: MatchWithTeams, choice: PredictionChoice) => void;
+  match?: MatchWithTeams;
+  now?: number;
 }) => {
   const { tz } = useTimezone();
   const aIsWinner = slot.winner === "a";
@@ -101,15 +135,44 @@ const Slot = ({
   const isLive = slot.status === "LIVE" || slot.status === "HT";
   const isFt = slot.status === "FT";
   const isTbd = slot.status === "TBD";
+  const isUpcoming = slot.status === "UPCOMING";
 
-  const kickoffLabel = slot.kickoffISO
-    ? formatKickoff(slot.kickoffISO, tz).day
-    : ROUND_META[slot.round].window;
+  const kickoffFormatted = slot.kickoffISO ? formatKickoff(slot.kickoffISO, tz) : null;
+  const kickoffLabel = kickoffFormatted?.day ?? ROUND_META[slot.round].window;
+  const kickoffTime = kickoffFormatted?.time ?? null;
+
+  const canPredict =
+    !!match &&
+    isUpcoming &&
+    !isTbd &&
+    now !== undefined &&
+    new Date(match.kickoffISO).getTime() > now;
 
   return (
     <div
       ref={slotRef}
-      className={`wc-br-slot ${isFinal ? "wc-br-slot--final" : ""} ${isLive ? "wc-br-slot--live" : ""} ${isFt ? "wc-br-slot--ft" : ""} ${isTbd ? "wc-br-slot--tbd" : ""}`}
+      className={[
+        "wc-br-slot",
+        isFinal ? "wc-br-slot--final" : "",
+        isLive ? "wc-br-slot--live" : "",
+        isFt ? "wc-br-slot--ft" : "",
+        isTbd ? "wc-br-slot--tbd" : "",
+        isSelected ? "wc-br-slot--selected" : "",
+        !isTbd ? "wc-br-slot--clickable" : "",
+      ].join(" ")}
+      onClick={isTbd ? undefined : onSelect}
+      role={isTbd ? undefined : "button"}
+      tabIndex={isTbd ? undefined : 0}
+      onKeyDown={
+        isTbd
+          ? undefined
+          : (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onSelect?.();
+              }
+            }
+      }
     >
       {isFinal && (
         <div className="wc-br-final-stamp">
@@ -132,21 +195,88 @@ const Slot = ({
         score={slot.scoreB}
       />
       <div className="wc-br-slot-meta">
-        {isLive && <span className="wc-br-live-pill"><span className="wc-pulse-dot" /> Live</span>}
+        {isLive && (
+          <span className="wc-br-live-pill">
+            <span className="wc-pulse-dot" /> Live
+          </span>
+        )}
         {!isLive && <span>{kickoffLabel}</span>}
+        {kickoffTime && !isLive && (
+          <span className="wc-br-slot-meta-time">{kickoffTime}</span>
+        )}
+      </div>
+
+      {/* Expandable detail panel — CSS max-height transition */}
+      <div className="wc-br-slot-detail">
+        <div className="wc-br-slot-detail-inner">
+          {slot.venue && (
+            <div className="wc-br-slot-detail-venue">📍 {slot.venue}</div>
+          )}
+
+          {/* Form guide for both teams */}
+          {match?.teamAData?.form && match.teamAData.form.length > 0 && (
+            <div className="wc-br-form-row">
+              <span className="wc-br-form-team">{match.teamAData.shortName}</span>
+              <div className="wc-br-form-pills">
+                {match.teamAData.form.slice(-5).map((r, i) => (
+                  <span key={i} className={`wc-br-form-pill wc-br-form-pill--${r.toLowerCase()}`}>
+                    {r}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+          {match?.teamBData?.form && match.teamBData.form.length > 0 && (
+            <div className="wc-br-form-row">
+              <span className="wc-br-form-team">{match.teamBData.shortName}</span>
+              <div className="wc-br-form-pills">
+                {match.teamBData.form.slice(-5).map((r, i) => (
+                  <span key={i} className={`wc-br-form-pill wc-br-form-pill--${r.toLowerCase()}`}>
+                    {r}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Predict pick buttons — only for upcoming matches with real teams */}
+          {canPredict && match && (
+            <div className="wc-br-pick-row">
+              <button
+                type="button"
+                className="wc-br-pick-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onPredict?.(match, "team_a");
+                }}
+              >
+                {match.teamAData.shortName}
+              </button>
+              <button
+                type="button"
+                className="wc-br-pick-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onPredict?.(match, "team_b");
+                }}
+              >
+                {match.teamBData.shortName}
+              </button>
+            </div>
+          )}
+
+          {/* Winner line for completed matches */}
+          {isFt && slot.winner && match && (
+            <div className="wc-br-slot-detail-winner">
+              🏆{" "}
+              {slot.winner === "a" ? match.teamAData.name : match.teamBData.name} advances
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 };
-
-function getCompletedRounds(nowMs: number): Set<BracketSlot["round"]> {
-  const today = isoDay(nowMs);
-  const done = new Set<BracketSlot["round"]>();
-  for (const r of ORDER) {
-    if (today > ROUND_DATES[r].end) done.add(r);
-  }
-  return done;
-}
 
 function RoundColumn({
   round,
@@ -156,6 +286,11 @@ function RoundColumn({
   isNext,
   isDone,
   registerSlot,
+  selectedId,
+  onSelectSlot,
+  onPredict,
+  matchMap,
+  now,
 }: {
   round: BracketSlot["round"];
   slots: BracketSlot[];
@@ -164,9 +299,20 @@ function RoundColumn({
   isNext?: boolean;
   isDone?: boolean;
   registerSlot?: (round: BracketSlot["round"], idx: number, el: HTMLDivElement | null) => void;
+  selectedId?: string | null;
+  onSelectSlot?: (slot: BracketSlot) => void;
+  onPredict?: (match: MatchWithTeams, choice: PredictionChoice) => void;
+  matchMap?: Map<string, MatchWithTeams>;
+  now?: number;
 }) {
   const meta = ROUND_META[round];
-  const stateClass = isActive ? "wc-br-col--active" : isNext ? "wc-br-col--next" : isDone ? "wc-br-col--done" : "";
+  const stateClass = isActive
+    ? "wc-br-col--active"
+    : isNext
+    ? "wc-br-col--next"
+    : isDone
+    ? "wc-br-col--done"
+    : "";
   return (
     <div className={`wc-br-col wc-br-col--${round.toLowerCase()} ${stateClass}`}>
       <div className="wc-br-col-header">
@@ -181,7 +327,9 @@ function RoundColumn({
             <span className="wc-br-col-pill wc-br-col-pill--next">NEXT</span>
           )}
         </div>
-        <div className="wc-br-col-meta">{meta.count} {meta.count === 1 ? "match" : "matches"} · {meta.window}</div>
+        <div className="wc-br-col-meta">
+          {meta.count} {meta.count === 1 ? "match" : "matches"} · {meta.window}
+        </div>
       </div>
       <div className="wc-br-col-slots">
         {slots.map((s, i) => (
@@ -190,6 +338,11 @@ function RoundColumn({
             slot={s}
             isFinal={isFinalRound}
             slotRef={registerSlot ? (el) => registerSlot(round, i, el) : undefined}
+            isSelected={selectedId === s.id}
+            onSelect={() => onSelectSlot?.(s)}
+            onPredict={onPredict}
+            match={matchMap?.get(s.id)}
+            now={now}
           />
         ))}
       </div>
@@ -202,16 +355,17 @@ type SlotMap = Partial<Record<BracketSlot["round"], (HTMLDivElement | null)[]>>;
 interface ConnectorPath {
   d: string;
   active: boolean;
+  selected: boolean;
 }
 
 function buildConnectorPaths(
   grid: HTMLDivElement,
   slots: SlotMap,
   activeRound: BracketSlot["round"] | null,
+  selectedChain?: Map<string, number> | null,
 ): ConnectorPath[] {
   const gridRect = grid.getBoundingClientRect();
   const paths: ConnectorPath[] = [];
-  // Pair children: 2 slots in round N → 1 slot in round N+1
   const pairs: { from: BracketSlot["round"]; to: BracketSlot["round"] }[] = [
     { from: "R32", to: "R16" },
     { from: "R16", to: "QF" },
@@ -225,11 +379,13 @@ function buildConnectorPaths(
     const fromSlots = slots[from] || [];
     const toSlots = slots[to] || [];
     const isPathActive = activeIdx >= 0 && p >= activeIdx;
+
     for (let i = 0; i < toSlots.length; i++) {
       const parent = toSlots[i];
       const childA = fromSlots[i * 2];
       const childB = fromSlots[i * 2 + 1];
       if (!parent || !childA || !childB) continue;
+
       const pRect = parent.getBoundingClientRect();
       const aRect = childA.getBoundingClientRect();
       const bRect = childB.getBoundingClientRect();
@@ -240,8 +396,22 @@ function buildConnectorPaths(
       const px = pRect.left - gridRect.left;
       const py = pRect.top + pRect.height / 2 - gridRect.top;
       const midX = px - 16;
-      paths.push({ d: `M ${ax} ${ay} H ${midX} V ${py} H ${px}`, active: isPathActive });
-      paths.push({ d: `M ${bx} ${by} H ${midX} V ${py} H ${px}`, active: isPathActive });
+
+      // A path is "selected" if both its from-slot and its to-slot are in the selected chain.
+      const toInChain = selectedChain != null && selectedChain.get(to) === i;
+      const aSelected = toInChain && selectedChain?.get(from) === i * 2;
+      const bSelected = toInChain && selectedChain?.get(from) === i * 2 + 1;
+
+      paths.push({
+        d: `M ${ax} ${ay} H ${midX} V ${py} H ${px}`,
+        active: isPathActive,
+        selected: !!aSelected,
+      });
+      paths.push({
+        d: `M ${bx} ${by} H ${midX} V ${py} H ${px}`,
+        active: isPathActive,
+        selected: !!bSelected,
+      });
     }
   }
   return paths;
@@ -250,6 +420,7 @@ function buildConnectorPaths(
 export default function BracketViz() {
   const { matches, now } = useLive();
   const bracket = useMemo(() => buildBracket(matches), [matches]);
+
   const [activeRound, setActiveRound] = useState<BracketSlot["round"] | null>(null);
   const [nextRound, setNextRound] = useState<BracketSlot["round"] | null>(null);
   const [completedRounds, setCompletedRounds] = useState<Set<BracketSlot["round"]>>(new Set());
@@ -257,9 +428,25 @@ export default function BracketViz() {
   const [isMobile, setIsMobile] = useState(false);
   const [paths, setPaths] = useState<ConnectorPath[]>([]);
   const [gridSize, setGridSize] = useState({ w: 0, h: 0 });
-  const sectionRef = useRef<HTMLElement>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [predictModal, setPredictModal] = useState<{
+    match: MatchWithTeams;
+    choice: PredictionChoice;
+  } | null>(null);
+
   const gridRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const slotsRef = useRef<SlotMap>({});
+  // Ref so recomputePaths always reads the latest chain without stale closures.
+  const selectedChainRef = useRef<Map<string, number> | null>(null);
+
+  const matchMap = useMemo(() => {
+    const m = new Map<string, MatchWithTeams>();
+    for (const match of matches) {
+      m.set(match.id, match);
+    }
+    return m;
+  }, [matches]);
 
   useEffect(() => {
     const active = getActiveRound(now);
@@ -279,6 +466,16 @@ export default function BracketViz() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
+  const handleSelectSlot = (slot: BracketSlot) => {
+    const newId = selectedId === slot.id ? null : slot.id;
+    setSelectedId(newId);
+    selectedChainRef.current = newId
+      ? getSelectedChain(slot.round, slot.position)
+      : null;
+    // Recompute after the detail panel begins expanding (slot height changes).
+    setTimeout(recomputePaths, 40);
+  };
+
   const registerSlot = (round: BracketSlot["round"], idx: number, el: HTMLDivElement | null) => {
     if (!slotsRef.current[round]) slotsRef.current[round] = [];
     (slotsRef.current[round] as (HTMLDivElement | null)[])[idx] = el;
@@ -289,7 +486,7 @@ export default function BracketViz() {
     if (!grid) return;
     const rect = grid.getBoundingClientRect();
     setGridSize({ w: rect.width, h: rect.height });
-    setPaths(buildConnectorPaths(grid, slotsRef.current, activeRound));
+    setPaths(buildConnectorPaths(grid, slotsRef.current, activeRound, selectedChainRef.current));
   };
 
   useLayoutEffect(() => {
@@ -310,8 +507,15 @@ export default function BracketViz() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile, activeRound, bracket]);
 
+  const thirdSlot = bracket["3RD"][0];
+
   return (
-    <section className="wc-section" id="bracket" ref={sectionRef} style={{ background: "var(--wc-bg-alt)" }}>
+    <section
+      className="wc-section"
+      id="bracket"
+      ref={sectionRef}
+      style={{ background: "var(--wc-bg-alt)" }}
+    >
       <div className="wc-section-inner">
         <div className="wc-section-header">
           <div className="wc-section-title-block">
@@ -320,12 +524,11 @@ export default function BracketViz() {
               The Road to <span className="wc-section-title-accent">MetLife.</span>
             </h2>
             <p className="wc-section-lede">
-              Sixteen knockout matches. One final on July 19. The bracket fills in automatically as the tournament unfolds.
+              Sixteen knockout matches. One final on July 19. Tap any match to see details and predict the winner.
             </p>
           </div>
         </div>
 
-        {/* The trophy beacon */}
         <div className="wc-br-trophy">
           <div className="wc-br-trophy-glow" />
           <div className="wc-br-trophy-icon">
@@ -335,7 +538,6 @@ export default function BracketViz() {
           <div className="wc-br-trophy-venue">Final · 19 July · MetLife Stadium</div>
         </div>
 
-        {/* Mobile round tabs */}
         {isMobile && (
           <div className="wc-br-tabs">
             {ORDER.map((round) => (
@@ -362,18 +564,31 @@ export default function BracketViz() {
                 isActive={activeRound === activeTab}
                 isNext={activeRound !== activeTab && nextRound === activeTab}
                 isDone={completedRounds.has(activeTab)}
+                selectedId={selectedId}
+                onSelectSlot={handleSelectSlot}
+                onPredict={(match, choice) => setPredictModal({ match, choice })}
+                matchMap={matchMap}
+                now={now}
               />
-              {activeTab === "F" && bracket["3RD"].length > 0 && (
+              {activeTab === "F" && thirdSlot && (
                 <div className="wc-br-third-mobile">
-                  <div className="wc-br-col-title" style={{ marginTop: 24 }}>{ROUND_LABELS["3RD"]}</div>
-                  <Slot slot={bracket["3RD"][0]} />
+                  <div className="wc-br-col-title" style={{ marginTop: 24 }}>
+                    {ROUND_LABELS["3RD"]}
+                  </div>
+                  <Slot
+                    slot={thirdSlot}
+                    isSelected={selectedId === thirdSlot.id}
+                    onSelect={() => handleSelectSlot(thirdSlot)}
+                    onPredict={(match, choice) => setPredictModal({ match, choice })}
+                    match={matchMap.get(thirdSlot.id)}
+                    now={now}
+                  />
                 </div>
               )}
             </div>
           ) : (
             <div className="wc-br-desktop">
               <div className="wc-br-grid" ref={gridRef}>
-                {/* Connector lines layer */}
                 {paths.length > 0 && (
                   <svg
                     className="wc-br-connectors"
@@ -386,7 +601,11 @@ export default function BracketViz() {
                       <path
                         key={i}
                         d={p.d}
-                        className={`wc-br-connector ${p.active ? "wc-br-connector--active" : ""}`}
+                        className={[
+                          "wc-br-connector",
+                          p.active ? "wc-br-connector--active" : "",
+                          p.selected ? "wc-br-connector--selected" : "",
+                        ].join(" ")}
                         style={{ animationDelay: `${i * 18}ms` }}
                       />
                     ))}
@@ -402,24 +621,47 @@ export default function BracketViz() {
                     isNext={activeRound !== round && nextRound === round}
                     isDone={completedRounds.has(round)}
                     registerSlot={registerSlot}
+                    selectedId={selectedId}
+                    onSelectSlot={handleSelectSlot}
+                    onPredict={(match, choice) => setPredictModal({ match, choice })}
+                    matchMap={matchMap}
+                    now={now}
                   />
                 ))}
               </div>
-              {/* Third place sits beside the final */}
-              <div className="wc-br-third">
-                <div className="wc-br-col-header">
-                  <div className="wc-br-col-title">Third Place</div>
-                  <div className="wc-br-col-meta">1 match · Jul 18</div>
+              {thirdSlot && (
+                <div className="wc-br-third">
+                  <div className="wc-br-col-header">
+                    <div className="wc-br-col-title">Third Place</div>
+                    <div className="wc-br-col-meta">1 match · Jul 18</div>
+                  </div>
+                  <Slot
+                    slot={thirdSlot}
+                    isSelected={selectedId === thirdSlot.id}
+                    onSelect={() => handleSelectSlot(thirdSlot)}
+                    onPredict={(match, choice) => setPredictModal({ match, choice })}
+                    match={matchMap.get(thirdSlot.id)}
+                    now={now}
+                  />
                 </div>
-                <Slot slot={bracket["3RD"][0]} />
-              </div>
+              )}
               <div className="wc-br-fade" aria-hidden="true" />
             </div>
           )}
         </div>
 
-        <p className="wc-bracket-hint">Swipe to explore the bracket</p>
+        <p className="wc-bracket-hint">Tap any match card to see details and predict the winner</p>
       </div>
+
+      {predictModal && (
+        <PredictionModal
+          open
+          match={predictModal.match}
+          choice={predictModal.choice}
+          onClose={() => setPredictModal(null)}
+          onSubmitted={() => setPredictModal(null)}
+        />
+      )}
     </section>
   );
 }
