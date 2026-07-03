@@ -14,6 +14,7 @@ import FlagStripe from "@/components/india/FlagStripe";
 import LandmarkSilhouette, { type LandmarkName } from "@/components/india/LandmarkSilhouette";
 import JourneyStrip from "@/components/india/JourneyStrip";
 import CrownDivider from "@/components/uk/CrownDivider";
+import UKFiligreeDivider from "@/components/uk/UKFiligreeDivider";
 
 export interface NepalBenefit {
   title: string;
@@ -67,13 +68,15 @@ export interface CountryTheme {
 
   // identity
   showChakraDividers?: boolean;
-  dividerStyle?: "chakra" | "crown" | "filigree" | "none";
+  dividerStyle?: "chakra" | "crown" | "filigree" | "uk-alternating" | "none";
   showFlagStripeOnCards?: boolean;
   flagColors?: [string, string, string];
   serifHeadings?: boolean;
   heritagePattern?: boolean;
   towerBridgeTransition?: boolean;
   crownTabIcon?: boolean;
+  dropCapIntro?: boolean;
+  ctaCrownOrnament?: boolean;
   benefitLandmarks?: LandmarkName[];
   universitiesBackdrop?: LandmarkName;
   universitiesEyebrow?: string;
@@ -139,6 +142,7 @@ interface NepalVariantTemplateProps {
   customHero?: React.ReactNode;
   replaceCostSection?: React.ReactNode;
   replaceWhySection?: React.ReactNode;
+  replaceVisaSection?: React.ReactNode;
   insertAfterIntakes?: React.ReactNode;
   insertBeforeCTA?: React.ReactNode;
 }
@@ -151,7 +155,7 @@ const tabs = [
   { id: "faq", label: "FAQs" },
 ];
 
-export default function NepalVariantTemplate({ data, blogPosts, theme, customHero, replaceCostSection, replaceWhySection, insertAfterIntakes, insertBeforeCTA }: NepalVariantTemplateProps) {
+export default function NepalVariantTemplate({ data, blogPosts, theme, customHero, replaceCostSection, replaceWhySection, replaceVisaSection, insertAfterIntakes, insertBeforeCTA }: NepalVariantTemplateProps) {
   const themed = !!theme;
   const [activeTab, setActiveTab] = useState("why");
   const [showFade, setShowFade] = useState(true);
@@ -208,18 +212,26 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
     return () => observer.disconnect();
   }, [scrollTabIntoView]);
 
-  const dividerStyle: "chakra" | "crown" | "filigree" | "none" = theme?.dividerStyle ??
+  const dividerStyle: "chakra" | "crown" | "filigree" | "uk-alternating" | "none" = theme?.dividerStyle ??
     (theme?.showChakraDividers ? "chakra" : "none");
+
+  const dividerCounter = { current: 0 };
 
   const renderDivider = () => {
     if (!themed || dividerStyle === "none") return null;
     if (dividerStyle === "crown") return <CrownDivider color={theme!.gold} />;
     if (dividerStyle === "filigree") return <IndiaFiligreeDivider color={theme!.gold} accent={theme!.accent} />;
+    if (dividerStyle === "uk-alternating") {
+      const idx = dividerCounter.current++;
+      return idx % 2 === 0
+        ? <CrownDivider color={theme!.gold} />
+        : <UKFiligreeDivider color={theme!.gold} />;
+    }
     return <ChakraDivider color={theme!.primaryDeep} />;
   };
 
   const serifStyle = themed && theme!.serifHeadings
-    ? { fontFamily: '"Playfair Display", Georgia, "Times New Roman", serif', letterSpacing: "-0.01em" as const }
+    ? { fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, "Times New Roman", serif', letterSpacing: "-0.01em" as const }
     : undefined;
 
   const heritagePatternSvg = themed && theme!.heritagePattern
@@ -437,9 +449,33 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
           <h2 data-anim="fade-up" className="text-2xl md:text-[28px] font-bold text-navy mb-4" style={headingColor}>
             {data.introTitle}
           </h2>
-          <p data-anim="fade-up" className="text-[15px] text-gray-dark leading-relaxed">
-            {data.introContent}
-          </p>
+          {themed && theme!.dropCapIntro && data.introContent ? (
+            <p data-anim="fade-up" className="text-[15.5px] text-gray-dark leading-[1.7] [&::first-letter]:hidden">
+              <span
+                aria-hidden
+                style={{
+                  fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif',
+                  fontWeight: 700,
+                  color: theme!.gold,
+                  float: "left",
+                  fontSize: "5rem",
+                  lineHeight: 0.82,
+                  marginTop: "0.4rem",
+                  marginRight: "0.85rem",
+                  marginBottom: "-0.15rem",
+                  letterSpacing: "-0.04em",
+                  textShadow: `1px 1px 0 ${theme!.gold}22`,
+                }}
+              >
+                {data.introContent.charAt(0)}
+              </span>
+              {data.introContent.slice(1)}
+            </p>
+          ) : (
+            <p data-anim="fade-up" className="text-[15px] text-gray-dark leading-relaxed">
+              {data.introContent}
+            </p>
+          )}
         </div>
       </section>
 
@@ -564,6 +600,9 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
       {renderDivider()}
 
       {/* ===== VISA REQUIREMENTS ===== */}
+      {replaceVisaSection ? (
+        <div id="visa" className="scroll-mt-32">{replaceVisaSection}</div>
+      ) : (
       <section id="visa" className="py-16 scroll-mt-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 data-anim="fade-up" className="text-2xl md:text-[28px] font-bold text-navy mb-4" style={headingColor}>
@@ -595,6 +634,7 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
           )}
         </div>
       </section>
+      )}
 
       {renderDivider()}
 
@@ -848,7 +888,7 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
                   <div className="pointer-events-none absolute inset-y-0 right-0 w-24 md:w-44 z-10" style={{ background: `linear-gradient(to left, ${fadeColor}, transparent)` }} />
                   <div className="nvt-marquee-track-left flex w-max gap-5">
                     {[...row1, ...row1].map((uni, i) => (
-                      <div key={`r1-${i}`} className="nvt-uni-card bg-white rounded-2xl px-6 py-5 flex flex-col items-center justify-center gap-3 flex-shrink-0 border border-[#eef1f6] w-[160px] sm:w-[200px]" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
+                      <div key={`r1-${i}`} className={`nvt-uni-card bg-white ${themed && theme!.serifHeadings ? "rounded-md" : "rounded-2xl"} px-6 py-5 flex flex-col items-center justify-center gap-3 flex-shrink-0 w-[160px] sm:w-[200px]`} style={themed && theme!.serifHeadings ? { border: `1.5px solid ${theme!.gold}`, boxShadow: `inset 0 0 0 3px #FFFFFF, inset 0 0 0 4px ${theme!.gold}55, 0 4px 16px rgba(0,33,71,0.08)` } : { border: "1px solid #eef1f6", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
                         <div className="w-full flex items-center justify-center" style={{ height: 52 }}>
                           <img src={uni.logo} alt={uni.name} width={140} height={48} loading="lazy" style={{ maxHeight: 48, objectFit: "contain" }} />
                         </div>
@@ -863,7 +903,7 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
                     <div className="pointer-events-none absolute inset-y-0 right-0 w-24 md:w-44 z-10" style={{ background: `linear-gradient(to left, ${fadeColor}, transparent)` }} />
                     <div className="nvt-marquee-track-right flex w-max gap-5">
                       {[...row2, ...row2].map((uni, i) => (
-                        <div key={`r2-${i}`} className="nvt-uni-card bg-white rounded-2xl px-6 py-5 flex flex-col items-center justify-center gap-3 flex-shrink-0 border border-[#eef1f6] w-[160px] sm:w-[200px]" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
+                        <div key={`r2-${i}`} className={`nvt-uni-card bg-white ${themed && theme!.serifHeadings ? "rounded-md" : "rounded-2xl"} px-6 py-5 flex flex-col items-center justify-center gap-3 flex-shrink-0 w-[160px] sm:w-[200px]`} style={themed && theme!.serifHeadings ? { border: `1.5px solid ${theme!.gold}`, boxShadow: `inset 0 0 0 3px #FFFFFF, inset 0 0 0 4px ${theme!.gold}55, 0 4px 16px rgba(0,33,71,0.08)` } : { border: "1px solid #eef1f6", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
                           <div className="w-full flex items-center justify-center" style={{ height: 52 }}>
                             <img src={uni.logo} alt={uni.name} width={140} height={48} loading="lazy" style={{ maxHeight: 48, objectFit: "contain" }} />
                           </div>
@@ -888,18 +928,34 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
 
       {/* ===== STUDY ABROAD INSIGHTS (Blog) ===== */}
       {blogPosts && blogPosts.length > 0 && (
-        <StudyAbroadInsights
-          posts={blogPosts}
-          countryName={data.countryName}
-          categorySlug={data.countryCategorySlug}
-        />
+        <>
+          {themed && theme!.serifHeadings && (
+            <div className="pt-10 -mb-4 md:-mb-6" style={{ background: theme!.surfaceTint }}>
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-3">
+                <span className="h-px w-12 md:w-20" style={{ background: theme!.gold }} />
+                <span
+                  className="text-[10px] sm:text-[11px] uppercase tracking-[0.36em] font-bold"
+                  style={{ color: theme!.gold, fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif' }}
+                >
+                  From our journal
+                </span>
+                <span className="h-px w-12 md:w-20" style={{ background: theme!.gold }} />
+              </div>
+            </div>
+          )}
+          <StudyAbroadInsights
+            posts={blogPosts}
+            countryName={data.countryName}
+            categorySlug={data.countryCategorySlug}
+          />
+        </>
       )}
 
       {/* ===== TRANSITION SILHOUETTE ===== */}
       {themed && theme!.towerBridgeTransition && (
         <div className="relative overflow-hidden" style={{ background: theme!.surfaceTint, borderTop: `1px solid ${theme!.gold}33` }}>
-          <div className="max-w-7xl mx-auto px-4 flex items-end justify-center" style={{ height: 120 }}>
-            <LandmarkSilhouette name="tower-bridge" color={theme!.primaryDeep} opacity={0.18} width="100%" height={110} />
+          <div className="max-w-[1400px] mx-auto px-4 flex items-end justify-center" style={{ height: 170 }}>
+            <LandmarkSilhouette name="london-skyline" color={theme!.primaryDeep} opacity={0.3} width="100%" height={160} />
           </div>
         </div>
       )}
@@ -922,10 +978,10 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
         />
         {themed && theme!.ctaLandmarks && (
           <>
-            <div className="hidden md:block absolute left-0 bottom-0 w-[280px] h-[160px] opacity-[0.07] pointer-events-none">
+            <div className="hidden md:block absolute left-0 bottom-0 w-[320px] h-[180px] opacity-[0.14] pointer-events-none">
               <LandmarkSilhouette name={theme!.ctaLandmarks.left} color={theme!.primaryDeep} width="100%" height="100%" />
             </div>
-            <div className="hidden md:block absolute right-0 bottom-0 w-[280px] h-[160px] opacity-[0.07] pointer-events-none">
+            <div className="hidden md:block absolute right-0 bottom-0 w-[320px] h-[180px] opacity-[0.14] pointer-events-none">
               <LandmarkSilhouette name={theme!.ctaLandmarks.right} color={theme!.primaryDeep} width="100%" height="100%" />
             </div>
           </>
@@ -950,7 +1006,27 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
                 <span className="w-2 h-2 rounded-full bg-green-600 animate-pulse" style={themed ? { background: theme!.accent } : undefined} />
                 <span className="text-[13px] font-semibold tracking-wide" style={{ color: themed ? theme!.primaryDeep : "#0D1282" }}>Accepting Applications</span>
               </div>
-              <h2 data-anim="fade-up" className="text-[24px] sm:text-[28px] md:text-[40px] font-bold leading-tight mb-4" style={{ fontFamily: themed && theme!.serifHeadings ? '"Playfair Display", Georgia, serif' : "var(--font-rubik), sans-serif", color: themed ? theme!.primaryDeep : "#0D1282" }}>
+              {themed && theme!.ctaCrownOrnament && (
+                <div className="mb-4" aria-hidden>
+                  <svg width="56" height="34" viewBox="0 0 56 34" fill="none">
+                    <g fill={theme!.gold}>
+                      <path d="M 4 26 L 4 12 L 12 20 L 20 6 L 28 18 L 36 6 L 44 20 L 52 12 L 52 26 Z" opacity="0.95" />
+                      <circle cx="4" cy="9" r="2.2" />
+                      <circle cx="20" cy="3" r="2.4" />
+                      <circle cx="28" cy="15" r="2" />
+                      <circle cx="36" cy="3" r="2.4" />
+                      <circle cx="52" cy="9" r="2.2" />
+                      <rect x="2" y="28" width="52" height="3.5" rx="1" />
+                    </g>
+                    <g fill={theme!.primaryDeep} opacity="0.5">
+                      <circle cx="14" cy="22" r="0.9" />
+                      <circle cx="28" cy="22" r="0.9" />
+                      <circle cx="42" cy="22" r="0.9" />
+                    </g>
+                  </svg>
+                </div>
+              )}
+              <h2 data-anim="fade-up" className="text-[24px] sm:text-[28px] md:text-[40px] font-bold leading-tight mb-4" style={{ fontFamily: themed && theme!.serifHeadings ? 'var(--font-playfair), "Playfair Display", Georgia, serif' : "var(--font-rubik), sans-serif", color: themed ? theme!.primaryDeep : "#0D1282" }}>
                 Ready to Build Your <span style={{ color: themed ? theme!.accent : "#E8430C" }}>Global Career?</span>
               </h2>
               <p className="text-[15px] leading-relaxed max-w-md mb-8" style={{ color: themed ? theme!.ink + "AA" : "rgba(13,18,130,0.7)" }}>

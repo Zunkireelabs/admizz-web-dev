@@ -131,7 +131,7 @@ export default function UKCinematicHero({
             data-hero-headline
             className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6"
             style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
+              fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif',
               textShadow: "0 2px 20px rgba(0,0,0,0.35)",
             }}
           >

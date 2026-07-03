@@ -220,7 +220,7 @@ function BeatContent({
       </p>
       <h3
         className="text-4xl md:text-6xl font-bold leading-[1.05] mb-6"
-        style={{ fontFamily: '"Playfair Display", Georgia, serif', color: "#002147" }}
+        style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif', color: "#002147" }}
       >
         {beat.claim}
       </h3>
@@ -324,7 +324,7 @@ function TimeBars({ active, accent }: { active: boolean; accent: string }) {
       <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-1" style={{ color: accent }}>
         Master's duration
       </p>
-      <p className="text-2xl font-bold mb-5" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+      <p className="text-2xl font-bold mb-5" style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif' }}>
         UK vs. everywhere else
       </p>
       <div className="space-y-3">
@@ -379,7 +379,7 @@ function GraduateTimeline({ active, accent }: { active: boolean; accent: string 
       <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-1" style={{ color: accent }}>
         After your degree
       </p>
-      <p className="text-2xl font-bold mb-6" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+      <p className="text-2xl font-bold mb-6" style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif' }}>
         Stay, work, settle
       </p>
 
@@ -454,7 +454,7 @@ function RankingPodium({ active, accent }: { active: boolean; accent: string }) 
       <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-1" style={{ color: accent }}>
         QS World Rankings 2025
       </p>
-      <p className="text-2xl font-bold mb-5" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+      <p className="text-2xl font-bold mb-5" style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif' }}>
         Four in the top ten
       </p>
 
@@ -476,7 +476,7 @@ function RankingPodium({ active, accent }: { active: boolean; accent: string }) 
               style={{
                 background: accent,
                 color: "#002147",
-                fontFamily: '"Playfair Display", Georgia, serif',
+                fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif',
               }}
             >
               #{u.rank}
@@ -511,7 +511,7 @@ function CommunityStats({ active, accent }: { active: boolean; accent: string })
       <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-1" style={{ color: accent }}>
         You're not alone
       </p>
-      <p className="text-2xl font-bold mb-6" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+      <p className="text-2xl font-bold mb-6" style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif' }}>
         A community already there
       </p>
 
@@ -530,7 +530,7 @@ function CommunityStats({ active, accent }: { active: boolean; accent: string })
           >
             <p
               className="text-3xl font-bold mb-1"
-              style={{ color: accent, fontFamily: '"Playfair Display", Georgia, serif' }}
+              style={{ color: accent, fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif' }}
             >
               {s.value}
             </p>

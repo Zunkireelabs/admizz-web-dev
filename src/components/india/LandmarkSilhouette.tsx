@@ -13,7 +13,8 @@ export type LandmarkName =
   | "edinburgh-castle"
   | "oxford-spires"
   | "kings-college"
-  | "manchester-town-hall";
+  | "manchester-town-hall"
+  | "london-skyline";
 
 interface Props {
   name: LandmarkName;
@@ -204,29 +205,92 @@ const paths: Record<LandmarkName, { vb: string; d: React.ReactNode }> = {
       </>
     ),
   },
-  // Tower Bridge — twin towers with central suspension span
+  // Tower Bridge — Victorian Gothic twin towers, high-level walkway, side-span suspension chains
   "tower-bridge": {
     vb: "0 0 200 100",
     d: (
       <>
+        {/* water / ground line */}
         <rect x="0" y="92" width="200" height="8" />
-        {/* deck */}
-        <rect x="15" y="78" width="170" height="6" />
-        {/* tower 1 */}
-        <rect x="50" y="35" width="22" height="49" />
-        <path d="M 48 35 L 61 18 L 74 35 Z" />
-        <rect x="58" y="10" width="6" height="10" />
-        <circle cx="61" cy="9" r="3" />
-        {/* tower 2 */}
-        <rect x="128" y="35" width="22" height="49" />
-        <path d="M 126 35 L 139 18 L 152 35 Z" />
-        <rect x="136" y="10" width="6" height="10" />
-        <circle cx="139" cy="9" r="3" />
-        {/* central arch */}
-        <path d="M 72 78 Q 100 60 128 78 Z" fill="white" />
-        {/* suspension cables */}
-        <line x1="50" y1="40" x2="15" y2="78" stroke="currentColor" strokeWidth="1.5" />
-        <line x1="150" y1="40" x2="185" y2="78" stroke="currentColor" strokeWidth="1.5" />
+
+        {/* side abutments */}
+        <rect x="2" y="78" width="14" height="14" />
+        <rect x="184" y="78" width="14" height="14" />
+
+        {/* roadway deck */}
+        <rect x="0" y="78" width="200" height="4" />
+
+        {/* suspension chains — left span (upper + lower) */}
+        <path d="M 16 78 Q 32 56 50 46" fill="none" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M 16 78 Q 30 70 50 60" fill="none" stroke="currentColor" strokeWidth="1" />
+        {/* suspension chains — right span (upper + lower) */}
+        <path d="M 184 78 Q 168 56 150 46" fill="none" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M 184 78 Q 170 70 150 60" fill="none" stroke="currentColor" strokeWidth="1" />
+        {/* chain hangers — left */}
+        {Array.from({ length: 4 }).map((_, i) => (
+          <rect key={`lch-${i}`} x={20 + i * 7} y={66 - i * 3} width="0.8" height={12 + i * 3} />
+        ))}
+        {/* chain hangers — right */}
+        {Array.from({ length: 4 }).map((_, i) => (
+          <rect key={`rch-${i}`} x={180 - i * 7} y={66 - i * 3} width="0.8" height={12 + i * 3} />
+        ))}
+
+        {/* === TOWER 1 (left, center x=60) === */}
+        {/* base pier */}
+        <rect x="48" y="68" width="24" height="14" />
+        {/* lower shaft */}
+        <rect x="50" y="50" width="20" height="18" />
+        {/* arched opening in lower shaft */}
+        <path d="M 56 56 Q 56 52 60 52 Q 64 52 64 56 L 64 66 L 56 66 Z" fill="white" />
+        {/* cornice band */}
+        <rect x="46" y="46" width="28" height="4" />
+        {/* upper chamber */}
+        <rect x="48" y="30" width="24" height="16" />
+        {/* upper-chamber windows */}
+        <rect x="51.5" y="34" width="2.5" height="7" fill="white" />
+        <rect x="56.5" y="34" width="2.5" height="7" fill="white" />
+        <rect x="61" y="34" width="2.5" height="7" fill="white" />
+        <rect x="66" y="34" width="2.5" height="7" fill="white" />
+        {/* corner pinnacles */}
+        <rect x="46" y="22" width="3" height="8" />
+        <path d="M 45 22 L 47.5 16 L 50 22 Z" />
+        <rect x="71" y="22" width="3" height="8" />
+        <path d="M 70 22 L 72.5 16 L 75 22 Z" />
+        {/* central pyramidal roof */}
+        <path d="M 50 30 L 60 12 L 70 30 Z" />
+        {/* central spire + finial */}
+        <rect x="58.5" y="4" width="3" height="9" />
+        <path d="M 57 4 L 60 -1 L 63 4 Z" />
+        <circle cx="60" cy="-1" r="1.2" />
+
+        {/* === TOWER 2 (right, center x=140) === */}
+        <rect x="128" y="68" width="24" height="14" />
+        <rect x="130" y="50" width="20" height="18" />
+        <path d="M 136 56 Q 136 52 140 52 Q 144 52 144 56 L 144 66 L 136 66 Z" fill="white" />
+        <rect x="126" y="46" width="28" height="4" />
+        <rect x="128" y="30" width="24" height="16" />
+        <rect x="131.5" y="34" width="2.5" height="7" fill="white" />
+        <rect x="136.5" y="34" width="2.5" height="7" fill="white" />
+        <rect x="141" y="34" width="2.5" height="7" fill="white" />
+        <rect x="146" y="34" width="2.5" height="7" fill="white" />
+        <rect x="126" y="22" width="3" height="8" />
+        <path d="M 125 22 L 127.5 16 L 130 22 Z" />
+        <rect x="151" y="22" width="3" height="8" />
+        <path d="M 150 22 L 152.5 16 L 155 22 Z" />
+        <path d="M 130 30 L 140 12 L 150 30 Z" />
+        <rect x="138.5" y="4" width="3" height="9" />
+        <path d="M 137 4 L 140 -1 L 143 4 Z" />
+        <circle cx="140" cy="-1" r="1.2" />
+
+        {/* === HIGH-LEVEL WALKWAY BETWEEN TOWERS === */}
+        {/* upper deck */}
+        <rect x="72" y="20" width="56" height="3" />
+        {/* lower deck */}
+        <rect x="72" y="28" width="56" height="3" />
+        {/* vertical hangers between the two walkway decks */}
+        {Array.from({ length: 6 }).map((_, i) => (
+          <rect key={`wh-${i}`} x={78 + i * 9} y="23" width="0.8" height="5" />
+        ))}
       </>
     ),
   },
@@ -350,6 +414,163 @@ const paths: Record<LandmarkName, { vb: string; d: React.ReactNode }> = {
         ))}
         {Array.from({ length: 3 }).map((_, i) => (
           <path key={`r-${i}`} d={`M ${138 + i * 17} 82 Q ${144 + i * 17} 70 ${150 + i * 17} 82 L ${150 + i * 17} 90 L ${138 + i * 17} 90 Z`} fill="white" />
+        ))}
+      </>
+    ),
+  },
+  // London Skyline — Big Ben → London Eye → St Paul's → The Shard → Tower Bridge
+  "london-skyline": {
+    vb: "0 0 700 110",
+    d: (
+      <>
+        {/* ground / Thames line */}
+        <rect x="0" y="100" width="700" height="10" />
+
+        {/* === BIG BEN & PARLIAMENT (far left) === */}
+        {/* Parliament block */}
+        <rect x="100" y="70" width="60" height="30" />
+        {Array.from({ length: 3 }).map((_, i) => (
+          <path key={`pp-${i}`} d={`M ${106 + i * 18} 70 L ${115 + i * 18} 60 L ${124 + i * 18} 70 Z`} />
+        ))}
+        <rect x="118" y="60" width="2" height="6" />
+        {/* Big Ben tower */}
+        <rect x="70" y="40" width="22" height="60" />
+        {/* clock chamber */}
+        <rect x="66" y="28" width="30" height="14" />
+        {/* clock face */}
+        <circle cx="81" cy="35" r="4.5" fill="white" />
+        <circle cx="81" cy="35" r="3.8" fill="none" stroke="currentColor" strokeWidth="0.6" />
+        <line x1="81" y1="35" x2="81" y2="32" stroke="currentColor" strokeWidth="0.7" />
+        <line x1="81" y1="35" x2="83" y2="35" stroke="currentColor" strokeWidth="0.7" />
+        {/* belfry roof */}
+        <path d="M 66 28 L 81 12 L 96 28 Z" />
+        {/* spire pinnacle */}
+        <rect x="79" y="4" width="4" height="8" />
+        <path d="M 77 4 L 81 -1 L 85 4 Z" />
+        <circle cx="81" cy="-1" r="1.3" />
+        {/* corner pinnacles on clock chamber */}
+        <rect x="65" y="22" width="2.5" height="6" />
+        <rect x="94.5" y="22" width="2.5" height="6" />
+        {/* small windows on tower */}
+        <rect x="76" y="48" width="10" height="3" fill="white" />
+        <rect x="76" y="56" width="10" height="3" fill="white" />
+        <rect x="76" y="64" width="10" height="3" fill="white" />
+
+        {/* === LONDON EYE === */}
+        {/* support A-frame */}
+        <line x1="210" y1="68" x2="226" y2="100" stroke="currentColor" strokeWidth="1.8" />
+        <line x1="210" y1="68" x2="236" y2="100" stroke="currentColor" strokeWidth="1.8" />
+        {/* base anchor */}
+        <rect x="222" y="94" width="20" height="6" />
+        {/* wheel rim */}
+        <circle cx="210" cy="68" r="30" fill="none" stroke="currentColor" strokeWidth="2.2" />
+        {/* hub */}
+        <circle cx="210" cy="68" r="3.5" />
+        {/* spokes */}
+        {Array.from({ length: 16 }).map((_, i) => {
+          const angle = (i * Math.PI) / 8;
+          const x2 = 210 + 28 * Math.cos(angle);
+          const y2 = 68 + 28 * Math.sin(angle);
+          return <line key={`sp-${i}`} x1="210" y1="68" x2={x2} y2={y2} stroke="currentColor" strokeWidth="0.6" opacity="0.7" />;
+        })}
+        {/* capsules at edge */}
+        {Array.from({ length: 16 }).map((_, i) => {
+          const angle = (i * Math.PI) / 8;
+          const cx = 210 + 30 * Math.cos(angle);
+          const cy = 68 + 30 * Math.sin(angle);
+          return <ellipse key={`cp-${i}`} cx={cx} cy={cy} rx="2.4" ry="1.4" />;
+        })}
+
+        {/* === ST PAUL'S CATHEDRAL === */}
+        {/* main rectangular nave */}
+        <rect x="310" y="68" width="70" height="32" />
+        {/* twin west towers */}
+        <rect x="298" y="58" width="14" height="42" />
+        <path d="M 296 58 L 305 50 L 314 58 Z" />
+        <rect x="378" y="58" width="14" height="42" />
+        <path d="M 376 58 L 385 50 L 394 58 Z" />
+        {/* dome drum (peristyle) */}
+        <rect x="328" y="50" width="34" height="18" />
+        {/* dome */}
+        <path d="M 328 50 Q 328 26 345 26 Q 362 26 362 50 Z" />
+        {/* lantern */}
+        <rect x="342" y="12" width="6" height="14" />
+        <path d="M 340 12 L 345 6 L 350 12 Z" />
+        {/* cross on top */}
+        <rect x="344" y="-1" width="2" height="9" />
+        <rect x="341" y="2" width="8" height="2" />
+        {/* small windows on dome drum */}
+        <rect x="333" y="55" width="3" height="8" fill="white" />
+        <rect x="342" y="55" width="3" height="8" fill="white" />
+        <rect x="351" y="55" width="3" height="8" fill="white" />
+        {/* nave windows */}
+        {Array.from({ length: 4 }).map((_, i) => (
+          <rect key={`pn-${i}`} x={318 + i * 16} y="80" width="6" height="14" fill="white" />
+        ))}
+
+        {/* === THE SHARD === */}
+        {/* asymmetric glass pyramid */}
+        <path d="M 428 100 L 436 22 L 452 100 Z" />
+        {/* spire tip */}
+        <rect x="440" y="14" width="2" height="10" />
+        {/* faint glass facets */}
+        {Array.from({ length: 10 }).map((_, i) => (
+          <line key={`sh-${i}`} x1={430 + i * 0.8} y1={94 - i * 7} x2={452 - i * 1.4} y2={94 - i * 7} stroke="white" strokeWidth="0.4" opacity="0.5" />
+        ))}
+
+        {/* === TOWER BRIDGE (right) === */}
+        {/* abutments */}
+        <rect x="486" y="86" width="14" height="14" />
+        <rect x="676" y="86" width="14" height="14" />
+        {/* roadway */}
+        <rect x="486" y="86" width="204" height="4" />
+        {/* suspension chains — outer spans */}
+        <path d="M 500 86 Q 516 64 534 54" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M 500 86 Q 514 78 534 68" fill="none" stroke="currentColor" strokeWidth="1" />
+        <path d="M 690 86 Q 674 64 656 54" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M 690 86 Q 676 78 656 68" fill="none" stroke="currentColor" strokeWidth="1" />
+
+        {/* === Tower 1 (left, center x=544) === */}
+        <rect x="532" y="76" width="24" height="14" />
+        <rect x="534" y="58" width="20" height="18" />
+        <path d="M 540 64 Q 540 60 544 60 Q 548 60 548 64 L 548 74 L 540 74 Z" fill="white" />
+        <rect x="530" y="54" width="28" height="4" />
+        <rect x="532" y="38" width="24" height="16" />
+        <rect x="535.5" y="42" width="2.5" height="7" fill="white" />
+        <rect x="540.5" y="42" width="2.5" height="7" fill="white" />
+        <rect x="545" y="42" width="2.5" height="7" fill="white" />
+        <rect x="550" y="42" width="2.5" height="7" fill="white" />
+        <rect x="530" y="30" width="3" height="8" />
+        <path d="M 529 30 L 531.5 24 L 534 30 Z" />
+        <rect x="555" y="30" width="3" height="8" />
+        <path d="M 554 30 L 556.5 24 L 559 30 Z" />
+        <path d="M 534 38 L 544 20 L 554 38 Z" />
+        <rect x="542.5" y="12" width="3" height="9" />
+        <path d="M 541 12 L 544 7 L 547 12 Z" />
+
+        {/* === Tower 2 (right, center x=632) === */}
+        <rect x="620" y="76" width="24" height="14" />
+        <rect x="622" y="58" width="20" height="18" />
+        <path d="M 628 64 Q 628 60 632 60 Q 636 60 636 64 L 636 74 L 628 74 Z" fill="white" />
+        <rect x="618" y="54" width="28" height="4" />
+        <rect x="620" y="38" width="24" height="16" />
+        <rect x="623.5" y="42" width="2.5" height="7" fill="white" />
+        <rect x="628.5" y="42" width="2.5" height="7" fill="white" />
+        <rect x="633" y="42" width="2.5" height="7" fill="white" />
+        <rect x="638" y="42" width="2.5" height="7" fill="white" />
+        <rect x="618" y="30" width="3" height="8" />
+        <path d="M 617 30 L 619.5 24 L 622 30 Z" />
+        <rect x="643" y="30" width="3" height="8" />
+        <path d="M 642 30 L 644.5 24 L 647 30 Z" />
+        <path d="M 622 38 L 632 20 L 642 38 Z" />
+        <rect x="630.5" y="12" width="3" height="9" />
+        <path d="M 629 12 L 632 7 L 635 12 Z" />
+
+        {/* Walkway between towers */}
+        <rect x="556" y="28" width="64" height="3" />
+        <rect x="556" y="36" width="64" height="3" />
+        {Array.from({ length: 7 }).map((_, i) => (
+          <rect key={`wh-${i}`} x={562 + i * 9} y="31" width="0.8" height="5" />
         ))}
       </>
     ),

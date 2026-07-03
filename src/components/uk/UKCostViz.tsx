@@ -113,7 +113,7 @@ export default function UKCostViz({
           </div>
           <h2
             className="text-3xl md:text-5xl font-bold leading-tight mb-3"
-            style={{ fontFamily: '"Playfair Display", Georgia, serif', color: "#002147" }}
+            style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif', color: "#002147" }}
           >
             What it costs.{" "}
             <span style={{ color: "#B08D57" }}>What it&apos;s worth.</span>
@@ -160,7 +160,7 @@ export default function UKCostViz({
               </p>
               <h3
                 className="text-3xl md:text-4xl font-bold mb-2"
-                style={{ fontFamily: '"Playfair Display", Georgia, serif', color: "#002147" }}
+                style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif', color: "#002147" }}
               >
                 {p.level}
               </h3>
@@ -177,7 +177,7 @@ export default function UKCostViz({
               </p>
               <p
                 className="text-3xl md:text-4xl font-bold"
-                style={{ fontFamily: '"Playfair Display", Georgia, serif', color: "#B08D57" }}
+                style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif', color: "#B08D57" }}
               >
                 {p.totalLabel}
               </p>
@@ -225,7 +225,7 @@ export default function UKCostViz({
             </p>
             <h3
               className="text-2xl md:text-3xl font-bold mt-1"
-              style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+              style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif' }}
             >
               Two years to earn it back.
             </h3>
@@ -256,7 +256,7 @@ export default function UKCostViz({
               </div>
               <h3
                 className="text-2xl md:text-4xl font-bold"
-                style={{ fontFamily: '"Playfair Display", Georgia, serif', color: "#002147" }}
+                style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif', color: "#002147" }}
               >
                 {scholarshipsTitle}
               </h3>
@@ -277,19 +277,47 @@ export default function UKCostViz({
                     boxShadow: "0 6px 24px rgba(0,33,71,0.05)",
                   }}
                 >
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3.5">
                     <span
-                      className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center"
-                      style={{ background: "#002147" }}
+                      className="flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center relative"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 35% 30%, #D4351C 0%, #A50E1E 60%, #6B0815 100%)",
+                        boxShadow:
+                          "inset 0 1px 2px rgba(255,255,255,0.35), inset 0 -2px 4px rgba(0,0,0,0.35), 0 2px 6px rgba(107,8,21,0.35)",
+                        border: "1px solid rgba(0,0,0,0.15)",
+                      }}
+                      aria-hidden="true"
                     >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#B08D57" aria-hidden="true">
-                        <path d="M12 2 L22 12 L12 22 L2 12 Z" />
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        {/* scalloped wax edge */}
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          fill="none"
+                          stroke="#B08D57"
+                          strokeWidth="0.8"
+                          opacity="0.7"
+                          strokeDasharray="1.5 1.2"
+                        />
+                        {/* small crown insignia */}
+                        <g fill="#F0D78C" opacity="0.95">
+                          <path d="M 6.5 11 L 6.5 8.2 L 8.6 10.2 L 10.5 6.8 L 12 9.4 L 13.5 6.8 L 15.4 10.2 L 17.5 8.2 L 17.5 11 Z" />
+                          <circle cx="6.5" cy="7.4" r="0.7" />
+                          <circle cx="10.5" cy="6" r="0.8" />
+                          <circle cx="12" cy="8.6" r="0.7" />
+                          <circle cx="13.5" cy="6" r="0.8" />
+                          <circle cx="17.5" cy="7.4" r="0.7" />
+                          <rect x="6" y="11.6" width="12" height="1.4" />
+                          <rect x="7" y="13.4" width="10" height="2.4" />
+                        </g>
                       </svg>
                     </span>
                     <div>
                       <p
                         className="font-bold text-[15.5px] leading-tight mb-1"
-                        style={{ color: "#002147", fontFamily: '"Playfair Display", Georgia, serif' }}
+                        style={{ color: "#002147", fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif' }}
                       >
                         {s.name}
                       </p>
@@ -363,7 +391,7 @@ function ROIStat({
     >
       <p
         className="text-2xl md:text-3xl font-bold mb-1"
-        style={{ color: accent, fontFamily: '"Playfair Display", Georgia, serif' }}
+        style={{ color: accent, fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif' }}
       >
         {headline}
       </p>

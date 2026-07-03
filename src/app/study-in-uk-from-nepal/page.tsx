@@ -119,22 +119,22 @@ const pageData: NepalVariantData = {
     "Understanding UK intakes helps you plan early and avoid last-minute rejections.",
   intakes: [
     {
-      intake: "September (Main Intake)",
+      intake: "Michaelmas Term — September (Main Intake)",
       months: "Application: November – May",
       details:
-        "Most popular intake. Maximum universities & course options. Higher scholarship availability.",
+        "The traditional British autumn term. Most popular intake — maximum universities, course options, and scholarship availability.",
     },
     {
-      intake: "January (Alternative)",
+      intake: "Hilary / Lent Term — January (Alternative)",
       months: "Application: July – October",
       details:
-        "Good alternative if you miss September. Limited course options. Ideal for gap year students.",
+        "The winter–spring term. A solid alternative if you miss Michaelmas. Slightly limited course options. Ideal for gap-year students.",
     },
     {
-      intake: "May (Limited)",
+      intake: "Trinity Term — May (Limited)",
       months: "Select universities only",
       details:
-        "Suitable for diploma and selected master's programs. Smaller student cohorts.",
+        "The shorter summer term. Suitable for diploma and selected master's programs. Smaller, more intimate cohorts.",
     },
   ],
 
@@ -278,13 +278,15 @@ const ukTheme: CountryTheme = {
   heroGradient:
     "linear-gradient(115deg, rgba(10,31,68,0.92) 0%, rgba(10,31,68,0.7) 45%, rgba(200,16,46,0.55) 100%)",
 
-  dividerStyle: "crown",
+  dividerStyle: "uk-alternating",
   showFlagStripeOnCards: true,
   flagColors: ["#C8102E", "#FFFFFF", "#012169"],
   serifHeadings: true,
   heritagePattern: true,
   towerBridgeTransition: true,
   crownTabIcon: true,
+  dropCapIntro: true,
+  ctaCrownOrnament: true,
   benefitLandmarks: [
     "big-ben",
     "tower-bridge",
@@ -363,7 +365,6 @@ export default async function StudyInUKFromNepalPage() {
           <>
             <CrownDivider />
             <UKCityMap />
-            <CrownDivider />
           </>
         }
         replaceCostSection={

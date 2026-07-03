@@ -176,7 +176,7 @@ export default function UKCityMap() {
           </div>
           <h2
             className="text-3xl md:text-5xl font-bold leading-tight mb-3"
-            style={{ fontFamily: '"Playfair Display", Georgia, serif', color: "#002147" }}
+            style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif', color: "#002147" }}
           >
             Seven cities. One island.{" "}
             <span style={{ color: "#B08D57" }}>Centuries of academic prestige.</span>
@@ -297,7 +297,7 @@ export default function UKCityMap() {
                   </p>
                   <h3
                     className="text-3xl font-bold mb-1"
-                    style={{ fontFamily: '"Playfair Display", Georgia, serif', color: "#002147" }}
+                    style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif', color: "#002147" }}
                   >
                     {city.name}
                   </h3>
