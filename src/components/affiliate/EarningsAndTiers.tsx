@@ -3,12 +3,6 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 
-const REWARDS = [
-  { label: "Consultation booked",  base: "USD 200 – 500"     },
-  { label: "Service enrollment",   base: "USD 1,000 – 3,000" },
-  { label: "Visa approval bonus",  base: "USD 500 – 1,500"   },
-];
-
 const TIERS = [
   {
     id: "starter",
@@ -179,25 +173,6 @@ export default function EarningsAndTiers() {
                 <p className="text-[13.5px] leading-[1.65]" style={{ color: "rgba(255,255,255,0.6)" }}>
                   {t.description}
                 </p>
-
-                <div
-                  className="mt-5 pt-4 space-y-1.5"
-                  style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
-                >
-                  {REWARDS.map((r) => (
-                    <div key={r.label} className="flex items-start justify-between gap-3">
-                      <span className="text-[12px]" style={{ color: "rgba(255,255,255,0.5)" }}>
-                        {r.label}
-                      </span>
-                      <span
-                        className="text-[12px] font-bold whitespace-nowrap"
-                        style={{ color: t.featured ? t.accent : "rgba(255,255,255,0.75)" }}
-                      >
-                        {t.multiplier} base
-                      </span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </motion.div>
           ))}

@@ -12,35 +12,24 @@ const TIER_COLORS: Record<string, { primary: string; soft: string; border: strin
 
 const TIER_PERKS: Record<string, string[]> = {
   "Starter":       [
-    "1× base commission · USD 500–1,000 per enrolled referral",
     "Complete marketing toolkit on approval",
     "Official Admizz affiliate certificate",
     "Private affiliate community access",
   ],
   "Rising Star":   [
-    "1.5× commission rate on all referrals",
     "Priority WhatsApp & email support",
     "Featured in monthly affiliate newsletter",
   ],
   "Elite Partner": [
-    "2× commission rate on all referrals",
     "Exclusive Admizz-branded swag pack",
     "Invitations to university fairs and events",
     "Co-branded social media spotlights",
   ],
   "Admizz Legend": [
-    "3× commission rate (highest in program)",
     "Monthly co-marketing campaigns with Admizz",
     "Direct access to founding team",
     "Annual Legend Award recognition",
   ],
-};
-
-const TIER_MULTIPLIER: Record<string, string> = {
-  "Starter":       "1× base rate",
-  "Rising Star":   "1.5× base rate",
-  "Elite Partner": "2× base rate",
-  "Admizz Legend": "3× base rate",
 };
 
 const NEXT_TIER_REQUIREMENT: Record<string, number> = {
@@ -77,22 +66,9 @@ export default function TierProgressCard({ affiliate }: Props) {
           >
             Tier Progression
           </p>
-          <div className="flex items-center gap-2.5 flex-wrap">
-            <h3 className="text-xl font-extrabold tracking-tight" style={{ color: "#001353" }}>
-              {currentTier}
-            </h3>
-            <span
-              className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase"
-              style={{
-                background: tier.soft,
-                color: tier.primary,
-                border: `1px solid ${tier.border}`,
-                letterSpacing: "0.08em",
-              }}
-            >
-              {TIER_MULTIPLIER[currentTier] ?? "1× base rate"}
-            </span>
-          </div>
+          <h3 className="text-xl font-extrabold tracking-tight" style={{ color: "#001353" }}>
+            {currentTier}
+          </h3>
         </div>
         <span
           className="flex-shrink-0 text-xs font-bold px-3 py-1.5 rounded-full whitespace-nowrap"
@@ -109,10 +85,6 @@ export default function TierProgressCard({ affiliate }: Props) {
               Next tier:{" "}
               <span className="font-bold" style={{ color: nextTierColor }}>
                 {nextTier}
-              </span>
-              {" "}
-              <span style={{ color: "#64748B" }}>
-                ({TIER_MULTIPLIER[nextTier] ?? ""})
               </span>
             </span>
             <span className="text-[12.5px] font-bold whitespace-nowrap" style={{ color: "#001353" }}>

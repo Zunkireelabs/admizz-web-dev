@@ -42,7 +42,7 @@ export default function AffiliateLogin({ onLogin, notice }: Props) {
       <div className="w-full max-w-sm relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <a href="/affiliate-program" className="inline-block mb-7">
+          <a href="/affiliate" className="inline-block mb-7">
             <img
               src="/images/logos/Admizz-Education-New-Logo-For-Light-Background.webp"
               alt="Admizz Education"
@@ -207,7 +207,7 @@ export default function AffiliateLogin({ onLogin, notice }: Props) {
 
         <p className="text-center mt-6 text-xs" style={{ color: "#64748B" }}>
           Not an affiliate yet?{" "}
-          <a href="/affiliate-program#apply-form" className="font-bold transition-colors" style={{ color: "#b07400" }}>
+          <a href="/affiliate#apply-form" className="font-bold transition-colors" style={{ color: "#b07400" }}>
             Apply to join the program →
           </a>
         </p>

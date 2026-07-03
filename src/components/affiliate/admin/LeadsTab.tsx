@@ -42,22 +42,34 @@ const CHANNEL_LABEL: Record<string, { emoji: string; name: string }> = {
   email:     { emoji: "✉️", name: "Email"     },
 };
 
+type SourceFilter = "all" | "affiliate" | "employee";
+
+const SOURCE_PILLS: { label: string; value: SourceFilter }[] = [
+  { label: "All sources",        value: "all"       },
+  { label: "Affiliate-referred", value: "affiliate" },
+  { label: "Employee-referred",  value: "employee"  },
+];
+
 export default function LeadsTab({ leads, onRefresh }: Props) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [search,     setSearch]     = useState("");
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [sourceFilter, setSourceFilter] = useState<SourceFilter>("all");
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
-    if (!q) return leads;
     return leads.filter(row => {
+      const matchesSource =
+        sourceFilter === "all" || row.affiliate_lead_type === sourceFilter;
+      if (!matchesSource) return false;
+      if (!q) return true;
       const hay = [
         row.lead.full_name, row.lead.email, row.lead.phone, row.lead.source,
         row.affiliate_name, row.referral?.affiliate_code,
       ].filter(Boolean).join(" ").toLowerCase();
       return hay.includes(q);
     });
-  }, [leads, search]);
+  }, [leads, search, sourceFilter]);
 
   const changeStatus = async (row: AdminLeadRow, status: ReferralStatus) => {
     if (!row.referral) return;
@@ -99,6 +111,30 @@ export default function LeadsTab({ leads, onRefresh }: Props) {
             style={{ background: "#FFFFFF", border: "1px solid #EAECF0", color: "#001353" }}
           />
         </div>
+      </div>
+
+      {/* Source filter pills */}
+      <div className="flex items-center gap-1.5 flex-wrap">
+        {SOURCE_PILLS.map(pill => (
+          <button
+            key={pill.value}
+            type="button"
+            onClick={() => setSourceFilter(pill.value)}
+            className="px-3 py-1.5 rounded-xl text-[11px] font-bold uppercase tracking-[0.06em] transition-all duration-150"
+            style={
+              sourceFilter === pill.value
+                ? { background: "#6D28D9", color: "#FFFFFF", border: "1px solid #6D28D9" }
+                : { background: "#FFFFFF", color: "#475569", border: "1px solid #EAECF0" }
+            }
+          >
+            {pill.label}
+            {pill.value !== "all" && (
+              <span className="ml-1.5 opacity-60">
+                {leads.filter(l => l.affiliate_lead_type === pill.value).length}
+              </span>
+            )}
+          </button>
+        ))}
       </div>
 
       {/* Banner: scope limitation */}
@@ -194,9 +230,17 @@ export default function LeadsTab({ leads, onRefresh }: Props) {
                       </td>
                       <td className="px-4 py-3.5 whitespace-nowrap text-[13px]">
                         {row.referral && (
-                          <div className="flex items-center gap-1.5">
+                          <div className="flex items-center gap-1.5 flex-wrap">
                             <span className="font-bold" style={{ color: "#b07400" }}>{row.referral.affiliate_code}</span>
                             <span style={{ color: "#64748B" }}>· {row.affiliate_name?.split(" ")[0] ?? ""}</span>
+                            {row.affiliate_lead_type === "employee" && (
+                              <span
+                                className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.06em] px-1.5 py-0.5 rounded-md"
+                                style={{ background: "rgba(109,40,217,0.08)", color: "#6D28D9", border: "1px solid rgba(109,40,217,0.3)" }}
+                              >
+                                Employee
+                              </span>
+                            )}
                             {chan && <span style={{ color: "#94A3B8" }}>· {chan.emoji} {chan.name}</span>}
                           </div>
                         )}

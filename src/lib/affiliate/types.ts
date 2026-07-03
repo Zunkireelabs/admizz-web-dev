@@ -17,6 +17,7 @@ export interface Affiliate {
   total_earned: number;
   joined_at: string;
   created_at: string;
+  lead_type: "affiliate" | "employee";
 }
 
 export interface AffiliateReferral {
@@ -65,6 +66,7 @@ export interface AffiliateApplication {
   motivation: string;
   status: AppStatus;
   affiliate_code: string | null;
+  lead_type: "affiliate" | "employee";
   created_at: string;
 }
 
@@ -114,6 +116,7 @@ export interface AdminLeadRow {
   landing_page: string | null;          // from the click that converted (best guess)
   channel: string | null;               // utm_source from the click
   first_click_at: string | null;        // when the cookie was set
+  affiliate_lead_type: "affiliate" | "employee" | null; // type of the referring affiliate
 }
 
 export interface LeaderboardEntry {

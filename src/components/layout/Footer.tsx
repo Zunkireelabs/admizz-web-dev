@@ -6,7 +6,7 @@ const quickLinks: { name: string; href: string; external?: boolean }[] = [
   { name: "Students", href: "/study-destinations" },
   { name: "Events", href: "/events" },
   { name: "Recruitment Partners", href: "/recruitment-partners" },
-  { name: "Affiliate Program", href: "/affiliate-program" },
+  { name: "Affiliate Program", href: "/affiliate" },
   { name: "Colleges & Universities", href: "/universities" },
   { name: "Blogs", href: "/blogs" },
 ];

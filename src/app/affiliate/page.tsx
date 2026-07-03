@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import AffiliateLoginBanner from "@/components/affiliate/AffiliateLoginBanner";
 import AffiliateHero from "@/components/affiliate/AffiliateHero";
 import WhoIsThisFor from "@/components/affiliate/WhoIsThisFor";
 import BenefitsBento from "@/components/affiliate/BenefitsBento";
@@ -15,13 +14,13 @@ export const metadata: Metadata = {
   description:
     "Join the Admizz Affiliate Program. Earn competitive commissions per student referral. Campus ambassadors, content creators, and education professionals welcome. Apply free in 5 minutes.",
   alternates: {
-    canonical: "https://admizzeducation.com/affiliate-program",
+    canonical: "https://admizzeducation.com/affiliate",
   },
   openGraph: {
     title: "Admizz Affiliate Program — Earn While Helping Students",
     description:
       "Nepal's most rewarding student affiliate program. Earn commissions, build your brand, and unlock tiers as you grow.",
-    url: "https://admizzeducation.com/affiliate-program",
+    url: "https://admizzeducation.com/affiliate",
     siteName: "Admizz Education",
     images: ["/images/og/affiliate-program.webp"],
     type: "website",
@@ -41,12 +40,12 @@ const jsonLd = {
   name: "Admizz Affiliate Program",
   description:
     "Join the Admizz Affiliate Program. Earn competitive commissions per student referral. Campus ambassadors, content creators, and education professionals welcome.",
-  url: "https://admizzeducation.com/affiliate-program",
+  url: "https://admizzeducation.com/affiliate",
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://admizzeducation.com" },
-      { "@type": "ListItem", position: 2, name: "Affiliate Program", item: "https://admizzeducation.com/affiliate-program" },
+      { "@type": "ListItem", position: 2, name: "Affiliate Program", item: "https://admizzeducation.com/affiliate" },
     ],
   },
 };
@@ -60,7 +59,6 @@ export default function AffiliateProgramPage() {
       />
       <SignupModalProvider>
         <main style={{ backgroundColor: "#060c1f" }}>
-          <AffiliateLoginBanner />
           <AffiliateHero />
           <WhoIsThisFor />
           <BenefitsBento />

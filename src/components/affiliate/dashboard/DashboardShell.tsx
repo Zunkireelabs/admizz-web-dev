@@ -3,15 +3,14 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Affiliate, AffiliateReferral, AffiliateClick, LeaderboardEntry } from "@/lib/affiliate/types";
 import { buildCountryBreakdown, buildActivityFeed } from "@/lib/affiliate/api";
-import StatsRow from "./StatsRow";
 import FunnelCard from "./FunnelCard";
+import GlobalRankCard from "./GlobalRankCard";
 import CountryBreakdownCard from "./CountryBreakdownCard";
 import ActivityTimelineCard from "./ActivityTimelineCard";
 import TierProgressCard from "./TierProgressCard";
 import ReferralLinkBox from "./ReferralLinkBox";
 import PerformanceChart from "./PerformanceChart";
 import ReferralTable from "./ReferralTable";
-import LeaderboardCard from "./LeaderboardCard";
 import ResourcesQuickAccess from "./ResourcesQuickAccess";
 import ProfileEditModal from "./ProfileEditModal";
 
@@ -80,7 +79,7 @@ export default function DashboardShell({ affiliate, referrals, leaderboard, clic
         }}
       >
         <div className="flex items-center gap-4 min-w-0">
-          <a href="/affiliate-program" className="flex-shrink-0">
+          <a href="/affiliate" className="flex-shrink-0">
             <img
               src="/images/logos/Admizz-Education-New-Logo-For-Light-Background.webp"
               alt="Admizz Education"
@@ -104,18 +103,6 @@ export default function DashboardShell({ affiliate, referrals, leaderboard, clic
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <a
-            href="/affiliate-program"
-            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
-            style={{ color: "#475569", border: "1px solid #EAECF0", background: "#FFFFFF" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#F8F9FC"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#D7DAE8"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#FFFFFF"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#EAECF0"; }}
-          >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Program page
-          </a>
           <button
             onClick={() => setProfileOpen(true)}
             className="text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200 flex items-center gap-1.5"
@@ -152,13 +139,16 @@ export default function DashboardShell({ affiliate, referrals, leaderboard, clic
           </p>
         </div>
 
-        <StatsRow affiliate={localAffiliate} rank={myRank} clicks={clickCount} />
+        <div className="grid grid-cols-1 lg:grid-cols-[2.33fr_1fr] gap-5">
+          <FunnelCard
+            clicks={clickCount}
+            registrations={localAffiliate.total_referrals}
+            conversions={localAffiliate.total_converted}
+          />
+          <GlobalRankCard rank={myRank} totalAffiliates={leaderboard.length} />
+        </div>
 
-        <FunnelCard
-          clicks={clickCount}
-          registrations={localAffiliate.total_referrals}
-          conversions={localAffiliate.total_converted}
-        />
+        <ReferralTable referrals={referrals} />
 
         <div className="grid grid-cols-1 tablet:grid-cols-2 gap-5">
           <TierProgressCard affiliate={localAffiliate} />
@@ -172,12 +162,7 @@ export default function DashboardShell({ affiliate, referrals, leaderboard, clic
           <ActivityTimelineCard events={activity} />
         </div>
 
-        <ReferralTable referrals={referrals} />
-
-        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-5">
-          <LeaderboardCard leaderboard={leaderboard} currentAffiliateId={localAffiliate.id} />
-          <ResourcesQuickAccess />
-        </div>
+        <ResourcesQuickAccess />
       </div>
 
       {profileOpen && (

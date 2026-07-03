@@ -158,7 +158,7 @@ export default function SetPassword({ onComplete }: Props) {
 
         {/* Header */}
         <div className="text-center mb-8">
-          <a href="/affiliate-program" className="inline-block mb-7">
+          <a href="/affiliate" className="inline-block mb-7">
             <img
               src="/images/logos/Admizz-Education-New-Logo-For-Light-Background.webp"
               alt="Admizz Education"

@@ -62,8 +62,11 @@ services:
       - "traefik.http.middlewares.admizz-prod-find-destination.redirectregex.regex=^(https?://[^/]+)/find-your-destination$$"
       - "traefik.http.middlewares.admizz-prod-find-destination.redirectregex.replacement=$${1}/match-your-destination"
       - "traefik.http.middlewares.admizz-prod-find-destination.redirectregex.permanent=true"
+      - "traefik.http.middlewares.admizz-prod-affiliate-program.redirectregex.regex=^(https?://[^/]+)/affiliate-program(/?(\\?.*)?)?$$"
+      - "traefik.http.middlewares.admizz-prod-affiliate-program.redirectregex.replacement=$${1}/affiliate$${3}"
+      - "traefik.http.middlewares.admizz-prod-affiliate-program.redirectregex.permanent=true"
       # Chain all middlewares (www-redirect first)
-      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect,admizz-prod-trailing-slash,admizz-prod-test-prep,admizz-prod-consultation,admizz-prod-campaign,admizz-prod-newzealand,admizz-prod-tag,admizz-prod-author,admizz-prod-blogs-page,admizz-prod-floating-btn,admizz-prod-birgunj,admizz-prod-janakpur,admizz-prod-uk-admissions-day,admizz-prod-admizzion-week,admizz-prod-uk-education-expo,admizz-prod-find-destination"
+      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect,admizz-prod-trailing-slash,admizz-prod-test-prep,admizz-prod-consultation,admizz-prod-campaign,admizz-prod-newzealand,admizz-prod-tag,admizz-prod-author,admizz-prod-blogs-page,admizz-prod-floating-btn,admizz-prod-birgunj,admizz-prod-janakpur,admizz-prod-uk-admissions-day,admizz-prod-admizzion-week,admizz-prod-uk-education-expo,admizz-prod-find-destination,admizz-prod-affiliate-program"
       # careers.admizzeducation.com → admizzeducation.com/careers (308)
       - "traefik.http.routers.admizz-careers-subdomain.rule=Host(`careers.admizzeducation.com`)"
       - "traefik.http.routers.admizz-careers-subdomain.entrypoints=websecure"

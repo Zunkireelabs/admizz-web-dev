@@ -105,7 +105,7 @@ export default function ResourcesQuickAccess() {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 flex-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 flex-1">
         {RESOURCES.map(r => (
           <button
             key={r.title}
@@ -140,7 +140,7 @@ export default function ResourcesQuickAccess() {
               <p className="text-[12.5px] font-bold truncate" style={{ color: "#001353" }}>
                 {r.title}
               </p>
-              <p className="text-[12px] truncate" style={{ color: "#64748B" }}>
+              <p className="text-[12px]" style={{ color: "#64748B" }}>
                 {r.desc}
               </p>
             </div>

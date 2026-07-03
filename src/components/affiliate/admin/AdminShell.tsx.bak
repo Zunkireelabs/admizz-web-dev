@@ -202,7 +202,7 @@ function AdminShellInner({ affiliates, applications, referrals, clicks, leads, o
           </p>
         </div>
 
-        <OverviewStats affiliates={affiliates} applications={applications} referrals={referrals} />
+        <OverviewStats affiliates={affiliates} applications={applications} referrals={referrals} clicks={clicks} />
 
         <FunnelCard
           clicks={clicks.length}

@@ -261,7 +261,7 @@ export async function getAffiliateLeads(limit = 500): Promise<AdminLeadRow[]> {
     { data: clicks,     error: clickErr },
   ] = await Promise.all([
     supabase.from("affiliate_referrals").select("*").order("created_at", { ascending: false }).limit(limit),
-    supabase.from("affiliates").select("id, full_name, referral_code"),
+    supabase.from("affiliates").select("id, full_name, referral_code, lead_type"),
     supabase.from("affiliate_clicks").select("code, landing_page, utm_source, created_at").order("created_at", { ascending: false }).limit(2000),
   ]);
 
@@ -289,7 +289,7 @@ export async function getAffiliateLeads(limit = 500): Promise<AdminLeadRow[]> {
   const refByLeadId = new Map<string, AffiliateReferral>();
   for (const r of refs) refByLeadId.set(r.lead_id!, r);
 
-  const affById = new Map<string, { full_name: string; referral_code: string }>();
+  const affById = new Map<string, { full_name: string; referral_code: string; lead_type?: string }>();
   for (const a of (affiliates ?? [])) affById.set(a.id, a);
 
   const clicksByCode = new Map<string, typeof clicks>();
@@ -324,6 +324,7 @@ export async function getAffiliateLeads(limit = 500): Promise<AdminLeadRow[]> {
       landing_page,
       channel,
       first_click_at,
+      affiliate_lead_type: (aff?.lead_type === "employee" ? "employee" : aff ? "affiliate" : null) as AdminLeadRow["affiliate_lead_type"],
     };
   });
 }
@@ -364,6 +365,7 @@ export async function getAllApplications(): Promise<AffiliateApplication[]> {
     motivation: row.motivation ?? "",
     status: (row.status === "approved" ? "approved" : row.status === "rejected" ? "rejected" : "new") as AffiliateApplication["status"],
     affiliate_code: row.affiliate_code ?? null,
+    lead_type: (row.lead_type === "employee" ? "employee" : "affiliate") as AffiliateApplication["lead_type"],
     created_at: row.created_at ?? row.appliedAt ?? new Date().toISOString(),
   }));
 }
@@ -392,31 +394,62 @@ export async function getAllReferrals(): Promise<AffiliateReferral[]> {
 
 export type AdminResult<T> = { ok: true; data: T } | { ok: false; error: string };
 
+// Returns a valid access_token. If the cached session is missing or expired,
+// force a refresh. If refresh fails, sign out and reload so the user lands on
+// the login screen instead of a silent "Not authenticated" toast loop.
+async function getAdminAccessTokenOrReauth(): Promise<string | null> {
+  const { data: { session } } = await supabase.auth.getSession();
+  // Treat any session whose expiry is <60s away as already-dead — refresh now.
+  const expiresAt = session?.expires_at ? session.expires_at * 1000 : 0;
+  const expiresSoon = expiresAt - Date.now() < 60_000;
+  if (session && !expiresSoon) return session.access_token;
+
+  const { data: refreshed, error } = await supabase.auth.refreshSession();
+  if (!error && refreshed.session) return refreshed.session.access_token;
+
+  // Genuinely dead — clear local state and kick to the login screen.
+  await supabase.auth.signOut();
+  if (typeof window !== "undefined") window.location.reload();
+  return null;
+}
+
 export async function approveApplication(app: AffiliateApplication): Promise<AdminResult<{ code: string }>> {
   try {
-    // Get the current admin session JWT — the Edge Function verifies this
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) return { ok: false, error: "Not authenticated — please log in again." };
-
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
     const fnUrl = `${supabaseUrl}/functions/v1/affiliate-approve`;
-
-    // Tell the Edge Function which origin to send the invite email back to,
-    // so dev approvals link to dev and prod approvals link to prod.
     const redirectOrigin =
       typeof window !== "undefined" ? window.location.origin : undefined;
+    const body = JSON.stringify({ app, redirectOrigin });
 
-    const res = await fetch(fnUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type":  "application/json",
-        "Authorization": `Bearer ${session.access_token}`,
-      },
-      body: JSON.stringify({ app, redirectOrigin }),
-    });
+    const callOnce = async (token: string) =>
+      fetch(fnUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type":  "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body,
+      });
+
+    let token = await getAdminAccessTokenOrReauth();
+    if (!token) return { ok: false, error: "Session expired — please log in again." };
+
+    let res = await callOnce(token);
+
+    // If the Edge Function rejects the JWT (expired between fetch start and
+    // server validation), force one refresh and retry the call exactly once.
+    if (res.status === 401) {
+      const { data: refreshed } = await supabase.auth.refreshSession();
+      token = refreshed.session?.access_token ?? "";
+      if (!token) {
+        await supabase.auth.signOut();
+        if (typeof window !== "undefined") window.location.reload();
+        return { ok: false, error: "Session expired — please log in again." };
+      }
+      res = await callOnce(token);
+    }
 
     const json = await res.json();
-
     if (!res.ok || !json.ok) {
       const msg = json?.error ?? `Server error ${res.status}`;
       console.error("[approve application]", msg);

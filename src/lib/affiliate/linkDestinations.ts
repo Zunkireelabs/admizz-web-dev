@@ -10,7 +10,7 @@ export interface QuickPickDestination {
 export const QUICK_PICK_DESTINATIONS: QuickPickDestination[] = [
   { path: "/register",                          label: "Register" },
   { path: "/test-prep",                         label: "Test Prep" },
-  { path: "/study-in-uk",                       label: "Study in UK" },
+  { path: "/study-in-uk-from-nepal",            label: "Study in UK" },
   { path: "/study-in-canada",                   label: "Study in Canada" },
   { path: "/events/uk-education-expo-2026",     label: "UK Expo 2026" },
 ];

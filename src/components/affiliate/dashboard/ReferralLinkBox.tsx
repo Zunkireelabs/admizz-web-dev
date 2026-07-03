@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import QRCode from "qrcode";
+import { supabase } from "@/lib/supabase";
 import type { Affiliate } from "@/lib/affiliate/types";
 import { QUICK_PICK_DESTINATIONS } from "@/lib/affiliate/linkDestinations";
 import { CHANNEL_PRESETS, type ChannelPreset } from "@/lib/affiliate/channelPresets";
@@ -119,10 +120,64 @@ export default function ReferralLinkBox({ affiliate }: Props) {
 
   const parsed  = useMemo(() => parseAdmizzUrl(destInput), [destInput]);
   const channel = useMemo(() => CHANNEL_PRESETS.find(c => c.id === channelId) ?? null, [channelId]);
-  const url     = useMemo(() => buildUrl(parsed, code, channel), [parsed, code, channel]);
+  const longUrl = useMemo(() => buildUrl(parsed, code, channel), [parsed, code, channel]);
   const error   = parsed.ok ? null : (parsed.error || null);
 
+  // Short URL (Bitly-style). Fetched lazily from Supabase when the destination
+  // changes. While the RPC is in flight we hide the long URL so the user can
+  // never accidentally copy it. Only falls back to the long URL on a real RPC
+  // error (so sharing still works if Supabase is down).
+  const [shortUrl, setShortUrl]         = useState<string>("");
+  const [shortLoading, setShortLoading] = useState(false);
+  const [shortFailed, setShortFailed]   = useState(false);
+
   useEffect(() => { setHistory(loadHistory(code)); }, [code]);
+
+  // Allocate (or reuse) a short code whenever the destination + channel change.
+  useEffect(() => {
+    setShortUrl("");
+    setShortFailed(false);
+    if (!parsed.ok) { setShortLoading(false); return; }
+    let cancelled = false;
+    setShortLoading(true);
+
+    // Safety net: if Supabase RPC stalls (cold schema cache, network blip),
+    // fall back to the long URL after 2s so the user is never stuck.
+    const timeoutId = window.setTimeout(() => {
+      if (cancelled) return;
+      console.warn("[short-link] RPC timed out — falling back to long URL");
+      setShortLoading(false);
+      setShortFailed(true);
+    }, 2_000);
+
+    (async () => {
+      const { data, error: rpcErr } = await supabase.rpc("affiliate_create_short_link", {
+        p_destination_path: parsed.path,
+        p_channel:          channelId || null,
+      });
+      if (cancelled) return;
+      window.clearTimeout(timeoutId);
+      setShortLoading(false);
+      if (rpcErr || !data) {
+        console.warn("[short-link] create failed:", rpcErr?.message);
+        setShortFailed(true);
+        return;
+      }
+      setShortFailed(false);
+      // Use the same origin the affiliate is browsing on so dev stays dev.
+      setShortUrl(`${parsed.origin}/r?c=${data as string}`);
+    })();
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
+    // Only re-fetch when destination identity changes. `parsed.origin/path`
+    // exist only when ok=true, so guard via a single ok-or-empty fingerprint.
+  }, [parsed.ok ? parsed.origin : "", parsed.ok ? parsed.path : "", channelId]);
+
+  // Public-facing share URL — short URL when ready; long URL only on RPC error.
+  const url = shortUrl || (shortFailed ? longUrl : "");
+  const showShortening = parsed.ok && shortLoading && !shortUrl && !shortFailed;
 
   useEffect(() => {
     if (tab !== "qr" || !url) { setQrDataUrl(""); return; }
@@ -297,8 +352,10 @@ export default function ReferralLinkBox({ affiliate }: Props) {
           <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" style={{ color: "#64748B" }}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
           </svg>
-          <span className="flex-1 text-[12.5px] font-mono truncate" style={{ color: "#001353" }}>
-            {url || "Enter a destination URL above…"}
+          <span className="flex-1 text-[12.5px] font-mono truncate" style={{ color: showShortening ? "#94A3B8" : "#001353" }}>
+            {showShortening
+              ? "Generating short link…"
+              : url || "Enter a destination URL above…"}
           </span>
           <button
             onClick={() => copy("link")}
@@ -321,7 +378,11 @@ export default function ReferralLinkBox({ affiliate }: Props) {
             <img src={qrDataUrl} alt={`QR code for ${url}`} className="w-48 h-48 rounded-lg" style={{ border: "1px solid #EAECF0" }} />
           ) : (
             <div className="w-48 h-48 rounded-lg flex items-center justify-center text-[12px] text-center px-4" style={{ background: "#FFFFFF", border: "1px solid #EAECF0", color: "#94A3B8" }}>
-              {url ? "Generating…" : "Enter a destination URL above to generate a QR code."}
+              {showShortening
+                ? "Generating short link…"
+                : url
+                  ? "Generating…"
+                  : "Enter a destination URL above to generate a QR code."}
             </div>
           )}
           <p className="text-[11.5px] text-center" style={{ color: "#64748B" }}>
