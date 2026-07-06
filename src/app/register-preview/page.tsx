@@ -196,7 +196,7 @@ export default function RegisterPage() {
                 maxWidth: 600,
               }}
             >
-              <CRMFormEmbed />
+              <CRMFormEmbed formSource="registration" />
             </div>
           </div>
 

@@ -11,9 +11,10 @@
 
 CREATE OR REPLACE FUNCTION public.get_affiliate_auth_statuses()
 RETURNS TABLE (
-  email               text,
-  email_confirmed_at  timestamptz,
-  last_sign_in_at     timestamptz
+  email                text,
+  email_confirmed_at   timestamptz,
+  last_sign_in_at      timestamptz,
+  must_change_password boolean
 )
 LANGUAGE plpgsql
 SECURITY DEFINER
@@ -29,7 +30,8 @@ BEGIN
     SELECT
       u.email::text,
       u.email_confirmed_at,
-      u.last_sign_in_at
+      u.last_sign_in_at,
+      COALESCE((u.raw_user_meta_data->>'must_change_password')::boolean, false) AS must_change_password
     FROM auth.users u
     WHERE u.id IN (
       SELECT a.auth_user_id

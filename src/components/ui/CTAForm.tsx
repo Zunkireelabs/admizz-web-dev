@@ -11,11 +11,14 @@ export interface CTAFormProps {
   variant?: "card" | "inline";
   /** Color scheme: default (purple) or light (white with shadow) */
   colorScheme?: "default" | "light";
+  /** Identifies which page/context this form is embedded on (sent to CRM for attribution) */
+  formSource?: string;
 }
 
 export default function CTAForm({
   title = "Book Your Free Consultation",
   colorScheme = "default",
+  formSource = "consultation",
 }: CTAFormProps) {
   return (
     <div
@@ -33,7 +36,7 @@ export default function CTAForm({
           {title}
         </p>
       )}
-      <CRMFormEmbed />
+      <CRMFormEmbed formSource={formSource} />
     </div>
   );
 }

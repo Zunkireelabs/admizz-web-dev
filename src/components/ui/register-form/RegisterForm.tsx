@@ -884,7 +884,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
     return payload.hearAbout;
   };
 
-  const postToCRM = (payload: FormData) => {
+  const postToCRM = (payload: FormData, source: string, refCode: string | null) => {
     return fetch(CRM_ENDPOINT, {
       method: "POST",
       headers: {
@@ -896,7 +896,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
         last_name:  payload.lastName.trim() || null,
         email:      payload.email.trim(),
         phone:      `${dialSpec(payload.dialCode).dial} ${payload.phone.trim()}`,
-        source:     "website-register",
+        source:     source,
         custom_fields: {
           city:            payload.city.trim() || null,
           countries:       payload.countries.join(", "),
@@ -904,7 +904,8 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
           field_of_study:  payload.field,
           education_level: payload.education,
           hear_about:      buildHearAbout(payload),
-          source:          "website-register",
+          source:          source,
+          ...(refCode ? { ref_code: refCode } : {}),
         },
       }),
     });
@@ -915,6 +916,9 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
     setSubmitting(true);
     try {
       const leadId = crypto.randomUUID();
+      const refCode = readAffiliateRefCookie();
+      const source = refCode ? "affiliate-register" : "website-register";
+
       const [supabaseResult] = await Promise.allSettled([
         supabase.from("register_leads").insert({
           id:           leadId,
@@ -928,9 +932,10 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
           education:    form.education,
           contact_pref: buildHearAbout(form),
           status:       "new",
-          source:       "website-register",
+          source:       source,
+          ref_code:     refCode || null,
         }),
-        postToCRM(form),
+        postToCRM(form, source, refCode),
       ]);
 
       if (supabaseResult.status === "rejected") throw supabaseResult.reason;
@@ -938,7 +943,6 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
 
       // Auto-link this registration to the referring affiliate (if any).
       // Fire-and-forget: never blocks the student's success screen.
-      const refCode = readAffiliateRefCookie();
       if (refCode) {
         createReferralFromRegistration(refCode, {
           full_name: `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
