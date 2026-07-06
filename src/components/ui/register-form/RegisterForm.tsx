@@ -884,7 +884,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
     return payload.hearAbout;
   };
 
-  const postToCRM = (payload: FormData, source: string, refCode: string | null) => {
+  const postToCRM = (payload: FormData, source: string, refCode: string | null, affiliateName: string | null) => {
     return fetch(CRM_ENDPOINT, {
       method: "POST",
       headers: {
@@ -905,7 +905,8 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
           education_level: payload.education,
           hear_about:      buildHearAbout(payload),
           source:          source,
-          ...(refCode ? { ref_code: refCode } : {}),
+          ...(refCode       ? { ref_code:       refCode       } : {}),
+          ...(affiliateName ? { affiliate_name: affiliateName } : {}),
         },
       }),
     });
@@ -919,23 +920,37 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
       const refCode = readAffiliateRefCookie();
       const source = refCode ? "affiliate-register" : "website-register";
 
+      // Look up affiliate name when a ref code is present
+      let affiliateName: string | null = null;
+      if (refCode) {
+        const { data } = await supabase
+          .from("affiliates")
+          .select("full_name")
+          .eq("referral_code", refCode)
+          .in("status", ["active", "approved"])
+          .limit(1)
+          .maybeSingle();
+        affiliateName = data?.full_name ?? null;
+      }
+
       const [supabaseResult] = await Promise.allSettled([
         supabase.from("register_leads").insert({
-          id:           leadId,
-          full_name:    `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
-          email:        form.email.trim(),
-          phone:        `${dialSpec(form.dialCode).dial} ${form.phone.trim()}`,
-          city:         form.city.trim() || null,
-          countries:    form.countries.join(", "),
-          intake:       form.intake,
-          field:        form.field,
-          education:    form.education,
-          contact_pref: buildHearAbout(form),
-          status:       "new",
-          source:       source,
-          ref_code:     refCode || null,
+          id:             leadId,
+          full_name:      `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
+          email:          form.email.trim(),
+          phone:          `${dialSpec(form.dialCode).dial} ${form.phone.trim()}`,
+          city:           form.city.trim() || null,
+          countries:      form.countries.join(", "),
+          intake:         form.intake,
+          field:          form.field,
+          education:      form.education,
+          contact_pref:   buildHearAbout(form),
+          status:         "new",
+          source:         source,
+          ref_code:       refCode || null,
+          affiliate_name: affiliateName,
         }),
-        postToCRM(form, source, refCode),
+        postToCRM(form, source, refCode, affiliateName),
       ]);
 
       // Log Supabase failures but never block the student — CRM is the primary lead store.
