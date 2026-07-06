@@ -57,8 +57,8 @@ const COUNTRIES = [
 ];
 
 const STUDY_DESTINATIONS = [
-  "USA", "UK", "Canada", "Australia", "Germany",
-  "Finland", "Sweden", "New Zealand", "India",
+  "UK", "USA", "Canada", "Australia", "India",
+  "Germany", "Finland", "Sweden", "New Zealand", "France", "Other",
 ];
 
 const STUDY_LEVELS = [

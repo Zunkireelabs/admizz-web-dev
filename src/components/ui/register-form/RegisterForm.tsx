@@ -78,17 +78,32 @@ const DIAL_CODES: { key: string; dial: string; label: string; digits: number; co
 const dialSpec = (key: string) => DIAL_CODES.find(d => d.key === key) ?? DIAL_CODES[0];
 const phoneDigits = (s: string) => s.replace(/\D/g, "");
 
-const COUNTRIES = ["🇬🇧 UK", "🇺🇸 USA", "🇨🇦 Canada", "🇦🇺 Australia", "🇮🇳 India", "🇩🇪 Germany", "🌍 Other"];
+const COUNTRIES = [
+  "🇬🇧 UK", "🇺🇸 USA", "🇨🇦 Canada", "🇦🇺 Australia",
+  "🇮🇳 India", "🇩🇪 Germany", "🇫🇮 Finland", "🇸🇪 Sweden",
+  "🇳🇿 New Zealand", "🇫🇷 France", "🌍 Other",
+];
+
+const STUDY_LEVELS = [
+  "Undergraduate",
+  "Postgraduate",
+  "Doctorate / PhD",
+  "Diploma / Certificate",
+  "Foundation Year",
+];
 
 const FIELDS = [
-  "Engineering & Technology",
-  "Allied Health Sciences",
-  "Humanities & Social Sciences",
   "Business & Management",
-  "Law & Legal Studies",
+  "Engineering & Technology",
+  "Computer Science & IT",
+  "Medicine & Health",
+  "Arts & Humanities",
+  "Science",
+  "Law",
+  "Social Sciences",
   "Architecture & Design",
-  "Applied Sciences",
-  "Medical & Pharmacy",
+  "Hospitality & Tourism",
+  "Other",
 ];
 
 const HEAR_OPTIONS = ["Student referral", "Social media", "Walk-in", "Direct / Google"] as const;
@@ -107,7 +122,9 @@ function isStepValid(step: number, form: FormData): boolean {
       form.city.trim().length >= 2
     );
   if (step === 1) {
-    return form.countries.length >= 1 && form.countries.length <= 3 && form.field.trim().length >= 2;
+    return form.countries.length >= 1 && form.countries.length <= 3 &&
+           form.education.trim().length >= 2 &&
+           form.field.trim().length >= 2;
   }
   if (step === 2) {
     if (!form.hearAbout) return false;
@@ -441,8 +458,9 @@ function Step1({ form, set, theme }: { form: FormData; set: (p: Partial<FormData
 }
 
 const STEP2_HEADINGS = [
-  { greeting: (name: string) => name ? `Hello ${name},` : "Hello,", title: "where do you want to study?", subtitle: "Pick your destination" },
-  { greeting: (name: string) => name ? `And ${name},` : "And,",    title: "what do you want to study?", subtitle: "" },
+  { greeting: (name: string) => name ? `Hello ${name},` : "Hello,", title: "where do you want to study?",      subtitle: "Pick your destination" },
+  { greeting: (name: string) => name ? `And ${name},`   : "And,",   title: "what level are you aiming for?",  subtitle: "" },
+  { greeting: (name: string) => name ? `And ${name},`   : "And,",   title: "what do you want to study?",      subtitle: "" },
 ];
 
 function Step2({
@@ -458,9 +476,9 @@ function Step2({
 
   return (
     <div>
-      {/* Sub-step progress bar — 2 bars */}
+      {/* Sub-step progress bar — 3 bars */}
       <div className="flex gap-1.5 mb-5">
-        {[0, 1].map((i) => (
+        {[0, 1, 2].map((i) => (
           <motion.div
             key={i}
             className="h-1 rounded-full flex-1"
@@ -508,6 +526,20 @@ function Step2({
         )}
 
         {subStep === 1 && (
+          <motion.div
+            key="education"
+            initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <ChipPicker
+              label="Level of study" options={STUDY_LEVELS} value={form.education}
+              onChange={(v) => set({ education: v as string })}
+              theme={theme} grid
+            />
+          </motion.div>
+        )}
+
+        {subStep === 2 && (
           <motion.div
             key="field"
             initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
@@ -828,11 +860,15 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
   const firstName = form.firstName.trim();
   const theme     = STEP_THEME[step];
   const step2Sub0Valid = form.countries.length >= 1 && form.countries.length <= 3;
-  const stepValid = step === 1 && step2SubStep === 0 ? step2Sub0Valid : isStepValid(step, form);
+  const step2Sub1Valid = form.education.trim().length >= 2;
+  const stepValid =
+    step === 1 && step2SubStep === 0 ? step2Sub0Valid :
+    step === 1 && step2SubStep === 1 ? step2Sub1Valid :
+    isStepValid(step, form);
 
   const next = () => {
     if (!stepValid) return;
-    if (step === 1 && step2SubStep === 0) { setStep2SubStep(1); return; }
+    if (step === 1 && step2SubStep < 2) { setStep2SubStep((s) => s + 1); return; }
     setStep((s) => Math.min(s + 1, 2));
   };
   const back = () => {
@@ -860,7 +896,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
         last_name:  payload.lastName.trim() || null,
         email:      payload.email.trim(),
         phone:      `${dialSpec(payload.dialCode).dial} ${payload.phone.trim()}`,
-        source:     "website",
+        source:     "website-register",
         custom_fields: {
           city:            payload.city.trim() || null,
           countries:       payload.countries.join(", "),
@@ -868,7 +904,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
           field_of_study:  payload.field,
           education_level: payload.education,
           hear_about:      buildHearAbout(payload),
-          source:          "website",
+          source:          "website-register",
         },
       }),
     });
@@ -892,7 +928,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
           education:    form.education,
           contact_pref: buildHearAbout(form),
           status:       "new",
-          source:       "website",
+          source:       "website-register",
         }),
         postToCRM(form),
       ]);
