@@ -938,8 +938,12 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
         postToCRM(form, source, refCode),
       ]);
 
-      if (supabaseResult.status === "rejected") throw supabaseResult.reason;
-      if (supabaseResult.value.error) throw supabaseResult.value.error;
+      // Log Supabase failures but never block the student — CRM is the primary lead store.
+      if (supabaseResult.status === "rejected") {
+        console.error("[register] supabase insert failed:", supabaseResult.reason);
+      } else if (supabaseResult.value.error) {
+        console.error("[register] supabase insert error:", supabaseResult.value.error);
+      }
 
       // Auto-link this registration to the referring affiliate (if any).
       // Fire-and-forget: never blocks the student's success screen.
