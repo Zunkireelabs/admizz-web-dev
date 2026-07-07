@@ -587,17 +587,14 @@ export default function AdmizzionWeekPage() {
                     </select>
                     <select id="spinStudyProgram" name="studyProgram" required>
                       <option value="">Study program</option>
-                      <option value="Business & Management">Business &amp; Management</option>
                       <option value="Engineering & Technology">Engineering &amp; Technology</option>
-                      <option value="Computer Science & IT">Computer Science &amp; IT</option>
-                      <option value="Medicine & Health">Medicine &amp; Health</option>
-                      <option value="Arts & Humanities">Arts &amp; Humanities</option>
-                      <option value="Science">Science</option>
-                      <option value="Law">Law</option>
-                      <option value="Social Sciences">Social Sciences</option>
+                      <option value="Allied Health Sciences">Allied Health Sciences</option>
+                      <option value="Humanities & Social Sciences">Humanities &amp; Social Sciences</option>
+                      <option value="Business & Management">Business &amp; Management</option>
+                      <option value="Law & Legal Studies">Law &amp; Legal Studies</option>
                       <option value="Architecture & Design">Architecture &amp; Design</option>
-                      <option value="Hospitality & Tourism">Hospitality &amp; Tourism</option>
-                      <option value="Other">Other</option>
+                      <option value="Applied Sciences">Applied Sciences</option>
+                      <option value="Medical & Pharmacy">Medical &amp; Pharmacy</option>
                     </select>
                   </div>
                   <label className="spin-checkbox">
@@ -827,17 +824,14 @@ export default function AdmizzionWeekPage() {
                 <div className="panel-form-group">
                   <select name="studyProgram" id="studyProgram" required>
                     <option value="">Study program</option>
-                    <option value="Business & Management">Business &amp; Management</option>
                     <option value="Engineering & Technology">Engineering &amp; Technology</option>
-                    <option value="Computer Science & IT">Computer Science &amp; IT</option>
-                    <option value="Medicine & Health">Medicine &amp; Health</option>
-                    <option value="Arts & Humanities">Arts &amp; Humanities</option>
-                    <option value="Science">Science</option>
-                    <option value="Law">Law</option>
-                    <option value="Social Sciences">Social Sciences</option>
+                    <option value="Allied Health Sciences">Allied Health Sciences</option>
+                    <option value="Humanities & Social Sciences">Humanities &amp; Social Sciences</option>
+                    <option value="Business & Management">Business &amp; Management</option>
+                    <option value="Law & Legal Studies">Law &amp; Legal Studies</option>
                     <option value="Architecture & Design">Architecture &amp; Design</option>
-                    <option value="Hospitality & Tourism">Hospitality &amp; Tourism</option>
-                    <option value="Other">Other</option>
+                    <option value="Applied Sciences">Applied Sciences</option>
+                    <option value="Medical & Pharmacy">Medical &amp; Pharmacy</option>
                   </select>
                 </div>
               </div>

@@ -93,17 +93,14 @@ const STUDY_LEVELS = [
 ];
 
 const FIELDS = [
-  "Business & Management",
   "Engineering & Technology",
-  "Computer Science & IT",
-  "Medicine & Health",
-  "Arts & Humanities",
-  "Science",
-  "Law",
-  "Social Sciences",
+  "Allied Health Sciences",
+  "Humanities & Social Sciences",
+  "Business & Management",
+  "Law & Legal Studies",
   "Architecture & Design",
-  "Hospitality & Tourism",
-  "Other",
+  "Applied Sciences",
+  "Medical & Pharmacy",
 ];
 
 const HEAR_OPTIONS = ["Student referral", "Social media", "Walk-in", "Direct / Google"] as const;

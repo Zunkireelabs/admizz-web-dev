@@ -70,17 +70,14 @@ const STUDY_LEVELS = [
 ];
 
 const STUDY_PROGRAMS = [
-  "Business & Management",
   "Engineering & Technology",
-  "Computer Science & IT",
-  "Medicine & Health",
-  "Arts & Humanities",
-  "Science",
-  "Law",
-  "Social Sciences",
+  "Allied Health Sciences",
+  "Humanities & Social Sciences",
+  "Business & Management",
+  "Law & Legal Studies",
   "Architecture & Design",
-  "Hospitality & Tourism",
-  "Other",
+  "Applied Sciences",
+  "Medical & Pharmacy",
 ];
 
 /* ── Panel state ──────────────────────────────────────────────── */
