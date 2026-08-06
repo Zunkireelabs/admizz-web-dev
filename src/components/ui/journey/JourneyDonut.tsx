@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MousePointerClick } from "lucide-react";
+import { BsFillHandIndexThumbFill, BsHandIndexThumb } from "react-icons/bs";
 import { journeySteps } from "./journey.data";
 
 type Props = {
@@ -136,7 +136,6 @@ export default function JourneyDonut({
                 className="sm:hidden flex flex-col items-center gap-0.5"
                 style={{
                   position: "relative", zIndex: 4,
-                  fontWeight: 900,
                   color: "#1A237E",
                   fontFamily: "var(--font-rubik), sans-serif",
                   pointerEvents: "none",
@@ -144,6 +143,7 @@ export default function JourneyDonut({
                   textShadow: "0 1px 0 rgba(255,255,255,0.6)",
                   transform: pressed ? "scale(0.95)" : "scale(1)",
                   transition: pressed ? "transform 40ms ease" : "transform 500ms cubic-bezier(0.34,1.56,0.64,1)",
+                  marginTop: "10px",
                 }}
               >
                 <style>{`
@@ -161,30 +161,36 @@ export default function JourneyDonut({
                     100% { opacity: 0; }
                   }
                 `}</style>
-                <span style={{ fontSize: "clamp(9px, 2.8vw, 10.5px)", letterSpacing: "0.04em", opacity: 0.85, marginBottom: "1px" }}>CLICK HERE TO</span>
-                <span style={{ fontSize: "clamp(14px, 4.5vw, 17px)", lineHeight: 1.2, letterSpacing: "-0.01em" }}>Register</span>
-                <span style={{ fontSize: "clamp(14px, 4.5vw, 17px)", lineHeight: 1.2, letterSpacing: "-0.01em" }}>Now</span>
-                <span style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, marginTop: "3px" }}>
+                <span style={{ fontSize: "clamp(8px, 2.3vw, 9.5px)", fontWeight: 700, letterSpacing: "0.04em", opacity: 0.85, marginBottom: "1px" }}>CLICK HERE TO</span>
+                <span style={{ fontSize: "clamp(11px, 3.2vw, 13px)", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}>REGISTER NOW</span>
+                <span style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, marginTop: "2px" }}>
                   <span
                     aria-hidden
                     style={{
-                      position: "absolute", width: 36, height: 36, borderRadius: "50%",
+                      position: "absolute", width: 26, height: 26, borderRadius: "50%",
                       border: "1.5px solid rgba(0,0,0,0.4)",
                       animation: "clickRing 1.6s ease-out infinite",
                     }}
                   />
-                  <MousePointerClick
-                    size={32}
-                    strokeWidth={1.6}
-                    color="#000000"
-                    fill="#FFFFFF"
+                  <span
                     style={{
-                      position: "relative", zIndex: 1, transformOrigin: "70% 15%",
+                      position: "relative", display: "inline-flex", zIndex: 1, transformOrigin: "50% 85%",
                       animation: "handClick 2.2s ease-in-out infinite",
-                      filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.35))",
                     }}
-                    aria-hidden
-                  />
+                  >
+                    <BsFillHandIndexThumbFill
+                      size={20}
+                      color="#FFFFFF"
+                      style={{ position: "absolute", inset: 0 }}
+                      aria-hidden
+                    />
+                    <BsHandIndexThumb
+                      size={20}
+                      color="#000000"
+                      style={{ position: "relative" }}
+                      aria-hidden
+                    />
+                  </span>
                 </span>
               </span>
               {/* Desktop: single line with tap/click cue, no arrow */}
@@ -192,21 +198,19 @@ export default function JourneyDonut({
                 className="hidden sm:flex flex-col items-center gap-0.5"
                 style={{
                   position: "relative", zIndex: 4,
-                  fontSize: "clamp(12px, 2.5vw, 15px)",
-                  fontWeight: 900,
                   color: "#1A237E",
                   fontFamily: "var(--font-rubik), sans-serif",
-                  letterSpacing: "-0.01em",
                   pointerEvents: "none",
                   whiteSpace: "nowrap",
                   userSelect: "none",
                   textShadow: "0 1px 0 rgba(255,255,255,0.6)",
                   transform: pressed ? "scale(0.95)" : "scale(1)",
                   transition: pressed ? "transform 40ms ease" : "transform 500ms cubic-bezier(0.34,1.56,0.64,1)",
+                  marginTop: "22px",
                 }}
               >
-                <span style={{ fontSize: "clamp(8px, 1.6vw, 9.5px)", letterSpacing: "0.04em", opacity: 0.85, marginBottom: "1px" }}>CLICK HERE TO</span>
-                Register Now
+                <span style={{ fontSize: "clamp(8px, 1.6vw, 9.5px)", fontWeight: 700, letterSpacing: "0.04em", opacity: 0.85, marginBottom: "1px" }}>CLICK HERE TO</span>
+                <span style={{ fontSize: "clamp(11px, 2.1vw, 13px)", fontWeight: 700, letterSpacing: "-0.01em" }}>REGISTER NOW</span>
                 <span style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 38, height: 38, marginTop: "2px" }}>
                   <span
                     aria-hidden
@@ -216,18 +220,25 @@ export default function JourneyDonut({
                       animation: "clickRing 1.6s ease-out infinite",
                     }}
                   />
-                  <MousePointerClick
-                    size={28}
-                    strokeWidth={1.6}
-                    color="#000000"
-                    fill="#FFFFFF"
+                  <span
                     style={{
-                      position: "relative", zIndex: 1, transformOrigin: "70% 15%",
+                      position: "relative", display: "inline-flex", zIndex: 1, transformOrigin: "50% 85%",
                       animation: "handClick 2.2s ease-in-out infinite",
-                      filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.35))",
                     }}
-                    aria-hidden
-                  />
+                  >
+                    <BsFillHandIndexThumbFill
+                      size={26}
+                      color="#FFFFFF"
+                      style={{ position: "absolute", inset: 0 }}
+                      aria-hidden
+                    />
+                    <BsHandIndexThumb
+                      size={26}
+                      color="#000000"
+                      style={{ position: "relative" }}
+                      aria-hidden
+                    />
+                  </span>
                 </span>
               </span>
             </div>
