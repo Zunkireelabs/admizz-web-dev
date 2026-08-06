@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { MousePointerClick } from "lucide-react";
 import { journeySteps } from "./journey.data";
 
 type Props = {
@@ -146,20 +147,45 @@ export default function JourneyDonut({
                 }}
               >
                 <style>{`
-                  @keyframes tapBounce {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-3px); }
+                  @keyframes handClick {
+                    0% { transform: scale(1) translateY(0); }
+                    25% { transform: scale(1) translateY(-4px); }
+                    35% { transform: scale(0.82) translateY(-4px); }
+                    45% { transform: scale(1) translateY(-4px); }
+                    70%, 100% { transform: scale(1) translateY(0); }
+                  }
+                  @keyframes clickRing {
+                    0%, 30% { transform: scale(0.5); opacity: 0; }
+                    45% { opacity: 0.55; }
+                    75% { transform: scale(1.8); opacity: 0; }
+                    100% { opacity: 0; }
                   }
                 `}</style>
+                <span style={{ fontSize: "clamp(9px, 2.8vw, 10.5px)", letterSpacing: "0.04em", opacity: 0.85, marginBottom: "1px" }}>CLICK HERE TO</span>
                 <span style={{ fontSize: "clamp(14px, 4.5vw, 17px)", lineHeight: 1.2, letterSpacing: "-0.01em" }}>Register</span>
                 <span style={{ fontSize: "clamp(14px, 4.5vw, 17px)", lineHeight: 1.2, letterSpacing: "-0.01em" }}>Now</span>
-                <svg
-                  width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  style={{ animation: "tapBounce 1.4s ease-in-out infinite", opacity: 0.75, marginTop: "10px" }}
-                  aria-hidden
-                >
-                  <path d="M7 2.5C7 1.7 7.7 1 8.5 1S10 1.7 10 2.5V8c.3-.2.7-.4 1.2-.4.8 0 1.5.5 1.7 1.2.3-.2.7-.3 1.1-.3.8 0 1.5.5 1.7 1.2.3-.2.7-.3 1.1-.3.9 0 1.7.7 1.7 1.6V14c0 3.3-2.7 6-6 6h-1c-1.9 0-3.7-.9-4.8-2.4L2.8 14c-.5-.7-.4-1.7.4-2.2.7-.5 1.6-.4 2.1.2L7 14V2.5Z" stroke="#1A237E" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <span style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, marginTop: "3px" }}>
+                  <span
+                    aria-hidden
+                    style={{
+                      position: "absolute", width: 36, height: 36, borderRadius: "50%",
+                      border: "1.5px solid rgba(0,0,0,0.4)",
+                      animation: "clickRing 1.6s ease-out infinite",
+                    }}
+                  />
+                  <MousePointerClick
+                    size={32}
+                    strokeWidth={1.6}
+                    color="#000000"
+                    fill="#FFFFFF"
+                    style={{
+                      position: "relative", zIndex: 1, transformOrigin: "70% 15%",
+                      animation: "handClick 2.2s ease-in-out infinite",
+                      filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.35))",
+                    }}
+                    aria-hidden
+                  />
+                </span>
               </span>
               {/* Desktop: single line with tap/click cue, no arrow */}
               <span
@@ -179,14 +205,30 @@ export default function JourneyDonut({
                   transition: pressed ? "transform 40ms ease" : "transform 500ms cubic-bezier(0.34,1.56,0.64,1)",
                 }}
               >
+                <span style={{ fontSize: "clamp(8px, 1.6vw, 9.5px)", letterSpacing: "0.04em", opacity: 0.85, marginBottom: "1px" }}>CLICK HERE TO</span>
                 Register Now
-                <svg
-                  width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  style={{ animation: "tapBounce 1.4s ease-in-out infinite", opacity: 0.75, marginTop: "2px" }}
-                  aria-hidden
-                >
-                  <path d="M7 2.5C7 1.7 7.7 1 8.5 1S10 1.7 10 2.5V8c.3-.2.7-.4 1.2-.4.8 0 1.5.5 1.7 1.2.3-.2.7-.3 1.1-.3.8 0 1.5.5 1.7 1.2.3-.2.7-.3 1.1-.3.9 0 1.7.7 1.7 1.6V14c0 3.3-2.7 6-6 6h-1c-1.9 0-3.7-.9-4.8-2.4L2.8 14c-.5-.7-.4-1.7.4-2.2.7-.5 1.6-.4 2.1.2L7 14V2.5Z" stroke="#1A237E" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <span style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 38, height: 38, marginTop: "2px" }}>
+                  <span
+                    aria-hidden
+                    style={{
+                      position: "absolute", width: 30, height: 30, borderRadius: "50%",
+                      border: "1.5px solid rgba(0,0,0,0.4)",
+                      animation: "clickRing 1.6s ease-out infinite",
+                    }}
+                  />
+                  <MousePointerClick
+                    size={28}
+                    strokeWidth={1.6}
+                    color="#000000"
+                    fill="#FFFFFF"
+                    style={{
+                      position: "relative", zIndex: 1, transformOrigin: "70% 15%",
+                      animation: "handClick 2.2s ease-in-out infinite",
+                      filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.35))",
+                    }}
+                    aria-hidden
+                  />
+                </span>
               </span>
             </div>
           </button>

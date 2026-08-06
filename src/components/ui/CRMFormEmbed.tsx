@@ -63,6 +63,12 @@ export default function CRMFormEmbed({
 
   return (
     <>
+      <style>{`
+        .crm-form-iframe { scrollbar-width: thin; }
+        .crm-form-iframe::-webkit-scrollbar { width: 5px; }
+        .crm-form-iframe::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.25); border-radius: 3px; }
+        .crm-form-iframe::-webkit-scrollbar-track { background: transparent; }
+      `}</style>
       {/* Desktop */}
       <div className="relative hidden sm:block" style={{ height, width: "100%" }}>
         <iframe
@@ -70,11 +76,12 @@ export default function CRMFormEmbed({
           width="100%"
           height={height}
           frameBorder={0}
-          scrolling="no"
+          scrolling="auto"
           loading="eager"
           // @ts-expect-error -- fetchPriority is valid HTML but not yet in React types
           fetchPriority="high"
-          style={{ border: "none", overflow: "hidden" }}
+          className="crm-form-iframe"
+          style={{ border: "none", overflow: "auto" }}
           title={title}
         />
       </div>
@@ -85,11 +92,12 @@ export default function CRMFormEmbed({
           width="100%"
           height={mobileHeight}
           frameBorder={0}
-          scrolling="no"
+          scrolling="auto"
           loading="eager"
           // @ts-expect-error -- fetchPriority is valid HTML but not yet in React types
           fetchPriority="high"
-          style={{ border: "none", overflow: "hidden" }}
+          className="crm-form-iframe"
+          style={{ border: "none", overflow: "auto" }}
           title={title}
         />
       </div>
