@@ -815,7 +815,7 @@ function SuccessCard({ firstName }: { firstName: string }) {
         {firstName ? `We've got your details, ${firstName}!` : "We've got your details!"}
       </h3>
       <p className="text-[14px] md:text-[15px] leading-relaxed mb-7" style={{ color: "#5C7189" }}>
-        A counsellor will reach out within 24 hours.
+        One of our Counselors will reach out soon!
       </p>
       <a href="https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%20just%20registered"
         target="_blank" rel="noopener noreferrer"
