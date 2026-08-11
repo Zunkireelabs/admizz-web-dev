@@ -54,6 +54,9 @@ yarn-error.log*
 /dist/
 webhook/logs/
 
+# supabase local (contains project ref, org ID, pooler hostname)
+supabase/.temp/
+
 # screenshots
 /temp_ss/
 
