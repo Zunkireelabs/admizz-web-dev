@@ -53,7 +53,7 @@ const EVENT_JSON_LD = {
 export default function WorldCup2026Page() {
   return (
     <div className="wc-root">
-      <link rel="stylesheet" href="/events/css/worldcup-2026.css?v=20260618-pc-crm" precedence="default" />
+      <link rel="stylesheet" href="/events/css/worldcup-2026.css?v=20260723-c" precedence="default" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(EVENT_JSON_LD) }}
@@ -66,9 +66,9 @@ export default function WorldCup2026Page() {
           <MatchOfTheDay />
           <TodaySchedule />
           <BracketViz />
-          <PredictorsCircle />
+          {/* <PredictorsCircle /> */}
           <GroupStandings />
-          <GoldenBoot />
+          {/* <GoldenBoot /> */}
           {/* <Leaderboard /> */}
           {/* <PredictionCenter /> */}
           <AdmizzStory />

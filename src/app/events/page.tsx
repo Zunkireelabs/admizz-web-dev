@@ -102,7 +102,7 @@ export default function EventsPage() {
                 <div className="event-card-image" style={{ background: event.gradient }}>
                   <div className={`event-card-overlay${event.overlayLight ? ' event-card-overlay--light' : ''}`}>
                     <span className="event-card-eyebrow">{event.eyebrow}</span>
-                    <h3 className="event-card-banner-title">{event.bannerTitle}</h3>
+                    {event.bannerTitle && <h3 className="event-card-banner-title">{event.bannerTitle}</h3>}
                     <p className="event-card-banner-subtitle">{event.subtitle}</p>
                   </div>
                   <span className={`event-mode-badge event-mode-${event.mode === 'online' ? 'online' : 'inperson'}`}>

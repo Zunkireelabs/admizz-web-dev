@@ -47,6 +47,7 @@ async function submitLead(
   const sessionId = makeSessionId();
   const matchLabel = `${match.teamAData.name} vs ${match.teamBData.name}`;
   const submittedAt = new Date().toISOString();
+  const utmParams = new URLSearchParams(window.location.search);
   try {
     const res = await fetch(CRM_ENDPOINT, {
       method: "POST",
@@ -56,9 +57,10 @@ async function submitLead(
         form_config_id:  CRM_FORM_CONFIG_ID,
         session_id:      sessionId,
         idempotency_key: `${sessionId}-final`,
-        intake_source:   "worldcup-predict-win",
-        intake_medium:   "web",
+        intake_source:   "Event",
+        intake_medium:   utmParams.get("utm_medium") || "Organic",
         intake_campaign: "wc2026-predict-and-win",
+        form_source:     window.location.pathname,
         status:          "new",
         step:            1,
         is_final:        true,
@@ -70,7 +72,6 @@ async function submitLead(
         email:           profile.email,
         city:            profile.city,
 
-        source:          "worldcup-predict-win",
         country:         null,
         countries:       [],
         field_of_study:  null,
@@ -82,11 +83,11 @@ async function submitLead(
         lead_tag:        "wc2026-predict-win",
 
         custom_fields: {
+          source:                   "wc2026-predict-and-win",
           full_name:                profile.name,
           phone_number:             phoneLocalDigits,
           dial_code:                profile.dialCode,
           city:                     profile.city,
-          source:                   "worldcup-predict-win",
           match_id:                 match.id,
           match_label:              matchLabel,
           prediction:               choice,

@@ -100,7 +100,7 @@ export default function PredictWinPromoOverlay({
             role="dialog"
             aria-modal="true"
             aria-labelledby={`${id}-title`}
-            className="relative w-[95vw] max-w-[520px] rounded-2xl bg-white overflow-hidden shadow-[0_30px_80px_rgba(0,19,83,0.35)] max-h-[90vh] overflow-y-auto"
+            className="relative flex flex-col w-[92vw] max-w-[420px] sm:max-w-[480px] rounded-2xl bg-white overflow-hidden shadow-[0_30px_80px_rgba(0,19,83,0.35)] max-h-[92dvh] overflow-y-auto"
             initial={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.92, y: 12 }}
             animate={reduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96, y: 8 }}
@@ -122,22 +122,23 @@ export default function PredictWinPromoOverlay({
               Predict & Win — FIFA World Cup 2026
             </h2>
 
-            <div className="relative w-full aspect-square">
+            <div className="w-full flex-shrink-0">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 95vw, 520px"
-                priority
+                width={1080}
+                height={1350}
+                className="w-full h-auto block"
+                sizes="(max-width: 640px) 92vw, 480px"
+                loading="eager"
               />
             </div>
 
-            <div className="px-5 py-4 sm:px-6 sm:py-5">
+            <div className="flex-shrink-0 px-5 py-4 sm:px-6 sm:py-5">
               <Link
                 href={ctaHref}
                 onClick={dismiss}
-                className="block w-full text-center bg-yellow text-black font-bold text-[16px] sm:text-[17px] px-6 py-3.5 rounded-[12px] hover:brightness-95 transition-all shadow-[0_6px_20px_rgba(253,237,34,0.35)]"
+                className="block w-full text-center bg-yellow text-black font-bold text-[13px] sm:text-[17px] px-4 sm:px-6 py-3 sm:py-3.5 rounded-[12px] hover:brightness-95 transition-all shadow-[0_6px_20px_rgba(253,237,34,0.35)] whitespace-nowrap"
               >
                 {ctaText}
               </Link>

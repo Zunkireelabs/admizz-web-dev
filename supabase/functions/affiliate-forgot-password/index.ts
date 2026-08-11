@@ -10,11 +10,23 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 const SUPABASE_URL              = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const RESEND_API_KEY            = Deno.env.get("RESEND_API_KEY")!;
-const SITE_URL                  = Deno.env.get("SITE_URL") ?? "https://admizzeducation.com";
+
+// Whitelisted origins — reset email will link back to whichever of these sent the request.
+const ALLOWED_ORIGINS = [
+  "https://admizzeducation.com",
+  "https://dev-web.admizzeducation.com",
+];
+const FALLBACK_SITE_URL = "https://admizzeducation.com";
+
+function resolveSiteUrl(req: Request): string {
+  const origin = req.headers.get("origin") ?? req.headers.get("referer") ?? "";
+  const matched = ALLOWED_ORIGINS.find(o => origin.startsWith(o));
+  return matched ?? FALLBACK_SITE_URL;
+}
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin":  "*",
-  "Access-Control-Allow-Headers": "content-type",
+  "Access-Control-Allow-Headers": "content-type, authorization, x-client-info, apikey",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
@@ -132,7 +144,7 @@ Deno.serve(async (req: Request) => {
     return json({ error: "Invalid JSON body" }, 400);
   }
 
-  const dashboardUrl = `${SITE_URL.replace(/\/$/, "")}/affiliate-dashboard`;
+  const dashboardUrl = `${resolveSiteUrl(req).replace(/\/$/, "")}/affiliate-dashboard`;
 
   // ── 2. Look up user — silently succeed if not found (prevent enumeration) ─
   const adminClient = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
@@ -147,9 +159,27 @@ Deno.serve(async (req: Request) => {
 
   const user = users.find(u => u.email?.toLowerCase() === email);
 
-  // If no user or not email-confirmed, return ok without sending (silent)
-  if (!user || !user.email_confirmed_at) {
-    console.info("[forgot-password] no confirmed user for:", email, "— silently succeeding");
+  // Unknown email — silent (prevent enumeration)
+  if (!user) {
+    console.info("[forgot-password] no user found for:", email, "— silently succeeding");
+    return json({ ok: true });
+  }
+
+  // Not yet confirmed — invite link was never clicked or expired before use.
+  // Resend a fresh invite link so they can reach SetPassword.
+  if (!user.email_confirmed_at) {
+    console.info("[forgot-password] unconfirmed user:", email, "— resending invite");
+    const { error: inviteErr } = await adminClient.auth.admin.inviteUserByEmail(email, {
+      redirectTo: dashboardUrl,
+      data: {
+        ...user.user_metadata,
+        must_change_password: true,
+      },
+    });
+    if (inviteErr) {
+      console.error("[forgot-password] inviteUserByEmail error:", inviteErr.message);
+      return json({ ok: false, error: "Failed to send invite" }, 500);
+    }
     return json({ ok: true });
   }
 
@@ -165,7 +195,11 @@ Deno.serve(async (req: Request) => {
     return json({ ok: false, error: "Failed to generate reset link" }, 500);
   }
 
-  const resetLink = linkData.properties.action_link;
+  // generateLink ignores options.redirectTo and uses the project Site URL.
+  // Manually override redirect_to in the action_link to point to the dashboard.
+  const actionUrl = new URL(linkData.properties.action_link);
+  actionUrl.searchParams.set("redirect_to", dashboardUrl);
+  const resetLink = actionUrl.toString();
 
   // ── 4. Send via Resend ───────────────────────────────────────────────────
   const resendRes = await fetch("https://api.resend.com/emails", {

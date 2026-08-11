@@ -96,6 +96,20 @@ export function buildBracket(matches: MatchWithTeams[]): Record<BracketSlot["rou
     });
   }
 
+  // FIFA WC 2026 bracket: ESPN returns R16 matches in chronological order, but the
+  // official bracket pairs them non-sequentially into QFs:
+  //   Jul-4 matches (idx 0,1) → QF Jul-9  (position 0)
+  //   Jul-6/7 matches (idx 4,5) → QF Jul-10 (position 1)  ← swapped
+  //   Jul-5/6 matches (idx 2,3) → QF Jul-11 (position 2)  ← swapped
+  //   Jul-7 matches (idx 6,7) → QF Jul-12 (position 3)
+  // Reorder so connector lines use the correct i*2 / i*2+1 positional pairing.
+  if (buckets.R16.length === 8) {
+    const r = buckets.R16;
+    const ordered = [r[0], r[1], r[4], r[5], r[2], r[3], r[6], r[7]];
+    ordered.forEach((s, i) => { s.position = i; });
+    buckets.R16 = ordered;
+  }
+
   (Object.keys(ROUND_COUNT) as BracketSlot["round"][]).forEach((round) => {
     const target = ROUND_COUNT[round];
     const placeholders = ROUND_PLACEHOLDERS[round];
