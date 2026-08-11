@@ -94,6 +94,9 @@ export default function GoldenBoot() {
   const { topScorers, pulse } = useLive();
   const tournamentStarted = pulse.matchesPlayed > 0;
 
+  // If tournament is live but all scorers still show 0 goals, real data is still loading.
+  const dataLoading = tournamentStarted && topScorers.every((s) => s.goals === 0);
+
   const leader = topScorers[0];
   const rest = topScorers.slice(1, 8);
 
@@ -107,21 +110,33 @@ export default function GoldenBoot() {
               The Hunt for <span className="wc-section-title-accent wc-section-title-accent--gold">Gold.</span>
             </h2>
             <p className="wc-section-lede">
-              {tournamentStarted
+              {dataLoading
+                ? "Aggregating goal data from match summaries…"
+                : tournamentStarted
                 ? "Top scorers through the group stage and beyond."
                 : "Pre-tournament favourites. The race begins June 11."}
             </p>
           </div>
         </div>
 
-        <div className="wc-gb-layout">
-          {leader && <FeaturedLeader s={leader} />}
-          <div className="wc-gb-list">
-            {rest.map((s) => (
-              <LeaderboardRow key={`${s.rank}-${s.name}`} s={s} />
-            ))}
+        {dataLoading ? (
+          <div className="wc-gb-loading">
+            <div className="wc-gb-loading-icon">
+              <FootballIcon size={32} strokeWidth={1.5} />
+            </div>
+            <p className="wc-gb-loading-text">Fetching live goal data…</p>
+            <p className="wc-gb-loading-sub">This may take a few moments on first load</p>
           </div>
-        </div>
+        ) : (
+          <div className="wc-gb-layout">
+            {leader && <FeaturedLeader s={leader} />}
+            <div className="wc-gb-list">
+              {rest.map((s) => (
+                <LeaderboardRow key={`${s.rank}-${s.name}`} s={s} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

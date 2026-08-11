@@ -3458,6 +3458,36 @@ body.wc-modal-active .wc-nav-sticky {
   .wc-gb-layout { grid-template-columns: 1fr; }
 }
 
+/* ---------- Loading state ---------- */
+.wc-gb-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 64px 24px;
+  color: var(--wc-text-muted);
+  text-align: center;
+}
+.wc-gb-loading-icon {
+  opacity: 0.4;
+  animation: wc-spin 2s linear infinite;
+}
+@keyframes wc-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.wc-gb-loading-text {
+  font-size: 1rem;
+  color: var(--wc-text-secondary);
+  margin: 0;
+}
+.wc-gb-loading-sub {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin: 0;
+}
+
 /* ---------- Featured #1 card ---------- */
 .wc-gb-featured {
   position: relative;
@@ -6894,4 +6924,86 @@ body.wc-modal-active .wc-nav-sticky {
   opacity: 0.9;
   stroke-dasharray: none;
   filter: drop-shadow(0 0 5px rgba(200, 16, 46, 0.7));
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TOURNAMENT COMPLETE — Centred single-column layout + Winner Podium
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Centred heading + subtitles */
+.wc-tc-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.wc-tc-header .wc-section-title {
+  text-align: center;
+}
+
+.wc-tc-header .wc-section-lede {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 13.5px;
+  max-width: none;
+}
+
+.wc-section--dark {
+  overflow: hidden;
+  background: linear-gradient(180deg, #1F2765 0%, #1a2260 30%, #0d1540 55%, #0c200a 82%, #0e3209 100%) !important;
+}
+
+.wc-podium-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+  position: relative;
+  z-index: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+@media (max-width: 720px) {
+  .wc-podium-wrapper {
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
+
+
+.wc-podium-svg-box {
+  width: 100%;
+}
+
+.wc-podium-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wc-podium-email {
+  text-align: center;
+  margin: 14px auto 0;
+  padding-bottom: 4px;
+  font-family: Montserrat, sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.60);
+}
+
+.wc-podium-email a {
+  color: var(--wc-admizz-yellow);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wc-podium-email a:hover {
+  text-decoration: underline;
 }

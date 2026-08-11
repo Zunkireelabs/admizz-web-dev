@@ -7,6 +7,7 @@ import { formatKickoff } from "@/lib/wc2026/format";
 import type { MatchWithTeams } from "@/lib/wc2026/types";
 import MatchScoreboard from "../shared/MatchScoreboard";
 import InlinePredict from "./InlinePredict";
+import WinnerPodium from "./WinnerPodium";
 
 type NodeState = "predicted" | "active" | "locked";
 
@@ -61,9 +62,31 @@ export default function MatchOfTheDay() {
   }
 
   // Empty 24h window — fall back to whatever is "happening" so the section
-  // never goes blank. If a match is live, show it. Otherwise rest-day card.
+  // never goes blank. If a match is live, show it. Otherwise tournament-complete podium.
   if (queue.length === 0) {
     const fallback = liveMatches[0] ?? nextMatch;
+
+    // Tournament complete — no upcoming or live matches, show winner podium
+    if (!fallback) {
+      return (
+        <section className="wc-section wc-section--compact wc-section--dark" id="match">
+          <div className="wc-section-inner">
+            <div className="wc-section-header" style={{ justifyContent: "center", marginBottom: 32 }}>
+              <div className="wc-section-title-block" style={{ textAlign: "center" }}>
+                <h2 className="wc-section-title" style={{ color: "#fff" }}>Tournament Complete</h2>
+                <p className="wc-section-lede" style={{ color: "rgba(255,255,255,0.65)", marginLeft: "auto", marginRight: "auto" }}>Thanks for playing through World Cup 2026.</p>
+                <p className="wc-section-lede" style={{ fontStyle: "italic", fontSize: "11px", color: "#FCB723", fontWeight: "700", marginLeft: "auto", marginRight: "auto" }}>
+                  It&apos;s official. The World Cup 2026 has a champion — and so does our Predict &amp; Win!
+                </p>
+              </div>
+            </div>
+          </div>
+          <WinnerPodium />
+        </section>
+      );
+    }
+
+    // Has a live or upcoming match but outside the 24h prediction window
     return (
       <section className="wc-section wc-section--compact" id="match" style={{ background: "var(--wc-bg-alt)" }}>
         <div className="wc-section-inner">
@@ -71,16 +94,14 @@ export default function MatchOfTheDay() {
             <div className="wc-section-title-block">
               <span className="wc-section-eyebrow wc-section-eyebrow--gold">Match of the Day</span>
               <h2 className="wc-section-title">
-                {fallback ? (fallback.score?.status === "LIVE" || fallback.score?.status === "HT" ? "Happening Now" : "Schedule resumes soon") : "Tournament Complete"}
+                {fallback.score?.status === "LIVE" || fallback.score?.status === "HT" ? "Happening Now" : "Schedule resumes soon"}
               </h2>
               <p className="wc-section-lede">
-                {fallback
-                  ? "No prediction window open right now — check back when the next kickoff is within 24 hours."
-                  : "Thanks for playing through World Cup 2026."}
+                No prediction window open right now — check back when the next kickoff is within 24 hours.
               </p>
             </div>
           </div>
-          {fallback && <MatchScoreboard match={fallback}>{null}</MatchScoreboard>}
+          <MatchScoreboard match={fallback}>{null}</MatchScoreboard>
         </div>
       </section>
     );
