@@ -123,6 +123,7 @@ export interface AffiliateAuthStatus {
   email: string;
   email_confirmed_at: string | null;
   last_sign_in_at: string | null;
+  must_change_password: boolean;
 }
 
 export interface LeaderboardEntry {

@@ -14,6 +14,8 @@ export default function AffiliateLogin({ onLogin, notice }: Props) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const [forgotMode,  setForgotMode]  = useState(false);
   const [forgotEmail, setForgotEmail] = useState("");
   const [forgotLoading, setForgotLoading] = useState(false);
@@ -267,40 +269,70 @@ export default function AffiliateLogin({ onLogin, notice }: Props) {
                 <button
                   type="button"
                   onClick={enterForgotMode}
-                  className="text-[11px] font-semibold transition-colors"
+                  className="text-[11px] font-semibold transition-colors cursor-pointer"
                   style={{ color: "#b07400" }}
-                  onMouseEnter={e => { e.currentTarget.style.color = "#92580a"; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = "#b07400"; }}
+                  onMouseEnter={e => { e.currentTarget.style.color = "#92580a"; e.currentTarget.style.textDecoration = "underline"; }}
+                  onMouseLeave={e => { e.currentTarget.style.color = "#b07400"; e.currentTarget.style.textDecoration = "none"; }}
                 >
                   Forgot password?
                 </button>
               </div>
-              <input
-                type="password"
-                value={code}
-                onChange={e => setCode(e.target.value)}
-                placeholder="Your account password"
-                required
-                className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
-                style={inputStyle}
-                onFocus={inputFocus}
-                onBlur={inputBlur}
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={code}
+                  onChange={e => setCode(e.target.value)}
+                  placeholder="Your account password"
+                  required
+                  className="w-full px-4 py-3 pr-11 rounded-xl text-sm outline-none transition-all duration-200"
+                  style={inputStyle}
+                  onFocus={inputFocus}
+                  onBlur={inputBlur}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(p => !p)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+                  style={{ color: "#94A3B8" }}
+                  tabIndex={-1}
+                >
+                  {showPassword ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9-4-9-7s4-7 9-7a9.97 9.97 0 014.95 1.305M15 12a3 3 0 11-4.243-4.243M3 3l18 18" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
 
             {notice && !error && (
               <div
-                className="flex items-start gap-2 px-3.5 py-3 rounded-xl text-xs"
+                className="px-3.5 py-3 rounded-xl text-xs space-y-2.5"
                 style={{
                   background: "rgba(252,183,48,0.08)",
                   color: "#92580a",
                   border: "1px solid rgba(252,183,48,0.3)",
                 }}
               >
-                <svg className="w-3.5 h-3.5 flex-shrink-0 mt-px" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="leading-snug">{notice}</span>
+                <div className="flex items-start gap-2">
+                  <svg className="w-3.5 h-3.5 flex-shrink-0 mt-px" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="leading-snug">{notice}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={enterForgotMode}
+                  className="ml-5 font-bold underline underline-offset-2 transition-opacity hover:opacity-70"
+                  style={{ color: "#92580a" }}
+                >
+                  Request a new link →
+                </button>
               </div>
             )}
 

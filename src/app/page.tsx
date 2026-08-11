@@ -320,10 +320,10 @@ export default function Home() {
       {/* Promotional overlay — appears 3.5s after page load */}
       <PredictWinPromoOverlay
         id="wc2026-predict-win"
-        imageSrc="/images/promos/predict-and-win-2026.jpg"
-        imageAlt="Predict & Win — FIFA World Cup 2026"
-        ctaText="Predict & Win →"
-        ctaHref="/events/worldcup-2026"
+        imageSrc="/images/university-choose-copy.webp"
+        imageAlt="Study in UK from Nepal — Admizz Education"
+        ctaText="Your UK Education Starts Here →"
+        ctaHref="https://admizzeducation.com/study-in-uk-from-nepal"
         delayMs={3500}
       />
 

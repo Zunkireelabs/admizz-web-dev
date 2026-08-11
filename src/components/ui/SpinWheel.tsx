@@ -1,6 +1,9 @@
 "use client";
 
 import { useRef, useEffect, useState, useCallback } from "react";
+import { supabase } from "@/lib/supabase";
+import { createReferralFromRegistration } from "@/lib/affiliate/api";
+import { readAffiliateRefCookie, writeAffiliateRef } from "@/lib/affiliate/refCookie";
 
 /* ── Prize config (exact match of events spin-wheel.js) ───────── */
 const prizes = [
@@ -58,7 +61,7 @@ const COUNTRIES = [
 
 const STUDY_DESTINATIONS = [
   "UK", "USA", "Canada", "Australia", "India",
-  "Germany", "Finland", "Sweden", "New Zealand", "France", "Other",
+  "Germany", "Finland", "Sweden", "New Zealand", "France", "Nepal", "Other",
 ];
 
 const STUDY_LEVELS = [
@@ -178,6 +181,10 @@ export default function SpinWheel() {
     );
     fd.set("referrer_url", document.referrer || "Direct");
     fd.set("landing_page", window.location.href);
+    fd.set("intake_source",   "Website");
+    fd.set("intake_medium",   params.get("utm_medium") || "Organic");
+    fd.set("intake_campaign", params.get("utm_campaign") || "spin-and-win");
+    fd.set("intake_account",  window.location.pathname);
 
     const countryVal = fd.get("Country") as string;
 
@@ -192,6 +199,36 @@ export default function SpinWheel() {
       await Promise.all(fetches);
     } catch (error) {
       console.error("Form submission error:", error);
+    }
+
+    // Affiliate attribution — fire-and-forget, never blocks the spin result.
+    // URL param takes priority; also refresh sessionStorage to tag this session.
+    const urlRef  = new URLSearchParams(window.location.search).get("ref")?.trim() || null;
+    if (urlRef) writeAffiliateRef(urlRef);
+    const refCode = urlRef ?? readAffiliateRefCookie();
+    const fullName = `${(fd.get("Name") as string ?? "").trim()} ${(fd.get("Last Name") as string ?? "").trim()}`.trim();
+    const email     = (fd.get("Email")              as string ?? "").trim();
+    const phone     = (fd.get("PhoneNo")             as string ?? "").trim() || null;
+    const countries = (fd.get("preferedDestination") as string ?? "").trim() || null;
+    const leadId    = crypto.randomUUID();
+
+    supabase.from("register_leads").insert({
+      id:       leadId,
+      full_name: fullName,
+      email,
+      phone,
+      countries,
+      source:   refCode ? "affiliate-spin-wheel" : "spin-wheel",
+      ref_code: refCode || null,
+      status:   "new",
+    }).then(({ error }) => {
+      if (error) console.warn("[spin-wheel] supabase insert failed:", error.message);
+    });
+
+    if (refCode) {
+      createReferralFromRegistration(refCode, { full_name: fullName, countries: countries ?? "", lead_id: leadId, email })
+        .then(r => { if (!r.ok) console.warn("[spin-wheel] referral not created:", r.error); })
+        .catch(e => console.warn("[spin-wheel] referral error:", e));
     }
   }, []);
 

@@ -2,20 +2,7 @@
 
 import { useEffect } from "react";
 import { supabase } from "@/lib/supabase";
-
-const COOKIE_NAME = "admizz_ref";
-const COOKIE_DAYS = 90;
-
-function hasCookie(name: string) {
-  return typeof document !== "undefined" &&
-    document.cookie.split("; ").some(c => c.startsWith(name + "="));
-}
-
-function setCookie(name: string, value: string, days: number) {
-  if (typeof document === "undefined") return;
-  const maxAge = days * 86400;
-  document.cookie = `${name}=${encodeURIComponent(value)}; max-age=${maxAge}; path=/; SameSite=Lax`;
-}
+import { writeAffiliateRef } from "@/lib/affiliate/refCookie";
 
 export default function AffiliateRefCapture() {
   useEffect(() => {
@@ -41,10 +28,11 @@ export default function AffiliateRefCapture() {
           else if (data === false) console.info("[ref capture] code not active:", ref);
         });
 
-      // First-touch attribution — don't overwrite existing cookie
-      if (!hasCookie(COOKIE_NAME)) {
-        setCookie(COOKIE_NAME, ref, COOKIE_DAYS);
-      }
+      // Write to both sessionStorage (this session) and cookie (30-day fallback).
+      // sessionStorage is cleared when the browser closes, preventing a user who
+      // clicked an affiliate link weeks ago from being falsely attributed when
+      // they return organically in a new session.
+      writeAffiliateRef(ref);
     } catch (err) {
       console.warn("[ref capture] unexpected error:", err);
     }

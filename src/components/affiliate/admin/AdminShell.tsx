@@ -53,6 +53,7 @@ function AdminShellInner({ affiliates, applications, referrals, clicks, leads, a
   })();
   const [tab, setTab] = useState<Tab>(initialTab);
   const [refreshing, setRefreshing] = useState(false);
+  const [logoutConfirm, setLogoutConfirm] = useState(false);
   const pendingCount = applications.filter(a => a.status === "new").length;
 
   const breakdown = useMemo(() => buildCountryBreakdown(referrals), [referrals]);
@@ -181,7 +182,7 @@ function AdminShellInner({ affiliates, applications, referrals, clicks, leads, a
             {refreshing ? "Refreshing…" : "Refresh data"}
           </button>
           <button
-            onClick={onLogout}
+            onClick={() => setLogoutConfirm(true)}
             className="text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
             style={{ color: "#475569", border: "1px solid #EAECF0", background: "#FFFFFF" }}
             onMouseEnter={e => { e.currentTarget.style.background = "#F8F9FC"; e.currentTarget.style.color = "#001353"; }}
@@ -257,12 +258,67 @@ function AdminShellInner({ affiliates, applications, referrals, clicks, leads, a
           })}
         </div>
 
-        {tab === "applications" && <ApplicationsTab initialApplications={applications} onRefresh={onRefresh} />}
+        {tab === "applications" && <ApplicationsTab initialApplications={applications} authStatuses={authStatuses} onRefresh={onRefresh} />}
         {tab === "affiliates"   && <AffiliatesTab affiliates={affiliates} referrals={referrals} clicks={clicks} authStatuses={authStatuses} onRefresh={onRefresh} />}
         {tab === "referrals"    && <ReferralsTab referrals={referrals} affiliates={affiliates} onRefresh={onRefresh} />}
         {tab === "payouts"      && <PayoutsTab referrals={referrals} affiliates={affiliates} onRefresh={onRefresh} />}
         {tab === "leads"        && <LeadsTab leads={leads} onRefresh={onRefresh} />}
       </div>
+
+      {logoutConfirm && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          style={{ background: "rgba(0,19,83,0.35)", backdropFilter: "blur(4px)" }}
+          onClick={() => setLogoutConfirm(false)}
+        >
+          <div
+            className="w-full max-w-sm rounded-2xl p-7 space-y-5"
+            style={{
+              background: "#FFFFFF",
+              border: "1px solid #EAECF0",
+              boxShadow: "0 24px 48px rgba(16,24,40,0.18), 0 8px 16px rgba(16,24,40,0.1)",
+            }}
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex flex-col items-center text-center gap-3">
+              <div
+                className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
+                style={{ background: "rgba(224,69,98,0.08)", border: "1px solid rgba(224,69,98,0.18)" }}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" style={{ color: "#b91d3f" }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-base font-extrabold" style={{ color: "#001353" }}>Sign out?</p>
+                <p className="text-sm mt-1" style={{ color: "#475569" }}>
+                  You&apos;ll need to sign in again to access the admin console.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setLogoutConfirm(false)}
+                className="flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200"
+                style={{ background: "#F1F5F9", color: "#475569", border: "1px solid #E2E8F0" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#E2E8F0"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#F1F5F9"; }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => { setLogoutConfirm(false); onLogout(); }}
+                className="flex-1 py-2.5 rounded-xl text-sm font-extrabold transition-all duration-200"
+                style={{ background: "#b91d3f", color: "#FFFFFF", border: "1px solid #991b1b" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#991b1b"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#b91d3f"; }}
+              >
+                Sign out
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

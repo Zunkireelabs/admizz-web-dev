@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import type { Session } from "@supabase/supabase-js";
 import type { Affiliate, AffiliateReferral, LeaderboardEntry, AffiliateClick } from "@/lib/affiliate/types";
@@ -72,6 +72,7 @@ function scrubUrl() {
 }
 
 export default function AffiliateDashboardPage() {
+  const isRecoveryFlow = useRef(false);
   const [view,        setView]        = useState<View>("loading");
   const [session,     setSession]     = useState<Session | null>(null);
   const [affiliate,   setAffiliate]   = useState<Affiliate | null>(null);
@@ -109,7 +110,13 @@ export default function AffiliateDashboardPage() {
       //    straight to SetPassword regardless of must_change_password flag.
       if (urlState.kind === "recovery") {
         setView("activating");
-        void supabase.auth.signOut().catch(() => {});
+        isRecoveryFlow.current = true;
+        // Await signOut before setSession — if fire-and-forget, signOut can
+        // complete after setSession stores the new recovery session and wipe it.
+        await Promise.race([
+          supabase.auth.signOut().catch(() => {}),
+          new Promise(resolve => setTimeout(resolve, 3_000)),
+        ]);
 
         const EXCHANGE_TIMEOUT_MS = 8_000;
         const exchangePromise = supabase.auth.setSession({
@@ -234,6 +241,7 @@ export default function AffiliateDashboardPage() {
     // Live auth state changes — invite token exchange, sign-out, token refresh.
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (event === "SIGNED_IN" && session) {
+        if (isRecoveryFlow.current) return;
         setSession(session);
         if (needsPasswordChange(session)) {
           setView("set-password");
@@ -264,10 +272,11 @@ export default function AffiliateDashboardPage() {
 
   // Pre-warm the JWT before firing parallel RPCs. supabase-js queues the next
   // refresh internally; calling getSession() forces it to settle here (in
-  // series) instead of every parallel RPC blocking behind it. Wrapped in its
-  // own short timeout so a hung refresh doesn't trap us — we just proceed
-  // optimistically with the existing token.
-  const prewarmJwt = async () => {
+  // series) instead of every parallel RPC blocking behind it. Skipped when
+  // the token is fresh (>60s until expiry) — no refresh will happen so the
+  // wait is pure overhead on page load/refresh.
+  const prewarmJwt = async (sess?: Session | null) => {
+    if (sess?.expires_at && sess.expires_at * 1000 - Date.now() > 60_000) return;
     try {
       await Promise.race([
         supabase.auth.getSession(),
@@ -297,7 +306,7 @@ export default function AffiliateDashboardPage() {
     setLoadErrorMsg(null);
 
     // Force any pending JWT refresh to complete BEFORE we fire parallel RPCs.
-    await prewarmJwt();
+    await prewarmJwt(sess);
 
     const runOnce = async () => Promise.all([
       withTimeout("affiliate_me",            supabase.rpc("affiliate_me")),
@@ -313,7 +322,7 @@ export default function AffiliateDashboardPage() {
       // resolve on the second try once the new token is in hand.
       if (affRes && typeof affRes === "object" && "__timeout" in affRes) {
         console.warn("[dashboard load] affiliate_me timed out — retrying once");
-        await prewarmJwt();
+        await prewarmJwt(sess);
         [affRes, refRes, lb, clkRes] = await runOnce();
       }
 

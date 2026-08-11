@@ -173,8 +173,9 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, authStatu
                 const status = statuses[a.id] ?? a.status;
                 const isToggling = togglingId === a.id;
 
-                const authStatus   = authByEmail.get(a.email.toLowerCase());
-                const isActivated  = !!authStatus?.email_confirmed_at;
+                const authStatus      = authByEmail.get(a.email.toLowerCase());
+                const emailConfirmed  = !!authStatus?.email_confirmed_at;
+                const isActivated     = emailConfirmed && !authStatus?.must_change_password;
                 const affClicks    = clicksByCode.get(a.referral_code.toUpperCase()) ?? [];
                 const affReferrals = referralsById.get(a.id) ?? [];
                 const convRate     = affReferrals.length > 0
@@ -222,18 +223,14 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, authStatu
                       {authStatus === undefined ? (
                         <span className="text-[12px]" style={{ color: "#94A3B8" }}>—</span>
                       ) : isActivated ? (
-                        <span
-                          className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold whitespace-nowrap"
-                          style={{ background: "rgba(34,197,94,0.08)", color: "#15803d", border: "1px solid rgba(34,197,94,0.25)" }}
-                        >
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold whitespace-nowrap"
+                          style={{ background: "rgba(34,197,94,0.08)", color: "#15803d", border: "1px solid rgba(34,197,94,0.25)" }}>
                           <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#16a34a" }} />
                           Activated
                         </span>
                       ) : (
-                        <span
-                          className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold whitespace-nowrap"
-                          style={{ background: "rgba(220,38,38,0.06)", color: "#b91d3f", border: "1px solid rgba(220,38,38,0.2)" }}
-                        >
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold whitespace-nowrap"
+                          style={{ background: "rgba(220,38,38,0.06)", color: "#b91d3f", border: "1px solid rgba(220,38,38,0.2)" }}>
                           <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#dc2626" }} />
                           Not activated
                         </span>
@@ -257,29 +254,32 @@ export default function AffiliatesTab({ affiliates, referrals, clicks, authStatu
                       </button>
                     </td>
                     <td className="px-4 py-3.5" onClick={e => e.stopPropagation()}>
-                      {resendMsg?.id === a.id ? (
-                        <span
-                          className="text-[12px] font-semibold"
-                          style={{ color: resendMsg.ok ? "#16a34a" : "#dc2626" }}
-                        >
-                          {resendMsg.text}
+                      {!emailConfirmed ? (
+                        resendMsg?.id === a.id ? (
+                          <span className="text-[12px] font-semibold" style={{ color: resendMsg.ok ? "#16a34a" : "#dc2626" }}>
+                            {resendMsg.text}
+                          </span>
+                        ) : (
+                          <button
+                            onClick={e => handleResendInvite(e, a.id, a.email)}
+                            disabled={resendingId === a.id}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[12px] font-bold transition-all whitespace-nowrap"
+                            style={{
+                              background: "rgba(49,66,156,0.07)",
+                              color:      "#31429C",
+                              border:     "1px solid rgba(49,66,156,0.2)",
+                              opacity: resendingId === a.id ? 0.5 : 1,
+                              cursor: resendingId === a.id ? "wait" : "pointer",
+                            }}
+                          >
+                            {resendingId === a.id ? "Sending…" : "Resend Invite"}
+                          </button>
+                        )
+                      ) : !isActivated ? (
+                        <span className="text-[12px] font-semibold" style={{ color: "#94A3B8" }}>
+                          Awaiting account setup
                         </span>
-                      ) : (
-                        <button
-                          onClick={e => handleResendInvite(e, a.id, a.email)}
-                          disabled={resendingId === a.id}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[12px] font-bold transition-all whitespace-nowrap"
-                          style={{
-                            background: "rgba(49,66,156,0.07)",
-                            color:      "#31429C",
-                            border:     "1px solid rgba(49,66,156,0.2)",
-                            opacity: resendingId === a.id ? 0.5 : 1,
-                            cursor: resendingId === a.id ? "wait" : "pointer",
-                          }}
-                        >
-                          {resendingId === a.id ? "Sending…" : isActivated ? "Send Password Reset" : "Resend Invite"}
-                        </button>
-                      )}
+                      ) : null}
                     </td>
                   </tr>
                 );

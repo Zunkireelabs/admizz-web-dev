@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import type { AffiliateApplication } from "@/lib/affiliate/types";
-import { approveApplication, rejectApplication } from "@/lib/affiliate/api";
+import { useMemo, useState } from "react";
+import type { AffiliateApplication, AffiliateAuthStatus } from "@/lib/affiliate/types";
+import { approveApplication, rejectApplication, resendAffiliateInvite } from "@/lib/affiliate/api";
 
 function DetailRow({
   label, value, copyable = false, link, multiline = false, mono = false, className = "",
@@ -81,17 +81,19 @@ function formatRelativeDate(iso: string): string {
 
 interface Props {
   initialApplications: AffiliateApplication[];
+  authStatuses: AffiliateAuthStatus[];
   onRefresh: () => Promise<void>;
 }
 
-type StatusFilter = "all" | "new" | "approved" | "rejected";
+type StatusFilter = "all" | "new" | "approved" | "rejected" | "not_activated";
 type TypeFilter = "all" | "affiliate" | "employee";
 
 const STATUS_PILLS: { label: string; value: StatusFilter }[] = [
-  { label: "All",      value: "all"      },
-  { label: "New",      value: "new"      },
-  { label: "Approved", value: "approved" },
-  { label: "Rejected", value: "rejected" },
+  { label: "All",           value: "all"           },
+  { label: "New",           value: "new"           },
+  { label: "Approved",      value: "approved"      },
+  { label: "Not activated", value: "not_activated" },
+  { label: "Rejected",      value: "rejected"      },
 ];
 
 const TYPE_PILLS: { label: string; value: TypeFilter }[] = [
@@ -100,7 +102,7 @@ const TYPE_PILLS: { label: string; value: TypeFilter }[] = [
   { label: "Employees",  value: "employee"  },
 ];
 
-export default function ApplicationsTab({ initialApplications, onRefresh }: Props) {
+export default function ApplicationsTab({ initialApplications, authStatuses, onRefresh }: Props) {
   const [apps, setApps] = useState(initialApplications);
   const [loadingId, setLoadingId] = useState<string | null>(null);
   const [approvedCodes, setApprovedCodes] = useState<Record<string, string>>({});
@@ -110,6 +112,14 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [typeFilter, setTypeFilter] = useState<TypeFilter>("all");
+  const [resendingId, setResendingId] = useState<string | null>(null);
+  const [resendMsg, setResendMsg] = useState<{ id: string; ok: boolean; text: string } | null>(null);
+
+  const authByEmail = useMemo(() => {
+    const m = new Map<string, AffiliateAuthStatus>();
+    for (const s of authStatuses) m.set(s.email.toLowerCase(), s);
+    return m;
+  }, [authStatuses]);
 
   const showError = (msg: string) => {
     setErrorMsg(msg);
@@ -150,12 +160,31 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
     await onRefresh();
   };
 
+  const handleResendInvite = async (e: React.MouseEvent, id: string, email: string) => {
+    e.stopPropagation();
+    setResendingId(id);
+    setResendMsg(null);
+    const result = await resendAffiliateInvite(email);
+    setResendMsg({
+      id,
+      ok: result.ok,
+      text: result.ok ? "Invite sent!" : (result.error ?? "Failed to send"),
+    });
+    setResendingId(null);
+    setTimeout(() => setResendMsg(prev => prev?.id === id ? null : prev), 4000);
+  };
+
   const pending = apps.filter(a => a.status === "new");
   const decided = apps.filter(a => a.status !== "new");
 
   const q = search.trim().toLowerCase();
   const filtered = [...pending, ...decided].filter(a => {
-    const matchesStatus = statusFilter === "all" || a.status === statusFilter;
+    const authStatus = authByEmail.get(a.email.toLowerCase());
+    const isActivated = !!authStatus?.email_confirmed_at;
+    const matchesStatus =
+      statusFilter === "all"           ? true :
+      statusFilter === "not_activated" ? (a.status === "approved" && !authByEmail.get(a.email.toLowerCase())?.email_confirmed_at) :
+      a.status === statusFilter;
     const matchesType = typeFilter === "all" || a.lead_type === typeFilter;
     const matchesSearch = !q || [a.full_name, a.email, a.city, a.organization]
       .some(v => v?.toLowerCase().includes(q));
@@ -243,7 +272,9 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
               {pill.label}
               {pill.value !== "all" && (
                 <span className="ml-1.5 opacity-60">
-                  {apps.filter(a => a.status === pill.value).length}
+                  {pill.value === "not_activated"
+                    ? apps.filter(a => a.status === "approved" && !authByEmail.get(a.email.toLowerCase())?.email_confirmed_at).length
+                    : apps.filter(a => a.status === pill.value).length}
                 </span>
               )}
             </button>
@@ -340,6 +371,12 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
         const assignedCode = approvedCodes[app.id];
         const isPending = app.status === "new";
         const isExpanded = expandedId === app.id;
+        const authStatus     = authByEmail.get(app.email.toLowerCase());
+        const emailConfirmed = !!authStatus?.email_confirmed_at;
+        const isActivated    = emailConfirmed && !authStatus?.must_change_password;
+        const lastLogin = isActivated && authStatus?.last_sign_in_at
+          ? formatRelativeDate(authStatus.last_sign_in_at)
+          : "Never";
         return (
           <div
             key={app.id}
@@ -448,6 +485,25 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
                   )}
                 </div>
 
+                {/* Activation + last login — only for approved */}
+                {app.status === "approved" && authStatus !== undefined && (
+                  <div className="flex items-center gap-3 mt-2">
+                    <span
+                      className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold"
+                      style={isActivated
+                        ? { background: "rgba(34,197,94,0.08)", color: "#15803d", border: "1px solid rgba(34,197,94,0.25)" }
+                        : { background: "rgba(220,38,38,0.06)", color: "#b91d3f", border: "1px solid rgba(220,38,38,0.2)" }
+                      }
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full" style={{ background: isActivated ? "#16a34a" : "#dc2626" }} />
+                      {isActivated ? "Activated" : "Not activated"}
+                    </span>
+                    <span className="text-[12px]" style={{ color: "#64748B" }}>
+                      Last login: <span className="font-semibold" style={{ color: "#475569" }}>{lastLogin}</span>
+                    </span>
+                  </div>
+                )}
+
                 {/* Motivation quote */}
                 {app.motivation && (
                   <div
@@ -481,6 +537,41 @@ export default function ApplicationsTab({ initialApplications, onRefresh }: Prop
               </div>
 
               {/* Action buttons */}
+              {app.status === "approved" && !isActivated && (
+                <div className="flex items-center flex-shrink-0" onClick={e => e.stopPropagation()}>
+                  {!emailConfirmed ? (
+                    resendMsg?.id === app.id ? (
+                      <span className="text-[12px] font-semibold" style={{ color: resendMsg.ok ? "#16a34a" : "#dc2626" }}>
+                        {resendMsg.text}
+                      </span>
+                    ) : (
+                      <button
+                        onClick={e => handleResendInvite(e, app.id, app.email)}
+                        disabled={resendingId === app.id}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-bold transition-all whitespace-nowrap"
+                        style={{
+                          background: "rgba(49,66,156,0.07)",
+                          color: "#31429C",
+                          border: "1px solid rgba(49,66,156,0.2)",
+                          opacity: resendingId === app.id ? 0.5 : 1,
+                          cursor: resendingId === app.id ? "wait" : "pointer",
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = "rgba(49,66,156,0.14)"; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = "rgba(49,66,156,0.07)"; }}
+                      >
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        {resendingId === app.id ? "Sending…" : "Resend Invite"}
+                      </button>
+                    )
+                  ) : (
+                    <span className="text-[12px] font-semibold" style={{ color: "#94A3B8" }}>
+                      Awaiting account setup
+                    </span>
+                  )}
+                </div>
+              )}
               {isPending && (
                 <div className="flex gap-2 flex-shrink-0" onClick={e => e.stopPropagation()}>
                   <button
