@@ -60,8 +60,9 @@ jobs:
             flock /tmp/admizz-deploy.lock -c '
               set -e
               git fetch origin
-              git checkout stage
+              git checkout -f stage
               git reset --hard origin/stage
+              git clean -fd
               ./deploy.sh dev
             '
 
