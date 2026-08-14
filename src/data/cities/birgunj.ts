@@ -31,6 +31,7 @@ export const birgunjData: CityLandingData = {
 
     // v2 hero
     landmarkKey: "ghantaghar",
+    crmFormSlug: "birgunj-page-form",
     destinationRotator: [
       "the UK",
       "the USA",

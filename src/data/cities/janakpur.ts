@@ -31,6 +31,7 @@ export const janakpurData: CityLandingData = {
 
     // v2 hero
     landmarkKey: "janaki-mandir",
+    crmFormSlug: "janakpur-page-form",
     destinationRotator: [
       "the UK",
       "the USA",

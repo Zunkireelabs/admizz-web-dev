@@ -52,6 +52,7 @@ export interface CityHeroData {
   partnerLogosStrip?: PartnerLogoStripItem[];
   landmarkKey?: LandmarkKey;
   formSteps?: FormStepIndicator[];
+  crmFormSlug?: string;
 }
 
 export interface WhyChoosePoint {
