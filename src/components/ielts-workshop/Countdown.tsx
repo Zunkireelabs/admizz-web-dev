@@ -21,8 +21,8 @@ function getRemaining(targetISO: string) {
 function DigitBox({ label, value }: { label: string; value: number | undefined }) {
   const display = value !== undefined ? String(value).padStart(2, "0") : "--";
   return (
-    <div className="flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-[10px] bg-white/10 border border-white/15 overflow-hidden">
-      <div className="relative h-6 sm:h-7 w-full flex items-center justify-center overflow-hidden">
+    <div className="flex flex-col items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-[10px] bg-white/10 border border-white/15 overflow-hidden">
+      <div className="relative h-4 sm:h-6 md:h-7 w-full flex items-center justify-center overflow-hidden">
         <AnimatePresence mode="popLayout">
           <motion.span
             key={display}
@@ -30,13 +30,13 @@ function DigitBox({ label, value }: { label: string; value: number | undefined }
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -16, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="absolute text-xl sm:text-2xl font-bold text-yellow tabular-nums"
+            className="absolute text-sm sm:text-xl md:text-2xl font-bold text-yellow tabular-nums"
           >
             {display}
           </motion.span>
         </AnimatePresence>
       </div>
-      <span className="text-[11px] uppercase tracking-wide text-white/70 mt-1">{label}</span>
+      <span className="text-[9px] sm:text-[11px] uppercase tracking-wide text-white/70 mt-0.5 sm:mt-1">{label}</span>
     </div>
   );
 }
@@ -61,15 +61,15 @@ export default function Countdown({ targetISO }: CountdownProps) {
   const ended = remaining !== null && remaining.total <= 0;
 
   return (
-    <div className="flex items-center justify-center gap-2 sm:gap-3">
+    <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-3">
       {ended ? (
         <p className="text-lg font-semibold text-white">Workshop is live now</p>
       ) : (
         units.map((unit, i) => (
-          <div key={unit.label} className="flex items-center gap-2 sm:gap-3">
+          <div key={unit.label} className="flex items-center gap-1 sm:gap-2 md:gap-3">
             <DigitBox label={unit.label} value={unit.value} />
             {i < units.length - 1 && (
-              <span className="text-xl sm:text-2xl font-bold text-white/20 -mt-4">:</span>
+              <span className="text-sm sm:text-xl md:text-2xl font-bold text-white/20 -mt-3 sm:-mt-4">:</span>
             )}
           </div>
         ))

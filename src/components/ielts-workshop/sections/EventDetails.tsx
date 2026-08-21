@@ -109,12 +109,14 @@ export default function EventDetails() {
 
                   <div className="divide-y divide-dashed divide-border-light px-2">
                     {rows.map((row) => (
-                      <div key={row.label} className="flex items-center gap-4 px-4 py-4">
-                        <div className="w-9 h-9 rounded-full bg-blue-royal/10 flex items-center justify-center flex-shrink-0">
+                      <div key={row.label} className="flex items-center gap-3 sm:gap-4 px-3 sm:px-4 py-3 sm:py-4">
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-blue-royal/10 flex items-center justify-center flex-shrink-0">
                           <row.icon className="w-4 h-4 text-blue-royal" />
                         </div>
-                        <span className="text-sm text-gray-medium flex-1">{row.label}</span>
-                        <span className="text-sm font-semibold text-navy text-right">{row.value}</span>
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:flex-1 gap-0.5 sm:gap-4 min-w-0">
+                          <span className="text-xs sm:text-sm text-gray-medium sm:flex-1">{row.label}</span>
+                          <span className="text-sm font-semibold text-navy sm:text-right">{row.value}</span>
+                        </div>
                       </div>
                     ))}
                   </div>

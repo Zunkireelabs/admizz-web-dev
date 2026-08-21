@@ -66,7 +66,7 @@ function RegistrationModal() {
           />
 
           {/* Centered card */}
-          <div className="relative min-h-full flex items-start justify-center p-3 sm:p-6 md:p-10">
+          <div className="relative min-h-full flex items-center justify-center p-3 sm:p-6 md:p-10">
             <motion.div
               className="relative w-full max-w-md rounded-[16px] bg-white shadow-2xl my-6"
               initial={{ opacity: 0, y: 20, scale: 0.98 }}
