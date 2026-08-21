@@ -6,6 +6,9 @@ interface WordRevealProps {
   text: string;
   className?: string;
   delay?: number;
+  /** Words matched exactly (case-sensitive) get the highlight color instead of inheriting text color. */
+  highlightWords?: string[];
+  highlightClassName?: string;
 }
 
 const container: Variants = {
@@ -21,7 +24,13 @@ const word: Variants = {
 };
 
 // Splits text into words and reveals them one by one, rising up as they fade in.
-export default function WordReveal({ text, className = "", delay = 0 }: WordRevealProps) {
+export default function WordReveal({
+  text,
+  className = "",
+  delay = 0,
+  highlightWords = [],
+  highlightClassName = "text-yellow",
+}: WordRevealProps) {
   const words = text.split(" ");
   return (
     <motion.span
@@ -33,7 +42,13 @@ export default function WordReveal({ text, className = "", delay = 0 }: WordReve
       viewport={{ once: true, margin: "-80px" }}
     >
       {words.map((w, i) => (
-        <motion.span key={i} variants={word} className="inline-block mr-[0.25em] will-change-transform">
+        <motion.span
+          key={i}
+          variants={word}
+          className={`inline-block mr-[0.25em] will-change-transform ${
+            highlightWords.includes(w) ? highlightClassName : ""
+          }`}
+        >
           {w}
         </motion.span>
       ))}

@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Headphones, BookOpen, PenLine, Mic, type LucideIcon } from "lucide-react";
 import { skills, type SkillContent } from "../content";
+import Reveal from "../Reveal";
 
 const ICONS: Record<SkillContent["key"], LucideIcon> = {
   listening: Headphones,
@@ -19,11 +20,15 @@ const SKILL_VISUALS: Record<SkillContent["key"], { color: string; image: string 
   speaking: { color: "#F43F5E", image: "/images/events/skills/speaking.jpg" }, // rose
 };
 
-function SkillCard({ skill, className = "" }: { skill: SkillContent; className?: string }) {
+function SkillCard({ skill }: { skill: SkillContent }) {
+  const [expanded, setExpanded] = useState(false);
   const Icon = ICONS[skill.key];
   const visual = SKILL_VISUALS[skill.key];
+  const shownTechniques = expanded ? skill.techniques : skill.techniques.slice(0, 3);
+  const remaining = skill.techniques.length - 3;
+
   return (
-    <div className={`relative flex-shrink-0 rounded-[16px] overflow-hidden text-white p-7 sm:p-8 ${className}`}>
+    <div className="relative rounded-[14px] overflow-hidden text-white p-4 sm:p-5 h-full">
       {/* Reference photo for this skill */}
       <div
         className="absolute inset-0"
@@ -37,23 +42,32 @@ function SkillCard({ skill, className = "" }: { skill: SkillContent; className?:
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.05) 75%)",
+            "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.1) 80%)",
         }}
         aria-hidden="true"
       />
 
       <div className="relative z-10">
-        <div className="w-14 h-14 rounded-full bg-yellow/15 flex items-center justify-center mb-6">
-          <Icon className="w-7 h-7 text-yellow" />
+        <div className="w-9 h-9 rounded-full bg-yellow/15 flex items-center justify-center mb-3">
+          <Icon className="w-4 h-4 text-yellow" />
         </div>
-        <h3 className="text-2xl font-bold mb-2">{skill.name}</h3>
-        <p className="text-white/70 mb-6">{skill.statement}</p>
-        <div className="flex flex-wrap gap-2">
-          {skill.techniques.map((technique) => (
-            <span key={technique} className="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80">
+        <h3 className="text-base font-bold mb-1">{skill.name}</h3>
+        <p className="text-white/70 text-xs leading-snug mb-3">{skill.statement}</p>
+        <div className="flex flex-wrap gap-1.5">
+          {shownTechniques.map((technique) => (
+            <span key={technique} className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/80">
               {technique}
             </span>
           ))}
+          {remaining > 0 && (
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              className="text-[10px] px-2 py-0.5 rounded-full text-yellow font-semibold hover:underline cursor-pointer"
+            >
+              {expanded ? "Show less" : `+${remaining} more`}
+            </button>
+          )}
         </div>
       </div>
     </div>
@@ -61,61 +75,29 @@ function SkillCard({ skill, className = "" }: { skill: SkillContent; className?:
 }
 
 export default function SkillsSection() {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  function handleScroll() {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const cardStep = el.scrollWidth / skills.length;
-    setActiveIndex(Math.min(skills.length - 1, Math.round(el.scrollLeft / cardStep)));
-  }
-
-  function scrollToIndex(i: number) {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const cardStep = el.scrollWidth / skills.length;
-    el.scrollTo({ left: cardStep * i, behavior: "smooth" });
-  }
-
   return (
     <section className="bg-white border-t border-border-light py-20 md:py-24">
-      <div className="max-w-4xl mx-auto px-4 text-center mb-10">
-        <p className="text-sm font-semibold tracking-[0.15em] uppercase text-blue-royal mb-3">
-          The Workshop
-        </p>
-        <h2
-          className="text-3xl sm:text-4xl font-bold text-navy"
-          style={{ fontFamily: "var(--font-rubik), sans-serif" }}
-        >
-          Master All 4 Skills
-        </h2>
-      </div>
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-10">
+          <p className="text-sm font-semibold tracking-[0.15em] uppercase text-blue-royal mb-3">
+            The Workshop
+          </p>
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-navy"
+            style={{ fontFamily: "var(--font-rubik), sans-serif" }}
+          >
+            Master All 4 Skills
+          </h2>
+        </div>
 
-      {/* Progress dots — click to jump to a skill */}
-      <div className="flex items-center justify-center gap-2 mb-8">
-        {skills.map((skill, i) => (
-          <button
-            key={skill.key}
-            type="button"
-            aria-label={`Show ${skill.name}`}
-            onClick={() => scrollToIndex(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === activeIndex ? "w-8 bg-blue-royal" : "w-1.5 bg-border-light"
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Swipeable horizontal card row — works reliably on every device */}
-      <div
-        ref={scrollerRef}
-        onScroll={handleScroll}
-        className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory px-4 sm:px-[6vw]"
-      >
-        {skills.map((skill) => (
-          <SkillCard key={skill.key} skill={skill} className="w-[85vw] sm:w-[420px] snap-center" />
-        ))}
+        {/* Static grid — all 4 skills in one row, no scrolling required */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {skills.map((skill, i) => (
+            <Reveal key={skill.key} delay={i * 0.08}>
+              <SkillCard skill={skill} />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

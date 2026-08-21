@@ -9,7 +9,8 @@ import BenefitsSection from "@/components/ielts-workshop/sections/BenefitsSectio
 import BeyondSkills from "@/components/ielts-workshop/sections/BeyondSkills";
 import Transformation from "@/components/ielts-workshop/sections/Transformation";
 import EventDetails from "@/components/ielts-workshop/sections/EventDetails";
-import FinalCTA from "@/components/ielts-workshop/sections/FinalCTA";
+// FinalCTA temporarily hidden — re-add the import when it comes back
+// import FinalCTA from "@/components/ielts-workshop/sections/FinalCTA";
 
 const CANONICAL = "https://admizzeducation.com/events/ielts-workshop";
 
@@ -61,7 +62,7 @@ export default function IeltsWorkshopPage() {
         <BeyondSkills />
         <Transformation />
         <EventDetails />
-        <FinalCTA />
+        {/* <FinalCTA /> — temporarily hidden */}
       </RegistrationModalProvider>
     </>
   );

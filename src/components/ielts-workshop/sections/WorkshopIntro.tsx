@@ -1,8 +1,13 @@
+"use client";
+
 import { event } from "../content";
 import Reveal from "../Reveal";
 import WordReveal from "../WordReveal";
+import { useRegistrationModal } from "../RegistrationModal";
 
 export default function WorkshopIntro() {
+  const { open } = useRegistrationModal();
+
   return (
     <section className="relative bg-white border-t border-border-light py-20 md:py-24 overflow-hidden">
       {/* Subtle depth behind the headline */}
@@ -27,11 +32,18 @@ export default function WorkshopIntro() {
           className="text-3xl sm:text-4xl font-bold text-navy mb-6"
           style={{ fontFamily: "var(--font-rubik), sans-serif" }}
         >
-          <WordReveal text={event.sessionTitle} delay={0.3} />
+          <WordReveal text={event.sessionTitle} delay={0.3} highlightWords={["2-Hour"]} />
         </h2>
 
         <Reveal delay={1.1}>
-          <p className="text-base sm:text-lg text-gray-dark leading-relaxed">{event.intro}</p>
+          <p className="text-base sm:text-lg text-gray-dark leading-relaxed mb-8">{event.intro}</p>
+          <button
+            type="button"
+            onClick={open}
+            className="inline-block bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px]"
+          >
+            GRAB YOUR SEAT
+          </button>
         </Reveal>
       </div>
     </section>

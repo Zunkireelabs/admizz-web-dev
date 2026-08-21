@@ -9,9 +9,15 @@ export default function FinalCTA() {
 
   return (
     <section
-      className="text-white border-t border-white/10 py-20 md:py-24 text-center"
+      className="relative text-white border-t border-white/10 py-20 md:py-24 text-center"
       style={{ background: "linear-gradient(135deg, #001353 0%, #0D1282 60%, #31429C 100%)" }}
     >
+      {/* Closing seam — clear separation from the sitewide footer below */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px"
+        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(253,237,34,0.4) 50%, transparent 100%)" }}
+        aria-hidden="true"
+      />
       <div className="max-w-2xl mx-auto px-4">
         <Reveal>
           <h2

@@ -27,79 +27,62 @@ export default function Transformation() {
           </h2>
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          {/* Before */}
-          <Reveal>
-            <div className="group rounded-[16px] overflow-hidden border border-border-light bg-white h-full">
-              <div className="relative h-40">
-                <div
-                  className="absolute inset-0"
-                  style={{ backgroundImage: "url(/images/events/transformation/before.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute inset-0 transition-all duration-500"
-                  style={{ background: "linear-gradient(to top, rgba(30,41,59,0.35) 0%, rgba(30,41,59,0.1) 100%)" }}
-                />
-                <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "linear-gradient(to top, rgba(220,38,38,0.3) 0%, rgba(220,38,38,0.08) 100%)" }} />
-              </div>
-              <div className="p-6 sm:p-8">
-                <p className="text-xs font-semibold tracking-widest uppercase text-gray-medium mb-4 transition-colors duration-300 group-hover:text-red-500">
-                  Before
-                </p>
-                <motion.ul
-                  className="space-y-3"
-                  variants={listContainer}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, margin: "-60px" }}
-                >
-                  {transformation.before.map((item) => (
-                    <motion.li key={item} variants={listItem} className="text-gray-dark text-[15px]">
-                      {item}
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </div>
+        {/* One unified split panel — dull/dark vs vibrant/bright, photos underneath the color */}
+        <Reveal>
+          <div className="rounded-[20px] overflow-hidden shadow-lg grid sm:grid-cols-2">
+            {/* Before — muted, dim */}
+            <div className="relative p-8 sm:p-10">
+              <div
+                className="absolute inset-0 grayscale"
+                style={{ backgroundImage: "url(/images/events/transformation/before.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-slate-900/75" aria-hidden="true" />
+              <p className="relative text-3xl sm:text-4xl font-extrabold text-slate-400 mb-6">BEFORE</p>
+              <motion.ul
+                className="relative space-y-4"
+                variants={listContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-60px" }}
+              >
+                {transformation.before.map((item) => (
+                  <motion.li key={item} variants={listItem} className="text-slate-400 text-base sm:text-lg">
+                    {item}
+                  </motion.li>
+                ))}
+              </motion.ul>
             </div>
-          </Reveal>
 
-          {/* After */}
-          <Reveal delay={0.1}>
-            <div className="group rounded-[16px] overflow-hidden border border-border-light bg-white h-full">
-              <div className="relative h-40">
-                <div
-                  className="absolute inset-0"
-                  style={{ backgroundImage: "url(/images/events/transformation/after.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute inset-0 transition-all duration-500"
-                  style={{ background: "linear-gradient(to top, rgba(0,19,83,0.35) 0%, rgba(0,19,83,0.1) 100%)" }}
-                />
-                <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "linear-gradient(to top, rgba(253,237,34,0.28) 0%, rgba(253,237,34,0.06) 100%)" }} />
-              </div>
-              <div className="p-6 sm:p-8">
-                <p className="text-xs font-semibold tracking-widest uppercase text-navy mb-4">
-                  After
-                </p>
-                <motion.ul
-                  className="space-y-3"
-                  variants={listContainer}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, margin: "-60px" }}
-                >
-                  {transformation.after.map((item) => (
-                    <motion.li key={item} variants={listItem} className="text-gray-dark text-[15px] font-medium">
-                      {item}
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </div>
+            {/* After — vibrant, bright */}
+            <div className="relative p-8 sm:p-10">
+              <div
+                className="absolute inset-0"
+                style={{ backgroundImage: "url(/images/events/transformation/after.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-0"
+                style={{ background: "linear-gradient(135deg, rgba(0,19,83,0.85) 0%, rgba(13,18,130,0.8) 55%, rgba(49,66,156,0.75) 100%)" }}
+                aria-hidden="true"
+              />
+              <p className="relative text-3xl sm:text-4xl font-extrabold text-yellow mb-6">AFTER</p>
+              <motion.ul
+                className="relative space-y-4"
+                variants={listContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-60px" }}
+              >
+                {transformation.after.map((item) => (
+                  <motion.li key={item} variants={listItem} className="text-white font-semibold text-base sm:text-lg">
+                    {item}
+                  </motion.li>
+                ))}
+              </motion.ul>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
