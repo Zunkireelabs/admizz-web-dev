@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Target, BarChart3, ClipboardList, Clock, TriangleAlert, CircleCheckBig } from "lucide-react";
 import { beyondSkills } from "../content";
 import Reveal from "../Reveal";
@@ -20,15 +23,22 @@ export default function BeyondSkills() {
         <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
           {beyondSkills.points.map((point, i) => {
             const Icon = ICONS[i];
+            const isLeftColumn = i % 2 === 0;
+            const row = Math.floor(i / 2);
             return (
-              <Reveal key={point} delay={i * 0.06}>
-                <li className="flex items-center gap-3 text-white/80 text-[15px]">
-                  <div className="w-9 h-9 rounded-full bg-golden/15 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-4 h-4 text-golden" />
-                  </div>
-                  {point}
-                </li>
-              </Reveal>
+              <motion.li
+                key={point}
+                initial={{ opacity: 0, x: isLeftColumn ? -60 : 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: row * 0.15, ease: "easeOut" }}
+                className="flex items-center gap-3 text-white/80 text-[15px]"
+              >
+                <div className="w-9 h-9 rounded-full bg-golden/15 flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-4 h-4 text-golden" />
+                </div>
+                {point}
+              </motion.li>
             );
           })}
         </ul>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { event } from "@/components/ielts-workshop/content";
 import { RegistrationModalProvider } from "@/components/ielts-workshop/RegistrationModal";
 import Hero from "@/components/ielts-workshop/sections/Hero";
-import CountdownSection from "@/components/ielts-workshop/sections/CountdownSection";
 import ProblemSection from "@/components/ielts-workshop/sections/ProblemSection";
 import WorkshopIntro from "@/components/ielts-workshop/sections/WorkshopIntro";
 import SkillsSection from "@/components/ielts-workshop/sections/SkillsSection";
@@ -10,7 +9,6 @@ import BenefitsSection from "@/components/ielts-workshop/sections/BenefitsSectio
 import BeyondSkills from "@/components/ielts-workshop/sections/BeyondSkills";
 import Transformation from "@/components/ielts-workshop/sections/Transformation";
 import EventDetails from "@/components/ielts-workshop/sections/EventDetails";
-import UrgencySection from "@/components/ielts-workshop/sections/UrgencySection";
 import FinalCTA from "@/components/ielts-workshop/sections/FinalCTA";
 
 const CANONICAL = "https://admizzeducation.com/events/ielts-workshop";
@@ -56,15 +54,13 @@ export default function IeltsWorkshopPage() {
       />
       <RegistrationModalProvider>
         <Hero />
-        <CountdownSection />
-        <ProblemSection />
-        <WorkshopIntro />
         <SkillsSection />
         <BenefitsSection />
+        <ProblemSection />
+        <WorkshopIntro />
         <BeyondSkills />
         <Transformation />
         <EventDetails />
-        <UrgencySection />
         <FinalCTA />
       </RegistrationModalProvider>
     </>

@@ -4,6 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import { Calendar, Clock, Video, Users } from "lucide-react";
 import { event } from "../content";
 import { useRegistrationModal } from "../RegistrationModal";
+import Countdown from "../Countdown";
 
 const container: Variants = {
   hidden: {},
@@ -121,33 +122,42 @@ export default function Hero() {
           </motion.p>
         </div>
 
-        {/* Right column — glass info card */}
-        <motion.div
-          variants={item}
-          className="rounded-[16px] p-6 sm:p-8"
-          style={{
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(255,255,255,0.14)",
-            backdropFilter: "blur(8px)",
-          }}
-        >
-          <p className="text-xs font-semibold tracking-widest uppercase text-white/60 mb-5">
-            Workshop at a Glance
-          </p>
-          <div className="space-y-5">
-            {infoRows.map((row) => (
-              <div key={row.label} className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0">
-                  <row.icon className="w-5 h-5 text-yellow" />
+        {/* Right column — glass info card + countdown */}
+        <div>
+          <motion.div
+            variants={item}
+            className="rounded-[16px] p-6 sm:p-8 shadow-xl"
+            style={{
+              background: "rgba(0, 19, 83, 0.55)",
+              border: "1px solid rgba(253, 237, 34, 0.25)",
+              backdropFilter: "blur(10px)",
+            }}
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase text-white/60 mb-5">
+              Workshop at a Glance
+            </p>
+            <div className="space-y-5">
+              {infoRows.map((row) => (
+                <div key={row.label} className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0">
+                    <row.icon className="w-5 h-5 text-yellow" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-wide text-white/50">{row.label}</p>
+                    <p className="text-sm sm:text-base font-semibold">{row.value}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[11px] uppercase tracking-wide text-white/50">{row.label}</p>
-                  <p className="text-sm sm:text-base font-semibold">{row.value}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div variants={item} className="mt-6 text-center">
+            <p className="text-xs font-semibold tracking-widest uppercase text-white/50 mb-3">
+              Starts In
+            </p>
+            <Countdown targetISO={event.startISO} />
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );

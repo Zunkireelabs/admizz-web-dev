@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface CountdownProps {
   targetISO: string;
@@ -15,6 +16,29 @@ function getRemaining(targetISO: string) {
     minutes: Math.floor((total / (1000 * 60)) % 60),
     seconds: Math.floor((total / 1000) % 60),
   };
+}
+
+function DigitBox({ label, value }: { label: string; value: number | undefined }) {
+  const display = value !== undefined ? String(value).padStart(2, "0") : "--";
+  return (
+    <div className="flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-[10px] bg-white/10 border border-white/15 overflow-hidden">
+      <div className="relative h-6 sm:h-7 w-full flex items-center justify-center overflow-hidden">
+        <AnimatePresence mode="popLayout">
+          <motion.span
+            key={display}
+            initial={{ y: 16, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -16, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute text-xl sm:text-2xl font-bold text-yellow tabular-nums"
+          >
+            {display}
+          </motion.span>
+        </AnimatePresence>
+      </div>
+      <span className="text-[11px] uppercase tracking-wide text-white/70 mt-1">{label}</span>
+    </div>
+  );
 }
 
 export default function Countdown({ targetISO }: CountdownProps) {
@@ -37,19 +61,16 @@ export default function Countdown({ targetISO }: CountdownProps) {
   const ended = remaining !== null && remaining.total <= 0;
 
   return (
-    <div className="flex items-center justify-center gap-3 sm:gap-5">
+    <div className="flex items-center justify-center gap-2 sm:gap-3">
       {ended ? (
         <p className="text-lg font-semibold text-white">Workshop is live now</p>
       ) : (
-        units.map((unit) => (
-          <div
-            key={unit.label}
-            className="flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-[10px] bg-white/10 border border-white/15"
-          >
-            <span className="text-xl sm:text-2xl font-bold text-yellow tabular-nums">
-              {unit.value !== undefined ? String(unit.value).padStart(2, "0") : "--"}
-            </span>
-            <span className="text-[11px] uppercase tracking-wide text-white/70">{unit.label}</span>
+        units.map((unit, i) => (
+          <div key={unit.label} className="flex items-center gap-2 sm:gap-3">
+            <DigitBox label={unit.label} value={unit.value} />
+            {i < units.length - 1 && (
+              <span className="text-xl sm:text-2xl font-bold text-white/20 -mt-4">:</span>
+            )}
           </div>
         ))
       )}
