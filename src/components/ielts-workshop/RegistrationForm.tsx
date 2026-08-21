@@ -174,7 +174,7 @@ function Field({
   autoComplete?: string;
 }) {
   return (
-    <label className="block">
+    <label className="block min-w-0">
       <span className="block text-[12px] font-bold uppercase tracking-[0.08em] text-navy mb-1.5">{label}</span>
       <input
         type={type}
