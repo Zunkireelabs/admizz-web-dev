@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Target, BarChart3, ClipboardList, Clock, TriangleAlert, CircleCheckBig } from "lucide-react";
 import { beyondSkills } from "../content";
-import Reveal from "../Reveal";
+import WordReveal from "../WordReveal";
 
 // Order matches beyondSkills.points in content.ts
 const ICONS = [Target, BarChart3, ClipboardList, Clock, TriangleAlert, CircleCheckBig];
@@ -12,14 +12,12 @@ export default function BeyondSkills() {
   return (
     <section className="bg-navy text-white border-t border-white/10 py-20 md:py-24">
       <div className="max-w-4xl mx-auto px-4">
-        <Reveal>
-          <h2
-            className="text-2xl sm:text-3xl font-bold text-center mb-14"
-            style={{ fontFamily: "var(--font-rubik), sans-serif" }}
-          >
-            {beyondSkills.heading}
-          </h2>
-        </Reveal>
+        <h2
+          className="text-2xl sm:text-3xl font-bold text-center mb-14"
+          style={{ fontFamily: "var(--font-rubik), sans-serif" }}
+        >
+          <WordReveal text={beyondSkills.heading} highlightWords={["IELTS"]} />
+        </h2>
 
         <div className="grid sm:grid-cols-2 gap-x-8 gap-y-10">
           {beyondSkills.points.map((point, i) => {
@@ -41,7 +39,7 @@ export default function BeyondSkills() {
                 <div className="absolute inset-0 translate-x-1 translate-y-1 rounded-[14px] bg-white/[0.06] border border-white/8 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2" />
 
                 {/* Main card */}
-                <div className="relative rounded-[14px] bg-white/10 border border-white/15 p-5 shadow-none transition-all duration-300 group-hover:border-golden/40 group-hover:shadow-2xl">
+                <div className="relative h-full rounded-[14px] bg-white/10 border border-white/15 p-5 shadow-none transition-all duration-300 group-hover:border-golden/40 group-hover:shadow-2xl">
                   <div className="w-12 h-12 rounded-[10px] bg-golden/15 flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-golden" />
                   </div>
