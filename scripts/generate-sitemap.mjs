@@ -76,6 +76,8 @@ const staticPages = [
   { path: "/events/spin-and-win-terms-and-conditions", priority: 0.3, freq: "yearly" },
   // World Cup 2026 campaign
   { path: "/events/worldcup-2026", priority: 0.7, freq: "weekly" },
+  // IELTS Strategy Workshop
+  { path: "/events/ielts-workshop", priority: 0.7, freq: "weekly" },
 ];
 
 function escapeXml(str) {
