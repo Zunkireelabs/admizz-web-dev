@@ -91,7 +91,7 @@ export default function SkillsSection() {
         </div>
 
         {/* Static grid — all 4 skills in one row, no scrolling required */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {skills.map((skill, i) => (
             <Reveal key={skill.key} delay={i * 0.08}>
               <SkillCard skill={skill} />

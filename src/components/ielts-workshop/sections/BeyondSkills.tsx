@@ -32,14 +32,14 @@ export default function BeyondSkills() {
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: row * 0.15, ease: "easeOut" }}
                 whileHover={{ y: -14, scale: 1.03 }}
-                className="group relative cursor-default"
+                className="group sticky top-20 sm:relative sm:top-0 cursor-default"
               >
                 {/* Stacked paper layers behind the card — spread apart further on hover */}
                 <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-[14px] bg-white/[0.04] border border-white/5 transition-transform duration-300 group-hover:translate-x-4 group-hover:translate-y-4" />
                 <div className="absolute inset-0 translate-x-1 translate-y-1 rounded-[14px] bg-white/[0.06] border border-white/8 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2" />
 
-                {/* Main card */}
-                <div className="relative h-full rounded-[14px] bg-white/10 border border-white/15 p-5 shadow-none transition-all duration-300 group-hover:border-golden/40 group-hover:shadow-2xl">
+                {/* Main card — solid on mobile so stacked cards fully hide the one underneath; translucent glass again from sm: up where there's no stacking */}
+                <div className="relative h-full rounded-[14px] bg-blue-dark sm:bg-white/10 border border-white/15 p-5 shadow-none transition-all duration-300 group-hover:border-golden/40 group-hover:shadow-2xl">
                   <div className="w-12 h-12 rounded-[10px] bg-golden/15 flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-golden" />
                   </div>
