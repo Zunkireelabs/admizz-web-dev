@@ -3,21 +3,23 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { event } from "./content";
+import { DIAL_CODES, dialSpec, phoneDigits, isValidPhoneLength } from "@/lib/dialCodes";
 
 type FormState = {
   firstName: string;
   lastName: string;
   email: string;
+  dialCode: string;
   phone: string;
 };
 
-const INITIAL: FormState = { firstName: "", lastName: "", email: "", phone: "" };
+const INITIAL: FormState = { firstName: "", lastName: "", email: "", dialCode: "NP", phone: "" };
 
 const CRM_ENDPOINT = "https://edgex.zunkireelabs.com/api/public/submit/admizz/ielts-strategy-workshop-registration";
 const CRM_API_KEY = "crm_live_UVtPfdXD6lIZ0S5lSeny9Clv3jKzbGUGM8sgK2Gm3tw";
 
 const isValidEmail = (v: string) => /^\S+@\S+\.\S+$/.test(v.trim());
-const isValidPhone = (v: string) => /^\d{7,10}$/.test(v.replace(/\D/g, ""));
+const isValidPhone = (phone: string) => isValidPhoneLength(phone);
 const isFormValid = (f: FormState) =>
   f.firstName.trim().length >= 2 && isValidEmail(f.email) && isValidPhone(f.phone);
 
@@ -51,7 +53,7 @@ export default function RegistrationForm() {
           first_name: form.firstName.trim(),
           last_name: form.lastName.trim() || null,
           email: form.email.trim(),
-          phone: `+977 ${form.phone.trim()}`,
+          phone: `${dialSpec(form.dialCode).dial} ${form.phone.trim()}`,
           intake_source: "Website",
           intake_medium: params.get("utm_medium") || "Organic",
           intake_campaign: params.get("utm_campaign") || event.slug,
@@ -134,16 +136,45 @@ export default function RegistrationForm() {
           placeholder="you@example.com"
           autoComplete="email"
         />
-        <Field
-          label="Phone"
-          type="tel"
-          value={form.phone}
-          onChange={(v) => set({ phone: v.replace(/[^\d+ ]/g, "") })}
-          onBlur={() => touch("phone")}
-          error={touched.phone && !isValidPhone(form.phone) ? "Enter a valid phone number" : null}
-          placeholder="98XXXXXXXX"
-          autoComplete="tel"
-        />
+        <div>
+          <span className="block text-[12px] font-bold uppercase tracking-[0.08em] text-navy mb-1.5">Phone</span>
+          <div className="flex gap-2">
+            <div className="relative flex-shrink-0" style={{ width: 148 }}>
+              <select
+                value={form.dialCode}
+                onChange={(e) => set({ dialCode: e.target.value })}
+                className="w-full appearance-none rounded-[10px] border border-border-light pl-3 pr-7 py-2.5 text-[13px] text-navy outline-none truncate focus:border-golden"
+              >
+                {DIAL_CODES.map((d) => (
+                  <option key={d.key} value={d.key}>{d.country} ({d.dial})</option>
+                ))}
+              </select>
+              <svg
+                className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 w-3 h-3 text-navy"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <input
+              type="tel"
+              inputMode="numeric"
+              value={form.phone}
+              onChange={(e) => set({ phone: phoneDigits(e.target.value).slice(0, 15) })}
+              onBlur={() => touch("phone")}
+              placeholder="Phone number"
+              autoComplete="tel-national"
+              className={`w-full min-w-0 rounded-[10px] border px-3.5 py-2.5 text-[14px] text-navy outline-none transition-colors focus:border-golden ${
+                touched.phone && !isValidPhone(form.phone) ? "border-error" : "border-border-light"
+              }`}
+            />
+          </div>
+          {touched.phone && !isValidPhone(form.phone) && (
+            <span className="block mt-1 text-[12px] text-error">
+              Please enter a valid phone number.
+            </span>
+          )}
+        </div>
       </div>
 
       {submitError && <p className="mt-3 text-[13px] text-error">{submitError}</p>}
