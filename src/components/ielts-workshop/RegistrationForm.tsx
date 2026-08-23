@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type RefObject } from "react";
 import { motion } from "framer-motion";
 import { event } from "./content";
-import { DIAL_CODES, dialSpec, phoneDigits, isValidPhoneLength } from "@/lib/dialCodes";
+import { DIAL_CODES, dialSpec, phoneDigits } from "@/lib/dialCodes";
+import { isValidPhoneNumber } from "libphonenumber-js/min";
 
 type FormState = {
   firstName: string;
@@ -37,9 +38,17 @@ const DESTINATIONS = [
 ];
 
 const isValidEmail = (v: string) => /^\S+@\S+\.\S+$/.test(v.trim());
-const isValidPhone = (phone: string) => isValidPhoneLength(phone);
+const isValidPhone = (dialCode: string, phone: string) => {
+  const local = phone.trim();
+  if (!local) return false;
+  try {
+    return isValidPhoneNumber(`${dialSpec(dialCode).dial}${local}`);
+  } catch {
+    return false;
+  }
+};
 const isFormValid = (f: FormState) =>
-  f.firstName.trim().length >= 2 && isValidEmail(f.email) && isValidPhone(f.phone);
+  f.firstName.trim().length >= 2 && isValidEmail(f.email) && isValidPhone(f.dialCode, f.phone);
 
 export default function RegistrationForm() {
   const [form, setForm] = useState<FormState>(INITIAL);
@@ -173,13 +182,13 @@ export default function RegistrationForm() {
               placeholder="Phone number"
               autoComplete="tel-national"
               className={`w-full min-w-0 rounded-[10px] border px-3.5 py-2.5 text-[14px] text-navy outline-none transition-colors focus:border-golden ${
-                touched.phone && !isValidPhone(form.phone) ? "border-error" : "border-border-light"
+                touched.phone && !isValidPhone(form.dialCode, form.phone) ? "border-error" : "border-border-light"
               }`}
             />
           </div>
-          {touched.phone && !isValidPhone(form.phone) && (
+          {touched.phone && !isValidPhone(form.dialCode, form.phone) && (
             <span className="block mt-1 text-[12px] text-error">
-              Please enter a valid phone number.
+              Please enter a valid phone number for the selected country.
             </span>
           )}
         </div>
