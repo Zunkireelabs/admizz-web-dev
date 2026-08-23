@@ -79,8 +79,12 @@ export default function RegistrationForm() {
           custom_fields: {
             event: event.sessionTitle,
             event_date: event.dateLabel,
-            study_level: form.studyLevel || null,
-            destination: form.destination || null,
+            // Keys must match the CRM's recognized synonym lists in
+            // lib/leads/destination-normalize.ts, or the values get silently
+            // orphaned in custom_fields instead of populating the real
+            // leads.degree_level / leads.destinations columns.
+            degree_level: form.studyLevel || null,
+            dream_destination: form.destination || null,
           },
         }),
       });
