@@ -41,6 +41,10 @@
 }
 
 /* Base styles */
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-montserrat);
   color: var(--color-slate);
@@ -49,6 +53,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
+  overflow-x: hidden;
 }
 
 /* Minimum WCAG 2.1 AA touch target */
