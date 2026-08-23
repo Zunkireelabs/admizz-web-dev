@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent, type RefObject } from "react";
 import { motion } from "framer-motion";
 import { event } from "./content";
 import { DIAL_CODES, dialSpec, phoneDigits, isValidPhoneLength } from "@/lib/dialCodes";
@@ -11,12 +11,30 @@ type FormState = {
   email: string;
   dialCode: string;
   phone: string;
+  studyLevel: string;
+  destination: string;
 };
 
-const INITIAL: FormState = { firstName: "", lastName: "", email: "", dialCode: "NP", phone: "" };
+const INITIAL: FormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  dialCode: "NP",
+  phone: "",
+  studyLevel: "",
+  destination: "",
+};
 
 const CRM_ENDPOINT = "https://edgex.zunkireelabs.com/api/public/submit/admizz/ielts-strategy-workshop-registration";
 const CRM_API_KEY = "crm_live_UVtPfdXD6lIZ0S5lSeny9Clv3jKzbGUGM8sgK2Gm3tw";
+
+const STUDY_LEVELS = ["Diploma", "Bachelors", "Masters", "PhD"];
+
+const DESTINATIONS = [
+  "UK", "USA", "Canada", "Australia",
+  "India", "Germany", "Finland", "Sweden",
+  "New Zealand", "France", "Nepal", "Other",
+];
 
 const isValidEmail = (v: string) => /^\S+@\S+\.\S+$/.test(v.trim());
 const isValidPhone = (phone: string) => isValidPhoneLength(phone);
@@ -61,6 +79,8 @@ export default function RegistrationForm() {
           custom_fields: {
             event: event.sessionTitle,
             event_date: event.dateLabel,
+            study_level: form.studyLevel || null,
+            destination: form.destination || null,
           },
         }),
       });
@@ -139,23 +159,7 @@ export default function RegistrationForm() {
         <div>
           <span className="block text-[12px] font-bold uppercase tracking-[0.08em] text-navy mb-1.5">Phone</span>
           <div className="flex gap-2">
-            <div className="relative flex-shrink-0" style={{ width: 148 }}>
-              <select
-                value={form.dialCode}
-                onChange={(e) => set({ dialCode: e.target.value })}
-                className="w-full appearance-none rounded-[10px] border border-border-light pl-3 pr-7 py-2.5 text-[13px] text-navy outline-none truncate focus:border-golden"
-              >
-                {DIAL_CODES.map((d) => (
-                  <option key={d.key} value={d.key}>{d.country} ({d.dial})</option>
-                ))}
-              </select>
-              <svg
-                className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 w-3 h-3 text-navy"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </div>
+            <PhoneCountrySelect value={form.dialCode} onChange={(key) => set({ dialCode: key })} />
             <input
               type="tel"
               inputMode="numeric"
@@ -175,6 +179,19 @@ export default function RegistrationForm() {
             </span>
           )}
         </div>
+        <SimpleSelect
+          label="Dream destination"
+          options={DESTINATIONS}
+          value={form.destination}
+          onChange={(v) => set({ destination: v })}
+          placeholder="Select destination"
+        />
+        <ChipGroup
+          label="Study level"
+          options={STUDY_LEVELS}
+          value={form.studyLevel}
+          onChange={(v) => set({ studyLevel: v })}
+        />
       </div>
 
       {submitError && <p className="mt-3 text-[13px] text-error">{submitError}</p>}
@@ -220,5 +237,203 @@ function Field({
       />
       {error && <span className="block mt-1 text-[12px] text-error">{error}</span>}
     </label>
+  );
+}
+
+function useCloseOnOutsideClick(open: boolean, rootRef: RefObject<HTMLDivElement | null>, close: () => void) {
+  useEffect(() => {
+    if (!open) return;
+    const onDocClick = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) close();
+    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open, rootRef, close]);
+}
+
+function PhoneCountrySelect({ value, onChange }: { value: string; onChange: (key: string) => void }) {
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const rootRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const spec = dialSpec(value);
+
+  useCloseOnOutsideClick(open, rootRef, () => setOpen(false));
+
+  useEffect(() => {
+    if (open) {
+      setSearch("");
+      requestAnimationFrame(() => searchRef.current?.focus());
+    }
+  }, [open]);
+
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return DIAL_CODES;
+    return DIAL_CODES.filter(
+      (d) => d.country.toLowerCase().includes(q) || d.dial.includes(q) || d.key.toLowerCase().includes(q)
+    );
+  }, [search]);
+
+  return (
+    <div ref={rootRef} className="relative flex-shrink-0" style={{ width: 148 }}>
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        className="w-full flex items-center justify-between gap-1 rounded-[10px] border border-border-light pl-3 pr-2.5 py-2.5 text-[13px] text-navy outline-none focus:border-golden"
+      >
+        <span className="truncate">{spec.country} ({spec.dial})</span>
+        <svg
+          className="w-3 h-3 flex-shrink-0 text-navy transition-transform"
+          style={{ transform: open ? "rotate(180deg)" : undefined }}
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute z-50 top-full left-0 mt-1.5 rounded-[10px] border border-border-light bg-white shadow-xl overflow-hidden" style={{ width: 260, maxWidth: "calc(100vw - 2.5rem)" }}>
+          <div className="p-2 border-b border-border-light">
+            <input
+              ref={searchRef}
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search country or dial code…"
+              className="w-full rounded-[8px] border border-border-light px-2.5 py-1.5 text-[13px] text-navy outline-none focus:border-golden"
+            />
+          </div>
+          <ul className="max-h-56 overflow-y-auto py-1" role="listbox">
+            {filtered.length === 0 ? (
+              <li className="px-3 py-2.5 text-[13px] text-gray-dark">No matches</li>
+            ) : (
+              filtered.map((d) => {
+                const active = d.key === value;
+                return (
+                  <li
+                    key={d.key}
+                    role="option"
+                    aria-selected={active}
+                    onClick={() => { onChange(d.key); setOpen(false); }}
+                    className={`flex items-center justify-between gap-3 px-3 py-2 text-[13px] cursor-pointer ${
+                      active ? "bg-golden/15 text-navy font-semibold" : "text-navy hover:bg-off-white"
+                    }`}
+                  >
+                    <span className="truncate">{d.country}</span>
+                    <span className="flex-shrink-0 text-gray-dark">{d.dial}</span>
+                  </li>
+                );
+              })
+            )}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SimpleSelect({
+  label, options, value, onChange, placeholder,
+}: {
+  label: string;
+  options: string[];
+  value: string;
+  onChange: (v: string) => void;
+  placeholder: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useCloseOnOutsideClick(open, rootRef, () => setOpen(false));
+
+  return (
+    <div>
+      <span className="block text-[12px] font-bold uppercase tracking-[0.08em] text-navy mb-1.5">{label}</span>
+      <div ref={rootRef} className="relative">
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-haspopup="listbox"
+          className={`w-full flex items-center justify-between gap-2 rounded-[10px] border border-border-light pl-3.5 pr-3 py-2.5 text-[14px] outline-none focus:border-golden ${
+            value ? "text-navy" : "text-gray-dark"
+          }`}
+        >
+          <span className="truncate">{value || placeholder}</span>
+          <svg
+            className="w-3 h-3 flex-shrink-0 text-navy transition-transform"
+            style={{ transform: open ? "rotate(180deg)" : undefined }}
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+
+        {open && (
+          <div className="absolute z-50 top-full left-0 mt-1.5 w-full rounded-[10px] border border-border-light bg-white shadow-xl overflow-hidden">
+            <ul className="max-h-56 overflow-y-auto py-1" role="listbox">
+              {options.map((opt) => {
+                const active = opt === value;
+                return (
+                  <li
+                    key={opt}
+                    role="option"
+                    aria-selected={active}
+                    onClick={() => { onChange(active ? "" : opt); setOpen(false); }}
+                    className={`px-3.5 py-2 text-[14px] cursor-pointer ${
+                      active ? "bg-golden/15 text-navy font-semibold" : "text-navy hover:bg-off-white"
+                    }`}
+                  >
+                    {opt}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ChipGroup({
+  label, options, value, onChange,
+}: {
+  label: string;
+  options: string[];
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  return (
+    <div>
+      <span className="block text-[12px] font-bold uppercase tracking-[0.08em] text-navy mb-1.5">{label}</span>
+      <div className="flex flex-wrap gap-2">
+        {options.map((opt) => {
+          const selected = value === opt;
+          return (
+            <button
+              key={opt}
+              type="button"
+              onClick={() => onChange(selected ? "" : opt)}
+              className={`rounded-full border px-3.5 py-1.5 text-[13px] font-semibold transition-colors ${
+                selected
+                  ? "border-yellow bg-yellow text-black"
+                  : "border-border-light bg-white text-navy hover:border-golden"
+              }`}
+            >
+              {opt}
+            </button>
+          );
+        })}
+      </div>
+    </div>
   );
 }
