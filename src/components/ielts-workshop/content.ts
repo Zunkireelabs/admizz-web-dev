@@ -18,11 +18,11 @@ export const event = {
   intro:
     "A practical, live session built to show you how the test is actually scored, where students consistently lose marks, and how to prepare with a plan — not guesswork.",
 
-  dateLabel: "Friday, August 28, 2026",
+  dateLabel: "Sunday, August 30, 2026",
   timeLabel: "11 AM – 1 PM",
   durationLabel: "2 Hours",
-  startISO: "2026-08-28T11:00:00+05:45",
-  endISO: "2026-08-28T13:00:00+05:45",
+  startISO: "2026-08-30T11:00:00+05:45",
+  endISO: "2026-08-30T13:00:00+05:45",
 
   venue: "Google Meet (Live Online)",
   accessNote: "Meeting link will be shared only with registered participants.",
