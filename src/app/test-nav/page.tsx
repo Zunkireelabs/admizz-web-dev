@@ -176,6 +176,7 @@ export default function TestNav() {
 
   return (
     <main style={{ padding: 20, fontFamily: "monospace", maxWidth: 900, margin: "0 auto" }}>
+      <meta name="robots" content="noindex, nofollow" />
       <h1 style={{ fontSize: 22, marginBottom: 16 }}>Navigation Diagnostic v4</h1>
 
       <div style={{ background: "#d4edda", padding: 12, borderRadius: 8, marginBottom: 16, border: "2px solid #28a745", fontSize: 13 }}>

@@ -115,6 +115,7 @@ export default function Header() {
                     <Link
                       key={dest.href}
                       href={dest.href}
+                      prefetch={false}
                       onClick={() => setDestOpen(false)}
                       className="flex items-center gap-2.5 px-3 py-2.5 text-[13px] text-slate hover:bg-off-white hover:text-blue-dark rounded-md transition-colors"
                     >
@@ -211,6 +212,7 @@ export default function Header() {
                   <Link
                     key={dest.href}
                     href={dest.href}
+                    prefetch={false}
                     className="flex items-center gap-3 px-3 py-3 text-[15px] text-gray-dark hover:text-blue-dark"
                     onClick={() => setMobileOpen(false)}
                   >
