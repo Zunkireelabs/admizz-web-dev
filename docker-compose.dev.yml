@@ -50,6 +50,18 @@ services:
       - "traefik.http.middlewares.admizz-dev-blogs-page.redirectregex.regex=^(https?://[^/]+)/blogs/page/.*$$"
       - "traefik.http.middlewares.admizz-dev-blogs-page.redirectregex.replacement=$${1}/blogs"
       - "traefik.http.middlewares.admizz-dev-blogs-page.redirectregex.permanent=false"
+      # Post renamed: /blogs/5-benefits-of-studying-in-dubai → new slug -in-uae.
+      # Must be chained before admizz-dev-blog-post below (specific before generic).
+      - "traefik.http.middlewares.admizz-dev-dubai-blog.redirectregex.regex=^(https?://[^/]+)/blogs/5-benefits-of-studying-in-dubai/?$$"
+      - "traefik.http.middlewares.admizz-dev-dubai-blog.redirectregex.replacement=$${1}/5-benefits-of-studying-in-uae"
+      - "traefik.http.middlewares.admizz-dev-dubai-blog.redirectregex.permanent=true"
+      # /blogs/<post-slug> → /<post-slug> — posts live at the root, /blogs is only
+      # the listing page. Old links/crawl history use the /blogs/ prefix, causing
+      # 56 "not found" pages in Search Console. Single-segment only, so it does
+      # not touch /blogs/page/N (handled above) or /blogs/YYYY/MM/DD/ date archives.
+      - "traefik.http.middlewares.admizz-dev-blog-post.redirectregex.regex=^(https?://[^/]+)/blogs/([a-zA-Z0-9-]+)/?$$"
+      - "traefik.http.middlewares.admizz-dev-blog-post.redirectregex.replacement=$${1}/$${2}"
+      - "traefik.http.middlewares.admizz-dev-blog-post.redirectregex.permanent=true"
       - "traefik.http.middlewares.admizz-dev-floating-btn.redirectregex.regex=^(https?://[^/]+)/e-floating-buttons/.*$$"
       - "traefik.http.middlewares.admizz-dev-floating-btn.redirectregex.replacement=$${1}/"
       - "traefik.http.middlewares.admizz-dev-floating-btn.redirectregex.permanent=true"
@@ -75,7 +87,7 @@ services:
       - "traefik.http.middlewares.admizz-dev-affiliate-program.redirectregex.replacement=$${1}/affiliate$${3}"
       - "traefik.http.middlewares.admizz-dev-affiliate-program.redirectregex.permanent=true"
       # Chain all middlewares on router
-      - "traefik.http.routers.admizz-edu-web-dev.middlewares=admizz-dev-trailing-slash,admizz-dev-test-prep,admizz-dev-consultation,admizz-dev-campaign,admizz-dev-newzealand,admizz-dev-tag,admizz-dev-author,admizz-dev-blogs-page,admizz-dev-floating-btn,admizz-dev-birgunj,admizz-dev-janakpur,admizz-dev-uk-admissions-day,admizz-dev-admizzion-week,admizz-dev-uk-education-expo,admizz-dev-find-destination,admizz-dev-affiliate-program,admizz-dev-noindex-header"
+      - "traefik.http.routers.admizz-edu-web-dev.middlewares=admizz-dev-dubai-blog,admizz-dev-blog-post,admizz-dev-trailing-slash,admizz-dev-test-prep,admizz-dev-consultation,admizz-dev-campaign,admizz-dev-newzealand,admizz-dev-tag,admizz-dev-author,admizz-dev-blogs-page,admizz-dev-floating-btn,admizz-dev-birgunj,admizz-dev-janakpur,admizz-dev-uk-admissions-day,admizz-dev-admizzion-week,admizz-dev-uk-education-expo,admizz-dev-find-destination,admizz-dev-affiliate-program,admizz-dev-noindex-header"
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
       interval: 30s
