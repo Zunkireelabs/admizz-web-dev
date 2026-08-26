@@ -10,7 +10,21 @@ services:
       - "traefik.http.routers.admizz-edu-web-dev.rule=Host(`dev-web.admizzeducation.com`)"
       - "traefik.http.routers.admizz-edu-web-dev.entrypoints=websecure"
       - "traefik.http.routers.admizz-edu-web-dev.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.admizz-edu-web-dev.priority=1"
       - "traefik.http.services.admizz-edu-web-dev.loadbalancer.server.port=80"
+      # Keep this environment out of search engines and AI crawlers — it's a
+      # duplicate of production content and must never be indexed. Serves a
+      # Disallow: / robots.txt (path-specific router below, higher priority)
+      # and stamps X-Robots-Tag: noindex on every other response as a
+      # belt-and-suspenders in case a crawler ignores robots.txt.
+      - "traefik.http.routers.admizz-edu-web-dev-robots.rule=Host(`dev-web.admizzeducation.com`) && Path(`/robots.txt`)"
+      - "traefik.http.routers.admizz-edu-web-dev-robots.entrypoints=websecure"
+      - "traefik.http.routers.admizz-edu-web-dev-robots.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.admizz-edu-web-dev-robots.priority=10"
+      - "traefik.http.routers.admizz-edu-web-dev-robots.service=admizz-edu-web-dev"
+      - "traefik.http.routers.admizz-edu-web-dev-robots.middlewares=admizz-dev-robots-swap"
+      - "traefik.http.middlewares.admizz-dev-robots-swap.replacepath.path=/robots-dev.txt"
+      - "traefik.http.middlewares.admizz-dev-noindex-header.headers.customresponseheaders.X-Robots-Tag=noindex, nofollow, noarchive"
       # Redirect middlewares
       - "traefik.http.middlewares.admizz-dev-trailing-slash.redirectregex.regex=^(https?://[^/]+)/(.+)/$$"
       - "traefik.http.middlewares.admizz-dev-trailing-slash.redirectregex.replacement=$${1}/$${2}"
@@ -36,6 +50,18 @@ services:
       - "traefik.http.middlewares.admizz-dev-blogs-page.redirectregex.regex=^(https?://[^/]+)/blogs/page/.*$$"
       - "traefik.http.middlewares.admizz-dev-blogs-page.redirectregex.replacement=$${1}/blogs"
       - "traefik.http.middlewares.admizz-dev-blogs-page.redirectregex.permanent=false"
+      # Post renamed: /blogs/5-benefits-of-studying-in-dubai → new slug -in-uae.
+      # Must be chained before admizz-dev-blog-post below (specific before generic).
+      - "traefik.http.middlewares.admizz-dev-dubai-blog.redirectregex.regex=^(https?://[^/]+)/blogs/5-benefits-of-studying-in-dubai/?$$"
+      - "traefik.http.middlewares.admizz-dev-dubai-blog.redirectregex.replacement=$${1}/5-benefits-of-studying-in-uae"
+      - "traefik.http.middlewares.admizz-dev-dubai-blog.redirectregex.permanent=true"
+      # /blogs/<post-slug> → /<post-slug> — posts live at the root, /blogs is only
+      # the listing page. Old links/crawl history use the /blogs/ prefix, causing
+      # 56 "not found" pages in Search Console. Single-segment only, so it does
+      # not touch /blogs/page/N (handled above) or /blogs/YYYY/MM/DD/ date archives.
+      - "traefik.http.middlewares.admizz-dev-blog-post.redirectregex.regex=^(https?://[^/]+)/blogs/([a-zA-Z0-9-]+)/?$$"
+      - "traefik.http.middlewares.admizz-dev-blog-post.redirectregex.replacement=$${1}/$${2}"
+      - "traefik.http.middlewares.admizz-dev-blog-post.redirectregex.permanent=true"
       - "traefik.http.middlewares.admizz-dev-floating-btn.redirectregex.regex=^(https?://[^/]+)/e-floating-buttons/.*$$"
       - "traefik.http.middlewares.admizz-dev-floating-btn.redirectregex.replacement=$${1}/"
       - "traefik.http.middlewares.admizz-dev-floating-btn.redirectregex.permanent=true"
@@ -60,8 +86,21 @@ services:
       - "traefik.http.middlewares.admizz-dev-affiliate-program.redirectregex.regex=^(https?://[^/]+)/affiliate-program(/?(\\?.*)?)?$$"
       - "traefik.http.middlewares.admizz-dev-affiliate-program.redirectregex.replacement=$${1}/affiliate$${3}"
       - "traefik.http.middlewares.admizz-dev-affiliate-program.redirectregex.permanent=true"
+      # Retired blog posts (old WordPress content never migrated to Sanity, 404ing
+      # in Search Console) — redirect to the blog listing instead of a dead end.
+      - "traefik.http.middlewares.admizz-dev-retired-posts.redirectregex.regex=^(https?://[^/]+)/(blender-technology-animation-for-the-future|which-country-is-best-for-nepali-students-in-2026|difference-between-bba-bms-and-bbm|which-is-better-kiit-vs-mnnit|7-inspirational-movies-that-students-must-watch|4-steps-to-defining-your-mba-goals|army-public-school-scholarship-by-india-for-nepali-students|major-achievements-of-kiit-university-during-the-past-5-years)/?$$"
+      - "traefik.http.middlewares.admizz-dev-retired-posts.redirectregex.replacement=$${1}/blogs"
+      - "traefik.http.middlewares.admizz-dev-retired-posts.redirectregex.permanent=true"
+      # Retired CTA page — /book-as-a-student → /register
+      - "traefik.http.middlewares.admizz-dev-book-as-student.redirectregex.regex=^(https?://[^/]+)/book-as-a-student/?$$"
+      - "traefik.http.middlewares.admizz-dev-book-as-student.redirectregex.replacement=$${1}/register"
+      - "traefik.http.middlewares.admizz-dev-book-as-student.redirectregex.permanent=true"
+      # Legacy slug (missing "the") — /study-in-usa → /study-in-the-usa
+      - "traefik.http.middlewares.admizz-dev-study-usa.redirectregex.regex=^(https?://[^/]+)/study-in-usa/?$$"
+      - "traefik.http.middlewares.admizz-dev-study-usa.redirectregex.replacement=$${1}/study-in-the-usa"
+      - "traefik.http.middlewares.admizz-dev-study-usa.redirectregex.permanent=true"
       # Chain all middlewares on router
-      - "traefik.http.routers.admizz-edu-web-dev.middlewares=admizz-dev-trailing-slash,admizz-dev-test-prep,admizz-dev-consultation,admizz-dev-campaign,admizz-dev-newzealand,admizz-dev-tag,admizz-dev-author,admizz-dev-blogs-page,admizz-dev-floating-btn,admizz-dev-birgunj,admizz-dev-janakpur,admizz-dev-uk-admissions-day,admizz-dev-admizzion-week,admizz-dev-uk-education-expo,admizz-dev-find-destination,admizz-dev-affiliate-program"
+      - "traefik.http.routers.admizz-edu-web-dev.middlewares=admizz-dev-dubai-blog,admizz-dev-blog-post,admizz-dev-trailing-slash,admizz-dev-test-prep,admizz-dev-consultation,admizz-dev-campaign,admizz-dev-newzealand,admizz-dev-tag,admizz-dev-author,admizz-dev-blogs-page,admizz-dev-floating-btn,admizz-dev-birgunj,admizz-dev-janakpur,admizz-dev-uk-admissions-day,admizz-dev-admizzion-week,admizz-dev-uk-education-expo,admizz-dev-find-destination,admizz-dev-affiliate-program,admizz-dev-retired-posts,admizz-dev-book-as-student,admizz-dev-study-usa,admizz-dev-noindex-header"
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
       interval: 30s

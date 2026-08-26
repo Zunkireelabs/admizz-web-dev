@@ -63,15 +63,15 @@ const services = [
 ];
 
 const destinations = [
-  { name: "Study in the USA", image: "/images/destinations/usa1.webp", href: "/study-in-the-usa/" },
-  { name: "Study in the UK", image: "/images/destinations/uk1.webp", href: "/study-in-the-uk/" },
-  { name: "Study in Australia", image: "/images/destinations/aus1.webp", href: "/study-in-australia/" },
-  { name: "Study in Canada", image: "/images/destinations/canada1.webp", href: "/study-in-canada/" },
-  { name: "Study in India", image: "/images/destinations/india1.webp", href: "/study-in-india/" },
-  { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand/" },
-  { name: "Study in Finland", image: "/images/destinations/finland1.webp", href: "/study-in-finland/" },
-  { name: "Study in Germany", image: "/images/destinations/germany1.webp", href: "/study-in-germany/" },
-  { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france/" },
+  { name: "Study in the USA", image: "/images/destinations/usa1.webp", href: "/study-in-the-usa" },
+  { name: "Study in the UK", image: "/images/destinations/uk1.webp", href: "/study-in-the-uk" },
+  { name: "Study in Australia", image: "/images/destinations/aus1.webp", href: "/study-in-australia" },
+  { name: "Study in Canada", image: "/images/destinations/canada1.webp", href: "/study-in-canada" },
+  { name: "Study in India", image: "/images/destinations/india1.webp", href: "/study-in-india" },
+  { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand" },
+  { name: "Study in Finland", image: "/images/destinations/finland1.webp", href: "/study-in-finland" },
+  { name: "Study in Germany", image: "/images/destinations/germany1.webp", href: "/study-in-germany" },
+  { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france" },
 ];
 
 const testLogos = [

@@ -99,6 +99,7 @@ function Stars({ count = 5 }: { count?: number }) {
 export default function RegisterPage() {
   return (
     <main className="pb-20 md:pb-0">
+      <meta name="robots" content="noindex, nofollow" />
       {/* ===== HERO STRIP (compact, refined) ===== */}
       <section
         className="py-4 md:py-6 relative"
