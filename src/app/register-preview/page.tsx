@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
 import UniversityPartners from "@/app/UniversityPartners";
 import { allUniversities } from "@/lib/universities";
 import GlobalPresence from "@/components/ui/GlobalPresence";
+
+export const metadata: Metadata = {
+  title: "Register (Preview) | Admizz Education",
+  robots: { index: false, follow: false },
+};
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
