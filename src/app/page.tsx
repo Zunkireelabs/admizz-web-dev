@@ -319,11 +319,11 @@ export default function Home() {
 
       {/* Promotional overlay — appears 3.5s after page load */}
       <PredictWinPromoOverlay
-        id="wc2026-predict-win"
-        imageSrc="/images/university-choose-copy.webp"
-        imageAlt="Study in UK from Nepal — Admizz Education"
-        ctaText="Your UK Education Starts Here →"
-        ctaHref="https://admizzeducation.com/study-in-uk-from-nepal"
+        id="ielts-workshop-aug30"
+        imageSrc="/images/ielts-workshop-popup.webp"
+        imageAlt="IELTS Strategy Workshop — August 30, 2026 — Admizz Education"
+        ctaText="Reserve Your Seat →"
+        ctaHref="https://admizzeducation.com/events/ielts-workshop"
         delayMs={3500}
       />
 
