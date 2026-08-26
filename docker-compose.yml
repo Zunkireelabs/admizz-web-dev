@@ -86,8 +86,12 @@ services:
       - "traefik.http.middlewares.admizz-prod-book-as-student.redirectregex.regex=^(https?://[^/]+)/book-as-a-student/?$$"
       - "traefik.http.middlewares.admizz-prod-book-as-student.redirectregex.replacement=$${1}/register"
       - "traefik.http.middlewares.admizz-prod-book-as-student.redirectregex.permanent=true"
+      # Legacy slug (missing "the") — /study-in-usa → /study-in-the-usa
+      - "traefik.http.middlewares.admizz-prod-study-usa.redirectregex.regex=^(https?://[^/]+)/study-in-usa/?$$"
+      - "traefik.http.middlewares.admizz-prod-study-usa.redirectregex.replacement=$${1}/study-in-the-usa"
+      - "traefik.http.middlewares.admizz-prod-study-usa.redirectregex.permanent=true"
       # Chain all middlewares (www-redirect first)
-      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect,admizz-prod-dubai-blog,admizz-prod-blog-post,admizz-prod-trailing-slash,admizz-prod-test-prep,admizz-prod-consultation,admizz-prod-campaign,admizz-prod-newzealand,admizz-prod-tag,admizz-prod-author,admizz-prod-blogs-page,admizz-prod-floating-btn,admizz-prod-birgunj,admizz-prod-janakpur,admizz-prod-uk-admissions-day,admizz-prod-admizzion-week,admizz-prod-uk-education-expo,admizz-prod-find-destination,admizz-prod-affiliate-program,admizz-prod-retired-posts,admizz-prod-book-as-student"
+      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect,admizz-prod-dubai-blog,admizz-prod-blog-post,admizz-prod-trailing-slash,admizz-prod-test-prep,admizz-prod-consultation,admizz-prod-campaign,admizz-prod-newzealand,admizz-prod-tag,admizz-prod-author,admizz-prod-blogs-page,admizz-prod-floating-btn,admizz-prod-birgunj,admizz-prod-janakpur,admizz-prod-uk-admissions-day,admizz-prod-admizzion-week,admizz-prod-uk-education-expo,admizz-prod-find-destination,admizz-prod-affiliate-program,admizz-prod-retired-posts,admizz-prod-book-as-student,admizz-prod-study-usa"
       # careers.admizzeducation.com → admizzeducation.com/careers (308)
       - "traefik.http.routers.admizz-careers-subdomain.rule=Host(`careers.admizzeducation.com`)"
       - "traefik.http.routers.admizz-careers-subdomain.entrypoints=websecure"

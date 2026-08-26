@@ -95,8 +95,12 @@ services:
       - "traefik.http.middlewares.admizz-dev-book-as-student.redirectregex.regex=^(https?://[^/]+)/book-as-a-student/?$$"
       - "traefik.http.middlewares.admizz-dev-book-as-student.redirectregex.replacement=$${1}/register"
       - "traefik.http.middlewares.admizz-dev-book-as-student.redirectregex.permanent=true"
+      # Legacy slug (missing "the") — /study-in-usa → /study-in-the-usa
+      - "traefik.http.middlewares.admizz-dev-study-usa.redirectregex.regex=^(https?://[^/]+)/study-in-usa/?$$"
+      - "traefik.http.middlewares.admizz-dev-study-usa.redirectregex.replacement=$${1}/study-in-the-usa"
+      - "traefik.http.middlewares.admizz-dev-study-usa.redirectregex.permanent=true"
       # Chain all middlewares on router
-      - "traefik.http.routers.admizz-edu-web-dev.middlewares=admizz-dev-dubai-blog,admizz-dev-blog-post,admizz-dev-trailing-slash,admizz-dev-test-prep,admizz-dev-consultation,admizz-dev-campaign,admizz-dev-newzealand,admizz-dev-tag,admizz-dev-author,admizz-dev-blogs-page,admizz-dev-floating-btn,admizz-dev-birgunj,admizz-dev-janakpur,admizz-dev-uk-admissions-day,admizz-dev-admizzion-week,admizz-dev-uk-education-expo,admizz-dev-find-destination,admizz-dev-affiliate-program,admizz-dev-retired-posts,admizz-dev-book-as-student,admizz-dev-noindex-header"
+      - "traefik.http.routers.admizz-edu-web-dev.middlewares=admizz-dev-dubai-blog,admizz-dev-blog-post,admizz-dev-trailing-slash,admizz-dev-test-prep,admizz-dev-consultation,admizz-dev-campaign,admizz-dev-newzealand,admizz-dev-tag,admizz-dev-author,admizz-dev-blogs-page,admizz-dev-floating-btn,admizz-dev-birgunj,admizz-dev-janakpur,admizz-dev-uk-admissions-day,admizz-dev-admizzion-week,admizz-dev-uk-education-expo,admizz-dev-find-destination,admizz-dev-affiliate-program,admizz-dev-retired-posts,admizz-dev-book-as-student,admizz-dev-study-usa,admizz-dev-noindex-header"
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
       interval: 30s
