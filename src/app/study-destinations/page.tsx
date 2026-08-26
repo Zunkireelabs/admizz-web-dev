@@ -30,61 +30,61 @@ const destinations = [
     name: "Study in Australia",
     description:
       "Globally ranked universities, excellent research facilities, and post-study work opportunities.",
-    href: "/study-in-australia/",
+    href: "/study-in-australia",
   },
   {
     name: "Study in Canada",
     description:
       "Affordable education, multicultural communities, and permanent residency pathways.",
-    href: "/study-in-canada/",
+    href: "/study-in-canada",
   },
   {
     name: "Study in Finland",
     description:
       "Top-ranked education, affordable tuition, and strong post-study work opportunities in the happiest country.",
-    href: "/study-in-finland/",
+    href: "/study-in-finland",
   },
   {
     name: "Study in France",
     description:
       "Famous for arts, fashion, business, and technology programs.",
-    href: "/study-in-france/",
+    href: "/study-in-france",
   },
   {
     name: "Study in India",
     description:
       "Affordable education options in a culturally diverse environment for international students.",
-    href: "/study-in-india/",
+    href: "/study-in-india",
   },
   {
     name: "Study in Nepal",
     description:
       "Affordable, English-medium programs at recognised universities — with the Himalayas as your campus backdrop.",
-    href: "/study-in-nepal/",
+    href: "/study-in-nepal",
   },
   {
     name: "Study in New Zealand",
     description:
       "Safe, welcoming, and focused on hands-on, career-oriented education.",
-    href: "/study-in-newzealand/",
+    href: "/study-in-newzealand",
   },
   {
     name: "Study in South Korea",
     description:
       "Advanced technology-driven education paired with cultural richness.",
-    href: "/study-in-south-korea/",
+    href: "/study-in-south-korea",
   },
   {
     name: "Study in the UK",
     description:
       "Home to prestigious, centuries-old institutions and globally recognized degrees.",
-    href: "/study-in-the-uk/",
+    href: "/study-in-the-uk",
   },
   {
     name: "Study in the USA",
     description:
       "The top destination for research, innovation, and global careers.",
-    href: "/study-in-the-usa/",
+    href: "/study-in-the-usa",
   },
 ];
 
