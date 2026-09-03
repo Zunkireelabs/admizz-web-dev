@@ -13,6 +13,7 @@ import {
   type QuizAnswers,
   type DestinationKey,
 } from "@/lib/destination-quiz";
+import { getUtmAttribution } from "@/lib/attribution/utmStorage";
 
 type Phase = "intro" | "quiz" | "lead" | "result";
 
@@ -124,6 +125,7 @@ export default function DestinationQuiz() {
     setLead(finalLead);
 
     // Send to CRM (fire-and-forget)
+    const { utm_source, utm_medium, utm_campaign } = getUtmAttribution();
     fetch("https://edgex.zunkireelabs.com/api/public/submit/admizz/find-your-destination", {
       method: "POST",
       headers: {
@@ -135,6 +137,9 @@ export default function DestinationQuiz() {
         last_name:  finalLead.lastName.trim(),
         email:      finalLead.email.trim(),
         phone:      `${finalLead.code} ${finalLead.phone.trim()}`,
+        intake_source:   utm_source || "Website",
+        intake_medium:   utm_medium,
+        intake_campaign: utm_campaign,
         custom_fields: {
           study_field:          answers.q1 ?? "",
           lifestyle:            answers.q2 ?? "",

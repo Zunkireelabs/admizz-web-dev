@@ -7,6 +7,7 @@ import SiteChrome from "@/components/layout/SiteChrome";
 import ScrollToTop from "@/components/ScrollToTop";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import AffiliateRefCapture from "@/components/AffiliateRefCapture";
+import UtmAttributionCapture from "@/components/UtmAttributionCapture";
 import AuthTokenCatcher from "@/components/AuthTokenCatcher";
 
 const montserrat = localFont({
@@ -135,6 +136,7 @@ export default function RootLayout({
         <AuthTokenCatcher />
         <ScrollToTop />
         <AffiliateRefCapture />
+        <UtmAttributionCapture />
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>
