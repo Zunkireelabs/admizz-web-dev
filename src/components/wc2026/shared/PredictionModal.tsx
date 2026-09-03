@@ -7,6 +7,7 @@ import { savePrediction, loadStoredPredictions } from "@/lib/wc2026/predictions"
 import { useLive } from "@/lib/wc2026/LiveProvider";
 import { loadProfile, saveProfile, type SavedProfile } from "@/lib/wc2026/userProfile";
 import { DIAL_CODES, dialSpec, phoneDigits } from "@/lib/dialCodes";
+import { getUtmAttribution } from "@/lib/attribution/utmStorage";
 import Flag from "./Flag";
 import { CheckIcon } from "./Icons";
 
@@ -47,7 +48,7 @@ async function submitLead(
   const sessionId = makeSessionId();
   const matchLabel = `${match.teamAData.name} vs ${match.teamBData.name}`;
   const submittedAt = new Date().toISOString();
-  const utmParams = new URLSearchParams(window.location.search);
+  const { utm_source, utm_medium, utm_campaign } = getUtmAttribution();
   try {
     const res = await fetch(CRM_ENDPOINT, {
       method: "POST",
@@ -57,9 +58,9 @@ async function submitLead(
         form_config_id:  CRM_FORM_CONFIG_ID,
         session_id:      sessionId,
         idempotency_key: `${sessionId}-final`,
-        intake_source:   "Event",
-        intake_medium:   utmParams.get("utm_medium") || "Organic",
-        intake_campaign: "wc2026-predict-and-win",
+        intake_source:   utm_source || "Event",
+        intake_medium:   utm_medium,
+        intake_campaign: utm_campaign || "wc2026-predict-and-win",
         form_source:     window.location.pathname,
         status:          "new",
         step:            1,
