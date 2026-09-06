@@ -46,6 +46,10 @@ const PROJECT_DIR =
   resolve(__dirname, "..");
 const LOGS_DIR = join(__dirname, "logs");
 const BUILD_TIMEOUT_MS = 15 * 60 * 1000; // 15 minutes (covers 2 envs)
+// How far a signature's timestamp may be from now before it's treated as a
+// replay. Generous enough to absorb clock skew and Sanity's own retries,
+// short enough that a captured request stops being a deploy trigger.
+const MAX_SIGNATURE_AGE_SECONDS = 5 * 60;
 
 if (!WEBHOOK_SECRET) {
   console.error("FATAL: WEBHOOK_SECRET is not set. Create webhook/.env");
@@ -176,7 +180,15 @@ function verifySignature(body, signatureHeader) {
     const timestamp = parts.t;
     const v1 = parts.v1;
     if (!timestamp || !v1) {
-      log("DEBUG", `Signature parse failed — t=${timestamp}, v1=${v1 ? v1.slice(0, 8) + "..." : "undefined"}, header=${signatureHeader}`);
+      log("DEBUG", "Signature parse failed — missing t or v1 component");
+      return false;
+    }
+
+    // Reject stale signatures. Without this, a single captured request stays
+    // replayable forever, and this endpoint's whole job is to start a deploy.
+    const ageSeconds = Math.abs(Date.now() / 1000 - Number(timestamp));
+    if (!Number.isFinite(ageSeconds) || ageSeconds > MAX_SIGNATURE_AGE_SECONDS) {
+      log("WARN", `Rejected webhook — signature timestamp outside the ${MAX_SIGNATURE_AGE_SECONDS}s window`);
       return false;
     }
 
@@ -185,9 +197,22 @@ function verifySignature(body, signatureHeader) {
       .update(`${timestamp}.${body}`)
       .digest("hex");
 
-    const match = timingSafeEqual(Buffer.from(v1), Buffer.from(expected));
+    // timingSafeEqual throws on a length mismatch, which for hex digests only
+    // happens when the input isn't a real digest at all — compare lengths
+    // first so that's an ordinary false rather than an exception.
+    const got = Buffer.from(v1);
+    const want = Buffer.from(expected);
+    if (got.length !== want.length) {
+      log("DEBUG", "Signature mismatch — unexpected digest length");
+      return false;
+    }
+    const match = timingSafeEqual(got, want);
     if (!match) {
-      log("DEBUG", `Signature mismatch — got=${v1.slice(0, 12)}... expected=${expected.slice(0, 12)}... secret_start=${WEBHOOK_SECRET.slice(0, 8)}`);
+      // Deliberately logs NOTHING derived from the secret or either digest.
+      // This previously logged WEBHOOK_SECRET's first 8 characters on every
+      // mismatch, which put the signing key into the server log — where an
+      // attacker probing with bad signatures could farm it.
+      log("DEBUG", "Signature mismatch");
     }
     return match;
   } catch (err) {
@@ -252,17 +277,25 @@ const server = createServer(async (req, res) => {
       return json(res, 400, { error: "Bad request" });
     }
 
-    // Log all incoming headers for debugging
-    log("INFO", `Webhook POST from ${req.socket.remoteAddress} — headers: ${JSON.stringify(Object.keys(req.headers))}`);
-
-    // Verify HMAC signature (skip if no secret header — allows Sanity to connect)
+    // Authenticate BEFORE doing anything else. A POST to this endpoint starts
+    // a full rebuild and redeploy of the production site, so an unauthenticated
+    // one is an unauthenticated deploy trigger: anyone who could reach this
+    // port could spin the build loop indefinitely.
+    //
+    // Both branches here used to fall through to the build. A mismatched
+    // signature logged "proceeding anyway for debugging" and continued; a
+    // missing signature was accepted outright with "No signature header —
+    // accepting webhook". That made the HMAC check decorative — the secret was
+    // verified and the answer discarded. Temporary debugging shims like these
+    // are exactly what gets left in place, so both now reject.
     const signature = req.headers["sanity-webhook-signature"];
-    if (signature) {
-      if (!verifySignature(body, signature)) {
-        log("WARN", `Signature mismatch — proceeding anyway for debugging`);
-      }
-    } else {
-      log("INFO", `No signature header — accepting webhook`);
+    if (!signature) {
+      log("WARN", `Rejected unsigned webhook from ${req.socket.remoteAddress}`);
+      return json(res, 401, { error: "Missing signature" });
+    }
+    if (!verifySignature(body, signature)) {
+      log("WARN", `Rejected webhook with invalid signature from ${req.socket.remoteAddress}`);
+      return json(res, 401, { error: "Invalid signature" });
     }
 
     // Parse payload for logging
