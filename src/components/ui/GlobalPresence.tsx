@@ -74,7 +74,7 @@ const offices = [
         localCounsellorCard: true,
         accent: "#1E6DEB" as const,
         accentBg: "#EBF3FF" as const,
-        waNumber: "9779856100444",
+        waNumber: "9779802728444",
       },
       {
         name: "Janakpur",
@@ -83,7 +83,7 @@ const offices = [
         localCounsellorCard: true,
         accent: "#3FB5A0" as const,
         accentBg: "#EDFAF7" as const,
-        waNumber: "9779856100444",
+        waNumber: "9779802728444",
       },
     ],
     email: "hello@admizz.com",
