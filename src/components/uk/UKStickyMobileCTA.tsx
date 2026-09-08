@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function UKStickyMobileCTA({
-  whatsappNumber = "9779800000000",
+  whatsappNumber = "9779802728444",
   whatsappMessage = "Hi! I'm interested in studying in the UK from Nepal.",
   registerHref = "/register",
 }: {
