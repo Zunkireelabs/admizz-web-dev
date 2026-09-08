@@ -50,12 +50,12 @@ const offices = [
       {
         name: "Kathmandu",
         address: "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (Opp. to Nabil Bank)",
-        phone: "+977-01-5328444, +977-9856100444",
+        phone: "+977-9802728444",
       },
       {
         name: "Birgunj",
         address: "4th Floor, Link Road, Birgunj, Parsa, Nepal",
-        phone: "+977-9856100444",
+        phone: "+977-9802728444",
       },
     ],
     email: "hello@admizz.com",

@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
  *  - WhatsApp (secondary)
  */
 export default function IndiaStickyMobileCTA({
-  whatsappNumber = "9779800000000",
+  whatsappNumber = "9779802728444",
   whatsappMessage = "Hi! I'm interested in studying in India from Nepal.",
   registerHref = "/register",
 }: {

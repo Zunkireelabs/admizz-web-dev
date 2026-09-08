@@ -264,7 +264,7 @@ const faqItems: FAQItem[] = [
   {
     question: "How can I contact a trusted overseas education consultant in Nepal?",
     answer:
-      "You can reach out to Admizz Education through their website, visit one of their branches in Kathmandu or Birgunj, or call at +977-1-5328444 / +977-9856100444 to book a free counseling session.",
+      "You can reach out to Admizz Education through their website, visit one of their branches in Kathmandu or Birgunj, or call at +977-9802728444 to book a free counseling session.",
   },
 ];
 
