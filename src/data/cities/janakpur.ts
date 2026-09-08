@@ -228,8 +228,8 @@ export const janakpurData: CityLandingData = {
   office: {
     name: "Admizz Education — Janakpur Office",
     address: "Vishwakarma Chowk-04, Janakpurdham (Near Sarhanchiya Kuti), Nepal",
-    phone: "+977-9856100444",
-    phoneDisplay: "+977-9856100444",
+    phone: "+977-9802728444",
+    phoneDisplay: "+977-9802728444",
     whatsapp: "9779802728444",
     whatsappMessage: "Hi Admizz, I'm interested in studying abroad",
     email: "hello@admizz.com",
@@ -343,7 +343,7 @@ export const janakpurData: CityLandingData = {
     whatsappCta: {
       number: "9779802728444",
       message: "Hi Admizz, I'm interested in studying abroad",
-      display: "+977-9856100444",
+      display: "+977-9802728444",
     },
   },
 

@@ -229,8 +229,8 @@ export const birgunjData: CityLandingData = {
   office: {
     name: "Admizz Education — Birgunj Office",
     address: "Admizz Education Birgunj, Ghanta Ghar, Link Rd, Birgunj 44300, Nepal",
-    phone: "+977-9856100444",
-    phoneDisplay: "+977-9856100444",
+    phone: "+977-9802728444",
+    phoneDisplay: "+977-9802728444",
     whatsapp: "9779802728444",
     whatsappMessage: "Hi Admizz, I'm interested in studying abroad",
     email: "hello@admizz.com",
@@ -344,7 +344,7 @@ export const birgunjData: CityLandingData = {
     whatsappCta: {
       number: "9779802728444",
       message: "Hi Admizz, I'm interested in studying abroad",
-      display: "+977-9856100444",
+      display: "+977-9802728444",
     },
   },
 
