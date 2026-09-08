@@ -524,7 +524,7 @@ export default function RegisterPage() {
                   Skip the form — message a counsellor directly on WhatsApp. Real people, real answers, no bots.
                 </p>
                 <a
-                  href="https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
+                  href="https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-[13px] font-bold transition-all hover:-translate-y-0.5 hover:shadow-md"

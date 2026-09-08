@@ -273,7 +273,7 @@ export default function RegisterPage() {
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   <a
-                    href="https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
+                    href="https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-[13px] font-semibold transition-all hover:-translate-y-0.5 hover:shadow-md"
@@ -285,7 +285,7 @@ export default function RegisterPage() {
                     WhatsApp
                   </a>
                   <a
-                    href="tel:+9779856100444"
+                    href="tel:+9779802728444"
                     className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-[13px] font-semibold transition-all hover:-translate-y-0.5 hover:shadow-md"
                     style={{ background: "#0D1282", color: "#FFFFFF" }}
                   >
@@ -605,7 +605,7 @@ export default function RegisterPage() {
         }}
       >
         <a
-          href="https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
+          href="https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 rounded-xl py-3 text-[14px] font-semibold"
@@ -617,7 +617,7 @@ export default function RegisterPage() {
           WhatsApp
         </a>
         <a
-          href="tel:+9779856100444"
+          href="tel:+9779802728444"
           className="inline-flex items-center justify-center gap-2 rounded-xl py-3 text-[14px] font-semibold"
           style={{ background: "#0D1282", color: "#FFFFFF", minHeight: 44 }}
         >
