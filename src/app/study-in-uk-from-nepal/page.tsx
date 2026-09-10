@@ -376,6 +376,8 @@ export default async function StudyInUKFromNepalPage() {
         }
       />
       <UKStickyMobileCTA />
-    </>
+    
+{/* SEOAI:FAQ:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<script type=\"application/ld+json\">{\"@type\":\"FAQPage\",\"@context\":\"https://schema.org\",\"mainEntity\":[{\"name\":\"What support does Admizz Education provide for Nepali students studying in the UK?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"Admizz Education guides Nepali students through every step of their UK education journey, from university selection to visa approval.\",\"@type\":\"Answer\"}},{\"name\":\"What are the benefits of studying a Master's program in the UK compared to other countries?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"UK Master's programs run for just 12 months, which is half the duration of similar programs in the US or Australia, saving a full year of tuition and living costs.\",\"@type\":\"Answer\"}},{\"name\":\"What visa options are available for Nepali students after graduation in the UK?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"After graduation, the UK offers a 2-year Graduate Route visa that allows you to work without a sponsor, providing the freedom to find a job and gain experience.\",\"@type\":\"Answer\"}},{\"name\":\"How many Nepali students are currently studying in the UK?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"There are over 10,000 Nepali students studying in the UK.\",\"@type\":\"Answer\"}},{\"name\":\"What are some of the top universities in the UK according to QS World Rankings?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"The UK's top universities according to QS World Rankings include Imperial College London, University of Oxford, University of Cambridge, and UCL, all of which are consistently ranked in the global top 10.\",\"@type\":\"Answer\"}}]}</script>" }} />{/* SEOAI:FAQ:END */}
+</>
   );
 }
