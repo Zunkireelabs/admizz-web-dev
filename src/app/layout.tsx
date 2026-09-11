@@ -77,6 +77,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} ${rubik.variable} ${openSans.variable} ${playfair.variable}`}>
       <head>
+        {/* SEOAI:HEAD:START */}{/* SEOAI:HEAD:END */}
         <link rel="preconnect" href="https://cdn.sanity.io" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <link rel="dns-prefetch" href="https://edgex.zunkireelabs.com" />
