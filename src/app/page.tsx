@@ -722,6 +722,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    
+{/* SEOAI:EXPANDEDCONTENT:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\">\n  <section class=\"gap-2.5\">\n    <h2 class=\"text-3xl md:text-[42px] font-bold leading-tight\">Admizz Education vs. Competitors in Nepali Education Consultancy</h2>\n    <div class=\"mt-3 text-sm opacity-80\"><p>Admizz Education offers a comprehensive suite of services for students aspiring to study abroad, distinguishing itself from competitors in various ways. While some competitors may provide similar offerings, Admizz's focus on personalized guidance, robust test preparation, and high visa success rates set it apart as a preferred choice for Nepali students.</p></div>\n  </section>\n  <section class=\"gap-2.5\">\n    <h2 class=\"text-3xl md:text-[42px] font-bold leading-tight\">Features and Support Comparison</h2>\n    <div class=\"mt-3 text-sm opacity-80\"><p>When it comes to studying abroad, the level of support and resources available to students is crucial. Admizz Education excels in providing end-to-end support from career counseling to visa assistance. In contrast, competitors may lack the same breadth of services or fail to offer personalized attention that aligns with students' unique needs.</p><table><thead><tr><th>Feature</th><th>Alternative</th><th>Zunkiree Labs</th></tr></thead><tbody><tr><td>Visa Success Rate</td><td>Lower than 95%</td><td>95%</td></tr><tr><td>Scholarship Assistance</td><td>Limited or generic scholarship information</td><td>Expert support for financial aid</td></tr><tr><td>Test Preparation Services</td><td>Standardized courses without personalized support</td><td>Expert-led with personalized coaching</td></tr></tbody></table></div>\n  </section>\n</div>" }} />{/* SEOAI:EXPANDEDCONTENT:END */}
+</main>
   );
 }
