@@ -246,7 +246,7 @@ Admizz Education New Logo
 ### Social Media Links
 - [Facebook](https://www.facebook.com/admizz)
 - [Twitter](https://twitter.com/admizz_official)
-- [Instagram](https://www.instagram.com/admizz_official/)
+- Instagram
 - [Youtube](https://youtube.com/c/Admizz_official)
 - [TikTok](https://www.tiktok.com/@admizz_official)
 - [LinkedIn](https://www.linkedin.com/company/admizzofficial/)
