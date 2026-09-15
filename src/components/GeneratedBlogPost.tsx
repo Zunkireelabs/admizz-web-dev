@@ -26,6 +26,7 @@ import ArticleInfoBox from "@/components/ArticleInfoBox";
 import CTAForm from "@/components/ui/CTAForm";
 import generatedPostsData from "@/data/generated-posts.json";
 import type { GeneratedPostManifestEntry } from "@/types";
+import { renderMarkdownLite } from "./lib/markdown-lite";
 
 export interface GeneratedBlogPostSection {
   heading: string;
@@ -45,18 +46,6 @@ export interface GeneratedBlogPostProps {
   categories?: GeneratedBlogPostCategory[];
   infoBox?: { label: string; value: string }[];
   publishedAt?: string | null;
-}
-
-// A section's body is plain generated prose, not markdown — split on blank
-// lines into paragraphs rather than pulling in a markdown renderer for what
-// is deliberately minimal, always-buildable output (same posture
-// newpage-render.js's Markdown renderers take for every other net-new page
-// type on this platform).
-function paragraphs(body: string) {
-  return (body || "")
-    .split(/\n{2,}/)
-    .map((p) => p.trim())
-    .filter(Boolean);
 }
 
 // Up to 3: same-category posts first (real topical relevance), most-recent
@@ -147,11 +136,7 @@ export default function GeneratedBlogPost({
                 <h2 className="text-xl md:text-2xl font-bold text-[#001353] mb-3">
                   {section.heading}
                 </h2>
-                {paragraphs(section.body).map((p, j) => (
-                  <p key={j} className="text-gray-700 leading-relaxed mb-4">
-                    {p}
-                  </p>
-                ))}
+                {renderMarkdownLite(section.body, `section-${i}`)}
               </div>
             ))}
           </div>
