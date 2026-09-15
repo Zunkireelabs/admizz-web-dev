@@ -34,7 +34,7 @@ export function fromGeneratedPost(entry: GeneratedPostManifestEntry): BlogListIt
     excerpt: entry.excerpt,
     imageUrl: entry.imageUrl,
     imageAlt: entry.imageAlt || entry.title,
-    categories: [],
+    categories: entry.categories || [],
     publishedAt: entry.publishedAt,
   };
 }

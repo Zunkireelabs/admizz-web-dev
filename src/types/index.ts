@@ -65,6 +65,7 @@ export interface GeneratedPostManifestEntry {
   excerpt: string | null;
   imageUrl: string | null;
   imageAlt: string | null;
+  categories?: { slug: string; title: string }[];
   publishedAt: string | null;
   href: string;
   _aiManaged?: boolean;
