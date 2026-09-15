@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import PostCard from "./PostCard";
-import type { SanityPost } from "@/types";
+import type { BlogListItem } from "@/types";
 
 const POSTS_PER_PAGE = 12;
 
-export default function MoreArticles({ posts }: { posts: SanityPost[] }) {
+export default function MoreArticles({ posts }: { posts: BlogListItem[] }) {
   const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE);
 
   const visiblePosts = posts.slice(0, visibleCount);
@@ -20,7 +20,7 @@ export default function MoreArticles({ posts }: { posts: SanityPost[] }) {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visiblePosts.map((post) => (
-            <PostCard key={post.slug.current} post={post} />
+            <PostCard key={post.key} post={post} />
           ))}
         </div>
         {hasMore && (
