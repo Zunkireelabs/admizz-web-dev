@@ -185,7 +185,7 @@ Admizz Education New Logo (For Dark Background)
 - Instagram
 - [Youtube](https://youtube.com/c/Admizz_official)
 - TikTok/Study Abroad Consultancy
-- [LinkedIn](https://www.linkedin.com/company/admizzofficial/)
+- LinkedIn
 
 ---
 
