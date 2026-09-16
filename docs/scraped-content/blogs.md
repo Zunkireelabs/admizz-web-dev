@@ -104,7 +104,7 @@ This section repeats select featured articles with publication dates and read mo
 ### Primary CTA
 **Text:** "Join 100K+ students from across the world and pursue your dream course abroad."
 
-**Button:** Get in touch
+**Button:** [Get in touch](https://admizzeducation.com/register/)
 
 ---
 
