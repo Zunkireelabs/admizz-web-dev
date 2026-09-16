@@ -182,9 +182,9 @@ Admizz Education New Logo (For Dark Background)
 ### Social Media Links
 - [Facebook](https://www.facebook.com/admizz)
 - [Twitter](https://twitter.com/admizz_official)
-- Instagram
+- [Instagram](https://www.instagram.com/admizz_official/)
 - [Youtube](https://youtube.com/c/Admizz_official)
-- TikTok/Study Abroad Consultancy
+- [TikTok/Study Abroad Consultancy](https://www.tiktok.com/@admizz_official)
 - [LinkedIn](https://www.linkedin.com/company/admizzofficial/)
 
 ---
