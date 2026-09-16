@@ -55,6 +55,8 @@ export default function ContactPage() {
       {/* ===== GLOBAL PRESENCE ===== */}
       <GlobalPresence />
 
-    </main>
+    
+{/* SEOAI:FAQ:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<script type=\"application/ld+json\">{\"@type\":\"FAQPage\",\"@context\":\"https://schema.org\",\"mainEntity\":[{\"name\":\"What countries does Admizz Education operate in?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"Admizz Education has a strong international presence with offices in the USA, India, Zambia, Bangladesh, and Nepal.\",\"@type\":\"Answer\"}},{\"name\":\"How can I contact Admizz Education?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"You can contact Admizz Education via email at hello@admizz.com. For specific countries, you can also reach out to the respective offices listed.\",\"@type\":\"Answer\"}},{\"name\":\"Is there local support available for students in Nepal?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"Yes, Admizz Education offers local counseling support in Nepal, with offices in Kathmandu and Birgunj, as well as Janakpur.\",\"@type\":\"Answer\"}},{\"name\":\"What services does Admizz Education provide to students?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"Admizz Education provides guidance to students from choosing the right country to getting their visa sorted, step by step.\",\"@type\":\"Answer\"}},{\"name\":\"Where is the Admizz Education office in the USA located?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"The Admizz Education office in the USA is located in Denver, Colorado.\",\"@type\":\"Answer\"}},{\"name\":\"Can I visit an office in my local area?\",\"@type\":\"Question\",\"acceptedAnswer\":{\"text\":\"Yes, you can visit your nearest Admizz Education office for help, depending on your location.\",\"@type\":\"Answer\"}}]}</script>" }} />{/* SEOAI:FAQ:END */}
+</main>
   );
 }

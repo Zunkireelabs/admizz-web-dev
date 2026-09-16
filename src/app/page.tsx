@@ -722,6 +722,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    
+{/* SEOAI:EXPANDEDCONTENT:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\">\n  <section class=\"gap-2.5\">\n    <h2 class=\"text-3xl md:text-[42px] font-bold leading-tight\">Last Updated</h2>\n    <div class=\"mt-3 text-sm opacity-80\"><p>This page was last updated on 2026-09-12.</p></div>\n  </section>\n</div>" }} />{/* SEOAI:EXPANDEDCONTENT:END */}
+</main>
   );
 }

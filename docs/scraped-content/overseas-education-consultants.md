@@ -159,9 +159,9 @@ Our expert consultants are here to guide you every step of the way.
 ### Social Media
 - [Facebook](https://www.facebook.com/admizz)
 - [Twitter](https://twitter.com/admizz_official)
-- [Instagram](https://www.instagram.com/admizz_official/)
+- Instagram
 - [YouTube](https://youtube.com/c/Admizz_official)
-- [TikTok](https://www.tiktok.com/@admizz_official)
+- TikTok
 - [LinkedIn](https://www.linkedin.com/company/admizzofficial/)
 
 ---

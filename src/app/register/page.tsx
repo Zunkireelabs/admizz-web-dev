@@ -747,7 +747,9 @@ export default function RegisterPage() {
           Book Free Consultation
         </button>
       </div>
-    </main>
+    
+{/* SEOAI:EXPANDEDCONTENT:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<div class=\"px-4 sm:px-6 lg:px-8\">\n  <section class=\"gap-2.5\">\n    <h2 class=\"md:text-[42px] font-bold leading-tight\">About the Author</h2>\n    <div class=\"mt-3 text-sm opacity-80\"><p>By the Admizz Education Team</p></div>\n  </section>\n</div>" }} />{/* SEOAI:EXPANDEDCONTENT:END */}
+</main>
   );
 }
 
