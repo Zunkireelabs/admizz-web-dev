@@ -55,6 +55,8 @@ export default function ContactPage() {
       {/* ===== GLOBAL PRESENCE ===== */}
       <GlobalPresence />
 
-    </main>
+    
+{/* SEOAI:INTERNALLINKS:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<ul class=\"px-4 sm:px-6 lg:px-8 space-y-0\">\n  <li class=\"gap-2.5\"><a href=\"https://admizzeducation.com/study-in-nepal\" class=\"flex-shrink-0\">students from Nepal</a></li>\n</ul>" }} />{/* SEOAI:INTERNALLINKS:END */}
+</main>
   );
 }
