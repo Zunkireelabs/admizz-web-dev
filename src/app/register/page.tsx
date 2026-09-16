@@ -747,7 +747,9 @@ export default function RegisterPage() {
           Book Free Consultation
         </button>
       </div>
-    </main>
+    
+{/* SEOAI:INTERNALLINKS:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<ul class=\"px-4 sm:px-6 lg:px-8 space-y-0\">\n  <li class=\"gap-2.5\"><a href=\"https://admizzeducation.com/study-in-nepal\" class=\"flex-shrink-0\">Free 1-on-1 counselling</a></li>\n  <li class=\"gap-2.5\"><a href=\"https://admizzeducation.com/study-in-nepal\" class=\"flex-shrink-0\">map your goals</a></li>\n  <li class=\"gap-2.5\"><a href=\"https://admizzeducation.com/study-in-nepal\" class=\"flex-shrink-0\">apply with confidence</a></li>\n</ul>" }} />{/* SEOAI:INTERNALLINKS:END */}
+</main>
   );
 }
 
