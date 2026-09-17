@@ -248,7 +248,7 @@ Admizz Education New Logo
 - [Twitter](https://twitter.com/admizz_official)
 - [Instagram](https://www.instagram.com/admizz_official/)
 - [Youtube](https://youtube.com/c/Admizz_official)
-- [TikTok](https://www.tiktok.com/@admizz_official)
+- TikTok
 - [LinkedIn](https://www.linkedin.com/company/admizzofficial/)
 
 ---
