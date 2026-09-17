@@ -334,6 +334,8 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-    </main>
+    
+{/* SEOAI:BREADCRUMBSCHEMA:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<script type=\"application/ld+json\">{\"@type\":\"BreadcrumbList\",\"@context\":\"https://schema.org\",\"itemListElement\":[{\"item\":\"https://admizzeducation.com/\",\"name\":\"Admizz Education\",\"@type\":\"ListItem\",\"position\":1},{\"item\":\"https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india\",\"name\":\"Compex Scholarship 2026 Complete Guide For Nepalese Students To Study In India\",\"@type\":\"ListItem\",\"position\":2}]}</script>" }} />{/* SEOAI:BREADCRUMBSCHEMA:END */}
+</main>
   );
 }
