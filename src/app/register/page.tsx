@@ -749,6 +749,8 @@ export default function RegisterPage() {
       </div>
     
 {/* SEOAI:INTERNALLINKS:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<ul class=\"px-4 sm:px-6 lg:px-8 space-y-0\">\n  <li class=\"gap-2.5\"><a href=\"https://admizzeducation.com/study-in-nepal\" class=\"flex-shrink-0\">Free 1-on-1 counselling</a></li>\n  <li class=\"gap-2.5\"><a href=\"https://admizzeducation.com/study-in-nepal\" class=\"flex-shrink-0\">2,000+ Students Admitted</a></li>\n  <li class=\"gap-2.5\"><a href=\"https://admizzeducation.com/study-in-nepal\" class=\"flex-shrink-0\">Visa Approval Rate</a></li>\n</ul>" }} />{/* SEOAI:INTERNALLINKS:END */}
+
+{/* SEOAI:BREADCRUMBSCHEMA:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<script type=\"application/ld+json\">{\"@type\":\"BreadcrumbList\",\"@context\":\"https://schema.org\",\"itemListElement\":[{\"item\":\"https://admizzeducation.com/\",\"name\":\"Admizz Education\",\"@type\":\"ListItem\",\"position\":1},{\"item\":\"https://admizzeducation.com/register\",\"name\":\"Register\",\"@type\":\"ListItem\",\"position\":2}]}</script>" }} />{/* SEOAI:BREADCRUMBSCHEMA:END */}
 </main>
   );
 }
