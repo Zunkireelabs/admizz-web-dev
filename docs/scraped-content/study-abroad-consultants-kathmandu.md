@@ -214,7 +214,7 @@ A: Costs vary by destination and university. Many countries offer scholarships, 
 - Instagram
 - [Youtube](https://youtube.com/c/Admizz_official)
 - TikTok
-- [LinkedIn](https://www.linkedin.com/company/admizzofficial/)
+- LinkedIn
 
 ### Copyright
 (c) 2026, All rights reserved. Admizz Education.

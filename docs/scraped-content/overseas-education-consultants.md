@@ -162,7 +162,7 @@ Our expert consultants are here to guide you every step of the way.
 - Instagram
 - [YouTube](https://youtube.com/c/Admizz_official)
 - TikTok
-- [LinkedIn](https://www.linkedin.com/company/admizzofficial/)
+- LinkedIn
 
 ---
 
