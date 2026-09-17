@@ -722,6 +722,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    
+{/* SEOAI:INTERNALLINKS:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<ul class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-0\">\n  <li class=\"gap-2.5\"><a href=\"https://admizzeducation.com/study-in-nepal\" class=\"flex-shrink-0\">Explore Destinations</a></li>\n  <li class=\"gap-2.5\"><a href=\"https://admizzeducation.com/study-in-nepal\" class=\"flex-shrink-0\">Study in the USA</a></li>\n  <li class=\"gap-2.5\"><a href=\"https://admizzeducation.com/study-in-nepal\" class=\"flex-shrink-0\">end-to-end support</a></li>\n</ul>" }} />{/* SEOAI:INTERNALLINKS:END */}
+</main>
   );
 }
