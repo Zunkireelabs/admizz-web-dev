@@ -152,3 +152,9 @@ The section concludes with: "Contact us today to schedule your free Korea educat
 
 **Copyright:** "© 2026, All rights reserved. Admizz Education."
 <!-- SEOAI:BREADCRUMBSCHEMA:START --><script type="application/ld+json">{"@type":"BreadcrumbList","@context":"https://schema.org","itemListElement":[{"item":"https://admizzeducation.com/","name":"Admizz Education","@type":"ListItem","position":1},{"item":"https://admizzeducation.com/study-in-south-korea-from-nepal","name":"Study In South Korea From Nepal","@type":"ListItem","position":2}]}</script><!-- SEOAI:BREADCRUMBSCHEMA:END -->
+<!-- SEOAI:EXPANDEDCONTENT:START --><div class="px-4 sm:px-6 lg:px-8 min-h-[80vh] space-y-0">
+  <section class="gap-2.5">
+    <h2 class="text-[28px] font-bold leading-tight uppercase events-hero-title">Last Updated</h2>
+    <div class="text-sm md:text-base mb-3 opacity-90"><p class="text-sm md:text-base mb-3 opacity-90">This page was last updated on 2026-09-18.</p></div>
+  </section>
+</div><!-- SEOAI:EXPANDEDCONTENT:END -->
