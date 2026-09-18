@@ -126,7 +126,6 @@ export default function RootLayout({
               ],
               sameAs: [
                 "https://www.facebook.com/admizz",
-                "https://www.instagram.com/admizz_official/",
                 "https://youtube.com/c/Admizz_official",
                 "https://www.tiktok.com/@admizz_official",
                 "https://www.linkedin.com/company/admizzofficial/",
