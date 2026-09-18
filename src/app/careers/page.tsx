@@ -543,15 +543,15 @@ export default function CareersPage() {
             mind for future opportunities.
           </p>
           <a
-            href="mailto:hr@admizz.com?subject=General Application — Admizz Education"
+            href="mailto:careers@admizz.com?subject=General Application — Admizz Education"
             className="inline-block bg-yellow text-black font-semibold text-[15px] px-8 py-3.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
           >
             Send Your Resume
           </a>
           <p className="text-sm text-white/50 mt-5">
             Or email us directly at{" "}
-            <a href="mailto:hr@admizz.com" className="text-yellow hover:underline">
-              hr@admizz.com
+            <a href="mailto:careers@admizz.com" className="text-yellow hover:underline">
+              careers@admizz.com
             </a>
           </p>
         </div>
