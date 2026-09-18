@@ -151,3 +151,4 @@ The section concludes with: "Contact us today to schedule your free Korea educat
 **Social Media Links:** Facebook, Twitter, Instagram, YouTube, TikTok, LinkedIn
 
 **Copyright:** "© 2026, All rights reserved. Admizz Education."
+<!-- SEOAI:BREADCRUMBSCHEMA:START --><script type="application/ld+json">{"@type":"BreadcrumbList","@context":"https://schema.org","itemListElement":[{"item":"https://admizzeducation.com/","name":"Admizz Education","@type":"ListItem","position":1},{"item":"https://admizzeducation.com/study-in-south-korea-from-nepal","name":"Study In South Korea From Nepal","@type":"ListItem","position":2}]}</script><!-- SEOAI:BREADCRUMBSCHEMA:END -->
