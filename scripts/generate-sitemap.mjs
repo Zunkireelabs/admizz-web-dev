@@ -50,6 +50,8 @@ const staticPages = [
   { path: "/study-in-india", priority: 0.8, freq: "monthly" },
   { path: "/study-in-france", priority: 0.8, freq: "monthly" },
   { path: "/study-in-germany", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-finland", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-nepal", priority: 0.8, freq: "monthly" },
   // Nepal variant pages
   { path: "/study-in-canada-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-south-korea-from-nepal", priority: 0.7, freq: "monthly" },
@@ -78,6 +80,7 @@ const staticPages = [
   { path: "/events/worldcup-2026", priority: 0.7, freq: "weekly" },
   // IELTS Strategy Workshop
   { path: "/events/ielts-workshop", priority: 0.7, freq: "weekly" },
+  { path: "/events", priority: 0.6, freq: "weekly" },
 ];
 
 function escapeXml(str) {

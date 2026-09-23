@@ -1,0 +1,40 @@
+# Admizz Education
+
+Study abroad consultancy based in Kathmandu and Bengaluru, helping Nepali
+students apply to universities in the USA, UK, Canada, Australia, New
+Zealand, India, France, Germany, and South Korea — free counselling,
+university applications, test prep, and visa guidance.
+
+## Destinations
+
+- [Study in the USA](https://admizzeducation.com/study-in-the-usa): Universities, costs, F-1 visa process, and scholarships for Nepali students applying to the USA.
+- [Study in the UK](https://admizzeducation.com/study-in-the-uk): UK universities, course options, student visa process, and post-study work routes.
+- [Study in Australia](https://admizzeducation.com/study-in-australia): Australian universities, subclass 500 visa, and living costs for international students.
+- [Study in Canada](https://admizzeducation.com/study-in-canada): Canadian universities, student visa requirements, and pathway to permanent residency.
+- [Study in New Zealand](https://admizzeducation.com/study-in-newzealand): New Zealand universities, visa requirements, and post-study work rights.
+- [Study in South Korea](https://admizzeducation.com/study-in-south-korea): South Korean universities, GKS scholarship, and tech-industry study opportunities.
+- [Study in India](https://admizzeducation.com/study-in-india): Indian universities, admission process, and costs for Nepali students.
+- [Study in France](https://admizzeducation.com/study-in-france): French universities, Campus France process, and tuition costs.
+- [Study in Germany](https://admizzeducation.com/study-in-germany): German universities, low-tuition public education, and visa requirements.
+
+## Nepal-specific guides
+
+- [Study in Canada from Nepal](https://admizzeducation.com/study-in-canada-from-nepal): Canada study visa process specifically for applicants from Nepal.
+- [Study in the UK from Nepal](https://admizzeducation.com/study-in-uk-from-nepal): UK student visa process specifically for applicants from Nepal.
+- [Study in the USA from Nepal](https://admizzeducation.com/study-in-usa-from-nepal): USA F-1 visa process specifically for applicants from Nepal.
+- [Best education consultancy in Nepal](https://admizzeducation.com/best-education-consultancy-in-nepal): What to look for in a study-abroad consultancy and how Admizz helps.
+- [Education consultancy in Kathmandu](https://admizzeducation.com/education-consultancy-in-kathmandu): Admizz's Kathmandu office services for study-abroad counselling.
+
+## Offices
+
+- [Birgunj](https://admizzeducation.com/birgunj): Admizz's local office and services for students from Birgunj.
+- [Janakpur](https://admizzeducation.com/janakpur): Admizz's local office and services for students from Janakpur.
+
+## About
+
+- [About Admizz](https://admizzeducation.com/about): Admizz Education's background, mission, and team.
+- [Contact](https://admizzeducation.com/contact): How to reach Admizz Education for a free consultation.
+
+## Sitemap
+
+- [XML Sitemap](https://admizzeducation.com/sitemap.xml): Every indexable page on admizzeducation.com, including blog posts.
