@@ -2,16 +2,16 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Study Destinations - Admizz Education",
+  title: "Study Abroad Planning Services - Study Destinations | Admizz Education",
   description:
-    "Explore top study abroad destinations with expert guidance on universities, courses, visas, costs, and student life to help you choose the right country.",
+    "Study abroad planning services for Nepali students and beyond — explore top study destinations with expert guidance on universities, courses, visas, costs, and student life to help you choose the right country.",
   alternates: {
     canonical: "https://admizzeducation.com/study-destinations",
   },
   openGraph: {
-    title: "Study Destinations - Admizz Education",
+    title: "Study Abroad Planning Services - Study Destinations | Admizz Education",
     description:
-      "Explore top study abroad destinations with expert guidance on universities, courses, visas, costs, and student life to help you choose the right country.",
+      "Study abroad planning services for Nepali students and beyond — explore top study destinations with expert guidance on universities, courses, visas, costs, and student life to help you choose the right country.",
     url: "https://admizzeducation.com/study-destinations",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],

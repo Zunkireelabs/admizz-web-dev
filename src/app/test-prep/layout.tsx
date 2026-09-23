@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Test Preparation - IELTS, GRE, TOEFL, PTE, SAT | Admizz Education",
+  title: "Test Preparation Services in Nepal - IELTS, GRE, TOEFL, PTE, SAT | Admizz Education",
   description:
-    "Ace your IELTS, TOEFL, GRE, PTE, SAT and Duolingo exams with expert-led coaching, practice tests, and personalized study plans at Admizz Education.",
+    "Test preparation services in Nepal for IELTS, TOEFL, GRE, PTE, SAT and Duolingo — expert-led coaching, practice tests, and personalized study plans. Real test preparation help for study abroad from Admizz Education.",
   alternates: {
     canonical: "https://admizzeducation.com/test-prep",
   },
   openGraph: {
-    title: "Test Preparation - IELTS, GRE, TOEFL, PTE, SAT | Admizz Education",
+    title: "Test Preparation Services in Nepal - IELTS, GRE, TOEFL, PTE, SAT | Admizz Education",
     description:
-      "Ace your IELTS, TOEFL, GRE, PTE, SAT and Duolingo exams with expert-led coaching, practice tests, and personalized study plans at Admizz Education.",
+      "Test preparation services in Nepal for IELTS, TOEFL, GRE, PTE, SAT and Duolingo — expert-led coaching, practice tests, and personalized study plans. Real test preparation help for study abroad from Admizz Education.",
     url: "https://admizzeducation.com/test-prep",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],
