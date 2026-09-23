@@ -97,6 +97,33 @@ function toISODate(dateStr) {
   }
 }
 
+// Locally-generated blog posts (Action Center's blog-outline target,
+// src/app/blogs/<slug>/page.tsx) are never in Sanity — src/data/generated-posts.json
+// is their manifest (written by frontend.js's computeGeneratedPostsManifestUpdate
+// in the same commit as the post file). Without this, a generated post is
+// reachable by direct URL/internal links but never submitted for indexing.
+function readGeneratedPosts() {
+  const manifestPath = path.join(ROOT, "src", "data", "generated-posts.json");
+  if (!fs.existsSync(manifestPath)) return [];
+  try {
+    return JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+  } catch {
+    return [];
+  }
+}
+
+// Locally-generated direct-answer pages (Action Center's direct-answer
+// target, src/app/answers/<slug>/page.tsx) have no manifest — walk the
+// directory instead, same info a sitemap entry needs (just the URL) is
+// already implied by the directory existing.
+function readGeneratedDirectAnswerSlugs() {
+  const dir = path.join(ROOT, "src", "app", "answers");
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && fs.existsSync(path.join(dir, e.name, "page.tsx")))
+    .map((e) => e.name);
+}
+
 async function main() {
   console.log("Generating sitemap.xml...");
 
@@ -106,7 +133,10 @@ async function main() {
     client.fetch(`*[_type == "category"] { "slug": slug.current }`),
   ]);
 
-  console.log(`  Found ${posts.length} posts, ${categories.length} categories`);
+  const generatedPosts = readGeneratedPosts();
+  const generatedAnswerSlugs = readGeneratedDirectAnswerSlugs();
+
+  console.log(`  Found ${posts.length} Sanity posts, ${categories.length} categories, ${generatedPosts.length} locally-generated posts, ${generatedAnswerSlugs.length} direct-answer pages`);
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -142,6 +172,27 @@ async function main() {
     });
   }
 
+  // Locally-generated blog posts (never in Sanity — see readGeneratedPosts)
+  for (const post of generatedPosts) {
+    if (!post.href) continue;
+    urls.push({
+      loc: `${BASE_URL}${post.href}`,
+      lastmod: post.publishedAt ? toISODate(post.publishedAt) : today,
+      changefreq: "monthly",
+      priority: 0.6,
+    });
+  }
+
+  // Locally-generated direct-answer pages
+  for (const slug of generatedAnswerSlugs) {
+    urls.push({
+      loc: `${BASE_URL}/answers/${slug}`,
+      lastmod: today,
+      changefreq: "monthly",
+      priority: 0.6,
+    });
+  }
+
   // Build XML
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -162,9 +213,11 @@ ${urls
   fs.writeFileSync(outPath, xml, "utf-8");
 
   console.log(`  Written ${urls.length} URLs to public/sitemap.xml`);
-  console.log(`    Static pages: ${staticPages.length}`);
-  console.log(`    Blog posts:   ${posts.length}`);
-  console.log(`    Categories:   ${categories.length}`);
+  console.log(`    Static pages:          ${staticPages.length}`);
+  console.log(`    Sanity blog posts:     ${posts.length}`);
+  console.log(`    Categories:            ${categories.length}`);
+  console.log(`    Generated blog posts:  ${generatedPosts.length}`);
+  console.log(`    Generated answers:     ${generatedAnswerSlugs.length}`);
   console.log("  Done!");
 }
 
