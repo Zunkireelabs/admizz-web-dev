@@ -3,10 +3,12 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Hero from "@/components/ui/Hero";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { SanityPost } from "@/types";
 
 export interface QuickFact {
@@ -89,6 +91,7 @@ const tabs = [
 const rubikFont = { fontFamily: "var(--font-rubik), sans-serif" };
 
 export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemplateProps) {
+  const pathname = usePathname();
   const [activeTab, setActiveTab] = useState("why");
   const [showFade, setShowFade] = useState(true);
   const tabScrollRef = useRef<HTMLDivElement>(null);
@@ -149,6 +152,13 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Study Destinations", url: "https://admizzeducation.com/study-destinations" },
+          { name: data.countryName, url: `https://admizzeducation.com${pathname}` },
+        ]}
+      />
       {data.heroBackground && (
         <link
           rel="preload"

@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import Hero from "@/components/ui/Hero";
 import CTAForm from "@/components/ui/CTAForm";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import Link from "next/link";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { SanityPost } from "@/types";
 import ChakraDivider from "@/components/india/ChakraDivider";
 import IndiaFiligreeDivider from "@/components/india/IndiaFiligreeDivider";
@@ -156,6 +158,7 @@ const tabs = [
 ];
 
 export default function NepalVariantTemplate({ data, blogPosts, theme, customHero, replaceCostSection, replaceWhySection, replaceVisaSection, insertAfterIntakes, insertBeforeCTA }: NepalVariantTemplateProps) {
+  const pathname = usePathname();
   const themed = !!theme;
   const [activeTab, setActiveTab] = useState("why");
   const [showFade, setShowFade] = useState(true);
@@ -269,6 +272,13 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
 
   return (
     <main style={mainStyle}>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Study Destinations", url: "https://admizzeducation.com/study-destinations" },
+          { name: data.countryName, url: `https://admizzeducation.com${pathname}` },
+        ]}
+      />
       {themed && theme!.serifHeadings && (
         <style>{`@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');`}</style>
       )}

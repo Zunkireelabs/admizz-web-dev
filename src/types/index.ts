@@ -17,6 +17,10 @@ export interface SanityPost {
   infoBox?: InfoBoxItem[];
   categories?: SanityCategory[];
   seo?: SanitySEO;
+  // Real Q&A pairs already present as visible content in the post body —
+  // this field only lets [slug]/page.tsx emit FAQPage schema for them, it
+  // never sources the FAQ section's own visible text on the page.
+  faqItems?: { question: string; answer: string }[];
 }
 
 export interface SanityCategory {

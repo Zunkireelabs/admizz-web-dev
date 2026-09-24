@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Nepal - Admizz Education",
   description:
-    "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognised degrees. Discover how international students can apply, settle in, and study in Nepal.",
+    "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognised degrees for international students.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-nepal",
   },
   openGraph: {
     title: "Study in Nepal - Admizz Education",
     description:
-      "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognised degrees. Discover how international students can apply, settle in, and study in Nepal.",
+      "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognised degrees for international students.",
     url: "https://admizzeducation.com/study-in-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/untitled-design-80.webp"],

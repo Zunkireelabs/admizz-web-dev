@@ -23,7 +23,8 @@ export const postBySlugQuery = `
     featuredImage,
     infoBox,
     categories[]->{ title, slug },
-    seo
+    seo,
+    faqItems
   }
 `;
 

@@ -314,6 +314,28 @@ export default async function StudyAbroadConsultantsKathmanduPage() {
 
   return (
     <main>
+      {/* Real Kathmandu office address — same facts as the sitewide
+          EducationalOrganization schema in layout.tsx, scoped here as its
+          own LocalBusiness so this specific page carries local-search
+          signal for its own office, not just the org as a whole. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            name: "Admizz Education",
+            url: "https://admizzeducation.com/study-abroad-consultants-in-kathmandu",
+            telephone: "+977-9802728444",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Sita Ram Square (4th Floor), Putalisadak",
+              addressLocality: "Kathmandu",
+              addressCountry: "NP",
+            },
+          }),
+        }}
+      />
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-br from-navy via-blue-dark to-blue-royal text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
