@@ -81,8 +81,61 @@ export default async function BlogPostPage({ params }: PageProps) {
     ? await client.fetch(relatedPostsQuery, { slug, categorySlugs })
     : [];
 
+  // Real BlogPosting structured data, built only from this post's own real
+  // fields (headline/description/date/image) — never invented. Every post
+  // on the site goes through this one route, so this closes the "add
+  // schema markup" gap sitewide in one place instead of per-post.
+  const canonicalUrl = post.seo?.canonicalUrl || `https://admizzeducation.com/${post.slug.current}`;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.seo?.metaDescription || post.excerpt || undefined,
+    url: canonicalUrl,
+    mainEntityOfPage: canonicalUrl,
+    ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
+    ...(featuredImageUrl ? { image: featuredImageUrl } : {}),
+    author: {
+      "@type": "EducationalOrganization",
+      name: "Admizz Education",
+      url: "https://admizzeducation.com",
+    },
+    publisher: {
+      "@type": "EducationalOrganization",
+      name: "Admizz Education",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://admizzeducation.com/icon-192.webp",
+      },
+    },
+  };
+
+  // Only emitted when the post carries real faqItems (set explicitly per
+  // post, matching the FAQ section's own real visible Q&A text) — never
+  // synthesized from arbitrary page content, so a post with no faqItems
+  // field simply gets no FAQPage schema rather than a guessed one.
+  const faqSchema = post.faqItems && post.faqItems.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: post.faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  } : null;
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +159,10 @@ export default async function BlogPostPage({ params }: PageProps) {
           </h1>
 
           {formattedDate && (
-            <p className="mt-3 text-white/70 text-sm">{formattedDate}</p>
+            <p className="mt-3 text-white/70 text-sm">
+              By Admizz Education{" "}
+              <span aria-hidden="true">·</span> {formattedDate}
+            </p>
           )}
         </div>
       </section>
