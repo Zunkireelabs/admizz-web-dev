@@ -11,14 +11,14 @@ import LazyMount from "@/components/LazyMount";
 // import PredictWinPromoOverlay from "@/components/ui/PredictWinPromoOverlay";
 
 export const metadata: Metadata = {
-  title: "Your Partner in Study Abroad - Admizz Education",
+  title: "Admizz Education - Your Partner in Study Abroad",
   description:
     "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success- all through one global portal.",
   alternates: {
     canonical: "https://admizzeducation.com/",
   },
   openGraph: {
-    title: "Your Partner in Study Abroad - Admizz Education",
+    title: "Admizz Education - Your Partner in Study Abroad",
     description:
       "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success- all through one global portal.",
     url: "https://admizzeducation.com/",

@@ -131,13 +131,13 @@ export default function AlumniSection({
     <section style={{ padding: "72px 0 64px", background: "linear-gradient(180deg, #050d2d 0%, #0c1c50 100%)", overflow: "hidden" }}>
       {/* Header */}
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 16px", textAlign: "center", marginBottom: 48, position: "relative" }}>
-        <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", color: "#fded22", margin: "0 0 12px" }}>
+        <p className="text-[12px] font-bold uppercase tracking-[3px] text-[#fded22] mb-[12px]">
           {eyebrow}
         </p>
-        <h2 style={{ fontSize: 30, fontWeight: 800, color: "#fff", margin: "0 0 10px", lineHeight: 1.2 }}>
+        <h2 className="text-[30px] font-extrabold text-white mb-[10px] leading-[1.2]">
           {title}
         </h2>
-        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.55)", margin: 0, lineHeight: 1.6 }}>
+        <p className="text-[15px] text-white/55 leading-[1.6]">
           {description}
         </p>
         <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap", marginTop: 22 }}>

@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import ServiceCard from "@/components/ui/ServiceCard";
 import CTAForm from "@/components/ui/CTAForm";
 import CountryCard from "@/components/ui/CountryCard";
+import FAQ from "@/components/ui/FAQ";
+import type { FAQItem } from "@/components/ui/FAQ";
 import { client } from "@/lib/sanity";
 import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
@@ -128,6 +130,34 @@ const testimonialData = [
     destFlag: "GB",
     route: "Nepal → UK",
     text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application visa process was smooth and stress-free.",
+  },
+];
+
+const faqItems: FAQItem[] = [
+  {
+    question: "What services does Admizz Education's Nepal consultancy provide?",
+    answer:
+      "Admizz Education offers end-to-end support: help finding and applying to the right course and university, scholarship assistance, visa and immigration guidance, and accommodation and post-arrival support once you land in your destination country.",
+  },
+  {
+    question: "How many students has Admizz Education helped, and what's the visa approval rate?",
+    answer:
+      "Admizz Education has helped 1500+ students enroll worldwide through a network of 100+ partner institutions, with a 95% student visa approval rate and over $2M in scholarships awarded.",
+  },
+  {
+    question: "Which countries can Nepali students apply to through Admizz Education?",
+    answer:
+      "Nepali students are guided through admissions to the USA, UK, Australia, Canada, France, India, New Zealand, and South Korea, among other top study destinations.",
+  },
+  {
+    question: "Does Admizz Education help with scholarships?",
+    answer:
+      "Yes — scholarship assistance is one of Admizz Education's core services, and its counsellors have helped students secure over $2M in scholarships to date.",
+  },
+  {
+    question: "What support is available after I arrive in my destination country?",
+    answer:
+      "Admizz Education's post-arrival support helps with finding accommodation and local resources, so you can settle into your new country with confidence.",
   },
 ];
 
@@ -368,6 +398,9 @@ export default async function StudyAbroadConsultancyNepalPage() {
       />
 
       <StudyAbroadInsights posts={blogPosts} countryName="Study Abroad" categorySlug="study-abroad" />
+
+      {/* ===== 7b. FAQ ===== */}
+      <FAQ items={faqItems} title="Everything You Need to Know" twoColumn />
 
       {/* ===== 8. FINAL CTA ===== */}
       <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16">

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FAQ from "@/components/ui/FAQ";
+import type { FAQItem } from "@/components/ui/FAQ";
 
 export const metadata: Metadata = {
   title: "Study Abroad Planning Services - Study Destinations | Admizz Education",
@@ -85,6 +87,29 @@ const destinations = [
     description:
       "The top destination for research, innovation, and global careers.",
     href: "/study-in-the-usa",
+  },
+];
+
+const faqItems: FAQItem[] = [
+  {
+    question: "Which countries does Admizz Education help students study in?",
+    answer:
+      "Admizz Education supports applications to 10 popular study destinations: Australia, Canada, Finland, France, India, Nepal, New Zealand, South Korea, the UK, and the USA — each with its own guidance on universities, courses, visas, costs, and student life.",
+  },
+  {
+    question: "How many students has Admizz Education helped choose a destination?",
+    answer:
+      "Admizz Education has worked with 1500+ students, with a 95% visa approval rate and over $2M in scholarships secured for students across these destinations.",
+  },
+  {
+    question: "What support is included when I'm deciding on a study destination?",
+    answer:
+      "Every student gets personalised counselling to match their academic goals and budget with the right country, plus university admissions support and complete visa assistance — all handled by Admizz Education.",
+  },
+  {
+    question: "Which destinations are known for more affordable study options?",
+    answer:
+      "Among Admizz Education's destinations, Canada, India, and Nepal are highlighted for affordable education — Canada for affordable tuition alongside multicultural communities and residency pathways, India for affordable options in a culturally diverse environment, and Nepal for affordable, English-medium programs at recognised universities.",
   },
 ];
 
@@ -182,6 +207,9 @@ export default function StudyDestinationsPage() {
           </div>
         </div>
       </section>
+
+      {/* ===== FAQ ===== */}
+      <FAQ items={faqItems} title="Everything You Need to Know" twoColumn />
 
       {/* ===== BOTTOM CTA ===== */}
       <section className="py-16">
