@@ -11,9 +11,9 @@ import LazyMount from "@/components/LazyMount";
 // import PredictWinPromoOverlay from "@/components/ui/PredictWinPromoOverlay";
 
 export const metadata: Metadata = {
-  title: "Admizz Education - Your Partner in Study Abroad",
+  title: "Admizz Education: Your Trusted Partner for Studying Abroad",
   description:
-    "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success worldwide.",
+    "Achieve your study abroad dreams with Admizz Education's expert counseling, test preparation, and visa assistance for a successful journey.",
   alternates: {
     canonical: "https://admizzeducation.com/",
   },
@@ -724,6 +724,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    
+{/* SEOAI:EXPANDEDCONTENT:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: \"<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: \\\"<!-- SEOAI:FOCUS:author-byline --><div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[80vh] space-y-0 seoai-content-section--compact\">\n  <section class=\"gap-2.5\">\n    <h2 class=\"text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight uppercase\">About the Author</h2>\n    <div class=\"text-sm md:text-base mb-3 opacity-90\"><p class=\"text-sm md:text-base mb-3 opacity-90\">By the Admizz Education Team</p></div>\n  </section>\n</div><!-- SEOAI:FOCUS:comparison-content --><div class=\\\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[80vh] space-y-0\\\">\\n  <section class=\\\"gap-2.5\\\">\\n    <h2 class=\\\"text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight uppercase\\\">Admizz Education vs. Competitors: A Study Abroad Comparison</h2>\\n    <div class=\\\"text-sm md:text-base mb-3 opacity-90\\\"><p class=\\\"text-sm md:text-base mb-3 opacity-90\\\">When considering study abroad consultancy services, Admizz Education stands out for its comprehensive support and impressive track record. While other educational consultancies may offer similar services, Admizz's end-to-end guidance ensures a smoother, more personalized experience.</p><div class=\\\"overflow-x-auto\\\"><table class=\\\"w-full border-collapse\\\"><thead><tr><th class=\\\"text-left px-4 py-3 text-sm font-semibold text-navy border border-[#ddd]\\\">Feature</th><th class=\\\"text-left px-4 py-3 text-sm font-semibold text-navy border border-[#ddd]\\\">Alternative</th><th class=\\\"text-left px-4 py-3 text-sm font-semibold text-navy border border-[#ddd]\\\">This Option</th></tr></thead><tbody><tr><td class=\\\"px-4 py-3 text-sm text-navy font-medium border border-[#ddd]\\\">Visa Success Rate</td><td class=\\\"px-4 py-3 text-sm text-navy font-medium border border-[#ddd]\\\">Lower visa success rates compared to Admizz</td><td class=\\\"px-4 py-3 text-sm text-navy font-medium border border-[#ddd]\\\">95% visa success rate</td></tr><tr><td class=\\\"px-4 py-3 text-sm text-navy font-medium border border-[#ddd]\\\">Scholarship Support</td><td class=\\\"px-4 py-3 text-sm text-navy font-medium border border-[#ddd]\\\">Limited financial aid resources</td><td class=\\\"px-4 py-3 text-sm text-navy font-medium border border-[#ddd]\\\">$2M+ in scholarships awarded</td></tr><tr><td class=\\\"px-4 py-3 text-sm text-navy font-medium border border-[#ddd]\\\">Test Preparation Services</td><td class=\\\"px-4 py-3 text-sm text-navy font-medium border border-[#ddd]\\\">Generic test preparation without tailored guidance</td><td class=\\\"px-4 py-3 text-sm text-navy font-medium border border-[#ddd]\\\">Expert-led coaching with personalized study plans</td></tr></tbody></table></div></div>\\n  </section>\\n</div>\" }} />" }} />{/* SEOAI:EXPANDEDCONTENT:END */}
+</main>
   );
 }
