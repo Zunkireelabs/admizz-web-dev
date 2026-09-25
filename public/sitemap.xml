@@ -192,12 +192,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://admizzeducation.com/education-consultancy-in-kathmandu</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  
   <url>
     <loc>https://admizzeducation.com/study-abroad-consultancy-in-nepal</loc>
     <lastmod>2026-08-26</lastmod>
@@ -1326,12 +1321,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
-  <url>
-    <loc>https://admizzeducation.com/category/business</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
+  
   <url>
     <loc>https://admizzeducation.com/category/medical</loc>
     <lastmod>2026-08-26</lastmod>

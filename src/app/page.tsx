@@ -11,9 +11,9 @@ import LazyMount from "@/components/LazyMount";
 // import PredictWinPromoOverlay from "@/components/ui/PredictWinPromoOverlay";
 
 export const metadata: Metadata = {
-  title: "Admizz Education - Your Partner in Study Abroad",
+  title: "Admizz Education: Your Guide to Study Abroad Success",
   description:
-    "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success worldwide.",
+    "Start your study abroad journey with Admizz Education. We offer expert counseling, visa assistance, test prep, and scholarship support to ensure your success.",
   alternates: {
     canonical: "https://admizzeducation.com/",
   },
@@ -724,6 +724,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    
+{/* SEOAI:EXPANDEDCONTENT:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<!-- SEOAI:FOCUS:author-byline --><div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[80vh] space-y-0 seoai-content-section--compact\">\n  <section class=\"gap-2.5\">\n    <h2 class=\"text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight uppercase\">About the Author</h2>\n    <div class=\"text-sm md:text-base mb-3 opacity-90\"><p class=\"text-sm md:text-base mb-3 opacity-90\">By the Admizz Education Team</p></div>\n  </section>\n</div>" }} />{/* SEOAI:EXPANDEDCONTENT:END */}
+</main>
   );
 }
