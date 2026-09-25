@@ -479,6 +479,8 @@ export default async function TopEducationConsultancyInNepalPage() {
           </Link>
         </div>
       </section>
-    </main>
+    
+{/* SEOAI:EXPANDEDCONTENT:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: \"<!-- SEOAI:FOCUS:author-byline --><div class=\\\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[80vh] space-y-0 seoai-content-section--compact\\\">\\n  <section class=\\\"gap-2.5\\\">\\n    <h2 class=\\\"text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight uppercase\\\">About the Author</h2>\\n    <div class=\\\"text-sm md:text-base mb-3 opacity-90\\\"><p class=\\\"text-sm md:text-base mb-3 opacity-90\\\">By the Admizz Education Team</p></div>\\n  </section>\\n</div>\" }} />\n<!-- SEOAI:FOCUS:comparison-content --><div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[80vh] space-y-0\">\n  <section class=\"gap-2.5\">\n    <h2 class=\"text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight uppercase\">Admizz Education vs. Competitors in Study Abroad Consultancy</h2>\n    <div class=\"text-sm md:text-base mb-3 opacity-90\"><p class=\"text-sm md:text-base mb-3 opacity-90\">While Admizz Education is recognized as the top education consultancy in Nepal, it's vital to see how it stacks up against other players in the market. This comparison highlights the unique strengths of Admizz compared to its competitors, focusing on essential services that prospective students should consider.</p></div>\n  </section>\n</div>" }} />{/* SEOAI:EXPANDEDCONTENT:END */}
+</main>
   );
 }
