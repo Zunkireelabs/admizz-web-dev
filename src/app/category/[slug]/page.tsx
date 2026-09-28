@@ -191,6 +191,8 @@ export default async function CategoryPage({ params }: PageProps) {
           </Link>
         </div>
       </section>
-    </main>
+    
+{/* SEOAI:BREADCRUMBSCHEMA:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<script type=\"application/ld+json\">{\"@type\":\"BreadcrumbList\",\"@context\":\"https://schema.org\",\"itemListElement\":[{\"item\":\"https://admizzeducation.com/\",\"name\":\"Admizz Education\",\"@type\":\"ListItem\",\"position\":1},{\"item\":\"https://admizzeducation.com/category\",\"name\":\"Category\",\"@type\":\"ListItem\",\"position\":2},{\"item\":\"https://admizzeducation.com/category/uk\",\"name\":\"Uk\",\"@type\":\"ListItem\",\"position\":3}]}</script>" }} />{/* SEOAI:BREADCRUMBSCHEMA:END */}
+</main>
   );
 }
