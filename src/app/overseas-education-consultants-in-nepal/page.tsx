@@ -499,6 +499,8 @@ export default async function OverseasEducationConsultantsNepalPage() {
           </Link>
         </div>
       </section>
-    </main>
+    
+{/* SEOAI:BREADCRUMBSCHEMA:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<script type=\"application/ld+json\">{\"@type\":\"BreadcrumbList\",\"@context\":\"https://schema.org\",\"itemListElement\":[{\"item\":\"https://admizzeducation.com/\",\"name\":\"Admizz Education\",\"@type\":\"ListItem\",\"position\":1},{\"item\":\"https://admizzeducation.com/overseas-education-consultants-in-nepal\",\"name\":\"Overseas Education Consultants In Nepal\",\"@type\":\"ListItem\",\"position\":2}]}</script>" }} />{/* SEOAI:BREADCRUMBSCHEMA:END */}
+</main>
   );
 }
