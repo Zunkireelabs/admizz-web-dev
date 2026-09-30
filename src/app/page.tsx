@@ -7,8 +7,7 @@ import HomepageFAQ from "./HomepageFAQ";
 import UniversityPartners from "./UniversityPartners";
 import CommunityReels from "./CommunityReels";
 import LazyMount from "@/components/LazyMount";
-// Temporarily disabled — IELTS workshop popup hidden until next promo is ready.
-// import PredictWinPromoOverlay from "@/components/ui/PredictWinPromoOverlay";
+import PredictWinPromoOverlay from "@/components/ui/PredictWinPromoOverlay";
 
 export const metadata: Metadata = {
   title: "Your Partner in Study Abroad - Admizz Education",
@@ -318,16 +317,15 @@ export default function Home() {
         }
       `}</style>
 
-      {/* Promotional overlay — appears 3.5s after page load
-          Temporarily disabled — hidden until next promo is ready.
+      {/* Promotional overlay — appears 3.5s after page load */}
       <PredictWinPromoOverlay
-        id="ielts-workshop-aug30"
-        imageSrc="/images/ielts-workshop-popup.webp"
-        imageAlt="IELTS Strategy Workshop — August 30, 2026 — Admizz Education"
-        ctaText="Reserve Your Seat →"
-        ctaHref="https://admizzeducation.com/events/ielts-workshop"
+        id="uk-education-expo-oct9"
+        imageSrc="/images/uk-education-expo-oct-popup.webp"
+        imageAlt="UK Education Expo 2026 — 9th October, 2026 — Admizz Education"
+        ctaText="Register Now →"
+        ctaHref="https://admizzeducation.com/events/uk-education-expo-oct-2026"
         delayMs={3500}
-      /> */}
+      />
 
       {/* ===== 1. HERO — Diamond photo collage ===== */}
       <section className="pt-0 pb-2 sm:pt-1 md:py-3 bg-[#EEF2FF] sm:bg-white">
