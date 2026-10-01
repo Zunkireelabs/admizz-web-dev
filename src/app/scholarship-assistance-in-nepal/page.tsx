@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import ServiceSchema from "@/components/ui/ServiceSchema";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import CTAForm from "@/components/ui/CTAForm";
@@ -200,6 +202,18 @@ export default async function ScholarshipAssistanceInNepalPage() {
 
   return (
     <main>
+      <ServiceSchema
+        name="Scholarship Assistance in Nepal"
+        description={metadata.description as string}
+        url="https://admizzeducation.com/scholarship-assistance-in-nepal"
+        serviceType="Scholarship assistance"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Scholarship Assistance in Nepal", url: "https://admizzeducation.com/scholarship-assistance-in-nepal" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-r from-navy via-blue-dark to-blue-royal text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

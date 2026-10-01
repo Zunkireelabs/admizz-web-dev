@@ -9,6 +9,7 @@ import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
+import DestinationEntitySchema from "@/components/ui/DestinationEntitySchema";
 import type { SanityPost } from "@/types";
 
 export interface QuickFact {
@@ -158,6 +159,10 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
           { name: "Study Destinations", url: "https://admizzeducation.com/study-destinations" },
           { name: data.countryName, url: `https://admizzeducation.com${pathname}` },
         ]}
+      />
+      <DestinationEntitySchema
+        countryName={data.countryName}
+        url={`https://admizzeducation.com${pathname}`}
       />
       {data.heroBackground && (
         <link

@@ -12,16 +12,16 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in UK from Nepal - Admizz Education",
+  title: "Study in UK from Nepal 2026: Cost, Visa & Scholarships",
   description:
-    "Study in UK from Nepal with Admizz Education – Your complete guide to UK education, visas, costs & careers. Expert guidance for Nepali students.",
+    "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-uk-from-nepal",
   },
   openGraph: {
-    title: "Study in UK from Nepal - Admizz Education",
+    title: "Study in UK from Nepal 2026: Cost, Visa & Scholarships",
     description:
-      "Study in UK from Nepal with Admizz Education – Your complete guide to UK education, visas, costs & careers. Expert guidance for Nepali students.",
+      "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-uk-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/stuyabroad.webp"],

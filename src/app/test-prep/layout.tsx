@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import ServiceSchema from "@/components/ui/ServiceSchema";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "Test Preparation Services in Nepal - IELTS, GRE, TOEFL, PTE, SAT | Admizz Education",
@@ -23,5 +25,21 @@ export default function TestPrepLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <ServiceSchema
+        name="Test Preparation Services in Nepal"
+        description={metadata.description as string}
+        url="https://admizzeducation.com/test-prep"
+        serviceType="Test preparation (IELTS, TOEFL, GRE, PTE, SAT, Duolingo)"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Test Preparation", url: "https://admizzeducation.com/test-prep" },
+        ]}
+      />
+      {children}
+    </>
+  );
 }

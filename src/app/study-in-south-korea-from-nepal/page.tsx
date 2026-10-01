@@ -6,16 +6,16 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in South Korea from Nepal - Admizz Education",
+  title: "Study in South Korea from Nepal 2026: Cost, Visa & Scholarships",
   description:
-    "Study in South Korea from Nepal for top-ranked universities, tech-driven education & cultural experience. Apply now for the 2025 intake!",
+    "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-south-korea-from-nepal",
   },
   openGraph: {
-    title: "Study in South Korea from Nepal - Admizz Education",
+    title: "Study in South Korea from Nepal 2026: Cost, Visa & Scholarships",
     description:
-      "Study in South Korea from Nepal for top-ranked universities, tech-driven education & cultural experience. Apply now for the 2025 intake!",
+      "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-south-korea-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/korean.webp"],
