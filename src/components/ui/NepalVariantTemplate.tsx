@@ -9,6 +9,7 @@ import type { FAQItem } from "@/components/ui/FAQ";
 import Link from "next/link";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
+import DestinationEntitySchema from "@/components/ui/DestinationEntitySchema";
 import type { SanityPost } from "@/types";
 import ChakraDivider from "@/components/india/ChakraDivider";
 import IndiaFiligreeDivider from "@/components/india/IndiaFiligreeDivider";
@@ -278,6 +279,10 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
           { name: "Study Destinations", url: "https://admizzeducation.com/study-destinations" },
           { name: data.countryName, url: `https://admizzeducation.com${pathname}` },
         ]}
+      />
+      <DestinationEntitySchema
+        countryName={data.countryName}
+        url={`https://admizzeducation.com${pathname}`}
       />
       {themed && theme!.serifHeadings && (
         <style>{`@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');`}</style>

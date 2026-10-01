@@ -4,6 +4,8 @@ import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import TrustedPartners from "@/components/ui/TrustedPartners";
 import { allUniversities } from "@/lib/universities";
+import PartnerUniversitiesSchema from "@/components/ui/PartnerUniversitiesSchema";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "University & College Partnerships - Admizz Education",
@@ -371,6 +373,13 @@ export default function UniversitiesPage() {
 
   return (
     <main style={{ fontFamily: "'Montserrat', var(--font-montserrat), sans-serif" }}>
+      <PartnerUniversitiesSchema />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "University & College Partnerships", url: "https://admizzeducation.com/universities" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="py-20" style={{ background: "#E8EEFF" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

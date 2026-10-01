@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import ServiceSchema from "@/components/ui/ServiceSchema";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import ServiceCard from "@/components/ui/ServiceCard";
 import CTAForm from "@/components/ui/CTAForm";
 import CountryCard from "@/components/ui/CountryCard";
@@ -166,6 +168,18 @@ export default async function StudyAbroadConsultancyNepalPage() {
 
   return (
     <main>
+      <ServiceSchema
+        name="Study Abroad Consultancy in Nepal"
+        description={metadata.description as string}
+        url="https://admizzeducation.com/study-abroad-consultancy-in-nepal"
+        serviceType="Study abroad consultancy"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Study Abroad Consultancy in Nepal", url: "https://admizzeducation.com/study-abroad-consultancy-in-nepal" },
+        ]}
+      />
       {/* ===== 1. HERO ===== */}
       <section className="bg-gradient-to-r from-navy to-blue-dark text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

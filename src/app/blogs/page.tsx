@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { allPostsQuery } from "@/lib/queries";
@@ -44,6 +45,12 @@ export default async function BlogsPage() {
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Blog", url: "https://admizzeducation.com/blogs" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16">
         <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">

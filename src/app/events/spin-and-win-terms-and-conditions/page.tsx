@@ -566,6 +566,7 @@ export default function SpinAndWinTermsPage() {
         <FAQ
           title="Frequently Asked Questions"
           items={faqItems}
+          schema={false}
         />
       </div>
 

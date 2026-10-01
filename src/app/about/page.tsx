@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import AboutTimeline from "./AboutTimeline";
@@ -116,6 +117,12 @@ export default function AboutPage() {
     <main
       style={{ fontFamily: "'Open Sans', var(--font-opensans), sans-serif" }}
     >
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "About Us", url: "https://admizzeducation.com/about" },
+        ]}
+      />
       <style>{`
         main h1, main h2, main h3 {
           font-family: 'Montserrat', var(--font-montserrat), sans-serif;
@@ -362,6 +369,20 @@ export default function AboutPage() {
 
       {/* ===== 4. MEET OUR FOUNDER ===== */}
       <section className="py-16 md:py-20 bg-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "@id": "https://admizzeducation.com/about#founder",
+              name: "Manish K Sah",
+              jobTitle: "Founder & CEO, Admizz Group",
+              worksFor: { "@id": "https://admizzeducation.com/#organization" },
+              url: "https://admizzeducation.com/about",
+            }),
+          }}
+        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p
             className="text-[13px] font-semibold uppercase tracking-[0.12em] text-center mb-3"

@@ -7,7 +7,11 @@ import type { Metadata } from "next";
 import type { SanityPost } from "@/types";
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 import ArticleInfoBox from "@/components/ArticleInfoBox";
+import PostSummary from "@/components/PostSummary";
+import { postSummaries } from "@/data/post-summaries";
 import CTAForm from "@/components/ui/CTAForm";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
+import { postFaqs } from "@/data/post-faqs";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -93,15 +97,22 @@ export default async function BlogPostPage({ params }: PageProps) {
     description: post.seo?.metaDescription || post.excerpt || undefined,
     url: canonicalUrl,
     mainEntityOfPage: canonicalUrl,
+    inLanguage: "en",
+    isPartOf: { "@id": "https://admizzeducation.com/#website" },
     ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
+    ...((post._updatedAt || post.publishedAt)
+      ? { dateModified: post._updatedAt || post.publishedAt }
+      : {}),
     ...(featuredImageUrl ? { image: featuredImageUrl } : {}),
     author: {
       "@type": "EducationalOrganization",
+      "@id": "https://admizzeducation.com/#organization",
       name: "Admizz Education",
       url: "https://admizzeducation.com",
     },
     publisher: {
       "@type": "EducationalOrganization",
+      "@id": "https://admizzeducation.com/#organization",
       name: "Admizz Education",
       logo: {
         "@type": "ImageObject",
@@ -110,14 +121,24 @@ export default async function BlogPostPage({ params }: PageProps) {
     },
   };
 
-  // Only emitted when the post carries real faqItems (set explicitly per
-  // post, matching the FAQ section's own real visible Q&A text) — never
-  // synthesized from arbitrary page content, so a post with no faqItems
-  // field simply gets no FAQPage schema rather than a guessed one.
-  const faqSchema = post.faqItems && post.faqItems.length > 0 ? {
+  // FAQPage schema is only emitted alongside a real, visible FAQ. Posts that
+  // already carry faqItems (matching their own in-body FAQ section) are
+  // untouched. For a post with none, a curated entry in postFaqs is used AND
+  // rendered visibly below the body — unless the body already has its own FAQ
+  // heading, in which case neither is added (a page never gets a 2nd FAQ).
+  const bodyHasFaq = (post.content || []).some(
+    (b: { _type?: string; style?: string; children?: { text?: string }[] }) =>
+      b._type === "block" &&
+      /^h[1-6]$/.test(b.style || "") &&
+      /faq|frequently asked/i.test((b.children || []).map((c) => c.text || "").join("")),
+  );
+  const ownFaqItems = post.faqItems && post.faqItems.length > 0 ? post.faqItems : null;
+  const curatedFaqItems = !ownFaqItems && !bodyHasFaq ? postFaqs[post.slug.current] || null : null;
+  const faqItems = ownFaqItems || curatedFaqItems;
+  const faqSchema = faqItems ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: post.faqItems.map((item) => ({
+    mainEntity: faqItems.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: { "@type": "Answer", text: item.answer },
@@ -129,6 +150,13 @@ export default async function BlogPostPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Blogs", url: "https://admizzeducation.com/blogs" },
+          { name: post.title, url: canonicalUrl },
+        ]}
       />
       {faqSchema && (
         <script
@@ -188,8 +216,31 @@ export default async function BlogPostPage({ params }: PageProps) {
             {/* Info Box */}
             {post.infoBox && <ArticleInfoBox items={post.infoBox} />}
 
+            {/* Quick Answer (visible, answer-first summary — curated posts only) */}
+            {postSummaries[post.slug.current] && (
+              <PostSummary text={postSummaries[post.slug.current]} />
+            )}
+
             {/* Body */}
             {post.content && <PortableTextRenderer content={post.content} />}
+
+            {/* Visible FAQ (only for posts whose body has none) — same
+                heading/paragraph styles as the body, so it reads as native. */}
+            {curatedFaqItems && (
+              <section id="faq">
+                <h2 className="text-2xl md:text-[28px] font-bold text-navy mt-8 mb-4">
+                  Frequently Asked Questions
+                </h2>
+                {curatedFaqItems.map((item) => (
+                  <div key={item.question}>
+                    <h3 className="text-xl md:text-2xl font-bold text-navy mt-8 mb-4">
+                      {item.question}
+                    </h3>
+                    <p className="text-base text-gray-dark leading-relaxed mb-4">{item.answer}</p>
+                  </div>
+                ))}
+              </section>
+            )}
           </div>
 
           {/* Right: Sticky Consultation Form (desktop) */}

@@ -11,6 +11,7 @@ export interface SanityPost {
   title: string;
   slug: { current: string };
   publishedAt: string;
+  _updatedAt?: string;
   excerpt?: string;
   content?: any[];
   featuredImage?: SanityImage;

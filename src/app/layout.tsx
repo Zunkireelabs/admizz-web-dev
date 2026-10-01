@@ -89,11 +89,27 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
+              "@id": "https://admizzeducation.com/#organization",
               name: "Admizz Education",
               url: "https://admizzeducation.com",
               logo: "https://admizzeducation.com/icon-192.webp",
               description:
                 "Admizz Education helps students explore top study abroad destinations, apply to global universities, and prepare for success.",
+              foundingDate: "2015",
+              founder: {
+                "@type": "Person",
+                "@id": "https://admizzeducation.com/about#founder",
+                name: "Manish K Sah",
+                jobTitle: "Founder & CEO, Admizz Group",
+                url: "https://admizzeducation.com/about",
+              },
+              knowsAbout: [
+                "Study abroad counselling",
+                "University admissions",
+                "Student visa assistance",
+                "Scholarship assistance",
+                "IELTS, PTE and TOEFL preparation",
+              ],
               contactPoint: [
                 {
                   "@type": "ContactPoint",
@@ -140,8 +156,54 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
+              "@id": "https://admizzeducation.com/#website",
               name: "Admizz Education",
               url: "https://admizzeducation.com",
+              publisher: { "@id": "https://admizzeducation.com/#organization" },
+            }),
+          }}
+        />
+        {/* Office entities — same real addresses/contacts as the Organization
+            above, linked back to it so AI engines resolve both branches to
+            one brand. Schema-only, no visible change. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://admizzeducation.com/#office-kathmandu",
+                  name: "Admizz Education — Kathmandu",
+                  url: "https://admizzeducation.com/education-consultancy-in-kathmandu",
+                  telephone: "+977-9802728444",
+                  email: "hello@admizz.com",
+                  parentOrganization: { "@id": "https://admizzeducation.com/#organization" },
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "Sita Ram Square (4th Floor), Putalisadak",
+                    addressLocality: "Kathmandu",
+                    addressCountry: "NP",
+                  },
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://admizzeducation.com/#office-bengaluru",
+                  name: "Admizz Education — Bengaluru",
+                  url: "https://admizzeducation.com",
+                  email: "hello@admizz.com",
+                  parentOrganization: { "@id": "https://admizzeducation.com/#organization" },
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "2nd Floor, Jayaram Building, Kanakapura Main Road",
+                    addressLocality: "Bengaluru",
+                    addressRegion: "Karnataka",
+                    postalCode: "560062",
+                    addressCountry: "IN",
+                  },
+                },
+              ],
             }),
           }}
         />

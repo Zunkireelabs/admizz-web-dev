@@ -6,16 +6,16 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in UAE from Nepal - Admizz Education",
+  title: "Study in UAE from Nepal 2026: Cost, Visa & Scholarships",
   description:
-    "Study in the UAE with top-ranked universities, expert admission support, modern campuses, and visa assistance. Apply for 2025 intake now!",
+    "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-uae-from-nepal",
   },
   openGraph: {
-    title: "Study in UAE from Nepal - Admizz Education",
+    title: "Study in UAE from Nepal 2026: Cost, Visa & Scholarships",
     description:
-      "Study in the UAE with top-ranked universities, expert admission support, modern campuses, and visa assistance. Apply for 2025 intake now!",
+      "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-uae-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/UAE.webp"],

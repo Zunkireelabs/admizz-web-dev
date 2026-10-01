@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import ServiceSchema from "@/components/ui/ServiceSchema";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import CTAForm from "@/components/ui/CTAForm";
@@ -200,6 +202,18 @@ export default async function VisaAssistanceForStudyAbroadPage() {
 
   return (
     <main>
+      <ServiceSchema
+        name="Visa Assistance for Study Abroad"
+        description={metadata.description as string}
+        url="https://admizzeducation.com/visa-assistance-for-study-abroad"
+        serviceType="Student visa assistance"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Visa Assistance for Study Abroad", url: "https://admizzeducation.com/visa-assistance-for-study-abroad" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-r from-navy via-blue-dark to-blue-royal text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

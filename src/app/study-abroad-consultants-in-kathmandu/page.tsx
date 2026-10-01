@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import CountryCard from "@/components/ui/CountryCard";
 import FAQ from "@/components/ui/FAQ";
@@ -314,6 +315,12 @@ export default async function StudyAbroadConsultantsKathmanduPage() {
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Study Abroad Consultants in Kathmandu", url: "https://admizzeducation.com/study-abroad-consultants-in-kathmandu" },
+        ]}
+      />
       {/* Real Kathmandu office address — same facts as the sitewide
           EducationalOrganization schema in layout.tsx, scoped here as its
           own LocalBusiness so this specific page carries local-search

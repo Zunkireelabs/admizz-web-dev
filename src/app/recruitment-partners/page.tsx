@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
@@ -338,6 +339,12 @@ export default function RecruitmentPartnersPage() {
 
   return (
     <main style={{ fontFamily: "'Montserrat', var(--font-montserrat), sans-serif" }}>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Recruitment Partners", url: "https://admizzeducation.com/recruitment-partners" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section
         className="py-20"
