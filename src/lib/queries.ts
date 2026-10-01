@@ -18,6 +18,7 @@ export const postBySlugQuery = `
     title,
     slug,
     publishedAt,
+    _updatedAt,
     excerpt,
     content,
     featuredImage,

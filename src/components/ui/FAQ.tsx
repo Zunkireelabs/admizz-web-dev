@@ -7,6 +7,31 @@ export interface FAQItem {
   answer: string;
 }
 
+/**
+ * FAQPage JSON-LD built from the same `items` the accordion renders, so the
+ * markup always matches visible content (Google requires that). Rendered once
+ * per <FAQ>; pass `schema={false}` on pages that already emit their own.
+ */
+export function FaqJsonLd({ items }: { items: FAQItem[] }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: items.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }),
+      }}
+    />
+  );
+}
+
 interface FAQProps {
   items: FAQItem[];
   title?: string;
@@ -15,6 +40,7 @@ interface FAQProps {
   sidebarSubtitle?: string;
   compact?: boolean;
   bgColor?: string;
+  schema?: boolean;
 }
 
 function FAQAccordionItem({
@@ -216,12 +242,14 @@ export default function FAQ({
   sidebarSubtitle = "Still wondering about studying abroad, and how Admizz can get you there? Read these answers to our most commonly asked questions.",
   compact = false,
   bgColor,
+  schema = true,
 }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   if (sidebar) {
     return (
       <section className="py-16 md:py-20" style={{ background: "#F0F4FF" }}>
+        {schema && <FaqJsonLd items={items} />}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-[2fr_3fr] gap-10 md:gap-16">
             {/* Left Sidebar - Sticky */}
@@ -271,6 +299,7 @@ export default function FAQ({
         className={compact ? "py-10 md:py-12" : "py-16"}
         style={{ background: bgColor ?? "#e8f0fe" }}
       >
+        {schema && <FaqJsonLd items={items} />}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {title && (
             <h2
@@ -312,6 +341,7 @@ export default function FAQ({
 
   return (
     <section className="py-16">
+      {schema && <FaqJsonLd items={items} />}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {title && (
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-10">

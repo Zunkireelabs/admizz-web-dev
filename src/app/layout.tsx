@@ -95,6 +95,21 @@ export default function RootLayout({
               logo: "https://admizzeducation.com/icon-192.webp",
               description:
                 "Admizz Education helps students explore top study abroad destinations, apply to global universities, and prepare for success.",
+              foundingDate: "2015",
+              founder: {
+                "@type": "Person",
+                "@id": "https://admizzeducation.com/about#founder",
+                name: "Manish K Sah",
+                jobTitle: "Founder & CEO, Admizz Group",
+                url: "https://admizzeducation.com/about",
+              },
+              knowsAbout: [
+                "Study abroad counselling",
+                "University admissions",
+                "Student visa assistance",
+                "Scholarship assistance",
+                "IELTS, PTE and TOEFL preparation",
+              ],
               contactPoint: [
                 {
                   "@type": "ContactPoint",

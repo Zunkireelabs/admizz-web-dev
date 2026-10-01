@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import CountryCard from "@/components/ui/CountryCard";
@@ -210,6 +211,12 @@ export default async function BestEducationConsultancyPage() {
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Best Education Consultancy for Study Abroad", url: "https://admizzeducation.com/best-education-consultancy-for-study-abroad" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-r from-navy to-blue-dark text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

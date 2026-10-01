@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
@@ -116,6 +117,12 @@ const faqItems: FAQItem[] = [
 export default function StudyDestinationsPage() {
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Study Destinations", url: "https://admizzeducation.com/study-destinations" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16">
         <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">

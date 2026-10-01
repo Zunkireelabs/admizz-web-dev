@@ -7,6 +7,8 @@ import type { Metadata } from "next";
 import type { SanityPost } from "@/types";
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 import ArticleInfoBox from "@/components/ArticleInfoBox";
+import PostSummary from "@/components/PostSummary";
+import { postSummaries } from "@/data/post-summaries";
 import CTAForm from "@/components/ui/CTAForm";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import { postFaqs } from "@/data/post-faqs";
@@ -95,15 +97,22 @@ export default async function BlogPostPage({ params }: PageProps) {
     description: post.seo?.metaDescription || post.excerpt || undefined,
     url: canonicalUrl,
     mainEntityOfPage: canonicalUrl,
+    inLanguage: "en",
+    isPartOf: { "@id": "https://admizzeducation.com/#website" },
     ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
+    ...((post._updatedAt || post.publishedAt)
+      ? { dateModified: post._updatedAt || post.publishedAt }
+      : {}),
     ...(featuredImageUrl ? { image: featuredImageUrl } : {}),
     author: {
       "@type": "EducationalOrganization",
+      "@id": "https://admizzeducation.com/#organization",
       name: "Admizz Education",
       url: "https://admizzeducation.com",
     },
     publisher: {
       "@type": "EducationalOrganization",
+      "@id": "https://admizzeducation.com/#organization",
       name: "Admizz Education",
       logo: {
         "@type": "ImageObject",
@@ -206,6 +215,11 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             {/* Info Box */}
             {post.infoBox && <ArticleInfoBox items={post.infoBox} />}
+
+            {/* Quick Answer (visible, answer-first summary — curated posts only) */}
+            {postSummaries[post.slug.current] && (
+              <PostSummary text={postSummaries[post.slug.current]} />
+            )}
 
             {/* Body */}
             {post.content && <PortableTextRenderer content={post.content} />}

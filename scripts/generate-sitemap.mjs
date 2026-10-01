@@ -9,6 +9,7 @@
 
 import { createClient } from "@sanity/client";
 import fs from "fs";
+import { execFileSync } from "child_process";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -83,6 +84,8 @@ const staticPages = [
   { path: "/events/worldcup-2026", priority: 0.7, freq: "weekly" },
   // IELTS Strategy Workshop
   { path: "/events/ielts-workshop", priority: 0.7, freq: "weekly" },
+  // UK Education Expo (October 2026)
+  { path: "/events/uk-education-expo-oct-2026", priority: 0.8, freq: "weekly" },
   { path: "/events", priority: 0.6, freq: "weekly" },
 ];
 
@@ -101,6 +104,31 @@ function toISODate(dateStr) {
   } catch {
     return new Date().toISOString().split("T")[0];
   }
+}
+
+// Real last-modified date for a static page: the date of the last git commit
+// that touched its source file(s). Returns null when git history isn't
+// available (e.g. a shallow/no-.git build) so the sitemap omits <lastmod>
+// instead of claiming every page changed on every build.
+function gitLastmod(files) {
+  let latest = null;
+  for (const f of files) {
+    if (!fs.existsSync(path.join(ROOT, f))) continue;
+    try {
+      const out = execFileSync("git", ["log", "-1", "--format=%cs", "--", f], {
+        cwd: ROOT,
+        stdio: ["ignore", "pipe", "ignore"],
+      }).toString().trim();
+      if (out && (!latest || out > latest)) latest = out;
+    } catch {
+      return null;
+    }
+  }
+  return latest;
+}
+
+function staticPageSource(p) {
+  return p === "/" ? ["src/app/page.tsx"] : [`src/app${p}/page.tsx`];
 }
 
 // Locally-generated blog posts (Action Center's blog-outline target,
@@ -135,8 +163,8 @@ async function main() {
 
   // Fetch from Sanity
   const [posts, categories] = await Promise.all([
-    client.fetch(`*[_type == "post"] | order(publishedAt desc) { "slug": slug.current, publishedAt }`),
-    client.fetch(`*[_type == "category"] { "slug": slug.current }`),
+    client.fetch(`*[_type == "post"] | order(publishedAt desc) { "slug": slug.current, publishedAt, _updatedAt }`),
+    client.fetch(`*[_type == "category"] { "slug": slug.current, _updatedAt }`),
   ]);
 
   const generatedPosts = readGeneratedPosts();
@@ -152,7 +180,7 @@ async function main() {
   for (const page of staticPages) {
     urls.push({
       loc: `${BASE_URL}${page.path}`,
-      lastmod: today,
+      lastmod: gitLastmod(staticPageSource(page.path)),
       changefreq: page.freq,
       priority: page.priority,
     });
@@ -162,7 +190,7 @@ async function main() {
   for (const post of posts) {
     urls.push({
       loc: `${BASE_URL}/${post.slug}`,
-      lastmod: post.publishedAt ? toISODate(post.publishedAt) : today,
+      lastmod: toISODate(post._updatedAt || post.publishedAt),
       changefreq: "monthly",
       priority: 0.6,
     });
@@ -172,7 +200,7 @@ async function main() {
   for (const cat of categories) {
     urls.push({
       loc: `${BASE_URL}/category/${cat.slug}`,
-      lastmod: today,
+      lastmod: cat._updatedAt ? toISODate(cat._updatedAt) : null,
       changefreq: "weekly",
       priority: 0.5,
     });
@@ -206,8 +234,7 @@ ${urls
   .map(
     (u) => `  <url>
     <loc>${escapeXml(u.loc)}</loc>
-    <lastmod>${u.lastmod}</lastmod>
-    <changefreq>${u.changefreq}</changefreq>
+${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ""}    <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
   </url>`
   )

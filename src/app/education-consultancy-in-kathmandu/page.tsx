@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
@@ -194,6 +195,12 @@ export default async function EducationConsultancyInKathmanduPage() {
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Education Consultancy in Kathmandu", url: "https://admizzeducation.com/education-consultancy-in-kathmandu" },
+        ]}
+      />
       {/* Real Kathmandu office address — same facts as the sitewide
           EducationalOrganization schema in layout.tsx, scoped here as its
           own LocalBusiness so this specific page carries local-search

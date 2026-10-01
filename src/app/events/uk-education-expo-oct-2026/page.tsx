@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import UKEducationExpoInit from "./UKEducationExpoInit";
 import UniversityPartners from "../../UniversityPartners";
 import AlumniSection from "@/components/ui/AlumniSection";
@@ -22,9 +23,47 @@ export const metadata: Metadata = {
   },
 };
 
+const EXPO_URL = "https://admizzeducation.com/events/uk-education-expo-oct-2026";
+
+// Event structured data — every value below is the same fact the page already
+// shows visibly (date/time/place/free counselling/organizer). Times are
+// Nepal Standard Time (UTC+05:45), matching the "11AM–3PM NST" badge.
+const EXPO_EVENT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "UK Education Expo 2026",
+  description:
+    "Meet UK university representatives directly. On-the-spot assessment, scholarship guidance, credential evaluation, PSW briefing and free 1-on-1 counselling.",
+  startDate: "2026-10-09T11:00:00+05:45",
+  endDate: "2026-10-09T15:00:00+05:45",
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  location: {
+    "@type": "Place",
+    name: "Putalisadak, Kathmandu",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kathmandu",
+      addressCountry: "NP",
+    },
+  },
+  image: ["https://admizzeducation.com/images/hero/web-ad.webp"],
+  organizer: {
+    "@type": "EducationalOrganization",
+    "@id": "https://admizzeducation.com/#organization",
+    name: "Admizz Education",
+    url: "https://admizzeducation.com",
+  },
+  url: EXPO_URL,
+};
+
 export default function UKEducationExpoPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(EXPO_EVENT_JSON_LD) }}
+      />
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
@@ -63,11 +102,11 @@ export default function UKEducationExpoPage() {
           </div>
 
           <div className="countdown-container">
-            <p className="countdown-label">Event Starts In</p>
+            <p className="countdown-label">Registration Closes In</p>
             <div
               className="countdown-timer"
               id="countdown-timer"
-              data-target="2026-10-09T10:00:00"
+              data-target="2026-10-09T10:00:00+05:45"
             >
               <div className="countdown-item">
                 <div className="countdown-number" id="countdown-days">00</div>
@@ -442,15 +481,15 @@ export default function UKEducationExpoPage() {
                 <div className="flex flex-col items-center gap-3 sm:hidden">
                   <div className="flex items-center justify-center gap-5">
                     {bankingItems.slice(0, 2).map((item, i) => (
-                      <>
-                        <div key={item.label} className="flex items-center gap-2.5">
+                      <Fragment key={item.label}>
+                        <div className="flex items-center gap-2.5">
                           <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "#EBF2FF" }}>
                             {item.icon}
                           </div>
                           <span className="text-[13px] font-semibold" style={{ color: "#3d4663" }}>{item.label}</span>
                         </div>
-                        {i === 0 && <div key="divider-mobile" className="w-px flex-shrink-0" style={{ height: "20px", background: "#D0D5E0" }} />}
-                      </>
+                        {i === 0 && <div className="w-px flex-shrink-0" style={{ height: "20px", background: "#D0D5E0" }} />}
+                      </Fragment>
                     ))}
                   </div>
                   <div className="flex items-center justify-center">
@@ -467,17 +506,17 @@ export default function UKEducationExpoPage() {
                 {/* Desktop: single row with dividers */}
                 <div className="hidden sm:flex items-center justify-center" style={{ gap: "0" }}>
                   {bankingItems.map((item, i, arr) => (
-                    <>
-                      <div key={item.label} className="flex items-center gap-2.5" style={{ padding: "0 28px" }}>
+                    <Fragment key={item.label}>
+                      <div className="flex items-center gap-2.5" style={{ padding: "0 28px" }}>
                         <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "#EBF2FF" }}>
                           {item.icon}
                         </div>
                         <span className="text-[13px] font-semibold whitespace-nowrap" style={{ color: "#3d4663" }}>{item.label}</span>
                       </div>
                       {i < arr.length - 1 && (
-                        <div key={`divider-${i}`} className="w-px flex-shrink-0" style={{ height: "20px", background: "#D0D5E0" }} />
+                        <div className="w-px flex-shrink-0" style={{ height: "20px", background: "#D0D5E0" }} />
                       )}
-                    </>
+                    </Fragment>
                   ))}
                 </div>
               </>

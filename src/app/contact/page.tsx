@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import GlobalPresence from "@/components/ui/GlobalPresence";
 
@@ -24,6 +25,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main style={{ fontFamily: "'Montserrat', var(--font-montserrat), sans-serif" }}>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Contact Us", url: "https://admizzeducation.com/contact" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="py-16 md:py-20" style={{ background: "#ffffff" }}>
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-4 sm:px-6 lg:px-8">
