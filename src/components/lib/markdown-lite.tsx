@@ -29,7 +29,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
       nodes.push(<code key={`${keyPrefix}-${key++}`}>{code}</code>);
     } else if (linkLabel !== undefined) {
       nodes.push(
-        <a key={`${keyPrefix}-${key++}`} href={linkHref} className="text-blue-royal underline hover:no-underline">
+        <a key={`${keyPrefix}-${key++}`} href={linkHref} className="text-blue-royal hover:text-blue-dark underline transition-colors">
           {linkLabel}
         </a>,
       );
@@ -102,19 +102,19 @@ export function renderMarkdownLite(body: string, keyPrefix: string): ReactNode[]
     const blockKey = `${keyPrefix}-block-${i}`;
     if (block.type === "paragraph") {
       return (
-        <p key={blockKey} className="text-gray-700 leading-relaxed mb-4">
+        <p key={blockKey} className="text-base text-gray-dark leading-relaxed mb-4">
           {renderInline(block.text, blockKey)}
         </p>
       );
     }
     const ListTag = block.type === "unordered-list" ? "ul" : "ol";
     const listClass = block.type === "unordered-list"
-      ? "list-disc pl-6 mb-4 space-y-1 text-gray-700"
-      : "list-decimal pl-6 mb-4 space-y-1 text-gray-700";
+      ? "list-disc list-inside space-y-2 mb-4 text-gray-dark ml-4"
+      : "list-decimal list-inside space-y-2 mb-4 text-gray-dark ml-4";
     return (
       <ListTag key={blockKey} className={listClass}>
         {block.items.map((item, j) => (
-          <li key={`${blockKey}-item-${j}`} className="leading-relaxed">
+          <li key={`${blockKey}-item-${j}`} className="text-base leading-relaxed">
             {renderInline(item, `${blockKey}-item-${j}`)}
           </li>
         ))}
