@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "1500+", label: "Students Successfully Enrolled Worldwide" },
+  { value: "8,000+", label: "Students Successfully Enrolled Worldwide" },
   { value: "100+", label: "Prestigious Institutions in Our Global Network" },
   { value: "95%", label: "Student Visa Approval Rate with Expert Guidance" },
   { value: "$2M+", label: "in Scholarships Awarded to Our Students" },

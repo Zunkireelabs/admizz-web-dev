@@ -6,16 +6,16 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in Finland - Admizz Education",
+  title: "Study in Finland: Tuition, Admission and Visa Guide",
   description:
-    "Study in Finland with tuition-free universities, innovative education, and excellent quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+    "Study in Finland: see tuition of €4,000–€18,000 for non-EU students, admission requirements, top universities and visa steps, with Admizz Education.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-finland",
   },
   openGraph: {
-    title: "Study in Finland - Admizz Education",
+    title: "Study in Finland: Tuition, Admission and Visa Guide",
     description:
-      "Study in Finland with tuition-free universities, innovative education, and excellent quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+      "Study in Finland: see tuition of €4,000–€18,000 for non-EU students, admission requirements, top universities and visa steps, with Admizz Education.",
     url: "https://admizzeducation.com/study-in-finland",
     siteName: "Admizz Education",
     images: ["/images/destinations/finland1.webp"],

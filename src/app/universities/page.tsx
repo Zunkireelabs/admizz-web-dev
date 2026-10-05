@@ -8,14 +8,14 @@ import PartnerUniversitiesSchema from "@/components/ui/PartnerUniversitiesSchema
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 
 export const metadata: Metadata = {
-  title: "University & College Partnerships - Admizz Education",
+  title: "Partner With Admizz: University Recruitment from Nepal",
   description:
-    "Partner with Admizz Education to grow international enrollments. Trusted by 100+ universities across 11 countries. Ethical, data-driven recruitment with 24-48 hour application turnaround.",
+    "Universities and colleges can partner with Admizz Education for ethical student recruitment, with applications in 24-48 hours and offers in 7-14 days.",
   alternates: {
     canonical: "https://admizzeducation.com/universities",
   },
   openGraph: {
-    title: "University & College Partnerships - Admizz Education",
+    title: "Partner With Admizz: University Recruitment from Nepal",
     description:
       "Partner with Admizz Education to grow international enrollments. Trusted by 100+ universities across 11 countries.",
     url: "https://admizzeducation.com/universities",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 const PARTNER_FORM_URL = "https://forms.gle/dtVz3E4TucVFfWTq8";
 
 const heroStats = [
-  { value: "25,000+", label: "Students Placed" },
+  { value: "8,000+", label: "Students Placed" },
   { value: "100+", label: "Partner Universities" },
   { value: "11", label: "Partner Countries" },
   { value: "7+", label: "Years Operating" },
@@ -875,7 +875,7 @@ export default function UniversitiesPage() {
           </h2>
           <p className="text-[15px] text-gray-dark leading-relaxed text-center mb-10 max-w-3xl mx-auto">
             We have successfully placed{" "}
-            <span className="font-semibold text-navy">25,000+ students</span> at
+            <span className="font-semibold text-navy">8,000+ students</span> at
             their dream universities across{" "}
             <span className="font-semibold text-navy">11 countries</span>, and
             continue to be the platform of choice for institutions seeking

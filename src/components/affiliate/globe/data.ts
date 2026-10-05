@@ -55,7 +55,7 @@ export const DESTINATIONS: Destination[] = [
     iso:     "UK",
     lat:      51.5, lng:  -0.1,
     cities:  ["London", "Manchester", "Birmingham", "Edinburgh"],
-    benefit: "2-year graduate route visa and 1-year master's programs at world-leading universities.",
+    benefit: "Graduate Route visa (18 months from 2027) and 1-year master's programs at world-leading universities.",
   },
   {
     id:      "us",

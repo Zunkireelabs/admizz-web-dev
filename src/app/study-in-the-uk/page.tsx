@@ -58,7 +58,7 @@ const ukData: CountryPageData = {
     {
       title: "Post-Study Work Visa (Graduate Route)",
       description:
-        "Stay and work in the UK for 2–3 years after graduation.",
+        "Stay and work in the UK after graduation: 18 months for applications from 1 January 2027, 2 years before that date, and 3 years for PhD graduates.",
       icon: "/images/icons/visa-108.webp",
     },
     {
@@ -113,7 +113,7 @@ const ukData: CountryPageData = {
       ],
     },
     {
-      title: "Visa Documentation (UK Student Visa / Tier 4 Visa)",
+      title: "Visa Documentation (UK Student Visa)",
       intro:
         "For your UK Student Visa, the following documents are required:",
       documents: [
@@ -181,14 +181,14 @@ const ukData: CountryPageData = {
     { program: "Undergraduate", fee: "£10,000 – £20,000" },
     { program: "Postgraduate", fee: "£12,000 – £25,000" },
     { program: "MBA / Professional", fee: "£20,000 – £35,000+" },
-    { program: "Living Expenses", fee: "£9,000 – £12,000 per year" },
-    { program: "Health Surcharge (NHS)", fee: "£470 per year" },
+    { program: "Living Expenses (visa funds, 9 months)", fee: "£10,539 outside London / £13,761 in London (£10,827 / £14,130 for applications from 30 Nov 2026)" },
+    { program: "Health Surcharge (NHS)", fee: "£776 per year" },
   ],
   costNote:
     "Your total costs vary by city. London is higher; smaller cities are more budget friendly.",
   visaTitle: "UK Student Visa Process",
   visaIntro:
-    "Applying for a UK Student Visa (formerly Tier 4 Visa) becomes simple when you understand each step clearly. Below is a complete, easy-to-follow breakdown of the UK student visa process.",
+    "Applying for a UK Student Visa becomes simple when you understand each step clearly. Below is a complete, easy-to-follow breakdown of the UK student visa process.",
   visaSteps: [
     { title: "Choose Course & University", description: "Select a UKVI-approved institution and the right course." },
     { title: "Submit Application", description: "Apply through UCAS or university portals with required documents." },
@@ -211,9 +211,9 @@ const ukData: CountryPageData = {
     { question: "How much does it cost to study in the UK?", answer: "Tuition fees typically range from £10,000 to £25,000 per year, depending on the course and university. Living expenses may cost £9,000–£12,000 annually." },
     { question: "What IELTS score is required for UK universities?", answer: "Most universities require an overall IELTS score of 6.0–6.5, but some top programs may ask for 7.0 or higher." },
     { question: "Can I work while studying in the UK?", answer: "Yes, international students can work up to 20 hours per week during term time and full-time during holidays." },
-    { question: "What is the UK student visa processing time?", answer: "The standard UK Student Visa usually takes 3–6 weeks for processing, depending on your home country and application accuracy." },
+    { question: "What is the UK student visa processing time?", answer: "GOV.UK says you will usually get a UK Student Visa decision within 3 weeks if you apply from outside the UK. Complete, accurate documents help avoid delays." },
     { question: "Is it easy to get a part-time job in the UK as a student?", answer: "Yes, the UK offers plenty of part-time job opportunities in retail, hospitality, customer service, and campus roles." },
-    { question: "Can I stay in the UK after completing my studies?", answer: "Absolutely. The Graduate Route (Post-Study Work Visa) allows students to stay and work for 2 years (UG/PG) or 3 years (PhD)." },
+    { question: "Can I stay in the UK after completing my studies?", answer: "Absolutely. The Graduate Route (Post-Study Work Visa) allows students to stay and work for 18 months (UG/PG) for applications from 1 January 2027, or 2 years before that date, and 3 years (PhD)." },
     { question: "What are the best courses to study in the UK?", answer: "Popular courses include MBA, Data Science, Engineering, Healthcare, Law, Computer Science, Business Analytics, Pharmacy, and Finance." },
     { question: "Do UK universities accept gaps in education?", answer: "Yes, most UK universities accept study gaps if properly justified with experience letters, family reasons, medical documents, or valid explanations." },
   ],

@@ -28,7 +28,7 @@ const PARTNER_FORM_URL = "https://forms.gle/E8CdsJp2y4rHbm9c6";
 
 const heroStats = [
   { value: "1,000+", label: "Partners Enrolled" },
-  { value: "25,000+", label: "Students Placed" },
+  { value: "8,000+", label: "Students Placed" },
   { value: "100+", label: "Partner Universities" },
   { value: "24-48h", label: "App Turnaround" },
 ];

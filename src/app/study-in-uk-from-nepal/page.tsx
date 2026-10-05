@@ -55,9 +55,9 @@ const pageData: NepalVariantData = {
         "Save time and money with shorter duration. Start your career faster than other countries. Intensive, industry-focused curriculum.",
     },
     {
-      title: "Graduate Route Visa - 2 Years",
+      title: "Graduate Route Visa - 18 Months from 2027",
       description:
-        "Work in UK for 2 years after graduation. 3 years for PhD graduates. Gain valuable international experience.",
+        "Work in the UK for 18 months after graduation for applications from 1 January 2027 (2 years before that date). 3 years for PhD graduates. Gain valuable international experience.",
     },
     {
       title: "Multicultural & Safe",
@@ -164,11 +164,11 @@ const pageData: NepalVariantData = {
       rows: [
         {
           category: "Living Expenses",
-          cost: "£9,000 – £12,000",
+          cost: "£10,539 – £13,761 (visa funds, 9 months); £10,827 – £14,130 for applications from 30 Nov 2026",
         },
         {
           category: "Health Surcharge (NHS)",
-          cost: "£470",
+          cost: "£776 per year",
         },
       ],
     },
@@ -244,7 +244,7 @@ const pageData: NepalVariantData = {
     {
       question: "What is the post-study work visa duration?",
       answer:
-        "2-year Graduate Route Visa for Bachelor's/Master's graduates, and 3 years for PhD students to work in the UK.",
+        "Graduate Route Visa: 18 months for Bachelor's/Master's graduates applying from 1 January 2027 (2 years before that date), and 3 years for PhD students to work in the UK.",
     },
     {
       question: "Can I apply with a study gap?",

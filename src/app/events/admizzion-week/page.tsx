@@ -115,7 +115,7 @@ export default function AdmizzionWeekPage() {
             <div className="trust-badge">
               <span className="trust-icon">🎓</span>
               <span className="trust-text">
-                <strong>2,000+</strong> Students Enrolled
+                <strong>8,000+</strong> Students Enrolled
               </span>
             </div>
             <div className="trust-divider"></div>
@@ -453,7 +453,7 @@ export default function AdmizzionWeekPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 2,000+ Students Enrolled</span>
+            <span>🎓 8,000+ Students Enrolled</span>
             <span>•</span>
             <span>🌍 50+ Partner Universities</span>
           </div>

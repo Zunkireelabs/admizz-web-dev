@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const achievements = [
   {
     icon: "/images/about/about-achievement-1.webp",
-    value: "1500+",
+    value: "8,000+",
     label: "Students Successfully Enrolled Worldwide",
     gradient: "linear-gradient(135deg, #F857A6 0%, #FF5858 100%)",
   },

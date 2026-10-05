@@ -58,7 +58,7 @@ export default function WhyChooseAdmizz() {
         <div className="flex justify-center items-center gap-4 flex-wrap text-sm text-white/90">
           <span>&#127942; ICEF Accredited</span>
           <span>&#8226;</span>
-          <span>&#127891; 2,000+ Students Enrolled</span>
+          <span>&#127891; 8,000+ Students Enrolled</span>
           <span>&#8226;</span>
           <span>&#127758; 50+ Partner Universities</span>
         </div>

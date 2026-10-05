@@ -10,7 +10,7 @@ import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
 const stats = [
   { value: "95%", label: "Visa Success Rate" },
   { value: "100+", label: "Prestigious Institutions" },
-  { value: "1500+", label: "Students Enrolled" },
+  { value: "8,000+", label: "Students Enrolled" },
   { value: "$2M+", label: "Scholarships Awarded" },
 ];
 

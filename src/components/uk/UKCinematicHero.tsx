@@ -160,7 +160,7 @@ export default function UKCinematicHero({
           <div className="flex flex-wrap gap-2 mb-8">
             {[
               { label: "1-Year Master's", color: "#E5A969", border: "rgba(229,169,105,0.55)" },
-              { label: "2-Year Graduate Route", color: "#FFFFFF", border: "rgba(255,255,255,0.55)" },
+              { label: "Graduate Route Visa", color: "#FFFFFF", border: "rgba(255,255,255,0.55)" },
               { label: "4 Unis in QS Top 10", color: "#A3C4D6", border: "rgba(163,196,214,0.6)" },
             ].map((b) => (
               <span
