@@ -13,16 +13,16 @@ import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
 
 export const metadata: Metadata = {
-  title: "Top Education Consultancy in Nepal - Admizz Education",
+  title: "Education Consultancy in Nepal for Study Abroad | Admizz",
   description:
-    "Admizz Education, the top education consultancy in Nepal, offers study abroad guidance, test prep, scholarships & visa support",
+    "Study abroad consultancy in Nepal: counselling, university applications, test prep, scholarships and visa support from an ICEF-accredited agency since 2016.",
   alternates: {
     canonical: "https://admizzeducation.com/top-education-consultancy-in-nepal",
   },
   openGraph: {
-    title: "Top Education Consultancy in Nepal - Admizz Education",
+    title: "Education Consultancy in Nepal for Study Abroad | Admizz",
     description:
-      "Admizz Education, the top education consultancy in Nepal, offers study abroad guidance, test prep, scholarships & visa support",
+      "Study abroad consultancy in Nepal: counselling, university applications, test prep, scholarships and visa support from an ICEF-accredited agency since 2016.",
     url: "https://admizzeducation.com/top-education-consultancy-in-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/study.webp"],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { value: "1500+", label: "Students Successfully Enrolled" },
+  { value: "8,000+", label: "Students Successfully Enrolled" },
   { value: "100+", label: "Partner Institutions Worldwide" },
   { value: "95%", label: "Visa Approval Rate" },
   { value: "$2M+", label: "Scholarships Awarded" },
@@ -187,6 +187,26 @@ const testimonialData = [
 
 const faqItems: FAQItem[] = [
   {
+    question: "How do I choose a good education consultancy in Nepal?",
+    answer:
+      "Check that the consultancy can show its accreditation, gives you fees in writing, never promises a guaranteed visa, backs every rule with an official source, and leaves you in control of your own application accounts. Our checklist has ten questions to ask before you sign.",
+  },
+  {
+    question: "Is Admizz Education ICEF accredited?",
+    answer:
+      "Yes. Admizz Education is an ICEF-accredited agency, and the ICEF badge is shown in the footer of our website.",
+  },
+  {
+    question: "Can an education consultancy guarantee my visa?",
+    answer:
+      "No. Only the immigration authority decides a visa. A consultancy can help you prepare accurate documents, but anyone who promises a guaranteed visa should be treated as a red flag.",
+  },
+  {
+    question: "Do education consultancies in Nepal charge fees?",
+    answer:
+      "Fee policies differ between consultancies. Ask any consultancy for its fees in writing, including what is refundable, before you sign or pay.",
+  },
+  {
     question: "How long does the study abroad process usually take?",
     answer:
       "Depending on the country and university, the process usually takes 4-12 weeks. Our counsellors help you plan ahead to meet all deadlines comfortably.",
@@ -250,7 +270,7 @@ export default async function TopEducationConsultancyInNepalPage() {
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://admizzeducation.com/" },
-          { name: "Top Education Consultancy in Nepal", url: "https://admizzeducation.com/top-education-consultancy-in-nepal" },
+          { name: "Education Consultancy in Nepal", url: "https://admizzeducation.com/top-education-consultancy-in-nepal" },
         ]}
       />
       {/* ===== HERO ===== */}
@@ -262,7 +282,7 @@ export default async function TopEducationConsultancyInNepalPage() {
                 Nepal&apos;s Trusted Study Abroad Partner
               </p>
               <h1 className="text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight">
-                Top Education Consultancy in Nepal
+                Education Consultancy in Nepal for Study Abroad
               </h1>
               <p className="mt-4 text-[15px] md:text-base text-white/90 leading-relaxed">
                 Admizz Education provides expert guidance for studying abroad &mdash;
@@ -449,6 +469,42 @@ export default async function TopEducationConsultancyInNepalPage() {
         </div>
       </section>
 
+      {/* ===== HOW TO CHOOSE ===== */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
+            How to Choose a Study Abroad Consultancy in Nepal
+          </h2>
+          <p className="text-center text-[15px] text-gray-dark max-w-2xl mx-auto mb-10">
+            Whichever consultancy you pick, check these eight things before you pay.
+          </p>
+          <div className="grid md:grid-cols-2 gap-5">
+            {[
+              { title: "Proof of accreditation", text: "Ask to see it. Admizz Education is an ICEF-accredited agency and has helped students apply abroad since 2016." },
+              { title: "Fees in writing", text: "You should know what you pay, when you pay it and what is refundable." },
+              { title: "No guaranteed visas", text: "Only the immigration authority decides a visa. Treat any guarantee as a red flag." },
+              { title: "Official sources for every rule", text: "Fees, funds and deadlines should link to a government or university page." },
+              { title: "You stay in control", text: "Keep your own logins and read every form before it is submitted." },
+              { title: "Which universities they represent", text: "A good adviser also discusses options outside their partner list." },
+              { title: "Honest advice on weak profiles", text: "A genuine adviser tells you about refusal risk and realistic options." },
+              { title: "Trained counsellors", text: "For UK study, ask about training under the British Council's Agent Quality Framework." },
+            ].map((item) => (
+              <div key={item.title} className="bg-white border border-border-light rounded-[10px] p-6">
+                <h3 className="text-base font-bold text-navy mb-1.5">{item.title}</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-[15px] text-gray-dark mt-8">
+            Read our{" "}
+            <Link href="/how-to-choose-genuine-education-consultancy-nepal-2026" className="text-blue-royal underline hover:text-blue-dark">10-point checklist</Link>
+            ,{" "}
+            <Link href="/how-student-visa-consultants-help-you-get-approved-faster" className="text-blue-royal underline hover:text-blue-dark">what visa consultants can and cannot do</Link>
+            {" "}and{" "}
+            <Link href="/accreditation-and-results" className="text-blue-royal underline hover:text-blue-dark">our accreditation and results</Link>.
+          </p>
+        </div>
+      </section>
       {/* ===== FAQ ===== */}
       <FAQ items={faqItems} sidebar />
 

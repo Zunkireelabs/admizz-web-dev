@@ -2,6 +2,10 @@
  * Pre-build script: regenerates the "## Key Pages" list in public/llms.txt
  * and writes public/llms-full.txt, both from live Sanity data.
  *
+ * Posts that live in the website repo instead of Sanity (listed in
+ * src/data/generated-posts.json) are merged into the same lists, so AI
+ * crawlers see them too.
+ *
  * Everything in llms.txt ABOVE the "## Key Pages" heading is hand-maintained
  * (services, offices, partner universities, destinations) and is preserved
  * as-is. Only the blog list is generated, so it can never go stale or miss
@@ -41,17 +45,69 @@ function postLine(p) {
   return desc ? `- [${title}](${url}): ${desc}` : `- [${title}](${url})`;
 }
 
+// Pages that live only in this repo and are not blog posts: the short answer
+// pages under src/app/answers/ and a few standalone pages. Title and
+// description are read from each page's own metadata export.
+function readLocalAnswerPages() {
+  const dirs = [];
+  const answersDir = path.join(ROOT, "src", "app", "answers");
+  if (fs.existsSync(answersDir)) {
+    for (const e of fs.readdirSync(answersDir, { withFileTypes: true })) {
+      if (e.isDirectory()) dirs.push({ slug: `answers/${e.name}`, file: path.join(answersDir, e.name, "page.tsx") });
+    }
+  }
+  for (const slug of ["accreditation-and-results", "study-abroad-rule-updates"]) {
+    dirs.push({ slug, file: path.join(ROOT, "src", "app", slug, "page.tsx") });
+  }
+  const out = [];
+  for (const { slug, file } of dirs) {
+    if (!fs.existsSync(file)) continue;
+    const src = fs.readFileSync(file, "utf-8");
+    const m = src.match(/export const metadata[\s\S]*?title:\s*("(?:[^"\\]|\\.)*"),\s*description:\s*("(?:[^"\\]|\\.)*")/);
+    if (!m) continue;
+    try {
+      out.push({ slug, title: JSON.parse(m[1]), excerpt: JSON.parse(m[2]), publishedAt: "2026-10-05", _updatedAt: "2026-10-05" });
+    } catch {
+      /* skip a page whose metadata is not plain strings */
+    }
+  }
+  return out;
+}
+
+// Posts that exist as files in this repo (no Sanity document). Same shape as
+// the Sanity rows so they sort and render with the same code.
+function readLocalPosts() {
+  const manifestPath = path.join(ROOT, "src", "data", "generated-posts.json");
+  if (!fs.existsSync(manifestPath)) return [];
+  try {
+    return JSON.parse(fs.readFileSync(manifestPath, "utf-8")).map((m) => ({
+      slug: m.slug,
+      title: m.title,
+      excerpt: m.excerpt,
+      publishedAt: m.publishedAt,
+      _updatedAt: m.publishedAt,
+    }));
+  } catch {
+    return [];
+  }
+}
+
 async function main() {
   const llmsPath = path.join(ROOT, "public", "llms.txt");
   const existing = fs.readFileSync(llmsPath, "utf-8");
   const idx = existing.indexOf(KEY_PAGES_HEADING);
   const head = (idx === -1 ? existing : existing.slice(0, idx)).trimEnd();
 
-  const posts = await client.fetch(
+  const sanityPosts = await client.fetch(
     `*[_type == "post" && defined(slug.current)] | order(coalesce(_updatedAt, publishedAt) desc) {
       "slug": slug.current, title, excerpt, publishedAt, _updatedAt, seo
     }`
   );
+  // Website-file posts first so they win if a slug is ever in both places.
+  const bySlug = new Map();
+  for (const p of [...readLocalPosts(), ...readLocalAnswerPages(), ...sanityPosts]) if (!bySlug.has(p.slug)) bySlug.set(p.slug, p);
+  const stamp = (p) => new Date(p._updatedAt || p.publishedAt || 0).getTime();
+  const posts = [...bySlug.values()].sort((a, b) => stamp(b) - stamp(a));
 
   const keyPages = posts.slice(0, KEY_PAGE_LIMIT).map(postLine).join("\n");
   const llms = `${head}\n\n${KEY_PAGES_HEADING}\nMost recently updated guides (full list: ${BASE_URL}/llms-full.txt).\n${keyPages}\n`;
