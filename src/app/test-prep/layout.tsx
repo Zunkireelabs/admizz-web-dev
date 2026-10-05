@@ -3,16 +3,16 @@ import ServiceSchema from "@/components/ui/ServiceSchema";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 
 export const metadata: Metadata = {
-  title: "Test Preparation in Nepal: IELTS, GRE, TOEFL, PTE, SAT",
+  title: "Test Preparation in Nepal: IELTS, PTE, GRE, TOEFL, SAT",
   description:
-    "IELTS, TOEFL, GRE, PTE, SAT and Duolingo test preparation in Nepal: expert-led coaching, practice tests and personalized study plans from Admizz Education.",
+    "IELTS, PTE, TOEFL, GRE and SAT classes in Nepal: expert-led coaching, practice tests and personalized study plans from Admizz Education.",
   alternates: {
     canonical: "https://admizzeducation.com/test-prep",
   },
   openGraph: {
-    title: "Test Preparation in Nepal: IELTS, GRE, TOEFL, PTE, SAT",
+    title: "Test Preparation in Nepal: IELTS, PTE, GRE, TOEFL, SAT",
     description:
-      "IELTS, TOEFL, GRE, PTE, SAT and Duolingo test preparation in Nepal: expert-led coaching, practice tests and personalized study plans from Admizz Education.",
+      "IELTS, PTE, TOEFL, GRE and SAT classes in Nepal: expert-led coaching, practice tests and personalized study plans from Admizz Education.",
     url: "https://admizzeducation.com/test-prep",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],

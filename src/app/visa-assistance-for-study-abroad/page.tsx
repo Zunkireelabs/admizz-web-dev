@@ -13,16 +13,16 @@ import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
 
 export const metadata: Metadata = {
-  title: "Visa Assistance for Study Abroad - Admizz Education",
+  title: "Student Visa Consultancy in Nepal | Visa Assistance",
   description:
-    "Admizz Education provides end-to-end student visa assistance for the USA, UK, Canada, Australia & more — documents, mock interviews, and application review.",
+    "Student visa consultancy in Nepal for the USA, UK, Canada, Australia and more: document checks, mock interviews and application review from Admizz Education.",
   alternates: {
     canonical: "https://admizzeducation.com/visa-assistance-for-study-abroad",
   },
   openGraph: {
-    title: "Visa Assistance for Study Abroad - Admizz Education",
+    title: "Student Visa Consultancy in Nepal | Visa Assistance",
     description:
-      "Admizz Education provides end-to-end student visa assistance for the USA, UK, Canada, Australia & more — documents, mock interviews, and application review.",
+      "Student visa consultancy in Nepal for the USA, UK, Canada, Australia and more: document checks, mock interviews and application review from Admizz Education.",
     url: "https://admizzeducation.com/visa-assistance-for-study-abroad",
     siteName: "Admizz Education",
     images: ["/images/og/admizzn.webp"],

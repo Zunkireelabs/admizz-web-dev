@@ -13,16 +13,16 @@ import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
 
 export const metadata: Metadata = {
-  title: "Education Consultancy in Nepal for Study Abroad | Admizz",
+  title: "Education Consultancy in Nepal: Study Abroad Consultants",
   description:
-    "Study abroad consultancy in Nepal: counselling, university applications, test prep, scholarships and visa support from an ICEF-accredited agency since 2016.",
+    "Admizz Education is a study abroad consultancy in Nepal. Overseas education consultants for the UK, USA, Canada and Australia, with visa and scholarship help.",
   alternates: {
     canonical: "https://admizzeducation.com/top-education-consultancy-in-nepal",
   },
   openGraph: {
-    title: "Education Consultancy in Nepal for Study Abroad | Admizz",
+    title: "Education Consultancy in Nepal: Study Abroad Consultants",
     description:
-      "Study abroad consultancy in Nepal: counselling, university applications, test prep, scholarships and visa support from an ICEF-accredited agency since 2016.",
+      "Admizz Education is a study abroad consultancy in Nepal. Overseas education consultants for the UK, USA, Canada and Australia, with visa and scholarship help.",
     url: "https://admizzeducation.com/top-education-consultancy-in-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/study.webp"],
@@ -202,9 +202,24 @@ const faqItems: FAQItem[] = [
       "No. Only the immigration authority decides a visa. A consultancy can help you prepare accurate documents, but anyone who promises a guaranteed visa should be treated as a red flag.",
   },
   {
-    question: "Do education consultancies in Nepal charge fees?",
+    question: "How much do education consultancy fees in Nepal cost?",
     answer:
-      "Fee policies differ between consultancies. Ask any consultancy for its fees in writing, including what is refundable, before you sign or pay.",
+      "Fees differ between consultancies and between services, so there is no single price. Ask any consultancy for its fees in writing, including what is refundable, before you sign or pay.",
+  },
+  {
+    question: "Is Admizz Education genuine?",
+    answer:
+      "Admizz Education is an ICEF-accredited agency that has helped students apply abroad since 2016. You can read more on our accreditation and results page.",
+  },
+  {
+    question: "Where can I read Admizz Education reviews?",
+    answer:
+      "Student stories appear on this page, and our Google rating is shown on our homepage.",
+  },
+  {
+    question: "Is there an education consultancy near me in Nepal?",
+    answer:
+      "Our Kathmandu office is at Sita Ram Square (4th Floor), Putalisadak, and we have local pages for Birgunj and Janakpur.",
   },
   {
     question: "How long does the study abroad process usually take?",
@@ -282,7 +297,7 @@ export default async function TopEducationConsultancyInNepalPage() {
                 Nepal&apos;s Trusted Study Abroad Partner
               </p>
               <h1 className="text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight">
-                Education Consultancy in Nepal for Study Abroad
+                Top Education Consultancy in Nepal for Study Abroad
               </h1>
               <p className="mt-4 text-[15px] md:text-base text-white/90 leading-relaxed">
                 Admizz Education provides expert guidance for studying abroad &mdash;
@@ -469,14 +484,91 @@ export default async function TopEducationConsultancyInNepalPage() {
         </div>
       </section>
 
+      {/* ===== SERVICES ===== */}
+      <section className="bg-off-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
+            Our Study Abroad Consultancy Services in Nepal
+          </h2>
+          <p className="text-center text-[15px] text-gray-dark max-w-3xl mx-auto mb-10">
+            As a study abroad consultancy in Nepal, Admizz Education works as overseas education consultants for
+            students applying abroad. We support you with university selection, student visa consultancy,
+            scholarship consultancy and test preparation, so one team can guide you from first enquiry to departure.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              <Link href="/study-destinations" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Overseas education consultants in Nepal</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Course and university selection, applications and pre-departure guidance for students going to the UK, USA, Canada, Australia, Germany and more.</p>
+              </Link>
+              <Link href="/visa-assistance-for-study-abroad" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Student visa consultancy</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Document checks, funds guidance, mock interviews and application review before you apply for your student visa.</p>
+              </Link>
+              <Link href="/scholarship-assistance-in-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Scholarship consultancy</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Find scholarships you qualify for and prepare strong applications to reduce the cost of studying abroad.</p>
+              </Link>
+              <Link href="/test-prep" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">IELTS, PTE and GRE preparation</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Coaching, practice tests and study plans for the English and entrance exams that universities ask for.</p>
+              </Link>
+              <Link href="/career-counseling-for-international-students" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Career counselling</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Choose a course and country that fit your goals, with honest advice on work rights and costs.</p>
+              </Link>
+              <Link href="/study-abroad-from-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Step-by-step checklist</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">A free eight-step guide from choosing a country to getting your visa, with official sources.</p>
+              </Link>
+          </div>
+        </div>
+      </section>
+      {/* ===== BY COUNTRY ===== */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
+            Education Consultancy for the UK, USA, Canada, Australia and Germany
+          </h2>
+          <p className="text-center text-[15px] text-gray-dark max-w-3xl mx-auto mb-10">
+            Rules differ by country and change often, so we check each destination against official sources.
+            Choose your country to see our guidance.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              <Link href="/study-in-uk-from-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">UK education consultancy</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Advice on UK universities, scholarships and the student visa. Read our UK student visa guide.</p>
+              </Link>
+              <Link href="/study-in-usa-from-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">USA education consultancy</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">F-1 visa guidance and a clear view of post-study work rules for the USA.</p>
+              </Link>
+              <Link href="/study-in-canada-from-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Canada education consultancy</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Study permit planning, including the 2026 cap and when a provincial attestation letter is needed.</p>
+              </Link>
+              <Link href="/study-in-australia" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Australia education consultancy</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Course selection and Student visa guidance, including the rules that changed on 2 October 2026.</p>
+              </Link>
+              <Link href="/study-in-germany" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Germany education consultancy</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Public university options and the blocked account requirement of 11,904 euros a year.</p>
+              </Link>
+              <Link href="/study-abroad-rule-updates" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Latest rule changes</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">A dated list of the study abroad rule changes that affect Nepali students.</p>
+              </Link>
+          </div>
+        </div>
+      </section>
       {/* ===== HOW TO CHOOSE ===== */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
-            How to Choose a Study Abroad Consultancy in Nepal
+            How to Choose the Best Education Consultancy in Nepal
           </h2>
           <p className="text-center text-[15px] text-gray-dark max-w-2xl mx-auto mb-10">
-            Whichever consultancy you pick, check these eight things before you pay.
+            Whichever study abroad consultants in Nepal you pick, check these eight things before you pay.
           </p>
           <div className="grid md:grid-cols-2 gap-5">
             {[
@@ -503,6 +595,23 @@ export default async function TopEducationConsultancyInNepalPage() {
             {" "}and{" "}
             <Link href="/accreditation-and-results" className="text-blue-royal underline hover:text-blue-dark">our accreditation and results</Link>.
           </p>
+        </div>
+      </section>
+      {/* ===== NEAR YOU ===== */}
+      <section className="bg-off-white py-14">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-[28px] font-bold text-navy mb-3">
+            Find an Education Consultancy Near You
+          </h2>
+          <p className="text-[15px] text-gray-dark mb-6">
+            Looking for an education consultancy near you? Visit our Kathmandu office at Sita Ram Square
+            (4th Floor), Putalisadak, or see our local pages for Birgunj and Janakpur.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/education-consultancy-in-kathmandu" className="bg-blue-royal text-white font-semibold text-[14px] px-6 py-2.5 rounded-[10px] hover:bg-blue-dark transition-colors">Study abroad consultants in Kathmandu</Link>
+            <Link href="/birgunj" className="bg-white border border-border-light text-navy font-semibold text-[14px] px-6 py-2.5 rounded-[10px] hover:shadow-md transition-shadow">Birgunj</Link>
+            <Link href="/janakpur" className="bg-white border border-border-light text-navy font-semibold text-[14px] px-6 py-2.5 rounded-[10px] hover:shadow-md transition-shadow">Janakpur</Link>
+          </div>
         </div>
       </section>
       {/* ===== FAQ ===== */}
