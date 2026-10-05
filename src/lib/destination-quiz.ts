@@ -44,7 +44,7 @@ export const destinations: Record<DestinationKey, Destination> = {
       { icon: "🏛️", label: "Top Universities", value: "Oxford, UCL, Manchester, Roehampton", cls: "accent" },
       { icon: "🎓", label: "Avg. Tuition", value: "£10,000–£20,000/year", cls: "" },
       { icon: "🏆", label: "Scholarships", value: "Chevening & University Merit Awards", cls: "gold" },
-      { icon: "✈️", label: "Student Visa", value: "Tier 4 — 95% Approval Rate", cls: "" },
+      { icon: "✈️", label: "Student Visa", value: "UK Student visa — 95% Admizz approval rate", cls: "" },
     ],
   },
   usa: {

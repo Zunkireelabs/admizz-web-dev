@@ -23,6 +23,11 @@
 // generation time), so it never goes stale as new posts are added later.
 import Link from "next/link";
 import ArticleInfoBox from "@/components/ArticleInfoBox";
+import PostSummary from "@/components/PostSummary";
+import PortableTextRenderer from "@/components/PortableTextRenderer";
+import BlogCtaBanner from "@/components/BlogCtaBanner";
+import AdmizzTrustBox from "@/components/AdmizzTrustBox";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import CTAForm from "@/components/ui/CTAForm";
 import generatedPostsData from "@/data/generated-posts.json";
 import type { GeneratedPostManifestEntry } from "@/types";
@@ -46,6 +51,40 @@ export interface GeneratedBlogPostProps {
   categories?: GeneratedBlogPostCategory[];
   infoBox?: { label: string; value: string }[];
   publishedAt?: string | null;
+  // All optional, so every existing generated post keeps rendering unchanged.
+  // description: used for the BlogPosting schema (falls back to the first
+  // sentences of the body). quickAnswer: the same visible answer-first card the
+  // Sanity template shows. faqItems: a visible FAQ plus matching FAQPage schema —
+  // schema is only ever emitted alongside the visible FAQ, never on its own.
+  description?: string | null;
+  quickAnswer?: string | null;
+  faqItems?: { question: string; answer: string }[] | null;
+  updatedAt?: string | null;
+  // Public path of this post, e.g. "/my-slug". Defaults to "/blogs/<slug>".
+  path?: string;
+  // Hand-written HTML body (styles are scoped exactly like a Sanity rawHtml
+  // block). When set it replaces `sections`.
+  html?: string | null;
+  // Portable Text array copied from a Sanity post (rendered by the same
+  // PortableTextRenderer the Sanity template uses). Replaces `sections`.
+  content?: unknown[] | null;
+  // FAQPage schema only, no visible FAQ section: for a body that already
+  // shows its own FAQ.
+  faqSchemaOnly?: boolean;
+}
+
+const SITE = "https://admizzeducation.com";
+
+// Plain-text first ~160 chars of the body, used only when no description is
+// passed. Strips the light Markdown the generator allows.
+function fallbackDescription(sections: GeneratedBlogPostSection[]): string | undefined {
+  const text = (sections[0]?.body || "")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/[*`_#>-]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!text) return undefined;
+  return text.length <= 160 ? text : `${text.slice(0, 157).replace(/\s+\S*$/, "")}...`;
 }
 
 // Up to 3: same-category posts first (real topical relevance), most-recent
@@ -73,6 +112,14 @@ export default function GeneratedBlogPost({
   categories,
   infoBox,
   publishedAt,
+  description,
+  quickAnswer,
+  faqItems,
+  updatedAt,
+  path,
+  html,
+  content,
+  faqSchemaOnly,
 }: GeneratedBlogPostProps) {
   const formattedDate = publishedAt
     ? new Date(publishedAt).toLocaleDateString("en-US", {
@@ -83,8 +130,61 @@ export default function GeneratedBlogPost({
     : null;
   const related = relatedPosts(slug, categories || []);
 
+  // Same BlogPosting / BreadcrumbList / FAQPage structured data the Sanity
+  // template emits, built only from this post's own real fields.
+  const canonicalUrl = `${SITE}${path || `/blogs/${slug}`}`;
+  const schemaDescription = description || fallbackDescription(sections);
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description: schemaDescription,
+    url: canonicalUrl,
+    mainEntityOfPage: canonicalUrl,
+    inLanguage: "en",
+    isPartOf: { "@id": `${SITE}/#website` },
+    ...(publishedAt ? { datePublished: publishedAt } : {}),
+    ...((updatedAt || publishedAt) ? { dateModified: updatedAt || publishedAt } : {}),
+    ...(featuredImage?.url ? { image: featuredImage.url } : {}),
+    author: {
+      "@type": "EducationalOrganization",
+      "@id": `${SITE}/#organization`,
+      name: "Admizz Education",
+      url: SITE,
+    },
+    publisher: {
+      "@type": "EducationalOrganization",
+      "@id": `${SITE}/#organization`,
+      name: "Admizz Education",
+      logo: { "@type": "ImageObject", url: `${SITE}/icon-192.webp` },
+    },
+  };
+  const faqs = faqItems && faqItems.length > 0 ? faqItems : null;
+  const faqSchema = faqs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
+      }
+    : null;
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: `${SITE}/` },
+          { name: "Blogs", url: `${SITE}/blogs` },
+          { name: title, url: canonicalUrl },
+        ]}
+      />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +206,9 @@ export default function GeneratedBlogPost({
             {title}
           </h1>
           {formattedDate && (
-            <p className="mt-3 text-white/70 text-sm">{formattedDate}</p>
+            <p className="mt-3 text-white/70 text-sm">
+              By Admizz Education <span aria-hidden="true">·</span> {formattedDate}
+            </p>
           )}
         </div>
       </section>
@@ -131,14 +233,36 @@ export default function GeneratedBlogPost({
 
             {infoBox && infoBox.length > 0 && <ArticleInfoBox items={infoBox} />}
 
-            {sections.map((section, i) => (
-              <div key={i} className="mb-8">
-                <h2 className="text-xl md:text-2xl font-bold text-[#001353] mb-3">
+            {quickAnswer && <PostSummary text={quickAnswer} />}
+
+            {html && <PortableTextRenderer content={[{ _type: "rawHtml", _key: "raw-html", html }]} />}
+
+            {content && <PortableTextRenderer content={content as any[]} />}
+
+            {!html && !content && sections.map((section, i) => (
+              <div key={i}>
+                <h2 className="text-2xl md:text-[28px] font-bold text-navy mt-8 mb-4">
                   {section.heading}
                 </h2>
                 {renderMarkdownLite(section.body, `section-${i}`)}
               </div>
             ))}
+
+            {faqs && !faqSchemaOnly && (
+              <section id="faq">
+                <h2 className="text-2xl md:text-[28px] font-bold text-navy mt-8 mb-4">
+                  Frequently Asked Questions
+                </h2>
+                {faqs.map((item) => (
+                  <div key={item.question}>
+                    <h3 className="text-xl md:text-2xl font-bold text-navy mt-8 mb-4">{item.question}</h3>
+                    <p className="text-base text-gray-dark leading-relaxed mb-4">{item.answer}</p>
+                  </div>
+                ))}
+              </section>
+            )}
+
+            <AdmizzTrustBox />
           </div>
 
           <aside className="hidden lg:block w-[472px] shrink-0">
@@ -251,6 +375,9 @@ export default function GeneratedBlogPost({
           </div>
         </section>
       )}
+
+      {/* ===== CTA BANNER ===== */}
+      <BlogCtaBanner />
     </main>
   );
 }

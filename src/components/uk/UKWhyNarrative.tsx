@@ -26,9 +26,9 @@ const BEATS: Beat[] = [
   },
   {
     eyebrow: "Stay. Work. Settle.",
-    claim: "2-year Graduate Route.",
+    claim: "Graduate Route visa.",
     support:
-      "After graduating, the UK gives you a 2-year work visa with no sponsor needed — full freedom to find a job, build experience, and convert to a Skilled Worker Visa.",
+      "After graduating, the UK gives you a Graduate Route work visa (18 months for applications from 1 January 2027) with no sponsor needed — full freedom to find a job, build experience, and convert to a Skilled Worker Visa.",
     gradient: "linear-gradient(135deg, #1F4332 0%, #0E2A1E 100%)",
     accent: "#E5A969",
   },

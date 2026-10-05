@@ -8,9 +8,9 @@ export const birgunjData: CityLandingData = {
   citySlug: "birgunj",
 
   meta: {
-    title: "Study Abroad from Birgunj | Admizz Education",
+    title: "Study Abroad Consultancy in Birgunj | Admizz Education",
     description:
-      "Birgunj's trusted study abroad consultancy. Local counsellors, 95% visa success, scholarships to UK, USA, Australia, Canada and more. Book a free consultation today.",
+      "Study abroad from Birgunj with local counsellors who speak Bhojpuri, Maithili, Hindi, Nepali and English. Book a free consultation with Admizz Education.",
     canonical: "https://admizzeducation.com/birgunj",
     ogImage: "/images/og/stuyabroad.webp",
   },
@@ -21,7 +21,7 @@ export const birgunjData: CityLandingData = {
     highlightedWord: "Birgunj's",
     subheading:
       "Personal guidance, transparent fees, and a team that speaks your language. From profile evaluation to pre-departure — handled locally, end to end.",
-    trustBadge: "★ 4.9 · Trusted by 2,000+ students",
+    trustBadge: "★ 4.9 · Trusted by 8,000+ students",
     primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
     secondaryCta: {
       text: "Chat on WhatsApp",
@@ -48,7 +48,7 @@ export const birgunjData: CityLandingData = {
     },
     inlineTrustBadges: [
       { iconKey: "star", value: "4.9", label: "Google rating" },
-      { iconKey: "graduate", value: "2,000+", label: "Enrolled" },
+      { iconKey: "graduate", value: "8,000+", label: "Enrolled" },
       { iconKey: "shieldCheck", value: "95%", label: "Visa success" },
       { iconKey: "certified", value: "ICEF", label: "Certified" },
     ],

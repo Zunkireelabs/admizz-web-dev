@@ -222,7 +222,7 @@ export default function DestinationQuiz() {
                     ))}
                   </div>
                   <p className="text-[13px] text-gray-dark">
-                    <strong className="text-navy font-semibold">2,000+</strong> students matched
+                    <strong className="text-navy font-semibold">8,000+</strong> students matched
                   </p>
                 </div>
 

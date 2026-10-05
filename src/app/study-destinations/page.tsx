@@ -5,16 +5,16 @@ import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 
 export const metadata: Metadata = {
-  title: "Study Abroad Planning Services - Study Destinations | Admizz Education",
+  title: "Study Destinations for Nepali Students",
   description:
-    "Study abroad planning services for Nepali students and beyond — explore top study destinations with expert guidance on universities, courses, visas, costs, and student life to help you choose the right country.",
+    "Compare 10 study abroad destinations with Admizz Education: Australia, Canada, the UK, USA and more. Get guidance on universities, courses, visas and costs.",
   alternates: {
     canonical: "https://admizzeducation.com/study-destinations",
   },
   openGraph: {
-    title: "Study Abroad Planning Services - Study Destinations | Admizz Education",
+    title: "Study Destinations for Nepali Students",
     description:
-      "Study abroad planning services for Nepali students and beyond — explore top study destinations with expert guidance on universities, courses, visas, costs, and student life to help you choose the right country.",
+      "Compare 10 study abroad destinations with Admizz Education: Australia, Canada, the UK, USA and more. Get guidance on universities, courses, visas and costs.",
     url: "https://admizzeducation.com/study-destinations",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "1500+", label: "Students" },
+  { value: "8,000+", label: "Students" },
   { value: "95%", label: "Visa Approval Rate" },
   { value: "$2M+", label: "Scholarships" },
 ];
@@ -100,7 +100,7 @@ const faqItems: FAQItem[] = [
   {
     question: "How many students has Admizz Education helped choose a destination?",
     answer:
-      "Admizz Education has worked with 1500+ students, with a 95% visa approval rate and over $2M in scholarships secured for students across these destinations.",
+      "Admizz Education has worked with 8,000+ students, with a 95% visa approval rate and over $2M in scholarships secured for students across these destinations.",
   },
   {
     question: "What support is included when I'm deciding on a study destination?",

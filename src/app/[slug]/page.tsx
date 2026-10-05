@@ -12,6 +12,10 @@ import { postSummaries } from "@/data/post-summaries";
 import CTAForm from "@/components/ui/CTAForm";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import { postFaqs } from "@/data/post-faqs";
+import { postSeoOverrides } from "@/data/post-seo-overrides";
+import { postFaqSchemaOnly } from "@/data/post-faq-schema";
+import { postContentPatches } from "@/data/post-content-patches";
+import { applyContentPatches } from "@/lib/content-patches";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -29,8 +33,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return {};
 
   const seo = post.seo;
-  const title = seo?.metaTitle || post.title;
-  const description = seo?.metaDescription || post.excerpt || "";
+  const override = postSeoOverrides[post.slug.current];
+  const title = override?.title || seo?.metaTitle || post.title;
+  const description = override?.description || seo?.metaDescription || post.excerpt || "";
   const canonical =
     seo?.canonicalUrl || `https://admizzeducation.com/${post.slug.current}`;
 
@@ -67,6 +72,11 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
+  // Corrections kept in this repo (src/data/post-content-patches.ts) are applied
+  // to the body here, so outdated facts can be fixed without editing Sanity.
+  const patchSet = postContentPatches[post.slug.current];
+  const bodyContent = applyContentPatches(post.content, patchSet, post.slug.current);
+
   const formattedDate = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString("en-US", {
         year: "numeric",
@@ -100,8 +110,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     inLanguage: "en",
     isPartOf: { "@id": "https://admizzeducation.com/#website" },
     ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
-    ...((post._updatedAt || post.publishedAt)
-      ? { dateModified: post._updatedAt || post.publishedAt }
+    ...((patchSet?.updated || post._updatedAt || post.publishedAt)
+      ? { dateModified: patchSet?.updated || post._updatedAt || post.publishedAt }
       : {}),
     ...(featuredImageUrl ? { image: featuredImageUrl } : {}),
     author: {
@@ -134,7 +144,10 @@ export default async function BlogPostPage({ params }: PageProps) {
   );
   const ownFaqItems = post.faqItems && post.faqItems.length > 0 ? post.faqItems : null;
   const curatedFaqItems = !ownFaqItems && !bodyHasFaq ? postFaqs[post.slug.current] || null : null;
-  const faqItems = ownFaqItems || curatedFaqItems;
+  // Schema-only items: the body already shows these questions, so no visible
+  // section is added (see post-faq-schema.ts).
+  const schemaOnlyFaqItems = !ownFaqItems && !curatedFaqItems ? postFaqSchemaOnly[post.slug.current] || null : null;
+  const faqItems = ownFaqItems || curatedFaqItems || schemaOnlyFaqItems;
   const faqSchema = faqItems ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -222,7 +235,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             )}
 
             {/* Body */}
-            {post.content && <PortableTextRenderer content={post.content} />}
+            {post.content && <PortableTextRenderer content={bodyContent ?? post.content} />}
 
             {/* Visible FAQ (only for posts whose body has none) — same
                 heading/paragraph styles as the body, so it reads as native. */}

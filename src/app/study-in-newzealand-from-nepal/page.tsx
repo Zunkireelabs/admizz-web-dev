@@ -6,16 +6,16 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in New Zealand from Nepal 2026: Cost, Visa & Scholarships",
+  title: "Study in New Zealand from Nepal: Costs, Visa, Intakes",
   description:
-    "Study in New Zealand from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+    "Study in New Zealand from Nepal: see tuition costs, Fee-Paying Student Visa rules, February and July intakes, scholarships and partner universities.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-newzealand-from-nepal",
   },
   openGraph: {
-    title: "Study in New Zealand from Nepal 2026: Cost, Visa & Scholarships",
+    title: "Study in New Zealand from Nepal: Costs, Visa, Intakes",
     description:
-      "Study in New Zealand from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      "Study in New Zealand from Nepal: see tuition costs, Fee-Paying Student Visa rules, February and July intakes, scholarships and partner universities.",
     url: "https://admizzeducation.com/study-in-newzealand-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/stuyabroad.webp"],

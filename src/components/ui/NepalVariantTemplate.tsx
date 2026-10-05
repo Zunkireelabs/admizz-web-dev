@@ -392,7 +392,7 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
         <section className="bg-off-white py-8">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
             <div>
-              <p className="text-2xl font-bold text-navy">1500+</p>
+              <p className="text-2xl font-bold text-navy">8,000+</p>
               <p className="text-[13px] text-gray-dark">Students successfully enrolled worldwide</p>
             </div>
             <div>

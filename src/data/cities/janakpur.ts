@@ -21,7 +21,7 @@ export const janakpurData: CityLandingData = {
     highlightedWord: "Janakpur's",
     subheading:
       "Hyperlocal guidance, transparent fees, and a Maithili-speaking team that gets your family. From profile evaluation to pre-departure — handled in Janakpur.",
-    trustBadge: "★ 4.9 · Trusted by 2,000+ students",
+    trustBadge: "★ 4.9 · Trusted by 8,000+ students",
     primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
     secondaryCta: {
       text: "Chat on WhatsApp",
@@ -48,7 +48,7 @@ export const janakpurData: CityLandingData = {
     },
     inlineTrustBadges: [
       { iconKey: "star", value: "4.9", label: "Google rating" },
-      { iconKey: "graduate", value: "2,000+", label: "Enrolled" },
+      { iconKey: "graduate", value: "8,000+", label: "Enrolled" },
       { iconKey: "shieldCheck", value: "95%", label: "Visa success" },
       { iconKey: "certified", value: "ICEF", label: "Certified" },
     ],

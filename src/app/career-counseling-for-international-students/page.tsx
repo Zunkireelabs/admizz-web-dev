@@ -13,16 +13,16 @@ import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
 
 export const metadata: Metadata = {
-  title: "Career Counseling for International Students - Admizz Education",
+  title: "Career Counseling for International Students",
   description:
-    "Admizz Education's career counseling helps you choose the right country, course, and university based on your real academic goals and career plans.",
+    "Get free career counseling from Admizz Education: profile evaluation, country options and course suggestions matched to your academic goals and career plans.",
   alternates: {
     canonical: "https://admizzeducation.com/career-counseling-for-international-students",
   },
   openGraph: {
-    title: "Career Counseling for International Students - Admizz Education",
+    title: "Career Counseling for International Students",
     description:
-      "Admizz Education's career counseling helps you choose the right country, course, and university based on your real academic goals and career plans.",
+      "Get free career counseling from Admizz Education: profile evaluation, country options and course suggestions matched to your academic goals and career plans.",
     url: "https://admizzeducation.com/career-counseling-for-international-students",
     siteName: "Admizz Education",
     images: ["/images/og/admizzn.webp"],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "1500+", label: "Students Successfully Enrolled Worldwide" },
+  { value: "8,000+", label: "Students Successfully Enrolled Worldwide" },
   { value: "100+", label: "Prestigious Institutions in Our Global Network" },
   { value: "95%", label: "Student Visa Approval Rate with Expert Guidance" },
   { value: "$2M+", label: "in Scholarships Awarded to Our Students" },

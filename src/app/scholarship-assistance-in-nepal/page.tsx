@@ -13,16 +13,16 @@ import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
 
 export const metadata: Metadata = {
-  title: "Scholarship Assistance in Nepal - Admizz Education",
+  title: "Scholarship Consultancy in Nepal | Scholarship Assistance",
   description:
-    "Admizz Education helps Nepali students find and apply for merit-based and need-based scholarships to study in the USA, UK, Canada, Australia & more.",
+    "Scholarship consultancy in Nepal: find and apply for merit-based and need-based scholarships to study in the USA, UK, Canada, Australia and more.",
   alternates: {
     canonical: "https://admizzeducation.com/scholarship-assistance-in-nepal",
   },
   openGraph: {
-    title: "Scholarship Assistance in Nepal - Admizz Education",
+    title: "Scholarship Consultancy in Nepal | Scholarship Assistance",
     description:
-      "Admizz Education helps Nepali students find and apply for merit-based and need-based scholarships to study in the USA, UK, Canada, Australia & more.",
+      "Scholarship consultancy in Nepal: find and apply for merit-based and need-based scholarships to study in the USA, UK, Canada, Australia and more.",
     url: "https://admizzeducation.com/scholarship-assistance-in-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/admizzn.webp"],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "1500+", label: "Students Successfully Enrolled Worldwide" },
+  { value: "8,000+", label: "Students Successfully Enrolled Worldwide" },
   { value: "100+", label: "Prestigious Institutions in Our Global Network" },
   { value: "95%", label: "Student Visa Approval Rate with Expert Guidance" },
   { value: "$2M+", label: "in Scholarships Awarded to Our Students" },

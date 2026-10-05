@@ -6,16 +6,16 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in Germany - Admizz Education",
+  title: "Study in Germany: Tuition-Free Public Universities",
   description:
-    "Study in Germany at world-renowned universities with tuition-free public education, expert guidance, visa support, and scholarships. Begin your international journey today!",
+    "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-germany",
   },
   openGraph: {
-    title: "Study in Germany - Admizz Education",
+    title: "Study in Germany: Tuition-Free Public Universities",
     description:
-      "Study in Germany at world-renowned universities with tuition-free public education, expert guidance, visa support, and scholarships. Begin your international journey today!",
+      "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
     url: "https://admizzeducation.com/study-in-germany",
     siteName: "Admizz Education",
     images: ["/images/og/stuyabroad.webp"],

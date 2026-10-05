@@ -145,7 +145,7 @@ export default function UKEducationExpoPage() {
           <div className="grid grid-cols-2 gap-3 sm:hidden">
             {[
               { icon: "📋", bold: "Free 1-on-1,", text: "Counselling" },
-              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
+              { icon: "🎓", bold: "8,000+", text: "Students Admitted" },
               { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item) => (
@@ -161,7 +161,7 @@ export default function UKEducationExpoPage() {
           <div className="hidden sm:flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {[
               { icon: "📋", bold: "Free 1-on-1,", text: "Counselling" },
-              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
+              { icon: "🎓", bold: "8,000+", text: "Students Admitted" },
               { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item, i, arr) => (
@@ -409,7 +409,7 @@ export default function UKEducationExpoPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 2,000+ Students Enrolled</span>
+            <span>🎓 8,000+ Students Enrolled</span>
             <span>•</span>
             <span>🌍 50+ Partner Universities</span>
           </div>
