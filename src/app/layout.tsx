@@ -221,7 +221,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <SiteChrome>
-          <div id="main-content" className="min-h-[80vh]">
+          <div id="main-content" className="min-h-[80vh] overflow-x-clip">
             {children}
           </div>
         </SiteChrome>
