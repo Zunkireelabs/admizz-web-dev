@@ -1433,7 +1433,7 @@ export const universityOfBedfordshire: UniversityProfile = {
       name: "BSc (Hons) Business Management (Top-up)",
       level: "undergraduate",
       subject: "Business & Management",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Standard Undergraduate",
@@ -1450,7 +1450,7 @@ export const universityOfBedfordshire: UniversityProfile = {
       name: "BSc (Hons) Business Management with Digital Marketing (Top-up)",
       level: "undergraduate",
       subject: "Business & Management",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Standard Undergraduate",
@@ -1467,7 +1467,7 @@ export const universityOfBedfordshire: UniversityProfile = {
       name: "BSc (Hons) Business Management with Human Resource Management (Top-up)",
       level: "undergraduate",
       subject: "Business & Management",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Standard Undergraduate",
@@ -1484,7 +1484,7 @@ export const universityOfBedfordshire: UniversityProfile = {
       name: "BSc (Hons) Business Management with International Business (Top-up)",
       level: "undergraduate",
       subject: "Business & Management",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Standard Undergraduate",
@@ -1501,7 +1501,7 @@ export const universityOfBedfordshire: UniversityProfile = {
       name: "BSc (Hons) Business Management with Business Analytics (Top-up)",
       level: "undergraduate",
       subject: "Business & Management",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Standard Undergraduate",
@@ -1518,7 +1518,7 @@ export const universityOfBedfordshire: UniversityProfile = {
       name: "BSc (Hons) Business Management with Finance (Top-up)",
       level: "undergraduate",
       subject: "Business & Management",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Standard Undergraduate",

@@ -48,7 +48,7 @@ export const universityOfWorcester: UniversityProfile = {
     },
     {
       slug: "mres-education-100075",
-      name: "MRES Education",
+      name: "MRes Education",
       level: "postgraduate",
       subject: "Education",
       durationMonths: 12,

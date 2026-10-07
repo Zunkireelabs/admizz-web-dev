@@ -54,7 +54,7 @@ export const universityOfPortsmouth: UniversityProfile = {
       name: "BA (Hons) Business and Management (Top-Up)",
       level: "undergraduate",
       subject: "Business & Management",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Tuition from",
@@ -90,7 +90,7 @@ export const universityOfPortsmouth: UniversityProfile = {
       name: "BSc (Hons) Computer Science (Top-Up)",
       level: "undergraduate",
       subject: "Computer Science",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Tuition from",

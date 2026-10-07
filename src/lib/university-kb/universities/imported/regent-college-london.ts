@@ -51,7 +51,7 @@ export const regentCollegeLondon: UniversityProfile = {
       name: "BSc (Hons) Health and Social Care Top-Up",
       level: "undergraduate",
       subject: "Health & Medicine",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee (After Bursary £12500 year one only and Y2 and Y3 £13500)",
@@ -119,7 +119,7 @@ export const regentCollegeLondon: UniversityProfile = {
       name: "BSc (Hons) Business Management Top-Up",
       level: "undergraduate",
       subject: "Business & Management",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee (After Bursary £12500 year one only and Y2 and Y3 £13500)",
