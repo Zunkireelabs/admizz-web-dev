@@ -112,6 +112,22 @@ export interface FAQItem {
   answer: string;
 }
 
+/** Entry requirements grouped by study level (e.g. per-university Nepal criteria). */
+export interface EntryRequirementGroup {
+  level: string;
+  gapAccepted?: boolean;
+  gapYearsAllowed?: string;
+  criteria: string[];
+}
+
+/** English test scores grouped by study level. */
+export interface LanguageTestGroup {
+  level: string;
+  tests: { test: string; score: string }[];
+  /** e.g. MOI waiver conditions */
+  waiver?: string[];
+}
+
 export interface UniversityProfile {
   slug: string;
   name: string;
@@ -126,6 +142,9 @@ export interface UniversityProfile {
   courses: Course[];
   scholarships: Scholarship[];
   english: EnglishRequirement;
+  /** Detailed, per-level entry requirements (optional; richer than `english`). */
+  entryRequirements?: EntryRequirementGroup[];
+  languageTests?: LanguageTestGroup[];
   requiredDocuments: RequiredDocument[];
   applicationStages: ApplicationStage[];
   intakes: Intake[];

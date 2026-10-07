@@ -120,6 +120,75 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
       </div>
     ),
 
+    entry: (
+      <div className="space-y-10">
+        <section>
+          <SectionTitle sub="Admission criteria for Nepali students, by study level.">Academic requirements</SectionTitle>
+          {u.entryRequirements && u.entryRequirements.length > 0 ? (
+            <div className="space-y-6">
+              {u.entryRequirements.map((g) => (
+                <div key={g.level} className="rounded-2xl border border-border-light p-6">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                    <h3 className="text-[16px] font-semibold text-navy">{g.level}</h3>
+                    {g.gapAccepted !== undefined && (
+                      <span className="text-[13px] text-gray-dark">
+                        Gap {g.gapAccepted ? "accepted" : "not accepted"}
+                        {g.gapAccepted && g.gapYearsAllowed ? ` · up to ${g.gapYearsAllowed.trim()}` : ""}
+                      </span>
+                    )}
+                  </div>
+                  <ul className="mt-3 space-y-1.5 text-[14px] text-slate">
+                    {g.criteria.map((c, i) => (
+                      <li key={i} className="flex gap-2">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-royal" aria-hidden />
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-[15px] text-gray-dark">Entry requirements vary by course — ask a counsellor for your eligibility.</p>
+          )}
+        </section>
+
+        {u.languageTests && u.languageTests.length > 0 && (
+          <section>
+            <SectionTitle sub="Accepted English tests and minimum scores.">English language</SectionTitle>
+            <div className="space-y-6">
+              {u.languageTests.map((g) => (
+                <div key={g.level} className="rounded-2xl border border-border-light overflow-hidden">
+                  <h3 className="bg-off-white px-5 py-3 text-[15px] font-semibold text-navy">{g.level}</h3>
+                  <ul className="divide-y divide-border-light">
+                    {g.tests.map((t, i) => (
+                      <li key={i} className="flex flex-wrap items-baseline justify-between gap-2 px-5 py-3 text-[14px]">
+                        <span className="font-medium text-navy">{t.test}</span>
+                        <span className="text-right text-gray-dark">{t.score}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {g.waiver && g.waiver.length > 0 && (
+                    <div className="border-t border-border-light bg-green-50/50 px-5 py-4">
+                      <p className="text-[13px] font-semibold text-green-800">English test may be waived (MOI) if:</p>
+                      <ul className="mt-1.5 space-y-1 text-[13px] text-slate">
+                        {g.waiver.map((w, i) => (
+                          <li key={i} className="flex gap-2">
+                            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-green-600" aria-hidden />
+                            {w}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    ),
+
     apply: (
       <section>
         <SectionTitle sub="The typical steps from application to visa. Your counsellor manages each one with you.">
