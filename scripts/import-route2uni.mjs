@@ -3,7 +3,7 @@
 // writes src/lib/university-kb/universities/imported/*.ts + index.ts.
 //
 // Run: node scripts/import-route2uni.mjs
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -183,9 +183,15 @@ function convert(raw) {
     return { month, year: Number(year), ...(i.deadlineInfo ? { applicationDeadline: i.deadlineInfo } : {}) };
   });
 
+  // Use a real logo if we have one on disk, else a neutral placeholder.
+  const logoFile = join(ROOT, `public/images/universities/imported/${slug}.webp`);
+  const logo = existsSync(logoFile)
+    ? `/images/universities/imported/${slug}.webp`
+    : "/images/universities/imported/_placeholder.svg";
+
   return {
     slug, name, country,
-    logo: `/images/universities/imported/${slug}.webp`,
+    logo,
     established: b.establishedYear && b.establishedYear > 1000 ? b.establishedYear : undefined,
     cities,
     website: b.websiteUrl || undefined,
