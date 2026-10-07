@@ -732,8 +732,8 @@ export const universityOfWestLondon: UniversityProfile = {
       gapYearsAllowed: "10 Years",
       criteria: [
         "4 Years Bachelor’s Degree : At least 55%",
-        "For MBA: Bachelor’s: First Class or above 60%- No  work experience needed",
-        "Bachelor’s: 55% + Minimum 2 yrs. Work  Experience certificates"
+        "For MBA: Bachelor’s: First Class or above 60%- No work experience needed",
+        "Bachelor’s: 55% + Minimum 2 yrs. Work Experience certificates"
       ]
     },
     {
@@ -759,11 +759,11 @@ export const universityOfWestLondon: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "6.0 overall  (5.5 in each component)"
+          score: "6.0 overall (5.5 in each component)"
         },
         {
           test: "PTE",
-          score: "51 overall  (51 in each component)"
+          score: "51 overall (51 in each component)"
         },
         {
           test: "Duolingo",
@@ -784,7 +784,7 @@ export const universityOfWestLondon: UniversityProfile = {
         },
         {
           test: "Duolingo",
-          score: "120 overall  ( 100 in each component)"
+          score: "120 overall ( 100 in each component)"
         }
       ]
     },

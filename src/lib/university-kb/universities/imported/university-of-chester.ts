@@ -1089,7 +1089,7 @@ export const universityOfChester: UniversityProfile = {
         }
       ],
       waiver: [
-        "75% marks in 12th  English from HSEB",
+        "75% marks in 12th English from HSEB",
         "B+ / 3 GPA in English from NEB",
         "IELTS remains mandatory for following courses: MSc Nutrition and Dietetics, MSc Pre-registration Adult Nursing, MSc Pre-registration Mental Health",
         "IELTS remains mandatory for following courses: MA Social Work, MA Art Therapy, MA TESOL, PGCE (Primary and Secondary), MBChB"
@@ -1108,8 +1108,8 @@ export const universityOfChester: UniversityProfile = {
         }
       ],
       waiver: [
-        "75% marks in 12th  English from HSEB  B+ / 3 GPA in English from NEB",
-        "IELTS remains mandatory for following courses:  BN Nursing (all pathways), BSc Nutrition and Dietetics , BA Primary/Early Years with QTS"
+        "75% marks in 12th English from HSEB B+ / 3 GPA in English from NEB",
+        "IELTS remains mandatory for following courses: BN Nursing (all pathways), BSc Nutrition and Dietetics , BA Primary/Early Years with QTS"
       ]
     }
   ],

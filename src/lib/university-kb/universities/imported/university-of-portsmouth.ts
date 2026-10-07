@@ -1318,7 +1318,7 @@ export const universityOfPortsmouth: UniversityProfile = {
         },
         {
           test: "PTE",
-          score: "65 overall  ( 62 in each component)"
+          score: "65 overall ( 62 in each component)"
         },
         {
           test: "Health & Science Courses - IELTS",
@@ -1326,7 +1326,7 @@ export const universityOfPortsmouth: UniversityProfile = {
         },
         {
           test: "Health & Science Courses - PTE",
-          score: "65 overall  ( 62 in each component)"
+          score: "65 overall ( 62 in each component)"
         }
       ],
       waiver: [

@@ -43,6 +43,23 @@ const titleCase = (s) =>
     .replace(/^([a-z])/, (m) => m.toUpperCase());
 
 
+// Collapse stray whitespace and exact-duplicate parentheticals the portal sometimes repeats.
+function tidy(str = "") {
+  return str.replace(/\s+/g, " ").replace(/(\([^)]*\))(?:\s*\1)+/g, "$1").trim();
+}
+
+// Course names typed in ALL CAPS get sentence-style casing; degree prefixes are restored.
+function courseName(raw = "") {
+  const name = tidy(raw);
+  const letters = name.replace(/[^A-Za-z]/g, "");
+  const upper = letters.replace(/[^A-Z]/g, "").length;
+  if (letters.length < 8 || upper / letters.length < 0.6) return name;
+  return titleCase(name).replace(
+    /\b(Bsc|Msc|Ba|Ma|Mba|Llm|Llb|Beng|Meng|Mres|Mph|Hons)\b/g,
+    (m) => ({ Bsc: "BSc", Msc: "MSc", Ba: "BA", Ma: "MA", Mba: "MBA", Llm: "LLM", Llb: "LLB", Beng: "BEng", Meng: "MEng", Mres: "MRes", Mph: "MPH", Hons: "Hons" }[m]),
+  );
+}
+
 // Keep exam acronyms upper-case and fix the portal's spelling slips.
 const ACRONYMS = new Set(["IELTS", "PTE", "TOEFL", "SELT", "ESOL", "OIETC", "MOI", "UKVI"]);
 const DOC_ACRONYMS = new Set(["CV", "LOR", "MOI", "SOP", "IELTS", "PTE"]);
@@ -54,7 +71,7 @@ function testName(raw = "") {
   const t = raw.trim();
   if (/^d[ou]{1,2}lingo$/i.test(t)) return "Duolingo";
   if (ACRONYMS.has(t.toUpperCase())) return t.toUpperCase();
-  return titleCase(t).replace(/\b(ielts|pte|toefl|selt|esol|oietc|moi)\b/gi, (m) => m.toUpperCase());
+  return titleCase(t).replace(/\b(ielts|pte|toefl|selt|esol|oietc|moi)\b/gi, (m) => m.toUpperCase()).replace(/\bibt\b/gi, "iBT");
 }
 
 function levelOf(name = "") {
@@ -181,7 +198,7 @@ function convert(raw) {
     const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placementIncluded, c.name);
     byId.set(c.id, {
       slug: `${slugify(c.name)}-${c.id}`,
-      name: c.name,
+      name: courseName(c.name),
       level,
       subject: subjectOf(c.name),
       durationMonths: placementIncluded ? 24 : level === "undergraduate" ? 36 : 12,
@@ -215,15 +232,15 @@ function convert(raw) {
     level: e.courseLevelName,
     gapAccepted: e.gapAccepted ?? undefined,
     gapYearsAllowed: (e.gapYearsAllowed || "").trim() || undefined,
-    criteria: (e.criteria || []).map((s) => s.trim()).filter(Boolean),
+    criteria: (e.criteria || []).map(tidy).filter(Boolean),
   })).filter((e) => e.criteria.length);
 
   const waiverByLevel = {};
   for (const w of d.englishProficiency || [])
-    if (w.hasWaiver && (w.criteria || []).length) waiverByLevel[w.courseLevelName] = w.criteria.map((s) => s.trim());
+    if (w.hasWaiver && (w.criteria || []).length) waiverByLevel[w.courseLevelName] = w.criteria.map(tidy);
   const testsByLevel = {};
   for (const t of (d.languageTests || []).filter((x) => !/internal/i.test(x.languageTestName))) {
-    (testsByLevel[t.courseLevelName] ||= []).push({ test: testName(t.languageTestName), score: (t.requiredScore || "").trim() });
+    (testsByLevel[t.courseLevelName] ||= []).push({ test: testName(t.languageTestName), score: tidy(t.requiredScore || "") });
   }
   const languageTests = Object.keys(testsByLevel).map((level) => ({
     level, tests: testsByLevel[level], waiver: waiverByLevel[level],
