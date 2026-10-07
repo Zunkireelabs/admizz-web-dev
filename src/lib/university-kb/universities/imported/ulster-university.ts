@@ -830,6 +830,18 @@ export const ulsterUniversity: UniversityProfile = {
       optional: true
     }
   ],
+  feeSummary: [
+    {
+      level: "Postgraduate",
+      min: 14550,
+      max: 25800
+    },
+    {
+      level: "Undergraduate",
+      min: 12750,
+      max: 13350
+    }
+  ],
   applicationStages: [
     {
       title: "Application initiated"

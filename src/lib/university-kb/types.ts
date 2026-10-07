@@ -156,6 +156,8 @@ export interface UniversityProfile {
   intakes: Intake[];
   deposits?: DepositInfo[];
   livingCostPerYear?: { amount: number; note?: string };
+  /** Tuition by study level. Used when a university has no course list yet. */
+  feeSummary?: { level: string; min: number; max: number }[];
   accommodation?: string;
   faqs?: FAQItem[];
   /** ISO date the data was last checked by the Admizz team */

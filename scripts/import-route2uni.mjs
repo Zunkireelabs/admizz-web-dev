@@ -194,6 +194,19 @@ async function fetchLogoIfNeeded(raw) {
   }
 }
 
+// Tuition by level (min–max), ignoring agent-only line items. Shown when no course list exists.
+function feeSummaryOf(feeStructures) {
+  const out = [];
+  for (const fs of feeStructures) {
+    const amounts = (fs.tuitionRange || [])
+      .filter((t) => !AGENT_FEE.test(t.description || "") && t.amount > 0)
+      .map((t) => t.amount);
+    if (!amounts.length) continue;
+    out.push({ level: tidy(fs.courseLevelName), min: Math.min(...amounts), max: Math.max(...amounts) });
+  }
+  return out.length ? out : undefined;
+}
+
 function convert(raw) {
   const d = raw.data;
   const b = d.basicInfo;
@@ -297,7 +310,8 @@ function convert(raw) {
   return {
     slug, name, country,
     logo,
-    established: b.establishedYear && b.establishedYear > 1000 ? b.establishedYear : undefined,
+    // 1999 is the portal's default placeholder, not a real founding year — never publish it.
+    established: b.establishedYear && b.establishedYear > 1000 && b.establishedYear !== 1999 ? b.establishedYear : undefined,
     cities,
     website: b.websiteUrl || undefined,
     overview: (b.description && b.description !== "undefined" ? b.description : "") ||
@@ -308,6 +322,7 @@ function convert(raw) {
     entryRequirements: entryRequirements.length ? entryRequirements : undefined,
     languageTests: languageTests.length ? languageTests : undefined,
     requiredDocuments,
+    feeSummary: feeSummaryOf(d.feeStructures || []),
     applicationStages: STAGES[country] || STAGES.uk,
     intakes,
     rawId: b.id,

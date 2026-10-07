@@ -915,6 +915,23 @@ export const yorkStJohnUniversity: UniversityProfile = {
       optional: true
     }
   ],
+  feeSummary: [
+    {
+      level: "Postgraduate",
+      min: 11800,
+      max: 15400
+    },
+    {
+      level: "Upper Tier UG Course (YORK Campus)",
+      min: 14900,
+      max: 14900
+    },
+    {
+      level: "Undergraduate",
+      min: 12100,
+      max: 12100
+    }
+  ],
   applicationStages: [
     {
       title: "Application initiated"

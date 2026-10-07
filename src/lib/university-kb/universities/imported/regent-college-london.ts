@@ -223,6 +223,18 @@ export const regentCollegeLondon: UniversityProfile = {
       optional: true
     }
   ],
+  feeSummary: [
+    {
+      level: "Postgraduate",
+      min: 17500,
+      max: 17500
+    },
+    {
+      level: "Undergraduate",
+      min: 17500,
+      max: 17500
+    }
+  ],
   applicationStages: [
     {
       title: "Application initiated"

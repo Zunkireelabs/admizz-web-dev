@@ -6,7 +6,6 @@ export const universityOfWorcester: UniversityProfile = {
   name: "University of Worcester",
   country: "uk",
   logo: "/images/universities/imported/university-of-worcester.webp",
-  established: 1999,
   cities: [
     "Worcester"
   ],
@@ -506,6 +505,28 @@ export const universityOfWorcester: UniversityProfile = {
     {
       name: "English Language Certificate",
       optional: true
+    }
+  ],
+  feeSummary: [
+    {
+      level: "MRES",
+      min: 18400,
+      max: 18400
+    },
+    {
+      level: "Nursing",
+      min: 17200,
+      max: 17200
+    },
+    {
+      level: "Undergraduate",
+      min: 17200,
+      max: 17200
+    },
+    {
+      level: "Postgraduate",
+      min: 18400,
+      max: 18400
     }
   ],
   applicationStages: [

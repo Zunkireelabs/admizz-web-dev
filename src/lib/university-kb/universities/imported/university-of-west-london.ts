@@ -6,7 +6,6 @@ export const universityOfWestLondon: UniversityProfile = {
   name: "University of West London",
   country: "uk",
   logo: "/images/universities/imported/university-of-west-london.webp",
-  established: 1999,
   cities: [
     "London"
   ],
@@ -833,6 +832,28 @@ export const universityOfWestLondon: UniversityProfile = {
     },
     {
       name: "Statement of Purpose"
+    }
+  ],
+  feeSummary: [
+    {
+      level: "Enhanced Extended Master's",
+      min: 21000,
+      max: 21500
+    },
+    {
+      level: "Postgraduate",
+      min: 17250,
+      max: 19000
+    },
+    {
+      level: "Extended Master's",
+      min: 19000,
+      max: 19000
+    },
+    {
+      level: "Undergraduate",
+      min: 16750,
+      max: 16750
     }
   ],
   applicationStages: [

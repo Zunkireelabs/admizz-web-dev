@@ -6,7 +6,6 @@ export const universityOfBedfordshire: UniversityProfile = {
   name: "University of Bedfordshire",
   country: "uk",
   logo: "/images/universities/imported/university-of-bedfordshire.png",
-  established: 1999,
   cities: [
     "Luton",
     "Bedford",
@@ -1792,6 +1791,18 @@ export const universityOfBedfordshire: UniversityProfile = {
     {
       name: "MOI",
       optional: true
+    }
+  ],
+  feeSummary: [
+    {
+      level: "Undergraduate",
+      min: 16900,
+      max: 16900
+    },
+    {
+      level: "Postgraduate",
+      min: 17900,
+      max: 21000
     }
   ],
   applicationStages: [

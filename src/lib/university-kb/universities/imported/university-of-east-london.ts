@@ -1321,6 +1321,28 @@ export const universityOfEastLondon: UniversityProfile = {
       optional: true
     }
   ],
+  feeSummary: [
+    {
+      level: "International Year One",
+      min: 16020,
+      max: 16020
+    },
+    {
+      level: "International Foundation Year",
+      min: 16020,
+      max: 16020
+    },
+    {
+      level: "Postgraduate",
+      min: 16620,
+      max: 19500
+    },
+    {
+      level: "Undergraduate",
+      min: 16020,
+      max: 16020
+    }
+  ],
   applicationStages: [
     {
       title: "Application initiated"

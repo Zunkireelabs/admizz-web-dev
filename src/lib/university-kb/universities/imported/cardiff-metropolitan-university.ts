@@ -525,6 +525,18 @@ export const cardiffMetropolitanUniversity: UniversityProfile = {
       name: "Statement of Purpose"
     }
   ],
+  feeSummary: [
+    {
+      level: "Undergraduate",
+      min: 16000,
+      max: 16000
+    },
+    {
+      level: "Postgraduate",
+      min: 17600,
+      max: 19500
+    }
+  ],
   applicationStages: [
     {
       title: "Application initiated"

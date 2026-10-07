@@ -6,7 +6,6 @@ export const universityOfWolverhampton: UniversityProfile = {
   name: "University of Wolverhampton",
   country: "uk",
   logo: "/images/universities/imported/university-of-wolverhampton.webp",
-  established: 1999,
   cities: [
     "Wolverhampton",
     "Birmingham"
@@ -1509,6 +1508,38 @@ export const universityOfWolverhampton: UniversityProfile = {
     {
       name: "MOI",
       optional: true
+    }
+  ],
+  feeSummary: [
+    {
+      level: "International Year One",
+      min: 17600,
+      max: 17600
+    },
+    {
+      level: "Undergraduate",
+      min: 16950,
+      max: 18700
+    },
+    {
+      level: "Postgraduate",
+      min: 19000,
+      max: 20197
+    },
+    {
+      level: "International Foundation Year",
+      min: 17600,
+      max: 17600
+    },
+    {
+      level: "MRES",
+      min: 22000,
+      max: 22000
+    },
+    {
+      level: "Premaster",
+      min: 9500,
+      max: 9500
     }
   ],
   applicationStages: [
