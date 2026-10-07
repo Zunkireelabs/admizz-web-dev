@@ -100,20 +100,29 @@ const hasPlacement = (name = "") =>
   /(placement|year in industry|professional experience|with professional|2 ?years?|2 yrs)/i.test(name);
 
 // Pick the representative tuition for a level, excluding agent-only line items.
-function feeForLevel(feeStructures, levelName, placement) {
+function feeForLevel(feeStructures, levelName, placement, courseName = "") {
   const fs = feeStructures.find((f) => f.courseLevelName === levelName);
   if (!fs) return undefined;
-  const real = (fs.tuitionRange || []).filter((t) => !AGENT_FEE.test(t.description || ""));
+  let real = (fs.tuitionRange || []).filter((t) => !AGENT_FEE.test(t.description || ""));
   if (real.length === 0) return undefined;
+
+  // MBAs often have their own price; other courses must not pick up the MBA price.
+  const isMba = /\bMBA\b|master of business administration/i.test(courseName);
+  const mbaItems = real.filter((t) => /mba/i.test(t.description || ""));
+  if (isMba && mbaItems.length) real = mbaItems;
+  else if (!isMba && mbaItems.length && mbaItems.length < real.length) real = real.filter((t) => !mbaItems.includes(t));
+
+  const isPlacementFee = (t) => /placement|2-? ?year|industry|professional/i.test(t.description || "");
+  const toFee = (t, fallback) => ({ label: (t.description || "").replace(/[:\s]+$/, "").trim() || fallback, amount: t.amount, per: "total" });
+
   if (placement) {
-    const p = real.find((t) => /placement|2-? ?year|industry|professional/i.test(t.description || ""));
-    if (p) return { label: (p.description || "").trim() || "Tuition (with placement)", amount: p.amount, per: "total" };
+    const p = real.find(isPlacementFee);
+    if (p) return toFee(p, "Tuition (with placement)");
   }
   // Base = lowest remaining that isn't a placement add-on.
-  const base = real
-    .filter((t) => !/placement|2-? ?year|industry|professional/i.test(t.description || ""))
-    .sort((a, b) => a.amount - b.amount)[0] || real.sort((a, b) => a.amount - b.amount)[0];
-  return { label: (base.description || "").trim() || "Tuition fee", amount: base.amount, per: "total" };
+  const sorted = [...real].sort((a, b) => a.amount - b.amount);
+  const base = sorted.find((t) => !isPlacementFee(t)) || sorted[0];
+  return toFee(base, "Tuition fee");
 }
 
 
@@ -161,7 +170,7 @@ function convert(raw) {
     }
     const level = courseLevel(c.courseLevelName);
     const placement = hasPlacement(c.name);
-    const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placement);
+    const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placement, c.name);
     byId.set(c.id, {
       slug: `${slugify(c.name)}-${c.id}`,
       name: c.name,
@@ -204,7 +213,7 @@ function convert(raw) {
   for (const w of d.englishProficiency || [])
     if (w.hasWaiver && (w.criteria || []).length) waiverByLevel[w.courseLevelName] = w.criteria.map((s) => s.trim());
   const testsByLevel = {};
-  for (const t of d.languageTests || []) {
+  for (const t of (d.languageTests || []).filter((x) => !/internal/i.test(x.languageTestName))) {
     (testsByLevel[t.courseLevelName] ||= []).push({ test: testName(t.languageTestName), score: (t.requiredScore || "").trim() });
   }
   const languageTests = Object.keys(testsByLevel).map((level) => ({

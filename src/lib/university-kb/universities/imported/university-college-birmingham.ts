@@ -21,7 +21,7 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
+          label: "MBA-Band 1",
           amount: 17000,
           per: "total"
         }
@@ -38,8 +38,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -55,8 +55,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -72,8 +72,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -89,8 +89,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -106,8 +106,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -123,8 +123,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -140,8 +140,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -157,8 +157,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -174,8 +174,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -191,8 +191,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -208,8 +208,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -225,8 +225,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],
@@ -242,8 +242,8 @@ export const universityCollegeBirmingham: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA-Band 1 :",
-          amount: 17000,
+          label: "Band 1",
+          amount: 17500,
           per: "total"
         }
       ],

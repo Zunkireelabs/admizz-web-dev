@@ -22,8 +22,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -39,8 +39,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -56,8 +56,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -73,8 +73,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -90,7 +90,7 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
+          label: "MBA course",
           amount: 18800,
           per: "total"
         }
@@ -107,8 +107,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -124,8 +124,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -141,8 +141,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -158,8 +158,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -175,8 +175,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -192,8 +192,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -209,8 +209,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -226,8 +226,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -243,8 +243,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -260,8 +260,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -277,8 +277,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -294,8 +294,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -311,8 +311,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -328,8 +328,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -379,8 +379,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -413,8 +413,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -430,8 +430,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -447,8 +447,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -464,7 +464,7 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
+          label: "MBA course",
           amount: 18800,
           per: "total"
         }
@@ -481,8 +481,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -498,8 +498,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -515,8 +515,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -532,8 +532,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 24,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -550,8 +550,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -567,8 +567,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -584,8 +584,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -601,8 +601,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -618,8 +618,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -635,8 +635,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -652,8 +652,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -669,8 +669,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -686,8 +686,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -703,8 +703,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -720,8 +720,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -737,8 +737,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -754,8 +754,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -771,8 +771,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -856,7 +856,7 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
+          label: "MBA course",
           amount: 18800,
           per: "total"
         }
@@ -873,7 +873,7 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
+          label: "MBA course",
           amount: 18800,
           per: "total"
         }
@@ -890,7 +890,7 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
+          label: "MBA course",
           amount: 18800,
           per: "total"
         }
@@ -907,7 +907,7 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
+          label: "MBA course",
           amount: 18800,
           per: "total"
         }
@@ -924,7 +924,7 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
+          label: "MBA course",
           amount: 18800,
           per: "total"
         }
@@ -941,7 +941,7 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
+          label: "MBA course",
           amount: 18800,
           per: "total"
         }
@@ -958,7 +958,7 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
+          label: "MBA course",
           amount: 18800,
           per: "total"
         }
@@ -975,8 +975,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -992,8 +992,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1009,8 +1009,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1026,8 +1026,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1043,8 +1043,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1060,8 +1060,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1077,8 +1077,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1094,8 +1094,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1111,8 +1111,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1128,8 +1128,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1145,8 +1145,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1162,8 +1162,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1179,8 +1179,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1196,8 +1196,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1213,8 +1213,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1230,8 +1230,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],
@@ -1247,8 +1247,8 @@ export const universityOfHertfordshire: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "MBA course:",
-          amount: 18800,
+          label: "MSc Courses",
+          amount: 19950,
           per: "total"
         }
       ],

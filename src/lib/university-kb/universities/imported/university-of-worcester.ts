@@ -157,7 +157,7 @@ export const universityOfWorcester: UniversityProfile = {
       durationMonths: 36,
       fees: [
         {
-          label: "Per Year:",
+          label: "Per Year",
           amount: 17200,
           per: "total"
         }
