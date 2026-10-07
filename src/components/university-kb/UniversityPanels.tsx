@@ -66,7 +66,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
                 .map((c) => (
                   <article key={c.slug} className="flex flex-col rounded-2xl border border-border-light bg-white p-6">
                     {c.withPlacement && (
-                      <p className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-amber-700">Includes placement year</p>
+                      <p className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-amber-700">{c.placementOptional ? "Placement year available" : "Includes placement year"}</p>
                     )}
                     <h3 className="text-[17px] font-semibold leading-snug text-navy">{c.name}</h3>
                     <dl className="mt-5 grid grid-cols-3 gap-4 border-t border-border-light pt-5 text-[14px]">

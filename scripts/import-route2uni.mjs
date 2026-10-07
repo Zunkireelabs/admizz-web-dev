@@ -170,16 +170,21 @@ function convert(raw) {
     }
     const level = courseLevel(c.courseLevelName);
     const placement = hasPlacement(c.name);
-    const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placement, c.name);
+    // "…(two-year option with placement available)" means the placement is optional,
+    // so price and length stay at the standard programme.
+    const placementOptional = placement && /\b(option|available)\b/i.test(c.name);
+    const placementIncluded = placement && !placementOptional;
+    const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placementIncluded, c.name);
     byId.set(c.id, {
       slug: `${slugify(c.name)}-${c.id}`,
       name: c.name,
       level,
       subject: subjectOf(c.name),
-      durationMonths: placement ? 24 : level === "undergraduate" ? 36 : level === "foundation" ? 12 : 12,
+      durationMonths: placementIncluded ? 24 : level === "undergraduate" ? 36 : 12,
       fees: fee ? [fee] : [],
       intakes: month ? [month] : [],
       withPlacement: placement || undefined,
+      placementOptional: placementOptional || undefined,
     });
   }
   const courses = [...byId.values()];

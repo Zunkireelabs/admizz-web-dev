@@ -188,7 +188,7 @@ export const universityOfWorcester: UniversityProfile = {
       name: "MBA (available with 12-month placement year)",
       level: "postgraduate",
       subject: "Business & Management",
-      durationMonths: 24,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee",
@@ -199,14 +199,15 @@ export const universityOfWorcester: UniversityProfile = {
       intakes: [
         "January"
       ],
-      withPlacement: true
+      withPlacement: true,
+      placementOptional: true
     },
     {
       slug: "msc-human-resource-management-available-with-12-month-placement-year-104666",
       name: "MSc Human Resource Management (available with 12-month placement year)",
       level: "postgraduate",
       subject: "Business & Management",
-      durationMonths: 24,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee",
@@ -217,14 +218,15 @@ export const universityOfWorcester: UniversityProfile = {
       intakes: [
         "January"
       ],
-      withPlacement: true
+      withPlacement: true,
+      placementOptional: true
     },
     {
       slug: "msc-international-management-available-with-12-month-placement-year-104667",
       name: "MSc International Management (available with 12-month placement year)",
       level: "postgraduate",
       subject: "Business & Management",
-      durationMonths: 24,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee",
@@ -235,14 +237,15 @@ export const universityOfWorcester: UniversityProfile = {
       intakes: [
         "January"
       ],
-      withPlacement: true
+      withPlacement: true,
+      placementOptional: true
     },
     {
       slug: "msc-project-management-available-with-12-month-placement-year-104668",
       name: "MSc Project Management (available with 12-month placement year)",
       level: "postgraduate",
       subject: "Business & Management",
-      durationMonths: 24,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee",
@@ -253,14 +256,15 @@ export const universityOfWorcester: UniversityProfile = {
       intakes: [
         "January"
       ],
-      withPlacement: true
+      withPlacement: true,
+      placementOptional: true
     },
     {
       slug: "msc-logistics-and-supply-chain-management-available-with-12-month-placement-year-104669",
       name: "MSc Logistics and Supply Chain Management (available with 12-month placement year)",
       level: "postgraduate",
       subject: "Business & Management",
-      durationMonths: 24,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee",
@@ -271,7 +275,8 @@ export const universityOfWorcester: UniversityProfile = {
       intakes: [
         "January"
       ],
-      withPlacement: true
+      withPlacement: true,
+      placementOptional: true
     },
     {
       slug: "msc-global-sustainable-management-104670",
@@ -312,7 +317,7 @@ export const universityOfWorcester: UniversityProfile = {
       name: "MSc Global Sustainable Management (Available with 12 Month Placement Year)",
       level: "postgraduate",
       subject: "Business & Management",
-      durationMonths: 24,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee",
@@ -323,14 +328,15 @@ export const universityOfWorcester: UniversityProfile = {
       intakes: [
         "January"
       ],
-      withPlacement: true
+      withPlacement: true,
+      placementOptional: true
     },
     {
       slug: "msc-marketing-available-with-12-month-placement-year-105057",
       name: "MSc Marketing (Available with 12 Month Placement Year)",
       level: "postgraduate",
       subject: "Marketing",
-      durationMonths: 24,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee",
@@ -341,7 +347,8 @@ export const universityOfWorcester: UniversityProfile = {
       intakes: [
         "January"
       ],
-      withPlacement: true
+      withPlacement: true,
+      placementOptional: true
     }
   ],
   scholarships: [
