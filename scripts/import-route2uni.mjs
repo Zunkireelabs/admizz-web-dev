@@ -166,7 +166,16 @@ function feeForLevel(feeStructures, levelName, placement, courseName = "", citie
 
   // "Tuition Fee for Nursing" applies only to courses of that subject.
   const forSubject = (t) => (t.description || "").match(/\bfor\s+([a-z]+)\s*:?\s*$/i)?.[1]?.toLowerCase();
-  const others = real.filter((t) => { const sub = forSubject(t); return !sub || courseNorm.includes(sub); });
+  // "For MSc Psychology Conversion" / "For Health Courses" apply only to matching courses.
+  const forPhrase = (t) => (t.description || "").match(/^\s*for\s+(.+?)\s*:?\s*$/i)?.[1];
+  const keyWords = (ph) => norm(ph).split(" ").filter((w) => w.length > 3 && !/^(courses?|programmes?|msc|students?|degrees?)$/.test(w));
+  const others = real.filter((t) => {
+    const sub = forSubject(t);
+    if (sub && !courseNorm.includes(sub)) return false;
+    const ph = forPhrase(t);
+    if (ph) { const kw = keyWords(ph); if (kw.length && !kw.some((w) => courseNorm.includes(w))) return false; }
+    return true;
+  });
   if (others.length && others.length < real.length) real = others;
 
   // Fee lines named after a campus apply only to courses taught there.
