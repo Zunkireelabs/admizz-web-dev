@@ -50,9 +50,9 @@ export const universityOfWorcester: UniversityProfile = {
     {
       slug: "mres-education-100075",
       name: "MRES Education",
-      level: "undergraduate",
+      level: "postgraduate",
       subject: "Education",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee",
@@ -169,9 +169,9 @@ export const universityOfWorcester: UniversityProfile = {
     {
       slug: "mres-international-business-and-management-studies-102196",
       name: "MRes International Business and Management Studies",
-      level: "undergraduate",
+      level: "postgraduate",
       subject: "Business & Management",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Gross Fee",
