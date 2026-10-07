@@ -40,6 +40,8 @@ import { universityOfTheWestOfScotland } from "./university-of-the-west-of-scotl
 import { universityOfBrighton } from "./university-of-brighton";
 import { harperAdamsUniversity } from "./harper-adams-university";
 import { universityOfSurrey } from "./university-of-surrey";
+import { universityOfStaffordshire } from "./university-of-staffordshire";
+import { universityOfBradford } from "./university-of-bradford";
 
 import type { UniversityProfile } from "../../types";
 export const importedProfiles: UniversityProfile[] = [
@@ -85,4 +87,6 @@ export const importedProfiles: UniversityProfile[] = [
   universityOfBrighton,
   harperAdamsUniversity,
   universityOfSurrey,
+  universityOfStaffordshire,
+  universityOfBradford,
 ];
