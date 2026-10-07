@@ -842,11 +842,11 @@ export const yorkStJohnUniversity: UniversityProfile = {
       level: "Undergraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.0 overall (5.5 in each component)----(Journalism BA (Hons) 7.5 required)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "59 overall (59 in each component)"
         },
         {
@@ -863,11 +863,11 @@ export const yorkStJohnUniversity: UniversityProfile = {
           score: "6 overall  (5 in each component)"
         },
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.0 overall (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "59 overall (59 in each component)"
         },
         {
@@ -893,7 +893,7 @@ export const yorkStJohnUniversity: UniversityProfile = {
       name: "All Academics"
     },
     {
-      name: "Cv"
+      name: "CV"
     },
     {
       name: "Passport"
@@ -903,11 +903,11 @@ export const yorkStJohnUniversity: UniversityProfile = {
       optional: true
     },
     {
-      name: "Lor",
+      name: "LOR",
       optional: true
     },
     {
-      name: "Moi",
+      name: "MOI",
       optional: true
     },
     {

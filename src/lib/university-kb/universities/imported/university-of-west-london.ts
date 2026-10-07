@@ -758,11 +758,11 @@ export const universityOfWestLondon: UniversityProfile = {
       level: "Undergraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.0 overall  (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "51 overall  (51 in each component)"
         },
         {
@@ -775,11 +775,11 @@ export const universityOfWestLondon: UniversityProfile = {
       level: "Postgraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.5 overall (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "58 overall ( 51 in each component)"
         },
         {
@@ -792,11 +792,11 @@ export const universityOfWestLondon: UniversityProfile = {
       level: "Extended Master's",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.5/5.5"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "58/51"
         }
       ]
@@ -805,11 +805,11 @@ export const universityOfWestLondon: UniversityProfile = {
       level: "Enhanced Extended Master's",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6 overall (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "56 overall (51 in each component)"
         }
       ]
@@ -820,13 +820,13 @@ export const universityOfWestLondon: UniversityProfile = {
       name: "All Academics"
     },
     {
-      name: "Cv"
+      name: "CV"
     },
     {
       name: "English Language Certificate"
     },
     {
-      name: "Lor"
+      name: "LOR"
     },
     {
       name: "Passport"

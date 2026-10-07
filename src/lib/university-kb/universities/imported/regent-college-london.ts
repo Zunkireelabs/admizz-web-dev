@@ -168,11 +168,11 @@ export const regentCollegeLondon: UniversityProfile = {
       level: "Postgraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "Overall 6.0 ( 5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "Overall 59 ( 59 in each component)"
         }
       ],
@@ -185,11 +185,11 @@ export const regentCollegeLondon: UniversityProfile = {
       level: "Undergraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "Overall 6.0 ( 5.5 in each component )"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "overall 59 ( 59 in each component )"
         }
       ],
@@ -204,10 +204,10 @@ export const regentCollegeLondon: UniversityProfile = {
       name: "All Academics"
     },
     {
-      name: "Cv"
+      name: "CV"
     },
     {
-      name: "Lor"
+      name: "LOR"
     },
     {
       name: "Passport"
@@ -220,7 +220,7 @@ export const regentCollegeLondon: UniversityProfile = {
       optional: true
     },
     {
-      name: "Moi",
+      name: "MOI",
       optional: true
     }
   ],
