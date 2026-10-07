@@ -496,8 +496,8 @@ export const universityOfWestLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Direct PG",
-          amount: 17250,
+          label: "MBA",
+          amount: 19000,
           per: "total"
         }
       ],
@@ -632,8 +632,8 @@ export const universityOfWestLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Enhanced Extended MSc Courses",
-          amount: 21000,
+          label: "Enhanced Extended MBA",
+          amount: 21500,
           per: "total"
         }
       ],
