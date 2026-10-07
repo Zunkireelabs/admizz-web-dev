@@ -1372,10 +1372,6 @@ export const universityOfHertfordshire: UniversityProfile = {
     {
       name: "MOI",
       optional: true
-    },
-    {
-      name: "Optional",
-      optional: true
     }
   ],
   applicationStages: [
