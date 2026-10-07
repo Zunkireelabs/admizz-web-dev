@@ -47,6 +47,7 @@ const titleCase = (s) =>
 function tidy(str = "") {
   return str
     .replace(/\s+/g, " ")
+    .replace(/([A-Za-z])\(/g, "$1 (")
     .replace(/\(\s+/g, "(")
     .replace(/\s+\)/g, ")")
     .replace(/\boveralln\b/gi, "overall")
@@ -120,7 +121,17 @@ function subjectOf(name = "") {
 }
 
 const hasPlacement = (name = "") =>
-  /(placement|year in industry|professional experience|with professional|2 ?years?|2 yrs)/i.test(name);
+  /(placement|year in industry|professional experience|with professional)/i.test(name);
+
+// Course length written in the name, e.g. "(24 months)", "- 2 years duration", "(1 yr Top-Up)".
+// "12-month placement year" is deliberately not matched (hyphenated = a component, not the total).
+function durationFromName(name = "") {
+  const m = name.match(/\b(\d{1,2})\s*(months?|years?|yrs?)\b/i);
+  if (!m) return undefined;
+  const n = parseInt(m[1], 10);
+  const months = /^m/i.test(m[2]) ? n : n * 12;
+  return months >= 6 && months <= 60 ? months : undefined;
+}
 
 // Pick the representative tuition for a level, excluding agent-only line items.
 function feeForLevel(feeStructures, levelName, placement, courseName = "", cities = []) {
@@ -214,7 +225,7 @@ function convert(raw) {
       name: courseName(c.name),
       level,
       subject: subjectOf(c.name),
-      durationMonths: placementIncluded ? 24 : level === "undergraduate" ? 36 : 12,
+      durationMonths: durationFromName(c.name) ?? (placementIncluded ? 24 : level === "undergraduate" ? 36 : 12),
       fees: fee ? [fee] : [],
       intakes: month ? [month] : [],
       withPlacement: placement || undefined,
@@ -231,7 +242,8 @@ function convert(raw) {
     const nums = [...full.matchAll(/£\s?([\d,]+)/g)].map((m) => parseInt(m[1].replace(/,/g, ""), 10)).filter((n) => !isNaN(n));
     let value;
     if (nums.length === 0) value = full.length <= 40 ? full : "Scholarship available";
-    else if (nums.length === 1 || new Set(nums).size === 1) value = `£${nums[0].toLocaleString("en-GB")}`;
+    else if (nums.length === 1 || new Set(nums).size === 1)
+      value = `${/up\s*-?\s*to/i.test(full) ? "Up to " : ""}£${nums[0].toLocaleString("en-GB")}`;
     else value = `Up to £${Math.max(...nums).toLocaleString("en-GB")}`;
     scholarships.push({ name: `${s.courseLevelName} scholarship`, value, eligibility: full !== value ? full : undefined });
   }
@@ -242,7 +254,7 @@ function convert(raw) {
   ];
 
   const entryRequirements = (d.entryRequirements || []).map((e) => ({
-    level: e.courseLevelName,
+    level: tidy(e.courseLevelName),
     gapAccepted: e.gapAccepted ?? undefined,
     gapYearsAllowed: (e.gapYearsAllowed || "").trim() || undefined,
     criteria: (e.criteria || []).map(tidy).filter(Boolean),
@@ -250,10 +262,12 @@ function convert(raw) {
 
   const waiverByLevel = {};
   for (const w of d.englishProficiency || [])
-    if (w.hasWaiver && (w.criteria || []).length) waiverByLevel[w.courseLevelName] = w.criteria.map(tidy);
+    if (w.hasWaiver && (w.criteria || []).length) waiverByLevel[tidy(w.courseLevelName)] = w.criteria.map(tidy);
   const testsByLevel = {};
   for (const t of (d.languageTests || []).filter((x) => !/internal/i.test(x.languageTestName))) {
-    (testsByLevel[t.courseLevelName] ||= []).push({ test: testName(t.languageTestName), score: tidy(t.requiredScore || "") });
+    const score = tidy(t.requiredScore || "");
+    if (!score || /^[.\-_\s]+$/.test(score)) continue; // placeholder like ".." — nothing to show
+    (testsByLevel[tidy(t.courseLevelName)] ||= []).push({ test: testName(t.languageTestName), score });
   }
   const languageTests = Object.keys(testsByLevel).map((level) => ({
     level, tests: testsByLevel[level], waiver: waiverByLevel[level],
