@@ -23,7 +23,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -40,7 +41,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -57,7 +59,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -74,7 +77,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -91,7 +95,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -108,7 +113,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -125,7 +131,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -142,7 +149,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -159,7 +167,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -176,7 +185,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -193,7 +203,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -210,7 +221,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -227,7 +239,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -244,7 +257,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -261,7 +275,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -278,7 +293,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -295,7 +311,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -312,7 +329,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -329,7 +347,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -346,7 +365,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -363,7 +383,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -381,7 +402,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -398,7 +420,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -415,7 +438,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -432,7 +456,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -449,7 +474,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -466,7 +492,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -483,7 +510,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -500,7 +528,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -517,7 +546,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -534,7 +564,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -551,7 +582,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -568,7 +600,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -585,7 +618,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -602,7 +636,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -619,7 +654,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -636,7 +672,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -653,7 +690,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -670,7 +708,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -687,7 +726,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -704,7 +744,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -721,7 +762,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -738,7 +780,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -755,7 +798,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -772,7 +816,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -789,7 +834,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -806,7 +852,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -823,7 +870,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -840,7 +888,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -857,7 +906,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -874,7 +924,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -891,7 +942,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -908,7 +960,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -925,7 +978,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -942,7 +996,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -959,7 +1014,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -976,7 +1032,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -993,7 +1050,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1010,7 +1068,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1027,7 +1086,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1044,7 +1104,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1061,7 +1122,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1078,7 +1140,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1095,7 +1158,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1112,7 +1176,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1129,7 +1194,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1146,7 +1212,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1163,7 +1230,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1180,7 +1248,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1197,7 +1266,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1214,7 +1284,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1231,7 +1302,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1248,7 +1320,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1265,7 +1338,8 @@ export const universityOfPortsmouth: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16200,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1314,19 +1388,19 @@ export const universityOfPortsmouth: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "6.5 overall ( 6.0 in each component)"
+          score: "6.5 overall (6.0 in each component)"
         },
         {
           test: "PTE",
-          score: "65 overall ( 62 in each component)"
+          score: "65 overall (62 in each component)"
         },
         {
           test: "Health & Science Courses - IELTS",
-          score: "6.5 overall ( 6.0 in each component)"
+          score: "6.5 overall (6.0 in each component)"
         },
         {
           test: "Health & Science Courses - PTE",
-          score: "65 overall ( 62 in each component)"
+          score: "65 overall (62 in each component)"
         }
       ],
       waiver: [
@@ -1338,11 +1412,11 @@ export const universityOfPortsmouth: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "6.0 overall ( 5.5in each component)"
+          score: "6.0 overall (5.5in each component)"
         },
         {
           test: "PTE",
-          score: "62 overall ( 59 in each component)"
+          score: "62 overall (59 in each component)"
         },
         {
           test: "Duolingo",

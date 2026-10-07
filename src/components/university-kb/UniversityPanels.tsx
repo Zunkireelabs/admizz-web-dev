@@ -77,8 +77,12 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
                       <div>
                         <dt className="flex items-center gap-1.5 text-gray-dark"><Wallet className="w-4 h-4" aria-hidden />Tuition</dt>
                         <dd className="mt-1 font-semibold text-navy">
+                          {c.fees[0]?.from && <span className="mr-1 text-[12px] font-normal text-gray-dark">from</span>}
                           {c.fees.map((f) => formatMoney(f.amount, country.currency)).join(" / ")}
-                          <span className="block text-[12px] font-normal text-gray-dark">{c.fees[0]?.per === "year" ? "per year" : "total"}</span>
+                          <span className="block text-[12px] font-normal text-gray-dark">
+                            {c.fees[0]?.per === "year" ? "per year" : "total"}
+                            {c.fees[0]?.note ? ` · ${c.fees[0].note}` : ""}
+                          </span>
                         </dd>
                       </div>
                       <div>

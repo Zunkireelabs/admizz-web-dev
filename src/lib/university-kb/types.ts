@@ -65,6 +65,10 @@ export interface FeeItem {
   /** Annual or total tuition in the country's currency */
   amount: number;
   per: "year" | "total";
+  /** True when the price varies (e.g. by campus) and this is the lowest */
+  from?: boolean;
+  /** Short qualifier shown under the price, e.g. "Birmingham & Manchester campuses" */
+  note?: string;
 }
 
 export interface Course {

@@ -293,7 +293,7 @@ export const universityCollegeBirmingham: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "6.0 overall ( 5.5 in each component )"
+          score: "6.0 overall (5.5 in each component)"
         },
         {
           test: "PTE",

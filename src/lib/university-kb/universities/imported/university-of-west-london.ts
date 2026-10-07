@@ -780,11 +780,11 @@ export const universityOfWestLondon: UniversityProfile = {
         },
         {
           test: "PTE",
-          score: "58 overall ( 51 in each component)"
+          score: "58 overall (51 in each component)"
         },
         {
           test: "Duolingo",
-          score: "120 overall ( 100 in each component)"
+          score: "120 overall (100 in each component)"
         }
       ]
     },

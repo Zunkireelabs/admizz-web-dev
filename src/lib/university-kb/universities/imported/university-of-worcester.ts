@@ -474,11 +474,11 @@ export const universityOfWorcester: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "6.5 overall ( 5.5 in each component; 6 in Writing )"
+          score: "6.5 overall (5.5 in each component; 6 in Writing)"
         },
         {
           test: "PTE",
-          score: "63 overall ( 63 in each component )"
+          score: "63 overall (63 in each component)"
         },
         {
           test: "SELT",
