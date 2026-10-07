@@ -64,6 +64,21 @@ export function nextIntake(u: UniversityProfile): string | undefined {
   return first ? `${first.month} ${first.year}` : undefined;
 }
 
+/**
+ * The scholarship to feature on cards and headers: the one with the largest £ figure
+ * (so a Pre-Master's discount doesn't outrank a degree scholarship), else the first listed.
+ */
+export function topScholarship(u: UniversityProfile) {
+  const amount = (value: string) => {
+    const nums = Array.from(value.matchAll(/[£$€]\s?([\d,]+)/g)).map((m) => parseInt(m[1].replace(/,/g, ""), 10));
+    return nums.length ? Math.max(...nums) : 0;
+  };
+  return u.scholarships.reduce<UniversityProfile["scholarships"][number] | undefined>(
+    (best, s) => (!best || amount(s.value) > amount(best.value) ? s : best),
+    undefined,
+  );
+}
+
 /** Flat, serialisable summary used by the explorer list (client component). */
 export interface UniversityCard {
   /** compareId(country, slug) */
@@ -98,7 +113,7 @@ export function toUniversityCard(u: UniversityProfile): UniversityCard {
     cities: u.cities,
     currency: countries[u.country].currency,
     feeFrom: lowestFee(u),
-    scholarship: u.scholarships[0]?.value,
+    scholarship: topScholarship(u)?.value,
     nextIntake: nextIntake(u),
     intakeMonths: Array.from(new Set(upcomingIntakes(u).map((i) => i.month))),
     levels: Array.from(new Set(u.courses.map((c) => c.level))),
