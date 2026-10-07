@@ -158,6 +158,11 @@ function feeForLevel(feeStructures, levelName, placement, courseName = "", citie
     return { label, amount: specific.amount, per: "total" };
   }
 
+  // "Tuition Fee for Nursing" applies only to courses of that subject.
+  const forSubject = (t) => (t.description || "").match(/\bfor\s+([a-z]+)\s*:?\s*$/i)?.[1]?.toLowerCase();
+  const others = real.filter((t) => { const sub = forSubject(t); return !sub || courseNorm.includes(sub); });
+  if (others.length && others.length < real.length) real = others;
+
   // Fee lines named after a campus apply only to courses taught there.
   if (courseCity) {
     const here = real.filter((t) => (t.description || "").toLowerCase().includes(courseCity.toLowerCase()));

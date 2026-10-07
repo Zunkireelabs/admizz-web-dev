@@ -29,6 +29,9 @@ import { universityForTheCreativeArts } from "./university-for-the-creative-arts
 import { astonUniversity } from "./aston-university";
 import { bathspaUniversity } from "./bathspa-university";
 import { healthScienceUniversity } from "./health-science-university";
+import { universityOfCumbria } from "./university-of-cumbria";
+import { liverpoolHopeUniversity } from "./liverpool-hope-university";
+import { universityOfLancashire } from "./university-of-lancashire";
 import { universityOfWorcester } from "./university-of-worcester";
 import { universityOfHertfordshire } from "./university-of-hertfordshire";
 
@@ -65,6 +68,9 @@ export const importedProfiles: UniversityProfile[] = [
   astonUniversity,
   bathspaUniversity,
   healthScienceUniversity,
+  universityOfCumbria,
+  liverpoolHopeUniversity,
+  universityOfLancashire,
   universityOfWorcester,
   universityOfHertfordshire,
 ];
