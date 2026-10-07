@@ -40,7 +40,7 @@ function feeSteps(max: number) {
   return steps;
 }
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 8;
 
 export default function UniversityExplorer({ universities, countries, fixedCountry, breadcrumb, title, subtitle }: Props) {
   const [nameQuery, setNameQuery] = useState("");
