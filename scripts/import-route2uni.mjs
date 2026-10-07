@@ -139,7 +139,7 @@ function durationFromName(name = "") {
 }
 
 // Pick the representative tuition for a level, excluding agent-only line items.
-function feeForLevel(feeStructures, levelName, placement, courseName = "", cities = []) {
+function feeForLevel(feeStructures, levelName, placement, courseName = "", cities = [], courseCity = "") {
   const fs = feeStructures.find((f) => f.courseLevelName === levelName);
   if (!fs) return undefined;
   let real = (fs.tuitionRange || []).filter((t) => !AGENT_FEE.test(t.description || ""));
@@ -156,6 +156,12 @@ function feeForLevel(feeStructures, levelName, placement, courseName = "", citie
   if (specific) {
     const label = (specific.description || "").replace(/[:\s]+$/, "").trim() || "Tuition fee";
     return { label, amount: specific.amount, per: "total" };
+  }
+
+  // Fee lines named after a campus apply only to courses taught there.
+  if (courseCity) {
+    const here = real.filter((t) => (t.description || "").toLowerCase().includes(courseCity.toLowerCase()));
+    if (here.length && here.length < real.length) real = here;
   }
 
   // MBAs often have their own price; other courses must not pick up the MBA price.
@@ -250,7 +256,7 @@ function convert(raw) {
     // so price and length stay at the standard programme.
     const placementOptional = placement && /\b(option|available)\b/i.test(c.name);
     const placementIncluded = placement && !placementOptional;
-    const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placementIncluded, c.name, cities);
+    const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placementIncluded, c.name, cities, c.cityName || "");
     let displayName = courseName(c.name);
     if (/international foundation year/i.test(c.courseLevelName) && !/foundation/i.test(displayName)) displayName += " with International Foundation Year";
     else if (/international year one/i.test(c.courseLevelName) && !/year one/i.test(displayName)) displayName += " with International Year One";
