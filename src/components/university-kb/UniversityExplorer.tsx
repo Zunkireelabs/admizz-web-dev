@@ -40,6 +40,13 @@ function feeSteps(max: number) {
   return steps;
 }
 
+const LEVEL_SHORT: Record<string, string> = {
+  undergraduate: "UG",
+  postgraduate: "PG",
+  foundation: "Foundation",
+  research: "Research",
+};
+
 const PAGE_SIZE = 8;
 
 export default function UniversityExplorer({ universities, countries, fixedCountry, breadcrumb, title, subtitle }: Props) {
@@ -360,7 +367,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
           <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {pageResults.map((u) => (
               <li key={u.href} className="relative">
-                <div className="absolute right-3 top-3 z-10">
+                <div className="absolute bottom-4 right-4 z-10">
                   <CompareToggle id={u.id} name={u.name} />
                 </div>
                 {/* The whole card is one link, so it reacts on hover like other clickable elements. */}
@@ -368,16 +375,30 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                   href={u.href}
                   className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border-light bg-white transition-all hover:-translate-y-0.5 hover:border-blue-royal/50 hover:shadow-[0_12px_32px_rgba(0,19,83,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-royal"
                 >
-                  <div className="flex h-36 items-end justify-center border-b border-border-light px-6 pb-4">
-                    <Image src={u.logo} alt="" width={240} height={96} className="h-20 w-full object-contain" />
+                  <div className="flex h-32 items-center justify-center border-b border-border-light bg-white px-6">
+                    <Image src={u.logo} alt="" width={320} height={128} className="h-16 w-4/5 object-contain" />
                   </div>
                   <div className="flex flex-1 flex-col p-5">
-                    <h2 className="text-[16px] font-bold leading-snug text-navy group-hover:text-blue-royal">{u.name}</h2>
+                    <h2 className="line-clamp-2 min-h-[2.75rem] text-[16px] font-bold leading-snug text-navy group-hover:text-blue-royal">{u.name}</h2>
                     <p className="mt-1 flex items-center gap-1.5 text-[13px] text-gray-dark">
                       <MapPin className="w-3.5 h-3.5 shrink-0" aria-hidden />
-                      {u.cities.join(", ")}, {u.countryName}
+                      <span className="truncate">
+                        {u.cities.slice(0, 2).join(", ")}
+                        {u.cities.length > 2 ? ` +${u.cities.length - 2}` : ""}
+                        {countries.length > 1 ? `, ${u.countryName}` : ""}
+                      </span>
                     </p>
-                    <dl className="mt-4 space-y-2.5 border-t border-border-light pt-4 text-[13px]">
+                    <p className="mt-3 flex min-h-[1.75rem] flex-wrap items-center gap-1.5">
+                      {u.levels.map((l) => (
+                        <span key={l} className="rounded-full bg-blue-royal/[0.08] px-2.5 py-0.5 text-[12px] font-semibold text-blue-royal">
+                          {LEVEL_SHORT[l]}
+                        </span>
+                      ))}
+                      {u.courseNames.length > 0 && (
+                        <span className="text-[12px] text-gray-dark">{u.courseNames.length} courses</span>
+                      )}
+                    </p>
+                    <dl className="mt-3 space-y-2.5 border-t border-border-light pt-4 text-[13px]">
                       <div className="flex items-center justify-between gap-3">
                         <dt className="flex items-center gap-1.5 text-gray-dark"><Wallet className="w-4 h-4" aria-hidden />Fees from</dt>
                         <dd className="text-right font-semibold text-navy">
@@ -395,7 +416,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                         <dd className="text-right font-semibold text-navy">{u.nextIntake ?? "Ask a counsellor"}</dd>
                       </div>
                     </dl>
-                    <span className="mt-auto pt-5 inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal group-hover:underline underline-offset-4">
+                    <span className="mt-auto pt-5 pb-1 inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal group-hover:underline underline-offset-4">
                       View university <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
                     </span>
                   </div>

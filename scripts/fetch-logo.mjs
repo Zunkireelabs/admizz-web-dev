@@ -7,6 +7,7 @@
 import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { trimLogo } from "./trim-logos.mjs";
 
 const [slug, url] = process.argv.slice(2);
 if (!slug || !url) {
@@ -23,5 +24,6 @@ if (!res.ok) {
 const type = res.headers.get("content-type") || "";
 const ext = type.includes("jpeg") ? "jpg" : type.includes("webp") ? "webp" : type.includes("svg") ? "svg" : "png";
 const out = join(dirname(fileURLToPath(import.meta.url)), "..", "public/images/universities/imported", `${slug}.${ext}`);
-writeFileSync(out, Buffer.from(await res.arrayBuffer()));
+const raw = Buffer.from(await res.arrayBuffer());
+writeFileSync(out, ext === "svg" ? raw : await trimLogo(raw));
 console.log(`Saved ${out}`);
