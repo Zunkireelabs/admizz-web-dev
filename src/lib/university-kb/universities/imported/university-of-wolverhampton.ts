@@ -1244,7 +1244,7 @@ export const universityOfWolverhampton: UniversityProfile = {
       name: "BSc (Hons) International Nursing Studies (Top Up)",
       level: "undergraduate",
       subject: "Health & Medicine",
-      durationMonths: 36,
+      durationMonths: 12,
       fees: [
         {
           label: "Tuition from",

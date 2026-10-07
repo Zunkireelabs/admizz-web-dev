@@ -56,8 +56,12 @@ function tidy(str = "") {
 }
 
 // Course names typed in ALL CAPS get sentence-style casing; degree prefixes are restored.
+const DEGREE_CASE = { bsc: "BSc", msc: "MSc", beng: "BEng", meng: "MEng", llb: "LLB", llm: "LLM", mres: "MRes", mph: "MPH" };
 function courseName(raw = "") {
-  const name = tidy(raw).replace(/\bManagemen\b/g, "Management");
+  const name = tidy(raw)
+    .replace(/\bManagemen\b/g, "Management")
+    .replace(/\b(bsc|msc|beng|meng|llb|llm|mres|mph)\b/gi, (m) => DEGREE_CASE[m.toLowerCase()])
+    .replace(/(\(Hons\)\s+)([a-z])/g, (_, a, b) => a + b.toUpperCase());
   const letters = name.replace(/[^A-Za-z]/g, "");
   const upper = letters.replace(/[^A-Z]/g, "").length;
   if (letters.length < 8 || upper / letters.length < 0.6) return name;
@@ -156,7 +160,7 @@ function feeForLevel(feeStructures, levelName, placement, courseName = "", citie
 
   // MBAs often have their own price; other courses must not pick up the MBA price.
   const isMba = /\bMBA\b|master of business administration/i.test(courseName);
-  const mbaItems = real.filter((t) => /mba/i.test(t.description || ""));
+  const mbaItems = real.filter((t) => /mba/i.test(t.description || "") && !/includ/i.test(t.description || ""));
   if (isMba && mbaItems.length) real = mbaItems;
   else if (!isMba && mbaItems.length && mbaItems.length < real.length) real = real.filter((t) => !mbaItems.includes(t));
 
@@ -170,7 +174,7 @@ function feeForLevel(feeStructures, levelName, placement, courseName = "", citie
     const priced = real.some((o) => o !== t && o.amount !== t.amount);
     const fee = { label: label || fallback, amount: t.amount, per: "total" };
     if (rangeFrom) fee.from = true;
-    if (part && priced) { fee.from = true; fee.note = `${part} campus${/&|,| and /i.test(part) ? "es" : ""}`; }
+    if (part && priced) { fee.from = true; const hit = cities.filter((c) => part.toLowerCase().includes(c.toLowerCase())); fee.note = `${hit.join(" & ")} campus${hit.length > 1 ? "es" : ""}`; }
     return fee;
   };
 
@@ -247,14 +251,18 @@ function convert(raw) {
     const placementOptional = placement && /\b(option|available)\b/i.test(c.name);
     const placementIncluded = placement && !placementOptional;
     const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placementIncluded, c.name, cities);
+    let displayName = courseName(c.name);
+    if (/international foundation year/i.test(c.courseLevelName) && !/foundation/i.test(displayName)) displayName += " with International Foundation Year";
+    else if (/international year one/i.test(c.courseLevelName) && !/year one/i.test(displayName)) displayName += " with International Year One";
     byId.set(c.id, {
       slug: `${slugify(c.name)}-${c.id}`,
-      name: courseName(c.name),
+      name: displayName,
       level,
       subject: subjectOf(c.name),
       durationMonths:
         durationFromName(c.name) ??
-        (level !== "postgraduate" && /\bwith\s+(international\s+)?(foundation year|year one)\b/i.test(c.name) ? 48 : placementIncluded ? 24 : level === "undergraduate" ? 36 : 12),
+        (/top[- ]?up/i.test(c.name) ? 12 :
+        level !== "postgraduate" && /\bwith\s+(international\s+)?(foundation year|year one)\b/i.test(displayName) ? 48 : placementIncluded ? 24 : level === "undergraduate" ? 36 : 12),
       fees: fee ? [fee] : [],
       intakes: month ? [month] : [],
       withPlacement: placement || undefined,
@@ -270,7 +278,9 @@ function convert(raw) {
     if (!full) continue;
     const nums = [...full.matchAll(/£\s?([\d,]+)/g)].map((m) => parseInt(m[1].replace(/,/g, ""), 10)).filter((n) => !isNaN(n));
     let value;
-    if (nums.length === 0) value = full.length <= 40 ? full : "Scholarship available";
+    const bare = full.match(/^(.*?)(?:\s+of)?\s+(\d{3,5})\s*$/i); // e.g. "Early Bird Discount of 3000" (no currency sign)
+    if (nums.length === 0 && bare) value = `${bare[1].trim()} ${d.basicInfo.currency?.symbol ?? "£"}${Number(bare[2]).toLocaleString("en-GB")}`;
+    else if (nums.length === 0) value = full.length <= 40 ? full : "Scholarship available";
     else if (nums.length === 1 || new Set(nums).size === 1)
       value = `${/up\s*-?\s*to/i.test(full) ? "Up to " : ""}£${nums[0].toLocaleString("en-GB")}`;
     else value = `Up to £${Math.max(...nums).toLocaleString("en-GB")}`;
