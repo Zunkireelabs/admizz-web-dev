@@ -296,6 +296,9 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
           </tbody>
         </table>
         )}
+        <p className="mt-4 text-[13px] text-gray-dark">
+          Showing intakes currently open through Admizz. Other intakes may be available — ask a counsellor.
+        </p>
       </section>
     ),
 
