@@ -132,10 +132,18 @@ function convert(raw) {
     });
   }
 
+  // One scholarship entry per level: concise "Up to £X" headline + full detail.
   const scholarships = [];
-  for (const s of d.scholarships || [])
-    for (const amt of s.amounts || [])
-      scholarships.push({ name: `${s.courseLevelName} scholarship`, value: cleanAmount(amt) });
+  for (const s of d.scholarships || []) {
+    const full = (s.amounts || []).map(cleanAmount).filter(Boolean).join("; ");
+    if (!full) continue;
+    const nums = [...full.matchAll(/£\s?([\d,]+)/g)].map((m) => parseInt(m[1].replace(/,/g, ""), 10)).filter((n) => !isNaN(n));
+    let value;
+    if (nums.length === 0) value = full.length <= 40 ? full : "Scholarship available";
+    else if (nums.length === 1 || new Set(nums).size === 1) value = `£${nums[0].toLocaleString("en-GB")}`;
+    else value = `Up to £${Math.max(...nums).toLocaleString("en-GB")}`;
+    scholarships.push({ name: `${s.courseLevelName} scholarship`, value, eligibility: full !== value ? full : undefined });
+  }
 
   const requiredDocuments = [
     ...(d.requiredDocuments || []).filter((x) => !AGENT_DOC.test(x.name)).map((x) => ({ name: titleCase(x.name) })),
