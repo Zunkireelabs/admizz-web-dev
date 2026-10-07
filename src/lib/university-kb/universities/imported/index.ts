@@ -3,6 +3,7 @@ import { universityOfChester } from "./university-of-chester";
 import { buckinghamshireNewUniversity } from "./buckinghamshire-new-university";
 import { cardiffMetropolitanUniversity } from "./cardiff-metropolitan-university";
 import { regentCollegeLondon } from "./regent-college-london";
+import { universityOfSalford } from "./university-of-salford";
 import { universityOfEastLondon } from "./university-of-east-london";
 import { universityOfBedfordshire } from "./university-of-bedfordshire";
 import { universityOfWestLondon } from "./university-of-west-london";
@@ -18,6 +19,7 @@ export const importedProfiles: UniversityProfile[] = [
   buckinghamshireNewUniversity,
   cardiffMetropolitanUniversity,
   regentCollegeLondon,
+  universityOfSalford,
   universityOfEastLondon,
   universityOfBedfordshire,
   universityOfWestLondon,
