@@ -778,15 +778,18 @@ export const yorkStJohnUniversity: UniversityProfile = {
   scholarships: [
     {
       name: "Undergraduate scholarship",
-      value: "£1,000 for the First Year"
+      value: "£1,000",
+      eligibility: "£1,000 for the First Year"
     },
     {
       name: "Postgraduate scholarship",
-      value: "5% EARLY PAYMENT DISCOUNT - if full fees paid."
+      value: "Scholarship available",
+      eligibility: "5% EARLY PAYMENT DISCOUNT - if full fees paid."
     },
     {
       name: "Upper Tier UG Course (YORK Campus) scholarship",
-      value: "£1,000 (for the first year only)"
+      value: "£1,000",
+      eligibility: "£1,000 (for the first year only)"
     }
   ],
   english: {
