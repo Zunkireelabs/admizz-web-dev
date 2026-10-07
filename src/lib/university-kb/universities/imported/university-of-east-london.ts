@@ -1150,7 +1150,7 @@ export const universityOfEastLondon: UniversityProfile = {
       level: "Undergraduate",
       gapAccepted: false,
       criteria: [
-        "12th : GPA 2.8 or 60% or Above  AND,  12th Math: 50% (2.4 GPA or C+) If no Math in 12th->10th Math: 60% (2.8 GPA or B)"
+        "12th : GPA 2.8 or 60% or Above AND, 12th Math: 50% (2.4 GPA or C+) If no Math in 12th->10th Math: 60% (2.8 GPA or B)"
       ]
     },
     {
@@ -1167,7 +1167,7 @@ export const universityOfEastLondon: UniversityProfile = {
       gapYearsAllowed: "Up to 5 years",
       criteria: [
         "12th: GPA 2.4 to 2.79",
-        "AND  12th Math 40% (2.0 GPA/C)",
+        "AND 12th Math 40% (2.0 GPA/C)",
         "If no Math -> 10th Math 50% (2.4 GPA/C+)"
       ]
     },
@@ -1177,7 +1177,7 @@ export const universityOfEastLondon: UniversityProfile = {
       gapYearsAllowed: "Up to 5 years",
       criteria: [
         "12th: GPA 2.0 to 2.39",
-        "AND  12th Math 40% (2.0 GPA/C)",
+        "AND 12th Math 40% (2.0 GPA/C)",
         "if no Math -> 10th Math 50% (2.4 GPA/C+)"
       ]
     }
@@ -1200,7 +1200,7 @@ export const universityOfEastLondon: UniversityProfile = {
         }
       ],
       waiver: [
-        "Grade 12th  English: 2.8 or 60%  or Overall B"
+        "Grade 12th English: 2.8 or 60% or Overall B"
       ]
     },
     {
@@ -1220,8 +1220,8 @@ export const universityOfEastLondon: UniversityProfile = {
         }
       ],
       waiver: [
-        "Grade 12th  English: 2.8 or 60%  or Overall B",
-        "MOI ACCEPTED NEPALESE UNIVERSITIES  (TRIBHUVAN UNIVERSITY, POKHARA UNIVERSITY, KATHMANDU UNIVERSITY )"
+        "Grade 12th English: 2.8 or 60% or Overall B",
+        "MOI ACCEPTED NEPALESE UNIVERSITIES (TRIBHUVAN UNIVERSITY, POKHARA UNIVERSITY, KATHMANDU UNIVERSITY )"
       ]
     },
     {

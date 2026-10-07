@@ -383,7 +383,7 @@ export const universityOfWorcester: UniversityProfile = {
       gapAccepted: true,
       gapYearsAllowed: "7",
       criteria: [
-        "12TH GRADE: 2.4 GPA OR 60%  Gap- 2019 Onwards"
+        "12TH GRADE: 2.4 GPA OR 60% Gap- 2019 Onwards"
       ]
     },
     {
@@ -399,7 +399,7 @@ export const universityOfWorcester: UniversityProfile = {
       gapAccepted: false,
       criteria: [
         "12th Grade: 60% or CGPA 2.4",
-        "12th Mathematics: 50% or C+ or Above  (If no Math in 12th -> 10th Math: 50% or  2.6 GPA or C+)",
+        "12th Mathematics: 50% or C+ or Above (If no Math in 12th -> 10th Math: 50% or 2.6 GPA or C+)",
         "PCL Nursing: 60% or CGPA 2.4 (10th Mathematics 50% or C+ or above)"
       ]
     },

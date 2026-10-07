@@ -297,7 +297,7 @@ export const universityCollegeBirmingham: UniversityProfile = {
         },
         {
           test: "PTE",
-          score: "59 overall  (59 in each component)"
+          score: "59 overall (59 in each component)"
         },
         {
           test: "Duolingo",

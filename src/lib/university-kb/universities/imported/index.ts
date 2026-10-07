@@ -1,5 +1,6 @@
 import { universityOfPortsmouth } from "./university-of-portsmouth";
 import { universityOfChester } from "./university-of-chester";
+import { buckinghamshireNewUniversity } from "./buckinghamshire-new-university";
 import { regentCollegeLondon } from "./regent-college-london";
 import { universityOfEastLondon } from "./university-of-east-london";
 import { universityOfBedfordshire } from "./university-of-bedfordshire";
@@ -13,6 +14,7 @@ import type { UniversityProfile } from "../../types";
 export const importedProfiles: UniversityProfile[] = [
   universityOfPortsmouth,
   universityOfChester,
+  buckinghamshireNewUniversity,
   regentCollegeLondon,
   universityOfEastLondon,
   universityOfBedfordshire,
