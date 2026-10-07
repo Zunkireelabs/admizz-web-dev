@@ -19,7 +19,7 @@ const COUNTRY_SLUG = {
 
 // Agent-only entries we never publish to students.
 const AGENT_FEE = /cas\s*deposit|enrol|^deposit$|additional fee/i;
-const AGENT_DOC = /consent form/i;
+const AGENT_DOC = /^(consent form|optional)$/i;
 
 // Standard application flow by country (stage names aren't in the export).
 const STAGES = {
@@ -50,7 +50,7 @@ function tidy(str = "") {
 
 // Course names typed in ALL CAPS get sentence-style casing; degree prefixes are restored.
 function courseName(raw = "") {
-  const name = tidy(raw);
+  const name = tidy(raw).replace(/\bManagemen\b/g, "Management");
   const letters = name.replace(/[^A-Za-z]/g, "");
   const upper = letters.replace(/[^A-Z]/g, "").length;
   if (letters.length < 8 || upper / letters.length < 0.6) return name;
@@ -62,7 +62,7 @@ function courseName(raw = "") {
 
 // Keep exam acronyms upper-case and fix the portal's spelling slips.
 const ACRONYMS = new Set(["IELTS", "PTE", "TOEFL", "SELT", "ESOL", "OIETC", "MOI", "UKVI"]);
-const DOC_ACRONYMS = new Set(["CV", "LOR", "MOI", "SOP", "IELTS", "PTE"]);
+const DOC_ACRONYMS = new Set(["CV", "LOR", "MOI", "SOP", "NOC", "IELTS", "PTE"]);
 function docName(raw = "") {
   const t = raw.trim();
   return DOC_ACRONYMS.has(t.toUpperCase()) ? t.toUpperCase() : titleCase(t);
