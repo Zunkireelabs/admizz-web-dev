@@ -1453,6 +1453,18 @@ export const universityOfPortsmouth: UniversityProfile = {
       optional: true
     }
   ],
+  feeSummary: [
+    {
+      level: "Postgraduate",
+      min: 16200,
+      max: 19200
+    },
+    {
+      level: "Undergraduate",
+      min: 16200,
+      max: 19200
+    }
+  ],
   applicationStages: [
     {
       title: "Application initiated"

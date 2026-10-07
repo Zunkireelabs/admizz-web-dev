@@ -852,6 +852,18 @@ export const universityOfSalford: UniversityProfile = {
       optional: true
     }
   ],
+  feeSummary: [
+    {
+      level: "Postgraduate",
+      min: 14400,
+      max: 21540
+    },
+    {
+      level: "Undergraduate",
+      min: 16500,
+      max: 17500
+    }
+  ],
   applicationStages: [
     {
       title: "Application initiated"

@@ -45,7 +45,9 @@ export function universityPath(u: UniversityProfile): string {
 /** Lowest tuition across a university's courses, for cards ("from £X"). */
 export function lowestFee(u: UniversityProfile): number | undefined {
   const amounts = u.courses.flatMap((c) => c.fees.map((f) => f.amount));
-  return amounts.length ? Math.min(...amounts) : undefined;
+  if (amounts.length) return Math.min(...amounts);
+  const fromSummary = (u.feeSummary ?? []).map((f) => f.min);
+  return fromSummary.length ? Math.min(...fromSummary) : undefined;
 }
 
 /**

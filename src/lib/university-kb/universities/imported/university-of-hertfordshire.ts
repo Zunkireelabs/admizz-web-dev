@@ -6,7 +6,6 @@ export const universityOfHertfordshire: UniversityProfile = {
   name: "University of Hertfordshire",
   country: "uk",
   logo: "/images/universities/imported/university-of-hertfordshire.png",
-  established: 1999,
   cities: [
     "Hertfordshire",
     "Hatfield"
@@ -1372,6 +1371,18 @@ export const universityOfHertfordshire: UniversityProfile = {
     {
       name: "MOI",
       optional: true
+    }
+  ],
+  feeSummary: [
+    {
+      level: "Postgraduate",
+      min: 18800,
+      max: 19950
+    },
+    {
+      level: "Undergraduate",
+      min: 17450,
+      max: 17450
     }
   ],
   applicationStages: [

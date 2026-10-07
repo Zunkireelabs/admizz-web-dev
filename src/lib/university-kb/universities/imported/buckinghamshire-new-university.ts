@@ -714,6 +714,23 @@ export const buckinghamshireNewUniversity: UniversityProfile = {
       optional: true
     }
   ],
+  feeSummary: [
+    {
+      level: "Nursing",
+      min: 15910,
+      max: 15910
+    },
+    {
+      level: "Postgraduate",
+      min: 16280,
+      max: 19950
+    },
+    {
+      level: "Undergraduate",
+      min: 15910,
+      max: 15910
+    }
+  ],
   applicationStages: [
     {
       title: "Application initiated"

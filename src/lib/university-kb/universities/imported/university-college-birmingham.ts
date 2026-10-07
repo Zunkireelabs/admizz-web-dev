@@ -6,7 +6,6 @@ export const universityCollegeBirmingham: UniversityProfile = {
   name: "University College Birmingham",
   country: "uk",
   logo: "/images/universities/imported/university-college-birmingham.png",
-  established: 1999,
   cities: [
     "Birmingham"
   ],
@@ -353,6 +352,18 @@ export const universityCollegeBirmingham: UniversityProfile = {
     {
       name: "Portfolio",
       optional: true
+    }
+  ],
+  feeSummary: [
+    {
+      level: "Postgraduate",
+      min: 17000,
+      max: 20750
+    },
+    {
+      level: "Undergraduate",
+      min: 16500,
+      max: 19750
     }
   ],
   applicationStages: [

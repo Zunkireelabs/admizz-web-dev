@@ -635,6 +635,23 @@ export const middlesexUniversity: UniversityProfile = {
       optional: true
     }
   ],
+  feeSummary: [
+    {
+      level: "Postgraduate (Creative Art)",
+      min: 16080,
+      max: 16080
+    },
+    {
+      level: "Postgraduate",
+      min: 19800,
+      max: 22500
+    },
+    {
+      level: "Undergraduate",
+      min: 17200,
+      max: 17200
+    }
+  ],
   applicationStages: [
     {
       title: "Application initiated"

@@ -10,6 +10,7 @@ import { middlesexUniversity } from "./middlesex-university";
 import { universityOfBedfordshire } from "./university-of-bedfordshire";
 import { universityOfWestLondon } from "./university-of-west-london";
 import { universityOfWolverhampton } from "./university-of-wolverhampton";
+import { coventryUniversity } from "./coventry-university";
 import { yorkStJohnUniversity } from "./york-st-john-university";
 import { universityCollegeBirmingham } from "./university-college-birmingham";
 import { universityOfWorcester } from "./university-of-worcester";
@@ -29,6 +30,7 @@ export const importedProfiles: UniversityProfile[] = [
   universityOfBedfordshire,
   universityOfWestLondon,
   universityOfWolverhampton,
+  coventryUniversity,
   yorkStJohnUniversity,
   universityCollegeBirmingham,
   universityOfWorcester,

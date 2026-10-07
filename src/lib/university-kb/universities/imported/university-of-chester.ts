@@ -1138,6 +1138,18 @@ export const universityOfChester: UniversityProfile = {
       optional: true
     }
   ],
+  feeSummary: [
+    {
+      level: "Undergraduate",
+      min: 14950,
+      max: 14950
+    },
+    {
+      level: "Postgraduate",
+      min: 15500,
+      max: 15700
+    }
+  ],
   applicationStages: [
     {
       title: "Application initiated"

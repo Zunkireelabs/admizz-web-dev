@@ -55,6 +55,25 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
             </EnquireButton>
           </section>
         )}
+        {levels.length === 0 && u.feeSummary && u.feeSummary.length > 0 && (
+          <section>
+            <SectionTitle sub="Published tuition for international students. The exact fee depends on the course.">
+              Tuition fees by level
+            </SectionTitle>
+            <ul className="divide-y divide-border-light border-y border-border-light text-[15px]">
+              {u.feeSummary.map((f) => (
+                <li key={f.level} className="flex justify-between gap-3 py-3.5">
+                  <span className="text-gray-dark">{f.level}</span>
+                  <span className="font-semibold text-navy">
+                    {f.min === f.max
+                      ? formatMoney(f.min, country.currency)
+                      : `${formatMoney(f.min, country.currency)} – ${formatMoney(f.max, country.currency)}`}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
         {levels.map((level) => (
           <section key={level}>
             <SectionTitle sub="Tuition shown is the published fee for international students.">
@@ -241,6 +260,12 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
     intakes: (
       <section>
         <SectionTitle sub="Apply early — popular courses can close before the deadline.">Intakes &amp; deadlines</SectionTitle>
+        {upcomingIntakes(u).length === 0 ? (
+          <p className="border-y border-border-light py-6 text-[15px] text-gray-dark">
+            Intake dates for this university are being confirmed. A counsellor can tell you the next available intake.{" "}
+            <EnquireButton className={`${textLink} inline-flex`}>Ask a counsellor</EnquireButton>
+          </p>
+        ) : (
         <table className="w-full text-left text-[15px] border-t border-border-light">
           <thead className="text-[13px] text-gray-dark">
             <tr className="border-b border-border-light">
@@ -257,6 +282,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
             ))}
           </tbody>
         </table>
+        )}
       </section>
     ),
 
