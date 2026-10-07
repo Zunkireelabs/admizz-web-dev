@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, SlidersHorizontal, X, MapPin, ArrowRight, Wallet, Award, CalendarDays } from "lucide-react";
+import { Search, SlidersHorizontal, X, MapPin, ArrowRight, Wallet, Award, CalendarDays, TrendingUp } from "lucide-react";
 import type { CountrySlug, CourseLevel, CurrencyCode, IntakeMonth, UniversityCard } from "@/lib/university-kb";
 import { formatMoney } from "@/lib/university-kb/countries";
 import CompareToggle from "./CompareToggle";
@@ -137,7 +137,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
   // Popular searches are built from the data, so a pick never leads to an empty list.
   const quickPicks = useMemo(() => {
     const picks: { label: string; active: boolean; toggle: () => void }[] = [];
-    const subjects = Array.from(new Set(scoped.flatMap((u) => u.subjects))).slice(0, 4);
+    const subjects = Array.from(new Set(scoped.flatMap((u) => u.subjects))).slice(0, 3);
     for (const sub of subjects) {
       picks.push({ label: sub, active: courseQuery === sub, toggle: () => setCourseQuery(courseQuery === sub ? "" : sub) });
     }
@@ -154,7 +154,11 @@ export default function UniversityExplorer({ universities, countries, fixedCount
     if (levelOptions.includes("undergraduate")) {
       picks.push({ label: "Undergraduate", active: level === "undergraduate", toggle: () => setLevel(level === "undergraduate" ? "" : "undergraduate") });
     }
-    const topCity = cityOptions.find((c) => scoped.filter((u) => u.cities.includes(c)).length > 1);
+    // The city with the most universities, so the chip is a real "popular" pick.
+    const topCity = [...cityOptions]
+      .map((c) => ({ c, n: scoped.filter((u) => u.cities.includes(c)).length }))
+      .filter((x) => x.n > 1)
+      .sort((a, b) => b.n - a.n)[0]?.c;
     if (topCity) {
       picks.push({ label: topCity, active: city === topCity, toggle: () => setCity(city === topCity ? "" : topCity) });
     }
@@ -220,26 +224,35 @@ export default function UniversityExplorer({ universities, countries, fixedCount
           </form>
 
           {quickPicks.length > 0 && (
-            <div className="mt-5 flex flex-wrap items-center gap-2">
-              <span className="mr-1 text-[13px] font-medium text-white/70">Popular:</span>
-              {quickPicks.map((pick) => (
-                <button
-                  key={pick.label}
-                  type="button"
-                  aria-pressed={pick.active}
-                  onClick={() => {
-                    pick.toggle();
-                    resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }}
-                  className={`rounded-full border px-3.5 py-1.5 text-[13px] font-semibold transition-colors ${
-                    pick.active
-                      ? "border-white bg-white text-blue-dark"
-                      : "border-white/35 text-white hover:border-white hover:bg-white/10"
-                  }`}
-                >
-                  {pick.label}
-                </button>
-              ))}
+            <div className="mt-6 flex items-center gap-3">
+              <span className="flex shrink-0 items-center gap-1.5 text-[13px] font-semibold uppercase tracking-wide text-white/70">
+                <TrendingUp className="h-4 w-4" aria-hidden="true" />
+                Popular
+              </span>
+              <div
+                className="flex min-w-0 flex-1 items-center gap-2 overflow-x-auto py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                role="group"
+                aria-label="Popular searches"
+              >
+                {quickPicks.map((pick) => (
+                  <button
+                    key={pick.label}
+                    type="button"
+                    aria-pressed={pick.active}
+                    onClick={() => {
+                      pick.toggle();
+                      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                    className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-1.5 text-[13px] font-semibold transition-colors ${
+                      pick.active
+                        ? "border-white bg-white text-blue-dark shadow-sm"
+                        : "border-white/30 bg-white/5 text-white hover:border-white/70 hover:bg-white/15"
+                    }`}
+                  >
+                    {pick.label}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
         </div>
