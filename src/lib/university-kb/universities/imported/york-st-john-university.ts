@@ -805,8 +805,8 @@ export const yorkStJohnUniversity: UniversityProfile = {
         "12th Grade or PCL degree: 2.7 or 70% or above",
         "Foundation Course: 2.5 or 65% or above",
         "Academic Criteria for Level 6 Direct entry:",
-        "-Postgraduate diploma from a verified institution listed on ECCTIS with an overall score of 60% in a related field.",
-        "- Three-year undergraduate degree from a Nepali university with Second Division or above in a related field.",
+        "Postgraduate diploma from a verified institution listed on ECCTIS with an overall score of 60% in a related field.",
+        "Three-year undergraduate degree from a Nepali university with Second Division or above in a related field.",
         "TOP UP - NEPAL - Second Division at the least"
       ]
     },
@@ -831,8 +831,8 @@ export const yorkStJohnUniversity: UniversityProfile = {
         "Academic Criteria: 2.7 or 70%",
         "Foundation: 2.5 or 65%",
         "Academic Criteria for Level 6 Direct entry:",
-        "- Postgraduate diploma from a verified institution listed on ECCTIS with an overall score of 60% in a related field.",
-        "- Three-year undergraduate degree from a Nepali university with Second Division or above in a related field.",
+        "Postgraduate diploma from a verified institution listed on ECCTIS with an overall score of 60% in a related field.",
+        "Three-year undergraduate degree from a Nepali university with Second Division or above in a related field.",
         "TOP UP - NEPAL - Second Division at the least"
       ]
     }
@@ -859,7 +859,7 @@ export const yorkStJohnUniversity: UniversityProfile = {
       level: "Postgraduate",
       tests: [
         {
-          test: "Oxford Ellt",
+          test: "Oxford ELLT",
           score: "6 overall (5 in each component)"
         },
         {

@@ -78,6 +78,7 @@ function testName(raw = "") {
   const t = raw.trim();
   if (/^d[ou]{1,2}lingo$/i.test(t)) return "Duolingo";
   if (ACRONYMS.has(t.toUpperCase())) return t.toUpperCase();
+  if (/[a-z]/.test(t) && /[A-Z]/.test(t)) return t.replace(/\bibt\b/gi, "iBT"); // already well-cased, e.g. "MSc AI and Data Science - IELTS"
   return titleCase(t).replace(/\b(ielts|pte|toefl|selt|esol|oietc|moi)\b/gi, (m) => m.toUpperCase()).replace(/\bibt\b/gi, "iBT");
 }
 
@@ -139,6 +140,19 @@ function feeForLevel(feeStructures, levelName, placement, courseName = "", citie
   if (!fs) return undefined;
   let real = (fs.tuitionRange || []).filter((t) => !AGENT_FEE.test(t.description || ""));
   if (real.length === 0) return undefined;
+
+  // A fee line named after one specific course (e.g. "MSc AI and Data Science") applies only to it.
+  const norm = (x) =>
+    x.toLowerCase().replace(/\bai\b/g, "artificial intelligence").replace(/&/g, " and ").replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+  const courseNorm = norm(courseName);
+  const specific = real.find((t) => {
+    const d = norm(t.description || "");
+    return d.length >= 12 && courseNorm.includes(d) && !/^(other|ranges? from|gross fee|tuition)/.test(d);
+  });
+  if (specific) {
+    const label = (specific.description || "").replace(/[:\s]+$/, "").trim() || "Tuition fee";
+    return { label, amount: specific.amount, per: "total" };
+  }
 
   // MBAs often have their own price; other courses must not pick up the MBA price.
   const isMba = /\bMBA\b|master of business administration/i.test(courseName);
@@ -272,7 +286,7 @@ function convert(raw) {
     level: tidy(e.courseLevelName),
     gapAccepted: e.gapAccepted ?? undefined,
     gapYearsAllowed: (e.gapYearsAllowed || "").trim() || undefined,
-    criteria: (e.criteria || []).map(tidy).filter(Boolean),
+    criteria: (e.criteria || []).map((c) => tidy(c).replace(/^[•·\-–—*]+\s*/, "")).filter(Boolean),
   })).filter((e) => e.criteria.length);
 
   const waiverByLevel = {};
