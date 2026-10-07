@@ -21,6 +21,8 @@ import { universityOfSunderland } from "./university-of-sunderland";
 import { yorkStJohnUniversity } from "./york-st-john-university";
 import { universityCollegeBirmingham } from "./university-college-birmingham";
 import { birminghamCityUniversity } from "./birmingham-city-university";
+import { leedsTrinityUniversity } from "./leeds-trinity-university";
+import { universityOfLaw } from "./university-of-law";
 import { universityOfWorcester } from "./university-of-worcester";
 import { universityOfHertfordshire } from "./university-of-hertfordshire";
 
@@ -49,6 +51,8 @@ export const importedProfiles: UniversityProfile[] = [
   yorkStJohnUniversity,
   universityCollegeBirmingham,
   birminghamCityUniversity,
+  leedsTrinityUniversity,
+  universityOfLaw,
   universityOfWorcester,
   universityOfHertfordshire,
 ];
