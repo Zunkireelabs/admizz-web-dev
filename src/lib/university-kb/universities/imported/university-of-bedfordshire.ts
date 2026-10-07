@@ -1711,8 +1711,7 @@ export const universityOfBedfordshire: UniversityProfile = {
     },
     {
       name: "Postgraduate scholarship",
-      value: "£4,000",
-      eligibility: "Up to £4,000"
+      value: "Up to £4,000"
     }
   ],
   english: {

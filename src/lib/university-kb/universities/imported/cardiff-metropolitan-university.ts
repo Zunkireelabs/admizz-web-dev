@@ -425,8 +425,7 @@ export const cardiffMetropolitanUniversity: UniversityProfile = {
   scholarships: [
     {
       name: "Undergraduate scholarship",
-      value: "£2,500",
-      eligibility: "Up to £2,500"
+      value: "Up to £2,500"
     },
     {
       name: "Postgraduate scholarship",

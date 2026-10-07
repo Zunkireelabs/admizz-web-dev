@@ -135,13 +135,12 @@ export const regentCollegeLondon: UniversityProfile = {
   scholarships: [
     {
       name: "Undergraduate scholarship",
-      value: "£5,000",
+      value: "Up to £5,000",
       eligibility: "Upto £5000 year one only"
     },
     {
       name: "Postgraduate scholarship",
-      value: "£5,000",
-      eligibility: "Up to £5,000"
+      value: "Up to £5,000"
     }
   ],
   english: {

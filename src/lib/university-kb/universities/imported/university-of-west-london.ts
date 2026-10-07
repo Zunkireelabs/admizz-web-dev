@@ -710,7 +710,7 @@ export const universityOfWestLondon: UniversityProfile = {
     },
     {
       name: "Enhanced Extended Master's scholarship",
-      value: "£5,000",
+      value: "Up to £5,000",
       eligibility: "Up to £5000/-"
     }
   ],
