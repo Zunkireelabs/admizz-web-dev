@@ -1,15 +1,16 @@
 import type { CountrySlug, CourseLevel, CurrencyCode, Intake, IntakeMonth, UniversityProfile } from "./types";
 import { countries } from "./countries";
-import { yorkStJohnUniversity } from "./universities/york-st-john-university";
 import { universityOfEastLondon, universityOfWestLondon, universityOfWorcester } from "./universities/uk-partners-draft";
+import { importedProfiles } from "./universities/imported";
 
-// Register every university profile here.
-export const universityProfiles: UniversityProfile[] = [
-  yorkStJohnUniversity,
-  universityOfWorcester,
-  universityOfEastLondon,
-  universityOfWestLondon,
-];
+// Profiles imported from Route2Uni (scripts/import-route2uni.mjs) take priority;
+// hand-made drafts fill in universities not yet imported.
+const importedSlugs = new Set(importedProfiles.map((u) => `${u.country}/${u.slug}`));
+const drafts = [universityOfWorcester, universityOfEastLondon, universityOfWestLondon].filter(
+  (u) => !importedSlugs.has(`${u.country}/${u.slug}`),
+);
+
+export const universityProfiles: UniversityProfile[] = [...importedProfiles, ...drafts];
 
 export const EXPLORE_BASE_PATH = "/explore-universities";
 

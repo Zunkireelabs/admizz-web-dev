@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { GraduationCap, ListChecks, FileText, CalendarDays, MapPin, Info } from "lucide-react";
+import { GraduationCap, ListChecks, FileText, CalendarDays, MapPin, Info, ClipboardCheck } from "lucide-react";
 
-export type TabId = "courses" | "apply" | "documents" | "intakes" | "location" | "more-info";
+export type TabId = "courses" | "entry" | "apply" | "documents" | "intakes" | "location" | "more-info";
 
 const TABS: { id: TabId; label: string; icon: typeof GraduationCap }[] = [
   { id: "courses", label: "Courses", icon: GraduationCap },
+  { id: "entry", label: "Entry Requirements", icon: ClipboardCheck },
   { id: "apply", label: "How to Apply", icon: ListChecks },
   { id: "documents", label: "Documents", icon: FileText },
   { id: "intakes", label: "Intakes", icon: CalendarDays },
