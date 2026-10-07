@@ -158,7 +158,7 @@ export const universityOfWorcester: UniversityProfile = {
         {
           label: "Per Year",
           amount: 17200,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [

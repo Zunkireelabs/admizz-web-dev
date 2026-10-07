@@ -32,8 +32,11 @@ import { healthScienceUniversity } from "./health-science-university";
 import { universityOfCumbria } from "./university-of-cumbria";
 import { liverpoolHopeUniversity } from "./liverpool-hope-university";
 import { universityOfLancashire } from "./university-of-lancashire";
+import { universityOfWalesTrinitySaintDavid } from "./university-of-wales-trinity-saint-david";
 import { universityOfWorcester } from "./university-of-worcester";
 import { universityOfHertfordshire } from "./university-of-hertfordshire";
+import { edinburghNapierUniversity } from "./edinburgh-napier-university";
+import { universityOfTheWestOfScotland } from "./university-of-the-west-of-scotland";
 
 import type { UniversityProfile } from "../../types";
 export const importedProfiles: UniversityProfile[] = [
@@ -71,6 +74,9 @@ export const importedProfiles: UniversityProfile[] = [
   universityOfCumbria,
   liverpoolHopeUniversity,
   universityOfLancashire,
+  universityOfWalesTrinitySaintDavid,
   universityOfWorcester,
   universityOfHertfordshire,
+  edinburghNapierUniversity,
+  universityOfTheWestOfScotland,
 ];

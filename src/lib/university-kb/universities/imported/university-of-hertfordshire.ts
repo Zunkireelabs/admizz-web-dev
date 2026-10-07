@@ -346,7 +346,7 @@ export const universityOfHertfordshire: UniversityProfile = {
         {
           label: "Gross Fee Per year",
           amount: 17450,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
@@ -363,7 +363,7 @@ export const universityOfHertfordshire: UniversityProfile = {
         {
           label: "Gross Fee Per year",
           amount: 17450,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
@@ -397,7 +397,7 @@ export const universityOfHertfordshire: UniversityProfile = {
         {
           label: "Gross Fee Per year",
           amount: 17450,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
@@ -789,7 +789,7 @@ export const universityOfHertfordshire: UniversityProfile = {
         {
           label: "Gross Fee Per year",
           amount: 17450,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
@@ -806,7 +806,7 @@ export const universityOfHertfordshire: UniversityProfile = {
         {
           label: "Gross Fee Per year",
           amount: 17450,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
@@ -823,7 +823,7 @@ export const universityOfHertfordshire: UniversityProfile = {
         {
           label: "Gross Fee Per year",
           amount: 17450,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
@@ -840,7 +840,7 @@ export const universityOfHertfordshire: UniversityProfile = {
         {
           label: "Gross Fee Per year",
           amount: 17450,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [

@@ -139,6 +139,12 @@ function durationFromName(name = "") {
 }
 
 // Pick the representative tuition for a level, excluding agent-only line items.
+// Portal description like "3 years" / "1 year" gives the programme length.
+function durationFromDescription(desc = "") {
+  const m = (desc || "").trim().match(/^(\d+)\s*years?$/i);
+  return m ? Number(m[1]) * 12 : undefined;
+}
+
 function feeForLevel(feeStructures, levelName, placement, courseName = "", cities = [], courseCity = "") {
   const fs = feeStructures.find((f) => f.courseLevelName === levelName);
   if (!fs) return undefined;
@@ -183,7 +189,7 @@ function feeForLevel(feeStructures, levelName, placement, courseName = "", citie
     // Campus-specific price: keep the campus part as a note and flag it as a "from" price.
     const part = label.split(":").map((x) => x.trim()).find((x) => cities.some((c) => x.toLowerCase().includes(c.toLowerCase())));
     const priced = real.some((o) => o !== t && o.amount !== t.amount);
-    const fee = { label: label || fallback, amount: t.amount, per: "total" };
+    const fee = { label: label || fallback, amount: t.amount, per: /per\s*year/i.test(label) ? "year" : "total" };
     if (rangeFrom) fee.from = true;
     if (part && priced) { fee.from = true; const hit = cities.filter((c) => part.toLowerCase().includes(c.toLowerCase())); fee.note = `${hit.join(" & ")} campus${hit.length > 1 ? "es" : ""}`; }
     return fee;
@@ -272,7 +278,8 @@ function convert(raw) {
       subject: subjectOf(c.name),
       durationMonths:
         durationFromName(c.name) ??
-        (/top[- ]?up/i.test(c.name) ? 12 :
+        durationFromDescription(c.description) ??
+        (/top[- ]?up/i.test(c.name) || /top[- ]?up/i.test(c.courseLevelName) ? 12 : level === "research" ? 36 :
         level !== "postgraduate" && /\bwith\s+(international\s+)?(foundation year|year one)\b/i.test(displayName) ? 48 : placementIncluded ? 24 : level === "undergraduate" ? 36 : 12),
       fees: fee ? [fee] : [],
       intakes: month ? [month] : [],
