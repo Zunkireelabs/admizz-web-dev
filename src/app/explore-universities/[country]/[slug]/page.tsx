@@ -53,7 +53,7 @@ export default async function UniversityPage({ params }: PageProps) {
     >
       <main className="bg-white pb-20">
         <UniversityHeader university={u} country={info} />
-        <div className="max-w-7xl mx-auto px-4 mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_340px]">
+        <div className="max-w-7xl mx-auto px-4 mt-8 grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_340px]">
           <UniversityTabs
             panels={buildUniversityPanels(u, info)}
             counts={{

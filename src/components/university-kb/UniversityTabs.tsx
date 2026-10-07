@@ -44,7 +44,7 @@ export default function UniversityTabs({
 
   return (
     <div>
-      <div className="sticky top-[70px] z-20 bg-white/95 backdrop-blur border-b border-border-light">
+      <div className="sticky top-[70px] z-20 bg-white border-b border-border-light shadow-[0_6px_10px_-8px_rgba(0,19,83,0.18)]">
         <div
           role="tablist"
           aria-label="University information"
