@@ -52,10 +52,10 @@ function levelOf(name = "") {
 
 function courseLevel(levelName = "") {
   const n = levelName.toLowerCase();
-  if (n.includes("postgraduate")) return "postgraduate";
-  if (n.includes("foundation")) return "foundation";
-  if (/(research|doctor|phd)/.test(n)) return "research";
-  if (n.includes("undergraduate") || n.includes("ug")) return "undergraduate";
+  if (n.includes("foundation") || n.includes("year one")) return "foundation";
+  if (/(research|phd|doctor|mphil)/.test(n)) return "research";
+  if (n.includes("postgraduate") || n.includes("master") || n.includes("mres") || n === "pg") return "postgraduate";
+  if (n.includes("undergraduate") || n.includes("ug") || n.includes("nursing")) return "undergraduate";
   return "undergraduate";
 }
 
@@ -111,26 +111,30 @@ function convert(raw) {
   const slug = slugify(b.name);
   const cities = (b.cities || []).map((c) => c.name);
 
-  // Dedupe courses by id, attach level fee + placement.
-  const seen = new Set();
-  const courses = [];
+  // Dedupe courses by id; merge the intake months of duplicate rows.
+  const byId = new Map();
   for (const c of d.courses || []) {
-    if (seen.has(c.id)) continue;
-    seen.add(c.id);
+    const month = monthOf(c.intakeName);
+    if (byId.has(c.id)) {
+      const ex = byId.get(c.id);
+      if (month && !ex.intakes.includes(month)) ex.intakes.push(month);
+      continue;
+    }
     const level = courseLevel(c.courseLevelName);
     const placement = hasPlacement(c.name);
     const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placement);
-    courses.push({
+    byId.set(c.id, {
       slug: `${slugify(c.name)}-${c.id}`,
       name: c.name,
       level,
       subject: subjectOf(c.name),
-      durationMonths: placement ? 24 : level === "undergraduate" ? 36 : 12,
+      durationMonths: placement ? 24 : level === "undergraduate" ? 36 : level === "foundation" ? 12 : 12,
       fees: fee ? [fee] : [],
-      intakes: [monthOf(c.intakeName)].filter(Boolean),
+      intakes: month ? [month] : [],
       withPlacement: placement || undefined,
     });
   }
+  const courses = [...byId.values()];
 
   // One scholarship entry per level: concise "Up to £X" headline + full detail.
   const scholarships = [];
