@@ -23,11 +23,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MBA",
-          amount: 15100,
+          label: "MBA: London",
+          amount: 16750,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -42,11 +42,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -61,11 +61,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -80,11 +80,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -99,11 +99,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -118,11 +118,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -137,11 +137,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -156,11 +156,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -175,11 +175,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -194,11 +194,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -213,11 +213,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -232,11 +232,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -251,11 +251,9 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 36,
       fees: [
         {
-          label: "Birmingham",
-          amount: 12750,
-          per: "total",
-          from: true,
-          note: "Birmingham campus"
+          label: "London",
+          amount: 13350,
+          per: "total"
         }
       ],
       intakes: [
@@ -270,11 +268,9 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 36,
       fees: [
         {
-          label: "Birmingham",
-          amount: 12750,
-          per: "total",
-          from: true,
-          note: "Birmingham campus"
+          label: "London",
+          amount: 13350,
+          per: "total"
         }
       ],
       intakes: [
@@ -289,11 +285,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -308,11 +304,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -327,11 +323,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -346,11 +342,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -365,11 +361,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -384,11 +380,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -403,11 +399,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -422,11 +418,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -441,11 +437,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -460,11 +456,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -479,11 +475,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -498,11 +494,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -517,11 +513,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -536,11 +532,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -555,11 +551,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -574,11 +570,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -593,11 +589,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -612,11 +608,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [
@@ -631,11 +627,11 @@ export const ulsterUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Birmingham & Manchester : MSc",
-          amount: 14550,
+          label: "London: MSc",
+          amount: 16200,
           per: "total",
           from: true,
-          note: "Birmingham & Manchester campuses"
+          note: "London campus"
         }
       ],
       intakes: [

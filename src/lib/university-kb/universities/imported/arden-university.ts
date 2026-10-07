@@ -20,11 +20,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -39,11 +37,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -58,11 +54,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -77,11 +71,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -96,11 +88,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -115,11 +105,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -134,11 +122,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -153,11 +139,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -172,11 +156,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -191,11 +173,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -210,11 +190,9 @@ export const ardenUniversity: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Manchester Including MBA",
-          amount: 13000,
-          per: "total",
-          from: true,
-          note: "Manchester campus"
+          label: "London",
+          amount: 14000,
+          per: "total"
         }
       ],
       intakes: [
@@ -231,9 +209,7 @@ export const ardenUniversity: UniversityProfile = {
         {
           label: "London",
           amount: 12500,
-          per: "total",
-          from: true,
-          note: "London campus"
+          per: "total"
         }
       ],
       intakes: [
@@ -250,9 +226,7 @@ export const ardenUniversity: UniversityProfile = {
         {
           label: "London",
           amount: 12500,
-          per: "total",
-          from: true,
-          note: "London campus"
+          per: "total"
         }
       ],
       intakes: [
@@ -269,9 +243,7 @@ export const ardenUniversity: UniversityProfile = {
         {
           label: "London",
           amount: 12500,
-          per: "total",
-          from: true,
-          note: "London campus"
+          per: "total"
         }
       ],
       intakes: [
