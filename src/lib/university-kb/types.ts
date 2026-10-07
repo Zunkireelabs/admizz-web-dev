@@ -79,6 +79,8 @@ export interface Course {
   english?: EnglishRequirement;
   academicRequirement?: string;
   withPlacement?: boolean;
+  /** True when the placement/extra year is an option, not part of the standard course */
+  placementOptional?: boolean;
 }
 
 export interface Scholarship {
