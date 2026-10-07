@@ -45,7 +45,13 @@ const titleCase = (s) =>
 
 // Collapse stray whitespace and exact-duplicate parentheticals the portal sometimes repeats.
 function tidy(str = "") {
-  return str.replace(/\s+/g, " ").replace(/(\([^)]*\))(?:\s*\1)+/g, "$1").trim();
+  return str
+    .replace(/\s+/g, " ")
+    .replace(/\(\s+/g, "(")
+    .replace(/\s+\)/g, ")")
+    .replace(/\boveralln\b/gi, "overall")
+    .replace(/(\([^)]*\))(?:\s*\1)+/g, "$1")
+    .trim();
 }
 
 // Course names typed in ALL CAPS get sentence-style casing; degree prefixes are restored.
@@ -117,7 +123,7 @@ const hasPlacement = (name = "") =>
   /(placement|year in industry|professional experience|with professional|2 ?years?|2 yrs)/i.test(name);
 
 // Pick the representative tuition for a level, excluding agent-only line items.
-function feeForLevel(feeStructures, levelName, placement, courseName = "") {
+function feeForLevel(feeStructures, levelName, placement, courseName = "", cities = []) {
   const fs = feeStructures.find((f) => f.courseLevelName === levelName);
   if (!fs) return undefined;
   let real = (fs.tuitionRange || []).filter((t) => !AGENT_FEE.test(t.description || ""));
@@ -132,8 +138,15 @@ function feeForLevel(feeStructures, levelName, placement, courseName = "") {
   const isPlacementFee = (t) => /placement|2-? ?year|industry|professional/i.test(t.description || "");
   const toFee = (t, fallback) => {
     let label = (t.description || "").replace(/[:\s]+$/, "").trim();
-    if (/ranges?\s*from|^from$/i.test(label)) label = "Tuition from";
-    return { label: label || fallback, amount: t.amount, per: "total" };
+    const rangeFrom = /ranges?\s*from|^from$/i.test(label);
+    if (rangeFrom) label = "Tuition from";
+    // Campus-specific price: keep the campus part as a note and flag it as a "from" price.
+    const part = label.split(":").map((x) => x.trim()).find((x) => cities.some((c) => x.toLowerCase().includes(c.toLowerCase())));
+    const priced = real.some((o) => o !== t && o.amount !== t.amount);
+    const fee = { label: label || fallback, amount: t.amount, per: "total" };
+    if (rangeFrom) fee.from = true;
+    if (part && priced) { fee.from = true; fee.note = `${part} campus${/&|,| and /i.test(part) ? "es" : ""}`; }
+    return fee;
   };
 
   if (placement) {
@@ -195,7 +208,7 @@ function convert(raw) {
     // so price and length stay at the standard programme.
     const placementOptional = placement && /\b(option|available)\b/i.test(c.name);
     const placementIncluded = placement && !placementOptional;
-    const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placementIncluded, c.name);
+    const fee = feeForLevel(d.feeStructures || [], c.courseLevelName, placementIncluded, c.name, cities);
     byId.set(c.id, {
       slug: `${slugify(c.name)}-${c.id}`,
       name: courseName(c.name),

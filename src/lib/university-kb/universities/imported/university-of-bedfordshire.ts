@@ -1745,7 +1745,7 @@ export const universityOfBedfordshire: UniversityProfile = {
         },
         {
           test: "PTE",
-          score: "59 overall ( 59 in each component)"
+          score: "59 overall (59 in each component)"
         },
         {
           test: "Duolingo",
@@ -1758,11 +1758,11 @@ export const universityOfBedfordshire: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "6.0 overall ( 5.5 in each component)"
+          score: "6.0 overall (5.5 in each component)"
         },
         {
           test: "PTE",
-          score: "overall 59 ( 59 in each component)"
+          score: "overall 59 (59 in each component)"
         },
         {
           test: "Duolingo",

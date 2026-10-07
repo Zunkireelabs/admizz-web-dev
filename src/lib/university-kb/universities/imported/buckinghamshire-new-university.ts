@@ -640,7 +640,7 @@ export const buckinghamshireNewUniversity: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "6.0 overall ( 6.0 in each component )"
+          score: "6.0 overall (6.0 in each component)"
         }
       ],
       waiver: [
@@ -652,11 +652,11 @@ export const buckinghamshireNewUniversity: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "6.5 overall ( 6.0 in each component)"
+          score: "6.5 overall (6.0 in each component)"
         },
         {
           test: "PTE",
-          score: "59 overall ( 59 in each component) (55/51 will also be accepted)"
+          score: "59 overall (59 in each component) (55/51 will also be accepted)"
         },
         {
           test: "TOEFL iBT",
@@ -673,7 +673,7 @@ export const buckinghamshireNewUniversity: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "6.0 overall ( 5.5in each component)"
+          score: "6.0 overall (5.5in each component)"
         },
         {
           test: "PTE",

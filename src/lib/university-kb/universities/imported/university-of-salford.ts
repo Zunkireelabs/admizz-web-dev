@@ -23,7 +23,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -40,7 +41,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -57,7 +59,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -74,7 +77,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -91,7 +95,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -108,7 +113,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -125,7 +131,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -142,7 +149,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -159,7 +167,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -176,7 +185,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -193,7 +203,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -210,7 +221,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -227,7 +239,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -244,7 +257,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -261,7 +275,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -278,7 +293,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -295,7 +311,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -312,7 +329,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -329,7 +347,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -346,7 +365,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -363,7 +383,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -380,7 +401,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -397,7 +419,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -414,7 +437,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -431,7 +455,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -448,7 +473,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -465,7 +491,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -482,7 +509,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -499,7 +527,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -516,7 +545,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -533,7 +563,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -550,7 +581,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -567,7 +599,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -584,7 +617,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -601,7 +635,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -618,7 +653,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -635,7 +671,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -652,7 +689,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -669,7 +707,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -686,7 +725,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -703,7 +743,8 @@ export const universityOfSalford: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 14400,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [

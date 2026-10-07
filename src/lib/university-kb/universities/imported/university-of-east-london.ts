@@ -23,7 +23,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -40,7 +41,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -74,7 +76,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -91,7 +94,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -108,7 +112,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -142,7 +147,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -159,7 +165,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -176,7 +183,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -193,7 +201,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -210,7 +219,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -227,7 +237,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -261,7 +272,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -278,7 +290,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -295,7 +308,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -312,7 +326,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -329,7 +344,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -346,7 +362,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -363,7 +380,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -380,7 +398,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -397,7 +416,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -414,7 +434,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -431,7 +452,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -448,7 +470,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -465,7 +488,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -482,7 +506,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -499,7 +524,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -516,7 +542,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -533,7 +560,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -550,7 +578,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -567,7 +596,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -584,7 +614,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -601,7 +632,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -618,7 +650,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -635,7 +668,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -652,7 +686,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -669,7 +704,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -686,7 +722,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -703,7 +740,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -720,7 +758,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -941,7 +980,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -958,7 +998,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -975,7 +1016,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -992,7 +1034,8 @@ export const universityOfEastLondon: UniversityProfile = {
         {
           label: "Tuition from",
           amount: 16620,
-          per: "total"
+          per: "total",
+          from: true
         }
       ],
       intakes: [
@@ -1212,7 +1255,7 @@ export const universityOfEastLondon: UniversityProfile = {
         },
         {
           test: "PTE",
-          score: "59 Overall ( 59 in each component)"
+          score: "59 Overall (59 in each component)"
         },
         {
           test: "SELT",
@@ -1221,7 +1264,7 @@ export const universityOfEastLondon: UniversityProfile = {
       ],
       waiver: [
         "Grade 12th English: 2.8 or 60% or Overall B",
-        "MOI ACCEPTED NEPALESE UNIVERSITIES (TRIBHUVAN UNIVERSITY, POKHARA UNIVERSITY, KATHMANDU UNIVERSITY )"
+        "MOI ACCEPTED NEPALESE UNIVERSITIES (TRIBHUVAN UNIVERSITY, POKHARA UNIVERSITY, KATHMANDU UNIVERSITY)"
       ]
     },
     {

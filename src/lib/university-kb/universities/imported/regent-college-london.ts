@@ -169,11 +169,11 @@ export const regentCollegeLondon: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "Overall 6.0 ( 5.5 in each component)"
+          score: "Overall 6.0 (5.5 in each component)"
         },
         {
           test: "PTE",
-          score: "Overall 59 ( 59 in each component)"
+          score: "Overall 59 (59 in each component)"
         }
       ],
       waiver: [
@@ -186,11 +186,11 @@ export const regentCollegeLondon: UniversityProfile = {
       tests: [
         {
           test: "IELTS",
-          score: "Overall 6.0 ( 5.5 in each component )"
+          score: "Overall 6.0 (5.5 in each component)"
         },
         {
           test: "PTE",
-          score: "overall 59 ( 59 in each component )"
+          score: "overall 59 (59 in each component)"
         }
       ],
       waiver: [
