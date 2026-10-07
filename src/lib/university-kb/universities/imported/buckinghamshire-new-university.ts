@@ -24,7 +24,7 @@ export const buckinghamshireNewUniversity: UniversityProfile = {
         {
           label: "Gross Fee per year",
           amount: 15910,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
@@ -92,7 +92,7 @@ export const buckinghamshireNewUniversity: UniversityProfile = {
         {
           label: "Gross Fee per year",
           amount: 15910,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
@@ -331,7 +331,7 @@ export const buckinghamshireNewUniversity: UniversityProfile = {
         {
           label: "Gross Fee per year",
           amount: 15910,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
@@ -348,7 +348,7 @@ export const buckinghamshireNewUniversity: UniversityProfile = {
         {
           label: "Gross Fee per year",
           amount: 15910,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
@@ -435,7 +435,7 @@ export const buckinghamshireNewUniversity: UniversityProfile = {
         {
           label: "Gross Fee per year",
           amount: 15910,
-          per: "total"
+          per: "year"
         }
       ],
       intakes: [
