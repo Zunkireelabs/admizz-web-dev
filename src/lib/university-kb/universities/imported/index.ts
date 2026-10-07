@@ -37,6 +37,9 @@ import { universityOfWorcester } from "./university-of-worcester";
 import { universityOfHertfordshire } from "./university-of-hertfordshire";
 import { edinburghNapierUniversity } from "./edinburgh-napier-university";
 import { universityOfTheWestOfScotland } from "./university-of-the-west-of-scotland";
+import { universityOfBrighton } from "./university-of-brighton";
+import { harperAdamsUniversity } from "./harper-adams-university";
+import { universityOfSurrey } from "./university-of-surrey";
 
 import type { UniversityProfile } from "../../types";
 export const importedProfiles: UniversityProfile[] = [
@@ -79,4 +82,7 @@ export const importedProfiles: UniversityProfile[] = [
   universityOfHertfordshire,
   edinburghNapierUniversity,
   universityOfTheWestOfScotland,
+  universityOfBrighton,
+  harperAdamsUniversity,
+  universityOfSurrey,
 ];
