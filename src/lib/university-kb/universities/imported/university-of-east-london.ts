@@ -21,7 +21,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -38,7 +38,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -72,7 +72,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -89,7 +89,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -106,7 +106,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -140,7 +140,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -157,7 +157,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -174,7 +174,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -191,7 +191,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -208,7 +208,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -225,7 +225,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -259,7 +259,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -276,7 +276,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -293,7 +293,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -310,7 +310,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -327,7 +327,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -344,7 +344,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -361,7 +361,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -378,7 +378,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -395,7 +395,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -412,7 +412,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -429,7 +429,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -446,7 +446,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -463,7 +463,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -480,7 +480,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -497,7 +497,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -514,7 +514,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -531,7 +531,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -548,7 +548,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -565,7 +565,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -582,7 +582,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -599,7 +599,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -616,7 +616,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -633,7 +633,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -650,7 +650,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -667,7 +667,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -684,7 +684,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -701,7 +701,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -718,7 +718,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -939,7 +939,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -956,7 +956,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -973,7 +973,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
@@ -990,7 +990,7 @@ export const universityOfEastLondon: UniversityProfile = {
       durationMonths: 12,
       fees: [
         {
-          label: "Gross Fee Ranges From",
+          label: "Tuition from",
           amount: 16620,
           per: "total"
         }
