@@ -23,6 +23,9 @@ import { universityCollegeBirmingham } from "./university-college-birmingham";
 import { birminghamCityUniversity } from "./birmingham-city-university";
 import { leedsTrinityUniversity } from "./leeds-trinity-university";
 import { universityOfLaw } from "./university-of-law";
+import { universityOfEssex } from "./university-of-essex";
+import { universityOfPlymouth } from "./university-of-plymouth";
+import { universityForTheCreativeArts } from "./university-for-the-creative-arts";
 import { universityOfWorcester } from "./university-of-worcester";
 import { universityOfHertfordshire } from "./university-of-hertfordshire";
 
@@ -53,6 +56,9 @@ export const importedProfiles: UniversityProfile[] = [
   birminghamCityUniversity,
   leedsTrinityUniversity,
   universityOfLaw,
+  universityOfEssex,
+  universityOfPlymouth,
+  universityForTheCreativeArts,
   universityOfWorcester,
   universityOfHertfordshire,
 ];
