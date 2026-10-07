@@ -8,6 +8,9 @@ Manual, permission-based data drop. For each university:
 3. Save it here as `<id>.json` (e.g. `100034.json`).
 4. Run `node scripts/import-route2uni.mjs` to regenerate the profiles.
 
+Keep the whole response, including the logo's `previewUrl` — the importer downloads the logo
+automatically (the link only works for ~15 minutes, so run the importer soon after copying).
+
 The importer strips agent-only data (CAS deposits, internal "Consent Form", etc.)
 and writes student-facing profiles to `src/lib/university-kb/universities/imported/`.
 

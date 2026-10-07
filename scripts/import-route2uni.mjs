@@ -101,6 +101,30 @@ function feeForLevel(feeStructures, levelName, placement) {
   return { label: (base.description || "").trim() || "Tuition fee", amount: base.amount, per: "total" };
 }
 
+
+// Downloads the logo from the response's signed `previewUrl` (valid ~15 min)
+// when we don't already have one on disk. Returns true if a logo was saved.
+async function fetchLogoIfNeeded(raw) {
+  const b = raw.data.basicInfo;
+  const slug = slugify(b.name);
+  const has = ["webp", "png", "jpg", "svg"].some((ext) =>
+    existsSync(join(ROOT, `public/images/universities/imported/${slug}.${ext}`)),
+  );
+  if (has || !b.previewUrl) return false;
+  try {
+    const res = await fetch(b.previewUrl);
+    if (!res.ok) throw new Error(`HTTP ${res.status} (link expired?)`);
+    const type = res.headers.get("content-type") || "";
+    const ext = type.includes("jpeg") ? "jpg" : type.includes("webp") ? "webp" : type.includes("svg") ? "svg" : "png";
+    writeFileSync(join(ROOT, `public/images/universities/imported/${slug}.${ext}`), Buffer.from(await res.arrayBuffer()));
+    console.log(`  ↳ logo downloaded for ${b.name}`);
+    return true;
+  } catch (e) {
+    console.log(`  ⚠ logo not fetched for ${b.name}: ${e.message}. Using placeholder; re-copy the response and re-run to retry.`);
+    return false;
+  }
+}
+
 function convert(raw) {
   const d = raw.data;
   const b = d.basicInfo;
@@ -232,6 +256,7 @@ const files = readdirSync(RAW_DIR).filter((f) => f.endsWith(".json"));
 const emitted = [];
 for (const f of files) {
   const raw = JSON.parse(readFileSync(join(RAW_DIR, f), "utf8"));
+  await fetchLogoIfNeeded(raw);
   const profile = convert(raw);
   profile.lastVerified = new Date().toISOString().slice(0, 10);
   const { varName, text } = toTs(profile);
