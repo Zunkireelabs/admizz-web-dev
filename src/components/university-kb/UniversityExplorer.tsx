@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Search, SlidersHorizontal, X, MapPin, ArrowRight, Wallet, Award, CalendarDays, TrendingUp } from "lucide-react";
+import Pagination from "./Pagination";
 import type { CountrySlug, CourseLevel, CurrencyCode, IntakeMonth, UniversityCard } from "@/lib/university-kb";
 import { formatMoney } from "@/lib/university-kb/countries";
 import CompareToggle from "./CompareToggle";
@@ -39,6 +40,8 @@ function feeSteps(max: number) {
   return steps;
 }
 
+const PAGE_SIZE = 10;
+
 export default function UniversityExplorer({ universities, countries, fixedCountry, breadcrumb, title, subtitle }: Props) {
   const [nameQuery, setNameQuery] = useState("");
   const [courseQuery, setCourseQuery] = useState("");
@@ -50,6 +53,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
   const [scholarshipOnly, setScholarshipOnly] = useState(false);
   const [sort, setSort] = useState<SortKey>("recommended");
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [page, setPage] = useState(1);
   const resultsRef = useRef<HTMLElement>(null);
 
   // Lock page scroll and close on Escape while the filter panel is open.
@@ -98,6 +102,21 @@ export default function UniversityExplorer({ universities, countries, fixedCount
     if (sort === "fee-asc") return [...list].sort((a, b) => (a.feeFrom ?? Infinity) - (b.feeFrom ?? Infinity));
     return list;
   }, [scoped, nameQuery, courseQuery, level, intake, city, maxFee, scholarshipOnly, sort]);
+
+  // Back to page 1 whenever the search, filters or sort change (state adjusted during render).
+  const listKey = JSON.stringify([nameQuery, courseQuery, country, level, intake, city, maxFee, scholarshipOnly, sort]);
+  const [prevListKey, setPrevListKey] = useState(listKey);
+  if (listKey !== prevListKey) {
+    setPrevListKey(listKey);
+    setPage(1);
+  }
+  const totalPages = Math.max(1, Math.ceil(results.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const pageResults = results.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const goToPage = (p: number) => {
+    setPage(p);
+    resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const changeCountry = (c: CountrySlug | "") => {
     setCountry(c);
@@ -339,7 +358,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
           </div>
         ) : (
           <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {results.map((u) => (
+            {pageResults.map((u) => (
               <li key={u.href} className="relative">
                 <div className="absolute right-3 top-3 z-10">
                   <CompareToggle id={u.id} name={u.name} />
@@ -385,6 +404,8 @@ export default function UniversityExplorer({ universities, countries, fixedCount
             ))}
           </ul>
         )}
+
+        <Pagination page={currentPage} totalPages={totalPages} totalItems={results.length} pageSize={PAGE_SIZE} onChange={goToPage} />
       </section>
 
       {/* Filter panel: slides in from the right on desktop, up from the bottom on mobile */}
