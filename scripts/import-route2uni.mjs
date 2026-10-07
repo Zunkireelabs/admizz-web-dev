@@ -122,7 +122,7 @@ function subjectOf(name = "") {
 }
 
 const hasPlacement = (name = "") =>
-  /(placement|year in industry|professional experience|with professional)/i.test(name);
+  /(placement|year in industry|industry year|professional experience|with professional)/i.test(name);
 
 // Course length written in the name, e.g. "(24 months)", "- 2 years duration", "(1 yr Top-Up)".
 // "12-month placement year" is deliberately not matched (hyphenated = a component, not the total).
@@ -254,7 +254,7 @@ function convert(raw) {
       subject: subjectOf(c.name),
       durationMonths:
         durationFromName(c.name) ??
-        (level === "undergraduate" && /foundation year/i.test(c.name) ? 48 : placementIncluded ? 24 : level === "undergraduate" ? 36 : 12),
+        (level !== "postgraduate" && /\bwith\s+(international\s+)?(foundation year|year one)\b/i.test(c.name) ? 48 : placementIncluded ? 24 : level === "undergraduate" ? 36 : 12),
       fees: fee ? [fee] : [],
       intakes: month ? [month] : [],
       withPlacement: placement || undefined,
@@ -296,7 +296,11 @@ function convert(raw) {
   for (const t of (d.languageTests || []).filter((x) => !/internal/i.test(x.languageTestName))) {
     const score = tidy(t.requiredScore || "");
     if (!score || /^[.\-_\s]+$/.test(score)) continue; // placeholder like ".." — nothing to show
-    (testsByLevel[tidy(t.courseLevelName)] ||= []).push({ test: testName(t.languageTestName), score });
+    let test = testName(t.languageTestName);
+    let shown = score;
+    const named = /^other$/i.test(t.languageTestName.trim()) && score.match(/^([A-Za-z][A-Za-z0-9 ]{2,30}):\s*(.+)$/);
+    if (named) { test = named[1].trim(); shown = named[2].trim(); }
+    (testsByLevel[tidy(t.courseLevelName)] ||= []).push({ test, score: shown });
   }
   const languageTests = Object.keys(testsByLevel).map((level) => ({
     level, tests: testsByLevel[level], waiver: waiverByLevel[level],

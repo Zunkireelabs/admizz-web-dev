@@ -30,6 +30,13 @@ function SectionTitle({ children, sub }: { children: ReactNode; sub?: string }) 
   );
 }
 
+// "10" / "10 years" → " · up to 10 years"; longer notes are shown as written.
+function gapNote(raw: string) {
+  const t = raw.trim();
+  if (/^\d+(\s*years?)?$/i.test(t)) return ` · up to ${parseInt(t, 10)} years`;
+  return ` · ${t.replace(/^up\s*to\s+/i, "up to ")}`;
+}
+
 function durationLabel(months: number) {
   if (months % 12 === 0) return `${months / 12} year${months === 12 ? "" : "s"}`;
   return `${months} months`;
@@ -96,12 +103,18 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
                       <div>
                         <dt className="flex items-center gap-1.5 text-gray-dark"><Wallet className="w-4 h-4" aria-hidden />Tuition</dt>
                         <dd className="mt-1 font-semibold text-navy">
-                          {c.fees[0]?.from && <span className="mr-1 text-[12px] font-normal text-gray-dark">from</span>}
-                          {c.fees.map((f) => formatMoney(f.amount, country.currency)).join(" / ")}
-                          <span className="block text-[12px] font-normal text-gray-dark">
-                            {c.fees[0]?.per === "year" ? "per year" : "total"}
-                            {c.fees[0]?.note ? ` · ${c.fees[0].note}` : ""}
-                          </span>
+                          {c.fees.length === 0 ? (
+                            <span className="font-normal text-gray-dark">Ask a counsellor</span>
+                          ) : (
+                            <>
+                              {c.fees[0]?.from && <span className="mr-1 text-[12px] font-normal text-gray-dark">from</span>}
+                              {c.fees.map((f) => formatMoney(f.amount, country.currency)).join(" / ")}
+                              <span className="block text-[12px] font-normal text-gray-dark">
+                                {c.fees[0]?.per === "year" ? "per year" : "total"}
+                                {c.fees[0]?.note ? ` · ${c.fees[0].note}` : ""}
+                              </span>
+                            </>
+                          )}
                         </dd>
                       </div>
                       <div>
@@ -156,7 +169,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
                     {g.gapAccepted !== undefined && (
                       <span className="text-[13px] text-gray-dark">
                         Gap {g.gapAccepted ? "accepted" : "not accepted"}
-                        {g.gapAccepted && g.gapYearsAllowed ? ` · up to ${g.gapYearsAllowed.trim()}` : ""}
+                        {g.gapAccepted && g.gapYearsAllowed ? gapNote(g.gapYearsAllowed) : ""}
                       </span>
                     )}
                   </div>
