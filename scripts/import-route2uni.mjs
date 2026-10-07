@@ -184,9 +184,11 @@ function convert(raw) {
   });
 
   // Use a real logo if we have one on disk, else a neutral placeholder.
-  const logoFile = join(ROOT, `public/images/universities/imported/${slug}.webp`);
-  const logo = existsSync(logoFile)
-    ? `/images/universities/imported/${slug}.webp`
+  const logoExt = ["webp", "png", "jpg", "svg"].find((ext) =>
+    existsSync(join(ROOT, `public/images/universities/imported/${slug}.${ext}`)),
+  );
+  const logo = logoExt
+    ? `/images/universities/imported/${slug}.${logoExt}`
     : "/images/universities/imported/_placeholder.svg";
 
   return {

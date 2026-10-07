@@ -5,7 +5,7 @@ export const universityCollegeBirmingham: UniversityProfile = {
   slug: "university-college-birmingham",
   name: "University College Birmingham",
   country: "uk",
-  logo: "/images/universities/imported/_placeholder.svg",
+  logo: "/images/universities/imported/university-college-birmingham.png",
   established: 1999,
   cities: [
     "Birmingham"

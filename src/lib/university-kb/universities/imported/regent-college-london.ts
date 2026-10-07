@@ -5,7 +5,7 @@ export const regentCollegeLondon: UniversityProfile = {
   slug: "regent-college-london",
   name: "Regent College London",
   country: "uk",
-  logo: "/images/universities/imported/_placeholder.svg",
+  logo: "/images/universities/imported/regent-college-london.png",
   established: 2010,
   cities: [
     "London"
