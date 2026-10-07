@@ -225,7 +225,9 @@ function convert(raw) {
       name: courseName(c.name),
       level,
       subject: subjectOf(c.name),
-      durationMonths: durationFromName(c.name) ?? (placementIncluded ? 24 : level === "undergraduate" ? 36 : 12),
+      durationMonths:
+        durationFromName(c.name) ??
+        (level === "undergraduate" && /foundation year/i.test(c.name) ? 48 : placementIncluded ? 24 : level === "undergraduate" ? 36 : 12),
       fees: fee ? [fee] : [],
       intakes: month ? [month] : [],
       withPlacement: placement || undefined,

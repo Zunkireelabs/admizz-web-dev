@@ -937,7 +937,7 @@ export const universityOfPortsmouth: UniversityProfile = {
       name: "Business with Foundation Year",
       level: "undergraduate",
       subject: "Business & Management",
-      durationMonths: 36,
+      durationMonths: 48,
       fees: [
         {
           label: "Tuition from",
@@ -1297,7 +1297,7 @@ export const universityOfPortsmouth: UniversityProfile = {
       name: "Computing with Foundation Year",
       level: "undergraduate",
       subject: "Computer Science",
-      durationMonths: 36,
+      durationMonths: 48,
       fees: [
         {
           label: "Tuition from",

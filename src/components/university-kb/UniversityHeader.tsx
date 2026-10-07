@@ -10,7 +10,7 @@ import {
   Check,
 } from "lucide-react";
 import type { CountryInfo, UniversityProfile } from "@/lib/university-kb";
-import { EXPLORE_BASE_PATH, compareId, lowestFee, nextIntake } from "@/lib/university-kb";
+import { EXPLORE_BASE_PATH, compareId, lowestFee, nextIntake, topScholarship } from "@/lib/university-kb";
 import CompareToggle from "./CompareToggle";
 import { formatMoney } from "@/lib/university-kb/countries";
 import { EnquireButton } from "./EnquiryForm";
@@ -42,10 +42,10 @@ export default function UniversityHeader({ university: u, country }: Props) {
       label: "Fees from",
       value: formatMoney(fee, country.currency),
     },
-    u.scholarships[0] && {
+    topScholarship(u) && {
       icon: Award,
       label: "Scholarship",
-      value: u.scholarships[0].value,
+      value: topScholarship(u)!.value,
     },
     intake && { icon: CalendarDays, label: "Next intake", value: intake },
     u.established && {
