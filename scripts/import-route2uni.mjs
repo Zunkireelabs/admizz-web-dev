@@ -54,7 +54,7 @@ function testName(raw = "") {
   const t = raw.trim();
   if (/^d[ou]{1,2}lingo$/i.test(t)) return "Duolingo";
   if (ACRONYMS.has(t.toUpperCase())) return t.toUpperCase();
-  return titleCase(t);
+  return titleCase(t).replace(/\b(ielts|pte|toefl|selt|esol|oietc|moi)\b/gi, (m) => m.toUpperCase());
 }
 
 function levelOf(name = "") {
@@ -113,7 +113,11 @@ function feeForLevel(feeStructures, levelName, placement, courseName = "") {
   else if (!isMba && mbaItems.length && mbaItems.length < real.length) real = real.filter((t) => !mbaItems.includes(t));
 
   const isPlacementFee = (t) => /placement|2-? ?year|industry|professional/i.test(t.description || "");
-  const toFee = (t, fallback) => ({ label: (t.description || "").replace(/[:\s]+$/, "").trim() || fallback, amount: t.amount, per: "total" });
+  const toFee = (t, fallback) => {
+    let label = (t.description || "").replace(/[:\s]+$/, "").trim();
+    if (/ranges?\s*from|^from$/i.test(label)) label = "Tuition from";
+    return { label: label || fallback, amount: t.amount, per: "total" };
+  };
 
   if (placement) {
     const p = real.find(isPlacementFee);
