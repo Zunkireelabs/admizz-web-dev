@@ -1187,15 +1187,15 @@ export const universityOfEastLondon: UniversityProfile = {
       level: "Undergraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.5 overall (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "59 overall (59 in each Component)"
         },
         {
-          test: "Selt",
+          test: "SELT",
           score: "B2"
         }
       ],
@@ -1207,15 +1207,15 @@ export const universityOfEastLondon: UniversityProfile = {
       level: "Postgraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.0 overall (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "59 Overall ( 59 in each component)"
         },
         {
-          test: "Selt",
+          test: "SELT",
           score: "B2"
         }
       ],
@@ -1228,11 +1228,11 @@ export const universityOfEastLondon: UniversityProfile = {
       level: "International Year One",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "5.5 overall (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "59 overall (59 in each component)"
         }
       ],
@@ -1244,11 +1244,11 @@ export const universityOfEastLondon: UniversityProfile = {
       level: "International Foundation Year",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "5.5 overall (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "59 overall (59 in each component)"
         }
       ],
@@ -1262,10 +1262,10 @@ export const universityOfEastLondon: UniversityProfile = {
       name: "All Academics"
     },
     {
-      name: "Cv"
+      name: "CV"
     },
     {
-      name: "Lor"
+      name: "LOR"
     },
     {
       name: "Passport"
@@ -1274,7 +1274,7 @@ export const universityOfEastLondon: UniversityProfile = {
       name: "Statement of Purpose"
     },
     {
-      name: "Moi",
+      name: "MOI",
       optional: true
     }
   ],

@@ -42,6 +42,21 @@ const titleCase = (s) =>
     .replace(/\b(Of|The|And|In|For|With|A|An|To)\b/g, (m) => m.toLowerCase())
     .replace(/^([a-z])/, (m) => m.toUpperCase());
 
+
+// Keep exam acronyms upper-case and fix the portal's spelling slips.
+const ACRONYMS = new Set(["IELTS", "PTE", "TOEFL", "SELT", "ESOL", "OIETC", "MOI", "UKVI"]);
+const DOC_ACRONYMS = new Set(["CV", "LOR", "MOI", "SOP", "IELTS", "PTE"]);
+function docName(raw = "") {
+  const t = raw.trim();
+  return DOC_ACRONYMS.has(t.toUpperCase()) ? t.toUpperCase() : titleCase(t);
+}
+function testName(raw = "") {
+  const t = raw.trim();
+  if (/^d[ou]{1,2}lingo$/i.test(t)) return "Duolingo";
+  if (ACRONYMS.has(t.toUpperCase())) return t.toUpperCase();
+  return titleCase(t);
+}
+
 function levelOf(name = "") {
   const n = name.toLowerCase();
   if (/(doctor|phd|research)/.test(n)) return "research";
@@ -174,8 +189,8 @@ function convert(raw) {
   }
 
   const requiredDocuments = [
-    ...(d.requiredDocuments || []).filter((x) => !AGENT_DOC.test(x.name)).map((x) => ({ name: titleCase(x.name) })),
-    ...(d.optionalDocuments || []).filter((x) => !AGENT_DOC.test(x.name)).map((x) => ({ name: titleCase(x.name), optional: true })),
+    ...(d.requiredDocuments || []).filter((x) => !AGENT_DOC.test(x.name)).map((x) => ({ name: docName(x.name) })),
+    ...(d.optionalDocuments || []).filter((x) => !AGENT_DOC.test(x.name)).map((x) => ({ name: docName(x.name), optional: true })),
   ];
 
   const entryRequirements = (d.entryRequirements || []).map((e) => ({
@@ -190,7 +205,7 @@ function convert(raw) {
     if (w.hasWaiver && (w.criteria || []).length) waiverByLevel[w.courseLevelName] = w.criteria.map((s) => s.trim());
   const testsByLevel = {};
   for (const t of d.languageTests || []) {
-    (testsByLevel[t.courseLevelName] ||= []).push({ test: titleCase(t.languageTestName), score: (t.requiredScore || "").trim() });
+    (testsByLevel[t.courseLevelName] ||= []).push({ test: testName(t.languageTestName), score: (t.requiredScore || "").trim() });
   }
   const languageTests = Object.keys(testsByLevel).map((level) => ({
     level, tests: testsByLevel[level], waiver: waiverByLevel[level],

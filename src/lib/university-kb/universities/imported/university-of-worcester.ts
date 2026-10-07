@@ -409,15 +409,15 @@ export const universityOfWorcester: UniversityProfile = {
       level: "Undergraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.0 overall (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "59/59"
         },
         {
-          test: "Selt",
+          test: "SELT",
           score: "B2"
         }
       ],
@@ -429,15 +429,15 @@ export const universityOfWorcester: UniversityProfile = {
       level: "Postgraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.5 overall (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "63 overall (63 in each component)"
         },
         {
-          test: "Selt",
+          test: "SELT",
           score: "B2 with Merit"
         }
       ],
@@ -449,15 +449,15 @@ export const universityOfWorcester: UniversityProfile = {
       level: "Nursing",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.0 overall (5.5 in each component)"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "59 overall (59 in each component)"
         },
         {
-          test: "Selt",
+          test: "SELT",
           score: "B2"
         }
       ]
@@ -466,15 +466,15 @@ export const universityOfWorcester: UniversityProfile = {
       level: "MRES",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.5 overall ( 5.5 in each component; 6 in Writing )"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "63 overall ( 63 in each component )"
         },
         {
-          test: "Selt",
+          test: "SELT",
           score: "B2 with Merit"
         }
       ]
@@ -485,10 +485,10 @@ export const universityOfWorcester: UniversityProfile = {
       name: "All Academics"
     },
     {
-      name: "Cv"
+      name: "CV"
     },
     {
-      name: "Lor"
+      name: "LOR"
     },
     {
       name: "Passport"

@@ -292,11 +292,11 @@ export const universityCollegeBirmingham: UniversityProfile = {
       level: "Postgraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.0 overall ( 5.5 in each component )"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "59 overall  (59 in each component)"
         },
         {
@@ -313,11 +313,11 @@ export const universityCollegeBirmingham: UniversityProfile = {
       level: "Undergraduate",
       tests: [
         {
-          test: "Ielts",
+          test: "IELTS",
           score: "6.0 overall / 5.5 in each band"
         },
         {
-          test: "Pte",
+          test: "PTE",
           score: "59 overall / 59 in each band"
         },
         {
@@ -335,10 +335,10 @@ export const universityCollegeBirmingham: UniversityProfile = {
       name: "All Academics"
     },
     {
-      name: "Cv"
+      name: "CV"
     },
     {
-      name: "Lor"
+      name: "LOR"
     },
     {
       name: "Passport"
