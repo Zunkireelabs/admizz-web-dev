@@ -83,7 +83,12 @@ export default function UniversityExplorer({ universities, countries, fixedCount
 
   // Filter options only list values that exist in the data.
   const levelOptions = useMemo(() => Array.from(new Set(scoped.flatMap((u) => u.levels))), [scoped]);
-  const intakeOptions = useMemo(() => Array.from(new Set(scoped.flatMap((u) => u.intakeMonths))), [scoped]);
+  // Each intake month with how many universities offer it, most common first.
+  const intakeOptions = useMemo(() => {
+    const counts = new Map<IntakeMonth, number>();
+    for (const u of scoped) for (const m of u.intakeMonths) counts.set(m, (counts.get(m) ?? 0) + 1);
+    return Array.from(counts, ([month, count]) => ({ month, count })).sort((a, b) => b.count - a.count);
+  }, [scoped]);
   const cityOptions = useMemo(() => Array.from(new Set(scoped.flatMap((u) => u.cities))).sort(), [scoped]);
   // Fees are in different currencies, so the fee filter only appears once one country is chosen.
   const currency = countries.find((c) => c.slug === country)?.currency;
@@ -491,10 +496,13 @@ export default function UniversityExplorer({ universities, countries, fixedCount
               <span className={label}>Intake month</span>
               <select className={select} value={intake} onChange={(e) => setIntake(e.target.value as IntakeMonth | "")}>
                 <option value="">All intakes</option>
-                {intakeOptions.map((m) => (
-                  <option key={m} value={m}>{m}</option>
+                {intakeOptions.map(({ month, count }) => (
+                  <option key={month} value={month}>{month} ({count})</option>
                 ))}
               </select>
+              <span className="mt-2 block text-[12px] leading-snug text-gray-dark">
+                Showing intakes currently open through Admizz. Ask a counsellor about other intakes.
+              </span>
             </label>
             <label className="block">
               <span className={label}>City</span>
