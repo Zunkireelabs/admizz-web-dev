@@ -9,7 +9,12 @@ export default function BackButton({ fallbackHref, label }: { fallbackHref: stri
   const router = useRouter();
 
   const goBack = () => {
-    const cameFromSite = document.referrer && new URL(document.referrer).origin === window.location.origin;
+    let cameFromSite = false;
+    try {
+      cameFromSite = Boolean(document.referrer) && new URL(document.referrer).origin === window.location.origin;
+    } catch {
+      // Malformed referrer: treat as an external visit and use the fallback.
+    }
     if (cameFromSite && window.history.length > 1) router.back();
     else router.push(fallbackHref);
   };

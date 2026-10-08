@@ -9,6 +9,7 @@ import {
   EXPLORE_BASE_PATH,
   type CountrySlug,
 } from "@/lib/university-kb";
+import BackButton from "@/components/university-kb/BackButton";
 import UniversityExplorer from "@/components/university-kb/UniversityExplorer";
 
 interface PageProps {
@@ -56,13 +57,16 @@ export default async function CountryUniversitiesPage({ params }: PageProps) {
           </>
         }
         breadcrumb={
-          <nav aria-label="Breadcrumb" className="text-[13px] text-white/75">
-            <Link href="/" className="hover:text-white hover:underline underline-offset-2">Home</Link>
-            <span className="mx-1.5" aria-hidden>/</span>
-            <Link href={EXPLORE_BASE_PATH} className="hover:text-white hover:underline underline-offset-2">Find College</Link>
-            <span className="mx-1.5" aria-hidden>/</span>
-            <span className="text-white font-medium">{info.name}</span>
-          </nav>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <BackButton fallbackHref={EXPLORE_BASE_PATH} label="Back" />
+            <nav aria-label="Breadcrumb" className="text-[13px] text-white/75">
+              <Link href="/" className="hover:text-white hover:underline underline-offset-2">Home</Link>
+              <span className="mx-1.5" aria-hidden>/</span>
+              <Link href={EXPLORE_BASE_PATH} className="hover:text-white hover:underline underline-offset-2">Find College</Link>
+              <span className="mx-1.5" aria-hidden>/</span>
+              <span className="text-white font-medium">{info.name}</span>
+            </nav>
+          </div>
         }
       />
     </main>
