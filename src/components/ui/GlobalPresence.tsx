@@ -60,7 +60,7 @@ const offices = [
       {
         name: "Kathmandu",
         address:
-          "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (Opp. to Nabil Bank)",
+          "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (opposite Nabil Bank)",
         phone: "+977-9802728444",
         mapQuery:
           "Admizz Education Nepal, Sita Ram Square, Putalisadak, Kathmandu",
@@ -284,7 +284,7 @@ function OfficeCard({
 }
 
 /* ------------------------------------------------------------------ */
-/*  Local Counsellor Card (Birgunj / Janakpur)                        */
+/*  Local Counselor Card (Birgunj / Janakpur)                        */
 /* ------------------------------------------------------------------ */
 
 function LocalCounsellorCard({
@@ -330,7 +330,7 @@ function LocalCounsellorCard({
           </h3>
 
           <p className="text-[14px] leading-relaxed" style={{ color: "#5C7189" }}>
-            Our local counsellors are ready to guide you — from choosing the right country to getting your visa sorted, step by step.
+            Our local counselors are ready to guide you — from choosing the right country to getting your visa sorted, step by step.
           </p>
         </div>
 

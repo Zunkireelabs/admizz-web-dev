@@ -30,12 +30,12 @@ const faqItems: FAQItem[] = [
   {
     question: "What counts as a 'paid Admizz Education service'?",
     answer:
-      "Counselling and university shortlisting, application processing, visa support, test preparation programmes (IELTS, PTE, SAT, and similar), and any other paid service we offer during the Campaign period.",
+      "Counseling and university shortlisting, application processing, visa support, test preparation programs (IELTS, PTE, SAT, and similar), and any other paid service we offer during the Campaign period.",
   },
   {
     question: "What if I already enrolled in a service — can I still use my prize?",
     answer:
-      "Prizes are intended to apply at the point of enrolment or payment. If you have already paid in full for a service, contact us at hello@admizz.com and we will review your case individually.",
+      "Prizes are intended to apply at the point of enrollment or payment. If you have already paid in full for a service, contact us at hello@admizz.com and we will review your case individually.",
   },
   {
     question: "Can I give my prize to a friend or family member?",
@@ -45,7 +45,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What happens if I miss the 30-day claim window?",
     answer:
-      "Prizes not claimed within 30 days from the date of the spin are forfeited automatically. Admizz Education is under no obligation to honour expired prizes.",
+      "Prizes not claimed within 30 days from the date of the spin are forfeited automatically. Admizz Education is under no obligation to honor expired prizes.",
   },
   {
     question: "Can I spin again from a different email or device?",
@@ -197,7 +197,7 @@ export default function SpinAndWinTermsPage() {
                       <span>
                         You have{" "}
                         <span className="font-semibold">30 days</span> from
-                        spinning to contact us and start your enrolment.
+                        spinning to contact us and start your enrollment.
                       </span>
                     </li>
                     <li className="flex gap-3">
@@ -342,11 +342,11 @@ export default function SpinAndWinTermsPage() {
                     </span>
                     <div>
                       <h3 className="text-base font-bold text-navy mb-1">
-                        Enrol in any paid Admizz service
+                        Enroll in any paid Admizz service
                       </h3>
                       <p className="text-[14px] text-gray-dark leading-relaxed">
                         Your prize is applied as a discount, waiver, or credit
-                        at the time of enrolment — counselling, application
+                        at the time of enrollment — counseling, application
                         processing, visa support, or test prep.
                       </p>
                     </div>
@@ -437,7 +437,7 @@ export default function SpinAndWinTermsPage() {
                   </li>
                   <li>
                     Prizes have no monetary value independent of an Admizz
-                    Education service enrolment.
+                    Education service enrollment.
                   </li>
                 </ul>
               </div>
@@ -453,18 +453,18 @@ export default function SpinAndWinTermsPage() {
                     through Admizz Education. The value of the prize is applied
                     as a discount, credit, or waiver against the service of
                     your choice — and cannot be claimed independently of that
-                    enrolment.
+                    enrollment.
                   </p>
                 </div>
                 <p className="text-[15px] text-gray-dark leading-relaxed mb-3">
                   Qualifying Admizz Education services include:
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-[15px] text-gray-dark leading-relaxed">
-                  <li>Study-abroad counselling and university shortlisting</li>
+                  <li>Study-abroad counseling and university shortlisting</li>
                   <li>University application processing</li>
                   <li>Visa application support</li>
                   <li>
-                    Test preparation programmes (IELTS, PTE, SAT, and similar)
+                    Test preparation programs (IELTS, PTE, SAT, and similar)
                   </li>
                   <li>Any other paid service offered during the Campaign</li>
                 </ul>
@@ -477,10 +477,10 @@ export default function SpinAndWinTermsPage() {
                 </h2>
                 <p className="text-[15px] text-gray-dark leading-relaxed">
                   Winners must contact Admizz Education and begin their service
-                  enrolment within{" "}
+                  enrollment within{" "}
                   <span className="font-semibold">thirty (30) days</span> from
                   the date of the spin. Prizes not claimed within this window
-                  are forfeited and Admizz is under no obligation to honour
+                  are forfeited and Admizz is under no obligation to honor
                   them.
                 </p>
               </div>
@@ -492,7 +492,7 @@ export default function SpinAndWinTermsPage() {
                 </h2>
                 <p className="text-[15px] text-gray-dark leading-relaxed">
                   We reserve the right to verify your identity, eligibility,
-                  and contact details before honouring a prize. Failure to
+                  and contact details before honoring a prize. Failure to
                   provide satisfactory verification will result in
                   disqualification.
                 </p>
@@ -533,7 +533,7 @@ export default function SpinAndWinTermsPage() {
                 <p className="text-[15px] text-gray-dark leading-relaxed">
                   Information you submit through the prize-claim form — name,
                   phone, email, and the prize you won — is used to contact you
-                  about claiming and to enrol you in our services. Your data is
+                  about claiming and to enroll you in our services. Your data is
                   handled according to our{" "}
                   <Link
                     href="/privacy-policy"

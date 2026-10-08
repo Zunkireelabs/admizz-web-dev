@@ -44,7 +44,7 @@ const denmarkData: CountryPageData = {
   whyStudyIntro:
     "Study in Denmark for world-class education, innovative teaching, affordable living, strong career opportunities, and a safe, welcoming European study environment.",
   benefits: [
-    { icon: "/images/icons/school-1.webp", title: "World-Ranked Universities", description: "Denmark is home to globally recognised institutions known for academic excellence, cutting-edge research, and industry-driven learning." },
+    { icon: "/images/icons/school-1.webp", title: "World-Ranked Universities", description: "Denmark is home to globally recognized institutions known for academic excellence, cutting-edge research, and industry-driven learning." },
     { icon: "/images/icons/knowledge.webp", title: "Innovative Student-Centric Teaching", description: "Danish education focuses on problem-solving, real-world applications, group work, and creative thinking\u2014skills highly valued worldwide." },
     { icon: "/images/icons/consultation.webp", title: "Strong Career Prospects", description: "Denmark offers excellent internship pathways, part-time work options, and post-study opportunities in engineering, IT, life sciences, and sustainability." },
     { icon: "/images/icons/scholarship-108.webp", title: "Affordable Education & Scholarships", description: "International students benefit from reasonable tuition fees, strong scholarship options, and great value for quality education." },
@@ -91,7 +91,7 @@ const denmarkData: CountryPageData = {
       documents: [
         "Valid passport",
         "Completed Denmark student visa application (ST1 form)",
-        "Admission letter from a recognised Danish institution",
+        "Admission letter from a recognized Danish institution",
         "Proof of tuition fee payment",
         "Financial proof showing required living funds",
         "Academic transcripts & certificates",
@@ -133,7 +133,7 @@ const denmarkData: CountryPageData = {
   ],
   costNote: "Note: Costs vary by city. Copenhagen is more expensive; smaller cities like Odense or Aalborg are more affordable.",
   visaTitle: "Denmark Student Visa Process",
-  visaIntro: "Understand the complete Denmark student visa process, from receiving your admission letter to securing your residence permit and travelling for studies.",
+  visaIntro: "Understand the complete Denmark student visa process, from receiving your admission letter to securing your residence permit and traveling for studies.",
   visaSteps: [
     { title: "Choose Course & University", description: "Select an accredited Danish institution and your preferred program." },
     { title: "Receive Admission Offer", description: "Obtain an official acceptance letter from the university." },

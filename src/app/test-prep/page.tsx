@@ -69,7 +69,7 @@ const whyItems = [
       "To ensure each student receives the attention they deserve, we intentionally keep our class sizes small. This enables our trainers to offer personalized support, address doubts in real-time, and tailor their teaching approach to suit individual learning styles.",
   },
   {
-    title: "One-on-One Mentorship & Doubt Clearing",
+    title: "One-on-One Mentorship & Q&A Sessions",
     content:
       "In addition to group classes, students can schedule one-on-one sessions with mentors for extra support. Whether you\u2019re struggling with a specific module or need strategic guidance, we\u2019re here to ensure you stay on track and never feel stuck or left behind.",
   },
@@ -127,7 +127,7 @@ const featureCards = [
     ),
   },
   {
-    title: "Start to End Preparation",
+    title: "Start-to-Finish Preparation",
     iconBg: "#DBEAFE",
     iconColor: "#3B82F6",
     icon: (color: string) => (
@@ -174,7 +174,7 @@ const faqItems = [
   },
   {
     question: "How long is each course?",
-    answer: "It depends on your test date\u2014typically between 4 to 8 weeks.",
+    answer: "It depends on your test date\u2014typically 4 to 8 weeks.",
   },
   {
     question: "Is the demo class really free?",
@@ -262,7 +262,7 @@ export default function TestPrepPage() {
                 {([
                   { icon: "/images/icons/user.webp", label: "Personalized Coaching", bg: "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)", arc: "rgba(147,197,253,0.5)" },
                   { icon: "/images/icons/online-learning.webp", label: "Flexible Online Learning", bg: "linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)", arc: "rgba(110,231,183,0.4)" },
-                  { icon: "/images/icons/excellence.webp", label: "Guaranteed Score Improvement", bg: "linear-gradient(135deg, #fef9c3 0%, #fde68a 100%)", arc: "rgba(253,224,71,0.4)" },
+                  { icon: "/images/icons/excellence.webp", label: "Proven Score Improvement", bg: "linear-gradient(135deg, #fef9c3 0%, #fde68a 100%)", arc: "rgba(253,224,71,0.4)" },
                 ] as const).map((f) => (
                   <div
                     key={f.label}
@@ -284,7 +284,7 @@ export default function TestPrepPage() {
             <div className="grid grid-cols-3 gap-3 mt-5">
               {[
                 { value: "1K+", label: "Students Trained" },
-                { value: "10+", label: "Study Destinations" },
+                { value: "12+", label: "Study Destinations" },
                 { value: "98%", label: "Success Rate" },
               ].map((s) => (
                 <div
@@ -342,7 +342,7 @@ export default function TestPrepPage() {
                     Study Material Provided
                   </h3>
                   <p className="text-[12px] text-gray-dark leading-snug">
-                    Comprehensive, regularly updated materials aligned with latest exam trends.
+                    Comprehensive, regularly updated materials aligned with the latest exam trends.
                   </p>
                 </div>
               </div>

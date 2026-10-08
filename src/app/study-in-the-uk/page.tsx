@@ -34,13 +34,13 @@ const ukData: CountryPageData = {
     { label: "Capital", value: "London" },
     { label: "Language", value: "English" },
     { label: "Dialing Code", value: "+44" },
-    { label: "Currency", value: "Pound" },
+    { label: "Currency", value: "British Pound (£)" },
     { label: "Population", value: "67M+" },
     { label: "Universities", value: "359" },
     { label: "Intl. Students", value: "485,555" },
-    { label: "Tuition fee", value: "£6000/yr" },
+    { label: "Tuition fee", value: "£10,000 – £25,000/yr" },
   ],
-  whyStudyTitle: "Why Study In the UK ?",
+  whyStudyTitle: "Why Study in the UK?",
   whyStudyIntro:
     "Choosing the UK for higher studies opens doors to international exposure, employment opportunities, and globally recognized qualifications.",
   benefits: [
@@ -58,13 +58,13 @@ const ukData: CountryPageData = {
     {
       title: "Post-Study Work Visa (Graduate Route)",
       description:
-        "Stay and work in the UK after graduation: 18 months for applications from 1 January 2027, 2 years before that date, and 3 years for PhD graduates.",
+        "Stay and work in the UK after graduation: 18 months for applications from January 1, 2027, 2 years before that date, and 3 years for PhD graduates.",
       icon: "/images/icons/visa-108.webp",
     },
     {
       title: "Flexible Course Options",
       description:
-        "Over 50,000+ courses across STEM, business, health, arts, media, aviation & more.",
+        "More than 50,000 courses across STEM, business, health, arts, media, aviation & more.",
       icon: "/images/icons/knowledge.webp",
     },
     {
@@ -181,11 +181,11 @@ const ukData: CountryPageData = {
     { program: "Undergraduate", fee: "£10,000 – £20,000" },
     { program: "Postgraduate", fee: "£12,000 – £25,000" },
     { program: "MBA / Professional", fee: "£20,000 – £35,000+" },
-    { program: "Living Expenses (visa funds, 9 months)", fee: "£10,539 outside London / £13,761 in London (£10,827 / £14,130 for applications from 30 Nov 2026)" },
+    { program: "Living Expenses (visa funds, 9 months)", fee: "£10,539 outside London / £13,761 in London (£10,827 / £14,130 for applications from Nov 30, 2026)" },
     { program: "Health Surcharge (NHS)", fee: "£776 per year" },
   ],
   costNote:
-    "Your total costs vary by city. London is higher; smaller cities are more budget friendly.",
+    "Your total costs vary by city. London is higher; smaller cities are more budget-friendly.",
   visaTitle: "UK Student Visa Process",
   visaIntro:
     "Applying for a UK Student Visa becomes simple when you understand each step clearly. Below is a complete, easy-to-follow breakdown of the UK student visa process.",
@@ -194,10 +194,10 @@ const ukData: CountryPageData = {
     { title: "Submit Application", description: "Apply through UCAS or university portals with required documents." },
     { title: "Receive Offer Letter", description: "Get conditional or unconditional offer based on your eligibility." },
     { title: "Meet Financial Requirements", description: "Maintain sufficient funds for tuition and living expenses." },
-    { title: "Complete TB Test", description: "Take your TB test at a UKVI-approved centre." },
+    { title: "Complete TB Test", description: "Take your TB test at a UKVI-approved center." },
     { title: "Request CAS", description: "Submit documents and fee receipts to receive your CAS number." },
     { title: "Prepare Visa Documents", description: "Collect CAS, bank proof, TB certificate, transcripts, and passport." },
-    { title: "Apply for Visa", description: "Fill UKVI visa form and pay visa + IHS fees." },
+    { title: "Apply for Visa", description: "Fill out the UKVI visa form and pay the visa and IHS fees." },
     { title: "Book Biometrics", description: "Schedule your VFS appointment for biometrics submission." },
     { title: "Attend VFS Appointment", description: "Submit biometrics and necessary documents at VFS." },
     { title: "Wait for Decision", description: "Visa processing typically takes 1–3 weeks." },
@@ -208,12 +208,12 @@ const ukData: CountryPageData = {
   faqItems: [
     { question: "Is the UK a good place for international students?", answer: "Yes, the UK is one of the best study destinations due to its world-class universities, high-quality teaching, global recognition, and excellent career opportunities." },
     { question: "What are the requirements to study in the UK for international students?", answer: "You generally need academic transcripts, English proficiency scores (IELTS/PTE), a valid passport, Statement of Purpose, Letters of Recommendation, and proof of funds." },
-    { question: "How much does it cost to study in the UK?", answer: "Tuition fees typically range from £10,000 to £25,000 per year, depending on the course and university. Living expenses may cost £9,000–£12,000 annually." },
+    { question: "How much does it cost to study in the UK?", answer: "Tuition fees typically range from £10,000 to £25,000 per year, depending on the course and university. For the visa you must show living-cost funds of £10,539 outside London or £13,761 in London for up to 9 months (£10,827 / £14,130 for applications from November 30, 2026)." },
     { question: "What IELTS score is required for UK universities?", answer: "Most universities require an overall IELTS score of 6.0–6.5, but some top programs may ask for 7.0 or higher." },
     { question: "Can I work while studying in the UK?", answer: "Yes, international students can work up to 20 hours per week during term time and full-time during holidays." },
     { question: "What is the UK student visa processing time?", answer: "GOV.UK says you will usually get a UK Student Visa decision within 3 weeks if you apply from outside the UK. Complete, accurate documents help avoid delays." },
     { question: "Is it easy to get a part-time job in the UK as a student?", answer: "Yes, the UK offers plenty of part-time job opportunities in retail, hospitality, customer service, and campus roles." },
-    { question: "Can I stay in the UK after completing my studies?", answer: "Absolutely. The Graduate Route (Post-Study Work Visa) allows students to stay and work for 18 months (UG/PG) for applications from 1 January 2027, or 2 years before that date, and 3 years (PhD)." },
+    { question: "Can I stay in the UK after completing my studies?", answer: "Absolutely. The Graduate Route (Post-Study Work Visa) allows students to stay and work for 18 months (UG/PG) for applications from January 1, 2027, or 2 years before that date, and 3 years (PhD)." },
     { question: "What are the best courses to study in the UK?", answer: "Popular courses include MBA, Data Science, Engineering, Healthcare, Law, Computer Science, Business Analytics, Pharmacy, and Finance." },
     { question: "Do UK universities accept gaps in education?", answer: "Yes, most UK universities accept study gaps if properly justified with experience letters, family reasons, medical documents, or valid explanations." },
   ],

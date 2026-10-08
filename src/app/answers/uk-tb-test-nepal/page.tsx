@@ -10,8 +10,12 @@ const post = {
       "body": "- **Who needs it:** people coming to the UK for 6 months or more who have lived in a listed country for 6 months or more within the last 6 months.\n- **Nepal:** listed by GOV.UK, which links to the approved clinics in Nepal.\n- **Where:** only at an approved clinic.\n- **Validity:** 6 months from the date of your x-ray, so time the test so your certificate is valid on the day you apply.\n\nSee where this fits in the [full UK student visa guide](/uk-student-visa-from-nepal)."
     },
     {
+      "heading": "Related guides",
+      "body": "- [UK student visa from Nepal: the full guide](/uk-student-visa-from-nepal)\n- [UK student visa cost 2027](/uk-student-visa-cost-2027)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-consultancy-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
+    },
+    {
       "heading": "Sources",
-      "body": "- [GOV.UK: TB test for a UK visa](https://www.gov.uk/tb-test-visa)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counselling team](/register)."
+      "body": "- [GOV.UK: TB test for a UK visa](https://www.gov.uk/tb-test-visa)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counseling team](/register)."
     }
   ],
   "featuredImage": {

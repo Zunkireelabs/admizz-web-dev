@@ -121,7 +121,7 @@ export default function AlumniSection({
   alumni = [DEFAULT_ROW1, DEFAULT_ROW2],
   eyebrow = "Our Alumni",
   title = "Students Who Made It",
-  description = "8,000+ students placed in top universities across the world — and counting.",
+  description = "2,000+ students placed in top universities across the world — and counting.",
   stats = [],
   imagePath = "/images/alumni/",
 }: AlumniSectionProps) {

@@ -10,7 +10,7 @@ export const birgunjData: CityLandingData = {
   meta: {
     title: "Study Abroad Consultancy in Birgunj | Admizz Education",
     description:
-      "Study abroad from Birgunj with local counsellors who speak Bhojpuri, Maithili, Hindi, Nepali and English. Book a free consultation with Admizz Education.",
+      "Study abroad from Birgunj with local counselors who speak Bhojpuri, Maithili, Hindi, Nepali and English. Book a free consultation with Admizz Education.",
     canonical: "https://admizzeducation.com/birgunj",
     ogImage: "/images/og/stuyabroad.webp",
   },
@@ -21,11 +21,11 @@ export const birgunjData: CityLandingData = {
     highlightedWord: "Birgunj's",
     subheading:
       "Personal guidance, transparent fees, and a team that speaks your language. From profile evaluation to pre-departure — handled locally, end to end.",
-    trustBadge: "★ 4.9 · Trusted by 8,000+ students",
+    trustBadge: "★ 4.9 · Trusted by 2,000+ students",
     primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
     secondaryCta: {
       text: "Chat on WhatsApp",
-      // TODO(content): replace with real Birgunj counsellor WhatsApp number
+      // TODO(content): replace with real Birgunj counselor WhatsApp number
       href: "https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad",
     },
 
@@ -38,17 +38,17 @@ export const birgunjData: CityLandingData = {
       "Australia",
       "Canada",
       "Germany",
-      "11+ countries",
+      "12+ countries",
     ],
     livePresence: {
-      onlineLabel: "Counsellors online",
+      onlineLabel: "Counselors online",
       offlineLabel: "Reply within 1 hour",
       timezone: "Asia/Kathmandu",
       workingHours: { startHour: 10, endHour: 18, days: [0, 1, 2, 3, 4, 5] },
     },
     inlineTrustBadges: [
       { iconKey: "star", value: "4.9", label: "Google rating" },
-      { iconKey: "graduate", value: "8,000+", label: "Enrolled" },
+      { iconKey: "graduate", value: "2,000+", label: "Enrolled" },
       { iconKey: "shieldCheck", value: "95%", label: "Visa success" },
       { iconKey: "certified", value: "ICEF", label: "Certified" },
     ],
@@ -70,7 +70,7 @@ export const birgunjData: CityLandingData = {
 
   whyChoose: {
     eyebrow: "WHY ADMIZZ",
-    heading: "Why students from Birgunj choose Admizz?",
+    heading: "Why do students from Birgunj choose Admizz?",
     subheading:
       "It's not magic. We just do the basics — locally, transparently, in your language.",
     points: [
@@ -78,12 +78,12 @@ export const birgunjData: CityLandingData = {
         iconKey: "pin",
         title: "Local presence in Birgunj",
         description:
-          "Get one-on-one guidance from a dedicated local counsellor who knows Birgunj students inside out — your schools, your boards, your goals. Document collection, applications, and visa prep handled with personal attention, right here.",
+          "Get one-on-one guidance from a dedicated local counselor who knows Birgunj students inside out — your schools, your boards, your goals. Document collection, applications, and visa prep handled with personal attention, right here.",
         proofPoint: "No Kathmandu trip",
       },
       {
         iconKey: "language",
-        title: "Counsellors who speak your language",
+        title: "Counselors who speak your language",
         description:
           "Explain your situation in Bhojpuri, Maithili, Hindi, Nepali or English — whatever's easiest. We'll translate visa rules into clear next steps.",
         proofPoint: "5 languages spoken",
@@ -107,11 +107,11 @@ export const birgunjData: CityLandingData = {
 
   destinations: {
     eyebrow: "POPULAR FROM BIRGUNJ",
-    heading: "Where Birgunj students are going?",
+    heading: "Where are Birgunj students going?",
     subheading:
       "Top destinations chosen by students who started their journey at our Birgunj office.",
     highlightStats: [
-      { value: "11+", label: "Countries" },
+      { value: "12+", label: "Countries" },
       { value: "100+", label: "Partner universities" },
       { value: "$2M+", label: "Scholarships unlocked" },
     ],
@@ -215,7 +215,7 @@ export const birgunjData: CityLandingData = {
         photo: "/images/cities/student-rishav.jpg",
         schoolInCity: "Birgunj Public College",
         quote:
-          "The counsellor explained the visa process in Maithili. That sounds small, but it changed everything for my parents.",
+          "The counselor explained the visa process in Maithili. That sounds small, but it changed everything for my parents.",
         university: "Conestoga College",
         country: "Canada",
         countryFlag: "🇨🇦",
@@ -317,7 +317,7 @@ export const birgunjData: CityLandingData = {
         a: "No. Our Birgunj office handles everything from initial consultation to visa preparation. The only time you'll need to travel is if your country requires a biometric appointment in Kathmandu — and we coordinate that for you.",
       },
       {
-        q: "What languages do your Birgunj counsellors speak?",
+        q: "What languages do your Birgunj counselors speak?",
         a: "Our team speaks Bhojpuri, Maithili, Hindi, Nepali, and English. Bring your parents — we'll explain everything in the language they're most comfortable with.",
       },
       {
@@ -354,7 +354,7 @@ export const birgunjData: CityLandingData = {
     id: "birgunj-counselling-week-may-2026-v2",
     variant: "campaign",
     eyebrow: "Limited time",
-    title: "Free Counselling Week at our Birgunj office",
+    title: "Free Counseling Week at our Birgunj office",
     subtitle: "Walk-in any day, no appointment needed",
     endsAt: "2026-05-12T18:00:00+05:45",
     cta: { text: "Reserve a slot", href: "#hero-form" },
@@ -365,14 +365,14 @@ export const birgunjData: CityLandingData = {
     eyebrow: "YOUR CITY. YOUR DREAM. YOUR TIME.",
     heading: "Birgunj students are already studying abroad. You could be next.",
     subheading:
-      "Hundreds of students from this city have walked through university gates in the UK, Australia, Canada and beyond. Your counsellor is right here in Birgunj — speaking your language, no Kathmandu trip needed.",
+      "Hundreds of students from this city have walked through university gates in the UK, Australia, Canada and beyond. Your counselor is right here in Birgunj — speaking your language, no Kathmandu trip needed.",
     landmarkImage: "/images/cities/birgunj-gateway.jpg",
     landmarkImageAlt: "Birgunj Gateway",
     landmarkLabel: "📍 Birgunj, Madhesh Province",
     facts: [
       { icon: "✅", text: "Licensed and Approved by Ministry of Education, Nepal" },
-      { icon: "✅", text: "TITI Certified Counsellor" },
-      { icon: "✅", text: "10Th Years of Excellence" },
+      { icon: "✅", text: "TITI Certified Counselor" },
+      { icon: "✅", text: "10+ Years of Excellence" },
     ],
     cta: { text: "Start Your Journey →", href: "#hero-form" },
     accentPhotos: [

@@ -57,7 +57,7 @@ export default function UKStickyMobileCTA({
             <rect width="18" height="18" x="3" y="4" rx="2" />
             <path d="M3 10h18" />
           </svg>
-          Book Counselling
+          Book a Free Counseling Session
         </a>
         <a
           href={waHref}

@@ -222,7 +222,7 @@ export default function DestinationQuiz() {
                     ))}
                   </div>
                   <p className="text-[13px] text-gray-dark">
-                    <strong className="text-navy font-semibold">8,000+</strong> students matched
+                    <strong className="text-navy font-semibold">2,000+</strong> students matched
                   </p>
                 </div>
 
@@ -660,7 +660,7 @@ function ResultPanel({destKey,match,firstName,onRetry}:{destKey:DestinationKey;m
             boxShadow: bookState === "done" ? "0 6px 24px rgba(34,197,94,0.4)" : "0 6px 24px rgba(253,237,34,0.4)",
             cursor: bookState !== "idle" ? "default" : "pointer",
           }}>
-          {bookState === "idle" && "Book a Free Counseling"}
+          {bookState === "idle" && "Book a Free Counseling Session"}
           {bookState === "loading" && (
             <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>

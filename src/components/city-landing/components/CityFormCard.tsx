@@ -18,7 +18,7 @@ export default function CityFormCard() {
             fontFamily: "var(--font-rubik), sans-serif",
           }}
         >
-          Talk to a counsellor today
+          Book a Free Counseling Session
         </h3>
       </div>
       <div className="pb-3">

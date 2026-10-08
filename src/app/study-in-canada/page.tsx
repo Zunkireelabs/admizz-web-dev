@@ -28,7 +28,7 @@ const canadaData: CountryPageData = {
   countryCategorySlug: "canada",
   heroHeading: "STUDY IN CANADA",
   heroSubheading: "Build Your Global Career With World-Class Canadian Education",
-  heroDescription: "Canada is one of the most popular study destinations for international students, offering globally recognised degrees, high academic standards, affordable tuition, and promising post-study work opportunities. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top Canadian universities with complete confidence and clarity.",
+  heroDescription: "Canada is one of the most popular study destinations for international students, offering globally recognized degrees, high academic standards, affordable tuition, and promising post-study work opportunities. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top Canadian universities with complete confidence and clarity.",
   heroBackground: "/images/hero/canada-hero.webp",
   quickFacts: [
     { label: "Capital", value: "Ottawa" },
@@ -36,24 +36,22 @@ const canadaData: CountryPageData = {
     { label: "Dialing Code", value: "+1" },
     { label: "Currency", value: "CAD $" },
     { label: "Population", value: "39+ Million" },
-    { label: "Universities", value: "359" },
-    { label: "Intl. Students", value: "485,555" },
     { label: "Tuition fee", value: "CAD $15,000" },
   ],
-  whyStudyTitle: "Why Study In Canada ?",
+  whyStudyTitle: "Why Study in Canada?",
   whyStudyIntro:
-    "Canada is one of the world's top study-abroad destinations known for high-quality education, globally recognised degrees, affordable tuition fees, and a safe, welcoming environment.",
+    "Canada is one of the world's top study-abroad destinations known for high-quality education, globally recognized degrees, affordable tuition fees, and a safe, welcoming environment.",
   benefits: [
-    { title: "World-Class Education", icon: "/images/icons/school-1.webp", description: "Canadian institutions deliver globally recognised programs with exceptional academic and research standards." },
+    { title: "World-Class Education", icon: "/images/icons/school-1.webp", description: "Canadian institutions deliver globally recognized programs with exceptional academic and research standards." },
     { title: "Affordable Study Costs", icon: "/images/icons/scholarship-108.webp", description: "Students enjoy lower tuition fees and manageable living expenses compared internationally." },
     { title: "Safe Multicultural Environment", icon: "/images/icons/visa-1.webp", description: "Canada offers welcoming communities supporting diverse international students with inclusivity." },
     { title: "Strong Career Opportunities", icon: "/images/icons/consultation.webp", description: "Internships, co-op programs, and industry links boost professional growth significantly." },
     { title: "Easy PR Pathway", icon: "/images/icons/visa-108.webp", description: "Post-study immigration routes help students achieve permanent residency more smoothly." },
-    { title: "High Quality Life", icon: "/images/icons/accomodation-108.webp", description: "Vibrant cities and breathtaking landscapes create enjoyable, enriching student lifestyle experiences." },
+    { title: "High Quality of Life", icon: "/images/icons/accomodation-108.webp", description: "Vibrant cities and breathtaking landscapes create enjoyable, enriching student lifestyle experiences." },
   ],
-  admissionTitle: "Admission Requirement For Studying In Canada",
+  admissionTitle: "Admission Requirements for Studying in Canada",
   admissionIntro:
-    "Canada is one of the most popular destinations for international students, offering world-class education, globally recognised degrees, and excellent post-study opportunities.",
+    "Canada is one of the most popular destinations for international students, offering world-class education, globally recognized degrees, and excellent post-study opportunities.",
   documentSections: [
     {
       title: "Admission Requirements for Studying in Canada",
@@ -61,7 +59,7 @@ const canadaData: CountryPageData = {
       documents: ["Academic transcripts and mark sheets", "English language proficiency test scores", "Statement of Purpose (SOP)", "Letters of Recommendation (LORs)", "Valid passport", "Proof of funds (financial documents)", "Updated resume or CV", "Work experience (program-specific)"],
     },
     {
-      title: "Documents Required for CAS (Confirmation of Acceptance for Studies)",
+      title: "Documents Required for LOA (Letter of Acceptance)",
       intro: "To secure your Canadian Letter of Acceptance, students must submit essential academic, identity, and financial documents ensuring eligibility and readiness for study permit processing.",
       documents: ["Valid passport", "Academic transcripts and certificates", "English language test score (IELTS/PTE/TOEFL)", "Application form and offer letter", "Proof of tuition fee payment (if required)", "Proof of funds (GIC or bank statement)", "Passport-size photographs", "Statement of Purpose (SOP)"],
     },
@@ -72,7 +70,7 @@ const canadaData: CountryPageData = {
     },
   ],
   intakes: {
-    title: "Academic Intakes in the Canada",
+    title: "Academic Intakes in Canada",
     intro: "Canada offers multiple academic intakes each year, giving international students flexibility to choose the best time to begin their studies.",
     items: [
       { name: "Fall Intake (September)", details: [] },

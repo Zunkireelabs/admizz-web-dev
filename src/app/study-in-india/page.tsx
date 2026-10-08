@@ -42,7 +42,7 @@ const indiaData: CountryPageData = {
   ],
   whyStudyTitle: "Why Study in India?",
   whyStudyIntro:
-    "Study in India for globally recognised education, affordable fees, diverse culture, advanced universities, English-taught programs, and excellent career opportunities for international students.",
+    "Study in India for globally recognized education, affordable fees, diverse culture, advanced universities, English-taught programs, and excellent career opportunities for international students.",
   benefits: [
     { title: "Global Recognition", icon: "/images/icons/school-1.webp", description: "Degrees from top Indian universities are valued worldwide for strong academic standards." },
     { title: "Affordable Education", icon: "/images/icons/scholarship-108.webp", description: "Tuition fees and living costs are low compared to major study destinations." },
@@ -141,7 +141,7 @@ const indiaData: CountryPageData = {
     { title: "Complete Online Visa Application", description: "Fill out the online student visa application form with accurate details." },
     { title: "Pay Visa Fees", description: "Complete the required visa fee payment through the designated payment channels." },
     { title: "Schedule Appointment", description: "Book your visa appointment at the nearest Indian Embassy or Consulate." },
-    { title: "Submit Documents & Biometrics", description: "Visit the visa centre to submit your documents and provide biometric data." },
+    { title: "Submit Documents & Biometrics", description: "Visit the visa center to submit your documents and provide biometric data." },
     { title: "Visa Processing", description: "Wait for the visa authorities to review and process your application." },
     { title: "Visa Approval", description: "Receive your visa approval and collect your passport with the student visa stamp." },
     { title: "Travel to India", description: "Book your flights and travel to India before your program start date." },
@@ -149,8 +149,8 @@ const indiaData: CountryPageData = {
     { title: "FRRO/FRO Registration", description: "Register with the Foreigners Regional Registration Office (FRRO) or Foreigners Registration Office (FRO) within 14 days of arrival." },
   ],
   faqItems: [
-    { question: "Why should I study in India?", answer: "India offers globally recognised education, affordable fees, diverse culture, English-taught programs, advanced universities, and excellent career opportunities for international students." },
-    { question: "What are the top universities in India?", answer: "India is home to top institutions including IITs, IIMs, AIIMS, Delhi University, JNU, and many other nationally and internationally recognised universities." },
+    { question: "Why should I study in India?", answer: "India offers globally recognized education, affordable fees, diverse culture, English-taught programs, advanced universities, and excellent career opportunities for international students." },
+    { question: "What are the top universities in India?", answer: "India is home to top institutions including IITs, IIMs, AIIMS, Delhi University, JNU, and many other nationally and internationally recognized universities." },
     { question: "How can I apply to study in India?", answer: "You can apply through university portals or through Admizz Education, which guides you through course selection, documentation, and the complete admission process." },
     { question: "What documents are required for a student visa to India?", answer: "You need a valid passport, admission letter, financial proof, visa application form, passport-sized photographs, academic documents, and English proficiency proof." },
     { question: "How long does it take to get an Indian student visa?", answer: "The Indian student visa process typically takes 2 to 4 weeks, depending on the applicant's country and completeness of documentation." },

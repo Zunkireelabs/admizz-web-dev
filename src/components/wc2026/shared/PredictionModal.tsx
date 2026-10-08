@@ -408,7 +408,7 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
             </div>
             <h3 className="wc-modal-success-title">Locked In</h3>
             <p className="wc-modal-success-text">
-              Your prediction is recorded and your free counselling slot is reserved. The Admizz team will reach out shortly.
+              Your prediction is recorded and your free counseling slot is reserved. The Admizz team will reach out shortly.
             </p>
             {onPredictNext && (
               <button
@@ -473,7 +473,7 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
                 Use different details
               </button>
               <p className="wc-form-note">
-                Recorded against your existing Admizz lead — your counsellor will know it&apos;s you.
+                Recorded against your existing Admizz lead — your counselor will know it&apos;s you.
               </p>
             </div>
           </>
@@ -501,7 +501,7 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
             <div className="wc-modal-body">
               {choiceSwap}
               <p className="wc-modal-intro">
-                Drop your details to lock in your prediction. Every entry includes a free Admizz counselling session — no purchase, no obligation.
+                Drop your details to lock in your prediction. Every entry includes a free Admizz counseling session — no purchase, no obligation.
               </p>
               {submitError && (
                 <p className="wc-modal-error" role="alert">{submitError}</p>
@@ -672,7 +672,7 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
                   {submitting ? "Locking in…" : "Lock in my prediction"}
                 </button>
                 <p className="wc-form-note">
-                  Unlock a free test-prep consultation and study-abroad counselling session with Admizz Education.
+                  Unlock a free test-prep consultation and study-abroad counseling session with Admizz Education.
                 </p>
               </form>
             </div>

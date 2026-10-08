@@ -125,7 +125,7 @@ export default async function BlogsPage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold" style={{ color: "#0D1282" }}>Expert Team</p>
-                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years experience</p>
+                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years of experience</p>
                   </div>
                 </div>
               </div>

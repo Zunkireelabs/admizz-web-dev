@@ -7,11 +7,11 @@ const post = {
   "sections": [
     {
       "heading": "The two routes",
-      "body": "**Applying yourself:** you choose the course, apply through the university or a national system, collect your documents and submit the visa application. For UK undergraduate courses you usually apply through UCAS, and for most postgraduate courses you usually apply to the university directly.\n\n**Using a consultancy:** an adviser helps you shortlist courses, prepare your applications and documents, and get ready for the visa. You remain the applicant, and you should still see and approve everything that is submitted."
+      "body": "**Applying yourself:** you choose the course, apply through the university or a national system, collect your documents and submit the visa application. For UK undergraduate courses you usually apply through UCAS, and for most postgraduate courses you usually apply to the university directly.\n\n**Using a consultancy:** an advisor helps you shortlist courses, prepare your applications and documents, and get ready for the visa. You remain the applicant, and you should still see and approve everything that is submitted."
     },
     {
       "heading": "Side-by-side comparison",
-      "body": "- **Cost:** applying yourself costs only the application and visa fees. A consultancy may charge a service fee, so ask for it in writing.\n- **Control:** applying yourself gives you full control. With a consultancy, keep your own login and read every form.\n- **Time and effort:** applying yourself takes more reading and checking. A consultancy can organise the process for you.\n- **Accuracy:** official rules are public either way. For example, GOV.UK sets the UK living-cost funds at £1,171 a month outside London and £1,529 in London (rising to £1,203 and £1,570 for applications from 30 November 2026), held for 28 days in a row. A consultancy can check you have met rules like this before you apply.\n- **Advice:** a consultancy can compare countries and courses. Check whether it represents only some universities."
+      "body": "- **Cost:** applying yourself costs only the application and visa fees. A consultancy may charge a service fee, so ask for it in writing.\n- **Control:** applying yourself gives you full control. With a consultancy, keep your own login and read every form.\n- **Time and effort:** applying yourself takes more reading and checking. A consultancy can organize the process for you.\n- **Accuracy:** official rules are public either way. For example, GOV.UK sets the UK living-cost funds at £1,171 a month outside London and £1,529 in London (rising to £1,203 and £1,570 for applications from November 30, 2026), held for 28 days in a row. A consultancy can check you have met rules like this before you apply.\n- **Advice:** a consultancy can compare countries and courses. Check whether it represents only some universities."
     },
     {
       "heading": "What you need to get right either way",
@@ -23,7 +23,7 @@ const post = {
     },
     {
       "heading": "If you use a consultancy",
-      "body": "Check the adviser before you pay. Ask for fees in writing, which universities they represent, and how they handle refusals. For UK study, ask about training: UK-knowledge-trained counsellors receive a certificate and digital badge under the British Council's Agent Quality Framework, according to [UCAS](https://www.ucas.com/international/international-advisers/supporting-international-students/the-uk-agent-quality-framework-aqf). Our [checklist for choosing a genuine consultancy](/how-to-choose-genuine-education-consultancy-nepal-2026) has ten questions to ask, and our guide to [what visa consultants can and cannot do](/how-student-visa-consultants-help-you-get-approved-faster) explains what to expect."
+      "body": "Check the advisor before you pay. Ask for fees in writing, which universities they represent, and how they handle refusals. For UK study, ask about training: UK-knowledge-trained counselors receive a certificate and digital badge under the British Council's Agent Quality Framework, according to [UCAS](https://www.ucas.com/international/international-advisers/supporting-international-students/the-uk-agent-quality-framework-aqf). Our [checklist for choosing a genuine consultancy](/how-to-choose-genuine-education-consultancy-nepal-2026) has ten questions to ask, and our guide to [what visa consultants can and cannot do](/how-student-visa-consultants-help-you-get-approved-faster) explains what to expect."
     },
     {
       "heading": "Our advice",
@@ -55,7 +55,7 @@ const post = {
     },
     {
       "label": "Use a consultancy",
-      "value": "More support, a fee, check the adviser"
+      "value": "More support, a fee, check the advisor"
     },
     {
       "label": "Visa rules",
@@ -80,7 +80,7 @@ const post = {
     },
     {
       "question": "What should I check before paying a consultancy?",
-      "answer": "Ask for fees in writing, which universities they represent, how they handle refusals and what training their counsellors have. Never accept a guaranteed visa."
+      "answer": "Ask for fees in writing, which universities they represent, how they handle refusals and what training their counselors have. Never accept a guaranteed visa."
     },
     {
       "question": "What documents do I always need for a UK student visa?",

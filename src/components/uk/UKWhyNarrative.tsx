@@ -20,7 +20,7 @@ const BEATS: Beat[] = [
     eyebrow: "Half the time, half the cost",
     claim: "1-year Master's.",
     support:
-      "UK Master's programmes run for just 12 months — that's half the duration of US or Australian equivalents, and a year of saved tuition + living costs.",
+      "UK Master's programs run for just 12 months — that's half the duration of US or Australian equivalents, and a year of saved tuition + living costs.",
     gradient: "linear-gradient(135deg, #002147 0%, #001633 100%)",
     accent: "#E5A969",
   },
@@ -28,7 +28,7 @@ const BEATS: Beat[] = [
     eyebrow: "Stay. Work. Settle.",
     claim: "Graduate Route visa.",
     support:
-      "After graduating, the UK gives you a Graduate Route work visa (18 months for applications from 1 January 2027) with no sponsor needed — full freedom to find a job, build experience, and convert to a Skilled Worker Visa.",
+      "After graduating, the UK gives you a Graduate Route work visa (18 months for applications from January 1, 2027) with no sponsor needed — full freedom to find a job, build experience, and convert to a Skilled Worker Visa.",
     gradient: "linear-gradient(135deg, #1F4332 0%, #0E2A1E 100%)",
     accent: "#E5A969",
   },
@@ -359,7 +359,7 @@ function TimeBars({ active, accent }: { active: boolean; accent: string }) {
         ))}
       </div>
       <p className="text-[11px] mt-5 opacity-75 leading-relaxed">
-        A UK Master's saves a full year of tuition and living costs — roughly £15,000–£25,000 versus US programmes.
+        A UK Master's saves a full year of tuition and living costs — roughly £15,000–£25,000 versus US programs.
       </p>
     </div>
   );

@@ -39,13 +39,13 @@ export default function GeneratedTranslation({ title, content }: GeneratedTransl
 
           <aside className="hidden lg:block w-[472px] shrink-0">
             <div className="sticky top-[90px]">
-              <CTAForm title="Talk to Counselor Today" colorScheme="light" formSource="translation" />
+              <CTAForm title="Book a Free Counseling Session" colorScheme="light" formSource="translation" />
             </div>
           </aside>
         </div>
 
         <div className="lg:hidden mt-10 max-w-xl mx-auto">
-          <CTAForm title="Talk to Counselor Today" colorScheme="light" formSource="translation" />
+          <CTAForm title="Book a Free Counseling Session" colorScheme="light" formSource="translation" />
         </div>
       </article>
     </main>

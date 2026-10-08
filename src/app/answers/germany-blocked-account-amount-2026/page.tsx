@@ -7,11 +7,15 @@ const post = {
   "sections": [
     {
       "heading": "The details",
-      "body": "- **Per year:** €11,904\n- **Per month:** €992\n- **Release:** monthly, after you arrive and activate the account\n- **Alternatives:** a recognised scholarship letter, or a formal declaration of commitment. The embassy decides what it accepts.\n\nRead the full [Germany blocked account guide](/germany-blocked-account-2026-nepali-students)."
+      "body": "- **Per year:** €11,904\n- **Per month:** €992\n- **Release:** monthly, after you arrive and activate the account\n- **Alternatives:** a recognized scholarship letter, or a formal declaration of commitment. The embassy decides what it accepts.\n\nRead the full [Germany blocked account guide](/germany-blocked-account-2026-nepali-students)."
+    },
+    {
+      "heading": "Related guides",
+      "body": "- [Germany blocked account 2026 for Nepali students](/germany-blocked-account-2026-nepali-students)\n- [Study abroad from Nepal: the checklist](/study-abroad-from-nepal)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-consultancy-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
     },
     {
       "heading": "Sources",
-      "body": "- [Study-Abroad.org: Germany Sperrkonto guide 2026](https://www.study-abroad.org/blog/germany-sperrkonto-guide/)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counselling team](/register)."
+      "body": "- [Study-Abroad.org: Germany Sperrkonto guide 2026](https://www.study-abroad.org/blog/germany-sperrkonto-guide/)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counseling team](/register)."
     }
   ],
   "featuredImage": {
@@ -35,7 +39,7 @@ const post = {
   "publishedAt": "2026-10-05T00:00:00.000Z",
   "updatedAt": "2026-10-05T00:00:00.000Z",
   "description": "The 2026 German blocked account amount is €11,904 a year, which is €992 a month, released monthly after you arrive.",
-  "quickAnswer": "For a German student visa in 2026, proof of funds is €11,904 for the year, which is €992 per month. Most students deposit this in a blocked account (Sperrkonto), which releases €992 a month after arrival. A recognised scholarship or a formal guarantee from a person in Germany can sometimes replace it.",
+  "quickAnswer": "For a German student visa in 2026, proof of funds is €11,904 for the year, which is €992 per month. Most students deposit this in a blocked account (Sperrkonto), which releases €992 a month after arrival. A recognized scholarship or a formal guarantee from a person in Germany can sometimes replace it.",
   "faqItems": [
     {
       "question": "What is a Sperrkonto?",
@@ -43,7 +47,7 @@ const post = {
     },
     {
       "question": "Can a scholarship replace the blocked account?",
-      "answer": "Sometimes. A confirmation letter from a recognised scholarship that covers your living costs can replace it, but the embassy decides."
+      "answer": "Sometimes. A confirmation letter from a recognized scholarship that covers your living costs can replace it, but the embassy decides."
     }
   ],
   "path": "/answers/germany-blocked-account-amount-2026"

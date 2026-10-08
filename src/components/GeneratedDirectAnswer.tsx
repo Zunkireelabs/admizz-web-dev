@@ -86,13 +86,13 @@ export default function GeneratedDirectAnswer({
 
           <aside className="hidden lg:block w-[472px] shrink-0">
             <div className="sticky top-[90px]">
-              <CTAForm title="Talk to Counselor Today" colorScheme="light" formSource="direct-answer" />
+              <CTAForm title="Book a Free Counseling Session" colorScheme="light" formSource="direct-answer" />
             </div>
           </aside>
         </div>
 
         <div className="lg:hidden mt-10 max-w-xl mx-auto">
-          <CTAForm title="Talk to Counselor Today" colorScheme="light" formSource="direct-answer" />
+          <CTAForm title="Book a Free Counseling Session" colorScheme="light" formSource="direct-answer" />
         </div>
       </article>
     </main>

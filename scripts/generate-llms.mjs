@@ -21,6 +21,8 @@ import { createClient } from "@sanity/client";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { readFileSync as __rf } from "node:fs";
+const RETIRED = JSON.parse(__rf(new URL("../src/data/retired-posts.json", import.meta.url), "utf8")).slugs;
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -36,7 +38,12 @@ const client = createClient({
 });
 
 // One line, no markdown-breaking characters.
-const oneLine = (s) => (s || "").replace(/\s+/g, " ").trim();
+// Same style rule as src/lib/sanity-text.ts: "Nepali" in visible text (URLs keep their slug).
+const oneLine = (s) =>
+  (s || "")
+    .replace(/\s+/g, " ")
+    .replace(/(?<![\w/@#.$\-])Nepalese(?![\w\-])/g, "Nepali")
+    .trim();
 
 function postLine(p) {
   const title = oneLine(p.seo?.metaTitle || p.title);
@@ -96,10 +103,15 @@ async function main() {
   const llmsPath = path.join(ROOT, "public", "llms.txt");
   const existing = fs.readFileSync(llmsPath, "utf-8");
   const idx = existing.indexOf(KEY_PAGES_HEADING);
-  const head = (idx === -1 ? existing : existing.slice(0, idx)).trimEnd();
+  const facts = JSON.parse(fs.readFileSync(path.join(ROOT, "src", "data", "site-facts.json"), "utf-8"));
+  const r = facts.googleRating;
+  const head = (idx === -1 ? existing : existing.slice(0, idx))
+    .trimEnd()
+    // The rating is typed once in src/data/site-facts.json; keep the prose in sync.
+    .replace(/rated [\d.]+ from \d+ Google reviews \(as of [^)]+\)/, `rated ${r.value} from ${r.count} Google reviews (as of ${r.asOf})`);
 
   const sanityPosts = await client.fetch(
-    `*[_type == "post" && defined(slug.current)] | order(coalesce(_updatedAt, publishedAt) desc) {
+    `*[_type == "post" && defined(slug.current) && !(slug.current in ${JSON.stringify(RETIRED)})] | order(coalesce(_updatedAt, publishedAt) desc) {
       "slug": slug.current, title, excerpt, publishedAt, _updatedAt, seo
     }`
   );

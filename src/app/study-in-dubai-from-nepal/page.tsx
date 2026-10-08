@@ -32,7 +32,7 @@ const pageData: NepalVariantData = {
 
   introTitle: "The New Hub for Global Education",
   introContent:
-    "Dubai has emerged as a premier education destination, hosting top-ranked international branch campuses from the UK, USA, and Australia. These institutions provide flexible programs, industry-driven curricula, and practical learning experiences spanning business, engineering, IT, healthcare, and hospitality. Studying in Dubai ensures academic freedom, innovation, and hands-on exposure aligned with global career demands. The city's multicultural environment, modern infrastructure, and strong industry connections make it ideal for Nepalese students. At Admizz Education, we assist you at every step — from university selection, scholarship guidance, and English test preparation to application support, visa documentation, and pre-departure counseling.",
+    "Dubai has emerged as a premier education destination, hosting top-ranked international branch campuses from the UK, USA, and Australia. These institutions provide flexible programs, industry-driven curricula, and practical learning experiences spanning business, engineering, IT, healthcare, and hospitality. Studying in Dubai ensures academic freedom, innovation, and hands-on exposure aligned with global career demands. The city's multicultural environment, modern infrastructure, and strong industry connections make it ideal for Nepali students. At Admizz Education, we assist you at every step — from university selection, scholarship guidance, and English test preparation to application support, visa documentation, and pre-departure counseling.",
 
   whyStudyTitle: "Why Study in Dubai?",
   benefits: [
@@ -133,7 +133,7 @@ const pageData: NepalVariantData = {
     },
   ],
 
-  intakesTitle: "Dubai Intakes for Nepalese Students",
+  intakesTitle: "Dubai Intakes for Nepali Students",
   intakes: [
     {
       intake: "Fall Intake",
@@ -275,7 +275,7 @@ const pageData: NepalVariantData = {
   costNote:
     "Additional Costs: Airfare (One-way Nepal to Dubai): NPR 40,000 – 60,000 | Books & Supplies: AED 1,000 – 2,000 per year | Entrance Exams (IELTS/TOEFL): NPR 20,000 – 25,000",
 
-  scholarshipsTitle: "Scholarships for Nepalese Students",
+  scholarshipsTitle: "Scholarships for Nepali Students",
   scholarships: [
     {
       name: "Academic Merit Scholarship",
@@ -374,9 +374,9 @@ const pageData: NepalVariantData = {
         "Tuition ranges from AED 30,000 to AED 100,000 per year, and living expenses can range between AED 2,500 – 5,000 per month.",
     },
     {
-      question: "Are there scholarships available for Nepalese students?",
+      question: "Are there scholarships available for Nepali students?",
       answer:
-        "Yes, many universities offer merit-based, need-based, and sports/talent scholarships to Nepalese students. Some also provide early-bird discounts and sibling/alumni waivers.",
+        "Yes, many universities offer merit-based, need-based, and sports/talent scholarships to Nepali students. Some also provide early-bird discounts and sibling/alumni waivers.",
     },
     {
       question: "Can I work part-time while studying in Dubai?",
@@ -402,7 +402,7 @@ const pageData: NepalVariantData = {
 
   ctaTitle: "Begin Your Journey to Study in Dubai from Nepal",
   ctaContent:
-    "Are you a student in Nepal dreaming of studying in a land of innovation, opportunity, and global exposure? Dubai is fast becoming a top destination for higher education — offering world-class universities, industry-focused programs, and an international learning environment. At Admizz Education, we support Nepalese students throughout the entire Dubai study process — from selecting the right university to scholarship guidance, visa support, and pre-departure preparation. We make your journey easy, personalized, and stress-free. Don't let uncertainty hold you back. Join the growing number of students from Nepal who are successfully building their futures in Dubai with Admizz by their side. Contact us today to book your free Dubai education consultation. Your journey to Dubai begins here — with Admizz.",
+    "Are you a student in Nepal dreaming of studying in a land of innovation, opportunity, and global exposure? Dubai is fast becoming a top destination for higher education — offering world-class universities, industry-focused programs, and an international learning environment. At Admizz Education, we support Nepali students throughout the entire Dubai study process — from selecting the right university to scholarship guidance, visa support, and pre-departure preparation. We make your journey easy, personalized, and stress-free. Don't let uncertainty hold you back. Join the growing number of students from Nepal who are successfully building their futures in Dubai with Admizz by their side. Contact us today to book your free Dubai education consultation. Your journey to Dubai begins here — with Admizz.",
 };
 
 export default async function StudyInDubaiFromNepalPage() {

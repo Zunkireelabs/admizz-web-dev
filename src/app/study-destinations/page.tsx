@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "8,000+", label: "Students" },
+  { value: "2,000+", label: "Students" },
   { value: "95%", label: "Visa Approval Rate" },
   { value: "$2M+", label: "Scholarships" },
 ];
@@ -62,7 +62,7 @@ const destinations = [
   {
     name: "Study in Nepal",
     description:
-      "Affordable, English-medium programs at recognised universities — with the Himalayas as your campus backdrop.",
+      "Affordable, English-medium programs at recognized universities — with the Himalayas as your campus backdrop.",
     href: "/study-in-nepal",
   },
   {
@@ -100,17 +100,17 @@ const faqItems: FAQItem[] = [
   {
     question: "How many students has Admizz Education helped choose a destination?",
     answer:
-      "Admizz Education has worked with 8,000+ students, with a 95% visa approval rate and over $2M in scholarships secured for students across these destinations.",
+      "Admizz Education has worked with 2,000+ students, with a 95% visa approval rate and over $2M in scholarships secured for students across these destinations.",
   },
   {
     question: "What support is included when I'm deciding on a study destination?",
     answer:
-      "Every student gets personalised counselling to match their academic goals and budget with the right country, plus university admissions support and complete visa assistance — all handled by Admizz Education.",
+      "Every student gets personalized counseling to match their academic goals and budget with the right country, plus university admissions support and complete visa assistance — all handled by Admizz Education.",
   },
   {
     question: "Which destinations are known for more affordable study options?",
     answer:
-      "Among Admizz Education's destinations, Canada, India, and Nepal are highlighted for affordable education — Canada for affordable tuition alongside multicultural communities and residency pathways, India for affordable options in a culturally diverse environment, and Nepal for affordable, English-medium programs at recognised universities.",
+      "Among Admizz Education's destinations, Canada, India, and Nepal are highlighted for affordable education — Canada for affordable tuition alongside multicultural communities and residency pathways, India for affordable options in a culturally diverse environment, and Nepal for affordable, English-medium programs at recognized universities.",
   },
 ];
 
@@ -144,7 +144,7 @@ export default function StudyDestinationsPage() {
           <p className="text-[15px] text-gray-dark leading-relaxed">
             Admizz Education helps you discover the best study abroad
             destinations aligned with your academic goals and budget. Get
-            personalised counselling, university admissions support, and
+            personalized counseling, university admissions support, and
             complete visa assistance&mdash;all under one roof.
           </p>
 
@@ -175,7 +175,7 @@ export default function StudyDestinationsPage() {
             career opportunities, lifestyle, and long-term prospects. At Admizz
             Education, we help students explore and select the best study abroad
             destinations based on their academic goals, budget, and future
-            aspirations. With expert counselling and end-to-end support, we make
+            aspirations. With expert counseling and end-to-end support, we make
             your international education journey simple, transparent, and
             successful.
           </p>
@@ -225,8 +225,8 @@ export default function StudyDestinationsPage() {
             Still deciding? Talk to Our Study Abroad Experts
           </h2>
           <p className="text-[15px] text-gray-dark mb-8">
-            Choose your ideal destination with personalised guidance from our
-            experienced counsellors.
+            Choose your ideal destination with personalized guidance from our
+            experienced counselors.
           </p>
           <Link
             href="/register"

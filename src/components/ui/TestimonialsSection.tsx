@@ -32,7 +32,7 @@ const testimonials = [
     originFlag: "np",
     destFlag: "gb",
     route: "Nepal -> UK",
-    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application visa process was smooth and stress-free.",
+    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application and visa process was smooth and stress-free.",
     rating: 5,
   },
 ];

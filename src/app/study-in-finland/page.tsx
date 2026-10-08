@@ -29,7 +29,7 @@ const finlandData: CountryPageData = {
   heroHeading: "STUDY IN FINLAND",
   heroSubheading: "World-Class Education in the Happiest Country on Earth",
   heroDescription:
-    "Finland is globally renowned for its innovative, research-driven education system, tuition-free degree programmes at public universities for EU/EEA students, and affordable options for non-EU students. With a safe, inclusive society, stunning natural landscapes, and strong post-study career prospects, Finland is an ideal destination for international students. Admizz Education guides you through every step — from university selection and applications to visa support and pre-departure preparation.",
+    "Finland is globally renowned for its innovative, research-driven education system, tuition-free degree programs at public universities for EU/EEA students, and affordable options for non-EU students. With a safe, inclusive society, stunning natural landscapes, and strong post-study career prospects, Finland is an ideal destination for international students. Admizz Education guides you through every step — from university selection and applications to visa support and pre-departure preparation.",
   heroBackground: "/images/destinations/finland1.webp",
   quickFacts: [
     { label: "Capital", value: "Helsinki" },
@@ -43,7 +43,7 @@ const finlandData: CountryPageData = {
   ],
   whyStudyTitle: "Why Study In Finland?",
   whyStudyIntro:
-    "Finland consistently ranks among the top countries for education quality, innovation, and quality of life. Its universities offer cutting-edge research, practical learning, and globally recognised degrees in a safe and welcoming environment.",
+    "Finland consistently ranks among the top countries for education quality, innovation, and quality of life. Its universities offer cutting-edge research, practical learning, and globally recognized degrees in a safe and welcoming environment.",
   benefits: [
     {
       title: "Top-Ranked Education System",
@@ -76,10 +76,10 @@ const finlandData: CountryPageData = {
         "Home to Nokia, Supercell, and a thriving startup ecosystem, Finland connects education with industry.",
     },
     {
-      title: "English-Taught Programmes",
+      title: "English-Taught Programs",
       icon: "/images/icons/accomodation-108.webp",
       description:
-        "Over 500 degree programmes are taught entirely in English across Finnish universities and UAS institutions.",
+        "Over 500 degree programs are taught entirely in English across Finnish universities and UAS institutions.",
     },
   ],
   admissionTitle: "Admission Requirements for Studying in Finland",
@@ -98,7 +98,7 @@ const finlandData: CountryPageData = {
         "University Application Form (via Studyinfo.fi)",
         "CV / Resume",
         "Letters of Recommendation (if required)",
-        "Portfolio (for design/architecture programmes)",
+        "Portfolio (for design/architecture programs)",
       ],
     },
     {
@@ -136,23 +136,23 @@ const finlandData: CountryPageData = {
   intakes: {
     title: "Main Academic Intakes in Finland",
     intro:
-      "Finnish universities primarily follow an autumn-based academic calendar, with most programmes starting in September.",
+      "Finnish universities primarily follow an autumn-based academic calendar, with most programs starting in September.",
     items: [
       { name: "Autumn Intake (September – Primary Intake)", details: [] },
-      { name: "Spring Intake (January – Limited Programmes)", details: [] },
+      { name: "Spring Intake (January – Limited Programs)", details: [] },
     ],
   },
   universities: [
-    { name: "Haaga-Helia University of Applied Science", logo: "/images/universities/finland/haaga-helia.webp" },
+    { name: "Haaga-Helia University of Applied Sciences", logo: "/images/universities/finland/haaga-helia.webp" },
     { name: "South-Eastern Finland University of Applied Science", logo: "/images/universities/finland/south-eastern-finland.webp" },
-    { name: "Lab University of Applied Science", logo: "/images/universities/finland/lab-university.webp" },
+    { name: "LAB University of Applied Sciences", logo: "/images/universities/finland/lab-university.webp" },
     { name: "Satakunta University of Applied Science", logo: "/images/universities/finland/satakunta-university.webp" },
     { name: "Vaasa University of Applied Science", logo: "/images/universities/finland/vaasa-university.webp" },
     { name: "Karelia University of Applied Science", logo: "/images/universities/finland/karelia-university.webp" },
   ],
   costTitle: "Cost of Studying in Finland",
   costIntro:
-    "Finland offers competitive tuition fees for non-EU/EEA students, with many universities providing generous scholarship programmes.",
+    "Finland offers competitive tuition fees for non-EU/EEA students, with many universities providing generous scholarship programs.",
   costTable: [
     { program: "Undergraduate Tuition Fees", fee: "€4,000 – €12,000 per year" },
     { program: "Postgraduate Tuition Fees", fee: "€6,000 – €18,000 per year" },
@@ -173,7 +173,7 @@ const finlandData: CountryPageData = {
     { title: "Create Enter Finland Account", description: "Register on the Enter Finland portal to begin your residence permit application." },
     { title: "Submit Online Application", description: "Complete the residence permit form and upload all required documents through the portal." },
     { title: "Pay Application Fee", description: "Pay the student residence permit fee of €350 online through the Enter Finland portal." },
-    { title: "Visit Finnish Embassy / VFS", description: "Book an appointment to verify your identity and submit biometrics at your nearest embassy or VFS centre." },
+    { title: "Visit Finnish Embassy / VFS", description: "Book an appointment to verify your identity and submit biometrics at your nearest embassy or VFS center." },
     { title: "Await Processing", description: "Processing typically takes 30–90 days. Track your application status through Enter Finland." },
     { title: "Receive Residence Permit Card", description: "Upon approval, collect your residence permit card from the embassy or have it mailed." },
     { title: "Register in Finland", description: "After arrival, register your address at the local Digital and Population Data Services Agency (DVV)." },
@@ -184,12 +184,12 @@ const finlandData: CountryPageData = {
     { question: "Is studying in Finland free?", answer: "For EU/EEA students, tuition is free at public universities. Non-EU/EEA students pay €4,000–€18,000 per year, but generous scholarships are widely available." },
     { question: "What are the minimum requirements to study in Finland?", answer: "Students need completed secondary education (12th grade), English proficiency scores (IELTS 6.0–6.5 or equivalent), a valid passport, and financial proof of €6,720 per year." },
     { question: "How much does it cost to live in Finland as a student?", answer: "Living costs range from €700–€1,200 per month depending on the city. Helsinki is the most expensive, while Tampere, Turku, and Oulu are more affordable." },
-    { question: "What is the English proficiency requirement for Finnish universities?", answer: "Most programmes require IELTS 6.0–6.5, TOEFL iBT 79–92, or PTE 54–62, though requirements vary by university and programme." },
+    { question: "What is the English proficiency requirement for Finnish universities?", answer: "Most programs require IELTS 6.0–6.5, TOEFL iBT 79–92, or PTE 54–62, though requirements vary by university and program." },
     { question: "How long does the Finland residence permit process take?", answer: "The student residence permit typically takes 30–90 days to process after submitting your application through the Enter Finland portal." },
     { question: "Can international students work while studying in Finland?", answer: "Yes. Students can work up to 25 hours per week during term time and full-time during holidays without needing a separate work permit." },
     { question: "What is the post-study work visa in Finland?", answer: "Graduates receive an extended residence permit of up to two years to search for employment in Finland after completing their degree." },
-    { question: "When should I apply to Finnish universities?", answer: "The main application period for autumn intake runs from January to March via Studyinfo.fi. Some programmes have a second round in March–April." },
-    { question: "How can Admizz Education help with studying in Finland?", answer: "Admizz provides personalised university selection, application support, SOP assistance, scholarship guidance, residence permit documentation, and complete pre-departure services for Finland." },
+    { question: "When should I apply to Finnish universities?", answer: "The main application period for autumn intake runs from January to March via Studyinfo.fi. Some programs have a second round in March–April." },
+    { question: "How can Admizz Education help with studying in Finland?", answer: "Admizz provides personalized university selection, application support, SOP assistance, scholarship guidance, residence permit documentation, and complete pre-departure services for Finland." },
   ],
 };
 

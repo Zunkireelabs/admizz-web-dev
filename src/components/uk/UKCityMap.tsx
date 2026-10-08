@@ -117,7 +117,7 @@ const CITIES: City[] = [
     climate: "Cool · Wet · Mild winters",
     flightHours: "11h via London",
     blurb:
-      "Scotland's largest city. Russell Group university, strong engineering and medical schools, vibrant arts scene, and noticeably cheaper than Edinburgh or London. A favourite for STEM students.",
+      "Scotland's largest city. Russell Group university, strong engineering and medical schools, vibrant arts scene, and noticeably cheaper than Edinburgh or London. A favorite for STEM students.",
   },
 ];
 

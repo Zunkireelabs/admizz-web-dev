@@ -9,6 +9,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import AffiliateRefCapture from "@/components/AffiliateRefCapture";
 import UtmAttributionCapture from "@/components/UtmAttributionCapture";
 import AuthTokenCatcher from "@/components/AuthTokenCatcher";
+import siteFacts from "@/data/site-facts.json";
 
 const montserrat = localFont({
   src: "../../node_modules/@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2",
@@ -75,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${rubik.variable} ${openSans.variable} ${playfair.variable}`}>
+    <html lang="en-US" className={`${montserrat.variable} ${rubik.variable} ${openSans.variable} ${playfair.variable}`}>
       <head>
         {/* SEOAI:HEAD:START */}{/* SEOAI:HEAD:END */}
         <link rel="preconnect" href="https://cdn.sanity.io" />
@@ -96,6 +97,9 @@ export default function RootLayout({
               description:
                 "Admizz Education helps students explore top study abroad destinations, apply to global universities, and prepare for success.",
               foundingDate: "2015",
+              areaServed: { "@type": "Country", name: "Nepal" },
+              memberOf: { "@type": "Organization", name: siteFacts.accreditation },
+              slogan: "Study abroad guidance from Nepal",
               founder: {
                 "@type": "Person",
                 "@id": "https://admizzeducation.com/about#founder",
@@ -104,7 +108,7 @@ export default function RootLayout({
                 url: "https://admizzeducation.com/about",
               },
               knowsAbout: [
-                "Study abroad counselling",
+                "Study abroad counseling",
                 "University admissions",
                 "Student visa assistance",
                 "Scholarship assistance",
@@ -179,6 +183,13 @@ export default function RootLayout({
                   url: "https://admizzeducation.com/education-consultancy-in-kathmandu",
                   telephone: "+977-9802728444",
                   email: "hello@admizz.com",
+                  areaServed: { "@type": "Country", name: "Nepal" },
+                  aggregateRating: {
+                    "@type": "AggregateRating",
+                    ratingValue: siteFacts.googleRating.value,
+                    reviewCount: siteFacts.googleRating.count,
+                    bestRating: 5,
+                  },
                   parentOrganization: { "@id": "https://admizzeducation.com/#organization" },
                   address: {
                     "@type": "PostalAddress",

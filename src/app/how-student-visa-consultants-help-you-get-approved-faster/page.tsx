@@ -7,7 +7,7 @@ const post = {
   "sections": [
     {
       "heading": "What a student visa consultant does",
-      "body": "A good consultant works with you at each stage of the visa process:\n\n- **Profile assessment:** looks at your marks, finances and plans, and suggests realistic courses and countries.\n- **Document checks:** makes sure your documents are complete, consistent and in the right format. For the UK, GOV.UK says you must always provide a passport and a Confirmation of Acceptance for Studies (CAS), and you may need financial evidence, a TB test certificate and an ATAS certificate.\n- **Financial evidence:** checks that your funds meet the rules, including the 28-day rule, before you apply.\n- **Interview preparation:** helps you practise answers so you can explain your plans clearly.\n- **Country updates:** explains rule changes that affect your plan."
+      "body": "A good consultant works with you at each stage of the visa process:\n\n- **Profile assessment:** looks at your marks, finances and plans, and suggests realistic courses and countries.\n- **Document checks:** makes sure your documents are complete, consistent and in the right format. For the UK, GOV.UK says you must always provide a passport and a Confirmation of Acceptance for Studies (CAS), and you may need financial evidence, a TB test certificate and an ATAS certificate.\n- **Financial evidence:** checks that your funds meet the rules, including the 28-day rule, before you apply.\n- **Interview preparation:** helps you practice answers so you can explain your plans clearly.\n- **Country updates:** explains rule changes that affect your plan."
     },
     {
       "heading": "Where consultants help most",
@@ -15,11 +15,11 @@ const post = {
     },
     {
       "heading": "What no consultant can do",
-      "body": "Only the immigration authority decides a visa. No consultant can promise approval or a faster decision. GOV.UK, for example, says you will usually get a UK Student visa decision within 3 weeks if you are outside the UK, and that timing does not depend on who prepares your file.\n\nBe careful of any adviser who:\n\n- promises a guaranteed visa or scholarship\n- asks you to use documents that are not yours or not true\n- writes your statement of purpose without your input\n- will not explain how they are paid"
+      "body": "Only the immigration authority decides a visa. No consultant can promise approval or a faster decision. GOV.UK, for example, says you will usually get a UK Student visa decision within 3 weeks if you are outside the UK, and that timing does not depend on who prepares your file.\n\nBe careful of any advisor who:\n\n- promises a guaranteed visa or scholarship\n- asks you to use documents that are not yours or not true\n- writes your statement of purpose without your input\n- will not explain how they are paid"
     },
     {
       "heading": "How to get the most from a consultant",
-      "body": "1. **Keep your own login** for every application account.\n2. **Read every form** before it is submitted.\n3. **Ask for fees in writing**, and what is refundable.\n4. **Check official sources** for every fee, deadline and requirement. Our [UK student visa guide](/uk-student-visa-from-nepal) links each rule to GOV.UK.\n5. **Ask for the counsellor's training.** For UK study, UK-knowledge-trained counsellors receive a certificate and a digital badge under the British Council's Agent Quality Framework, and students can check a database of trained counsellors, according to [UCAS](https://www.ucas.com/international/international-advisers/supporting-international-students/the-uk-agent-quality-framework-aqf).\n\nFor a longer checklist, read [how to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)."
+      "body": "1. **Keep your own login** for every application account.\n2. **Read every form** before it is submitted.\n3. **Ask for fees in writing**, and what is refundable.\n4. **Check official sources** for every fee, deadline and requirement. Our [UK student visa guide](/uk-student-visa-from-nepal) links each rule to GOV.UK.\n5. **Ask for the counselor's training.** For UK study, UK-knowledge-trained counselors receive a certificate and a digital badge under the British Council's Agent Quality Framework, and students can check a database of trained counselors, according to [UCAS](https://www.ucas.com/international/international-advisers/supporting-international-students/the-uk-agent-quality-framework-aqf).\n\nFor a longer checklist, read [how to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)."
     },
     {
       "heading": "When you may not need a consultant",
@@ -68,11 +68,11 @@ const post = {
   ],
   "publishedAt": "2025-09-10T00:00:00.000Z",
   "description": "What a student visa consultant actually does: document checks, financial evidence and interview preparation, and what no consultant can promise.",
-  "quickAnswer": "A student visa consultant helps you choose a course, prepare your documents, organise your financial evidence and practise for an interview. A consultant cannot decide your visa or guarantee approval, because only the immigration authority does that. Use a consultant for checking and organising, keep control of your own application, and be careful of anyone who promises a guaranteed visa.",
+  "quickAnswer": "A student visa consultant helps you choose a course, prepare your documents, organize your financial evidence and practice for an interview. A consultant cannot decide your visa or guarantee approval, because only the immigration authority does that. Use a consultant for checking and organizing, keep control of your own application, and be careful of anyone who promises a guaranteed visa.",
   "faqItems": [
     {
       "question": "What does a student visa consultant do?",
-      "answer": "A consultant helps you choose a course, prepare and check documents, organise financial evidence and practise for an interview. You stay responsible for your own application."
+      "answer": "A consultant helps you choose a course, prepare and check documents, organize financial evidence and practice for an interview. You stay responsible for your own application."
     },
     {
       "question": "Can a consultant guarantee my student visa?",
@@ -83,8 +83,8 @@ const post = {
       "answer": "No. You can apply yourself using the official GOV.UK guidance. A consultant can help you check documents and funds before you apply."
     },
     {
-      "question": "How can I check a UK education counsellor is trained?",
-      "answer": "UK-knowledge-trained counsellors receive a certificate and a digital badge, and students can check a database of trained counsellors."
+      "question": "How can I check a UK education counselor is trained?",
+      "answer": "UK-knowledge-trained counselors receive a certificate and a digital badge, and students can check a database of trained counselors."
     }
   ],
   "path": "/how-student-visa-consultants-help-you-get-approved-faster"

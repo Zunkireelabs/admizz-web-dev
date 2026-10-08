@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const stats = [
   { value: "10+", label: "Years of Expertise" },
   { value: "12+", label: "Study Destinations" },
-  { value: "1000+", label: "Students Guided" },
+  { value: "2,000+", label: "Students Guided" },
   { value: "200+", label: "University Partners" },
 ];
 
@@ -90,7 +90,7 @@ const perks = [
 const testimonials = [
   {
     name: "Srijana Sharma",
-    role: "Senior Counsellor",
+    role: "Senior Counselor",
     tenure: "3 years at Admizz",
     quote:
       "Working at Admizz has been incredibly rewarding. Every student I help get into their dream university reminds me why I chose this career. The team feels like family.",
@@ -137,24 +137,24 @@ const hiringSteps = [
 const openPositions = [
   {
     id: "multi-destination-counsellor",
-    title: "Multi-Destination Counsellor",
+    title: "Multi-Destination Counselor",
     level: "Mid-level",
     location: "Kathmandu, Nepal",
     type: "Full-time",
     mode: "On-site",
     openings: 2,
     description:
-      "Conduct counselling sessions, support university applications, and collaborate with students and parents to guide them through their study abroad journey across multiple destinations.",
+      "Conduct counseling sessions, support university applications, and collaborate with students and parents to guide them through their study abroad journey across multiple destinations.",
     responsibilities: [
-      "Conduct one-on-one counselling sessions with prospective students",
+      "Conduct one-on-one counseling sessions with prospective students",
       "Guide students through university selection, application, and visa processes",
       "Stay updated on admission requirements for USA, UK, Australia, and Europe",
       "Collaborate with the marketing and operations team for student outreach",
       "Maintain accurate student records and follow up on application progress",
     ],
     requirements: [
-      "Bachelor's degree in Counselling, Education, or related field",
-      "Minimum 1 year of experience in study abroad counselling",
+      "Bachelor's degree in Counseling, Education, or a related field",
+      "Minimum 1 year of experience in study abroad counseling",
       "Knowledge of admissions processes for USA, UK, Australia, or Europe",
       "Excellent communication and interpersonal skills",
       "Fluency in English and Nepali",
@@ -185,23 +185,23 @@ const openPositions = [
   },
   {
     id: "tele-caller",
-    title: "Tele Caller",
+    title: "Telecaller",
     level: "Entry-level",
     location: "Kathmandu, Nepal",
     type: "Full-time",
     mode: "On-site",
     openings: 2,
     description:
-      "Make outbound calls to prospective students, qualify leads, and schedule counselling sessions to keep the admissions pipeline moving.",
+      "Make outbound calls to prospective students, qualify leads, and schedule counseling sessions to keep the admissions pipeline moving.",
     responsibilities: [
       "Call prospective students from marketing/lead lists and explain Admizz's services",
-      "Qualify leads and schedule counselling appointments",
+      "Qualify leads and schedule counseling appointments",
       "Follow up with students who haven't responded or completed their application steps",
       "Maintain accurate call logs and update lead status in the CRM",
-      "Coordinate with counsellors to hand off qualified leads smoothly",
+      "Coordinate with counselors to hand off qualified leads smoothly",
     ],
     requirements: [
-      "+2 education or bachelor's running/completed",
+      "+2 completed; bachelor's degree in progress or completed",
       "Prior tele-calling or customer service experience preferred",
       "Clear communication and confident phone manner",
       "Fluency in Nepali and English",
@@ -242,14 +242,14 @@ const openPositions = [
     description:
       "First point of contact for walk-in students and visitors — manage front office operations and route inquiries to the right team.",
     responsibilities: [
-      "Greet and assist walk-in students and parents, direct them to the right counsellor",
+      "Greet and assist walk-in students and parents, direct them to the right counselor",
       "Answer phone and email inquiries and route them appropriately",
       "Manage appointment scheduling and the office calendar",
       "Maintain visitor logs and front-office supplies and organization",
       "Support basic administrative tasks for the office",
     ],
     requirements: [
-      "+2 education or bachelor's running/completed",
+      "+2 completed; bachelor's degree in progress or completed",
       "Prior front desk or receptionist experience preferred",
       "Professional, welcoming demeanor",
       "Fluency in Nepali and English",
@@ -294,7 +294,7 @@ const openPositions = [
       "Compile and organize application packages for university and visa submissions",
       "Track document status and follow up with students on missing items",
       "Maintain accurate digital and physical records",
-      "Coordinate with counsellors and universities on documentation requirements",
+      "Coordinate with counselors and universities on documentation requirements",
     ],
     requirements: [
       "Bachelor's degree in any field",

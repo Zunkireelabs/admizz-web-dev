@@ -1,0 +1,21 @@
+{
+  "googleRating": {
+    "value": 4.9,
+    "count": 122,
+    "asOf": "October 2026",
+    "source": "Google reviews, Kathmandu office",
+    "note": "Single source for layout.tsx schema and llms.txt. Update value, count and asOf together after re-checking Google."
+  },
+  "accreditation": "ICEF",
+  "foundedYear": 2015,
+  "studentsEnrolled": "2,000+",
+  "partnerUniversities": "100+",
+  "countries": "12+",
+  "yearsInBusiness": "10+",
+  "email": "hello@admizz.com",
+  "note2": "Owner-confirmed 2026-10-08: students 2,000+, countries 12+, founded 2015. Visa success: 95% site-wide, 97% for UK only. Basis (year and scope) still unconfirmed.",
+  "visaSuccessRate": {
+    "overall": "95%",
+    "uk": "97%"
+  }
+}

@@ -7,15 +7,15 @@ const post = {
   "sections": [
     {
       "heading": "Who we are",
-      "body": "Admizz Education helps students find, apply to and prepare for study abroad. Our work started in 2016 with students applying to universities in India, and it has grown to cover the UK, USA, Canada, Australia, New Zealand, Germany, France, Finland and more. Our team of counsellors supports students and families in Nepal. Read more on our [About page](/about)."
+      "body": "Admizz Education helps students find, apply to and prepare for study abroad. Admizz was founded in 2015 and placed its first students in 2016, applying to universities in India, and it has grown to cover the UK, USA, Canada, Australia, New Zealand, Germany, France, Finland and more. Our team of counselors supports students and families in Nepal. Read more on our [About page](/about)."
     },
     {
       "heading": "Key facts",
-      "body": "- **Experience:** helping students apply abroad since 2016.\n- **Accreditation:** Admizz Education is an ICEF-accredited agency. The ICEF badge is shown in our website footer.\n- **Students enrolled:** 8,000+ students enrolled worldwide.\n- **Partner institutions:** 100+ institutions across 11+ countries.\n- **Services:** course and university selection, test preparation, scholarships and visa preparation."
+      "body": "- **Experience:** helping students apply abroad since 2015.\n- **Accreditation:** Admizz Education is an ICEF-accredited agency. The ICEF badge is shown in our website footer.\n- **Students enrolled:** 2,000+ students enrolled worldwide.\n- **Partner institutions:** 100+ institutions across 12+ countries.\n- **Services:** course and university selection, test preparation, scholarships and visa preparation."
     },
     {
       "heading": "How we work with students",
-      "body": "1. **Assessment:** we look at your marks, finances and goals.\n2. **Shortlist:** we suggest courses and countries that fit, and explain the trade-offs.\n3. **Applications:** we help you prepare applications and documents.\n4. **Visa preparation:** we check your documents and funds against the official rules and help you practise for any interview.\n5. **Before you fly:** we help you prepare for arrival.\n\nYou remain the applicant at every stage. We encourage students to keep their own logins and to read every form before it is submitted."
+      "body": "1. **Assessment:** we look at your marks, finances and goals.\n2. **Shortlist:** we suggest courses and countries that fit, and explain the trade-offs.\n3. **Applications:** we help you prepare applications and documents.\n4. **Visa preparation:** we check your documents and funds against the official rules and help you practice for any interview.\n5. **Before you fly:** we help you prepare for arrival.\n\nYou remain the applicant at every stage. We encourage students to keep their own logins and to read every form before it is submitted."
     },
     {
       "heading": "What we do not promise",
@@ -32,7 +32,7 @@ const post = {
   ],
   "featuredImage": {
     "url": "/images/blog/accreditation-and-results.webp",
-    "alt": "Admizz Education: ICEF-accredited agency helping students since 2016"
+    "alt": "Admizz Education: ICEF-accredited agency helping students since 2015"
   },
   "categories": [
     {
@@ -47,7 +47,7 @@ const post = {
   "infoBox": [
     {
       "label": "Helping students since",
-      "value": "2016"
+      "value": "2015"
     },
     {
       "label": "Accreditation",
@@ -55,17 +55,17 @@ const post = {
     },
     {
       "label": "Students enrolled worldwide",
-      "value": "8,000+"
+      "value": "2,000+"
     },
     {
       "label": "Partner institutions",
-      "value": "100+ across 11+ countries"
+      "value": "100+ across 12+ countries"
     }
   ],
   "publishedAt": "2026-10-05T00:00:00.000Z",
   "updatedAt": "2026-10-05T00:00:00.000Z",
-  "description": "Facts about Admizz Education: an ICEF-accredited agency helping students apply abroad since 2016, with 8,000+ students enrolled and 100+ partner institutions.",
-  "quickAnswer": "Admizz Education is an ICEF-accredited study abroad agency that has helped students apply to universities abroad since 2016. It has enrolled 8,000+ students worldwide, works with 100+ partner institutions across 11+ countries, and publishes guides that are checked against official government sources and dated.",
+  "description": "Facts about Admizz Education: an ICEF-accredited agency helping students apply abroad since 2015, with 2,000+ students enrolled and 100+ partner institutions.",
+  "quickAnswer": "Admizz Education is an ICEF-accredited study abroad agency that has helped students apply to universities abroad since 2015. It has enrolled 2,000+ students worldwide, works with 100+ partner institutions across 12+ countries, and publishes guides that are checked against official government sources and dated.",
   "faqItems": [
     {
       "question": "Is Admizz Education ICEF accredited?",
@@ -73,7 +73,7 @@ const post = {
     },
     {
       "question": "How many students has Admizz Education enrolled?",
-      "answer": "Admizz Education has enrolled 8,000+ students worldwide."
+      "answer": "Admizz Education has enrolled 2,000+ students worldwide."
     },
     {
       "question": "Does Admizz Education guarantee a visa?",
@@ -81,7 +81,7 @@ const post = {
     },
     {
       "question": "Which countries does Admizz Education cover?",
-      "answer": "Admizz Education works with 100+ partner institutions across 11+ countries, including the UK, USA, Canada, Australia, New Zealand, Germany, France, Finland and India."
+      "answer": "Admizz Education works with 100+ partner institutions across 12+ countries, including the UK, USA, Canada, Australia, New Zealand, Germany, France, Finland and India."
     }
   ],
   "path": "/accreditation-and-results"
@@ -89,11 +89,11 @@ const post = {
 
 export const metadata: Metadata = {
   title: "Admizz Education: Accreditation, Experience & Results",
-  description: "Facts about Admizz Education: an ICEF-accredited agency helping students apply abroad since 2016, with 8,000+ students enrolled and 100+ partner institutions.",
+  description: "Facts about Admizz Education: an ICEF-accredited agency helping students apply abroad since 2015, with 2,000+ students enrolled and 100+ partner institutions.",
   alternates: { canonical: "https://admizzeducation.com/accreditation-and-results" },
   openGraph: {
     title: "Admizz Education: Accreditation, Experience & Results",
-    description: "Facts about Admizz Education: an ICEF-accredited agency helping students apply abroad since 2016, with 8,000+ students enrolled and 100+ partner institutions.",
+    description: "Facts about Admizz Education: an ICEF-accredited agency helping students apply abroad since 2015, with 2,000+ students enrolled and 100+ partner institutions.",
     url: "https://admizzeducation.com/accreditation-and-results",
     siteName: "Admizz Education",
     type: "article",

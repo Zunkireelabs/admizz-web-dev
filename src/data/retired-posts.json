@@ -1,0 +1,13 @@
+{
+  "note": "Off-topic legacy posts retired for SEO (Search Console: crawled, not indexed). Each slug is 301-redirected to /blogs by the Traefik 'retired-posts' rule in docker-compose*.yml and is excluded from queries, the sitemap and llms files. Keep this list and the compose regex in sync.",
+  "slugs": [
+    "effective-tips-for-using-technology-in-classroom",
+    "shifting-winds-of-education",
+    "importance-of-research-for-students",
+    "learn-about-geography-of-india",
+    "history-of-india-in-a-minute",
+    "5-simple-ways-to-increase-your-intelligence",
+    "learning-a-new-sport-isns-a-kids-thing",
+    "strategies-to-stay-motivated-during-online-class"
+  ]
+}

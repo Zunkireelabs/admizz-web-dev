@@ -3,12 +3,12 @@ import GeneratedBlogPost from "@/components/GeneratedBlogPost";
 import { content } from "./content";
 
 const post = {
-  "title": "UK Scholarships for Nepalese Students (2027 Guide)",
+  "title": "UK Scholarships for Nepali Students (2027 Guide)",
   "slug": "uk-scholarships-for-Nepalese-students-2027",
   "sections": [],
   "featuredImage": {
     "url": "https://cdn.sanity.io/images/vd27cmpc/production/40a094349f93bb0e1eb146f030affe81a189608d-1200x628.png?w=1200&auto=format",
-    "alt": "Nepalese student celebrating a UK scholarship award with documents"
+    "alt": "Nepali student celebrating a UK scholarship award with documents"
   },
   "categories": [
     {
@@ -26,7 +26,8 @@ const post = {
   ],
   "publishedAt": "2026-10-05T02:40:00.000Z",
   "updatedAt": "2026-10-05T02:40:03Z",
-  "description": "A complete 2027 guide to UK scholarships for Nepalese students: Chevening, GREAT, university awards, eligibility, timing and how to apply.",
+  "description": "A complete 2027 guide to UK scholarships for Nepali students: Chevening, GREAT, university awards, eligibility, timing and how to apply.",
+  "quickAnswer": "The main UK scholarship for Nepali students is Chevening, a fully funded one-year master's that needs a Nepali citizenship, an undergraduate degree and at least two years of work experience. British Council GREAT Scholarships are part-funded awards of about £10,000 (check whether Nepal is on this year's list), and university merit awards typically range from £1,000 to £10,000 or more. Deadlines and eligibility change every year, so verify them on the official site.",
   "faqItems": [
     {
       "question": "Can I get a scholarship with average grades?",
@@ -46,12 +47,12 @@ const post = {
 };
 
 export const metadata: Metadata = {
-  title: "UK Scholarships for Nepalese Students — 2027 Guide",
-  description: "A complete 2027 guide to UK scholarships for Nepalese students: Chevening, GREAT, university awards, eligibility, timing and how to apply.",
+  title: "UK Scholarships for Nepali Students — 2027 Guide",
+  description: "A complete 2027 guide to UK scholarships for Nepali students: Chevening, GREAT, university awards, eligibility, timing and how to apply.",
   alternates: { canonical: "https://admizzeducation.com/uk-scholarships-for-Nepalese-students-2027" },
   openGraph: {
-    title: "UK Scholarships for Nepalese Students — 2027 Guide",
-    description: "A complete 2027 guide to UK scholarships for Nepalese students: Chevening, GREAT, university awards, eligibility, timing and how to apply.",
+    title: "UK Scholarships for Nepali Students — 2027 Guide",
+    description: "A complete 2027 guide to UK scholarships for Nepali students: Chevening, GREAT, university awards, eligibility, timing and how to apply.",
     url: "https://admizzeducation.com/uk-scholarships-for-Nepalese-students-2027",
     siteName: "Admizz Education",
     type: "article",

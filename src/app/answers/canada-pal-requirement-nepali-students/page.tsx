@@ -7,11 +7,15 @@ const post = {
   "sections": [
     {
       "heading": "The details",
-      "body": "- **Exempt from 1 January 2026:** master's and doctoral students at public institutions; school students; certain Government of Canada priority groups; existing study permit holders extending at the same institution and level.\n- **Usually need a PAL:** new bachelor's and college applicants.\n- **2026 cap:** 309,670 study permit applications.\n\nSee the full [Canada study permit cap guide](/canada-study-permit-cap-2026-nepali-students)."
+      "body": "- **Exempt from January 1, 2026:** master's and doctoral students at public institutions; school students; certain Government of Canada priority groups; existing study permit holders extending at the same institution and level.\n- **Usually need a PAL:** new bachelor's and college applicants.\n- **2026 cap:** 309,670 study permit applications.\n\nSee the full [Canada study permit cap guide](/canada-study-permit-cap-2026-nepali-students)."
+    },
+    {
+      "heading": "Related guides",
+      "body": "- [Canada study permit cap 2026 for Nepali students](/canada-study-permit-cap-2026-nepali-students)\n- [Study in Canada from Nepal](/study-in-canada-from-nepal)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-consultancy-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
     },
     {
       "heading": "Sources",
-      "body": "- [IRCC: 2026 provincial and territorial allocations under the international student cap](https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counselling team](/register)."
+      "body": "- [IRCC: 2026 provincial and territorial allocations under the international student cap](https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counseling team](/register)."
     }
   ],
   "featuredImage": {
@@ -35,7 +39,7 @@ const post = {
   "publishedAt": "2026-10-05T00:00:00.000Z",
   "updatedAt": "2026-10-05T00:00:00.000Z",
   "description": "Most new bachelor's and college applicants need a PAL for Canada in 2026. Master's and PhD students at public institutions are exempt.",
-  "quickAnswer": "Most new applicants need a provincial attestation letter (PAL). From 1 January 2026, master's and doctoral students at public designated learning institutions are exempt, as are school students, certain priority groups and students extending at the same institution and level. Nepali bachelor's and college applicants will usually need one.",
+  "quickAnswer": "Most new applicants need a provincial attestation letter (PAL). From January 1, 2026, master's and doctoral students at public designated learning institutions are exempt, as are school students, certain priority groups and students extending at the same institution and level. Nepali bachelor's and college applicants will usually need one.",
   "faqItems": [
     {
       "question": "What is the 2026 Canada study permit cap?",

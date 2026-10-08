@@ -48,7 +48,7 @@ const services = [
   },
   {
     icon: "/images/icons/visa-108.webp",
-    title: "Scholarships Support",
+    title: "Scholarship Support",
     accent: "#E86F3C",
     description:
       "Unlock financial aid opportunities with expert support in identifying and applying for scholarships, grants, and fee waivers tailored to your profile.",
@@ -118,7 +118,7 @@ const googleReviews = [
     name: "Satyam Jaiswal",
     initial: "S",
     color: "#7C3AED",
-    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application visa process was smooth and stress-free.",
+    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application and visa process was smooth and stress-free.",
     university: "University of Greenwich",
     originFlag: "np",
     destFlag: "gb",
@@ -140,7 +140,7 @@ const faqItems = [
   {
     question: "3. Does Admizz Education help with university shortlisting?",
     answer:
-      "Yes. Admizz uses expert counsellors and AI-assisted tools to shortlist universities that match your academic profile, preferred country, career goals, and budget. You receive a personalized list of universities with high acceptance chances.",
+      "Yes. Admizz uses expert counselors and AI-assisted tools to shortlist universities that match your academic profile, preferred country, career goals, and budget. You receive a personalized list of universities with high acceptance chances.",
   },
   {
     question: "4. Can Admizz assist with SOP, LOR, and application documents?",
@@ -165,7 +165,7 @@ const faqItems = [
   {
     question: "8. Is Admizz Education free for students?",
     answer:
-      "Admizz offers free counselling and guidance for many services. Some specialized services—like premium documentation, fast-track applications, and certain country-specific processing—may involve additional charges. Students are always informed upfront.",
+      "Admizz offers free counseling and guidance for many services. Some specialized services—like premium documentation, fast-track applications, and certain country-specific processing—may involve additional charges. Students are always informed upfront.",
   },
   {
     question: "9. How long does it take to get admission through Admizz Education?",
@@ -175,7 +175,7 @@ const faqItems = [
   {
     question: "10. Why should I choose Admizz Education over other study-abroad consultancies?",
     answer:
-      "Admizz combines expert counsellors with advanced technology to offer accurate university matches, faster processing, transparent workflows, and a higher visa success rate. Students benefit from personalized support, global partner universities, and a seamless digital platform.",
+      "Admizz combines expert counselors with advanced technology to offer accurate university matches, faster processing, transparent workflows, and a higher visa success rate. Students benefit from personalized support, global partner universities, and a seamless digital platform.",
   },
 ];
 
@@ -243,19 +243,19 @@ const allUniversities = [
   { name: "Dalhousie University", logo: "/images/universities/canada/dalhousie-university.webp", country: "Canada" },
   // France
   { name: "Sorbonne University", logo: "/images/universities/france/sorbonne-university.webp", country: "France" },
-  { name: "Universite PSL", logo: "/images/universities/france/universite-psl.svg", country: "France" },
-  { name: "Universite Grenoble Alpes", logo: "/images/universities/france/universite-grenoble-alpes.webp", country: "France" },
+  { name: "Université PSL", logo: "/images/universities/france/universite-psl.svg", country: "France" },
+  { name: "Université Grenoble Alpes", logo: "/images/universities/france/universite-grenoble-alpes.webp", country: "France" },
   { name: "Aix-Marseille University", logo: "/images/universities/france/aix-marseille-university.webp", country: "France" },
-  { name: "Universite de Strasbourg", logo: "/images/universities/france/universite-de-strasbourg.webp", country: "France" },
-  { name: "Universite de Bordeaux", logo: "/images/universities/france/universite-de-bordeaux.webp", country: "France" },
+  { name: "Université de Strasbourg", logo: "/images/universities/france/universite-de-strasbourg.webp", country: "France" },
+  { name: "Université de Bordeaux", logo: "/images/universities/france/universite-de-bordeaux.webp", country: "France" },
   { name: "Sciences Po", logo: "/images/universities/france/sciences-po.webp", country: "France" },
-  { name: "Ecole Polytechnique", logo: "/images/universities/france/ecole-polytechnique.webp", country: "France" },
-  { name: "Universite de Lille", logo: "/images/universities/france/universite-de-lille.webp", country: "France" },
+  { name: "École Polytechnique", logo: "/images/universities/france/ecole-polytechnique.webp", country: "France" },
+  { name: "Université de Lille", logo: "/images/universities/france/universite-de-lille.webp", country: "France" },
   { name: "University of Paris-Saclay", logo: "/images/universities/france/university-of-paris-saclay.webp", country: "France" },
   // Finland
-  { name: "Haaga-Helia University of Applied Science", logo: "/images/universities/finland/haaga-helia.webp", country: "Finland" },
+  { name: "Haaga-Helia University of Applied Sciences", logo: "/images/universities/finland/haaga-helia.webp", country: "Finland" },
   { name: "South-Eastern Finland University of Applied Science", logo: "/images/universities/finland/south-eastern-finland.webp", country: "Finland" },
-  { name: "Lab University of Applied Science", logo: "/images/universities/finland/lab-university.webp", country: "Finland" },
+  { name: "LAB University of Applied Sciences", logo: "/images/universities/finland/lab-university.webp", country: "Finland" },
   { name: "Satakunta University of Applied Science", logo: "/images/universities/finland/satakunta-university.webp", country: "Finland" },
   { name: "Vaasa University of Applied Science", logo: "/images/universities/finland/vaasa-university.webp", country: "Finland" },
   { name: "Karelia University of Applied Science", logo: "/images/universities/finland/karelia-university.webp", country: "Finland" },
@@ -277,7 +277,7 @@ const allUniversities = [
   { name: "Banaras Hindu University", logo: "/images/universities/india/banaras-hindu-university.webp", country: "India" },
   { name: "Anna University", logo: "/images/universities/india/anna-university.webp", country: "India" },
   { name: "Manipal Academy of Higher Education", logo: "/images/universities/india/manipal-academy.webp", country: "India" },
-  { name: "Kalinga Institute of Technology", logo: "/images/universities/india/kalinga-institute.webp", country: "India" },
+  { name: "Kalinga Institute of Industrial Technology (KIIT)", logo: "/images/universities/india/kalinga-institute.webp", country: "India" },
   { name: "RK University", logo: "/images/universities/india/rk-university.webp", country: "India" },
   { name: "IISc Bangalore", logo: "/images/universities/india/iisc-bangalore.webp", country: "India" },
   { name: "Delhi Technological University (DTU)", logo: "/images/universities/india/delhi-technological-university.webp", country: "India" },
@@ -321,7 +321,7 @@ export default function Home() {
       <PredictWinPromoOverlay
         id="uk-education-expo-oct9"
         imageSrc="/images/uk-education-expo-oct-popup.webp"
-        imageAlt="UK Education Expo 2026 — 9th October, 2026 — Admizz Education"
+        imageAlt="UK Education Expo 2026 — October 9, 2026 — Admizz Education"
         ctaText="Register Now →"
         ctaHref="https://admizzeducation.com/events/uk-education-expo-oct-2026"
         delayMs={3500}
@@ -391,7 +391,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-center mb-3" style={{ color: "#1E6DEB" }}>Our Services</p>
           <h2 className="text-[28px] md:text-[36px] font-bold text-center mb-4" style={{ color: "#0D1282" }}>Plan Your Study Abroad Journey</h2>
-          <p className="text-center text-[15px] leading-relaxed max-w-2xl mx-auto mb-12" style={{ color: "#5a6275" }}>End-to-end support from career counselling to post-arrival — we guide you through every step.</p>
+          <p className="text-center text-[15px] leading-relaxed max-w-2xl mx-auto mb-12" style={{ color: "#5a6275" }}>End-to-end support from career counseling to post-arrival — we guide you through every step.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
             {services.map((service) => (
               <div key={service.title} className="bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[12px_18px_28px_14px_rgba(0,0,0,0.08)]" style={{ boxShadow: "8px 13px 18px 11px rgba(0,0,0,0.05)" }}>
@@ -686,7 +686,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold" style={{ color: "#0D1282" }}>Expert Team</p>
-                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years experience</p>
+                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years of experience</p>
                   </div>
                 </div>
               </div>

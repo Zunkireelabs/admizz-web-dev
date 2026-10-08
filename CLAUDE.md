@@ -306,7 +306,8 @@ Defined via `@theme` in `src/app/globals.css`. Use class names directly (e.g. `b
 ## SEO Patterns
 
 - **Canonical URLs**: no trailing slash — `https://admizzeducation.com/study-in-uk`
-- **Sitemap**: auto-generated at `public/sitemap.xml` on every build (212 URLs: 42 static + 143 blog posts + 27 categories)
+- **Sitemap**: auto-generated at `public/sitemap.xml` on every build (count changes; check the file, not this doc)
+- **Content rules**: see `docs/seo-content-rules.md`. `scripts/validate-content.mjs` (prebuild) fails the build if a repo-authored post breaks them
 - **Metadata**: every page exports `export const metadata: Metadata` with title, description, canonical, openGraph
 - **Structured data**: JSON-LD added to high-value pages (country pages, blog posts)
 - **OG images**: stored at `public/images/og/`

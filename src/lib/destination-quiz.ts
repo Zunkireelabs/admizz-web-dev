@@ -36,7 +36,7 @@ export const destinations: Record<DestinationKey, Destination> = {
     tagline:
       "Where centuries of academic tradition meet your global career ambitions.",
     whyFits:
-      "Academic prestige plus multicultural cities, a 1-year master's, and a 95% Admizz visa approval rate — the most-picked destination for Admizz students.",
+      "Academic prestige plus multicultural cities, a 1-year master's, and a 97% Admizz UK visa approval rate — the most-picked destination for Admizz students.",
     match: 94,
     image: "/images/destinations/uk1.webp",
     countryPageHref: "/study-in-the-uk",
@@ -44,7 +44,7 @@ export const destinations: Record<DestinationKey, Destination> = {
       { icon: "🏛️", label: "Top Universities", value: "Oxford, UCL, Manchester, Roehampton", cls: "accent" },
       { icon: "🎓", label: "Avg. Tuition", value: "£10,000–£20,000/year", cls: "" },
       { icon: "🏆", label: "Scholarships", value: "Chevening & University Merit Awards", cls: "gold" },
-      { icon: "✈️", label: "Student Visa", value: "UK Student visa — 95% Admizz approval rate", cls: "" },
+      { icon: "✈️", label: "Student Visa", value: "UK Student visa — 97% Admizz approval rate", cls: "" },
     ],
   },
   usa: {
@@ -108,14 +108,14 @@ export const destinations: Record<DestinationKey, Destination> = {
     tagline:
       "Nearly tuition-free public universities in the heart of Europe.",
     whyFits:
-      "Nearly tuition-free public universities, strong tech and engineering programmes, and a central European base — best value for budget-conscious ambitious students.",
+      "Nearly tuition-free public universities, strong tech and engineering programs, and a central European base — best value for budget-conscious ambitious students.",
     match: 90,
     image: "/images/destinations/germany1.webp",
     countryPageHref: "/study-in-germany",
     cards: [
       { icon: "🏛️", label: "Top Universities", value: "TU Munich, Heidelberg, KIT", cls: "accent" },
       { icon: "🎓", label: "Avg. Tuition", value: "€0–€3,000/year (Public!)", cls: "" },
-      { icon: "🏆", label: "Scholarships", value: "DAAD Scholarship Programme", cls: "gold" },
+      { icon: "🏆", label: "Scholarships", value: "DAAD Scholarship Program", cls: "gold" },
       { icon: "✈️", label: "Student Visa", value: "National Visa Type D", cls: "" },
     ],
   },

@@ -67,11 +67,11 @@ const pageData: NepalVariantData = {
   ],
 
   visaTitle: "Indian Visa Requirements",
-  visaIntro: "Nepalese students do not require a traditional student visa to study in India due to the open-border policy. However, registration at the university and FRRO documentation may be required depending on duration and region.",
+  visaIntro: "Nepali students do not require a traditional student visa to study in India due to the open-border policy. However, registration at the university and FRRO documentation may be required depending on duration and region.",
   visaRequirements: [
     {
       category: "Visa Needed",
-      details: "No visa required for Nepalese nationals"
+      details: "No visa required for Nepali nationals"
     },
     {
       category: "Entry",
@@ -116,7 +116,7 @@ const pageData: NepalVariantData = {
   testRequirements: [
     {
       test: "Engineering (B.Tech)",
-      score: "JEE Advanced / IELTS / TOEFL / Direct for Nepalese Students",
+      score: "JEE Advanced / IELTS / TOEFL / Direct for Nepali Students",
       notes: ""
     },
     {
@@ -126,12 +126,12 @@ const pageData: NepalVariantData = {
     },
     {
       test: "Management (MBA)",
-      score: "University-specific / Direct for Nepalese Students",
+      score: "University-specific / Direct for Nepali Students",
       notes: ""
     },
     {
       test: "General UG/PG",
-      score: "Direct for Nepalese Students",
+      score: "Direct for Nepali Students",
       notes: ""
     },
     {
@@ -221,7 +221,7 @@ const pageData: NepalVariantData = {
     },
     {
       name: "COMPEX Scholarships",
-      details: "Fully Funded Scholarship offered by the Indian Embassy exclusively for Nepalese Students"
+      details: "Fully Funded Scholarship offered by the Indian Embassy exclusively for Nepali Students"
     }
   ],
 
@@ -241,8 +241,8 @@ const pageData: NepalVariantData = {
 
   faqItems: [
     {
-      question: "Do Nepalese students need a visa to study in India?",
-      answer: "No. Due to the open-border policy between India and Nepal, Nepalese students do not require a visa. However, registration at the university is necessary."
+      question: "Do Nepali students need a visa to study in India?",
+      answer: "No. Due to the open-border policy between India and Nepal, Nepali students do not require a visa. However, registration at the university is necessary."
     },
     {
       question: "Are Indian degrees valid in Nepal?",
@@ -309,7 +309,7 @@ const indiaTheme: CountryTheme = {
   ctaLandmarks: { left: "charminar", right: "victoria-memorial" },
   journeyStrip: {
     stats: [
-      { value: "8,000+", label: "Students successfully enrolled worldwide" },
+      { value: "2,000+", label: "Students successfully enrolled worldwide" },
       { value: "95%", label: "Student Visa Approval Rate with Expert Guidance" },
       { value: "$2M+", label: "In Scholarships Awarded to Our Students" },
     ],

@@ -12,6 +12,8 @@ import fs from "fs";
 import { execFileSync } from "child_process";
 import path from "path";
 import { fileURLToPath } from "url";
+import { readFileSync as __rf } from "node:fs";
+const RETIRED = JSON.parse(__rf(new URL("../src/data/retired-posts.json", import.meta.url), "utf8")).slugs;
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -56,6 +58,8 @@ const staticPages = [
   { path: "/study-in-germany", priority: 0.8, freq: "monthly" },
   { path: "/study-in-finland", priority: 0.8, freq: "monthly" },
   { path: "/study-in-nepal", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-denmark", priority: 0.8, freq: "monthly" },
+  { path: "/study-in-dubai", priority: 0.8, freq: "monthly" },
   // Nepal variant pages
   { path: "/study-in-canada-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-south-korea-from-nepal", priority: 0.7, freq: "monthly" },
@@ -64,6 +68,12 @@ const staticPages = [
   { path: "/study-in-newzealand-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-uk-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-usa-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-denmark-from-nepal", priority: 0.7, freq: "monthly" },
+  // /study-in-uae-from-nepal is a near-duplicate of this page and canonicalises to it, so it is not listed.
+  { path: "/study-in-dubai-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-finland-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-abroad-from-nepal", priority: 0.8, freq: "monthly" },
+  { path: "/uk-student-visa-from-nepal", priority: 0.8, freq: "monthly" },
   // SEO landing pages
   { path: "/education-consultancy-in-kathmandu", priority: 0.7, freq: "monthly" },
   { path: "/top-education-consultancy-in-nepal", priority: 0.8, freq: "monthly" },
@@ -160,7 +170,7 @@ async function main() {
 
   // Fetch from Sanity
   const [posts, categories] = await Promise.all([
-    client.fetch(`*[_type == "post"] | order(publishedAt desc) { "slug": slug.current, publishedAt, _updatedAt }`),
+    client.fetch(`*[_type == "post" && !(slug.current in ${JSON.stringify(RETIRED)})] | order(publishedAt desc) { "slug": slug.current, publishedAt, _updatedAt }`),
     client.fetch(`*[_type == "category"] { "slug": slug.current, _updatedAt }`),
   ]);
 
@@ -218,11 +228,15 @@ async function main() {
   for (const slug of generatedAnswerSlugs) {
     urls.push({
       loc: `${BASE_URL}/answers/${slug}`,
-      lastmod: today,
+      lastmod: gitLastmod([`src/app/answers/${slug}/page.tsx`]),
       changefreq: "monthly",
       priority: 0.6,
     });
   }
+
+  // A slug can exist both in Sanity and as a repo page; keep the first entry only.
+  const seenLocs = new Set();
+  urls = urls.filter((u) => (seenLocs.has(u.loc) ? false : (seenLocs.add(u.loc), true)));
 
   // Build XML
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

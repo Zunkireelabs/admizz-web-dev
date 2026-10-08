@@ -29,7 +29,7 @@ const germanyData: CountryPageData = {
   heroHeading: "STUDY IN GERMANY",
   heroSubheading: "World-Class Education with Tuition-Free Public Universities",
   heroDescription:
-    "Study in Germany and benefit from tuition-free public universities, cutting-edge research facilities, and globally recognised degrees. Admizz Education supports you with course guidance, admissions, documentation, and visa assistance \u2014 ensuring a smooth, confident journey toward top-quality education and career opportunities in Germany.",
+    "Study in Germany and benefit from tuition-free public universities, cutting-edge research facilities, and globally recognized degrees. Admizz Education supports you with course guidance, admissions, documentation, and visa assistance \u2014 ensuring a smooth, confident journey toward top-quality education and career opportunities in Germany.",
   heroBackground: "/images/hero/germany-hero.webp",
   quickFacts: [
     { label: "Capital", value: "Berlin" },
@@ -107,7 +107,7 @@ const germanyData: CountryPageData = {
     {
       title: "Documents Required for University Admission",
       intro:
-        "Prepare your Germany university application with essential documents, including passport, academic transcripts, language scores, SOP, LORs, proof of funds, health insurance, and admission-specific papers for smooth enrolment.",
+        "Prepare your Germany university application with essential documents, including passport, academic transcripts, language scores, SOP, LORs, proof of funds, health insurance, and admission-specific papers for smooth enrollment.",
       documents: [
         "Valid Passport",
         "Academic Transcripts & Certificates",
@@ -180,17 +180,17 @@ const germanyData: CountryPageData = {
     "Follow the simplified Germany student visa process \u2014 from university admission to visa approval \u2014 for a smooth, stress-free study journey.",
   visaSteps: [
     { title: "Choose Course & University", description: "Select your preferred German university and program based on eligibility, language requirements, and career goals." },
-    { title: "Apply to University via uni-assist or Direct", description: "Submit your application through uni-assist (centralised portal) or directly to the university, depending on the institution." },
+    { title: "Apply to University via uni-assist or Direct", description: "Submit your application through uni-assist (centralized portal) or directly to the university, depending on the institution." },
     { title: "Receive Admission Letter", description: "Get your official admission letter (Zulassungsbescheid) from the German university." },
     { title: "Open a Blocked Account", description: "Open a blocked account (Sperrkonto) with \u20AC11,208 at a German bank as proof of financial means." },
-    { title: "Obtain Health Insurance", description: "Secure mandatory health insurance coverage from a recognised German or international provider." },
+    { title: "Obtain Health Insurance", description: "Secure mandatory health insurance coverage from a recognized German or international provider." },
     { title: "Book Visa Appointment", description: "Schedule your student visa appointment at the nearest German Embassy or Consulate." },
-    { title: "Prepare Visa Documents", description: "Collect and organise all required visa documents including admission letter, blocked account, insurance, and academic records." },
+    { title: "Prepare Visa Documents", description: "Collect and organize all required visa documents including admission letter, blocked account, insurance, and academic records." },
     { title: "Attend Visa Interview", description: "Visit the German Embassy/Consulate to submit biometrics, documents, and attend your visa interview." },
     { title: "Wait for Visa Decision", description: "The German Embassy processes your application. Processing times vary from 4 to 12 weeks." },
     { title: "Collect Passport", description: "Receive your passport with the student visa stamp from the Embassy or via courier." },
     { title: "Travel to Germany", description: "Carry all essential documents and travel to Germany before your semester start date." },
-    { title: "Register at Local Authorities", description: "Complete your Anmeldung (city registration) and enrol at your university within the first few weeks of arrival." },
+    { title: "Register at Local Authorities", description: "Complete your Anmeldung (city registration) and enroll at your university within the first few weeks of arrival." },
   ],
   faqItems: [
     { question: "Is studying in Germany really free?", answer: "Yes, most public universities in Germany do not charge tuition fees for international students. However, students pay a small semester contribution (\u20AC150\u2013\u20AC350) that covers administrative fees and a public transport pass. Private universities do charge tuition fees ranging from \u20AC5,000 to \u20AC20,000 per year." },

@@ -30,7 +30,7 @@ const pageData: NepalVariantData = {
   heroSubheading: "Study in France from Nepal with world-class universities, affordable tuition, scholarships, cultural exposure, and excellent career opportunities abroad.",
 
   introTitle: "Your Pathway to a Premier Education in France",
-  introContent: "France has emerged as a preferred destination for Nepalese students seeking quality education and European career prospects. The country features globally recognized universities, reasonably priced public institution tuition, and numerous programs taught in English across Business, Engineering, Arts, Science, and Hospitality disciplines. Admizz Education provides comprehensive support including university selection, scholarship guidance, visa assistance, and pre-departure preparation for students planning to study in France.",
+  introContent: "France has emerged as a preferred destination for Nepali students seeking quality education and European career prospects. The country features globally recognized universities, reasonably priced public institution tuition, and numerous programs taught in English across Business, Engineering, Arts, Science, and Hospitality disciplines. Admizz Education provides comprehensive support including university selection, scholarship guidance, visa assistance, and pre-departure preparation for students planning to study in France.",
 
   whyStudyTitle: "Why Study in France from Nepal?",
   benefits: [
@@ -55,13 +55,13 @@ const pageData: NepalVariantData = {
       description: "Stay up to 2 years in France after graduation to explore career opportunities."
     },
     {
-      title: "Scholarships for Nepalese Students",
+      title: "Scholarships for Nepali Students",
       description: "French and EU-funded scholarships help reduce financial burden."
     }
   ],
 
-  visaTitle: "France Student Visa Requirements for Nepalese Students",
-  visaIntro: "Nepalese students pursuing studies longer than 3 months require a Long-Stay Student Visa (VLS-TS).",
+  visaTitle: "France Student Visa Requirements for Nepali Students",
+  visaIntro: "Nepali students pursuing studies longer than 3 months require a Long-Stay Student Visa (VLS-TS).",
   visaRequirements: [
     {
       category: "Valid Passport",
@@ -106,7 +106,7 @@ const pageData: NepalVariantData = {
   ],
   visaNote: "Visa application submission occurs at VFS Global Kathmandu following Campus France approval.",
 
-  intakesTitle: "France Intakes for Nepalese Students",
+  intakesTitle: "France Intakes for Nepali Students",
   intakes: [
     {
       intake: "Fall",
@@ -136,7 +136,7 @@ const pageData: NepalVariantData = {
   costIntro: "France ranks among Europe's most economical study destinations. Public institution tuition receives government subsidization, significantly lowering costs compared to alternative countries. Students additionally benefit from affordable healthcare and housing assistance programs.",
   costTables: [
     {
-      title: "Estimated Annual Expenses for Nepalese Students",
+      title: "Estimated Annual Expenses for Nepali Students",
       rows: [
         {
           category: "Public University Tuition (UG)",
@@ -169,9 +169,9 @@ const pageData: NepalVariantData = {
       ]
     }
   ],
-  costNote: "Tip for Nepalese Students: CAF (French Housing Assistance) may reduce monthly rent by up to 35%.",
+  costNote: "Tip for Nepali Students: CAF (French Housing Assistance) may reduce monthly rent by up to 35%.",
 
-  scholarshipsTitle: "Scholarships for Nepalese Students",
+  scholarshipsTitle: "Scholarships for Nepali Students",
   scholarshipsIntro: "France provides several scholarship opportunities:",
   scholarships: [
     {
@@ -227,8 +227,8 @@ const pageData: NepalVariantData = {
       answer: "Public university tuition runs approximately €2,770–€3,770 annually. Living expenses span €700–€1,200 monthly."
     },
     {
-      question: "Are scholarships available for Nepalese students?",
-      answer: "Yes. Charpak, Eiffel, and Erasmus+ scholarships accept Nepalese applicants."
+      question: "Are scholarships available for Nepali students?",
+      answer: "Yes. Charpak, Eiffel, and Erasmus+ scholarships accept Nepali applicants."
     },
     {
       question: "Can I work part-time while studying?",
@@ -245,7 +245,7 @@ const pageData: NepalVariantData = {
   ],
 
   ctaTitle: "Start Your France Journey with Admizz Today",
-  ctaContent: "France offers unmatched advantages for Nepalese students including academic prestige, innovation, lifestyle, and career opportunities across business, science, fashion, hospitality, and arts fields. Admizz specializes in comprehensive support covering university selection, SOP writing, Campus France procedures, visa interview preparation, and accommodation arrangement. With Admizz, you're not just applying — you're preparing to succeed."
+  ctaContent: "France offers unmatched advantages for Nepali students including academic prestige, innovation, lifestyle, and career opportunities across business, science, fashion, hospitality, and arts fields. Admizz specializes in comprehensive support covering university selection, SOP writing, Campus France procedures, visa interview preparation, and accommodation arrangement. With Admizz, you're not just applying — you're preparing to succeed."
 };
 
 export default async function StudyInFranceFromNepalPage() {

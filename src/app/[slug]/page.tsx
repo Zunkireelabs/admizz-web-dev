@@ -259,14 +259,14 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Right: Sticky Consultation Form (desktop) */}
           <aside className="hidden lg:block w-[472px] shrink-0">
             <div className="sticky top-[90px]">
-              <CTAForm title="Talk to Counselor Today" colorScheme="light" />
+              <CTAForm title="Book a Free Counseling Session" colorScheme="light" />
             </div>
           </aside>
         </div>
 
         {/* Mobile: Form below content */}
         <div className="lg:hidden mt-10 max-w-xl mx-auto">
-          <CTAForm title="Talk to Counselor Today" colorScheme="light" />
+          <CTAForm title="Book a Free Counseling Session" colorScheme="light" />
         </div>
       </article>
 
@@ -421,7 +421,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   </div>
                   <div>
                     <p className="text-sm font-semibold" style={{ color: "#0D1282" }}>Expert Team</p>
-                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years experience</p>
+                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years of experience</p>
                   </div>
                 </div>
               </div>

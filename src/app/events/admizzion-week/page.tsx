@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import AdmizzionInit from "./AdmizzionInit";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://admizzeducation.com/events/admizzion-week" },
   title: "Admizzion Week - Feb 12-20, 2026 | Admizz Education",
   description:
     "Stuck with another consultancy? Get a FREE second opinion at Admizzion Week. UK & USA Mid-2026 intakes. Profile re-evaluation, destination switching & more!",
@@ -115,14 +116,14 @@ export default function AdmizzionWeekPage() {
             <div className="trust-badge">
               <span className="trust-icon">🎓</span>
               <span className="trust-text">
-                <strong>8,000+</strong> Students Enrolled
+                <strong>2,000+</strong> Students Enrolled
               </span>
             </div>
             <div className="trust-divider"></div>
             <div className="trust-badge">
               <span className="trust-icon">🌍</span>
               <span className="trust-text">
-                <strong>11+</strong> Countries
+                <strong>12+</strong> Countries
               </span>
             </div>
             <div className="trust-divider"></div>
@@ -429,7 +430,7 @@ export default function AdmizzionWeekPage() {
                 </svg>
               </div>
               <h3>Multi-Destination Expertise</h3>
-              <p>11+ countries, one consultancy. Not limited to single-country advice.</p>
+              <p>12+ countries, one consultancy. Not limited to single-country advice.</p>
             </div>
             <div className="why-card">
               <div className="why-card-icon">
@@ -453,9 +454,9 @@ export default function AdmizzionWeekPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 8,000+ Students Enrolled</span>
+            <span>🎓 2,000+ Students Enrolled</span>
             <span>•</span>
-            <span>🌍 50+ Partner Universities</span>
+            <span>🌍 100+ Partner Universities</span>
           </div>
         </div>
       </section>

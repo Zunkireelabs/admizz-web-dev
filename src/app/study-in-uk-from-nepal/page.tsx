@@ -38,14 +38,14 @@ const pageData: NepalVariantData = {
 
   introTitle: "Study in UK from Nepal with Expert Guidance",
   introContent:
-    "The UK offers a perfect balance of quality education, affordability, and career growth for Nepali students. From globally recognised degrees to 2-year post-study work visas, the UK remains one of the top destinations for Nepali students seeking world-class education and international career opportunities.",
+    "The UK offers a perfect balance of quality education, affordability, and career growth for Nepali students. From globally recognized degrees to 2-year post-study work visas, the UK remains one of the top destinations for Nepali students seeking world-class education and international career opportunities.",
 
   whyStudyTitle: "Why Study in the UK from Nepal?",
   whyStudyIntro:
     "The UK offers a perfect balance of quality education, affordability, and career growth for Nepali students.",
   benefits: [
     {
-      title: "Globally Recognised Degrees",
+      title: "Globally Recognized Degrees",
       description:
         "UK universities rank among the world's top institutions. Degrees recognized worldwide by employers. 4 UK universities in QS World Top 10.",
     },
@@ -57,7 +57,7 @@ const pageData: NepalVariantData = {
     {
       title: "Graduate Route Visa - 18 Months from 2027",
       description:
-        "Work in the UK for 18 months after graduation for applications from 1 January 2027 (2 years before that date). 3 years for PhD graduates. Gain valuable international experience.",
+        "Work in the UK for 18 months after graduation for applications from January 1, 2027 (2 years before that date). 3 years for PhD graduates. Gain valuable international experience.",
     },
     {
       title: "Multicultural & Safe",
@@ -78,7 +78,7 @@ const pageData: NepalVariantData = {
 
   visaTitle: "UK Student Visa Process – Step by Step",
   visaIntro:
-    "Admizz Education provides end-to-end UK visa support with 95% success rate.",
+    "Admizz Education provides end-to-end UK visa support with a 97% UK student visa success rate.",
   visaRequirements: [
     {
       category: "1. Choose Course",
@@ -164,7 +164,7 @@ const pageData: NepalVariantData = {
       rows: [
         {
           category: "Living Expenses",
-          cost: "£10,539 – £13,761 (visa funds, 9 months); £10,827 – £14,130 for applications from 30 Nov 2026",
+          cost: "£10,539 – £13,761 (visa funds, 9 months); £10,827 – £14,130 for applications from Nov 30, 2026",
         },
         {
           category: "Health Surcharge (NHS)",
@@ -176,7 +176,7 @@ const pageData: NepalVariantData = {
   costNote:
     "Total costs vary by city. London is higher; smaller cities are more budget-friendly.",
 
-  scholarshipsTitle: "Scholarships for Nepalese Students",
+  scholarshipsTitle: "Scholarships for Nepali Students",
   scholarshipsIntro:
     "The UK offers a wide range of funding opportunities to reduce financial stress.",
   scholarships: [
@@ -239,12 +239,12 @@ const pageData: NepalVariantData = {
     {
       question: "Do I need IELTS for UK study?",
       answer:
-        "Yes, most universities require IELTS (6.0-7.0). Some accept alternatives like PTE or may waive if you studied in English medium.",
+        "Yes, most universities require IELTS (6.0-7.0). Some accept alternatives like PTE or may waive it if you studied in an English-medium school.",
     },
     {
       question: "What is the post-study work visa duration?",
       answer:
-        "Graduate Route Visa: 18 months for Bachelor's/Master's graduates applying from 1 January 2027 (2 years before that date), and 3 years for PhD students to work in the UK.",
+        "Graduate Route Visa: 18 months for Bachelor's/Master's graduates applying from January 1, 2027 (2 years before that date), and 3 years for PhD students to work in the UK.",
     },
     {
       question: "Can I apply with a study gap?",

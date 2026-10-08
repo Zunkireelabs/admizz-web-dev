@@ -10,8 +10,12 @@ const post = {
       "body": "- **Degree level or above:** CEFR B2\n- **Below degree level:** CEFR B1\n- **Evidence:** an approved Secure English Language Test, or for degree-level courses an assessment by your university, which must still be equivalent to B2.\n- **Ask first:** check which option your university accepts before you book a test.\n\nNot sure which test to take? Read [IELTS versus PTE](/ielts-vs-pte). The full process is in our [UK student visa guide](/uk-student-visa-from-nepal)."
     },
     {
+      "heading": "Related guides",
+      "body": "- [UK student visa from Nepal: the full guide](/uk-student-visa-from-nepal)\n- [Study in the UK from Nepal](/study-in-uk-from-nepal)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-consultancy-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
+    },
+    {
       "heading": "Sources",
-      "body": "- [GOV.UK: Student visa, knowledge of English](https://www.gov.uk/student-visa/knowledge-of-english)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counselling team](/register)."
+      "body": "- [GOV.UK: Student visa, knowledge of English](https://www.gov.uk/student-visa/knowledge-of-english)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counseling team](/register)."
     }
   ],
   "featuredImage": {

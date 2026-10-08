@@ -11,7 +11,7 @@ const post = {
     },
     {
       "heading": "Step 1: Choose a country and course",
-      "body": "Compare countries on cost, work rights after study and visa risk, not on rankings alone. These are the 2026 facts that most affect Nepali students:\n\n- **UK:** one-year Master's degrees. The Graduate visa is 18 months for applications from 1 January 2027, and 2 years before that date. See our [UK student visa guide](/uk-student-visa-from-nepal).\n- **Canada:** study permit applications are capped at 309,670 for 2026, and most new bachelor's and college applicants need a provincial attestation letter. Master's students at public institutions are exempt. See the [Canada cap guide](/canada-study-permit-cap-2026-nepali-students).\n- **Germany:** proof of funds of €11,904 a year through a blocked account. See the [Germany guide](/germany-blocked-account-2026-nepali-students).\n- **USA:** from 15 September 2026 F-1 students are admitted for a fixed period of up to four years. See the [H-1B guide](/h1b-wage-weighted-lottery-2026-nepali-students-opt) and our [F-1 versus UK comparison](/us-f1-vs-uk-student-visa-2026).\n- **Australia:** new Student visa rules took effect on 2 October 2026. See [all rule changes](/study-abroad-rule-updates)."
+      "body": "Compare countries on cost, work rights after study and visa risk, not on rankings alone. These are the 2026 facts that most affect Nepali students:\n\n- **UK:** one-year Master's degrees. The Graduate visa is 18 months for applications from January 1, 2027, and 2 years before that date. See our [UK student visa guide](/uk-student-visa-from-nepal).\n- **Canada:** study permit applications are capped at 309,670 for 2026, and most new bachelor's and college applicants need a provincial attestation letter. Master's students at public institutions are exempt. See the [Canada cap guide](/canada-study-permit-cap-2026-nepali-students).\n- **Germany:** proof of funds of €11,904 a year through a blocked account. See the [Germany guide](/germany-blocked-account-2026-nepali-students).\n- **USA:** from September 15, 2026, F-1 students are admitted for a fixed period of up to four years. See the [H-1B guide](/h1b-wage-weighted-lottery-2026-nepali-students-opt) and our [F-1 versus UK comparison](/us-f1-vs-uk-student-visa-2026).\n- **Australia:** new Student visa rules took effect on October 2, 2026. See [all rule changes](/study-abroad-rule-updates)."
     },
     {
       "heading": "Step 2: Apply to universities",
@@ -27,7 +27,7 @@ const post = {
     },
     {
       "heading": "Step 5: Arrange your money",
-      "body": "You will need money for three things: tuition, living costs and the tax on foreign payments.\n\n- **Funds for the visa.** The UK asks for £1,171 a month outside London or £1,529 in London for applications before 30 November 2026, and £1,203 or £1,570 for applications from that date, for up to 9 months, held for 28 days in a row, plus unpaid first-year tuition. Read about the [bank balance](/bank-balance-required-uk-student-visa-2027) and the [28-day rule](/uk-student-visa-28-day-rule-Nepalese-students-2027). Germany asks for €11,904 a year, which is €992 a month.\n- **Tax on tuition payments.** Nepal charges a tax on tuition payments sent to foreign institutions. The rate was raised to 3% in the 2023 budget, according to [ICEF Monitor](https://monitor.icef.com/2023/07/government-of-nepal-increases-taxes-for-nepali-students-studying-abroad). Check the current rate with your bank before you transfer.\n- **Total cost.** See our full [UK cost breakdown](/uk-student-visa-cost-2027) and [total cost guide](/total-cost-studying-uk-from-nepal-2027)."
+      "body": "You will need money for three things: tuition, living costs and the tax on foreign payments.\n\n- **Funds for the visa.** The UK asks for £1,171 a month outside London or £1,529 in London for applications before November 30, 2026, and £1,203 or £1,570 for applications from that date, for up to 9 months, held for 28 days in a row, plus unpaid first-year tuition. Read about the [bank balance](/bank-balance-required-uk-student-visa-2027) and the [28-day rule](/uk-student-visa-28-day-rule-Nepalese-students-2027). Germany asks for €11,904 a year, which is €992 a month.\n- **Tax on tuition payments.** Nepal charges a tax on tuition payments sent to foreign institutions. The rate was raised to 3% in the 2023 budget, according to [ICEF Monitor](https://monitor.icef.com/2023/07/government-of-nepal-increases-taxes-for-nepali-students-studying-abroad). Check the current rate with your bank before you transfer.\n- **Total cost.** See our full [UK cost breakdown](/uk-student-visa-cost-2027) and [total cost guide](/total-cost-studying-uk-from-nepal-2027)."
     },
     {
       "heading": "Step 6: Health and document checks",
@@ -35,7 +35,7 @@ const post = {
     },
     {
       "heading": "Step 7: Apply for your visa",
-      "body": "For a UK Student visa you can apply up to 6 months before your course starts, and GOV.UK says you will usually get a decision within 3 weeks if you apply from outside the UK. Follow our [step-by-step UK visa guide](/uk-student-visa-from-nepal), practise with the [interview guide](/uk-student-visa-interview-guide-2026), and read the [common reasons for refusal](/7-common-reasons-why-student-visas-get-rejected-for-nepali-students).\n\nIf you plan to bring family, check the rules first. See [UK dependants rules](/uk-student-visa-dependants-rules-2027)."
+      "body": "For a UK Student visa you can apply up to 6 months before your course starts, and GOV.UK says you will usually get a decision within 3 weeks if you apply from outside the UK. Follow our [step-by-step UK visa guide](/uk-student-visa-from-nepal), practice with the [interview guide](/uk-student-visa-interview-guide-2026), and read the [common reasons for refusal](/7-common-reasons-why-student-visas-get-rejected-for-nepali-students).\n\nIf you plan to bring family, check the rules first. See [UK dependants rules](/uk-student-visa-dependants-rules-2027)."
     },
     {
       "heading": "Step 8: Prepare to travel",
@@ -51,11 +51,11 @@ const post = {
     },
     {
       "heading": "How Admizz Education can help",
-      "body": "Admizz Education is an ICEF-accredited agency that has helped students apply abroad since 2016. We support course and university selection, test preparation, scholarships and visa preparation. You can start with our [visa assistance service](/visa-assistance-for-study-abroad) or [book a free consultation](/register). Learn more [about our accreditation and results](/accreditation-and-results)."
+      "body": "Admizz Education is an ICEF-accredited agency that has helped students apply abroad since 2015. We support course and university selection, test preparation, scholarships and visa preparation. You can start with our [visa assistance service](/visa-assistance-for-study-abroad) or [book a free consultation](/register). Learn more [about our accreditation and results](/accreditation-and-results)."
     },
     {
       "heading": "Sources",
-      "body": "- [GOV.UK: Student visa, knowledge of English](https://www.gov.uk/student-visa/knowledge-of-english)\n- [GOV.UK: Student visa, money you need](https://www.gov.uk/student-visa/money)\n- [OTS Solicitors: student visa maintenance funds increase from 30 November 2026](https://www.otssolicitors.co.uk/news/student-visa-maintenance-funds-increase-from-30-november-2026)\n- [GOV.UK: Student visa, apply](https://www.gov.uk/student-visa/apply)\n- [GOV.UK: TB test for a UK visa](https://www.gov.uk/tb-test-visa)\n- [IRCC: 2026 provincial and territorial allocations under the international student cap](https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html)\n- [ICEF Monitor: Nepal increases taxes for students studying abroad](https://monitor.icef.com/2023/07/government-of-nepal-increases-taxes-for-nepali-students-studying-abroad)\n\nFigures checked in October 2026. Rules change, so check the official site on the day you apply."
+      "body": "- [GOV.UK: Student visa, knowledge of English](https://www.gov.uk/student-visa/knowledge-of-english)\n- [GOV.UK: Student visa, money you need](https://www.gov.uk/student-visa/money)\n- [OTS Solicitors: student visa maintenance funds increase from November 30, 2026](https://www.otssolicitors.co.uk/news/student-visa-maintenance-funds-increase-from-30-november-2026)\n- [GOV.UK: Student visa, apply](https://www.gov.uk/student-visa/apply)\n- [GOV.UK: TB test for a UK visa](https://www.gov.uk/tb-test-visa)\n- [IRCC: 2026 provincial and territorial allocations under the international student cap](https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html)\n- [ICEF Monitor: Nepal increases taxes for students studying abroad](https://monitor.icef.com/2023/07/government-of-nepal-increases-taxes-for-nepali-students-studying-abroad)\n\nFigures checked in October 2026. Rules change, so check the official site on the day you apply."
     }
   ],
   "featuredImage": {
@@ -97,7 +97,7 @@ const post = {
   "publishedAt": "2025-09-26T09:32:38",
   "updatedAt": "2026-10-05T00:00:00.000Z",
   "description": "How to study abroad from Nepal: choose a country, prove your English, get your NOC, show funds, apply and get your visa, with official sources.",
-  "quickAnswer": "To study abroad from Nepal you choose a country and course, apply to universities, prove your English level, get a No Objection Certificate (NOC) from Nepal's Ministry of Education, show proof of funds, then apply for your visa. Rules differ by country. For example, the UK asks for £1,203 to £1,570 a month for up to 9 months from 30 November 2026 (£1,171 to £1,529 before that date), held for 28 days, Canada capped study permit applications at 309,670 for 2026, and Germany asks for €11,904 in a blocked account.",
+  "quickAnswer": "To study abroad from Nepal you choose a country and course, apply to universities, prove your English level, get a No Objection Certificate (NOC) from Nepal's Ministry of Education, show proof of funds, then apply for your visa. Rules differ by country. For example, the UK asks for £1,203 to £1,570 a month for up to 9 months from November 30, 2026 (£1,171 to £1,529 before that date), held for 28 days, Canada capped study permit applications at 309,670 for 2026, and Germany asks for €11,904 in a blocked account.",
   "faqItems": [
     {
       "question": "How do I study abroad from Nepal?",
@@ -109,7 +109,7 @@ const post = {
     },
     {
       "question": "How much money do I need to study in the UK from Nepal?",
-      "answer": "For UK applications from 30 November 2026 you must show £1,203 a month outside London or £1,570 in London for up to 9 months (£1,171 and £1,529 before that date), plus your unpaid first-year tuition, held for 28 days in a row."
+      "answer": "For UK applications from November 30, 2026, you must show £1,203 a month outside London or £1,570 in London for up to 9 months (£1,171 and £1,529 before that date), plus your unpaid first-year tuition, held for 28 days in a row."
     },
     {
       "question": "Do I need IELTS to study abroad from Nepal?",

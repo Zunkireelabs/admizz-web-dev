@@ -230,7 +230,7 @@ export default function UKCostViz({
               Time to earn it back.
             </h3>
             <p className="text-[14px] opacity-80 mt-1 max-w-3xl">
-              After graduating, the UK&apos;s Graduate Route visa (18 months from 1 January 2027) lets you work in any role.
+              After graduating, the UK&apos;s Graduate Route visa (18 months from January 1, 2027) lets you work in any role.
               Average graduate starting salaries:
             </p>
           </div>

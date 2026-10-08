@@ -31,10 +31,11 @@ const post = {
   "publishedAt": "2026-10-05T04:49:00.000Z",
   "updatedAt": "2026-10-05T04:52:47Z",
   "description": "Who can bring a partner or children on a UK Student visa in 2027? Eligibility, fees, funds per dependant and alternatives, explained simply.",
+  "quickAnswer": "Since January 1, 2024, only postgraduate research students and government-sponsored students on courses longer than six months can bring dependants on a UK Student visa. Taught Master's and bachelor's students cannot. Each dependant costs £558 for the visa, £776 a year for the health surcharge, and needs separate funds of £845 a month in London or £680 outside London for up to 9 months, held for 28 days.",
   "faqItems": [
     {
-      "question": "Can I bring my wife on a one-year Masters?",
-      "answer": "No. Dependants are limited to postgraduate research and government-sponsored students, so taught Masters students cannot bring a partner."
+      "question": "Can I bring my wife on a one-year master's?",
+      "answer": "No. Dependants are limited to postgraduate research and government-sponsored students, so taught master's students cannot bring a partner."
     },
     {
       "question": "Do dependants need to show their own funds?",

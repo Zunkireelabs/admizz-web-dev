@@ -24,10 +24,10 @@ const ICONS = {
 export const journeySteps: JourneyStep[] = [
   {
     id: 1,
-    label: "Counselling",
-    title: "Free 1-on-1 counselling",
+    label: "Counseling",
+    title: "Free 1-on-1 counseling",
     description:
-      "Meet a certified counsellor who maps your goals, budget, and timeline. No pressure — just a clear picture of what's possible.",
+      "Meet a certified counselor who maps your goals, budget, and timeline. No pressure — just a clear picture of what's possible.",
     duration: "30 min",
     outcome: "Personalized study-abroad blueprint",
     included: [

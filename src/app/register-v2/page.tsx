@@ -46,7 +46,7 @@ const offices = [
     cities: [
       {
         name: "Kathmandu",
-        address: "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (Opp. to Nabil Bank)",
+        address: "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (opposite Nabil Bank)",
         phone: "+977-9802728444",
       },
       {
@@ -69,7 +69,7 @@ const offices = [
 ];
 
 const stats = [
-  { value: "8,000+", label: "Students Successfully Enrolled", icon: "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5", accent: "#1E6DEB" },
+  { value: "2,000+", label: "Students Successfully Enrolled", icon: "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5", accent: "#1E6DEB" },
   { value: "100+", label: "Partner Universities & Colleges", icon: "M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z", accent: "#3FB5A0" },
   { value: "95%", label: "Visa Approval Rate", icon: "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", accent: "#E86F3C" },
   { value: "$2M+", label: "Scholarships Awarded", icon: "M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", accent: "#BB5FEC" },
@@ -121,7 +121,7 @@ export default function RegisterPage() {
               </div>
               <span className="text-[#9CA3B5]">·</span>
               <span className="text-[12px] sm:text-[13px] text-[#5C7189]">
-                Trusted by <strong className="text-[#0D1282]">8,000+</strong> students
+                Trusted by <strong className="text-[#0D1282]">2,000+</strong> students
               </span>
             </div>
           </div>
@@ -170,7 +170,7 @@ export default function RegisterPage() {
 
             {[
               { step: "Step 1", emoji: "📝", title: "Share your details", desc: "Tell us your target country, field of study, and budget. Takes under 2 minutes.", accent: "#1E6DEB", bg: "#EBF3FF" },
-              { step: "Step 2", emoji: "📞", title: "Your counsellor calls within 24 hours", desc: "They'll map out your options, answer your questions, and explain exactly what comes next — no pressure.", accent: "#3FB5A0", bg: "#EDFAF7" },
+              { step: "Step 2", emoji: "📞", title: "Your counselor calls within 24 hours", desc: "They'll map out your options, answer your questions, and explain exactly what comes next — no pressure.", accent: "#3FB5A0", bg: "#EDFAF7" },
               { step: "Step 3", emoji: "🎯", title: "Receive your personalized roadmap", desc: "A curated university shortlist with deadlines, scholarship options, and a clear action plan.", accent: "#E86F3C", bg: "#FFF4EE" },
             ].map((s) => (
               <div key={s.step} className="flex-1 bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md flex flex-col" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 10px rgba(13,18,130,0.04)" }}>
@@ -204,7 +204,7 @@ export default function RegisterPage() {
                 </div>
                 <h3 className="text-[15px] font-bold mb-2" style={{ color: "#1E6DEB" }}>Why Students Trust Us?</h3>
                 <p className="text-[13px] text-gray-dark leading-relaxed">
-                  <strong className="text-[#0D1282]">ICEF-Accredited Agency</strong> | <strong className="text-[#0D1282]">10+ Years of Excellence</strong> | <strong className="text-[#0D1282]">8,000+ Students Enrolled</strong>
+                  <strong className="text-[#0D1282]">ICEF-Accredited Agency</strong> | <strong className="text-[#0D1282]">10+ Years of Excellence</strong> | <strong className="text-[#0D1282]">2,000+ Students Enrolled</strong>
                 </p>
               </div>
             </div>
@@ -267,7 +267,7 @@ export default function RegisterPage() {
       {/* ===== Alumni Section ===== */}
       <AlumniSection />
 
-      {/* ===== COUNSELLOR FACES BAND (NEW — preview only) ===== */}
+      {/* ===== COUNSELOR FACES BAND (NEW — preview only) ===== */}
       <section className="py-10 md:py-16" style={{ background: "#F8F9FF" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-10">
@@ -275,10 +275,10 @@ export default function RegisterPage() {
               Real people, real expertise
             </p>
             <h2 className="text-[22px] md:text-[32px] font-bold leading-tight mb-3" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
-              Meet your counsellors
+              Meet your counselors
             </h2>
             <p className="text-[14px] md:text-[15px] max-w-xl mx-auto" style={{ color: "#5C7189" }}>
-              Speak with the right counsellor for your goal — they&rsquo;ll guide you personally through every step.
+              Speak with the right counselor for your goal — they&rsquo;ll guide you personally through every step.
             </p>
           </div>
 
@@ -286,7 +286,7 @@ export default function RegisterPage() {
           <div className="md:hidden -mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <div className="flex gap-4 w-max">
               {[
-                { initial: "A", name: "Aarav Sharma", role: "Senior Counsellor", langs: "EN · NE · HI", color: "#1E6DEB", bg: "#EBF3FF" },
+                { initial: "A", name: "Aarav Sharma", role: "Senior Counselor", langs: "EN · NE · HI", color: "#1E6DEB", bg: "#EBF3FF" },
                 { initial: "P", name: "Priya Gurung", role: "UK Programs Lead", langs: "EN · NE", color: "#3FB5A0", bg: "#EDFAF7" },
                 { initial: "S", name: "Sita Tamang", role: "USA Programs Lead", langs: "EN · NE", color: "#E86F3C", bg: "#FFF4EE" },
                 { initial: "R", name: "Rajesh KC", role: "Visa Specialist", langs: "EN · NE · HI", color: "#BB5FEC", bg: "#F8F0FF" },
@@ -306,7 +306,7 @@ export default function RegisterPage() {
 
           <div className="hidden md:grid md:grid-cols-5 gap-4 md:gap-6">
             {[
-              { initial: "A", name: "Aarav Sharma", role: "Senior Counsellor", langs: "EN · NE · HI", color: "#1E6DEB", bg: "#EBF3FF" },
+              { initial: "A", name: "Aarav Sharma", role: "Senior Counselor", langs: "EN · NE · HI", color: "#1E6DEB", bg: "#EBF3FF" },
               { initial: "P", name: "Priya Gurung", role: "UK Programs Lead", langs: "EN · NE", color: "#3FB5A0", bg: "#EDFAF7" },
               { initial: "S", name: "Sita Tamang", role: "USA Programs Lead", langs: "EN · NE", color: "#E86F3C", bg: "#FFF4EE" },
               { initial: "R", name: "Rajesh KC", role: "Visa Specialist", langs: "EN · NE · HI", color: "#BB5FEC", bg: "#F8F0FF" },
@@ -344,7 +344,7 @@ export default function RegisterPage() {
                 a: "Yes, completely free for students. Admizz earns from our university partners — never from you. No fees, deposits, or commission charged to your side, ever.",
               },
               {
-                q: "How long is the counselling call?",
+                q: "How long is the counseling call?",
                 a: "Typically 15–30 minutes. Just enough time to understand your goals, answer your questions, and recommend next steps — no pressure or sales pitch.",
               },
               {
@@ -353,7 +353,7 @@ export default function RegisterPage() {
               },
               {
                 q: "What if I'm not sure where I want to study yet?",
-                a: "That's exactly why most students reach out — to figure it out. Our counsellors help you compare destinations based on your budget, goals, and preferred field of study.",
+                a: "That's exactly why most students reach out — to figure it out. Our counselors help you compare destinations based on your budget, goals, and preferred field of study.",
               },
               {
                 q: "Can I change my mind after registering?",

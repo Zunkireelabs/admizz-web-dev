@@ -21,7 +21,7 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
     description: "Admizz Education helps students apply to universities in the UK, USA, Australia, Canada and New Zealand, with guidance on admission, visas and scholarships.",
   },
   "international-scholarships-for-nepalese-students": {
-    title: "Scholarships for Nepalese Students: Who Can Apply",
+    title: "Scholarships for Nepali Students: Who Can Apply",
     description: "Who can apply for international scholarships from Nepal, why they matter and tips to strengthen your application. Support from Admizz Education.",
   },
   "online-application-vs-application-through-direct-consultancy": {
@@ -37,8 +37,8 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
     description: "How to apply for a UK student visa from Nepal. Requirements, documents and the steps from offer to visa, with guidance from Admizz Education.",
   },
   "uk-student-visa-process-for-nepalese-students": {
-    title: "UK Student Visa Process for Nepalese Students: Steps & Costs",
-    description: "Step-by-step UK student visa process for Nepalese students: requirements, costs, documents and tips, with expert guidance from Admizz Education.",
+    title: "UK Student Visa Process for Nepali Students: Steps & Costs",
+    description: "Step-by-step UK student visa process for Nepali students: requirements, costs, documents and tips, with expert guidance from Admizz Education.",
   },
   "study-in-europe-from-nepal": {
     title: "Study in Europe from Nepal: Costs, Visa, Scholarships",
@@ -78,7 +78,7 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
   },
   "uk-education-nepal-growth": {
     title: "Why UK Education Is Gaining Ground in Nepal",
-    description: "Why more Nepalese students choose the UK: simpler visa funding checks, affordable universities, scholarships, TNE pathways and MOI letters for English waivers.",
+    description: "Why more Nepali students choose the UK: simpler visa funding checks, affordable universities, scholarships, TNE pathways and MOI letters for English waivers.",
   },
   "choosing-study-destinations-australia-or-the-united-kingdom": {
     title: "Australia or UK for Nepali Students: Compare",
@@ -138,7 +138,7 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
   },
   "5-reasons-why-uk-is-an-ideal-study-destination": {
     title: "5 Reasons to Study in the UK as an International Student",
-    description: "Five reasons the UK suits international students: recognised academic excellence, career links, shorter courses, work rights and cultural diversity.",
+    description: "Five reasons the UK suits international students: recognized academic excellence, career links, shorter courses, work rights and cultural diversity.",
   },
   "step-by-step-guide-to-australia-student-visa-from-nepal": {
     title: "Australia Student Visa from Nepal: Step-by-Step Guide",
@@ -166,7 +166,7 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
   },
   "top-5-professional-courses-to-study-in-2024": {
     title: "Top 5 Courses to Study in 2024: AI, Data Science, More",
-    description: "Five popular study programmes to consider: AI and machine learning, cybersecurity, data science, digital marketing and healthcare management.",
+    description: "Five popular study programs to consider: AI and machine learning, cybersecurity, data science, digital marketing and healthcare management.",
   },
   "four-documents-to-prepare-for-university-applications": {
     title: "4 Documents Needed for University Applications",
@@ -286,7 +286,7 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
   },
   "australia-eases-visa-rules-nepal-upgraded-to-level-2": {
     title: "Australia Student Visa: Nepal Upgraded to Level 2",
-    description: "Australia has upgraded Nepal to Assessment Level 2 for student visas. See what it means for Nepalese students, including reduced documentary requirements.",
+    description: "Australia has upgraded Nepal to Assessment Level 2 for student visas. See what it means for Nepali students, including reduced documentary requirements.",
   },
   "types-of-scholarships-in-2026-for-international-students": {
     title: "Types of Scholarships for International Students 2026",
@@ -317,7 +317,7 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
     description: "Celebrate Eid al-Fitr—marking the end of Ramadan with joy, prayers, feasts, and togetherness in Muslim communities worldwide.",
   },
   "which-country-is-best-for-nepalese-students-in-2026": {
-    title: "Which Country Is Best for Nepalese Students in 2026?",
+    title: "Which Country Is Best for Nepali Students in 2026?",
     description: "Which country is best for Nepali students in 2026? Compare study destinations by tuition, post-study work visas, PR options and career opportunities.",
   },
 };

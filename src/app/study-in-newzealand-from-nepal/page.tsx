@@ -65,9 +65,9 @@ const pageData: NepalVariantData = {
     },
   ],
 
-  visaTitle: "New Zealand Student Visa Requirements for Nepalese Students",
+  visaTitle: "New Zealand Student Visa Requirements for Nepali Students",
   visaIntro:
-    "To study in New Zealand, Nepalese students need to apply for a Fee-Paying Student Visa. Here's what you should know:",
+    "To study in New Zealand, Nepali students need to apply for a Fee-Paying Student Visa. Here's what you should know:",
   visaRequirements: [
     {
       category: "Visa Type",
@@ -101,9 +101,9 @@ const pageData: NepalVariantData = {
   visaNote:
     "Admizz offers complete visa assistance including document preparation, SOP writing, financial guidance, and interview support.",
 
-  intakesTitle: "New Zealand Intakes for Nepalese Students",
+  intakesTitle: "New Zealand Intakes for Nepali Students",
   intakesIntro:
-    "Nepalese students can apply for the following intakes in New Zealand:",
+    "Nepali students can apply for the following intakes in New Zealand:",
   intakes: [
     {
       intake: "Main",
@@ -122,7 +122,7 @@ const pageData: NepalVariantData = {
 
   costTitle: "Cost of Studying in New Zealand from Nepal",
   costIntro:
-    "Studying in New Zealand offers great value with globally recognized education and a high standard of living. Below is a breakdown of expected expenses for Nepalese students:",
+    "Studying in New Zealand offers great value with globally recognized education and a high standard of living. Below is a breakdown of expected expenses for Nepali students:",
   costTables: [
     {
       title: "Tuition Fees (Per Year)",
@@ -147,9 +147,9 @@ const pageData: NepalVariantData = {
     },
   ],
 
-  scholarshipsTitle: "Scholarships for Nepalese Students",
+  scholarshipsTitle: "Scholarships for Nepali Students",
   scholarshipsIntro:
-    "New Zealand offers a wide range of scholarships to help Nepalese students fund their studies. These merit-based and need-based opportunities make studying in New Zealand more affordable and accessible.",
+    "New Zealand offers a wide range of scholarships to help Nepali students fund their studies. These merit-based and need-based opportunities make studying in New Zealand more affordable and accessible.",
   scholarships: [
     {
       name: "New Zealand Scholarships (MFAT)",
@@ -201,7 +201,7 @@ const pageData: NepalVariantData = {
     {
       question: "Can I apply to study in New Zealand after +2 from Nepal?",
       answer:
-        "Yes, Nepalese students who have completed Grade 12 can apply for undergraduate diploma or bachelor's degree programs in New Zealand.",
+        "Yes, Nepali students who have completed Grade 12 can apply for undergraduate diploma or bachelor's degree programs in New Zealand.",
     },
     {
       question:
@@ -211,20 +211,20 @@ const pageData: NepalVariantData = {
     },
     {
       question:
-        "How much does it cost to study in New Zealand for Nepalese students?",
+        "How much does it cost to study in New Zealand for Nepali students?",
       answer:
         "Tuition fees range from NZD 15,000 to NZD 30,000 per year. Living expenses are around NZD 15,000 annually.",
     },
     {
       question:
-        "Are there scholarships for Nepalese students in New Zealand?",
+        "Are there scholarships for Nepali students in New Zealand?",
       answer:
         "Yes, several universities offer scholarships based on academic performance, leadership, or financial need.",
     },
     {
       question: "Can I work while studying in New Zealand?",
       answer:
-        "Yes, Nepalese students on a student visa can work up to 20 hours per week during semesters and full-time during scheduled breaks.",
+        "Yes, Nepali students on a student visa can work up to 20 hours per week during semesters and full-time during scheduled breaks.",
     },
     {
       question:

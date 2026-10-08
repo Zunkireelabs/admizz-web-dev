@@ -40,7 +40,7 @@ const southKoreaData: CountryPageData = {
     { label: "Intl. Students", value: "485,555" },
     { label: "Tuition fee", value: "$1,600–$10,800" },
   ],
-  whyStudyTitle: "Why Study In South Korea ?",
+  whyStudyTitle: "Why Study in South Korea?",
   whyStudyIntro:
     "South Korea offers globally ranked universities, innovative learning, safe modern cities, rich cultural experiences, and excellent career opportunities. It's the ideal destination for ambitious students seeking quality education and future-focused growth.",
   benefits: [
@@ -71,7 +71,7 @@ const southKoreaData: CountryPageData = {
       ],
     },
     {
-      title: "Documents Required for CAS (Confirmation of Acceptance for Studies)",
+      title: "Documents Required for Your Admission Letter",
       intro: "To receive your Certificate of Admission for South Korea, students must submit accurate academic records, identity documents, financial proof, and university-required forms. These documents help confirm eligibility and support a smooth visa process.",
       documents: [
         "Valid passport (scanned copy)",
@@ -128,7 +128,7 @@ const southKoreaData: CountryPageData = {
     { program: "Living Expenses", fee: "$4,000 – $8,000 per year" },
     { program: "Health Insurance", fee: "$200 – $400 per year" },
   ],
-  costNote: "Note: Total costs vary by city. Seoul is higher; smaller cities are more budget friendly.",
+  costNote: "Note: Total costs vary by city. Seoul is higher; smaller cities are more budget-friendly.",
   visaTitle: "South Korea Student Visa Process",
   visaIntro: "Planning to study in South Korea? Follow the step-by-step visa process to secure your student visa, meet requirements, and start your academic journey smoothly with proper documentation.",
   visaSteps: [
