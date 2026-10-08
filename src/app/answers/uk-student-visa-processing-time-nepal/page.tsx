@@ -10,8 +10,12 @@ const post = {
       "body": "- **Decision time:** usually within 3 weeks from outside the UK.\n- **Earliest you can apply:** 6 months before your course starts.\n- **Before you apply:** you need your CAS from the university, funds held for 28 days and, if required, a TB test certificate.\n- **Do not book flights** until you have your decision.\n\nFollow the full [step-by-step guide to the UK student visa from Nepal](/uk-student-visa-from-nepal)."
     },
     {
+      "heading": "Related guides",
+      "body": "- [UK student visa from Nepal: the full guide](/uk-student-visa-from-nepal)\n- [The 28-day rule for Nepali students](/uk-student-visa-28-day-rule-Nepalese-students-2027)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-consultancy-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
+    },
+    {
       "heading": "Sources",
-      "body": "- [GOV.UK: Student visa, apply](https://www.gov.uk/student-visa/apply)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counselling team](/register)."
+      "body": "- [GOV.UK: Student visa, apply](https://www.gov.uk/student-visa/apply)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counseling team](/register)."
     }
   ],
   "featuredImage": {

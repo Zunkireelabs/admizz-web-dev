@@ -69,7 +69,7 @@ export default function TournamentPulse() {
             <div className="wc-pulse-icon"><CalendarIcon size={20} /></div>
             <div className="wc-pulse-label">Days to Final</div>
             <div className="wc-pulse-value"><CountUp value={pulse.daysUntilFinal} /></div>
-            <div className="wc-pulse-meta">Sunday, 19 July · MetLife Stadium</div>
+            <div className="wc-pulse-meta">Sunday, July 19 · MetLife Stadium</div>
           </div>
         </div>
       </div>

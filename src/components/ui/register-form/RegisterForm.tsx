@@ -560,7 +560,7 @@ function Step3({ form, set, firstName, theme }: { form: FormData; set: (p: Parti
     <div>
       <StepHeading
         title={firstName ? `Almost done, ${firstName}!` : "Almost done"}
-        subtitle="One quick tap and a counsellor will reach out."
+        subtitle="One quick tap and a counselor will reach out."
       />
       <div className="mt-2 pb-2 space-y-2">
         <span className="block text-[12px] font-bold uppercase tracking-[0.12em] mb-3" style={{ color: "#0D1282" }}>

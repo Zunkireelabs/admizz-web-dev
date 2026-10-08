@@ -23,7 +23,7 @@ const post = {
     },
     {
       "heading": "Step 5: Funds and the 28-day rule",
-      "body": "For applications made before 30 November 2026, GOV.UK sets the living-cost funds at **£1,171 a month outside London** and **£1,529 a month in London**, for up to 9 months (£10,539 or £13,761). **From 30 November 2026 they rise to £1,203 and £1,570 a month, which is £10,827 or £14,130 for 9 months.** The rate depends on the date you apply, not on the date of your CAS or bank statement, and most applicants for September 2027 will apply after 30 November 2026, so plan for the higher amounts. You also show the unpaid part of your first-year tuition.\n\nYou must hold the money for at least **28 days in a row**, and the end date of the 28-day period must be within 31 days of the date you apply, according to [GOV.UK](https://www.gov.uk/student-visa/money). Plan your account five to six weeks before you want to apply. Read our guides on the [bank balance you need](/bank-balance-required-uk-student-visa-2027) and the [28-day rule](/uk-student-visa-28-day-rule-Nepalese-students-2027)."
+      "body": "For applications made before November 30, 2026, GOV.UK sets the living-cost funds at **£1,171 a month outside London** and **£1,529 a month in London**, for up to 9 months (£10,539 or £13,761). **From November 30, 2026, they rise to £1,203 and £1,570 a month, which is £10,827 or £14,130 for 9 months.** The rate depends on the date you apply, not on the date of your CAS or bank statement, and most applicants for September 2027 will apply after November 30, 2026, so plan for the higher amounts. You also show the unpaid part of your first-year tuition.\n\nYou must hold the money for at least **28 days in a row**, and the end date of the 28-day period must be within 31 days of the date you apply, according to [GOV.UK](https://www.gov.uk/student-visa/money). Plan your account five to six weeks before you want to apply. Read our guides on the [bank balance you need](/bank-balance-required-uk-student-visa-2027) and the [28-day rule](/uk-student-visa-28-day-rule-Nepalese-students-2027)."
     },
     {
       "heading": "Step 6: Tuberculosis test",
@@ -43,11 +43,11 @@ const post = {
     },
     {
       "heading": "Bringing family and paying for it",
-      "body": "If you plan to bring a partner or children, the rules are different, and most taught Master's students cannot. Read about [dependants on a UK student visa](/uk-student-visa-dependants-rules-2027). For ways to reduce the cost, see our [UK scholarships guide](/uk-scholarships-for-Nepalese-students-2027).\n\nAdmizz Education can check your documents and funds before you apply. Talk to an adviser through our [visa assistance service](/visa-assistance-for-study-abroad)."
+      "body": "If you plan to bring a partner or children, the rules are different, and most taught Master's students cannot. Read about [dependants on a UK student visa](/uk-student-visa-dependants-rules-2027). For ways to reduce the cost, see our [UK scholarships guide](/uk-scholarships-for-Nepalese-students-2027).\n\nAdmizz Education can check your documents and funds before you apply. Talk to an advisor through our [visa assistance service](/visa-assistance-for-study-abroad)."
     },
     {
       "heading": "Sources",
-      "body": "- [GOV.UK: Student visa, how much it costs](https://www.gov.uk/student-visa/how-much-it-costs)\n- [GOV.UK: Student visa, money you need](https://www.gov.uk/student-visa/money)\n- [OTS Solicitors: student visa maintenance funds increase from 30 November 2026](https://www.otssolicitors.co.uk/news/student-visa-maintenance-funds-increase-from-30-november-2026)\n- [GOV.UK: Student visa, apply](https://www.gov.uk/student-visa/apply)\n- [GOV.UK: Student visa, documents you must provide](https://www.gov.uk/student-visa/documents-you-must-provide)\n- [GOV.UK: Student visa, knowledge of English](https://www.gov.uk/student-visa/knowledge-of-english)\n- [GOV.UK: TB test for a UK visa](https://www.gov.uk/tb-test-visa)\n- [GOV.UK: Immigration Health Surcharge](https://www.gov.uk/healthcare-immigration-application/how-much-pay)\n\nFigures checked against these pages in October 2026. The rise comes from the Home Office Statement of Changes to the Immigration Rules dated 3 September 2026, as summarised by [OTS Solicitors: student visa maintenance funds increase from 30 November 2026](https://www.otssolicitors.co.uk/news/student-visa-maintenance-funds-increase-from-30-november-2026). We could not open the official statement itself, so check GOV.UK when you apply. They can change, so check GOV.UK on the day you apply."
+      "body": "- [GOV.UK: Student visa, how much it costs](https://www.gov.uk/student-visa/how-much-it-costs)\n- [GOV.UK: Student visa, money you need](https://www.gov.uk/student-visa/money)\n- [OTS Solicitors: student visa maintenance funds increase from November 30, 2026](https://www.otssolicitors.co.uk/news/student-visa-maintenance-funds-increase-from-30-november-2026)\n- [GOV.UK: Student visa, apply](https://www.gov.uk/student-visa/apply)\n- [GOV.UK: Student visa, documents you must provide](https://www.gov.uk/student-visa/documents-you-must-provide)\n- [GOV.UK: Student visa, knowledge of English](https://www.gov.uk/student-visa/knowledge-of-english)\n- [GOV.UK: TB test for a UK visa](https://www.gov.uk/tb-test-visa)\n- [GOV.UK: Immigration Health Surcharge](https://www.gov.uk/healthcare-immigration-application/how-much-pay)\n\nFigures checked against these pages in October 2026. The rise comes from the Home Office Statement of Changes to the Immigration Rules dated September 3, 2026, as summarised by [OTS Solicitors: student visa maintenance funds increase from November 30, 2026](https://www.otssolicitors.co.uk/news/student-visa-maintenance-funds-increase-from-30-november-2026). We could not open the official statement itself, so check GOV.UK when you apply. They can change, so check GOV.UK on the day you apply."
     }
   ],
   "featuredImage": {
@@ -79,7 +79,7 @@ const post = {
     },
     {
       "label": "Funds outside / in London",
-      "value": "£1,203 / £1,570 a month from 30 Nov 2026"
+      "value": "£1,203 / £1,570 a month from Nov 30, 2026"
     },
     {
       "label": "Apply",
@@ -104,7 +104,7 @@ const post = {
     },
     {
       "question": "How much money do I need to show for a UK student visa?",
-      "answer": "For applications from 30 November 2026 you need £1,203 a month outside London or £1,570 a month in London for up to 9 months (£1,171 and £1,529 before that date), plus your unpaid first-year tuition, held for 28 days in a row."
+      "answer": "For applications from November 30, 2026, you need £1,203 a month outside London or £1,570 a month in London for up to 9 months (£1,171 and £1,529 before that date), plus your unpaid first-year tuition, held for 28 days in a row."
     },
     {
       "question": "What English level do I need for a UK student visa?",

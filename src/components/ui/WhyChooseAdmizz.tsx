@@ -23,7 +23,7 @@ export default function WhyChooseAdmizz() {
             </div>
             <h3 className="text-[17px] font-bold mb-2.5">Multi-Destination Expertise</h3>
             <p className="text-sm text-white/85 leading-relaxed m-0">
-              11+ countries, one consultancy. Not limited to single-country advice.
+              12+ countries, one consultancy. Not limited to single-country advice.
             </p>
           </div>
 
@@ -58,9 +58,9 @@ export default function WhyChooseAdmizz() {
         <div className="flex justify-center items-center gap-4 flex-wrap text-sm text-white/90">
           <span>&#127942; ICEF Accredited</span>
           <span>&#8226;</span>
-          <span>&#127891; 8,000+ Students Enrolled</span>
+          <span>&#127891; 2,000+ Students Enrolled</span>
           <span>&#8226;</span>
-          <span>&#127758; 50+ Partner Universities</span>
+          <span>&#127758; 100+ Partner Universities</span>
         </div>
       </div>
     </section>

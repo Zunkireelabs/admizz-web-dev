@@ -27,6 +27,7 @@ const post = {
   "publishedAt": "2026-10-05T02:35:00.000Z",
   "updatedAt": "2026-10-05T09:24:21Z",
   "description": "How much money must you show for a UK student visa in 2027? Maintenance amounts, tuition, examples in pounds and rupees, and how the 28-day rule works.",
+  "quickAnswer": "For a UK Student visa you must show your unpaid first-year tuition plus maintenance for up to 9 months. Maintenance is £1,171 a month outside London (£10,539) and £1,529 in London (£13,761) for applications before November 30, 2026, then £1,203 (£10,827) and £1,570 (£14,130) from that date. The money must be held for 28 consecutive days, ending within 31 days of your application.",
   "faqItems": [
     {
       "question": "Do I have to keep the money after the visa is approved?",

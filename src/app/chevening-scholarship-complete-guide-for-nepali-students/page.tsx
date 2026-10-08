@@ -30,7 +30,7 @@ const post = {
   ],
   "publishedAt": "2026-04-24T13:16:00.000Z",
   "updatedAt": "2026-10-05T00:00:00.000Z",
-  "description": "Fully funded UK Master's for Nepali students. Chevening 2027/28 eligibility, benefits, essays and interview tips. Deadline: 6 October 2026, 11:00 UTC.",
+  "description": "Fully funded UK Master's for Nepali students. Chevening 2027/28 eligibility, benefits, essays and interview tips. Deadline: October 6, 2026, 11:00 UTC.",
   "faqItems": [
     {
       "answer": "No. Chevening requires at least two years of work experience by the application deadline. This can be paid work, voluntary work, or internships, but it must be documented with dates and responsibilities.",
@@ -41,8 +41,8 @@ const post = {
       "question": "How competitive is the Chevening Scholarship for Nepali students?"
     },
     {
-      "answer": "Chevening Scholarships fund only one-year Master's programmes at UK universities. They do not fund PhDs, two-year taught programmes, or undergraduate studies.",
-      "question": "Does Chevening fund PhD programmes or only Master's degrees?"
+      "answer": "Chevening Scholarships fund only one-year Master's programs at UK universities. They do not fund PhDs, two-year taught programs, or undergraduate studies.",
+      "question": "Does Chevening fund PhD programs or only Master's degrees?"
     },
     {
       "answer": "You can choose any eligible one-year Master's course at a UK university, and you must apply to three courses.",
@@ -57,7 +57,7 @@ const post = {
       "question": "Do I need IELTS to apply for the Chevening Scholarship from Nepal?"
     },
     {
-      "answer": "There is no upper age limit. The programme targets early-to-mid career professionals, usually with two to ten years of experience.",
+      "answer": "There is no upper age limit. The program targets early-to-mid career professionals, usually with two to ten years of experience.",
       "question": "Is there an age limit for the Chevening Scholarship?"
     },
     {
@@ -71,11 +71,11 @@ const post = {
 
 export const metadata: Metadata = {
   title: "Chevening Scholarship 2027/28 Nepal: Deadline & How to Apply",
-  description: "Fully funded UK Master's for Nepali students. Chevening 2027/28 eligibility, benefits, essays and interview tips. Deadline: 6 October 2026, 11:00 UTC.",
+  description: "Fully funded UK Master's for Nepali students. Chevening 2027/28 eligibility, benefits, essays and interview tips. Deadline: October 6, 2026, 11:00 UTC.",
   alternates: { canonical: "https://admizzeducation.com/chevening-scholarship-complete-guide-for-nepali-students" },
   openGraph: {
     title: "Chevening Scholarship 2027/28 Nepal: Deadline & How to Apply",
-    description: "Fully funded UK Master's for Nepali students. Chevening 2027/28 eligibility, benefits, essays and interview tips. Deadline: 6 October 2026, 11:00 UTC.",
+    description: "Fully funded UK Master's for Nepali students. Chevening 2027/28 eligibility, benefits, essays and interview tips. Deadline: October 6, 2026, 11:00 UTC.",
     url: "https://admizzeducation.com/chevening-scholarship-complete-guide-for-nepali-students",
     siteName: "Admizz Education",
     type: "article",

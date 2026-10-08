@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { value: "8,000+", label: "Students Successfully Enrolled" },
+  { value: "2,000+", label: "Students Successfully Enrolled" },
   { value: "100+", label: "Partner Institutions Worldwide" },
   { value: "95%", label: "Visa Approval Rate" },
   { value: "$2M+", label: "Scholarships Awarded" },
@@ -53,9 +53,9 @@ const features = [
     ),
   },
   {
-    title: "Personalized Counselling",
+    title: "Personalized Counseling",
     description:
-      "Every student receives tailored counselling based on strengths, career goals, and financial background for the best-fit pathway.",
+      "Every student receives tailored counseling based on strengths, career goals, and financial background for the best-fit pathway.",
     icon: (
       <svg className="w-8 h-8 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -181,7 +181,7 @@ const testimonialData = [
     originFlag: "NP",
     destFlag: "GB",
     route: "Nepal → UK",
-    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application visa process was smooth and stress-free.",
+    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application and visa process was smooth and stress-free.",
   },
 ];
 
@@ -209,7 +209,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Is Admizz Education genuine?",
     answer:
-      "Admizz Education is an ICEF-accredited agency that has helped students apply abroad since 2016. You can read more on our accreditation and results page.",
+      "Admizz Education is an ICEF-accredited agency that has helped students apply abroad since 2015. You can read more on our accreditation and results page.",
   },
   {
     question: "Where can I read Admizz Education reviews?",
@@ -224,7 +224,7 @@ const faqItems: FAQItem[] = [
   {
     question: "How long does the study abroad process usually take?",
     answer:
-      "Depending on the country and university, the process usually takes 4-12 weeks. Our counsellors help you plan ahead to meet all deadlines comfortably.",
+      "Depending on the country and university, the process usually takes 4-12 weeks. Our counselors help you plan ahead to meet all deadlines comfortably.",
   },
   {
     question: "Can I apply for scholarships with your guidance?",
@@ -254,7 +254,7 @@ const faqItems: FAQItem[] = [
   {
     question: "How do I know which course is right for me?",
     answer:
-      "Our counsellors assess your academic background, career goals, and budget to recommend the best fit. We consider multiple factors to find your ideal program.",
+      "Our counselors assess your academic background, career goals, and budget to recommend the best fit. We consider multiple factors to find your ideal program.",
   },
   {
     question: "Is there an age limit for studying abroad?",
@@ -302,13 +302,13 @@ export default async function TopEducationConsultancyInNepalPage() {
               <p className="mt-4 text-[15px] md:text-base text-white/90 leading-relaxed">
                 Admizz Education provides expert guidance for studying abroad &mdash;
                 from university selection and application support to visa assistance
-                and scholarship counselling.
+                and scholarship counseling.
               </p>
               <Link
                 href="/register"
                 className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
               >
-                Talk to an Expert Counsellor for FREE
+                Talk to an Expert Counselor for FREE
               </Link>
             </div>
             <div className="hidden md:block lg:w-[472px] ml-auto">
@@ -363,7 +363,7 @@ export default async function TopEducationConsultancyInNepalPage() {
                     top education consultancy in Nepal
                   </strong>
                   , we specialize in helping students unlock international
-                  opportunities by providing professional counselling, university
+                  opportunities by providing professional counseling, university
                   selection, application support, visa guidance, and pre-departure
                   briefings.
                 </p>
@@ -385,7 +385,7 @@ export default async function TopEducationConsultancyInNepalPage() {
                 href="/register"
                 className="inline-block mt-8 bg-blue-royal text-white font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-blue-dark transition-colors"
               >
-                Get a Free Counselling Session
+                Get a Free Counseling Session
               </Link>
             </div>
           </div>
@@ -513,7 +513,7 @@ export default async function TopEducationConsultancyInNepalPage() {
                 <p className="text-sm text-gray-dark leading-relaxed">Coaching, practice tests and study plans for the English and entrance exams that universities ask for.</p>
               </Link>
               <Link href="/career-counseling-for-international-students" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
-                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Career counselling</h3>
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Career counseling</h3>
                 <p className="text-sm text-gray-dark leading-relaxed">Choose a course and country that fit your goals, with honest advice on work rights and costs.</p>
               </Link>
               <Link href="/study-abroad-from-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
@@ -548,7 +548,7 @@ export default async function TopEducationConsultancyInNepalPage() {
               </Link>
               <Link href="/study-in-australia" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
                 <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Australia education consultancy</h3>
-                <p className="text-sm text-gray-dark leading-relaxed">Course selection and Student visa guidance, including the rules that changed on 2 October 2026.</p>
+                <p className="text-sm text-gray-dark leading-relaxed">Course selection and Student visa guidance, including the rules that changed on October 2, 2026.</p>
               </Link>
               <Link href="/study-in-germany" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
                 <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Germany education consultancy</h3>
@@ -572,14 +572,14 @@ export default async function TopEducationConsultancyInNepalPage() {
           </p>
           <div className="grid md:grid-cols-2 gap-5">
             {[
-              { title: "Proof of accreditation", text: "Ask to see it. Admizz Education is an ICEF-accredited agency and has helped students apply abroad since 2016." },
+              { title: "Proof of accreditation", text: "Ask to see it. Admizz Education is an ICEF-accredited agency and has helped students apply abroad since 2015." },
               { title: "Fees in writing", text: "You should know what you pay, when you pay it and what is refundable." },
               { title: "No guaranteed visas", text: "Only the immigration authority decides a visa. Treat any guarantee as a red flag." },
               { title: "Official sources for every rule", text: "Fees, funds and deadlines should link to a government or university page." },
               { title: "You stay in control", text: "Keep your own logins and read every form before it is submitted." },
-              { title: "Which universities they represent", text: "A good adviser also discusses options outside their partner list." },
-              { title: "Honest advice on weak profiles", text: "A genuine adviser tells you about refusal risk and realistic options." },
-              { title: "Trained counsellors", text: "For UK study, ask about training under the British Council's Agent Quality Framework." },
+              { title: "Which universities they represent", text: "A good advisor also discusses options outside their partner list." },
+              { title: "Honest advice on weak profiles", text: "A genuine advisor tells you about refusal risk and realistic options." },
+              { title: "Trained counselors", text: "For UK study, ask about training under the British Council's Agent Quality Framework." },
             ].map((item) => (
               <div key={item.title} className="bg-white border border-border-light rounded-[10px] p-6">
                 <h3 className="text-base font-bold text-navy mb-1.5">{item.title}</h3>
@@ -636,7 +636,7 @@ export default async function TopEducationConsultancyInNepalPage() {
             right guidance to achieve their international education goals.
             Whether you need help selecting the right university, preparing for
             exams, applying for scholarships, or navigating visa requirements,
-            our experienced counsellors are just a call away.
+            our experienced counselors are just a call away.
           </p>
           <p className="text-[15px] text-white/90 leading-relaxed mb-8">
             Your dream of studying abroad is closer than you think. Let Admizz
@@ -647,7 +647,7 @@ export default async function TopEducationConsultancyInNepalPage() {
             href="/register"
             className="inline-block bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
           >
-            Book Free Counseling
+            Book a Free Counseling Session
           </Link>
         </div>
       </section>

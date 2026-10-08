@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in USA from Nepal 2026: Cost, Visa & Scholarships",
   description:
-    "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepalese students. Admission support from Admizz.",
+    "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-usa-from-nepal",
   },
   openGraph: {
     title: "Study in USA from Nepal 2026: Cost, Visa & Scholarships",
     description:
-      "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepalese students. Admission support from Admizz.",
+      "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-usa-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/stuyabroad.webp"],
@@ -72,7 +72,7 @@ const pageData: NepalVariantData = {
 
   whyAdmizzTitle: "Why Choose Admizz Education?",
   whyAdmizzPoints: [
-    "Free career counselling – Personalized guidance tailored to your goals",
+    "Free career counseling – Personalized guidance tailored to your goals",
     "University shortlisting – Access to 100+ partner universities",
     "Scholarship assistance – $5M+ awarded to our students",
     "F-1 visa support – 95% visa approval success rate",
@@ -236,7 +236,7 @@ const pageData: NepalVariantData = {
   costNote:
     "Living expenses vary significantly by state. Cities like New York and San Francisco are costlier than smaller towns in the Midwest.",
 
-  scholarshipsTitle: "Scholarships for Nepalese Students",
+  scholarshipsTitle: "Scholarships for Nepali Students",
   scholarshipsIntro:
     "Nepali students can apply for various prestigious scholarships to significantly reduce tuition costs.",
   scholarships: [

@@ -8,9 +8,9 @@ import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { value: "95%", label: "Visa Success Rate" },
+  { value: "97%", label: "UK Visa Success Rate" },
   { value: "100+", label: "Prestigious Institutions" },
-  { value: "8,000+", label: "Students Enrolled" },
+  { value: "2,000+", label: "Students Enrolled" },
   { value: "$2M+", label: "Scholarships Awarded" },
 ];
 
@@ -18,7 +18,7 @@ const services = [
   {
     title: "UK Study Visa",
     description:
-      "Expert guidance for your UK student visa application with 95% success rate.",
+      "Expert guidance for your UK student visa application with a 97% success rate.",
     icon: (
       <svg
         className="w-12 h-12 text-blue-royal mx-auto"
@@ -375,7 +375,7 @@ export default function CampaignUKPage() {
               },
               {
                 title: "Shorter Durations",
-                desc: "1-year Masters and 3-year Bachelors programs.",
+                desc: "1-year Master's and 3-year Bachelor's programs.",
                 icon: (
                   <svg
                     className="w-8 h-8 text-blue-royal"

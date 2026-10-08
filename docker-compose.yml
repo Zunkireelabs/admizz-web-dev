@@ -16,6 +16,7 @@ services:
       # Middleware: WWW → non-www redirect
       - "traefik.http.middlewares.admizz-edu-web-www-redirect.redirectregex.regex=^https://www\\.admizzeducation\\.com/(.*)"
       - "traefik.http.middlewares.admizz-edu-web-www-redirect.redirectregex.replacement=https://admizzeducation.com/$${1}"
+      - "traefik.http.middlewares.admizz-edu-web-www-redirect.redirectregex.permanent=true"
       # Redirect middlewares
       - "traefik.http.middlewares.admizz-prod-trailing-slash.redirectregex.regex=^(https?://[^/]+)/(.+)/$$"
       - "traefik.http.middlewares.admizz-prod-trailing-slash.redirectregex.replacement=$${1}/$${2}"
@@ -29,8 +30,8 @@ services:
       - "traefik.http.middlewares.admizz-prod-campaign.redirectregex.regex=^(https?://[^/]+)/win-big-campaign$$"
       - "traefik.http.middlewares.admizz-prod-campaign.redirectregex.replacement=$${1}/campaign"
       - "traefik.http.middlewares.admizz-prod-campaign.redirectregex.permanent=true"
-      - "traefik.http.middlewares.admizz-prod-newzealand.redirectregex.regex=^(https?://[^/]+)/study-in-new-zealand-from-nepal$$"
-      - "traefik.http.middlewares.admizz-prod-newzealand.redirectregex.replacement=$${1}/study-in-newzealand-from-nepal"
+      - "traefik.http.middlewares.admizz-prod-newzealand.redirectregex.regex=^(https?://[^/]+)/study-in-new-zealand(-from-nepal)?$$"
+      - "traefik.http.middlewares.admizz-prod-newzealand.redirectregex.replacement=$${1}/study-in-newzealand$${2}"
       - "traefik.http.middlewares.admizz-prod-newzealand.redirectregex.permanent=true"
       - "traefik.http.middlewares.admizz-prod-tag.redirectregex.regex=^(https?://[^/]+)/tag/.*$$"
       - "traefik.http.middlewares.admizz-prod-tag.redirectregex.replacement=$${1}/blogs"
@@ -43,7 +44,7 @@ services:
       - "traefik.http.middlewares.admizz-prod-blogs-page.redirectregex.permanent=false"
       # Post renamed: /blogs/5-benefits-of-studying-in-dubai → new slug -in-uae.
       # Must be chained before admizz-prod-blog-post below (specific before generic).
-      - "traefik.http.middlewares.admizz-prod-dubai-blog.redirectregex.regex=^(https?://[^/]+)/blogs/5-benefits-of-studying-in-dubai/?$$"
+      - "traefik.http.middlewares.admizz-prod-dubai-blog.redirectregex.regex=^(https?://[^/]+)/(blogs/)?5-benefits-of-studying-in-dubai/?$$"
       - "traefik.http.middlewares.admizz-prod-dubai-blog.redirectregex.replacement=$${1}/5-benefits-of-studying-in-uae"
       - "traefik.http.middlewares.admizz-prod-dubai-blog.redirectregex.permanent=true"
       # /blogs/<post-slug> → /<post-slug> — posts live at the root, /blogs is only
@@ -79,7 +80,7 @@ services:
       - "traefik.http.middlewares.admizz-prod-affiliate-program.redirectregex.permanent=true"
       # Retired blog posts (old WordPress content never migrated to Sanity, 404ing
       # in Search Console) — redirect to the blog listing instead of a dead end.
-      - "traefik.http.middlewares.admizz-prod-retired-posts.redirectregex.regex=^(https?://[^/]+)/(blender-technology-animation-for-the-future|which-country-is-best-for-nepali-students-in-2026|difference-between-bba-bms-and-bbm|which-is-better-kiit-vs-mnnit|7-inspirational-movies-that-students-must-watch|4-steps-to-defining-your-mba-goals|army-public-school-scholarship-by-india-for-nepali-students|major-achievements-of-kiit-university-during-the-past-5-years)/?$$"
+      - "traefik.http.middlewares.admizz-prod-retired-posts.redirectregex.regex=^(https?://[^/]+)/(blender-technology-animation-for-the-future|which-country-is-best-for-nepali-students-in-2026|difference-between-bba-bms-and-bbm|which-is-better-kiit-vs-mnnit|7-inspirational-movies-that-students-must-watch|4-steps-to-defining-your-mba-goals|army-public-school-scholarship-by-india-for-nepali-students|major-achievements-of-kiit-university-during-the-past-5-years|effective-tips-for-using-technology-in-classroom|shifting-winds-of-education|importance-of-research-for-students|learn-about-geography-of-india|history-of-india-in-a-minute|5-simple-ways-to-increase-your-intelligence|learning-a-new-sport-isns-a-kids-thing|strategies-to-stay-motivated-during-online-class)/?$$"
       - "traefik.http.middlewares.admizz-prod-retired-posts.redirectregex.replacement=$${1}/blogs"
       - "traefik.http.middlewares.admizz-prod-retired-posts.redirectregex.permanent=true"
       # Retired CTA page — /book-as-a-student → /register

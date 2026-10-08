@@ -142,7 +142,7 @@ export default function Header() {
               href="/register"
               className="ml-4 bg-yellow text-black font-semibold text-[15px] px-6 py-2.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
             >
-              Book a Free Counseling
+              Book a Free Counseling Session
             </Link>
           </nav>
 
@@ -239,7 +239,7 @@ export default function Header() {
               className="block text-center bg-yellow text-black font-semibold text-[15px] px-6 py-3.5 rounded-[10px] mt-3"
               onClick={() => setMobileOpen(false)}
             >
-              Book a Free Counseling
+              Book a Free Counseling Session
             </Link>
           </div>
         </div>

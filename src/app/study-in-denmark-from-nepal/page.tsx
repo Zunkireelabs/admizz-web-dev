@@ -61,7 +61,7 @@ const pageData: NepalVariantData = {
     },
   ],
 
-  visaTitle: "Denmark Student Visa Requirements for Nepalese Students",
+  visaTitle: "Denmark Student Visa Requirements for Nepali Students",
   visaIntro: "The Danish Long-Stay Student Visa (Type D) is a Residence Permit for Higher Education. Here are the required documents and information.",
   visaRequirements: [
     {
@@ -107,7 +107,7 @@ const pageData: NepalVariantData = {
   ],
   visaNote: "Processing Time: 2 to 3 months. Apply early to avoid delays.",
 
-  intakesTitle: "Denmark Intakes for Nepalese Students",
+  intakesTitle: "Denmark Intakes for Nepali Students",
   intakesIntro: "Denmark offers two main intakes throughout the year, with the autumn intake being the primary option for most programs.",
   intakes: [
     {
@@ -121,7 +121,7 @@ const pageData: NepalVariantData = {
       details: "Mostly limited to Master's or technical courses - fewer options overall",
     },
   ],
-  intakesNote: "Recommended Timeline for Nepalese Students: Research & shortlist universities (August – October, previous year), Take English proficiency tests (September – November), Prepare documents & SOP (November – December), Submit applications (January – March), Receive offers (April – May), Apply for student visa (May – July), Intake begins (August – September).",
+  intakesNote: "Recommended Timeline for Nepali Students: Research & shortlist universities (August – October, previous year), Take English proficiency tests (September – November), Prepare documents & SOP (November – December), Submit applications (January – March), Receive offers (April – May), Apply for student visa (May – July), Intake begins (August – September).",
 
   testTitle: "English Language Requirements",
   testIntro: "Most Danish universities require proof of English proficiency. Here are the typical requirements for Nepali students.",
@@ -215,7 +215,7 @@ const pageData: NepalVariantData = {
   ],
   costNote: "Estimated Total First-Year Cost: Tuition + Living (NPR 20 – 40 Lakhs) + Additional Expenses (NPR 1.5 – 2.5 Lakhs) = Total: NPR 21.5 – 42.5 Lakhs",
 
-  scholarshipsTitle: "Scholarships for Nepalese Students to Study in Denmark",
+  scholarshipsTitle: "Scholarships for Nepali Students to Study in Denmark",
   scholarshipsIntro: "Several scholarship opportunities are available to help reduce the cost of studying in Denmark. Popular universities offering scholarships include University of Copenhagen, Aarhus University, Technical University of Denmark (DTU), Copenhagen Business School (CBS), Aalborg University, and Roskilde University.",
   scholarships: [
     {
@@ -229,7 +229,7 @@ const pageData: NepalVariantData = {
       details: "Tuition fees, travel allowance, living stipend. Eligibility: Erasmus Mundus Joint Master Degree programs",
     },
     {
-      name: "Nordplus Programme",
+      name: "Nordplus Program",
       provider: "Nordic Council",
       details: "Travel + study grants (limited). Eligibility: Exchange students in Nordplus institutions",
     },
@@ -261,7 +261,7 @@ const pageData: NepalVariantData = {
 
   faqItems: [
     {
-      question: "Why should Nepalese students choose Denmark for higher education?",
+      question: "Why should Nepali students choose Denmark for higher education?",
       answer: "Denmark offers world-class education, globally recognized degrees, innovative teaching methods, and excellent post-study work opportunities. It's known for its high quality of life, student-friendly cities, and strong English-taught programs.",
     },
     {
@@ -281,7 +281,7 @@ const pageData: NepalVariantData = {
       answer: "Tuition Fees: NPR 9 – 30+ Lakhs/year. Living Expenses: NPR 12 – 18 Lakhs/year. Scholarships available to help reduce costs.",
     },
     {
-      question: "Are there scholarships available for Nepalese students in Denmark?",
+      question: "Are there scholarships available for Nepali students in Denmark?",
       answer: "Yes. Nepali students can apply for Danish Government Scholarships, Erasmus+ Scholarships, University-specific merit scholarships, and Private foundation or alumni scholarships.",
     },
     {
@@ -293,7 +293,7 @@ const pageData: NepalVariantData = {
       answer: "Yes. After completing your studies, you can apply for a 6-month post-study job search visa, and later for a work visa if you find employment.",
     },
     {
-      question: "What are the student visa requirements for Nepalese students?",
+      question: "What are the student visa requirements for Nepali students?",
       answer: "You'll need: Admission letter from Danish university, ST1 visa application form, Proof of funds (~NPR 15+ Lakhs/year), Health insurance, accommodation, and biometric data.",
     },
     {
@@ -303,7 +303,7 @@ const pageData: NepalVariantData = {
   ],
 
   ctaTitle: "Start Your Journey to Study in Denmark from Nepal",
-  ctaContent: "At Admizz, we help Nepalese students navigate the entire Denmark study process — from choosing the right university to preparing documents and applying for a visa. We make it clear, personalized, and stress-free. Your future in Denmark starts here — with Admizz.",
+  ctaContent: "At Admizz, we help Nepali students navigate the entire Denmark study process — from choosing the right university to preparing documents and applying for a visa. We make it clear, personalized, and stress-free. Your future in Denmark starts here — with Admizz.",
 };
 
 export default async function StudyInDenmarkFromNepalPage() {

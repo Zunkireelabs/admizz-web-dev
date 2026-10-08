@@ -13,7 +13,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "Why do Asian students choose to study in Europe?",
       answer:
-        "The page points to globally recognised degrees, affordable tuition and scholarships, a wide range of programs, many taught in English, post-study work visas in several countries, and a multicultural environment that builds global exposure and international networks.",
+        "The page points to globally recognized degrees, affordable tuition and scholarships, a wide range of programs, many taught in English, post-study work visas in several countries, and a multicultural environment that builds global exposure and international networks.",
     },
     {
       question: "Is studying in Europe cheaper than the USA, Canada or Australia?",
@@ -138,7 +138,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "Is it easy to get admission in Indian institutions?",
       answer:
-        "The page says admission in any Indian educational institution is relatively easier. It also describes India as one of the most competitive countries when it comes to quality education, which is one of the major reasons Nepalese students prefer to study there.",
+        "The page says admission in any Indian educational institution is relatively easier. It also describes India as one of the most competitive countries when it comes to quality education, which is one of the major reasons Nepali students prefer to study there.",
     },
   ],
   "uk-admission-guidance-for-international-students": [
@@ -233,34 +233,34 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "When do the new UK student visa changes take effect?",
       answer:
-        "The UK Home Office announced the changes on 12 March 2025, and they roll out in stages starting April 2025. Several of the changes, including PhD transfers, the medical and dental changes, and the new error correction process, take effect from 9 April 2025.",
+        "The UK Home Office announced the changes on March 12, 2025, and they roll out in stages starting April 2025. Several of the changes, including PhD transfers, the medical and dental changes, and the new error correction process, take effect from April 9, 2025.",
     },
     {
       question: "Do PhD students need to show academic progress when switching universities?",
       answer:
-        "From 9 April 2025, PhD students who need to switch universities to continue working with their academic supervisor no longer need to demonstrate academic progress when applying for a new student visa. The page calls this a big win for doctoral students, as it reduces administrative barriers.",
+        "From April 9, 2025, PhD students who need to switch universities to continue working with their academic supervisor no longer need to demonstrate academic progress when applying for a new student visa. The page calls this a big win for doctoral students, as it reduces administrative barriers.",
     },
     {
       question: "Can medical and dental postgraduates still get a UK student visa for foundation programs?",
       answer:
-        "No. From 9 April 2025, Health Education England will no longer act as a licensed student visa sponsor, so you cannot apply for a student visa for foundation programs in medicine or dentistry. These programs will no longer qualify for the Graduate Route, and you would need the Skilled Worker visa route to stay and work.",
+        "No. From April 9, 2025, Health Education England will no longer act as a licensed student visa sponsor, so you cannot apply for a student visa for foundation programs in medicine or dentistry. These programs will no longer qualify for the Graduate Route, and you would need the Skilled Worker visa route to stay and work.",
     },
     {
       question: "How are UK student visa errors corrected now?",
       answer:
-        "Starting 9 April 2025, the UK Home Office handles corrections for errors in visa conditions or duration through a newly expanded Error Correction team. This applies to visa applications made within the UK, and administrative reviews are no longer an option for these issues, so check your visa details on receipt.",
+        "Starting April 9, 2025, the UK Home Office handles corrections for errors in visa conditions or duration through a newly expanded Error Correction team. This applies to visa applications made within the UK, and administrative reviews are no longer an option for these issues, so check your visa details on receipt.",
     },
   ],
   "uk-education-nepal-growth": [
     {
-      question: "Why are more Nepalese students choosing the UK over Australia?",
+      question: "Why are more Nepali students choosing the UK over Australia?",
       answer:
         "The page cites a more straightforward UK student visa process, affordable universities and scholarships, TNE pathways with Nepali colleges, MOI letters accepted for English waivers, and post-study work opportunities. It also says Australia's tightened visa rules and immigration clampdown led many to reconsider their options.",
     },
     {
-      question: "How much are tuition fees at UK universities for Nepalese students?",
+      question: "How much are tuition fees at UK universities for Nepali students?",
       answer:
-        "The page says average tuition fees range from £11,500 to £13,500 per year, and several UK universities provide great value for money. Many institutions also offer partial scholarships or fee discounts, making UK education more accessible for Nepalese students.",
+        "The page says average tuition fees range from £11,500 to £13,500 per year, and several UK universities provide great value for money. Many institutions also offer partial scholarships or fee discounts, making UK education more accessible for Nepali students.",
     },
     {
       question: "Can I use an MOI letter instead of IELTS for UK universities?",
@@ -302,7 +302,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
         "KIIT University is ranked No. 1 among the Private Higher Education Indian Universities by the Atal Ranking of Institutions on Innovation Achievements (ARIIA). Times Higher Education places its Computer Science Engineering program in the 301-400 cohort and its overall Engineering ranking in the 401-500 cohort in the world.",
     },
     {
-      question: "Is KIIT University internationally recognised?",
+      question: "Is KIIT University internationally recognized?",
       answer:
         "Yes, the page says KIIT University has gained recognition from various international organizations for its teaching and research. In 2021 it became India's first QS 5 Stars Rated University, receiving 5 stars after an assessment of all the categories of QS criteria.",
     },
@@ -350,12 +350,12 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "Which countries can I study in as an international student?",
       answer:
-        "Admizz Education places students in top study destinations such as the USA, UK, Canada, Australia, Germany, France, Ireland, New Zealand, Dubai, Denmark and South Korea. Counsellors give personalised mentoring based on your academic goals, financial requirements and career aspirations.",
+        "Admizz Education places students in top study destinations such as the USA, UK, Canada, Australia, Germany, France, Ireland, New Zealand, Dubai, Denmark and South Korea. Counselors give personalized mentoring based on your academic goals, financial requirements and career aspirations.",
     },
     {
       question: "What services does a study abroad consultancy provide?",
       answer:
-        "According to the page, services include career counselling and course guidance, university shortlisting, SOP, LOR, CV and application assistance, scholarship guidance, education loan assistance, visa filing and mock interviews, and accommodation and pre-departure support.",
+        "According to the page, services include career counseling and course guidance, university shortlisting, SOP, LOR, CV and application assistance, scholarship guidance, education loan assistance, visa filing and mock interviews, and accommodation and pre-departure support.",
     },
     {
       question: "Which English and entrance tests can I prepare for?",
@@ -384,7 +384,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "What is the Australian MD115 student visa rule?",
       answer:
-        "MD115 is Ministerial Direction 115, which Australia applies from 14 November 2025. It is part of the managed growth strategy for international education. Each institution has a set number of new international students it can take, and this affects how fast your Subclass 500 Student Visa is processed.",
+        "MD115 is Ministerial Direction 115, which Australia applies from November 14, 2025. It is part of the managed growth strategy for international education. Each institution has a set number of new international students it can take, and this affects how fast your Subclass 500 Student Visa is processed.",
     },
     {
       question: "How long will visa processing take under MD115?",
@@ -394,7 +394,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "How can I avoid visa delays under MD115?",
       answer:
-        "Apply early, choose a university within its student allocation, and prepare complete documents, including financials, academic records and a statement of purpose. Ask your counsellor about your chosen institution's status under MD115, and present your true study goals and intentions.",
+        "Apply early, choose a university within its student allocation, and prepare complete documents, including financials, academic records and a statement of purpose. Ask your counselor about your chosen institution's status under MD115, and present your true study goals and intentions.",
     },
   ],
   "study-in-the-uk-complete-guide-for-2026": [
@@ -462,7 +462,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "Which countries are listed for Computer Science and IT courses?",
       answer:
-        "The page lists the USA, UK, Canada, Australia and Ireland as destinations for Computer Science, Software Engineering and IT. Top specialisations include Cybersecurity, Cloud Computing, DevOps, IT Management, and Web and App Development.",
+        "The page lists the USA, UK, Canada, Australia and Ireland as destinations for Computer Science, Software Engineering and IT. Top specializations include Cybersecurity, Cloud Computing, DevOps, IT Management, and Web and App Development.",
     },
     {
       question: "Where can I study nursing and healthcare courses abroad?",
@@ -557,7 +557,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "How can parents help a child with strong and weak subjects?",
       answer:
-        "Parents should know the child's favourite subject, where he or she can excel as they grow up, and motivate the child more in that area. They should also identify weak subjects and help the child do well there, possibly with online tutors or other available materials.",
+        "Parents should know the child's favorite subject, where he or she can excel as they grow up, and motivate the child more in that area. They should also identify weak subjects and help the child do well there, possibly with online tutors or other available materials.",
     },
   ],
   "top-5-universities-to-study-in-uk-based-on-qs-rankings-2023": [
@@ -569,7 +569,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "What is Imperial College London known for?",
       answer:
-        "Imperial College London is recognised for its emphasis on science, technology, engineering and medicine. The page describes it as renowned for cutting-edge research and a practical approach, with a diverse student body and close ties to industry.",
+        "Imperial College London is recognized for its emphasis on science, technology, engineering and medicine. The page describes it as renowned for cutting-edge research and a practical approach, with a diverse student body and close ties to industry.",
     },
     {
       question: "How should I choose between UK universities?",
@@ -647,7 +647,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "How can I prepare for GRE, GMAT and SAT exams from Nepal?",
       answer:
-        "Strengthen your basics in English and math, plan your study time, attempt regular full-length mock tests, analyse results to find weak areas, and consider expert coaching. Staying consistent matters: steady effort beats last-minute cramming.",
+        "Strengthen your basics in English and math, plan your study time, attempt regular full-length mock tests, analyze results to find weak areas, and consider expert coaching. Staying consistent matters: steady effort beats last-minute cramming.",
     },
   ],
   "navigating-your-future-the-importance-of-assessing-a-colleges-alumni-network": [
@@ -735,9 +735,9 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
         "International students in the UK are allowed to work part-time during term-time and full-time during vacations. This gives them the chance to earn some extra money to support their studies and gain valuable work experience that can improve their employability after graduation.",
     },
     {
-      question: "Are UK degrees recognised by employers?",
+      question: "Are UK degrees recognized by employers?",
       answer:
-        "UK universities are globally recognised for academic excellence and research output, and many are members of the Russell Group. UK degrees are highly regarded by employers worldwide, which makes them a valuable asset for students who want a successful career.",
+        "UK universities are globally recognized for academic excellence and research output, and many are members of the Russell Group. UK degrees are highly regarded by employers worldwide, which makes them a valuable asset for students who want a successful career.",
     },
     {
       question: "Do UK universities help students find work experience?",
@@ -764,7 +764,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "How can I order food when I miss home-cooked meals in India?",
       answer:
-        "Apps such as Zomato and Swiggy let you order from your favourite restaurants when you are tired of hostel food. They provide lists based on cuisine and budget preferences, and after you make your pick, they deliver it to you. With UberEats, you can even track your food.",
+        "Apps such as Zomato and Swiggy let you order from your favorite restaurants when you are tired of hostel food. They provide lists based on cuisine and budget preferences, and after you make your pick, they deliver it to you. With UberEats, you can even track your food.",
     },
   ],
   "top-5-adventurous-sport-in-india": [
@@ -786,24 +786,24 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "Where can I go surfing in India?",
       answer:
-        "Covelong Point, Chennai is the first surfing village in India, and an international surf festival is organised there. Other places to enjoy surfing include Ramakrishna Beach in Andhra Pradesh, Kovalam Beach in Kerala and Gokarna in Karnataka. Make sure you are mentally and physically prepared to face the wave.",
+        "Covelong Point, Chennai is the first surfing village in India, and an international surf festival is organized there. Other places to enjoy surfing include Ramakrishna Beach in Andhra Pradesh, Kovalam Beach in Kerala and Gokarna in Karnataka. Make sure you are mentally and physically prepared to face the wave.",
     },
   ],
   "isic-explained-why-every-international-student-should-have-one": [
     {
       question: "What is an ISIC card?",
       answer:
-        "The International Student Identity Card (ISIC) is described as the only internationally recognised proof of student status. It is accepted by educational institutions, travel partners, cultural centres and service providers worldwide, and it helps students access benefits that are otherwise unavailable with a regular student ID.",
+        "The International Student Identity Card (ISIC) is described as the only internationally recognized proof of student status. It is accepted by educational institutions, travel partners, cultural centers and service providers worldwide, and it helps students access benefits that are otherwise unavailable with a regular student ID.",
     },
     {
       question: "Who can apply for an ISIC card?",
       answer:
-        "ISIC is available to full-time international students, students enrolled in recognised educational institutions, and learners aged 12 years and above. Unlike regular student IDs, ISIC works across borders, which makes it suitable for globally mobile students who study outside their home country.",
+        "ISIC is available to full-time international students, students enrolled in recognized educational institutions, and learners aged 12 years and above. Unlike regular student IDs, ISIC works across borders, which makes it suitable for globally mobile students who study outside their home country.",
     },
     {
       question: "What documents do I need to apply for ISIC?",
       answer:
-        "Required documents typically include a recent photograph, valid identity proof, and proof of student enrolment or an offer letter. Once the application is approved, the ISIC card is issued with one-year validity. A digital version is also available, so students can use their benefits through a mobile device.",
+        "Required documents typically include a recent photograph, valid identity proof, and proof of student enrollment or an offer letter. Once the application is approved, the ISIC card is issued with one-year validity. A digital version is also available, so students can use their benefits through a mobile device.",
     },
     {
       question: "What discounts does an ISIC card offer?",
@@ -835,9 +835,9 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
   ],
   "cost-of-studying-and-living-in-the-uk": [
     {
-      question: "How much are tuition fees in the UK for Nepalese students?",
+      question: "How much are tuition fees in the UK for Nepali students?",
       answer:
-        "Undergraduate programs cost £12,000 – £25,000 per year and postgraduate programs cost £13,000 – £30,000 per year. Tuition at prestigious institutions like Oxford, Cambridge or Imperial College may exceed £35,000 annually. Nepalese students can also find scholarships, fee waivers and part-time work opportunities to manage expenses.",
+        "Undergraduate programs cost £12,000 – £25,000 per year and postgraduate programs cost £13,000 – £30,000 per year. Tuition at prestigious institutions like Oxford, Cambridge or Imperial College may exceed £35,000 annually. Nepali students can also find scholarships, fee waivers and part-time work opportunities to manage expenses.",
     },
     {
       question: "How much does it cost to live in the UK per month?",
@@ -850,9 +850,9 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
         "Most UK universities require English proficiency tests such as IELTS or TOEFL. IELTS costs £150 – £200 and TOEFL costs £180 – £250. Some programs may also require standardized tests like GMAT or GRE, depending on the course. Early preparation can improve your chances of acceptance.",
     },
     {
-      question: "How much is the UK student visa fee for Nepalese students?",
+      question: "How much is the UK student visa fee for Nepali students?",
       answer:
-        "The application costs £558 for the visa, plus a healthcare surcharge of £776 per year. Nepalese students require a UK Student Visa to study in the country, and the guide links to a step-by-step article on the visa process.",
+        "The application costs £558 for the visa, plus a healthcare surcharge of £776 per year. Nepali students require a UK Student Visa to study in the country, and the guide links to a step-by-step article on the visa process.",
     },
   ],
   "top-universities-in-the-uk": [
@@ -879,7 +879,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
         "International scholarships are available for a wide range of students from Nepal, regardless of academic background or study level. Eligibility varies by institution and program, but common requirements include strong academic performance, English language proficiency (IELTS/TOEFL), a well-written Statement of Purpose, extracurricular or leadership experience and letters of recommendation.",
     },
     {
-      question: "What do international scholarships for Nepalese students cover?",
+      question: "What do international scholarships for Nepali students cover?",
       answer:
         "Scholarships can cover tuition fees, living expenses, travel costs and more. Beyond money, they let deserving students focus on academic and personal growth without financial stress. Key benefits listed include access to world-class education, exposure to global cultures and networks, boosted academic and professional credibility and increased career opportunities after graduation.",
     },
@@ -1008,12 +1008,12 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
   ],
   "study-abroad-from-nepal": [
     {
-      question: "Which countries can Nepalese students study in?",
+      question: "Which countries can Nepali students study in?",
       answer:
         "The page covers study destinations including Australia, Canada, Denmark, Dubai (UAE), France, India, New Zealand, South Korea, the USA and the UK. Each has its own benefits and popular courses, so the right choice depends on your career goals and budget.",
     },
     {
-      question: "What services help Nepalese students apply to foreign universities?",
+      question: "What services help Nepali students apply to foreign universities?",
       answer:
         "Services listed include admission counseling, scholarship assistance, visa guidance, application assistance, accommodation and pre-departure support, and test preparation. The aim is to help students at each step, from choosing a university and course to securing a student visa.",
     },
@@ -1027,7 +1027,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "What is the ICCR Scholarship 2026 application deadline?",
       answer:
-        "The ICCR Scholarship portal opened on 27 February 2026, and the application deadline is 15 April 2026. All documents must be submitted by then, and students are encouraged to apply early and read all instructions carefully before submitting.",
+        "The ICCR Scholarship portal opened on February 27, 2026, and the application deadline is April 15, 2026. All documents must be submitted by then, and students are encouraged to apply early and read all instructions carefully before submitting.",
     },
     {
       question: "How much is the ICCR scholarship application fee in Nepal?",
@@ -1042,12 +1042,12 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "What is the age limit for the ICCR scholarship?",
       answer:
-        "Age is counted as of 1 July 2026. Undergraduate and postgraduate applicants must be between 18 and 35 years old, and PhD or doctoral applicants between 18 and 40 years. Cultural courses have a minimum age of 18 and may have no upper limit, depending on the institution.",
+        "Age is counted as of July 1, 2026. Undergraduate and postgraduate applicants must be between 18 and 35 years old, and PhD or doctoral applicants between 18 and 40 years. Cultural courses have a minimum age of 18 and may have no upper limit, depending on the institution.",
     },
   ],
   "student-visa-for-canada": [
     {
-      question: "What documents do Nepalese students need for a Canada student visa?",
+      question: "What documents do Nepali students need for a Canada student visa?",
       answer:
         "You need a Letter of Acceptance from a Designated Learning Institution, a valid passport covering your whole program, proof of funds, academic records, English test scores (IELTS, PTE or TOEFL), a GIC account for SDS applicants, medical examination and biometrics, and a Statement of Purpose.",
     },
@@ -1059,12 +1059,12 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "Which English tests are accepted for studying in Canada?",
       answer:
-        "The page lists IELTS, PTE and TOEFL as the English language proficiency tests used for Canadian university admission and visa approval. High scores can significantly improve your chances, and Admizz Education offers test preparation with mock tests and personalised feedback.",
+        "The page lists IELTS, PTE and TOEFL as the English language proficiency tests used for Canadian university admission and visa approval. High scores can significantly improve your chances, and Admizz Education offers test preparation with mock tests and personalized feedback.",
     },
     {
       question: "What proof of funds is needed for a Canadian student visa?",
       answer:
-        "You must show proof of funds covering tuition, living expenses, and return travel. Applicants under SDS use a GIC account as financial proof. Admizz Education also offers financial counselling on tuition, GIC accounts and proof of funds.",
+        "You must show proof of funds covering tuition, living expenses, and return travel. Applicants under SDS use a GIC account as financial proof. Admizz Education also offers financial counseling on tuition, GIC accounts and proof of funds.",
     },
   ],
   "12-must-try-street-food-of-india": [
@@ -1283,7 +1283,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "Which are the top 5 universities in the USA?",
       answer:
-        "The article lists the Massachusetts Institute of Technology (MIT), Stanford University, Harvard University, California Institute of Technology (Caltech) and the University of Chicago as the top 5 universities in the USA, recognised for academic excellence and research achievements.",
+        "The article lists the Massachusetts Institute of Technology (MIT), Stanford University, Harvard University, California Institute of Technology (Caltech) and the University of Chicago as the top 5 universities in the USA, recognized for academic excellence and research achievements.",
     },
     {
       question: "Which is the oldest university in the USA?",
@@ -1371,9 +1371,9 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
         "The Australian Department of Home Affairs uses assessment levels to evaluate the risk associated with student visa applicants from different countries. A lower level, like Level 2, means fewer documentary requirements for applicants, which makes the visa process more streamlined and efficient.",
     },
     {
-      question: "Is it easier for Nepalese students to get an Australian student visa now?",
+      question: "Is it easier for Nepali students to get an Australian student visa now?",
       answer:
-        "According to the page, upgrading Nepal to Assessment Level 2 simplifies the Australian Student Visa process for Nepalese students. The application becomes less burdensome, including reduced requirements for proving financial capacity, so more students can access Australian education.",
+        "According to the page, upgrading Nepal to Assessment Level 2 simplifies the Australian Student Visa process for Nepali students. The application becomes less burdensome, including reduced requirements for proving financial capacity, so more students can access Australian education.",
     },
     {
       question: "How are assessment levels decided?",
@@ -1422,24 +1422,24 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
   ],
   "top-courses-and-universities-in-the-uk": [
     {
-      question: "What are the top courses to study in the UK for Nepalese students?",
+      question: "What are the top courses to study in the UK for Nepali students?",
       answer:
-        "The page lists Business and Management Studies, Computer Science and IT, Engineering, Healthcare and Medicine, Hospitality and Tourism Management, and Law and International Relations. Each covers several specialisations, such as Data Science, Cybersecurity and AI under Computer Science and IT, or Nursing and Public Health under Healthcare.",
+        "The page lists Business and Management Studies, Computer Science and IT, Engineering, Healthcare and Medicine, Hospitality and Tourism Management, and Law and International Relations. Each covers several specializations, such as Data Science, Cybersecurity and AI under Computer Science and IT, or Nursing and Public Health under Healthcare.",
     },
     {
       question: "How much does it cost to study in the UK from Nepal?",
       answer:
-        "On average, Nepalese students spend £10,000 – £25,000 per year on tuition fees and £10,000 – £12,000 per year on living costs. Scholarships listed on the page include the Chevening Scholarship, the Commonwealth Scholarship and university-specific merit scholarships.",
+        "On average, Nepali students spend £10,000 – £25,000 per year on tuition fees and £10,000 – £12,000 per year on living costs. Scholarships listed on the page include the Chevening Scholarship, the Commonwealth Scholarship and university-specific merit scholarships.",
     },
     {
-      question: "Which UK universities are popular with Nepalese students?",
+      question: "Which UK universities are popular with Nepali students?",
       answer:
         "The page lists the University of Oxford, University of Cambridge, University College London (UCL), Imperial College London, University of Manchester, University of Edinburgh, Coventry University and University of Hertfordshire among the top choices for students from Nepal.",
     },
     {
       question: "Can I work in the UK after studying?",
       answer:
-        "The UK's Graduate Route Visa allows Nepalese students to stay back for 18 months for applications from 1 January 2027, or 2 years before that date (3 years for PhD students) to gain work experience. Top hiring sectors listed include IT and Software Development, Finance and Banking, Healthcare and Nursing, Engineering and Construction, and Marketing and Business Management.",
+        "The UK's Graduate Route Visa allows Nepali students to stay back for 18 months for applications from January 1, 2027, or 2 years before that date (3 years for PhD students) to gain work experience. Top hiring sectors listed include IT and Software Development, Finance and Banking, Healthcare and Nursing, Engineering and Construction, and Marketing and Business Management.",
     },
   ],
   "6-ways-to-reduce-stress-in-college": [
@@ -1461,7 +1461,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "How can planning reduce stress in college?",
       answer:
-        "Stress often comes from not having a proper schedule and too much work to do. The page suggests getting organised: write down your to-do list in a diary, prioritise your work and stick to it. This lessens your burden and leaves time for friends and family.",
+        "Stress often comes from not having a proper schedule and too much work to do. The page suggests getting organized: write down your to-do list in a diary, prioritize your work and stick to it. This lessens your burden and leaves time for friends and family.",
     },
   ],
   "student-visa-and-permits-in-india": [
@@ -1500,7 +1500,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "How much are the fees at KIIT University?",
       answer:
-        "The fees of KIIT can cost around $6000 USD approx per annum depending on the subject. KIIT also offers the KIIT University International Scholarship Program (KUISP), under which Nepalese students can get $1750 USD per semester or 1.5 lakhs INR per semester, depending on courses.",
+        "The fees of KIIT can cost around $6000 USD approx per annum depending on the subject. KIIT also offers the KIIT University International Scholarship Program (KUISP), under which Nepali students can get $1750 USD per semester or 1.5 lakhs INR per semester, depending on courses.",
     },
     {
       question: "Is there a cheaper university option in India?",
@@ -1512,7 +1512,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "What are the top courses at KIIT University?",
       answer:
-        "The page highlights Bachelor of Technology (B.Tech), B.Sc Nursing, Bachelor of Business Administration (BBA), Bachelors in Film and Television Production, and Bachelor of Architecture. B.Tech is described as KIIT's flagship course.",
+        "The page highlights Bachelor of Technology (B.Tech), B.Sc Nursing, Bachelor of Business Administration (BBA), Bachelor's in Film and Television Production, and Bachelor of Architecture. B.Tech is described as KIIT's flagship course.",
     },
     {
       question: "Where is KIIT University located?",
@@ -1563,7 +1563,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "Who can apply for the UK Graduate Route?",
       answer:
-        "You must have completed a degree at a recognised UK university whose institution holds a valid sponsor licence, and you must apply before your current student visa expires. You can work full-time, part-time or self-employed during your Graduate Route stay.",
+        "You must have completed a degree at a recognized UK university whose institution holds a valid sponsor licence, and you must apply before your current student visa expires. You can work full-time, part-time or self-employed during your Graduate Route stay.",
     },
     {
       question: "Do I need a job offer or sponsorship for the Graduate Route?",
@@ -1580,7 +1580,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "Which countries offer post-study work options?",
       answer:
-        "Canada provides up to three years of post-study work permits, and the UK offers a Graduate Route (18 months for applications from 1 January 2027) for international students. Countries like Australia and the USA offer work opportunities through temporary or optional training visas, so compare each country's options before deciding.",
+        "Canada provides up to three years of post-study work permits, and the UK offers a Graduate Route (18 months for applications from January 1, 2027) for international students. Countries like Australia and the USA offer work opportunities through temporary or optional training visas, so compare each country's options before deciding.",
     },
     {
       question: "Which country is good for which field of study?",

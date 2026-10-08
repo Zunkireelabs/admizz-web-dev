@@ -11,7 +11,7 @@ const post = {
     },
     {
       "heading": "Who needs a provincial attestation letter (PAL)",
-      "body": "A provincial attestation letter is a document from the province or territory that shows your application fits within its share of the cap. Most new applicants need one before they submit a study permit application.\n\nFrom 1 January 2026, IRCC says the following groups do **not** need a PAL or territorial attestation letter:\n\n- master's and doctoral degree students at public designated learning institutions (DLIs)\n- primary and secondary school students\n- certain Government of Canada priority groups and vulnerable cohorts\n- existing study permit holders who extend at the same institution and at the same level of study\n\nThis means a Nepali student applying for a **bachelor's degree or a college diploma** will usually need a PAL, while a student applying for a **master's at a public university** will not."
+      "body": "A provincial attestation letter is a document from the province or territory that shows your application fits within its share of the cap. Most new applicants need one before they submit a study permit application.\n\nFrom January 1, 2026, IRCC says the following groups do **not** need a PAL or territorial attestation letter:\n\n- master's and doctoral degree students at public designated learning institutions (DLIs)\n- primary and secondary school students\n- certain Government of Canada priority groups and vulnerable cohorts\n- existing study permit holders who extend at the same institution and at the same level of study\n\nThis means a Nepali student applying for a **bachelor's degree or a college diploma** will usually need a PAL, while a student applying for a **master's at a public university** will not."
     },
     {
       "heading": "How the cap is shared between provinces",
@@ -19,7 +19,7 @@ const post = {
     },
     {
       "heading": "What this means for Nepali students",
-      "body": "Nothing in the 2026 rules is specific to Nepal, but they change how a Nepali applicant should plan:\n\n- **Check whether your programme needs a PAL.** Postgraduate study at a public institution does not, which removes a major step and a source of delay.\n- **Apply early.** With fewer new permits available, late applications carry more risk.\n- **Choose public institutions with care.** The exemption applies to public DLIs, so confirm the institution's status before you rely on it.\n- **Keep your finances and documents ready.** The cap does not change financial or document requirements, so a strong file still decides the outcome.\n\nIf you are comparing countries, our guides to [studying in Canada from Nepal](/study-in-canada-from-nepal) and [the Canada student visa](/student-visa-for-canada) explain the wider process."
+      "body": "Nothing in the 2026 rules is specific to Nepal, but they change how a Nepali applicant should plan:\n\n- **Check whether your program needs a PAL.** Postgraduate study at a public institution does not, which removes a major step and a source of delay.\n- **Apply early.** With fewer new permits available, late applications carry more risk.\n- **Choose public institutions with care.** The exemption applies to public DLIs, so confirm the institution's status before you rely on it.\n- **Keep your finances and documents ready.** The cap does not change financial or document requirements, so a strong file still decides the outcome.\n\nIf you are comparing countries, our guides to [studying in Canada from Nepal](/study-in-canada-from-nepal) and [the Canada student visa](/student-visa-for-canada) explain the wider process."
     },
     {
       "heading": "What could change next",
@@ -45,7 +45,7 @@ const post = {
     },
     {
       "slug": "for-nepalese-students",
-      "title": "Nepalese Students"
+      "title": "Nepali Students"
     }
   ],
   "infoBox": [
@@ -76,7 +76,7 @@ const post = {
     },
     {
       "question": "Do I need a PAL to study in Canada in 2026?",
-      "answer": "Most new applicants do. Master's and doctoral students at public institutions, school students, certain priority groups and students extending at the same institution and level are exempt from 1 January 2026."
+      "answer": "Most new applicants do. Master's and doctoral students at public institutions, school students, certain priority groups and students extending at the same institution and level are exempt from January 1, 2026."
     },
     {
       "question": "Is a master's easier than a bachelor's for Canada from Nepal?",

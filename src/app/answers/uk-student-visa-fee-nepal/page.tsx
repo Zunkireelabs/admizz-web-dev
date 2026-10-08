@@ -10,8 +10,12 @@ const post = {
       "body": "- **Visa fee:** £558 from outside the UK.\n- **Health surcharge:** £776 per year for students, paid in full when you apply.\n- **Visa of 18 months or less:** £776 plus £388 = £1,164.\n- **Funds:** separate from the fees. You must also show living-cost funds and unpaid tuition.\n\nSee the [full UK student visa cost breakdown](/uk-student-visa-cost-2027)."
     },
     {
+      "heading": "Related guides",
+      "body": "- [UK student visa cost 2027](/uk-student-visa-cost-2027)\n- [UK student visa from Nepal: the full guide](/uk-student-visa-from-nepal)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-consultancy-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
+    },
+    {
       "heading": "Sources",
-      "body": "- [GOV.UK: Student visa, how much it costs](https://www.gov.uk/student-visa/how-much-it-costs)\n- [GOV.UK: Immigration Health Surcharge](https://www.gov.uk/healthcare-immigration-application/how-much-pay)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counselling team](/register)."
+      "body": "- [GOV.UK: Student visa, how much it costs](https://www.gov.uk/student-visa/how-much-it-costs)\n- [GOV.UK: Immigration Health Surcharge](https://www.gov.uk/healthcare-immigration-application/how-much-pay)\n\nChecked in October 2026. Rules change, so confirm on the official site when you apply. For help with your own application, talk to our [counseling team](/register)."
     }
   ],
   "featuredImage": {

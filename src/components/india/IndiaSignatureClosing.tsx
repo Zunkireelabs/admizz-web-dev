@@ -5,10 +5,10 @@ import { useEffect, useRef } from "react";
 /**
  * Closing handoff section — editorial calm + practical next steps.
  * Replaces the previous illustrated sunset / landmarks composition with
- * substance: a 3-step roadmap, a counsellor card, and a clear CTA.
+ * substance: a 3-step roadmap, a counselor card, and a clear CTA.
  */
 export default function IndiaSignatureClosing({
-  ctaText = "Book Your Free Counselling",
+  ctaText = "Book Your Free Counseling",
   ctaHref = "/register",
 }: {
   ctaText?: string;
@@ -159,7 +159,7 @@ export default function IndiaSignatureClosing({
           ))}
         </div>
 
-        {/* Counsellor card + CTA */}
+        {/* Counselor card + CTA */}
         <div
           className="rounded-2xl p-6 md:p-8 grid md:grid-cols-[auto_1fr_auto] items-center gap-6 md:gap-8"
           style={{
@@ -191,7 +191,7 @@ export default function IndiaSignatureClosing({
             </div>
             <div className="md:hidden">
               <p className="text-[12px] uppercase tracking-[0.22em] font-semibold opacity-75 mb-0.5">
-                Your dedicated India counsellor
+                Your dedicated India counselor
               </p>
               <p className="text-[15px] font-semibold">
                 Avg reply: <span style={{ color: "#FDED22" }}>under 2 hours</span>
@@ -199,13 +199,13 @@ export default function IndiaSignatureClosing({
             </div>
           </div>
 
-          {/* Counsellor text — desktop */}
+          {/* Counselor text — desktop */}
           <div className="hidden md:block">
             <p
               className="text-[11px] uppercase tracking-[0.28em] font-semibold opacity-75 mb-1.5"
               style={{ color: "#FF9933" }}
             >
-              Talk to your dedicated India counsellor
+              Talk to your dedicated India counselor
             </p>
             <p className="text-[17px] font-semibold leading-tight">
               You&apos;ll get a real person, not a chatbot.{" "}

@@ -12,7 +12,7 @@ import { journeySteps } from "./journey.data";
  *
  * The 5-step journey donut acts as a live progress visualizer for the
  * 3-step register form. As the user advances through the form, the
- * Step 1 (Counselling) slice fills with a progress overlay. On submit,
+ * Step 1 (Counseling) slice fills with a progress overlay. On submit,
  * Step 1 turns green with a checkmark and the donut auto-advances
  * focus to Step 2 (Course Selection) to show what's next.
  *
@@ -20,7 +20,7 @@ import { journeySteps } from "./journey.data";
  * wrapper only listens to step changes via callbacks.
  */
 
-const COUNSELLING_INDEX = 0; // journeySteps[0] = Counselling
+const COUNSELLING_INDEX = 0; // journeySteps[0] = Counseling
 
 const FORM_STEP_LABELS = ["You", "Goal", "Finish"] as const;
 
@@ -64,7 +64,7 @@ export default function RegisterJourneyHero() {
 
   const handleFormStepChange = (s: number) => {
     setFormStep(s);
-    // Keep donut focus on Counselling while form is in progress
+    // Keep donut focus on Counseling while form is in progress
     if (!submitted) setDonutActive(COUNSELLING_INDEX);
     // Reset modal scroll to top so the new step starts at field 1
     if (scrollRef.current) scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
@@ -168,7 +168,7 @@ export default function RegisterJourneyHero() {
                 style={{ color: "rgba(255,255,255,0.72)" }}
               >
                 {submitted
-                  ? "Your counsellor reaches out within 24 hours."
+                  ? "Your counselor reaches out within 24 hours."
                   : "Tell us about you — we’ll map the rest."}
               </p>
             </div>
@@ -301,7 +301,7 @@ export default function RegisterJourneyHero() {
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 role="dialog"
                 aria-modal="true"
-                aria-label="Book your free counselling call"
+                aria-label="Book your free counseling call"
                 className="pointer-events-auto relative w-full sm:max-w-[480px] bg-white shadow-2xl flex flex-col h-[100dvh] sm:h-auto sm:max-h-[90vh] sm:rounded-[24px] overflow-hidden"
                 style={{ border: "1px solid #E0E6F2", boxShadow: "0 24px 64px rgba(15,23,42,0.30)" }}
               >

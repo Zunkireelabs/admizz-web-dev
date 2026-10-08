@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const services = [
   {
     icon: "/images/icons/consult-108.webp",
-    title: "Career Counselling",
+    title: "Career Counseling",
     accent: "#1E6DEB",
     description:
       "Get personalized guidance from experienced counselors who understand global education opportunities and can help align your career goals.",
@@ -108,7 +108,7 @@ const googleReviews = [
     name: "Purnima Lama",
     initial: "P",
     color: "#059669",
-    text: "Highly satisfied with Admizz Education! The counsellors are supportive, knowledgeable, and genuinely care about students.",
+    text: "Highly satisfied with Admizz Education! The counselors are supportive, knowledgeable, and genuinely care about students.",
   },
   {
     name: "Sagar Acharya",
@@ -132,7 +132,7 @@ const faqItems = [
   {
     question: "3. Does Admizz Education help with university shortlisting?",
     answer:
-      "Yes. Admizz uses expert counsellors and AI-assisted tools to shortlist universities that match your academic profile, preferred country, career goals, and budget. You receive a personalized list of universities with high acceptance chances.",
+      "Yes. Admizz uses expert counselors and AI-assisted tools to shortlist universities that match your academic profile, preferred country, career goals, and budget. You receive a personalized list of universities with high acceptance chances.",
   },
   {
     question: "4. Can Admizz assist with SOP, LOR, and application documents?",
@@ -157,7 +157,7 @@ const faqItems = [
   {
     question: "8. Is Admizz Education free for students?",
     answer:
-      "Admizz offers free counselling and guidance for many services. Some specialized services—like premium documentation, fast-track applications, and certain country-specific processing—may involve additional charges. Students are always informed upfront.",
+      "Admizz offers free counseling and guidance for many services. Some specialized services—like premium documentation, fast-track applications, and certain country-specific processing—may involve additional charges. Students are always informed upfront.",
   },
   {
     question: "9. How long does it take to get admission through Admizz Education?",
@@ -167,7 +167,7 @@ const faqItems = [
   {
     question: "10. Why should I choose Admizz Education over other study-abroad consultancies?",
     answer:
-      "Admizz combines expert counsellors with advanced technology to offer accurate university matches, faster processing, transparent workflows, and a higher visa success rate. Students benefit from personalized support, global partner universities, and a seamless digital platform.",
+      "Admizz combines expert counselors with advanced technology to offer accurate university matches, faster processing, transparent workflows, and a higher visa success rate. Students benefit from personalized support, global partner universities, and a seamless digital platform.",
   },
 ];
 
@@ -291,7 +291,7 @@ export default function HomepageV2() {
             Plan Your Study Abroad Journey
           </h2>
           <p className="text-center text-[15px] leading-relaxed max-w-2xl mx-auto mb-12" style={{ color: "#5a6275" }}>
-            End-to-end support from career counselling to post-arrival — we guide
+            End-to-end support from career counseling to post-arrival — we guide
             you through every step.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">

@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
 import UKEducationExpoInit from "./UKEducationExpoInit";
-import UniversityPartners from "../../UniversityPartners";
 import AlumniSection from "@/components/ui/AlumniSection";
-import { allUniversities } from "@/lib/universities";
 
 export const metadata: Metadata = {
   title: "UK Education Expo 2026 (October) | Admizz Education",
@@ -33,7 +31,7 @@ const EXPO_EVENT_JSON_LD = {
   "@type": "Event",
   name: "UK Education Expo 2026",
   description:
-    "Meet UK university representatives directly. On-the-spot assessment, scholarship guidance, credential evaluation, PSW briefing and free 1-on-1 counselling.",
+    "Meet UK university representatives directly. On-the-spot assessment, scholarship guidance, credential evaluation, PSW briefing and free 1-on-1 counseling.",
   startDate: "2026-10-09T11:00:00+05:45",
   endDate: "2026-10-09T15:00:00+05:45",
   eventStatus: "https://schema.org/EventScheduled",
@@ -94,7 +92,7 @@ export default function UKEducationExpoPage() {
               className="hero-location-badge"
             >
               <span className="location-icon">📍</span>
-              <span className="location-dates">Friday, 9th October, 2026 | 11AM–3PM NST</span>
+              <span className="location-dates">Friday, October 9, 2026 | 11AM–3PM NST</span>
               <span className="location-divider">|</span>
               <span className="location-place">Putalisadak, Kathmandu</span>
               <span className="location-map-badge">Map</span>
@@ -144,8 +142,8 @@ export default function UKEducationExpoPage() {
           {/* Mobile: 2×2 grid */}
           <div className="grid grid-cols-2 gap-3 sm:hidden">
             {[
-              { icon: "📋", bold: "Free 1-on-1,", text: "Counselling" },
-              { icon: "🎓", bold: "8,000+", text: "Students Admitted" },
+              { icon: "📋", bold: "Free 1-on-1,", text: "Counseling" },
+              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
               { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item) => (
@@ -160,8 +158,8 @@ export default function UKEducationExpoPage() {
           {/* Desktop: single row */}
           <div className="hidden sm:flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {[
-              { icon: "📋", bold: "Free 1-on-1,", text: "Counselling" },
-              { icon: "🎓", bold: "8,000+", text: "Students Admitted" },
+              { icon: "📋", bold: "Free 1-on-1,", text: "Counseling" },
+              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
               { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item, i, arr) => (
@@ -385,7 +383,7 @@ export default function UKEducationExpoPage() {
                 </svg>
               </div>
               <h3>Multi-Destination Expertise</h3>
-              <p>11+ countries, one consultancy. Not limited to single-country advice.</p>
+              <p>12+ countries, one consultancy. Not limited to single-country advice.</p>
             </div>
             <div className="why-card">
               <div className="why-card-icon">
@@ -409,15 +407,15 @@ export default function UKEducationExpoPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 8,000+ Students Enrolled</span>
+            <span>🎓 2,000+ Students Enrolled</span>
             <span>•</span>
-            <span>🌍 50+ Partner Universities</span>
+            <span>🌍 100+ Partner Universities</span>
           </div>
         </div>
       </section>
 
-      {/* Trusted Partners */}
-      <UniversityPartners universities={allUniversities} />
+      {/* The worldwide partner logo strip is intentionally not shown on this UK expo page:
+          "Top Universities Attending" above is the real attendee list. */}
 
       {/* Banking Partner */}
       <section className="py-10 px-4 bg-white border-t border-b border-[#F0F0F0]">

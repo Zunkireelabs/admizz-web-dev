@@ -7,7 +7,7 @@ const post = {
   "sections": [
     {
       "heading": "What changed in the H-1B lottery",
-      "body": "Until now, the H-1B cap lottery picked registrations at random. Under a final rule published by the Department of Homeland Security on **29 December 2025**, selection is **weighted by wage level**. The rule first applied to the **FY2027** cap season, whose registration took place in March 2026, according to [Fragomen](https://www.fragomen.com/insights/united-states-dhs-issues-final-rule-to-replace-random-h-1b-cap-lottery-with-wage-level-based-weighted-system-for-h-1b-cap-allocation-in-time-for-implementation-in-early-2026.html).\n\nEmployers now state the occupational code, the wage level (from the Department of Labor's OEWS data) and the area of employment for every candidate they register."
+      "body": "Until now, the H-1B cap lottery picked registrations at random. Under a final rule published by the Department of Homeland Security on **December 29, 2025**, selection is **weighted by wage level**. The rule first applied to the **FY2027** cap season, whose registration took place in March 2026, according to [Fragomen](https://www.fragomen.com/insights/united-states-dhs-issues-final-rule-to-replace-random-h-1b-cap-lottery-with-wage-level-based-weighted-system-for-h-1b-cap-allocation-in-time-for-implementation-in-early-2026.html).\n\nEmployers now state the occupational code, the wage level (from the Department of Labor's OEWS data) and the area of employment for every candidate they register."
     },
     {
       "heading": "How the wage levels translate into chances",
@@ -15,7 +15,7 @@ const post = {
     },
     {
       "heading": "What this means for Nepali students on F-1 and OPT",
-      "body": "Most Nepali students reach H-1B through F-1 study, then OPT or STEM OPT, then an employer petition. The new rule changes the planning in three ways:\n\n- **The job offer's wage level matters.** Two graduates with the same degree can have very different chances if one is offered a level 1 role and the other a level 3 role.\n- **Employer conversations start earlier.** Ask recruiters which wage level they expect to register, and whether the role could be classified higher.\n- **Have a back-up route.** A lottery of any kind is uncertain, so keep an alternative, such as another country or another visa category, in your plan.\n\nThe US also changed how long students may stay. Read how the [end of duration of status](/us-f1-duration-of-status-ended-2026) and the [15 September 2026 deadline](/us-f1-september-15-deadline-2026) affect your timeline."
+      "body": "Most Nepali students reach H-1B through F-1 study, then OPT or STEM OPT, then an employer petition. The new rule changes the planning in three ways:\n\n- **The job offer's wage level matters.** Two graduates with the same degree can have very different chances if one is offered a level 1 role and the other a level 3 role.\n- **Employer conversations start earlier.** Ask recruiters which wage level they expect to register, and whether the role could be classified higher.\n- **Have a back-up route.** A lottery of any kind is uncertain, so keep an alternative, such as another country or another visa category, in your plan.\n\nThe US also changed how long students may stay. Read how the [end of duration of status](/us-f1-duration-of-status-ended-2026) and the [September 15, 2026, deadline](/us-f1-september-15-deadline-2026) affect your timeline."
     },
     {
       "heading": "A separate $100,000 payment",
@@ -45,13 +45,13 @@ const post = {
     },
     {
       "slug": "for-nepalese-students",
-      "title": "Nepalese Students"
+      "title": "Nepali Students"
     }
   ],
   "infoBox": [
     {
       "label": "Rule published",
-      "value": "29 December 2025"
+      "value": "December 29, 2025"
     },
     {
       "label": "First used for",
@@ -68,7 +68,7 @@ const post = {
   ],
   "publishedAt": "2026-10-05T00:00:00.000Z",
   "description": "The H-1B lottery now gives higher-paid jobs more entries. How the wage-level rule works and what Nepali students on F-1 and OPT should do.",
-  "quickAnswer": "DHS published a final rule on 29 December 2025 that replaces the random H-1B cap lottery with a wage-weighted selection. A job at wage level 4 enters the lottery four times, level 3 three times, level 2 twice and level 1 once. It first applied to the FY2027 registration in March 2026. For Nepali students moving from F-1 and OPT to H-1B, the wage level of the job offer now matters as much as the employer's willingness to sponsor.",
+  "quickAnswer": "DHS published a final rule on December 29, 2025, that replaces the random H-1B cap lottery with a wage-weighted selection. A job at wage level 4 enters the lottery four times, level 3 three times, level 2 twice and level 1 once. It first applied to the FY2027 registration in March 2026. For Nepali students moving from F-1 and OPT to H-1B, the wage level of the job offer now matters as much as the employer's willingness to sponsor.",
   "faqItems": [
     {
       "question": "How does the H-1B wage-weighted lottery work?",
@@ -76,7 +76,7 @@ const post = {
     },
     {
       "question": "When did the H-1B weighted selection rule start?",
-      "answer": "DHS published the final rule on 29 December 2025, and it first applied to the FY2027 cap registration held in March 2026."
+      "answer": "DHS published the final rule on December 29, 2025, and it first applied to the FY2027 cap registration held in March 2026."
     },
     {
       "question": "Are entry-level graduates affected by the new H-1B rule?",

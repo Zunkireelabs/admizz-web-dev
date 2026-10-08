@@ -49,15 +49,15 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Is the IHS (Insurance Payment) paid every year or once?",
-      answer: "The IHS is paid as a single lump sum upfront at the time of your visa application — covering the entire duration of your visa. For a 1-year Masters (visa of about 16 months, charged as 1.5 years), you pay £1,164 once (NPR 2,37,339). For a 3-year Bachelor's (visa of about 40 months, charged as 3.5 years), you pay £2,716 once (NPR 5,54,064). You do not pay it again each year — just once before your visa is granted.",
+      answer: "The IHS is paid as a single lump sum upfront at the time of your visa application — covering the entire duration of your visa. For a 1-year Master's (visa of about 16 months, charged as 1.5 years), you pay £1,164 once (NPR 2,37,339). For a 3-year Bachelor's (visa of about 40 months, charged as 3.5 years), you pay £2,716 once (NPR 5,54,064). You do not pay it again each year — just once before your visa is granted.",
     },
     {
       question: "How much money do I need to show in my bank account for the UK visa?",
-      answer: "You must show your remaining first-year tuition fees (after your CAS deposit) plus living cost evidence — £10,539 (NPR ~21.5 Lakhs) if studying outside London, or £13,761 (NPR ~28.1 Lakhs) if studying in London. For applications from 30 November 2026 these rise to £10,827 (NPR ~22.1 Lakhs) and £14,130 (NPR ~28.8 Lakhs). These funds must be held for 28 consecutive days before your application date. An education loan sanctioned letter from your bank is accepted in place of personal savings.",
+      answer: "You must show your remaining first-year tuition fees (after your CAS deposit) plus living cost evidence — £10,539 (NPR ~21.5 Lakhs) if studying outside London, or £13,761 (NPR ~28.1 Lakhs) if studying in London. For applications from November 30, 2026, these rise to £10,827 (NPR ~22.1 Lakhs) and £14,130 (NPR ~28.8 Lakhs). These funds must be held for 28 consecutive days before your application date. An education loan sanctioned letter from your bank is accepted in place of personal savings.",
     },
     {
-      question: "Is a 1-year Masters or a 3-year Bachelor's better value from Nepal?",
-      answer: "For most Nepalese students, the 1-year Masters is significantly better value. Fixed costs are NPR 33.6 Lakhs compared to NPR 95.6 Lakhs for a 3-year bachelor's — and living costs are one third as long. The UK's Graduate Route then provides 18 months of open work rights after your Masters (for applications from 1 January 2027), making the total time in the UK roughly 2.5 years for a fraction of the cost. For students completing a bachelor's in Nepal first and then pursuing a UK Masters, this is by far the most cost-efficient pathway.",
+      question: "Is a 1-year Master's or a 3-year Bachelor's better value from Nepal?",
+      answer: "For most Nepali students, the 1-year Master's is significantly better value. Fixed costs are NPR 33.6 Lakhs compared to NPR 95.6 Lakhs for a 3-year bachelor's — and living costs are one third as long. The UK's Graduate Route then provides 18 months of open work rights after your master's (for applications from January 1, 2027), making the total time in the UK roughly 2.5 years for a fraction of the cost. For students completing a bachelor's in Nepal first and then pursuing a UK Master's, this is by far the most cost-efficient pathway.",
     },
   ],
   "uk-graduate-route-visa-2026": [
@@ -71,11 +71,11 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "What is the Graduate Route fee in Nepali Rupees?",
-      answer: "From 8 April 2026, the fee is £937. Based on current exchange rates, this is approximately NPR 1,55,000–1,62,000, though you should check the latest rate at the time of your application. The Immigration Health Surcharge is paid separately.",
+      answer: "From April 8, 2026, the fee is £937. Based on current exchange rates, this is approximately NPR 1,55,000–1,62,000, though you should check the latest rate at the time of your application. The Immigration Health Surcharge is paid separately.",
     },
     {
       question: "I am finishing my Master's in late 2026. Will I get 2 years or 18 months?",
-      answer: "It depends on when your visa is granted — not when you apply. If it is granted on or before 31 December 2026, you receive two years. Since processing takes roughly 8 weeks, you should apply as soon as your university notifies the Home Office of your completion, ideally no later than October or early November 2026.",
+      answer: "It depends on when your visa is granted — not when you apply. If it is granted on or before December 31, 2026, you receive two years. Since processing takes roughly 8 weeks, you should apply as soon as your university notifies the Home Office of your completion, ideally no later than October or early November 2026.",
     },
     {
       question: "Can I bring my family to the UK on the Graduate Route?",
@@ -91,7 +91,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "What IELTS score do I need to study in the UK as a Nepali student?",
-      answer: "Requirements vary by university and course level, but most UK universities require an IELTS Academic score of 6.0–6.5 overall for undergraduate programmes and 6.5–7.0 for postgraduate. From 2026, the English standard for visa purposes is set at CEFR B2. Always check the specific requirements of your chosen university and course.",
+      answer: "Requirements vary by university and course level, but most UK universities require an IELTS Academic score of 6.0–6.5 overall for undergraduate programs and 6.5–7.0 for postgraduate. From 2026, the English standard for visa purposes is set at CEFR B2. Always check the specific requirements of your chosen university and course.",
     },
   ],
   "uk-intake-timeline-Nepalese-students-2027": [
@@ -114,7 +114,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
       answer: "Your existing D/S status is not cancelled on September 15. However, if you travel internationally and re-enter after September 15, you will receive a new I-94 with a fixed end date — not D/S. Contact your university's international student office for guidance specific to your situation before you travel.",
     },
     {
-      question: "What happens if my programme takes longer than 4 years?",
+      question: "What happens if my program takes longer than 4 years?",
       answer: "You must apply to USCIS for an extension before your I-94 end date passes. This is a formal immigration application — unlike the old DSO approval, it involves fees, documentation, processing time, and is not guaranteed. PhD students should start planning this well in advance.",
     },
     {
@@ -123,7 +123,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Should I still apply to study in the US given these changes?",
-      answer: "For a 1–2 year Masters or 4-year bachelor's, the new rules create no real problem. For PhD students, the 4-year limit adds genuine uncertainty. The US still offers the highest STEM salaries and most prestigious research universities — but the flexibility that made it work for many students has reduced significantly. Speak to an Admizz adviser to compare your options honestly.",
+      answer: "For a 1–2 year master's or 4-year bachelor's, the new rules create no real problem. For PhD students, the 4-year limit adds genuine uncertainty. The US still offers the highest STEM salaries and most prestigious research universities — but the flexibility that made it work for many students has reduced significantly. Speak to an Admizz advisor to compare your options honestly.",
     },
   ],
   "study-in-europe-from-nepal": [
@@ -176,15 +176,15 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   ],
   "why-choose-the-uk-for-higher-education-a-complete-guide-for-nepalese-students": [
     {
-      question: "Why do Nepalese students prefer the UK for higher education?",
-      answer: "Nepalese students choose the UK for its global degree recognition, quality education, scholarships, and post-study work visa opportunities.",
+      question: "Why do Nepali students prefer the UK for higher education?",
+      answer: "Nepali students choose the UK for its global degree recognition, quality education, scholarships, and post-study work visa opportunities.",
     },
     {
       question: "Is studying in the UK affordable for students from Nepal?",
-      answer: "Yes. With one-year master’s programs, scholarships, and part-time work options, studying in the UK is affordable for many Nepalese students.",
+      answer: "Yes. With one-year master’s programs, scholarships, and part-time work options, studying in the UK is affordable for many Nepali students.",
     },
     {
-      question: "Can Nepalese students work while studying in the UK?",
+      question: "Can Nepali students work while studying in the UK?",
       answer: "Absolutely. Students can work up to 20 hours per week during semester time and full-time during holidays.",
     },
     {
@@ -225,7 +225,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Does a placement year extend my UK student visa?",
-      answer: "Yes — if your course includes an integrated placement year, your CAS will reflect the full course duration including the placement year, and your student visa will be issued accordingly. Your placement is part of your degree programme and your student visa covers you for the entire period. You do not need a separate work visa for an authorised placement year integrated into your degree.",
+      answer: "Yes — if your course includes an integrated placement year, your CAS will reflect the full course duration including the placement year, and your student visa will be issued accordingly. Your placement is part of your degree program and your student visa covers you for the entire period. You do not need a separate work visa for an authorized placement year integrated into your degree.",
     },
   ],
   "study-in-the-uk-after-2-from-nepal-complete-2025-guide": [
@@ -253,7 +253,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   "new-zealand-short-term-graduate-work-visa-2026": [
     {
       question: "When can I apply for the New Zealand Short-Term Graduate Work Visa?",
-      answer: "Applications open on 16 November 2026, as confirmed by Immigration New Zealand on 29 May 2026. You must apply within 3 months of your New Zealand student visa expiring. If your student visa has already expired before 16 November 2026, you will not be able to apply retroactively — the visa is available only to graduates whose student visas are still valid or who are within the 3-month window after expiry on or after the launch date.",
+      answer: "Applications open on November 16, 2026, as confirmed by Immigration New Zealand on May 29, 2026. You must apply within 3 months of your New Zealand student visa expiring. If your student visa has already expired before November 16, 2026, you will not be able to apply retroactively — the visa is available only to graduates whose student visas are still valid or who are within the 3-month window after expiry on or after the launch date.",
     },
     {
       question: "What is the difference between the Short-Term Graduate Work Visa and the Post Study Work Visa?",
@@ -261,7 +261,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Can I apply for a second Short-Term Graduate Work Visa if I study again?",
-      answer: "No — the Short-Term Graduate Work Visa is a once-in-a-lifetime visa. You cannot apply for a second one under any circumstances. If you wish to study again in New Zealand after holding this visa, your new qualification must be a bachelor's degree or higher-level programme that makes you eligible for a Post Study Work Visa — and you must not have previously held a Post Study Work Visa either.",
+      answer: "No — the Short-Term Graduate Work Visa is a once-in-a-lifetime visa. You cannot apply for a second one under any circumstances. If you wish to study again in New Zealand after holding this visa, your new qualification must be a bachelor's degree or higher-level program that makes you eligible for a Post Study Work Visa — and you must not have previously held a Post Study Work Visa either.",
     },
     {
       question: "Does the Short-Term Graduate Work Visa lead to permanent residency in New Zealand?",
@@ -297,10 +297,10 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "What happens if I miss too many classes?",
-      answer: "UK universities are required to monitor international student attendance as a visa compliance obligation. If your attendance falls below the minimum threshold — usually 80–85% — your university may report this to UK Visas and Immigration, which can trigger a review of your visa status. Always inform your international student office if you are unwell or have a genuine reason for absence, and obtain formal authorisation where possible.",
+      answer: "UK universities are required to monitor international student attendance as a visa compliance obligation. If your attendance falls below the minimum threshold — usually 80–85% — your university may report this to UK Visas and Immigration, which can trigger a review of your visa status. Always inform your international student office if you are unwell or have a genuine reason for absence, and obtain formal authorization where possible.",
     },
     {
-      question: "Are UK university rankings reliable for choosing an IT programme?",
+      question: "Are UK university rankings reliable for choosing an IT program?",
       answer: "Global rankings are a useful starting point but do not tell the whole story. For IT specifically, also check the National Student Survey satisfaction scores, graduate employment rates, industry placement records, and whether the university has partnerships with major technology employers. A well-connected university with strong industry links can be more valuable for your career than a higher-ranked institution with fewer placement opportunities.",
     },
   ],
@@ -310,8 +310,8 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
       answer: "No — Assessment Level 3 does not mean automatic rejection. It means every document in your application will be manually reviewed by a case officer with maximum scrutiny. Genuine students with strong financial evidence, valid English scores, a logical course choice, and a well-written Genuine Student statement are still receiving visas in 2026.",
     },
     {
-      question: "How much money do I need to show for an Australian student visa as a Nepalese student in 2026?",
-      answer: "You must demonstrate access to AUD 29,710 for one year of living costs, plus your full first-year tuition fees (typically AUD 20,000–45,000 depending on the course), plus approximately AUD 2,000–4,000 in travel costs. The total typically ranges from AUD 55,000 to AUD 65,000 — approximately NPR 60–70 lakhs. These funds must be held for at least 6 months in a recognised commercial bank and must have a clear, documented source.",
+      question: "How much money do I need to show for an Australian student visa as a Nepali student in 2026?",
+      answer: "You must demonstrate access to AUD 29,710 for one year of living costs, plus your full first-year tuition fees (typically AUD 20,000–45,000 depending on the course), plus approximately AUD 2,000–4,000 in travel costs. The total typically ranges from AUD 55,000 to AUD 65,000 — approximately NPR 60–70 lakhs. These funds must be held for at least 6 months in a recognized commercial bank and must have a clear, documented source.",
     },
     {
       question: "What is the Genuine Student (GS) requirement and how is it different from the old GTE?",
@@ -339,7 +339,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   "step-by-step-guide-to-australia-student-visa-from-nepal": [
     {
       question: "What is Australia's Assessment Level 3, and how does it affect Nepali students?",
-      answer: "Assessment Level 3 is the highest risk tier under Australia's Simplified Student Visa Framework (SSVF), effective January 8, 2026 for Nepali students. It now requires mandatory English proficiency scores for all applicants, 3–6 months of verifiable bank statements, a detailed and personalised Genuine Student (GS) statement, and in some cases a phone or in-person interview. Genuine, well-prepared applicants continue to be approved every day.",
+      answer: "Assessment Level 3 is the highest risk tier under Australia's Simplified Student Visa Framework (SSVF), effective January 8, 2026 for Nepali students. It now requires mandatory English proficiency scores for all applicants, 3–6 months of verifiable bank statements, a detailed and personalized Genuine Student (GS) statement, and in some cases a phone or in-person interview. Genuine, well-prepared applicants continue to be approved every day.",
     },
     {
       question: "How much bank balance do I need for Australia student visa from Nepal in 2026?",
@@ -359,7 +359,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "What is CRICOS and why does my institution need to be registered on it?",
-      answer: "CRICOS stands for the Commonwealth Register of Institutions and Courses for Overseas Students. It is the Australian government's database of every institution and course approved to enrol international students. Only courses and institutions listed on the CRICOS register are eligible for the Subclass 500 visa. You can search the register at cricos.education.gov.au.",
+      answer: "CRICOS stands for the Commonwealth Register of Institutions and Courses for Overseas Students. It is the Australian government's database of every institution and course approved to enroll international students. Only courses and institutions listed on the CRICOS register are eligible for the Subclass 500 visa. You can search the register at cricos.education.gov.au.",
     },
   ],
   "cost-studying-london-vs-outside-london-2026": [
@@ -458,8 +458,8 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
       answer: "UK winters are cold and grey, with temperatures regularly dropping to 2–5°C from November through February. Pack a high-quality waterproof jacket, thermal underlayers, and waterproof shoes. The bigger adjustment is the limited winter daylight — as few as 8 hours per day. A daylight lamp (£25–£40) is genuinely helpful for maintaining energy and mood during the darker months.",
     },
     {
-      question: "Is there a Nepalese community at most UK universities?",
-      answer: "Yes — the UK has one of the largest Nepalese diaspora communities in the Western world, with over 13,000 Nepalese students enrolled in UK universities in 2024/25. Most universities with significant South Asian student populations have an active Nepalese or Himalayan student society. Cities with well-established Nepalese communities include London, Reading, Aldershot, Portsmouth, and Manchester.",
+      question: "Is there a Nepali community at most UK universities?",
+      answer: "Yes — the UK has one of the largest Nepali diaspora communities in the Western world, with over 13,000 Nepali students enrolled in UK universities in 2024/25. Most universities with significant South Asian student populations have an active Nepali or Himalayan student society. Cities with well-established Nepali communities include London, Reading, Aldershot, Portsmouth, and Manchester.",
     },
   ],
   "international-student-work-hours-2026-comparison": [
@@ -477,21 +477,21 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Can international students work off-campus in the USA?",
-      answer: "Generally, no. F-1 students are restricted to on-campus employment during term time — up to 20 hours per week. Off-campus work requires specific authorisation through either Curricular Practical Training (CPT), which must be directly linked to your course curriculum, or Optional Practical Training (OPT), which is typically authorised after graduation. Working off-campus without this authorisation is a serious visa violation.",
+      answer: "Generally, no. F-1 students are restricted to on-campus employment during term time — up to 20 hours per week. Off-campus work requires specific authorization through either Curricular Practical Training (CPT), which must be directly linked to your course curriculum, or Optional Practical Training (OPT), which is typically authorized after graduation. Working off-campus without this authorization is a serious visa violation.",
     },
   ],
   "best-courses-study-abroad-2026": [
     {
       question: "Is it better to do my undergraduate degree in India and then go abroad for postgraduate studies?",
-      answer: "For many Nepalese students, yes — especially in nursing, engineering, and IT. Completing your undergraduate degree in India is significantly cheaper than starting from scratch in Australia, the UK, or New Zealand.",
+      answer: "For many Nepali students, yes — especially in nursing, engineering, and IT. Completing your undergraduate degree in India is significantly cheaper than starting from scratch in Australia, the UK, or New Zealand.",
     },
     {
       question: "Which course gives the most PR points in Australia?",
-      answer: "In terms of overall PR points strategy, Nursing, IT, and Accounting tend to perform best in Australia's General Skilled Migration system. Nursing and IT both appear on the Medium and Long-term Strategic Skills List. Accounting graduates who complete the Professional Year Programme (PYP) gain an additional 5 points — often the deciding factor between receiving a PR invitation and waiting indefinitely.",
+      answer: "In terms of overall PR points strategy, Nursing, IT, and Accounting tend to perform best in Australia's General Skilled Migration system. Nursing and IT both appear on the Medium and Long-term Strategic Skills List. Accounting graduates who complete the Professional Year Program (PYP) gain an additional 5 points — often the deciding factor between receiving a PR invitation and waiting indefinitely.",
     },
     {
       question: "Can I switch courses after arriving abroad if I find my first choice is not working out?",
-      answer: "It depends on the country and visa conditions. In Australia and New Zealand, switching courses during your studies is generally possible but must be reported to your institution and, in some cases, may affect your visa conditions. In the UK, switching programmes within the same university is usually straightforward, while switching institutions requires updating your CAS (Confirmation of Acceptance for Studies).",
+      answer: "It depends on the country and visa conditions. In Australia and New Zealand, switching courses during your studies is generally possible but must be reported to your institution and, in some cases, may affect your visa conditions. In the UK, switching programs within the same university is usually straightforward, while switching institutions requires updating your CAS (Confirmation of Acceptance for Studies).",
     },
     {
       question: "Does studying in a regional area of Australia really make a difference for PR?",
@@ -501,25 +501,25 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   "why-international-students-choosing-india-2026": [
     {
       question: "Are degrees from Indian universities accepted for postgraduate admission in Australia, UK, and New Zealand?",
-      answer: "Yes — undergraduate degrees from recognised and NAAC-accredited Indian universities are accepted for postgraduate admission at universities in Australia, the UK, and New Zealand, provided the student meets the academic requirements of the target programme. IIT and IIM graduates are particularly well regarded internationally.",
+      answer: "Yes — undergraduate degrees from recognized and NAAC-accredited Indian universities are accepted for postgraduate admission at universities in Australia, the UK, and New Zealand, provided the student meets the academic requirements of the target program. IIT and IIM graduates are particularly well regarded internationally.",
     },
     {
       question: "Do I need an IELTS score to study in India as an international student?",
-      answer: "Most Indian universities do not require IELTS or TOEFL scores from international students applying for English-medium programmes, as English is the primary medium of instruction in Indian higher education. Some institutions may request proof of English proficiency from students whose previous education was conducted in a different language, but this is assessed on a case-by-case basis.",
+      answer: "Most Indian universities do not require IELTS or TOEFL scores from international students applying for English-medium programs, as English is the primary medium of instruction in Indian higher education. Some institutions may request proof of English proficiency from students whose previous education was conducted in a different language, but this is assessed on a case-by-case basis.",
     },
     {
       question: "What is the ICCR scholarship and how do I apply?",
-      answer: "The ICCR (Indian Council for Cultural Relations) scholarship is a fully funded scholarship programme offered by the Government of India to students from selected Asian, African, and Latin American countries. It covers tuition fees, accommodation, and a monthly living allowance for undergraduate, postgraduate, and doctoral programmes at Indian universities.",
+      answer: "The ICCR (Indian Council for Cultural Relations) scholarship is a fully funded scholarship program offered by the Government of India to students from selected Asian, African, and Latin American countries. It covers tuition fees, accommodation, and a monthly living allowance for undergraduate, postgraduate, and doctoral programs at Indian universities.",
     },
     {
       question: "Can an MBBS degree from India be used to practice medicine in other countries?",
-      answer: "Yes — but with licensing requirements specific to each country. An MBBS from an NMC-recognised Indian medical college is accepted for the FMGE/NExT licensing examination required to practice medicine in India, the USMLE (United States Medical Licensing Examination) for the USA, and the PLAB examination for the UK.",
+      answer: "Yes — but with licensing requirements specific to each country. An MBBS from an NMC-recognized Indian medical college is accepted for the FMGE/NExT licensing examination required to practice medicine in India, the USMLE (United States Medical Licensing Examination) for the USA, and the PLAB examination for the UK.",
     },
   ],
   "uk-scholarships-financial-support-2026": [
     {
       question: "Do I need to apply separately for university merit scholarships?",
-      answer: "For most UK universities, merit scholarships for international students are awarded automatically based on your academic grades at the point of enrolment — no separate application required. However, some universities require a short online scholarship form after receiving your offer. Always check your university's scholarship page after your offer is confirmed, as additional awards may be available with a simple application.",
+      answer: "For most UK universities, merit scholarships for international students are awarded automatically based on your academic grades at the point of enrollment — no separate application required. However, some universities require a short online scholarship form after receiving your offer. Always check your university's scholarship page after your offer is confirmed, as additional awards may be available with a simple application.",
     },
     {
       question: "Can I work full-time during university holidays?",
@@ -567,11 +567,11 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "What happened to New Zealand's part-time work limit in 2026?",
-      answer: "New Zealand increased its student work limit from 20 hours to 25 hours per week from 2026. This is a meaningful improvement — an extra 5 hours per week at NZD 23.15 per hour adds approximately NZD 460 to your monthly gross earnings. This change makes New Zealand noticeably more financially accessible for Nepalese students who need to supplement their family support through part-time work.",
+      answer: "New Zealand increased its student work limit from 20 hours to 25 hours per week from 2026. This is a meaningful improvement — an extra 5 hours per week at NZD 23.15 per hour adds approximately NZD 460 to your monthly gross earnings. This change makes New Zealand noticeably more financially accessible for Nepali students who need to supplement their family support through part-time work.",
     },
     {
       question: "Is it possible to get a student loan in Nepal for studying abroad?",
-      answer: "Yes — several Nepalese banks and financial institutions offer education loans for overseas study, typically covering tuition fees and sometimes living costs up to a defined limit. The Nepal Rastra Bank and commercial banks including Rastriya Banijya Bank, Nepal Bank Limited, and various private banks offer education loan products. Interest rates, collateral requirements, and maximum loan amounts vary.",
+      answer: "Yes — several Nepali banks and financial institutions offer education loans for overseas study, typically covering tuition fees and sometimes living costs up to a defined limit. The Nepal Rastra Bank and commercial banks including Rastriya Banijya Bank, Nepal Bank Limited, and various private banks offer education loan products. Interest rates, collateral requirements, and maximum loan amounts vary.",
     },
   ],
   "why-study-in-the-usa-from-nepal-benefits-opportunities-and-global-exposure": [
@@ -607,7 +607,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Why Choose the UK for Higher Studies from Nepal?",
-      answer: "The UK is a top choice for Nepali students due to its quality education, shorter course duration, and strong career prospects. Undergraduate: 3 years. Postgraduate: 1 year. The UK Graduate Route Visa lets you work for 18 months after study for applications from 1 January 2027 (2 years before that date), or 3 years for PhD graduates.",
+      answer: "The UK is a top choice for Nepali students due to its quality education, shorter course duration, and strong career prospects. Undergraduate: 3 years. Postgraduate: 1 year. The UK Graduate Route Visa lets you work for 18 months after study for applications from January 1, 2027 (2 years before that date), or 3 years for PhD graduates.",
     },
   ],
   "know-how-the-power-of-language-can-transform-your-study-abroad-experience": [
@@ -621,11 +621,11 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Do you provide Duolingo and SAT training?",
-      answer: "Yes! Admizz offers comprehensive training for SAT and Duolingo with adaptive practice tests and personalised mentoring.",
+      answer: "Yes! Admizz offers comprehensive training for SAT and Duolingo with adaptive practice tests and personalized mentoring.",
     },
     {
       question: "How can I register for classes?",
-      answer: "You can visit Admizz Education offices in Kathmandu or Birgunj, or register online through our website for counselling and course details.",
+      answer: "You can visit Admizz Education offices in Kathmandu or Birgunj, or register online through our website for counseling and course details.",
     },
   ],
   "uk-student-visa-process-for-nepalese-students": [
@@ -635,10 +635,10 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Can I work on a UK student visa?",
-      answer: "Yes, Nepalese students can work 20 hours per week during term time and full-time during holidays.",
+      answer: "Yes, Nepali students can work 20 hours per week during term time and full-time during holidays.",
     },
     {
-      question: "What is the visa success rate for Nepalese students?",
+      question: "What is the visa success rate for Nepali students?",
       answer: "The success rate is high when documents are correct and financial requirements are met.",
     },
     {
@@ -691,7 +691,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Can exchange or short-term students work in New Zealand?",
-      answer: "Yes. Students enrolled in approved exchange or study-abroad programmes may now be eligible for work rights.",
+      answer: "Yes. Students enrolled in approved exchange or study-abroad programs may now be eligible for work rights.",
     },
     {
       question: "Can students work full-time during holidays?",
@@ -708,7 +708,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
       answer: "Studying abroad enhances professional development, employability, global networking, and academic depth.",
     },
     {
-      question: "Which study destination is best for Nepalese students?",
+      question: "Which study destination is best for Nepali students?",
       answer: "Australia, Canada, UK, USA, New Zealand, and South Korea continue to provide strong education and visa support.",
     },
     {
@@ -727,7 +727,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   "is-usa-worth-it-international-students-2026": [
     {
       question: "Is the USA safe for international students in 2026?",
-      answer: "The vast majority of international students study and graduate without any issues. However, policy uncertainty around visa processing and OPT has created a more unpredictable environment. Students are advised to apply well in advance, maintain full-time enrolment, and stay closely informed about any changes affecting their visa category.",
+      answer: "The vast majority of international students study and graduate without any issues. However, policy uncertainty around visa processing and OPT has created a more unpredictable environment. Students are advised to apply well in advance, maintain full-time enrollment, and stay closely informed about any changes affecting their visa category.",
     },
     {
       question: "Should I apply to the USA and another country at the same time?",
@@ -735,7 +735,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "What is the best alternative to the USA for STEM students?",
-      answer: "Australia and the UK are the strongest alternatives. Australia offers a 2–3 year post-study visa and a clear PR pathway. The UK offers a 1-year Masters plus the Graduate Route (18 months for applications from 1 January 2027) with no restriction on employer or role. New Zealand's Green List makes it the fastest route to PR for IT and engineering graduates specifically.",
+      answer: "Australia and the UK are the strongest alternatives. Australia offers a 2–3 year post-study visa and a clear PR pathway. The UK offers a 1-year Master's plus the Graduate Route (18 months for applications from January 1, 2027) with no restriction on employer or role. New Zealand's Green List makes it the fastest route to PR for IT and engineering graduates specifically.",
     },
   ],
   "best-study-abroad-consultants-in-nepal-how-to-choose-the-right-one-for-your-future": [
@@ -768,12 +768,12 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   ],
   "guide-to-studying-in-the-uk": [
     {
-      question: "What are the English requirements for Nepalese students?",
+      question: "What are the English requirements for Nepali students?",
       answer: "Most UK universities require IELTS 6.0 – 6.5, but alternatives like PTE or TOEFL are also accepted.",
     },
     {
       question: "Can I study in the UK without IELTS?",
-      answer: "Yes, some universities accept Nepalese students with MOI (Medium of Instruction) proof.",
+      answer: "Yes, some universities accept Nepali students with MOI (Medium of Instruction) proof.",
     },
     {
       question: "Can I take dependents with me?",
@@ -799,7 +799,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   "neb-class-12-result-2083-published": [
     {
       question: "When was the NEB Class 12 Result 2083 published?",
-      answer: "The National Examination Board officially published the Class 12 result on Friday, Ashadh 5, 2083 (19 June 2026), following a board meeting held at 8:00 AM. This was 45 days after the examinations concluded, significantly faster than the roughly three-month wait for the 2082 result.",
+      answer: "The National Examination Board officially published the Class 12 result on Friday, Ashadh 5, 2083 (June 19, 2026), following a board meeting held at 8:00 AM. This was 45 days after the examinations concluded, significantly faster than the roughly three-month wait for the 2082 result.",
     },
     {
       question: "What was the overall pass percentage for NEB Class 12 Result 2083?",

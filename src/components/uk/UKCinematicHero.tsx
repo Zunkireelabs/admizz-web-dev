@@ -18,7 +18,7 @@ const HERO_IMAGE =
 export default function UKCinematicHero({
   heading,
   subheading,
-  ctaText = "Book Free Counselling",
+  ctaText = "Book a Free Counseling Session",
   ctaHref = "#why",
   countryName,
 }: Props) {

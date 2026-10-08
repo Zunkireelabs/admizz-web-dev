@@ -28,7 +28,7 @@ const PARTNER_FORM_URL = "https://forms.gle/E8CdsJp2y4rHbm9c6";
 
 const heroStats = [
   { value: "1,000+", label: "Partners Enrolled" },
-  { value: "8,000+", label: "Students Placed" },
+  { value: "2,000+", label: "Students Placed" },
   { value: "100+", label: "Partner Universities" },
   { value: "24-48h", label: "App Turnaround" },
 ];
@@ -56,7 +56,7 @@ const whyPartnerFeatures = [
     icon: "🤝",
     title: "Back-Office Handled For You",
     description:
-      "We take care of application processing, document verification, university follow-up, and visa-stage coordination — you focus on counselling.",
+      "We take care of application processing, document verification, university follow-up, and visa-stage coordination — you focus on counseling.",
   },
   {
     icon: "🎓",
@@ -81,7 +81,7 @@ const partnerBrings = [
   },
   {
     icon: "🎯",
-    title: "Counselling Expertise",
+    title: "Counseling Expertise",
     description: "You guide students on country, course, and university fit.",
   },
   {
@@ -133,7 +133,7 @@ const partnershipSteps = [
   {
     num: "3",
     title: "Onboarding & Training",
-    description: "Portal access, counsellor training, and country playbooks.",
+    description: "Portal access, counselor training, and country playbooks.",
   },
   {
     num: "4",
@@ -183,7 +183,7 @@ const testimonials = [
   {
     quote:
       "Admizz onboarded our team in under two weeks. Their training portal is genuinely useful — visa, country, and university briefings — and the named manager picks up the phone when it matters.",
-    source: "Owner, Career Counselling Firm (Bangladesh)",
+    source: "Owner, Career Counseling Firm (Bangladesh)",
     isSample: true,
   },
   {
@@ -198,12 +198,12 @@ const faqItems: FAQItem[] = [
   {
     question: "What is the Admizz recruitment partner program?",
     answer:
-      "It is a structured collaboration for independent counsellors, study-abroad consultancies, and education agencies who refer students to universities through the Admizz network. Commercial terms are agreed during onboarding.",
+      "It is a structured collaboration for independent counselors, study-abroad consultancies, and education agencies who refer students to universities through the Admizz network. Commercial terms are agreed during onboarding.",
   },
   {
     question: "Who can become a recruitment partner?",
     answer:
-      "Established education consultancies, independent overseas-education counsellors, and study-abroad agencies are typically a good fit. Specific eligibility is reviewed during the discovery call.",
+      "Established education consultancies, independent overseas-education counselors, and study-abroad agencies are typically a good fit. Specific eligibility is reviewed during the discovery call.",
   },
   {
     question: "How does the commission structure work?",
@@ -218,7 +218,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Do I need to handle the application or visa process myself?",
     answer:
-      "No. Admizz handles application processing, document verification, university follow-up, and visa-stage coordination. You stay focused on counselling students; we run the operational back office.",
+      "No. Admizz handles application processing, document verification, university follow-up, and visa-stage coordination. You stay focused on counseling students; we run the operational back office.",
   },
   {
     question: "How long does onboarding usually take?",
@@ -358,11 +358,11 @@ export default function RecruitmentPartnersPage() {
             For Recruitment Agents &amp; Consultancies
           </p>
           <h1 className="text-[28px] sm:text-[34px] lg:text-[42px] font-bold leading-[1.15] tracking-tight max-w-3xl mx-auto" style={{ color: "#0D1282" }}>
-            Grow Your Counselling Business with Admizz
+            Grow Your Counseling Business with Admizz
           </h1>
           <p className="mt-5 text-[15px] sm:text-[16px] max-w-2xl mx-auto leading-relaxed" style={{ color: "#3d4663" }}>
             Refer students to 100+ partner universities with 24-48 hour
-            application turnaround. Built for independent counsellors,
+            application turnaround. Built for independent counselors,
             education consultants, and study-abroad agencies.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -435,11 +435,11 @@ export default function RecruitmentPartnersPage() {
             How It Works
           </p>
           <h2 className="text-2xl md:text-[32px] font-bold text-navy mb-6">
-            A Smarter Way to Run Your Counselling Business
+            A Smarter Way to Run Your Counseling Business
           </h2>
           <div className="space-y-4 max-w-3xl mx-auto">
             <p className="text-[15px] text-gray-dark leading-relaxed">
-              Admizz Education partners with independent counsellors,
+              Admizz Education partners with independent counselors,
               education consultants, and study-abroad agencies to place
               students at universities across our global network. The
               partnership is built around speed, transparency, and ethical
@@ -447,7 +447,7 @@ export default function RecruitmentPartnersPage() {
               and less time chasing applications.
             </p>
             <p className="text-[15px] text-gray-dark leading-relaxed">
-              You bring the student relationships, counselling expertise, and
+              You bring the student relationships, counseling expertise, and
               local presence. Admizz handles the operational back office:
               application processing, document verification, university
               follow-up, and visa-stage coordination &mdash; so every
@@ -501,7 +501,7 @@ export default function RecruitmentPartnersPage() {
           </h2>
           <p className="text-[15px] text-gray-dark text-center max-w-2xl mx-auto mb-10">
             Clear division of work between you and Admizz &mdash; you stay
-            focused on counselling students, we run the operational back office.
+            focused on counseling students, we run the operational back office.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -835,7 +835,7 @@ export default function RecruitmentPartnersPage() {
             {/* CTA copy */}
             <div className="text-center md:text-left">
               <p className="text-sm opacity-80 mb-4">
-                Refer to 100+ partner universities across 11 countries
+                Refer to 100+ partner universities across 12 countries
               </p>
               <h2 className="text-2xl md:text-[32px] font-bold leading-tight mb-4">
                 Sell Confidence to Your Students
@@ -943,7 +943,7 @@ export default function RecruitmentPartnersPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-[15px] text-gray-dark leading-relaxed mb-6">
             <span className="font-bold text-navy text-xl">1,000+ partners</span>{" "}
-            already growing their counselling practice with Admizz Education.
+            already growing their counseling practice with Admizz Education.
           </p>
           <a
             href={PARTNER_FORM_URL}

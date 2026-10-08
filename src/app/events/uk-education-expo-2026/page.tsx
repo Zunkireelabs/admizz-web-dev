@@ -55,7 +55,7 @@ export default function UKEducationExpoPage() {
               className="hero-location-badge"
             >
               <span className="location-icon">📍</span>
-              <span className="location-dates">Friday, 5th June, 2026 | 11AM–3PM NST</span>
+              <span className="location-dates">Friday, June 5, 2026 | 11AM–3PM NST</span>
               <span className="location-divider">|</span>
               <span className="location-place">Putalisadak, Kathmandu</span>
               <span className="location-map-badge">Map</span>
@@ -105,8 +105,8 @@ export default function UKEducationExpoPage() {
           {/* Mobile: 2×2 grid */}
           <div className="grid grid-cols-2 gap-3 sm:hidden">
             {[
-              { icon: "📋", bold: "Free 1-on-1,", text: "Counselling" },
-              { icon: "🎓", bold: "8,000+", text: "Students Admitted" },
+              { icon: "📋", bold: "Free 1-on-1,", text: "Counseling" },
+              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
               { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item) => (
@@ -121,8 +121,8 @@ export default function UKEducationExpoPage() {
           {/* Desktop: single row */}
           <div className="hidden sm:flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {[
-              { icon: "📋", bold: "Free 1-on-1,", text: "Counselling" },
-              { icon: "🎓", bold: "8,000+", text: "Students Admitted" },
+              { icon: "📋", bold: "Free 1-on-1,", text: "Counseling" },
+              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
               { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item, i, arr) => (
@@ -346,7 +346,7 @@ export default function UKEducationExpoPage() {
                 </svg>
               </div>
               <h3>Multi-Destination Expertise</h3>
-              <p>11+ countries, one consultancy. Not limited to single-country advice.</p>
+              <p>12+ countries, one consultancy. Not limited to single-country advice.</p>
             </div>
             <div className="why-card">
               <div className="why-card-icon">
@@ -370,9 +370,9 @@ export default function UKEducationExpoPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 8,000+ Students Enrolled</span>
+            <span>🎓 2,000+ Students Enrolled</span>
             <span>•</span>
-            <span>🌍 50+ Partner Universities</span>
+            <span>🌍 100+ Partner Universities</span>
           </div>
         </div>
       </section>

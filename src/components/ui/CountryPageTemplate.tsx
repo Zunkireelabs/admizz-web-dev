@@ -239,7 +239,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
       <section className="bg-off-white py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
           <div>
-            <p className="text-2xl md:text-3xl font-bold text-navy" style={rubikFont}>8,000+</p>
+            <p className="text-2xl md:text-3xl font-bold text-navy" style={rubikFont}>2,000+</p>
             <p className="text-[13px] text-gray-dark mt-1">
               Students successfully enrolled worldwide
             </p>
@@ -326,9 +326,11 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
                 >
                   {section.title}
                 </h3>
-                <p className="text-[13px] sm:text-xs text-gray-dark mb-4 leading-relaxed">
-                  {section.intro}
-                </p>
+                {section.intro && (
+                  <p className="text-[13px] sm:text-xs text-gray-dark mb-4 leading-relaxed">
+                    {section.intro}
+                  </p>
+                )}
                 <ul className="space-y-2.5">
                   {section.documents.map((doc, i) => (
                     <li
@@ -741,7 +743,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
                   </div>
                   <div>
                     <p className="text-sm font-semibold" style={{ color: "#0D1282" }}>Expert Team</p>
-                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years experience</p>
+                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years of experience</p>
                   </div>
                 </div>
               </div>

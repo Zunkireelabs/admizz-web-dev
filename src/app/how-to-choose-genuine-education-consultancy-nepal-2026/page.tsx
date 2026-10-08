@@ -7,7 +7,7 @@ const post = {
   "sections": [
     {
       "heading": "Why agent rules are changing",
-      "body": "A visa refusal, a lost deposit or a false promise can cost a student a year of their life. Destination countries now want agents who understand visa rules and act openly, and they are building systems to measure that.\n\nIn the UK, the **Agent Quality Framework (AQF)** is \"a set of tools to enhance the experience of international students working with education agents and counsellors to apply to study in the UK\", according to [UCAS](https://www.ucas.com/international/international-advisers/supporting-international-students/the-uk-agent-quality-framework-aqf). The British Council oversees it. In Australia, the International Education Association of Australia (IEAA) published research in March 2026 that sets out options for a stronger agent register and integrity framework, described by [The PIE News](https://thepienews.com/raising-the-bar-strengthening-education-agent-quality-in-australia/). These are proposals for future policy, not rules in force."
+      "body": "A visa refusal, a lost deposit or a false promise can cost a student a year of their life. Destination countries now want agents who understand visa rules and act openly, and they are building systems to measure that.\n\nIn the UK, the **Agent Quality Framework (AQF)** is \"a set of tools to enhance the experience of international students working with education agents and counselors to apply to study in the UK\", according to [UCAS](https://www.ucas.com/international/international-advisers/supporting-international-students/the-uk-agent-quality-framework-aqf). The British Council oversees it. In Australia, the International Education Association of Australia (IEAA) published research in March 2026 that sets out options for a stronger agent register and integrity framework, described by [The PIE News](https://thepienews.com/raising-the-bar-strengthening-education-agent-quality-in-australia/). These are proposals for future policy, not rules in force."
     },
     {
       "heading": "The four principles of the UK Agent Quality Framework",
@@ -15,11 +15,11 @@ const post = {
     },
     {
       "heading": "A 10-point checklist before you sign",
-      "body": "1. **Ask for the counsellor's UK training.** UK-knowledge-trained counsellors receive a certificate and a digital badge, and students can check a database of trained counsellors.\n2. **Get fees in writing.** You should see what you pay, when, and what is refundable.\n3. **Ask which universities they represent, and which they do not.** A good adviser will also discuss options outside their partners.\n4. **Insist on official sources.** Every visa, fee or deadline claim should link to a government or university page.\n5. **Expect honest risk advice.** A genuine adviser tells you when your profile is weak.\n6. **Never accept a guaranteed visa.** No consultancy controls a visa decision.\n7. **Keep control of your documents.** You should write and approve your own statement of purpose, and review every form before it is submitted.\n8. **Use your own accounts.** Your application portals and email should be in your name, with you holding the login.\n9. **Check reviews and track record.** Look for named, verifiable results, not only testimonials.\n10. **Compare at least two consultancies.** Ask the same questions and compare the answers."
+      "body": "1. **Ask for the counselor's UK training.** UK-knowledge-trained counselors receive a certificate and a digital badge, and students can check a database of trained counselors.\n2. **Get fees in writing.** You should see what you pay, when, and what is refundable.\n3. **Ask which universities they represent, and which they do not.** A good advisor will also discuss options outside their partners.\n4. **Insist on official sources.** Every visa, fee or deadline claim should link to a government or university page.\n5. **Expect honest risk advice.** A genuine advisor tells you when your profile is weak.\n6. **Never accept a guaranteed visa.** No consultancy controls a visa decision.\n7. **Keep control of your documents.** You should write and approve your own statement of purpose, and review every form before it is submitted.\n8. **Use your own accounts.** Your application portals and email should be in your name, with you holding the login.\n9. **Check reviews and track record.** Look for named, verifiable results, not only testimonials.\n10. **Compare at least two consultancies.** Ask the same questions and compare the answers."
     },
     {
       "heading": "Red flags",
-      "body": "- A promise of a visa or scholarship before any assessment\n- Pressure to pay a large amount immediately\n- A statement of purpose written for you and copied across clients\n- Reluctance to explain which commission they earn\n- Documents that are changed or invented\n\nFalse documents can lead to a refusal and serious long-term consequences, so walk away from any adviser who suggests them. Our guide to [why student visas are refused](/7-common-reasons-why-student-visas-get-rejected-for-nepali-students) explains the most common causes."
+      "body": "- A promise of a visa or scholarship before any assessment\n- Pressure to pay a large amount immediately\n- A statement of purpose written for you and copied across clients\n- Reluctance to explain which commission they earn\n- Documents that are changed or invented\n\nFalse documents can lead to a refusal and serious long-term consequences, so walk away from any advisor who suggests them. Our guide to [why student visas are refused](/7-common-reasons-why-student-visas-get-rejected-for-nepali-students) explains the most common causes."
     },
     {
       "heading": "What good support looks like",
@@ -45,7 +45,7 @@ const post = {
     },
     {
       "slug": "for-nepalese-students",
-      "title": "Nepalese Students"
+      "title": "Nepali Students"
     }
   ],
   "infoBox": [
@@ -59,7 +59,7 @@ const post = {
     },
     {
       "label": "Check for",
-      "value": "UK-knowledge-trained counsellor badge"
+      "value": "UK-knowledge-trained counselor badge"
     },
     {
       "label": "Australia",
@@ -68,15 +68,15 @@ const post = {
   ],
   "publishedAt": "2026-10-05T00:00:00.000Z",
   "description": "Rules for education agents are tightening in the UK and Australia. A practical checklist to tell a trustworthy study abroad consultancy from a risky one.",
-  "quickAnswer": "Governments and universities are putting more pressure on education agents to be transparent and ethical. The UK's Agent Quality Framework, overseen by the British Council, sets four principles and offers a database of UK-knowledge-trained counsellors. When you choose a consultancy in Nepal, check for trained counsellors, written fee terms, honest refusal-risk advice and official sources for every claim.",
+  "quickAnswer": "Governments and universities are putting more pressure on education agents to be transparent and ethical. The UK's Agent Quality Framework, overseen by the British Council, sets four principles and offers a database of UK-knowledge-trained counselors. When you choose a consultancy in Nepal, check for trained counselors, written fee terms, honest refusal-risk advice and official sources for every claim.",
   "faqItems": [
     {
       "question": "What is the UK Agent Quality Framework?",
-      "answer": "It is a set of tools that helps international students work with education agents and counsellors when applying to study in the UK. The British Council oversees it, and it promotes four principles: student choice, good governance, ethical practice and transparency."
+      "answer": "It is a set of tools that helps international students work with education agents and counselors when applying to study in the UK. The British Council oversees it, and it promotes four principles: student choice, good governance, ethical practice and transparency."
     },
     {
-      "question": "How can I check an education counsellor is UK-trained?",
-      "answer": "UK-knowledge-trained counsellors receive a certificate of completion and a digital badge, and students can check a database of trained counsellors."
+      "question": "How can I check an education counselor is UK-trained?",
+      "answer": "UK-knowledge-trained counselors receive a certificate of completion and a digital badge, and students can check a database of trained counselors."
     },
     {
       "question": "Can an education consultancy guarantee my visa?",

@@ -4,16 +4,16 @@ import type { Metadata } from "next";
 import GlobalPresence from "@/components/ui/GlobalPresence";
 
 export const metadata: Metadata = {
-  title: "Contact Admizz Education | Free Study Abroad Counselling",
+  title: "Contact Admizz Education | Free Study Abroad Counseling",
   description:
-    "Have questions about studying abroad? Talk to Admizz Education's expert counsellors for free guidance on admissions, scholarships, and visas.",
+    "Have questions about studying abroad? Talk to Admizz Education's expert counselors for free guidance on admissions, scholarships, and visas.",
   alternates: {
     canonical: "https://admizzeducation.com/contact",
   },
   openGraph: {
-    title: "Contact Admizz Education | Free Study Abroad Counselling",
+    title: "Contact Admizz Education | Free Study Abroad Counseling",
     description:
-      "Have questions about studying abroad? Talk to Admizz Education's expert counsellors for free guidance on admissions, scholarships, and visas.",
+      "Have questions about studying abroad? Talk to Admizz Education's expert counselors for free guidance on admissions, scholarships, and visas.",
     url: "https://admizzeducation.com/contact",
     siteName: "Admizz Education",
     images: ["/images/contact/contact-us.webp"],

@@ -88,7 +88,7 @@ services:
       - "traefik.http.middlewares.admizz-dev-affiliate-program.redirectregex.permanent=true"
       # Retired blog posts (old WordPress content never migrated to Sanity, 404ing
       # in Search Console) — redirect to the blog listing instead of a dead end.
-      - "traefik.http.middlewares.admizz-dev-retired-posts.redirectregex.regex=^(https?://[^/]+)/(blender-technology-animation-for-the-future|which-country-is-best-for-nepali-students-in-2026|difference-between-bba-bms-and-bbm|which-is-better-kiit-vs-mnnit|7-inspirational-movies-that-students-must-watch|4-steps-to-defining-your-mba-goals|army-public-school-scholarship-by-india-for-nepali-students|major-achievements-of-kiit-university-during-the-past-5-years)/?$$"
+      - "traefik.http.middlewares.admizz-dev-retired-posts.redirectregex.regex=^(https?://[^/]+)/(blender-technology-animation-for-the-future|which-country-is-best-for-nepali-students-in-2026|difference-between-bba-bms-and-bbm|which-is-better-kiit-vs-mnnit|7-inspirational-movies-that-students-must-watch|4-steps-to-defining-your-mba-goals|army-public-school-scholarship-by-india-for-nepali-students|major-achievements-of-kiit-university-during-the-past-5-years|effective-tips-for-using-technology-in-classroom|shifting-winds-of-education|importance-of-research-for-students|learn-about-geography-of-india|history-of-india-in-a-minute|5-simple-ways-to-increase-your-intelligence|learning-a-new-sport-isns-a-kids-thing|strategies-to-stay-motivated-during-online-class)/?$$"
       - "traefik.http.middlewares.admizz-dev-retired-posts.redirectregex.replacement=$${1}/blogs"
       - "traefik.http.middlewares.admizz-dev-retired-posts.redirectregex.permanent=true"
       # Retired CTA page — /book-as-a-student → /register

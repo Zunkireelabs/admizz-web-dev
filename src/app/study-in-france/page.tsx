@@ -54,7 +54,7 @@ const franceData: CountryPageData = {
       icon: "/images/icons/scholarship-108.webp",
       title: "Affordable Tuition Fees",
       description:
-        "Public universities offer highly subsidised education for international students.",
+        "Public universities offer highly subsidized education for international students.",
     },
     {
       icon: "/images/icons/knowledge.webp",
@@ -102,7 +102,7 @@ const franceData: CountryPageData = {
       ],
     },
     {
-      title: "Documents Required for CAS (Confirmation of Acceptance for Studies)",
+      title: "Documents Required for Your Admission Letter",
       intro:
         "Prepare your France study application with essential documents, including passport, academic transcripts, language scores, SOP, LORs, proof of funds, medical insurance, Campus France documents, and visa papers for smooth admission.",
       documents: [
@@ -138,7 +138,7 @@ const franceData: CountryPageData = {
   intakes: {
     title: "Academic Intakes in France",
     intro:
-      "France offers two major academic intakes each year for international students, along with a few limited-specialisation rolling intakes. Understanding these intakes helps students plan applications, document submission, and visa timelines effectively.",
+      "France offers two major academic intakes each year for international students, along with a few limited-specialization rolling intakes. Understanding these intakes helps students plan applications, document submission, and visa timelines effectively.",
     items: [
       { name: "September / Fall Intake (Major Intake)", details: [] },
       { name: "January / Spring (Minor Intake)", details: [] },
@@ -182,9 +182,9 @@ const franceData: CountryPageData = {
     { title: "Attend Campus France Interview", description: "Appear for your Campus France interview to verify your academic profile and study plans." },
     { title: "Receive Campus France NOC", description: "Get your No Objection Certificate from Campus France after successful evaluation." },
     { title: "Apply on France-Visas Portal", description: "Submit your visa application online through the official France-Visas portal." },
-    { title: "Book VFS Visa Appointment", description: "Schedule your visa appointment at the nearest VFS Global centre." },
+    { title: "Book VFS Visa Appointment", description: "Schedule your visa appointment at the nearest VFS Global center." },
     { title: "Prepare Visa Documents", description: "Collect and organize all required visa documents including financial proof and insurance." },
-    { title: "Attend VFS Appointment", description: "Visit the VFS centre to submit biometrics, documents, and complete your visa application." },
+    { title: "Attend VFS Appointment", description: "Visit the VFS center to submit biometrics, documents, and complete your visa application." },
     { title: "Wait for Visa Decision", description: "The French consulate reviews your application and processes the visa decision." },
     { title: "Collect Passport", description: "Receive your passport with the student visa stamp from VFS or courier." },
     { title: "Travel to France", description: "Carry all essential documents and travel to France before your program start date." },
@@ -198,7 +198,7 @@ const franceData: CountryPageData = {
     { question: "Can I work while studying in France?", answer: "Yes, international students in France can work up to 964 hours per year (approximately 20 hours per week) during their studies." },
     { question: "What are the major academic intakes in France?", answer: "France has two major intakes: September/Fall (primary intake) and January/Spring (secondary intake), with limited programs available in March, April, and June." },
     { question: "Is studying in France affordable for international students?", answer: "Yes, France is one of the most affordable study destinations in Europe, with low public university tuition fees and various scholarships available for international students." },
-    { question: "Do I need health insurance to study in France?", answer: "Yes, health insurance is mandatory for all international students in France. Students under 28 can enrol in the French social security system, and additional private insurance costs \u20AC200\u2013\u20AC500 per year." },
+    { question: "Do I need health insurance to study in France?", answer: "Yes, health insurance is mandatory for all international students in France. Students under 28 can enroll in the French social security system, and additional private insurance costs \u20AC200\u2013\u20AC500 per year." },
     { question: "How do I apply to study in France?", answer: "Start by selecting a university and program, create a Campus France account, upload documents, attend the Campus France interview, and then apply for your student visa through the France-Visas portal and VFS." },
     { question: "What are the job opportunities after studying in France?", answer: "France offers post-study work permits allowing graduates to stay and work. With strong industries in engineering, business, technology, fashion, and hospitality, graduates have excellent career prospects across the EU." },
   ],

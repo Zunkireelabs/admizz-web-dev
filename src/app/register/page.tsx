@@ -49,7 +49,7 @@ const offices = [
     cities: [
       {
         name: "Kathmandu",
-        address: "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (Opp. to Nabil Bank)",
+        address: "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (opposite Nabil Bank)",
         phone: "+977-9802728444",
       },
       {
@@ -72,7 +72,7 @@ const offices = [
 ];
 
 const stats = [
-  { value: "8,000+", label: "Students Successfully Enrolled", icon: "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5", accent: "#1E6DEB" },
+  { value: "2,000+", label: "Students Successfully Enrolled", icon: "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5", accent: "#1E6DEB" },
   { value: "100+", label: "Partner Universities & Colleges", icon: "M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z", accent: "#3FB5A0" },
   { value: "95%", label: "Visa Approval Rate", icon: "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", accent: "#E86F3C" },
   { value: "$2M+", label: "Scholarships Awarded", icon: "M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", accent: "#BB5FEC" },
@@ -96,14 +96,14 @@ const SLIDING_TESTIMONIALS = [
     name: "Niraj Mairta Yadav",
     university: "Middle Tennessee State University",
     route: "🇳🇵 → 🇺🇸",
-    text: "I came in completely confused about which country to choose. My counsellor listened, asked the right questions, and had me enrolled in USA within weeks. Best decision I made.",
+    text: "I came in completely confused about which country to choose. My counselor listened, asked the right questions, and had me enrolled in USA within weeks. Best decision I made.",
   },
   {
     initial: "S",
     name: "Surangana Shrestha",
     university: "Coventry University",
     route: "🇳🇵 → 🇬🇧",
-    text: "Free counselling, zero sales pressure, and real results. Everything they promised, they delivered. I only wish I'd found Admizz a year sooner — would have saved me so much stress.",
+    text: "Free counseling, zero sales pressure, and real results. Everything they promised, they delivered. I only wish I'd found Admizz a year sooner — would have saved me so much stress.",
   },
   {
     initial: "B",
@@ -192,8 +192,8 @@ export default function RegisterPage() {
           {/* Mobile: 2×2 grid cards */}
           <div className="grid grid-cols-2 gap-3 sm:hidden">
             {[
-              { icon: "📋", bold: "Free 1-on-1", text: "Counselling" },
-              { icon: "🎓", bold: "8,000+", text: "Students Admitted" },
+              { icon: "📋", bold: "Free 1-on-1", text: "Counseling" },
+              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
               { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item) => (
@@ -208,8 +208,8 @@ export default function RegisterPage() {
           {/* Desktop: single row */}
           <div className="hidden sm:flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {[
-              { icon: "📋", bold: "Free 1-on-1", text: "Counselling" },
-              { icon: "🎓", bold: "8,000+", text: "Students Admitted" },
+              { icon: "📋", bold: "Free 1-on-1", text: "Counseling" },
+              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
               { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item, i, arr) => (
@@ -521,7 +521,7 @@ export default function RegisterPage() {
                 <p className="text-[11px] font-bold uppercase tracking-[0.14em] mb-2" style={{ color: "#D89218" }}>Prefer to chat?</p>
                 <h3 className="text-[18px] font-bold mb-3" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}>Talk to a real human</h3>
                 <p className="text-[13px] leading-relaxed mb-5 flex-1" style={{ color: "#5C7189" }}>
-                  Skip the form — message a counsellor directly on WhatsApp. Real people, real answers, no bots.
+                  Skip the form — message a counselor directly on WhatsApp. Real people, real answers, no bots.
                 </p>
                 <a
                   href="https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
@@ -544,7 +544,7 @@ export default function RegisterPage() {
       {/* ===== Alumni Section ===== */}
       <AlumniSection />
 
-      {/* ===== COUNSELLOR FACES BAND ===== */}
+      {/* ===== COUNSELOR FACES BAND ===== */}
       <section className="py-10 md:py-20 relative overflow-hidden" style={{ background: "#F8F9FF" }}>
         <div className="hidden md:block absolute top-20 right-0 w-[360px] h-[360px] rounded-full opacity-[0.12] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, #4F7DEB 0%, transparent 70%)" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -553,10 +553,10 @@ export default function RegisterPage() {
               Real people, real expertise
             </p>
             <h2 className="text-[26px] md:text-[36px] font-bold leading-tight mb-3" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
-              Meet your counsellors
+              Meet your counselors
             </h2>
             <p className="text-[14px] md:text-[16px] max-w-xl mx-auto" style={{ color: "#5C7189" }}>
-              Speak with the right counsellor for your goal — they&rsquo;ll guide you personally through every step.
+              Speak with the right counselor for your goal — they&rsquo;ll guide you personally through every step.
             </p>
           </div>
 
@@ -624,7 +624,7 @@ export default function RegisterPage() {
                 a: "Yes, completely free for students. Admizz earns from our university partners — never from you. No fees, deposits, or commission charged to your side, ever.",
               },
               {
-                q: "How long is the counselling call?",
+                q: "How long is the counseling call?",
                 a: "Typically 15–30 minutes. Just enough time to understand your goals, answer your questions, and recommend next steps — no pressure or sales pitch.",
               },
               {
@@ -633,7 +633,7 @@ export default function RegisterPage() {
               },
               {
                 q: "What if I'm not sure where I want to study yet?",
-                a: "That's exactly why most students reach out — to figure it out. Our counsellors help you compare destinations based on your budget, goals, and preferred field of study.",
+                a: "That's exactly why most students reach out — to figure it out. Our counselors help you compare destinations based on your budget, goals, and preferred field of study.",
               },
               {
                 q: "Can I change my mind after registering?",

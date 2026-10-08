@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "8,000+", label: "Students Successfully Enrolled Worldwide" },
+  { value: "2,000+", label: "Students Successfully Enrolled Worldwide" },
   { value: "100+", label: "Prestigious Institutions in Our Global Network" },
   { value: "95%", label: "Student Visa Approval Rate with Expert Guidance" },
   { value: "$2M+", label: "in Scholarships Awarded to Our Students" },
@@ -150,7 +150,7 @@ const testimonialData = [
     originFlag: "NP",
     destFlag: "GB",
     route: "Nepal → UK",
-    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application visa process was smooth and stress-free.",
+    text: "Admizz Education made my dream of studying in the UK a reality with their expert guidance and seamless support. Their team ensured every step of my application and visa process was smooth and stress-free.",
   },
 ];
 
@@ -233,7 +233,7 @@ export default async function VisaAssistanceForStudyAbroadPage() {
                 href="/register"
                 className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-10 py-3.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
               >
-                Book Free Counseling
+                Book a Free Counseling Session
               </Link>
             </div>
             <div className="hidden md:block lg:w-[472px] ml-auto">
@@ -339,7 +339,7 @@ export default async function VisaAssistanceForStudyAbroadPage() {
             href="/register"
             className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-10 py-3.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
           >
-            Book Free Counseling
+            Book a Free Counseling Session
           </Link>
         </div>
       </section>

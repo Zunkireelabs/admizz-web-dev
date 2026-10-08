@@ -258,7 +258,7 @@ export default function FAQ({
                 className="text-[13px] font-semibold uppercase tracking-[0.15em] mb-4"
                 style={{ color: "#1E6DEB" }}
               >
-                FAQ&apos;S
+                FAQs
               </p>
               <h2
                 className="text-[26px] md:text-[32px] font-bold leading-tight mb-4"

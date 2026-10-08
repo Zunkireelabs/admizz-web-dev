@@ -73,7 +73,7 @@ export default function MatchYourDestinationPage() {
           {/* Heading */}
           <div className="text-center max-w-2xl mx-auto mb-3">
             <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white bg-white/15 border border-white/30 px-4 py-1.5 rounded-full mb-2">
-              🎯 Free · Personalised · 60 seconds
+              🎯 Free · Personalized · 60 seconds
             </div>
             <h1 className="text-[28px] sm:text-[36px] md:text-[40px] font-bold text-white leading-[1.1] tracking-tight mb-1">
               Which country should<br className="hidden sm:block" /> you study in?

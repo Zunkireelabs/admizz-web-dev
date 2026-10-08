@@ -3,12 +3,12 @@ import GeneratedBlogPost from "@/components/GeneratedBlogPost";
 import { content } from "./content";
 
 const post = {
-  "title": "UK Student Visa 28-Day Rule for Nepalese Students (2027)",
+  "title": "UK Student Visa 28-Day Rule for Nepali Students (2027)",
   "slug": "uk-student-visa-28-day-rule-Nepalese-students-2027",
   "sections": [],
   "featuredImage": {
     "url": "https://cdn.sanity.io/images/vd27cmpc/production/688c69c4dfb01683574b242a1fcab5d94ae744ae-1200x628.png?w=1200&auto=format",
-    "alt": "Nepalese student reviewing a bank statement showing 28 days of funds for a UK student visa application"
+    "alt": "Nepali student reviewing a bank statement showing 28 days of funds for a UK student visa application"
   },
   "categories": [
     {
@@ -26,7 +26,8 @@ const post = {
   ],
   "publishedAt": "2026-10-05T02:30:00.000Z",
   "updatedAt": "2026-10-05T09:24:41Z",
-  "description": "How the UK 28-day bank balance rule works for Nepalese students: amounts, whose account counts, loan letters and the mistakes that cause refusals.",
+  "description": "How the UK 28-day bank balance rule works for Nepali students: amounts, whose account counts, loan letters and the mistakes that cause refusals.",
+  "quickAnswer": "For a UK Student visa you must hold the required funds for 28 consecutive days, and the last day of that period must fall within 31 days of your application. The balance cannot dip below the required amount on any day. Maintenance is £1,171 a month outside London and £1,529 in London for up to 9 months, rising to £1,203 and £1,570 for applications from November 30, 2026, plus any unpaid first-year tuition.",
   "faqItems": [
     {
       "question": "Can my balance go below the amount on one day?",
@@ -47,11 +48,11 @@ const post = {
 
 export const metadata: Metadata = {
   title: "UK 28-Day Bank Balance Rule Explained (2027)",
-  description: "How the UK 28-day bank balance rule works for Nepalese students: amounts, whose account counts, loan letters and the mistakes that cause refusals.",
+  description: "How the UK 28-day bank balance rule works for Nepali students: amounts, whose account counts, loan letters and the mistakes that cause refusals.",
   alternates: { canonical: "https://admizzeducation.com/uk-student-visa-28-day-rule-Nepalese-students-2027" },
   openGraph: {
     title: "UK 28-Day Bank Balance Rule Explained (2027)",
-    description: "How the UK 28-day bank balance rule works for Nepalese students: amounts, whose account counts, loan letters and the mistakes that cause refusals.",
+    description: "How the UK 28-day bank balance rule works for Nepali students: amounts, whose account counts, loan letters and the mistakes that cause refusals.",
     url: "https://admizzeducation.com/uk-student-visa-28-day-rule-Nepalese-students-2027",
     siteName: "Admizz Education",
     type: "article",

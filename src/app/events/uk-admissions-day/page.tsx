@@ -4,6 +4,7 @@ import UniversityPartners from "../../UniversityPartners";
 import { allUniversities } from "@/lib/universities";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://admizzeducation.com/events/uk-admissions-day" },
   title: "UK Admission Day - March 17, 2026 | Admizz Education",
   description:
     "Your Direct Pathway to Top Modern UK Universities. On-the-spot assessment, scholarship guidance, credential evaluation & PSW briefing. March 17, Putalisadak.",
@@ -29,7 +30,7 @@ export default function UKAdmissionsDayPage() {
           </p>
           <p className="hero-description">
             Get on-the-spot assessment, scholarship guidance, and expert
-            counselling for UK universities — all in one day.
+            counseling for UK universities — all in one day.
           </p>
 
           <div className="hero-locations">
@@ -40,7 +41,7 @@ export default function UKAdmissionsDayPage() {
               className="hero-location-badge"
             >
               <span className="location-icon">📍</span>
-              <span className="location-dates">17 March</span>
+              <span className="location-dates">March 17</span>
               <span className="location-divider">|</span>
               <span className="location-place">Putalisadak, Kathmandu</span>
               <span className="location-map-badge">Map</span>
@@ -90,12 +91,12 @@ export default function UKAdmissionsDayPage() {
           <div className="trust-inline">
             <div className="trust-badge">
               <span className="trust-icon">🎓</span>
-              <span className="trust-text"><strong>8,000+</strong> Students Enrolled</span>
+              <span className="trust-text"><strong>2,000+</strong> Students Enrolled</span>
             </div>
             <div className="trust-divider"></div>
             <div className="trust-badge">
               <span className="trust-icon">🌍</span>
-              <span className="trust-text"><strong>11+</strong> Countries</span>
+              <span className="trust-text"><strong>12+</strong> Countries</span>
             </div>
             <div className="trust-divider"></div>
             <div className="trust-badge">
@@ -231,7 +232,7 @@ export default function UKAdmissionsDayPage() {
                 </svg>
               </div>
               <h3>Multi-Destination Expertise</h3>
-              <p>11+ countries, one consultancy. Not limited to single-country advice.</p>
+              <p>12+ countries, one consultancy. Not limited to single-country advice.</p>
             </div>
             <div className="why-card">
               <div className="why-card-icon">
@@ -255,9 +256,9 @@ export default function UKAdmissionsDayPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 8,000+ Students Enrolled</span>
+            <span>🎓 2,000+ Students Enrolled</span>
             <span>•</span>
-            <span>🌍 50+ Partner Universities</span>
+            <span>🌍 100+ Partner Universities</span>
           </div>
         </div>
       </section>

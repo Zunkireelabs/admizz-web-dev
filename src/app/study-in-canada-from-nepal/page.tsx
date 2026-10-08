@@ -27,13 +27,13 @@ const pageData: NepalVariantData = {
   countryName: "Canada",
   countryCategorySlug: "canada",
   heroHeading: "Study in Canada from Nepal",
-  heroSubheading: "Study in Canada from Nepal with Admizz Education—expert counselling, top universities, visa support & affordable study abroad solutions.",
+  heroSubheading: "Study in Canada from Nepal with Admizz Education—expert counseling, top universities, visa support & affordable study abroad solutions.",
 
   introTitle: "Your Gateway to Global Education with Admizz Education",
-  introContent: "Canada is one of the most popular study abroad destinations for Nepalese students because of its world-class education system, affordable tuition fees, scholarship opportunities, and excellent career prospects. Admizz Education helps Nepalese students pursue education in Canada with personalized support including scholarship assistance, visa documentation, statement of purpose (SOP) writing, and pre-departure preparation. Book your free counseling session with Admizz Education today and take the first step toward studying in Canada.",
+  introContent: "Canada is one of the most popular study abroad destinations for Nepali students because of its world-class education system, affordable tuition fees, scholarship opportunities, and excellent career prospects. Admizz Education helps Nepali students pursue education in Canada with personalized support including scholarship assistance, visa documentation, statement of purpose (SOP) writing, and pre-departure preparation. Book your free counseling session with Admizz Education today and take the first step toward studying in Canada.",
 
   whyStudyTitle: "Why Study in Canada from Nepal",
-  whyStudyIntro: "For Nepalese students, Canada offers the perfect blend of academic excellence, career opportunities, and quality of life.",
+  whyStudyIntro: "For Nepali students, Canada offers the perfect blend of academic excellence, career opportunities, and quality of life.",
   benefits: [
     {
       title: "Globally Recognized Universities",
@@ -63,7 +63,7 @@ const pageData: NepalVariantData = {
 
   whyAdmizzTitle: "Why Choose Admizz Education",
   whyAdmizzPoints: [
-    "Team of experienced counselors with 1000+ student success stories",
+    "Team of experienced counselors with 2,000+ student success stories",
     "Direct partnerships with top Canadian universities and colleges",
     "Scholarship assistance and SOP/Essay guidance",
     "High visa success rate for Canada study permits",
@@ -82,7 +82,7 @@ const pageData: NepalVariantData = {
     "Media, Arts, and Communication",
   ],
 
-  visaTitle: "Student Visa Requirements for Canada (Nepalese Students)",
+  visaTitle: "Student Visa Requirements for Canada (Nepali Students)",
   visaIntro: "To study in Canada, students must secure a study permit. Admizz Education's visa experts ensure your application is accurate and complete to increase your success rate.",
   visaRequirements: [
     {
@@ -162,7 +162,7 @@ const pageData: NepalVariantData = {
   ],
 
   costTitle: "Cost to Study in Canada from Nepal",
-  costIntro: "With part-time work opportunities and scholarships, Nepalese students can manage their expenses effectively.",
+  costIntro: "With part-time work opportunities and scholarships, Nepali students can manage their expenses effectively.",
   costTables: [
     {
       title: "Tuition Fees (Annual)",
@@ -236,7 +236,7 @@ const pageData: NepalVariantData = {
 
   faqItems: [
     {
-      question: "Can Nepalese students work while studying in Canada?",
+      question: "Can Nepali students work while studying in Canada?",
       answer: "Yes, up to 20 hours per week during semesters and full-time during breaks.",
     },
     {
@@ -256,15 +256,15 @@ const pageData: NepalVariantData = {
       answer: "Yes, through PGWP and Canadian work experience, students can apply for PR.",
     },
     {
-      question: "What scholarships are available for Nepalese students?",
+      question: "What scholarships are available for Nepali students?",
       answer: "Vanier, OGS, Lester B. Pearson, McGill, and other university-specific awards.",
     },
     {
-      question: "Do Nepalese students need proof of funds?",
+      question: "Do Nepali students need proof of funds?",
       answer: "Yes, sufficient funds must be shown to cover tuition and living costs.",
     },
     {
-      question: "Which are the most popular courses in Canada for Nepalese students?",
+      question: "Which are the most popular courses in Canada for Nepali students?",
       answer: "Business, IT, Engineering, Data Science, Nursing, and Social Sciences.",
     },
     {

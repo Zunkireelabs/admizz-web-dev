@@ -5,14 +5,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Us (Old) | Admizz Education",
   description:
-    "Top education consultancy providing expert study abroad guidance, visa assistance, and career counselling for a brighter future.",
+    "Top education consultancy providing expert study abroad guidance, visa assistance, and career counseling for a brighter future.",
   robots: { index: false, follow: false },
 };
 
 const achievements = [
   {
     icon: "/images/about/about-achievement-1.webp",
-    value: "8,000+",
+    value: "2,000+",
     label: "Students Successfully Enrolled Worldwide",
     gradient: "linear-gradient(135deg, #F857A6 0%, #FF5858 100%)",
   },

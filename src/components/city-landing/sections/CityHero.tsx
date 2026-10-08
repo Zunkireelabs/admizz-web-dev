@@ -308,7 +308,7 @@ export default function CityHero({ city, data }: CityHeroProps) {
                     fontFamily: "var(--font-rubik), sans-serif",
                   }}
                 >
-                  Talk to a counsellor today
+                  Book a Free Counseling Session
                 </h3>
               </div>
 

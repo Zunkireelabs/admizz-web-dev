@@ -218,7 +218,7 @@ export default function ReferralLinkBox({ affiliate }: Props) {
 
   const shareWhatsApp = () => {
     if (!url) return;
-    const msg = `Hi! If you're planning to study abroad, I highly recommend Admizz Education. They've helped 8,000+ students get into top universities worldwide.\n\nGet a free consultation through my link: ${url}`;
+    const msg = `Hi! If you're planning to study abroad, I highly recommend Admizz Education. They've helped 2,000+ students get into top universities worldwide.\n\nGet a free consultation through my link: ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
     persistUse();
   };

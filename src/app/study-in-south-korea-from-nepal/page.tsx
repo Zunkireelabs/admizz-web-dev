@@ -29,9 +29,9 @@ const pageData: NepalVariantData = {
   heroHeading: "Build a Bright Future in One of the World's Top Study Destinations",
   heroSubheading: "Study in South Korea from Nepal offers world-class education, scholarships, affordable tuition, cultural exposure, and global career opportunities.",
   introTitle: "Shape Your Future in Korea's World-Class Universities",
-  introContent: "South Korea is increasingly popular among Nepalese students seeking world-class education, modern lifestyle, and global career opportunities. The country is recognized for academic excellence, cutting-edge technology, safe cities, and high standard of living. Key opportunities include prestigious universities like Seoul National University, government-funded options such as the Global Korea Scholarship (GKS), and programs in IT, engineering, business, design, and biotechnology. Partner with Admizz for a smooth and stress-free application journey.",
+  introContent: "South Korea is increasingly popular among Nepali students seeking world-class education, modern lifestyle, and global career opportunities. The country is recognized for academic excellence, cutting-edge technology, safe cities, and high standard of living. Key opportunities include prestigious universities like Seoul National University, government-funded options such as the Global Korea Scholarship (GKS), and programs in IT, engineering, business, design, and biotechnology. Partner with Admizz for a smooth and stress-free application journey.",
   whyStudyTitle: "Why Study in South Korea from Nepal",
-  whyStudyIntro: "South Korea offers exceptional opportunities for Nepalese students looking to pursue higher education abroad.",
+  whyStudyIntro: "South Korea offers exceptional opportunities for Nepali students looking to pursue higher education abroad.",
   benefits: [
     {
       title: "Globally Respected Universities",
@@ -58,8 +58,8 @@ const pageData: NepalVariantData = {
       description: "Ranked among the world's safest nations"
     }
   ],
-  visaTitle: "South Korea Student Visa for Nepalese Students",
-  visaIntro: "Nepalese students need a D-2 Student Visa to study in South Korea at the undergraduate, graduate, or doctoral level.",
+  visaTitle: "South Korea Student Visa for Nepali Students",
+  visaIntro: "Nepali students need a D-2 Student Visa to study in South Korea at the undergraduate, graduate, or doctoral level.",
   visaRequirements: [
     {
       category: "Visa Type",
@@ -86,8 +86,8 @@ const pageData: NepalVariantData = {
       details: "Up to 20 hours per week during semesters; full-time during holidays (with permission)"
     }
   ],
-  intakesTitle: "Korea University Intakes for Nepalese Students",
-  intakesIntro: "South Korean universities offer two main academic intakes each year. Most Nepalese students apply for Fall intake to allow time for scholarships and visa procedures.",
+  intakesTitle: "Korea University Intakes for Nepali Students",
+  intakesIntro: "South Korean universities offer two main academic intakes each year. Most Nepali students apply for Fall intake to allow time for scholarships and visa procedures.",
   intakes: [
     {
       intake: "Spring Intake",
@@ -119,7 +119,7 @@ const pageData: NepalVariantData = {
       notes: "Required for Korean-medium instruction programs"
     }
   ],
-  testNote: "Key Tips for Nepalese Students: Pre-sessional Korean language courses available. English-based programs do not always require TOPIK. Admizz provides IELTS & TOPIK coaching in Nepal.",
+  testNote: "Key Tips for Nepali Students: Pre-sessional Korean language courses available. English-based programs do not always require TOPIK. Admizz provides IELTS & TOPIK coaching in Nepal.",
   costTitle: "Cost of Studying in South Korea from Nepal",
   costIntro: "The cost of studying in South Korea varies depending on the university type (public vs. private) and program of study. Public universities are more affordable than private ones.",
   costTables: [
@@ -155,8 +155,8 @@ const pageData: NepalVariantData = {
     }
   ],
   costNote: "Public universities are more affordable than private ones. Tuition varies based on course (engineering, medicine, arts, etc.)",
-  scholarshipsTitle: "Scholarships for Nepalese Students",
-  scholarshipsIntro: "South Korea offers numerous scholarship opportunities for Nepalese students to help reduce the financial burden of studying abroad.",
+  scholarshipsTitle: "Scholarships for Nepali Students",
+  scholarshipsIntro: "South Korea offers numerous scholarship opportunities for Nepali students to help reduce the financial burden of studying abroad.",
   scholarships: [
     {
       name: "Global Korea Scholarship (GKS)",
@@ -183,12 +183,12 @@ const pageData: NepalVariantData = {
       answer: "Not always. For English-taught programs, Korean language is not compulsory. However, for Korean-taught courses or to apply for government scholarships like GKS, a TOPIK Level 3 or higher may be required."
     },
     {
-      question: "Can Nepalese students work part-time while studying in Korea?",
+      question: "Can Nepali students work part-time while studying in Korea?",
       answer: "Yes. International students with a D-2 visa can apply for part-time work permits after completing 6 months of study. You can work up to 20 hours/week during semesters and unlimited hours during holidays"
     },
     {
-      question: "Are scholarships available for Nepalese students in South Korea?",
-      answer: "Yes. Korea offers many scholarships for Nepalese students, such as the GKS (Global Korea Scholarship), university-based merit scholarships, and research fellowships. These may cover tuition fees, living expenses, and airfare."
+      question: "Are scholarships available for Nepali students in South Korea?",
+      answer: "Yes. Korea offers many scholarships for Nepali students, such as the GKS (Global Korea Scholarship), university-based merit scholarships, and research fellowships. These may cover tuition fees, living expenses, and airfare."
     },
     {
       question: "What is the student visa type for South Korea and how do I apply?",
@@ -208,7 +208,7 @@ const pageData: NepalVariantData = {
     }
   ],
   ctaTitle: "Get in Touch with Admizz",
-  ctaContent: "From helping you select the right Korean university and program to assisting with scholarship applications, visa documentation, and even basic Korean language support — we provide end-to-end guidance tailored to Nepalese students. Contact us today to schedule your free Korea education counselling session. Your global career starts now — make South Korea your next academic destination with Admizz."
+  ctaContent: "From helping you select the right Korean university and program to assisting with scholarship applications, visa documentation, and even basic Korean language support — we provide end-to-end guidance tailored to Nepali students. Contact us today to schedule your free Korea education counseling session. Your global career starts now — make South Korea your next academic destination with Admizz."
 };
 
 export default async function StudyInSouthKoreaFromNepalPage() {

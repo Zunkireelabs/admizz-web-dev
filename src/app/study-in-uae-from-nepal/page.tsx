@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-uae-from-nepal",
+    canonical: "https://admizzeducation.com/study-in-dubai-from-nepal",
   },
   openGraph: {
     title: "Study in UAE from Nepal 2026: Cost, Visa & Scholarships",
     description:
       "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
-    url: "https://admizzeducation.com/study-in-uae-from-nepal",
+    url: "https://admizzeducation.com/study-in-dubai-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/UAE.webp"],
     type: "website",
@@ -27,7 +27,7 @@ const pageData: NepalVariantData = {
   countryName: "UAE",
   countryCategorySlug: "uae",
   heroHeading: "Build a Bright Future in One of the World's Top Study Destinations",
-  heroSubheading: "Experience world-class education in a vibrant international hub. Study in the UAE with Admizz Education—get expert counselling, top university options, visa guidance, and scholarship support for your academic success.",
+  heroSubheading: "Experience world-class education in a vibrant international hub. Study in the UAE with Admizz Education—get expert counseling, top university options, visa guidance, and scholarship support for your academic success.",
   introTitle: "Shape Your Future in the Heart of Innovation",
   introContent: "Dreaming of studying in a global education hub that blends modern innovation with cultural heritage? The United Arab Emirates (UAE) is a rapidly growing destination for international students offering globally recognized degrees, modern infrastructure, and world-class campuses. With campuses of top international universities, strong academic standards, and English-taught programs, the UAE is ideal for undergraduate, postgraduate, and doctoral studies. Cities like Dubai, Abu Dhabi, and Sharjah are not only education centers but also dynamic economic and cultural hotspots. At Admizz Education, we help you choose the right university, prepare for admissions, apply for scholarships, and guide you through visa processing—ensuring a smooth academic journey to the UAE.",
   whyStudyTitle: "Why Study in the UAE?",
