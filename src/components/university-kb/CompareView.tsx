@@ -9,6 +9,7 @@ import type { CountryInfo, CountrySlug, UniversityProfile } from "@/lib/universi
 import { compareId, LEVEL_LABEL, lowestFee, upcomingIntakes, universityPath, EXPLORE_BASE_PATH } from "@/lib/university-kb";
 import { approxNpr, formatMoney, NPR_RATES, NPR_RATES_DATE } from "@/lib/university-kb/countries";
 import { COMPARE_MAX, setCompareList, useCompareList } from "@/lib/university-kb/compare-store";
+import BackButton from "./BackButton";
 import { EnquireButton, EnquiryProvider } from "./EnquiryForm";
 
 interface Props {
@@ -37,6 +38,10 @@ function durationRange(u: UniversityProfile) {
   const min = Math.min(...m);
   const max = Math.max(...m);
   return min === max ? fmt(min) : `${fmt(min)} – ${fmt(max)}`;
+}
+
+function uniqueScholarships(u: UniversityProfile) {
+  return Array.from(new Set(u.scholarships.map((s) => s.value)));
 }
 
 function englishText(u: UniversityProfile) {
@@ -120,9 +125,9 @@ export default function CompareView({ universities, countries }: Props) {
     },
     {
       label: "Scholarship",
-      raw: (u) => u.scholarships.map((s) => s.value).join(","),
+      raw: (u) => uniqueScholarships(u).join(","),
       render: (u) =>
-        u.scholarships.length ? <span className="font-semibold text-green-700">{u.scholarships.map((s) => s.value).join(", ")}</span> : <span className="text-gray-medium">None listed</span>,
+        u.scholarships.length ? <span className="font-semibold text-green-700">{uniqueScholarships(u).join(", ")}</span> : <span className="text-gray-medium">None listed</span>,
     },
     {
       label: "Next intake",
@@ -181,13 +186,16 @@ export default function CompareView({ universities, countries }: Props) {
     <EnquiryProvider university={enquiryLabel} universitySlug="compare" intakes={[]}>
       <section className="bg-gradient-to-r from-blue-royal to-blue-dark px-4 pt-6 pb-10">
         <div className="max-w-7xl mx-auto">
-          <nav aria-label="Breadcrumb" className="text-[13px] text-white/75">
-            <Link href="/" className="hover:text-white hover:underline underline-offset-2">Home</Link>
-            <span className="mx-1.5" aria-hidden>/</span>
-            <Link href={EXPLORE_BASE_PATH} className="hover:text-white hover:underline underline-offset-2">Find College</Link>
-            <span className="mx-1.5" aria-hidden>/</span>
-            <span className="text-white font-medium">Compare</span>
-          </nav>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <BackButton fallbackHref={EXPLORE_BASE_PATH} label="Back" />
+            <nav aria-label="Breadcrumb" className="text-[13px] text-white/75">
+              <Link href="/" className="hover:text-white hover:underline underline-offset-2">Home</Link>
+              <span className="mx-1.5" aria-hidden>/</span>
+              <Link href={EXPLORE_BASE_PATH} className="hover:text-white hover:underline underline-offset-2">Find College</Link>
+              <span className="mx-1.5" aria-hidden>/</span>
+              <span className="text-white font-medium">Compare</span>
+            </nav>
+          </div>
           <h1 className="mt-4 text-3xl md:text-[38px] font-bold leading-tight text-white">Compare universities</h1>
           <p className="mt-2 max-w-2xl text-[16px] text-white/80">
             Put up to {COMPARE_MAX} universities side by side — fees, scholarships, intakes and requirements.
