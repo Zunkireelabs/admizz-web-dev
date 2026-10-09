@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import Image from "next/image";
 import FAQ from "@/components/ui/FAQ";
 import AlumniSection from "@/components/ui/AlumniSection";
@@ -232,6 +233,12 @@ export default function TestPrepPage() {
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Test Preparation", url: "https://admizzeducation.com/test-prep" },
+        ]}
+      />
       {/* ===== 1. HERO (heading + features + stats on LEFT, form on RIGHT) ===== */}
       <section id="book-demo" className="pt-10 pb-6" style={{ background: "linear-gradient(180deg, #e8f0fe 0%, #f5f7f8 100%)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[55fr_45fr] gap-10 items-start">

@@ -11,16 +11,16 @@ import LazyMount from "@/components/LazyMount";
 // import PredictWinPromoOverlay from "@/components/ui/PredictWinPromoOverlay";
 
 export const metadata: Metadata = {
-  title: "Your Partner in Study Abroad - Admizz Education",
+  title: "Admizz Education - Your Partner in Study Abroad",
   description:
-    "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success- all through one global portal.",
+    "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success worldwide.",
   alternates: {
     canonical: "https://admizzeducation.com/",
   },
   openGraph: {
-    title: "Your Partner in Study Abroad - Admizz Education",
+    title: "Admizz Education - Your Partner in Study Abroad",
     description:
-      "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success- all through one global portal.",
+      "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success worldwide.",
     url: "https://admizzeducation.com/",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],
@@ -64,15 +64,15 @@ const services = [
 ];
 
 const destinations = [
-  { name: "Study in the USA", image: "/images/destinations/usa1.webp", href: "/study-in-the-usa/" },
-  { name: "Study in the UK", image: "/images/destinations/uk1.webp", href: "/study-in-the-uk/" },
-  { name: "Study in Australia", image: "/images/destinations/aus1.webp", href: "/study-in-australia/" },
-  { name: "Study in Canada", image: "/images/destinations/canada1.webp", href: "/study-in-canada/" },
-  { name: "Study in India", image: "/images/destinations/india1.webp", href: "/study-in-india/" },
-  { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand/" },
-  { name: "Study in Finland", image: "/images/destinations/finland1.webp", href: "/study-in-finland/" },
-  { name: "Study in Germany", image: "/images/destinations/germany1.webp", href: "/study-in-germany/" },
-  { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france/" },
+  { name: "Study in the USA", image: "/images/destinations/usa1.webp", href: "/study-in-the-usa" },
+  { name: "Study in the UK", image: "/images/destinations/uk1.webp", href: "/study-in-the-uk" },
+  { name: "Study in Australia", image: "/images/destinations/aus1.webp", href: "/study-in-australia" },
+  { name: "Study in Canada", image: "/images/destinations/canada1.webp", href: "/study-in-canada" },
+  { name: "Study in India", image: "/images/destinations/india1.webp", href: "/study-in-india" },
+  { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand" },
+  { name: "Study in Finland", image: "/images/destinations/finland1.webp", href: "/study-in-finland" },
+  { name: "Study in Germany", image: "/images/destinations/germany1.webp", href: "/study-in-germany" },
+  { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france" },
 ];
 
 const testLogos = [
@@ -321,11 +321,11 @@ export default function Home() {
       {/* Promotional overlay — appears 3.5s after page load
           Temporarily disabled — hidden until next promo is ready.
       <PredictWinPromoOverlay
-        id="ielts-workshop-aug30"
-        imageSrc="/images/ielts-workshop-popup.webp"
-        imageAlt="IELTS Strategy Workshop — August 30, 2026 — Admizz Education"
-        ctaText="Reserve Your Seat →"
-        ctaHref="https://admizzeducation.com/events/ielts-workshop"
+        id="uk-education-expo-oct9"
+        imageSrc="/images/uk-education-expo-oct-popup.webp"
+        imageAlt="UK Education Expo 2026 — 9th October, 2026 — Admizz Education"
+        ctaText="Register Now →"
+        ctaHref="https://admizzeducation.com/events/uk-education-expo-oct-2026"
         delayMs={3500}
       /> */}
 

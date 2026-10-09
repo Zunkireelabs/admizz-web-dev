@@ -227,10 +227,10 @@ export default function UKCostViz({
               className="text-2xl md:text-3xl font-bold mt-1"
               style={{ fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif' }}
             >
-              Two years to earn it back.
+              Time to earn it back.
             </h3>
             <p className="text-[14px] opacity-80 mt-1 max-w-3xl">
-              After graduating, the UK&apos;s 2-year Graduate Route visa lets you work in any role.
+              After graduating, the UK&apos;s Graduate Route visa (18 months from 1 January 2027) lets you work in any role.
               Average graduate starting salaries:
             </p>
           </div>

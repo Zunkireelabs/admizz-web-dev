@@ -41,6 +41,18 @@ services:
       - "traefik.http.middlewares.admizz-prod-blogs-page.redirectregex.regex=^(https?://[^/]+)/blogs/page/.*$$"
       - "traefik.http.middlewares.admizz-prod-blogs-page.redirectregex.replacement=$${1}/blogs"
       - "traefik.http.middlewares.admizz-prod-blogs-page.redirectregex.permanent=false"
+      # Post renamed: /blogs/5-benefits-of-studying-in-dubai → new slug -in-uae.
+      # Must be chained before admizz-prod-blog-post below (specific before generic).
+      - "traefik.http.middlewares.admizz-prod-dubai-blog.redirectregex.regex=^(https?://[^/]+)/blogs/5-benefits-of-studying-in-dubai/?$$"
+      - "traefik.http.middlewares.admizz-prod-dubai-blog.redirectregex.replacement=$${1}/5-benefits-of-studying-in-uae"
+      - "traefik.http.middlewares.admizz-prod-dubai-blog.redirectregex.permanent=true"
+      # /blogs/<post-slug> → /<post-slug> — posts live at the root, /blogs is only
+      # the listing page. Old links/crawl history use the /blogs/ prefix, causing
+      # 56 "not found" pages in Search Console. Single-segment only, so it does
+      # not touch /blogs/page/N (handled above) or /blogs/YYYY/MM/DD/ date archives.
+      - "traefik.http.middlewares.admizz-prod-blog-post.redirectregex.regex=^(https?://[^/]+)/blogs/([a-zA-Z0-9-]+)/?$$"
+      - "traefik.http.middlewares.admizz-prod-blog-post.redirectregex.replacement=$${1}/$${2}"
+      - "traefik.http.middlewares.admizz-prod-blog-post.redirectregex.permanent=true"
       - "traefik.http.middlewares.admizz-prod-floating-btn.redirectregex.regex=^(https?://[^/]+)/e-floating-buttons/.*$$"
       - "traefik.http.middlewares.admizz-prod-floating-btn.redirectregex.replacement=$${1}/"
       - "traefik.http.middlewares.admizz-prod-floating-btn.redirectregex.permanent=true"
@@ -65,8 +77,21 @@ services:
       - "traefik.http.middlewares.admizz-prod-affiliate-program.redirectregex.regex=^(https?://[^/]+)/affiliate-program(/?(\\?.*)?)?$$"
       - "traefik.http.middlewares.admizz-prod-affiliate-program.redirectregex.replacement=$${1}/affiliate$${3}"
       - "traefik.http.middlewares.admizz-prod-affiliate-program.redirectregex.permanent=true"
+      # Retired blog posts (old WordPress content never migrated to Sanity, 404ing
+      # in Search Console) — redirect to the blog listing instead of a dead end.
+      - "traefik.http.middlewares.admizz-prod-retired-posts.redirectregex.regex=^(https?://[^/]+)/(blender-technology-animation-for-the-future|which-country-is-best-for-nepali-students-in-2026|difference-between-bba-bms-and-bbm|which-is-better-kiit-vs-mnnit|7-inspirational-movies-that-students-must-watch|4-steps-to-defining-your-mba-goals|army-public-school-scholarship-by-india-for-nepali-students|major-achievements-of-kiit-university-during-the-past-5-years)/?$$"
+      - "traefik.http.middlewares.admizz-prod-retired-posts.redirectregex.replacement=$${1}/blogs"
+      - "traefik.http.middlewares.admizz-prod-retired-posts.redirectregex.permanent=true"
+      # Retired CTA page — /book-as-a-student → /register
+      - "traefik.http.middlewares.admizz-prod-book-as-student.redirectregex.regex=^(https?://[^/]+)/book-as-a-student/?$$"
+      - "traefik.http.middlewares.admizz-prod-book-as-student.redirectregex.replacement=$${1}/register"
+      - "traefik.http.middlewares.admizz-prod-book-as-student.redirectregex.permanent=true"
+      # Legacy slug (missing "the") — /study-in-usa → /study-in-the-usa
+      - "traefik.http.middlewares.admizz-prod-study-usa.redirectregex.regex=^(https?://[^/]+)/study-in-usa/?$$"
+      - "traefik.http.middlewares.admizz-prod-study-usa.redirectregex.replacement=$${1}/study-in-the-usa"
+      - "traefik.http.middlewares.admizz-prod-study-usa.redirectregex.permanent=true"
       # Chain all middlewares (www-redirect first)
-      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect,admizz-prod-trailing-slash,admizz-prod-test-prep,admizz-prod-consultation,admizz-prod-campaign,admizz-prod-newzealand,admizz-prod-tag,admizz-prod-author,admizz-prod-blogs-page,admizz-prod-floating-btn,admizz-prod-birgunj,admizz-prod-janakpur,admizz-prod-uk-admissions-day,admizz-prod-admizzion-week,admizz-prod-uk-education-expo,admizz-prod-find-destination,admizz-prod-affiliate-program"
+      - "traefik.http.routers.admizz-edu-web-prod.middlewares=admizz-edu-web-www-redirect,admizz-prod-dubai-blog,admizz-prod-blog-post,admizz-prod-trailing-slash,admizz-prod-test-prep,admizz-prod-consultation,admizz-prod-campaign,admizz-prod-newzealand,admizz-prod-tag,admizz-prod-author,admizz-prod-blogs-page,admizz-prod-floating-btn,admizz-prod-birgunj,admizz-prod-janakpur,admizz-prod-uk-admissions-day,admizz-prod-admizzion-week,admizz-prod-uk-education-expo,admizz-prod-find-destination,admizz-prod-affiliate-program,admizz-prod-retired-posts,admizz-prod-book-as-student,admizz-prod-study-usa"
       # careers.admizzeducation.com → admizzeducation.com/careers (308)
       - "traefik.http.routers.admizz-careers-subdomain.rule=Host(`careers.admizzeducation.com`)"
       - "traefik.http.routers.admizz-careers-subdomain.entrypoints=websecure"

@@ -28,9 +28,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = `${name} Archives - Admizz Education`;
   const description = `Browse all ${name} articles on Admizz Education. Expert study abroad guidance and insights.`;
 
+  // An empty category page is just a hero + "No articles found in this
+  // category." — no unique content for Google to index, which is exactly
+  // what a soft-404 read means. noindex it (still fully visible/navigable
+  // to visitors) until it has real posts; sitemap.js already only lists
+  // categories with posts, so this never touches an indexed URL.
+  const posts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: slug });
+  const robots = posts.length === 0 ? { index: false, follow: true } : undefined;
+
   return {
     title,
     description,
+    ...(robots ? { robots } : {}),
     alternates: {
       canonical: `https://admizzeducation.com/category/${slug}`,
     },

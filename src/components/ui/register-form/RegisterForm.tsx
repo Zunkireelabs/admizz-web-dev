@@ -6,6 +6,7 @@ import React from "react";
 import { supabase } from "@/lib/supabase";
 import { createReferralFromRegistration } from "@/lib/affiliate/api";
 import { readAffiliateRefCookie, writeAffiliateRef } from "@/lib/affiliate/refCookie";
+import { getUtmAttribution } from "@/lib/attribution/utmStorage";
 
 interface RegisterFormProps {
   onStepChange?: (step: number) => void;
@@ -872,7 +873,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
   };
 
   const postToCRM = (payload: FormData, refCode: string | null, affiliateName: string | null) => {
-    const params = new URLSearchParams(window.location.search);
+    const { utm_source, utm_medium, utm_campaign } = getUtmAttribution();
     return fetch(CRM_ENDPOINT, {
       method: "POST",
       headers: {
@@ -884,9 +885,9 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
         last_name:       payload.lastName.trim() || null,
         email:           payload.email.trim(),
         phone:           `${dialSpec(payload.dialCode).dial} ${payload.phone.trim()}`,
-        intake_source:   refCode ? "Affiliate" : "Website",
-        intake_medium:   params.get("utm_medium") || "Organic",
-        intake_campaign: params.get("utm_campaign") || null,
+        intake_source:   utm_source || (refCode ? "Affiliate" : "Website"),
+        intake_medium:   utm_medium,
+        intake_campaign: utm_campaign,
         intake_account:  window.location.pathname,
         custom_fields: {
           city:            payload.city.trim() || null,

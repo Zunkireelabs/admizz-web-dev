@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { event } from "./content";
 import { DIAL_CODES, dialSpec, phoneDigits } from "@/lib/dialCodes";
 import { isValidPhoneNumber } from "libphonenumber-js/min";
+import { getUtmAttribution } from "@/lib/attribution/utmStorage";
 
 type FormState = {
   firstName: string;
@@ -69,7 +70,7 @@ export default function RegistrationForm() {
     setSubmitting(true);
     setSubmitError(null);
     try {
-      const params = new URLSearchParams(window.location.search);
+      const { utm_source, utm_medium, utm_campaign } = getUtmAttribution();
       const res = await fetch(CRM_ENDPOINT, {
         method: "POST",
         headers: {
@@ -81,9 +82,9 @@ export default function RegistrationForm() {
           last_name: form.lastName.trim() || null,
           email: form.email.trim(),
           phone: `${dialSpec(form.dialCode).dial} ${form.phone.trim()}`,
-          intake_source: "Website",
-          intake_medium: params.get("utm_medium") || "Organic",
-          intake_campaign: params.get("utm_campaign") || event.slug,
+          intake_source: utm_source || "Website",
+          intake_medium: utm_medium,
+          intake_campaign: utm_campaign || event.slug,
           intake_account: window.location.pathname,
           custom_fields: {
             event: event.sessionTitle,

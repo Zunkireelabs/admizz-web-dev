@@ -1,12 +1,15 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import Hero from "@/components/ui/Hero";
 import CTAForm from "@/components/ui/CTAForm";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import Link from "next/link";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
+import DestinationEntitySchema from "@/components/ui/DestinationEntitySchema";
 import type { SanityPost } from "@/types";
 import ChakraDivider from "@/components/india/ChakraDivider";
 import IndiaFiligreeDivider from "@/components/india/IndiaFiligreeDivider";
@@ -156,6 +159,7 @@ const tabs = [
 ];
 
 export default function NepalVariantTemplate({ data, blogPosts, theme, customHero, replaceCostSection, replaceWhySection, replaceVisaSection, insertAfterIntakes, insertBeforeCTA }: NepalVariantTemplateProps) {
+  const pathname = usePathname();
   const themed = !!theme;
   const [activeTab, setActiveTab] = useState("why");
   const [showFade, setShowFade] = useState(true);
@@ -269,6 +273,17 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
 
   return (
     <main style={mainStyle}>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Study Destinations", url: "https://admizzeducation.com/study-destinations" },
+          { name: data.countryName, url: `https://admizzeducation.com${pathname}` },
+        ]}
+      />
+      <DestinationEntitySchema
+        countryName={data.countryName}
+        url={`https://admizzeducation.com${pathname}`}
+      />
       {themed && theme!.serifHeadings && (
         <style>{`@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');`}</style>
       )}
@@ -377,7 +392,7 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
         <section className="bg-off-white py-8">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
             <div>
-              <p className="text-2xl font-bold text-navy">1500+</p>
+              <p className="text-2xl font-bold text-navy">8,000+</p>
               <p className="text-[13px] text-gray-dark">Students successfully enrolled worldwide</p>
             </div>
             <div>

@@ -1,18 +1,19 @@
 import Image from "next/image";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import GlobalPresence from "@/components/ui/GlobalPresence";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Admizz Education",
+  title: "Contact Admizz Education | Free Study Abroad Counselling",
   description:
-    "Connect with top overseas education consultants. Get expert guidance on study abroad options, admissions, and visa support.",
+    "Have questions about studying abroad? Talk to Admizz Education's expert counsellors for free guidance on admissions, scholarships, and visas.",
   alternates: {
     canonical: "https://admizzeducation.com/contact",
   },
   openGraph: {
-    title: "Contact Us | Admizz Education",
+    title: "Contact Admizz Education | Free Study Abroad Counselling",
     description:
-      "Connect with top overseas education consultants. Get expert guidance on study abroad options, admissions, and visa support.",
+      "Have questions about studying abroad? Talk to Admizz Education's expert counsellors for free guidance on admissions, scholarships, and visas.",
     url: "https://admizzeducation.com/contact",
     siteName: "Admizz Education",
     images: ["/images/contact/contact-us.webp"],
@@ -24,6 +25,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main style={{ fontFamily: "'Montserrat', var(--font-montserrat), sans-serif" }}>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Contact Us", url: "https://admizzeducation.com/contact" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="py-16 md:py-20" style={{ background: "#ffffff" }}>
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-4 sm:px-6 lg:px-8">

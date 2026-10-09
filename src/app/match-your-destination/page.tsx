@@ -5,9 +5,9 @@ import DestinationQuiz from "./DestinationQuiz";
 const PAGE_URL = "https://admizzeducation.com/match-your-destination";
 
 export const metadata: Metadata = {
-  title: "Match Your Destination — Free 60-Second Quiz | Admizz Education",
+  title: "Free Study Abroad Quiz: Match Your Destination",
   description:
-    "Take Admizz Education's free 60-second quiz and discover your perfect study-abroad destination. Personalised country, top universities, scholarship picks, and visa guidance — all free.",
+    "Take the free 60-second quiz from Admizz Education to match your study-abroad country, universities and scholarships to your goals.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Match Your Destination — Free 60-Second Quiz",

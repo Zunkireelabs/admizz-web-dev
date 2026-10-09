@@ -7,6 +7,31 @@ export interface FAQItem {
   answer: string;
 }
 
+/**
+ * FAQPage JSON-LD built from the same `items` the accordion renders, so the
+ * markup always matches visible content (Google requires that). Rendered once
+ * per <FAQ>; pass `schema={false}` on pages that already emit their own.
+ */
+export function FaqJsonLd({ items }: { items: FAQItem[] }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: items.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }),
+      }}
+    />
+  );
+}
+
 interface FAQProps {
   items: FAQItem[];
   title?: string;
@@ -15,6 +40,7 @@ interface FAQProps {
   sidebarSubtitle?: string;
   compact?: boolean;
   bgColor?: string;
+  schema?: boolean;
 }
 
 function FAQAccordionItem({
@@ -41,28 +67,30 @@ function FAQAccordionItem({
         isOpen ? "border-navy/20 bg-white shadow-sm" : "border-border-light bg-transparent"
       }`}
     >
-      <button
-        className="w-full flex items-center justify-between px-6 py-4 text-left"
-        onClick={onToggle}
-        aria-expanded={isOpen}
-      >
-        <span
-          className={`text-[15px] font-medium pr-4 transition-colors duration-300 ${
-            isOpen ? "text-blue-royal" : "text-navy"
-          }`}
+      <h3 className="contents">
+        <button
+          className="w-full flex items-center justify-between px-6 py-4 text-left"
+          onClick={onToggle}
+          aria-expanded={isOpen}
         >
-          {item.question}
-        </span>
-        <span
-          className={`w-7 h-7 flex-shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${
-            isOpen ? "bg-blue-royal text-white rotate-180" : "bg-gray-100 text-navy"
-          }`}
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </span>
-      </button>
+          <span
+            className={`text-[15px] font-medium pr-4 transition-colors duration-300 ${
+              isOpen ? "text-blue-royal" : "text-navy"
+            }`}
+          >
+            {item.question}
+          </span>
+          <span
+            className={`w-7 h-7 flex-shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${
+              isOpen ? "bg-blue-royal text-white rotate-180" : "bg-gray-100 text-navy"
+            }`}
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </button>
+      </h3>
       <div
         style={{ height }}
         className="transition-[height] duration-300 ease-in-out overflow-hidden"
@@ -98,28 +126,30 @@ function FAQAccordionItemAlt({
       className="rounded-[10px] overflow-hidden transition-shadow duration-300"
       style={{ background: isOpen ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.6)" }}
     >
-      <button
-        className="w-full flex items-center justify-between px-5 py-4 text-left"
-        onClick={onToggle}
-        aria-expanded={isOpen}
-      >
-        <span
-          className={`text-[15px] font-medium pr-4 transition-colors duration-300 ${
-            isOpen ? "text-blue-royal" : "text-navy"
-          }`}
+      <h3 className="contents">
+        <button
+          className="w-full flex items-center justify-between px-5 py-4 text-left"
+          onClick={onToggle}
+          aria-expanded={isOpen}
         >
-          {item.question}
-        </span>
-        <span
-          className={`w-7 h-7 flex-shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${
-            isOpen ? "bg-blue-royal text-white rotate-180" : "bg-white/60 text-navy"
-          }`}
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </span>
-      </button>
+          <span
+            className={`text-[15px] font-medium pr-4 transition-colors duration-300 ${
+              isOpen ? "text-blue-royal" : "text-navy"
+            }`}
+          >
+            {item.question}
+          </span>
+          <span
+            className={`w-7 h-7 flex-shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${
+              isOpen ? "bg-blue-royal text-white rotate-180" : "bg-white/60 text-navy"
+            }`}
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </button>
+      </h3>
       <div
         style={{ height }}
         className="transition-[height] duration-300 ease-in-out overflow-hidden"
@@ -159,37 +189,39 @@ function FAQSidebarItem({
       }`}
       style={{ background: isOpen ? "#FFFFFF" : "rgba(255,255,255,0.5)" }}
     >
-      <button
-        className="w-full flex items-center gap-4 px-5 py-4 text-left"
-        onClick={onToggle}
-        aria-expanded={isOpen}
-      >
-        <span
-          className={`text-[13px] font-bold flex-shrink-0 transition-colors duration-300 ${
-            isOpen ? "text-blue-royal" : "text-navy/40"
-          }`}
+      <h3 className="contents">
+        <button
+          className="w-full flex items-center gap-4 px-5 py-4 text-left"
+          onClick={onToggle}
+          aria-expanded={isOpen}
         >
-          {index + 1}.
-        </span>
-        <span
-          className={`text-[14px] font-medium flex-1 pr-2 transition-colors duration-300 ${
-            isOpen ? "text-blue-royal" : "text-navy"
-          }`}
-        >
-          {item.question}
-        </span>
-        <svg
-          className={`w-4 h-4 flex-shrink-0 transition-transform duration-300 ${
-            isOpen ? "rotate-180 text-blue-royal" : "text-navy/40"
-          }`}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
+          <span
+            className={`text-[13px] font-bold flex-shrink-0 transition-colors duration-300 ${
+              isOpen ? "text-blue-royal" : "text-navy/40"
+            }`}
+          >
+            {index + 1}.
+          </span>
+          <span
+            className={`text-[14px] font-medium flex-1 pr-2 transition-colors duration-300 ${
+              isOpen ? "text-blue-royal" : "text-navy"
+            }`}
+          >
+            {item.question}
+          </span>
+          <svg
+            className={`w-4 h-4 flex-shrink-0 transition-transform duration-300 ${
+              isOpen ? "rotate-180 text-blue-royal" : "text-navy/40"
+            }`}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </h3>
       <div
         style={{ height }}
         className="transition-[height] duration-300 ease-in-out overflow-hidden"
@@ -210,12 +242,14 @@ export default function FAQ({
   sidebarSubtitle = "Still wondering about studying abroad, and how Admizz can get you there? Read these answers to our most commonly asked questions.",
   compact = false,
   bgColor,
+  schema = true,
 }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   if (sidebar) {
     return (
       <section className="py-16 md:py-20" style={{ background: "#F0F4FF" }}>
+        {schema && <FaqJsonLd items={items} />}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-[2fr_3fr] gap-10 md:gap-16">
             {/* Left Sidebar - Sticky */}
@@ -265,6 +299,7 @@ export default function FAQ({
         className={compact ? "py-10 md:py-12" : "py-16"}
         style={{ background: bgColor ?? "#e8f0fe" }}
       >
+        {schema && <FaqJsonLd items={items} />}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {title && (
             <h2
@@ -306,6 +341,7 @@ export default function FAQ({
 
   return (
     <section className="py-16">
+      {schema && <FaqJsonLd items={items} />}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {title && (
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-10">

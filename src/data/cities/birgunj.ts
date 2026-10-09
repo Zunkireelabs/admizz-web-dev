@@ -8,9 +8,9 @@ export const birgunjData: CityLandingData = {
   citySlug: "birgunj",
 
   meta: {
-    title: "Study Abroad from Birgunj | Admizz Education",
+    title: "Study Abroad Consultancy in Birgunj | Admizz Education",
     description:
-      "Birgunj's trusted study abroad consultancy. Local counsellors, 95% visa success, scholarships to UK, USA, Australia, Canada and more. Book a free consultation today.",
+      "Study abroad from Birgunj with local counsellors who speak Bhojpuri, Maithili, Hindi, Nepali and English. Book a free consultation with Admizz Education.",
     canonical: "https://admizzeducation.com/birgunj",
     ogImage: "/images/og/stuyabroad.webp",
   },
@@ -21,12 +21,12 @@ export const birgunjData: CityLandingData = {
     highlightedWord: "Birgunj's",
     subheading:
       "Personal guidance, transparent fees, and a team that speaks your language. From profile evaluation to pre-departure — handled locally, end to end.",
-    trustBadge: "★ 4.9 · Trusted by 2,000+ students",
+    trustBadge: "★ 4.9 · Trusted by 8,000+ students",
     primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
     secondaryCta: {
       text: "Chat on WhatsApp",
       // TODO(content): replace with real Birgunj counsellor WhatsApp number
-      href: "https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad",
+      href: "https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad",
     },
 
     // v2 hero
@@ -48,7 +48,7 @@ export const birgunjData: CityLandingData = {
     },
     inlineTrustBadges: [
       { iconKey: "star", value: "4.9", label: "Google rating" },
-      { iconKey: "graduate", value: "2,000+", label: "Enrolled" },
+      { iconKey: "graduate", value: "8,000+", label: "Enrolled" },
       { iconKey: "shieldCheck", value: "95%", label: "Visa success" },
       { iconKey: "certified", value: "ICEF", label: "Certified" },
     ],
@@ -229,9 +229,9 @@ export const birgunjData: CityLandingData = {
   office: {
     name: "Admizz Education — Birgunj Office",
     address: "Admizz Education Birgunj, Ghanta Ghar, Link Rd, Birgunj 44300, Nepal",
-    phone: "+977-9856100444",
-    phoneDisplay: "+977-9856100444",
-    whatsapp: "9779856100444",
+    phone: "+977-9802728444",
+    phoneDisplay: "+977-9802728444",
+    whatsapp: "9779802728444",
     whatsappMessage: "Hi Admizz, I'm interested in studying abroad",
     email: "hello@admizz.com",
     hours: "Sun – Fri · 10:00 AM – 6:00 PM",
@@ -342,9 +342,9 @@ export const birgunjData: CityLandingData = {
       "Book a free 30-minute consultation. Walk out with a clear plan — even if you don't choose us.",
     primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
     whatsappCta: {
-      number: "9779856100444",
+      number: "9779802728444",
       message: "Hi Admizz, I'm interested in studying abroad",
-      display: "+977-9856100444",
+      display: "+977-9802728444",
     },
   },
 

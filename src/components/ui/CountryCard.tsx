@@ -6,14 +6,16 @@ export interface CountryCardProps {
   image: string;
   href: string;
   description?: string;
+  prefetch?: boolean;
 }
 
-export default function CountryCard({ name, image, href, description }: CountryCardProps) {
+export default function CountryCard({ name, image, href, description, prefetch = false }: CountryCardProps) {
   const isComingSoon = href === "/coming-soon/";
 
   return (
     <Link
       href={href}
+      prefetch={prefetch}
       className="group block rounded-[10px] overflow-hidden shadow-md hover:shadow-lg transition-shadow bg-white"
     >
       <div className="relative aspect-[4/3]">

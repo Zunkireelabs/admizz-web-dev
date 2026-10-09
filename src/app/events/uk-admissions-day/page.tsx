@@ -90,7 +90,7 @@ export default function UKAdmissionsDayPage() {
           <div className="trust-inline">
             <div className="trust-badge">
               <span className="trust-icon">🎓</span>
-              <span className="trust-text"><strong>2,000+</strong> Students Enrolled</span>
+              <span className="trust-text"><strong>8,000+</strong> Students Enrolled</span>
             </div>
             <div className="trust-divider"></div>
             <div className="trust-badge">
@@ -255,7 +255,7 @@ export default function UKAdmissionsDayPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 2,000+ Students Enrolled</span>
+            <span>🎓 8,000+ Students Enrolled</span>
             <span>•</span>
             <span>🌍 50+ Partner Universities</span>
           </div>

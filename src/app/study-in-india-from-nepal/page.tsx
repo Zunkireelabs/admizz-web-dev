@@ -12,16 +12,16 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in India from Nepal - Admizz Education",
+  title: "Study in India from Nepal 2026: Cost, Visa & Scholarships",
   description:
-    "Study in India from Nepal with top universities, affordable fees, quality education & global exposure. Apply now for 2025 intake!",
+    "Study in India from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-india-from-nepal",
   },
   openGraph: {
-    title: "Study in India from Nepal - Admizz Education",
+    title: "Study in India from Nepal 2026: Cost, Visa & Scholarships",
     description:
-      "Study in India from Nepal with top universities, affordable fees, quality education & global exposure. Apply now for 2025 intake!",
+      "Study in India from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-india-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/nepali-2.webp"],
@@ -309,7 +309,7 @@ const indiaTheme: CountryTheme = {
   ctaLandmarks: { left: "charminar", right: "victoria-memorial" },
   journeyStrip: {
     stats: [
-      { value: "1500+", label: "Students successfully enrolled worldwide" },
+      { value: "8,000+", label: "Students successfully enrolled worldwide" },
       { value: "95%", label: "Student Visa Approval Rate with Expert Guidance" },
       { value: "$2M+", label: "In Scholarships Awarded to Our Students" },
     ],

@@ -134,7 +134,14 @@ function _eventFormInit() {
     const cityName = document.getElementById('cityName');
     const termsConditions = document.getElementById('termsConditions');
 
-    const CRM_ENDPOINT = 'https://edgex.zunkireelabs.com/api/public/submit/admizz/uk-education-expo-2026';
+    // Maps each event page path to its own CRM form slug so leads land in the
+    // right form instead of all funneling into "uk-education-expo-2026".
+    // Unmapped pages keep the original default (unchanged behavior).
+    var CRM_FORM_SLUGS = {
+        '/events/uk-education-expo-oct-2026': 'uk-education-expo-oct-2026',
+    };
+    const crmFormSlug = CRM_FORM_SLUGS[window.location.pathname] || 'uk-education-expo-2026';
+    const CRM_ENDPOINT = 'https://edgex.zunkireelabs.com/api/public/submit/admizz/' + crmFormSlug;
     const CRM_API_KEY  = 'crm_live_UVtPfdXD6lIZ0S5lSeny9Clv3jKzbGUGM8sgK2Gm3tw';
 
     if (countryCode && phoneNumber) {

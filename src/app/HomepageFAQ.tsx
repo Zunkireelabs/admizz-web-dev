@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FaqJsonLd } from "@/components/ui/FAQ";
 
 export interface FAQItem {
   question: string;
@@ -16,6 +17,7 @@ export default function HomepageFAQ({ items }: Props) {
 
   return (
     <section className="py-16 md:py-20" style={{ background: "#FFFFFF" }}>
+      <FaqJsonLd items={items} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-[2fr_3fr] gap-8 md:gap-16">
           {/* Left — Heading (sticky on desktop) */}

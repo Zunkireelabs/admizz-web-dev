@@ -18,12 +18,14 @@ export const postBySlugQuery = `
     title,
     slug,
     publishedAt,
+    _updatedAt,
     excerpt,
     content,
     featuredImage,
     infoBox,
     categories[]->{ title, slug },
-    seo
+    seo,
+    faqItems
   }
 `;
 

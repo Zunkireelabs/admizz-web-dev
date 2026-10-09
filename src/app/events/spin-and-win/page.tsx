@@ -137,7 +137,7 @@ export default function SpinAndWinPage() {
             <div className="trust-inline">
               <div className="trust-badge"><span className="trust-icon">🎁</span><span className="trust-text"><strong>Real Rewards,</strong> Real Students</span></div>
               <div className="trust-divider"></div>
-              <div className="trust-badge"><span className="trust-icon">🎓</span><span className="trust-text"><strong>2,000+</strong> Students Admitted</span></div>
+              <div className="trust-badge"><span className="trust-icon">🎓</span><span className="trust-text"><strong>8,000+</strong> Students Admitted</span></div>
               <div className="trust-divider"></div>
               <div className="trust-badge"><span className="trust-icon">🎯</span><span className="trust-text"><strong>95%</strong> Visa Approval Rate</span></div>
               <div className="trust-divider"></div>
@@ -226,7 +226,7 @@ export default function SpinAndWinPage() {
             </div>
             <div className="why-trust-bar">
               <span>🏆 ICEF Accredited Agency</span><span>•</span>
-              <span>🪃 2,000+ Students Enrolled</span><span>•</span>
+              <span>🪃 8,000+ Students Enrolled</span><span>•</span>
               <span>🌍 100+ Partner Universities</span><span>•</span>
               <span>🎯 95% Visa Approval Rate</span>
             </div>

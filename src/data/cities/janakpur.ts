@@ -21,12 +21,12 @@ export const janakpurData: CityLandingData = {
     highlightedWord: "Janakpur's",
     subheading:
       "Hyperlocal guidance, transparent fees, and a Maithili-speaking team that gets your family. From profile evaluation to pre-departure — handled in Janakpur.",
-    trustBadge: "★ 4.9 · Trusted by 2,000+ students",
+    trustBadge: "★ 4.9 · Trusted by 8,000+ students",
     primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
     secondaryCta: {
       text: "Chat on WhatsApp",
       // TODO(content): replace with real Janakpur counsellor WhatsApp number
-      href: "https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad",
+      href: "https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad",
     },
 
     // v2 hero
@@ -48,7 +48,7 @@ export const janakpurData: CityLandingData = {
     },
     inlineTrustBadges: [
       { iconKey: "star", value: "4.9", label: "Google rating" },
-      { iconKey: "graduate", value: "2,000+", label: "Enrolled" },
+      { iconKey: "graduate", value: "8,000+", label: "Enrolled" },
       { iconKey: "shieldCheck", value: "95%", label: "Visa success" },
       { iconKey: "certified", value: "ICEF", label: "Certified" },
     ],
@@ -228,9 +228,9 @@ export const janakpurData: CityLandingData = {
   office: {
     name: "Admizz Education — Janakpur Office",
     address: "Vishwakarma Chowk-04, Janakpurdham (Near Sarhanchiya Kuti), Nepal",
-    phone: "+977-9856100444",
-    phoneDisplay: "+977-9856100444",
-    whatsapp: "9779856100444",
+    phone: "+977-9802728444",
+    phoneDisplay: "+977-9802728444",
+    whatsapp: "9779802728444",
     whatsappMessage: "Hi Admizz, I'm interested in studying abroad",
     email: "hello@admizz.com",
     hours: "Sun – Fri · 10:00 AM – 6:00 PM",
@@ -341,9 +341,9 @@ export const janakpurData: CityLandingData = {
       "Book a free 30-minute consultation. Walk out with a clear plan — even if you don't choose us.",
     primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
     whatsappCta: {
-      number: "9779856100444",
+      number: "9779802728444",
       message: "Hi Admizz, I'm interested in studying abroad",
-      display: "+977-9856100444",
+      display: "+977-9802728444",
     },
   },
 

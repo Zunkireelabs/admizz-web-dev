@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
@@ -11,16 +12,16 @@ import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
 
 export const metadata: Metadata = {
-  title: "Education Consultancy in Kathmandu - Admizz Education",
+  title: "Education Consultancy in Kathmandu: Study Abroad Consultants",
   description:
-    "Admizz Education is a leading education consultancy in Kathmandu – trusted study abroad experts with proven results for UK, USA, Australia, Canada & Europe.",
+    "Study abroad consultants in Kathmandu at Sita Ram Square, Putalisadak: counselling, test prep, scholarships and visa support from Admizz Education.",
   alternates: {
     canonical: "https://admizzeducation.com/education-consultancy-in-kathmandu",
   },
   openGraph: {
-    title: "Education Consultancy in Kathmandu - Admizz Education",
+    title: "Education Consultancy in Kathmandu: Study Abroad Consultants",
     description:
-      "Admizz Education is a leading education consultancy in Kathmandu – trusted study abroad experts with proven results for UK, USA, Australia, Canada & Europe.",
+      "Study abroad consultants in Kathmandu at Sita Ram Square, Putalisadak: counselling, test prep, scholarships and visa support from Admizz Education.",
     url: "https://admizzeducation.com/education-consultancy-in-kathmandu",
     siteName: "Admizz Education",
     images: ["/images/og/study.webp"],
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { value: "1500+", label: "Students Successfully Enrolled" },
+  { value: "8,000+", label: "Students Successfully Enrolled" },
   { value: "100+", label: "Partner Institutions Worldwide" },
   { value: "95%", label: "Visa Approval Rate" },
   { value: "$2M+", label: "Scholarships Awarded" },
@@ -134,6 +135,11 @@ const testimonialData = [
 
 const faqItems: FAQItem[] = [
   {
+    question: "Where are your study abroad consultants in Kathmandu located?",
+    answer:
+      "Our Kathmandu office is at Sita Ram Square (4th Floor), Putalisadak. Book a free consultation to meet a counsellor.",
+  },
+  {
     question: "Which is the best education consultancy in Kathmandu for studying abroad?",
     answer:
       "Admizz Education is one of the best education consultancies in Kathmandu, known for transparent guidance, high visa success rates, and expert counselling for the UK, USA, Australia, Canada, and Europe. Their team provides end-to-end support, from course selection to visa approval.",
@@ -194,6 +200,34 @@ export default async function EducationConsultancyInKathmanduPage() {
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Education Consultancy in Kathmandu", url: "https://admizzeducation.com/education-consultancy-in-kathmandu" },
+        ]}
+      />
+      {/* Real Kathmandu office address — same facts as the sitewide
+          EducationalOrganization schema in layout.tsx, scoped here as its
+          own LocalBusiness so this specific page carries local-search
+          signal for its own office, not just the org as a whole. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            name: "Admizz Education",
+            url: "https://admizzeducation.com/education-consultancy-in-kathmandu",
+            telephone: "+977-9802728444",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Sita Ram Square (4th Floor), Putalisadak",
+              addressLocality: "Kathmandu",
+              addressCountry: "NP",
+            },
+          }),
+        }}
+      />
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-br from-navy via-blue-dark to-blue-royal text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -428,6 +462,36 @@ export default async function EducationConsultancyInKathmanduPage() {
         </div>
       </section>
 
+      {/* ===== CONSULTANTS IN KATHMANDU ===== */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
+            Study Abroad Consultants in Kathmandu
+          </h2>
+          <p className="text-center text-[15px] text-gray-dark max-w-3xl mx-auto mb-10">
+            Our study abroad consultants in Kathmandu are at Sita Ram Square (4th Floor), Putalisadak. Book a free
+            consultation to discuss your course, country, budget and visa plan with a counsellor in person.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+              <Link href="/top-education-consultancy-in-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Education consultancy in Nepal</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Our full overview of services, countries and how to choose a consultancy.</p>
+              </Link>
+              <Link href="/visa-assistance-for-study-abroad" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Student visa consultancy</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Document checks, mock interviews and application review.</p>
+              </Link>
+              <Link href="/scholarship-assistance-in-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Scholarship consultancy</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Find and apply for scholarships to study abroad.</p>
+              </Link>
+              <Link href="/test-prep" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">IELTS and PTE preparation</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Coaching and practice tests for study abroad exams.</p>
+              </Link>
+          </div>
+        </div>
+      </section>
       {/* ===== FAQ ===== */}
       <FAQ items={faqItems} sidebar />
 

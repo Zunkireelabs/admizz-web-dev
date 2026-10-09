@@ -58,43 +58,45 @@ function Item({ item, index }: { item: (typeof FAQ_ITEMS)[0]; index: number }) {
           : "0 1px 2px rgba(16,24,40,0.04)",
       }}
     >
-      <button
-        className="w-full flex items-center justify-between px-6 md:px-7 py-5 md:py-6 text-left gap-4"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-      >
-        <div className="flex items-center gap-4 min-w-0">
+      <h3 className="contents">
+        <button
+          className="w-full flex items-center justify-between px-6 md:px-7 py-5 md:py-6 text-left gap-4"
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+        >
+          <div className="flex items-center gap-4 min-w-0">
+            <span
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-extrabold flex-shrink-0 transition-all duration-300"
+              style={{
+                background: open ? "rgba(252,183,48,0.15)" : "rgba(0,19,83,0.05)",
+                color: open ? "#b07400" : "#001353",
+                border: open ? "1px solid rgba(252,183,48,0.35)" : "1px solid rgba(0,19,83,0.1)",
+              }}
+            >
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span
+              className="text-[14.5px] md:text-base font-semibold transition-colors duration-300 leading-snug"
+              style={{ color: "#001353" }}
+            >
+              {item.question}
+            </span>
+          </div>
           <span
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-extrabold flex-shrink-0 transition-all duration-300"
+            className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center transition-all duration-300"
             style={{
-              background: open ? "rgba(252,183,48,0.15)" : "rgba(0,19,83,0.05)",
-              color: open ? "#b07400" : "#001353",
-              border: open ? "1px solid rgba(252,183,48,0.35)" : "1px solid rgba(0,19,83,0.1)",
+              background: open ? "#FCB730" : "rgba(0,19,83,0.05)",
+              color: open ? "#001353" : "#5C7189",
+              transform: open ? "rotate(180deg)" : "none",
+              border: open ? "1px solid rgba(252,183,48,0.5)" : "1px solid rgba(0,19,83,0.08)",
             }}
           >
-            {String(index + 1).padStart(2, "0")}
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+            </svg>
           </span>
-          <span
-            className="text-[14.5px] md:text-base font-semibold transition-colors duration-300 leading-snug"
-            style={{ color: "#001353" }}
-          >
-            {item.question}
-          </span>
-        </div>
-        <span
-          className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center transition-all duration-300"
-          style={{
-            background: open ? "#FCB730" : "rgba(0,19,83,0.05)",
-            color: open ? "#001353" : "#5C7189",
-            transform: open ? "rotate(180deg)" : "none",
-            border: open ? "1px solid rgba(252,183,48,0.5)" : "1px solid rgba(0,19,83,0.08)",
-          }}
-        >
-          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-          </svg>
-        </span>
-      </button>
+        </button>
+      </h3>
 
       <div style={{ height, overflow: "hidden", transition: "height 0.32s cubic-bezier(0.22, 1, 0.36, 1)" }}>
         <div ref={contentRef} className="px-6 md:px-7 pb-6" style={{ paddingLeft: "72px" }}>

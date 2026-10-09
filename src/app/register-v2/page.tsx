@@ -47,12 +47,12 @@ const offices = [
       {
         name: "Kathmandu",
         address: "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (Opp. to Nabil Bank)",
-        phone: "+977-01-5328444, +977-9856100444",
+        phone: "+977-9802728444",
       },
       {
         name: "Birgunj",
         address: "4th Floor, Link Road, Birgunj, Parsa, Nepal",
-        phone: "+977-9856100444",
+        phone: "+977-9802728444",
       },
     ],
     email: "hello@admizz.com",
@@ -69,7 +69,7 @@ const offices = [
 ];
 
 const stats = [
-  { value: "2,000+", label: "Students Successfully Enrolled", icon: "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5", accent: "#1E6DEB" },
+  { value: "8,000+", label: "Students Successfully Enrolled", icon: "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5", accent: "#1E6DEB" },
   { value: "100+", label: "Partner Universities & Colleges", icon: "M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z", accent: "#3FB5A0" },
   { value: "95%", label: "Visa Approval Rate", icon: "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", accent: "#E86F3C" },
   { value: "$2M+", label: "Scholarships Awarded", icon: "M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", accent: "#BB5FEC" },
@@ -99,6 +99,7 @@ function Stars({ count = 5 }: { count?: number }) {
 export default function RegisterPage() {
   return (
     <main className="pb-20 md:pb-0">
+      <meta name="robots" content="noindex, nofollow" />
       {/* ===== HERO STRIP (compact, refined) ===== */}
       <section
         className="py-4 md:py-6 relative"
@@ -120,7 +121,7 @@ export default function RegisterPage() {
               </div>
               <span className="text-[#9CA3B5]">·</span>
               <span className="text-[12px] sm:text-[13px] text-[#5C7189]">
-                Trusted by <strong className="text-[#0D1282]">2,000+</strong> students
+                Trusted by <strong className="text-[#0D1282]">8,000+</strong> students
               </span>
             </div>
           </div>
@@ -203,7 +204,7 @@ export default function RegisterPage() {
                 </div>
                 <h3 className="text-[15px] font-bold mb-2" style={{ color: "#1E6DEB" }}>Why Students Trust Us?</h3>
                 <p className="text-[13px] text-gray-dark leading-relaxed">
-                  <strong className="text-[#0D1282]">ICEF-Accredited Agency</strong> | <strong className="text-[#0D1282]">10+ Years of Excellence</strong> | <strong className="text-[#0D1282]">2,000+ Students Enrolled</strong>
+                  <strong className="text-[#0D1282]">ICEF-Accredited Agency</strong> | <strong className="text-[#0D1282]">10+ Years of Excellence</strong> | <strong className="text-[#0D1282]">8,000+ Students Enrolled</strong>
                 </p>
               </div>
             </div>
@@ -246,7 +247,7 @@ export default function RegisterPage() {
                   Talk to one of our counselor directly on WhatsApp. Real people, real answers.
                 </p>
                 <a
-                  href="https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
+                  href="https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-[13px] font-semibold transition-all hover:-translate-y-0.5 hover:shadow-md"
@@ -427,7 +428,7 @@ export default function RegisterPage() {
         }}
       >
         <a
-          href="https://wa.me/9779856100444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
+          href="https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
           target="_blank"
           rel="noopener noreferrer"
           className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3 text-[14px] font-semibold"

@@ -53,7 +53,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  overflow-x: hidden;
+  /* No overflow-x on body: "hidden" makes body a scroll container and breaks every
+     position: sticky element (e.g. the university tab bar). Sideways clipping is on
+     <html> above and on #main-content (overflow-x-clip) in layout.tsx. */
 }
 
 /* Minimum WCAG 2.1 AA touch target */

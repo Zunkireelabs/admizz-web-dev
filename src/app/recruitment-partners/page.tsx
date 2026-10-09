@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
@@ -27,7 +28,7 @@ const PARTNER_FORM_URL = "https://forms.gle/E8CdsJp2y4rHbm9c6";
 
 const heroStats = [
   { value: "1,000+", label: "Partners Enrolled" },
-  { value: "25,000+", label: "Students Placed" },
+  { value: "8,000+", label: "Students Placed" },
   { value: "100+", label: "Partner Universities" },
   { value: "24-48h", label: "App Turnaround" },
 ];
@@ -338,6 +339,12 @@ export default function RecruitmentPartnersPage() {
 
   return (
     <main style={{ fontFamily: "'Montserrat', var(--font-montserrat), sans-serif" }}>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Recruitment Partners", url: "https://admizzeducation.com/recruitment-partners" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section
         className="py-20"

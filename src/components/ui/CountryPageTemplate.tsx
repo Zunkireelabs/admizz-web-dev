@@ -3,10 +3,13 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Hero from "@/components/ui/Hero";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
+import DestinationEntitySchema from "@/components/ui/DestinationEntitySchema";
 import type { SanityPost } from "@/types";
 
 export interface QuickFact {
@@ -89,6 +92,7 @@ const tabs = [
 const rubikFont = { fontFamily: "var(--font-rubik), sans-serif" };
 
 export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemplateProps) {
+  const pathname = usePathname();
   const [activeTab, setActiveTab] = useState("why");
   const [showFade, setShowFade] = useState(true);
   const tabScrollRef = useRef<HTMLDivElement>(null);
@@ -149,6 +153,17 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Study Destinations", url: "https://admizzeducation.com/study-destinations" },
+          { name: data.countryName, url: `https://admizzeducation.com${pathname}` },
+        ]}
+      />
+      <DestinationEntitySchema
+        countryName={data.countryName}
+        url={`https://admizzeducation.com${pathname}`}
+      />
       {data.heroBackground && (
         <link
           rel="preload"
@@ -224,7 +239,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
       <section className="bg-off-white py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
           <div>
-            <p className="text-2xl md:text-3xl font-bold text-navy" style={rubikFont}>1500+</p>
+            <p className="text-2xl md:text-3xl font-bold text-navy" style={rubikFont}>8,000+</p>
             <p className="text-[13px] text-gray-dark mt-1">
               Students successfully enrolled worldwide
             </p>

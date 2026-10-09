@@ -1,10 +1,13 @@
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { allPostsQuery } from "@/lib/queries";
-import type { SanityPost } from "@/types";
+import type { SanityPost, BlogListItem, GeneratedPostManifestEntry } from "@/types";
 import PostCard from "./PostCard";
 import MoreArticles from "./MoreArticles";
+import { fromSanityPost, fromGeneratedPost } from "./lib/normalize";
+import generatedPostsData from "@/data/generated-posts.json";
 
 export const metadata: Metadata = {
   title: "Blogs | Admizz Education",
@@ -25,7 +28,16 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogsPage() {
-  const posts: SanityPost[] = await client.fetch(allPostsQuery);
+  const sanityPosts: SanityPost[] = await client.fetch(allPostsQuery);
+  const localPosts = (generatedPostsData as GeneratedPostManifestEntry[]).map(fromGeneratedPost);
+
+  // Newest first, Sanity and locally-generated posts interleaved by real
+  // publish date — neither source gets special placement.
+  const posts: BlogListItem[] = [...sanityPosts.map(fromSanityPost), ...localPosts].sort((a, b) => {
+    const at = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+    const bt = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+    return bt - at;
+  });
 
   // Split into latest (first 6) and rest
   const latestPosts = posts.slice(0, 6);
@@ -33,6 +45,12 @@ export default async function BlogsPage() {
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Blog", url: "https://admizzeducation.com/blogs" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16">
         <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -55,7 +73,7 @@ export default async function BlogsPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {latestPosts.map((post, index) => (
-              <PostCard key={post.slug.current} post={post} index={index} />
+              <PostCard key={post.key} post={post} index={index} />
             ))}
           </div>
         </div>

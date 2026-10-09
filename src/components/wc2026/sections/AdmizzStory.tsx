@@ -23,7 +23,7 @@ export default function AdmizzStory() {
 
         <div className="wc-admizz-stats">
           <div className="wc-admizz-stat">
-            <div className="wc-admizz-stat-num">2,000+</div>
+            <div className="wc-admizz-stat-num">8,000+</div>
             <div className="wc-admizz-stat-label">Students Placed</div>
           </div>
           <div className="wc-admizz-stat">
