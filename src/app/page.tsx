@@ -7,7 +7,6 @@ import HomepageFAQ from "./HomepageFAQ";
 import UniversityPartners from "./UniversityPartners";
 import CommunityReels from "./CommunityReels";
 import LazyMount from "@/components/LazyMount";
-import PredictWinPromoOverlay from "@/components/ui/PredictWinPromoOverlay";
 
 export const metadata: Metadata = {
   title: "Your Partner in Study Abroad - Admizz Education",
@@ -316,16 +315,6 @@ export default function Home() {
           font-family: 'Montserrat', var(--font-montserrat), sans-serif;
         }
       `}</style>
-
-      {/* Promotional overlay — appears 3.5s after page load */}
-      <PredictWinPromoOverlay
-        id="uk-education-expo-oct9"
-        imageSrc="/images/uk-education-expo-oct-popup.webp"
-        imageAlt="UK Education Expo 2026 — 9th October, 2026 — Admizz Education"
-        ctaText="Register Now →"
-        ctaHref="https://admizzeducation.com/events/uk-education-expo-oct-2026"
-        delayMs={3500}
-      />
 
       {/* ===== 1. HERO — Diamond photo collage ===== */}
       <section className="pt-0 pb-2 sm:pt-1 md:py-3 bg-[#EEF2FF] sm:bg-white">
