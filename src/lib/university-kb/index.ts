@@ -1,9 +1,29 @@
 import type { CountrySlug, CourseLevel, CurrencyCode, Intake, IntakeMonth, UniversityProfile } from "./types";
 import { countries } from "./countries";
 import { importedProfiles } from "./universities/imported";
+import { excelProfiles } from "./universities/excel";
 
-// All profiles are imported from Route2Uni via scripts/import-route2uni.mjs.
-export const universityProfiles: UniversityProfile[] = [...importedProfiles];
+// Route2Uni profiles come from scripts/import-route2uni.mjs; the UK partner-sheet additions
+// (Jan 2027 intake) come from scripts/import-excel-uk.mjs and live in their own folder.
+// Intakes the partner sheet (12 Oct 2026) marks as CLOSED. Applied here, not in the generated
+// ./universities files, so re-running an importer can't bring them back. Delete an entry to reopen.
+const CLOSED_INTAKES: Record<string, { month: IntakeMonth; year: number }[]> = {
+  "buckinghamshire-new-university": [{ month: "January", year: 2027 }],
+  "university-for-the-creative-arts": [{ month: "January", year: 2027 }],
+};
+
+// Course intakes carry a month only, so a closed month is removed from every course of that university.
+function withoutClosedIntakes(u: UniversityProfile): UniversityProfile {
+  const closed = CLOSED_INTAKES[u.slug];
+  if (!closed) return u;
+  return {
+    ...u,
+    intakes: u.intakes.filter((i) => !closed.some((c) => c.month === i.month && c.year === i.year)),
+    courses: u.courses.map((c) => ({ ...c, intakes: c.intakes.filter((m) => !closed.some((x) => x.month === m)) })),
+  };
+}
+
+export const universityProfiles: UniversityProfile[] = [...importedProfiles, ...excelProfiles].map(withoutClosedIntakes);
 
 export const EXPLORE_BASE_PATH = "/explore-universities";
 
@@ -98,7 +118,8 @@ export interface UniversityCard {
   nextIntake?: string;
   intakeMonths: IntakeMonth[];
   levels: CourseLevel[];
-  courseNames: string[];
+  /** Searched by the course field; the matching ones are listed on the card. */
+  courses: { name: string; subject: string; level: CourseLevel }[];
   /** Course subject areas (excluding the catch-all "General"), for popular-search chips. */
   subjects: string[];
 }
@@ -119,7 +140,7 @@ export function toUniversityCard(u: UniversityProfile): UniversityCard {
     nextIntake: nextIntake(u),
     intakeMonths: Array.from(new Set(upcomingIntakes(u).map((i) => i.month))),
     levels: Array.from(new Set(u.courses.map((c) => c.level))),
-    courseNames: u.courses.map((c) => `${c.name} ${c.subject}`),
+    courses: u.courses.map((c) => ({ name: c.name, subject: c.subject, level: c.level })),
     subjects: Array.from(new Set(u.courses.map((c) => c.subject).filter((sub) => sub !== "General"))),
   };
 }

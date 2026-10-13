@@ -48,6 +48,15 @@ const LEVEL_SHORT: Record<string, string> = {
 };
 
 const PAGE_SIZE = 8;
+const MATCHES_SHOWN = 3;
+
+type CardCourse = UniversityCard["courses"][number];
+
+// Every typed word must appear in the course name or its subject, e.g. "msc data" or "nursing foundation".
+function matchesCourse(c: CardCourse, words: string[], level: CourseLevel | "") {
+  const hay = `${c.name} ${c.subject}`.toLowerCase();
+  return words.every((w) => hay.includes(w)) && (!level || c.level === level);
+}
 
 export default function UniversityExplorer({ universities, countries, fixedCountry, breadcrumb, title, subtitle }: Props) {
   const [nameQuery, setNameQuery] = useState("");
@@ -97,13 +106,15 @@ export default function UniversityExplorer({ universities, countries, fixedCount
     return fees.length ? feeSteps(Math.max(...fees)) : [];
   }, [scoped]);
 
+  const courseWords = useMemo(() => courseQuery.trim().toLowerCase().split(/\s+/).filter(Boolean), [courseQuery]);
+
   const results = useMemo(() => {
     const n = nameQuery.trim().toLowerCase();
-    const c = courseQuery.trim().toLowerCase();
+    const words = courseWords;
     const list = scoped.filter(
       (u) =>
         (!n || u.name.toLowerCase().includes(n)) &&
-        (!c || u.courseNames.some((name) => name.toLowerCase().includes(c))) &&
+        (!words.length || u.courses.some((c) => matchesCourse(c, words, level))) &&
         (!level || u.levels.includes(level)) &&
         (!intake || u.intakeMonths.includes(intake)) &&
         (!city || u.cities.includes(city)) &&
@@ -113,7 +124,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
     if (sort === "name") return [...list].sort((a, b) => a.name.localeCompare(b.name));
     if (sort === "fee-asc") return [...list].sort((a, b) => (a.feeFrom ?? Infinity) - (b.feeFrom ?? Infinity));
     return list;
-  }, [scoped, nameQuery, courseQuery, level, intake, city, maxFee, scholarshipOnly, sort]);
+  }, [scoped, nameQuery, courseWords, level, intake, city, maxFee, scholarshipOnly, sort]);
 
   // Back to page 1 whenever the search, filters or sort change (state adjusted during render).
   const listKey = JSON.stringify([nameQuery, courseQuery, country, level, intake, city, maxFee, scholarshipOnly, sort]);
@@ -125,6 +136,10 @@ export default function UniversityExplorer({ universities, countries, fixedCount
   const totalPages = Math.max(1, Math.ceil(results.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages);
   const pageResults = results.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  // The courses that matched the course search, per visible card.
+  const matchesById = new Map(
+    pageResults.map((u) => [u.id, courseWords.length ? u.courses.filter((c) => matchesCourse(c, courseWords, level)) : []]),
+  );
   const goToPage = (p: number) => {
     setPage(p);
     resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -399,10 +414,11 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                           {LEVEL_SHORT[l]}
                         </span>
                       ))}
-                      {u.courseNames.length > 0 && (
-                        <span className="text-[12px] text-gray-dark">{u.courseNames.length} courses</span>
+                      {u.courses.length > 0 && (
+                        <span className="text-[12px] text-gray-dark">{u.courses.length} courses</span>
                       )}
                     </p>
+                    <MatchingCourses courses={matchesById.get(u.id) ?? []} />
                     <dl className="mt-3 space-y-2.5 border-t border-border-light pt-4 text-[13px]">
                       <div className="flex items-center justify-between gap-3">
                         <dt className="flex items-center gap-1.5 text-gray-dark"><Wallet className="w-4 h-4" aria-hidden />Fees from</dt>
@@ -563,6 +579,25 @@ export default function UniversityExplorer({ universities, countries, fixedCount
         </div>
       </div>
     </>
+  );
+}
+
+function MatchingCourses({ courses }: { courses: CardCourse[] }) {
+  if (!courses.length) return null;
+  return (
+    <div className="mt-3 rounded-lg bg-off-white px-3 py-2.5">
+      <p className="text-[12px] font-semibold text-navy">
+        {courses.length} matching {courses.length === 1 ? "course" : "courses"}
+      </p>
+      <ul className="mt-1 space-y-0.5 text-[12px] text-gray-dark">
+        {courses.slice(0, MATCHES_SHOWN).map((c) => (
+          <li key={c.name} className="truncate">{c.name}</li>
+        ))}
+        {courses.length > MATCHES_SHOWN && (
+          <li className="font-medium text-blue-royal">+{courses.length - MATCHES_SHOWN} more</li>
+        )}
+      </ul>
+    </div>
   );
 }
 
