@@ -150,6 +150,7 @@ export default function RootLayout({
                 "https://youtube.com/c/Admizz_official",
                 "https://www.tiktok.com/@admizz_official",
                 "https://www.linkedin.com/company/admizzofficial/",
+                "https://share.google/yKo7sqK2XYQmvBUKp",
               ],
             }),
           }}

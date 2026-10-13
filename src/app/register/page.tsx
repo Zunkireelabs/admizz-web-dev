@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FaqJsonLd } from "@/components/ui/FAQ";
 import Image from "next/image";
 import UniversityPartners from "@/app/UniversityPartners";
 import { allUniversities } from "@/lib/universities";
@@ -147,6 +148,33 @@ function Stars({ count = 5 }: { count?: number }) {
 /* ------------------------------------------------------------------ */
 /*  Page Component                                                     */
 /* ------------------------------------------------------------------ */
+
+const registerFaqs = [
+              {
+                q: "Is this really free? Are there any hidden costs?",
+                a: "Yes, completely free for students. Admizz earns from our university partners — never from you. No fees, deposits, or commission charged to your side, ever.",
+              },
+              {
+                q: "How long is the counseling call?",
+                a: "Typically 15–30 minutes. Just enough time to understand your goals, answer your questions, and recommend next steps — no pressure or sales pitch.",
+              },
+              {
+                q: "Will my data be sold or used for spam?",
+                a: "Never. Your information is used only by our team to guide your application. We don't sell or share your data with third parties. You can opt out of any communication at any time.",
+              },
+              {
+                q: "What if I'm not sure where I want to study yet?",
+                a: "That's exactly why most students reach out — to figure it out. Our counselors help you compare destinations based on your budget, goals, and preferred field of study.",
+              },
+              {
+                q: "Can I change my mind after registering?",
+                a: "Of course. Registering is just to start a conversation. You're under no obligation to proceed, and there's nothing to cancel. Take your time.",
+              },
+              {
+                q: "Do you have an office I can visit instead?",
+                a: "Yes — offices in Kathmandu (Putalisadak), Birgunj, plus partner offices in India, Bangladesh, USA, and Zambia. Walk in any time during business hours, no appointment needed.",
+              },
+];
 
 export default function RegisterPage() {
   const [showSticky, setShowSticky] = useState(false);
@@ -605,6 +633,7 @@ export default function RegisterPage() {
       </section>
 
       {/* ===== FAQ ACCORDION ===== */}
+      <FaqJsonLd items={registerFaqs.map((f) => ({ question: f.q, answer: f.a }))} />
       <section className="py-10 md:py-20 relative overflow-hidden bg-white">
         <div className="hidden md:block absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full opacity-[0.08] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, #B373E5 0%, transparent 70%)" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -618,32 +647,7 @@ export default function RegisterPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 md:gap-5 max-w-5xl mx-auto">
-            {[
-              {
-                q: "Is this really free? Are there any hidden costs?",
-                a: "Yes, completely free for students. Admizz earns from our university partners — never from you. No fees, deposits, or commission charged to your side, ever.",
-              },
-              {
-                q: "How long is the counseling call?",
-                a: "Typically 15–30 minutes. Just enough time to understand your goals, answer your questions, and recommend next steps — no pressure or sales pitch.",
-              },
-              {
-                q: "Will my data be sold or used for spam?",
-                a: "Never. Your information is used only by our team to guide your application. We don't sell or share your data with third parties. You can opt out of any communication at any time.",
-              },
-              {
-                q: "What if I'm not sure where I want to study yet?",
-                a: "That's exactly why most students reach out — to figure it out. Our counselors help you compare destinations based on your budget, goals, and preferred field of study.",
-              },
-              {
-                q: "Can I change my mind after registering?",
-                a: "Of course. Registering is just to start a conversation. You're under no obligation to proceed, and there's nothing to cancel. Take your time.",
-              },
-              {
-                q: "Do you have an office I can visit instead?",
-                a: "Yes — offices in Kathmandu (Putalisadak), Birgunj, plus partner offices in India, Bangladesh, USA, and Zambia. Walk in any time during business hours, no appointment needed.",
-              },
-            ].map((item) => (
+            {registerFaqs.map((item) => (
               <details
                 key={item.q}
                 className="group bg-white rounded-2xl overflow-hidden transition-all duration-200 hover:shadow-lg"

@@ -1,3 +1,4 @@
+// Visa, fee and funds facts checked against official sources in October 2026. Re-check before editing.
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
@@ -26,6 +27,11 @@ export const metadata: Metadata = {
 const franceData: CountryPageData = {
   countryName: "France",
   countryCategorySlug: "france",
+  nepalGuide: {
+    href: "/study-in-france-from-nepal",
+    title: "Applying from Nepal? Read the Nepal-specific guide to studying in France",
+    text: "Costs, the student visa process, intakes, test scores and scholarships for Nepali students.",
+  },
   heroHeading: "STUDY IN FRANCE",
   heroSubheading: "Experience Prestigious Universities and Rich Cultural Heritage",
   heroDescription: "Study in France and experience prestigious universities, innovative programs, and a vibrant cultural landscape. Admizz Education supports you with course guidance, admissions, documentation, and visa assistance — ensuring a smooth, confident journey toward top-quality education and international opportunities in France.",
@@ -36,9 +42,7 @@ const franceData: CountryPageData = {
     { label: "Dialing Code", value: "+33" },
     { label: "Currency", value: "Euro (\u20AC)" },
     { label: "Population", value: "67+ Million" },
-    { label: "Universities", value: "43+" },
-    { label: "Intl. Students", value: "485,555" },
-    { label: "Tuition fee", value: "\u20AC8,448 \u2013 \u20AC27,000" },
+            { label: "Public tuition (non-EU)", value: "~\u20AC2,900 \u2013 \u20AC3,950" },
   ],
   whyStudyTitle: "Why Study In France?",
   whyStudyIntro:
@@ -54,13 +58,13 @@ const franceData: CountryPageData = {
       icon: "/images/icons/scholarship-108.webp",
       title: "Affordable Tuition Fees",
       description:
-        "Public universities offer highly subsidized education for international students.",
+        "Public universities offer highly subsidised education for international students.",
     },
     {
       icon: "/images/icons/knowledge.webp",
       title: "English-Taught Programs",
       description:
-        "Thousands of Bachelor\u2019s and Master\u2019s degrees are available fully in English.",
+        "More than 1,650 programs are taught in English, according to Campus France.",
     },
     {
       icon: "/images/icons/accomodation-108.webp",
@@ -72,7 +76,7 @@ const franceData: CountryPageData = {
       icon: "/images/icons/consultation.webp",
       title: "Strong Career Opportunities",
       description:
-        "Access internship pathways and post-study work opportunities across the EU.",
+        "Access internship pathways and, for eligible master\u2019s-level graduates, a 12-month permit to look for work after your degree.",
     },
     {
       icon: "/images/icons/visa-1.webp",
@@ -96,15 +100,15 @@ const franceData: CountryPageData = {
         "Statement of Purpose (SOP)",
         "Letters of Recommendation (LORs)",
         "English Proficiency Test Scores (IELTS/TOEFL/PTE) \u2013 if required",
-        "French Language Test Scores (TCF/DELF/DALF) \u2013 optional",
+        "French Language Test Scores (TCF/DELF/DALF) \u2013 for French-taught programs",
         "Proof of Funds / Bank Statements",
         "Visa Application Documents (VFS / Consulate)",
       ],
     },
     {
-      title: "Documents Required for Your Admission Letter",
+      title: "Documents Required for the Campus France Application and Interview",
       intro:
-        "Prepare your France study application with essential documents, including passport, academic transcripts, language scores, SOP, LORs, proof of funds, medical insurance, Campus France documents, and visa papers for smooth admission.",
+        "Campus France Nepal asks you to bring your interview appointment letter, pre-registration certificate, payment receipts, passport, original academic documents, language certificates if you have them, proof of tuition payment and proof of accommodation.",
       documents: [
         "Valid Passport",
         "Academic Transcripts",
@@ -114,8 +118,7 @@ const franceData: CountryPageData = {
         "English Proficiency Test Scores",
         "French Language Test Scores",
         "Campus France Application Form & Payment Receipt",
-        "Proof of Funds (Bank statements for 3\u20136 months)",
-        "VFS Visa Application Documents",
+        "Proof of tuition payment and accommodation (booking, rental agreement or explanatory letter)",
         "University Offer Letter / Acceptance Letter",
       ],
     },
@@ -138,11 +141,10 @@ const franceData: CountryPageData = {
   intakes: {
     title: "Academic Intakes in France",
     intro:
-      "France offers two major academic intakes each year for international students, along with a few limited-specialization rolling intakes. Understanding these intakes helps students plan applications, document submission, and visa timelines effectively.",
+      "Most programs in France start in September, and some institutions have other start dates. Campus France lists 15 December as the DAP registration closing date for the following September, so plan applications, documents and visa timelines early.",
     items: [
-      { name: "September / Fall Intake (Major Intake)", details: [] },
-      { name: "January / Spring (Minor Intake)", details: [] },
-      { name: "March April June (limited programs)", details: [] },
+      { name: "September / Fall Intake (main start for most programs)", details: [] },
+      { name: "Other start dates (varies by institution, check each program)", details: [] },
     ],
   },
   universities: [
@@ -161,16 +163,17 @@ const franceData: CountryPageData = {
   costIntro:
     "Understanding the cost of studying in France helps international students plan their budget effectively.",
   costTable: [
-    { program: "Public University \u2013 Bachelor\u2019s", fee: "\u20AC2,770 per year" },
-    { program: "Public University \u2013 Master\u2019s", fee: "\u20AC3,770 per year" },
-    { program: "Private Universities / Grandes \u00C9coles", fee: "\u20AC6,000 \u2013 \u20AC25,000 per year" },
-    { program: "MBA / Professional Programs", fee: "\u20AC20,000 \u2013 \u20AC45,000 per year" },
-    { program: "Living Expenses \u2013 Paris", fee: "\u20AC12,000 \u2013 \u20AC16,800 per year" },
-    { program: "Living Expenses \u2013 Other Cities", fee: "\u20AC8,400 \u2013 \u20AC12,000 per year" },
-    { program: "Health Insurance", fee: "\u20AC200 \u2013 \u20AC500 per year" },
+    { program: "Public University \u2013 Bachelor\u2019s (2026-27, non-EU)", fee: "About \u20AC2,900 per year" },
+    { program: "Public University \u2013 Master\u2019s (2026-27, non-EU)", fee: "About \u20AC3,950 per year" },
+    { program: "Public University \u2013 Doctorate", fee: "About \u20AC398 per year" },
+    { program: "Private Institutions", fee: "\u20AC6,000 \u2013 \u20AC18,000+ per year" },
+    { program: "Average Monthly Student Budget", fee: "About \u20AC800 (outside Paris), \u20AC1,000 (Paris)" },
+    { program: "Student Housing (CROUS)", fee: "\u20AC150 \u2013 \u20AC600 per month" },
+    { program: "CVEC Student Contribution (2026-27)", fee: "\u20AC105" },
+    { program: "Health Cover (social security affiliation)", fee: "Free for students" },
   ],
   costNote:
-    "Note: Costs vary by city, program, and personal lifestyle. Verify exact tuition and fees with your chosen university and the French consulate / Campus France.",
+    "Note: Tuition figures are Campus France\u2019s 2026-27 non-EU rates for public institutions; official pages show small differences (about \u20AC2,895\u2013\u20AC2,902 and \u20AC3,941\u2013\u20AC3,950), so confirm with your institution. Visa applications from 1 August 2026 must show at least \u20AC877.50 per month in resources. Costs vary by city, program and lifestyle.",
   visaTitle: "France Student Visa Process",
   visaIntro:
     "Follow the simplified France student visa process\u2014from Campus France approval to biometric submission and visa collection\u2014for a smooth, stress-free study journey.",
@@ -178,29 +181,29 @@ const franceData: CountryPageData = {
     { title: "Choose Course & University", description: "Select your preferred French university and program based on eligibility and goals." },
     { title: "Create Campus France Account", description: "Register on the Campus France portal to begin your application process." },
     { title: "Upload Documents", description: "Submit academic transcripts, language scores, SOP, and other required documents online." },
-    { title: "Pay Campus France Fee", description: "Complete the mandatory Campus France processing fee payment." },
+    { title: "Pay Campus France Fee", description: "Pay the Campus France fee on the Etudes en France platform." },
     { title: "Attend Campus France Interview", description: "Appear for your Campus France interview to verify your academic profile and study plans." },
-    { title: "Receive Campus France NOC", description: "Get your No Objection Certificate from Campus France after successful evaluation." },
-    { title: "Apply on France-Visas Portal", description: "Submit your visa application online through the official France-Visas portal." },
-    { title: "Book VFS Visa Appointment", description: "Schedule your visa appointment at the nearest VFS Global center." },
-    { title: "Prepare Visa Documents", description: "Collect and organize all required visa documents including financial proof and insurance." },
-    { title: "Attend VFS Appointment", description: "Visit the VFS center to submit biometrics, documents, and complete your visa application." },
-    { title: "Wait for Visa Decision", description: "The French consulate reviews your application and processes the visa decision." },
-    { title: "Collect Passport", description: "Receive your passport with the student visa stamp from VFS or courier." },
+    { title: "Complete Campus France Procedure", description: "Once the Etudes en France procedure is complete, your file is passed on for the visa stage." },
+    { title: "Apply on France-Visas Portal", description: "Complete your visa application on the official France-Visas portal." },
+    { title: "Book VFS Visa Appointment", description: "Book your appointment with VFS to submit your application." },
+    { title: "Prepare Visa Documents", description: "Collect the documents listed on France-Visas, including proof of at least \u20AC877.50 per month (from 1 August 2026) and insurance proof." },
+    { title: "Attend VFS Appointment", description: "Submit your documents and biometrics at VFS." },
+    { title: "Wait for Visa Decision", description: "The French consular authorities review your application and decide." },
+    { title: "Collect Passport", description: "Collect your passport with the visa." },
     { title: "Travel to France", description: "Carry all essential documents and travel to France before your program start date." },
-    { title: "Validate VLS-TS Visa After Arrival", description: "Complete the mandatory VLS-TS visa validation process online within 3 months of arrival in France." },
+    { title: "Validate VLS-TS Visa After Arrival", description: "Validate your VLS-TS online at administration-etrangers-en-france.interieur.gouv.fr within 3 months of arriving; Campus France lists the fee as \u20AC100 for most nationalities." },
   ],
   faqItems: [
-    { question: "What are the eligibility requirements to study in France?", answer: "Students need academic transcripts, a valid passport, English or French proficiency scores, Statement of Purpose, Letters of Recommendation, and proof of funds." },
-    { question: "How much does it cost to study in France?", answer: "Public university tuition ranges from \u20AC2,770 to \u20AC3,770 per year. Private institutions and Grandes \u00C9coles can cost \u20AC6,000 to \u20AC25,000 or more annually." },
-    { question: "What documents are required for a France student visa?", answer: "You need a valid passport, academic transcripts, SOP, LORs, language proficiency scores, Campus France NOC, proof of funds, and passport-size photographs." },
-    { question: "How long does the France student visa process take?", answer: "The visa process typically takes 2 to 4 weeks after submitting your application at VFS, depending on the consulate workload and completeness of documents." },
-    { question: "Can I work while studying in France?", answer: "Yes, international students in France can work up to 964 hours per year (approximately 20 hours per week) during their studies." },
-    { question: "What are the major academic intakes in France?", answer: "France has two major intakes: September/Fall (primary intake) and January/Spring (secondary intake), with limited programs available in March, April, and June." },
-    { question: "Is studying in France affordable for international students?", answer: "Yes, France is one of the most affordable study destinations in Europe, with low public university tuition fees and various scholarships available for international students." },
-    { question: "Do I need health insurance to study in France?", answer: "Yes, health insurance is mandatory for all international students in France. Students under 28 can enroll in the French social security system, and additional private insurance costs \u20AC200\u2013\u20AC500 per year." },
-    { question: "How do I apply to study in France?", answer: "Start by selecting a university and program, create a Campus France account, upload documents, attend the Campus France interview, and then apply for your student visa through the France-Visas portal and VFS." },
-    { question: "What are the job opportunities after studying in France?", answer: "France offers post-study work permits allowing graduates to stay and work. With strong industries in engineering, business, technology, fashion, and hospitality, graduates have excellent career prospects across the EU." },
+    { question: "What are the eligibility requirements to study in France?", answer: "Requirements vary by institution, but you generally need academic transcripts, a valid passport, proof of English or French as the program requires, and proof of funds. Nepali students also complete the Etudes en France procedure with Campus France, including an interview, before the visa application." },
+    { question: "How much does it cost to study in France?", answer: "For 2026-27, public institutions charge non-EU students about \u20AC2,900 a year for a bachelor\u2019s and \u20AC3,950 for a master\u2019s. Private institutions charge \u20AC6,000 to \u20AC18,000 or more. Campus France puts the average monthly student budget at about \u20AC800 outside Paris and \u20AC1,000 in Paris." },
+    { question: "What documents are required for a France student visa?", answer: "Campus France Nepal sends applicants to France-Visas for the official document list. You need your passport, admission proof, proof of at least \u20AC877.50 a month for applications from 1 August 2026, and insurance proof. You also bring proof of accommodation to the Campus France interview." },
+    { question: "How long does the France student visa process take?", answer: "Processing time depends on the consular authorities and the completeness of your file, and Campus France does not publish a fixed figure. Complete the Etudes en France procedure first, then apply on France-Visas and submit at VFS as early as you can." },
+    { question: "Can I work while studying in France?", answer: "Yes. The VLS-TS student visa allows 964 hours of work per year, which Campus France describes as about 20 hours a week. The limit is counted over the year, so you can work more in holidays." },
+    { question: "What are the major academic intakes in France?", answer: "Most programs start in September, and some institutions have other start dates, so check each program. Campus France lists 15 December as the DAP registration closing date on Etudes en France for the following September." },
+    { question: "Is studying in France affordable for international students?", answer: "Public tuition is subsidised, about \u20AC2,900 (bachelor\u2019s) and \u20AC3,950 (master\u2019s) a year for non-EU students in 2026-27. Scholarships such as Eiffel and Erasmus Mundus exist, and holders of a French government scholarship can be exempt from the higher rate." },
+    { question: "Do I need health insurance to study in France?", answer: "Affiliation to French social security is free and compulsory for students, done on etudiant-etranger.ameli.fr after you arrive. The separate CVEC student contribution is \u20AC105 for 2026-27. For the visa, follow the insurance proof listed on France-Visas." },
+    { question: "How do I apply to study in France?", answer: "Choose a program, create an account on the Etudes en France platform, upload documents, pay, and attend the Campus France interview. Then apply for your visa on France-Visas and submit it through VFS. After arrival, validate your VLS-TS online within 3 months." },
+    { question: "What are the job opportunities after studying in France?", answer: "Graduates with a licence professionnelle or master\u2019s-level degree may be eligible for the 12-month, non-renewable APS permit to look for work or prepare a business. Campus France says access depends on a bilateral agreement with your country, so check eligibility before relying on it." },
   ],
 };
 

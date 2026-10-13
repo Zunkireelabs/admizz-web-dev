@@ -2,6 +2,7 @@ import Image from "next/image";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import GlobalPresence from "@/components/ui/GlobalPresence";
+import FAQ from "@/components/ui/FAQ";
 
 export const metadata: Metadata = {
   title: "Contact Admizz Education | Free Study Abroad Counseling",
@@ -21,6 +22,29 @@ export const metadata: Metadata = {
   },
 };
 
+
+const contactFaqs = [
+  {
+    question: "How can I contact Admizz Education?",
+    answer:
+      "Fill in the contact form on this page, email hello@admizz.com, or visit an office. Admizz has offices in Kathmandu (Putalisadak) and Birgunj, plus partner offices in India, Bangladesh, the US and Zambia.",
+  },
+  {
+    question: "Is counseling at Admizz Education free?",
+    answer:
+      "Yes. Counseling is free for students. Admizz earns from its university partners, not from students, so there are no fees or deposits to start a conversation about your study abroad plans.",
+  },
+  {
+    question: "Can I visit an Admizz office instead of calling?",
+    answer:
+      "Yes. You can walk into the Kathmandu (Putalisadak) or Birgunj office during business hours without an appointment, and a counselor will go through your options with you.",
+  },
+  {
+    question: "Which countries can Admizz help me study in?",
+    answer:
+      "Admizz Education supports students applying to more than 12 countries, including the UK, the US, Australia, Canada, New Zealand, South Korea, Germany, France, Finland, Denmark, Dubai and India.",
+  },
+];
 
 export default function ContactPage() {
   return (
@@ -62,6 +86,7 @@ export default function ContactPage() {
       {/* ===== GLOBAL PRESENCE ===== */}
       <GlobalPresence />
 
+      <FAQ items={contactFaqs} />
     </main>
   );
 }

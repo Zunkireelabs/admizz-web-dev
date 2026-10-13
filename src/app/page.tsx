@@ -9,16 +9,16 @@ import CommunityReels from "./CommunityReels";
 import LazyMount from "@/components/LazyMount";
 
 export const metadata: Metadata = {
-  title: "Admizz Education - Your Partner in Study Abroad",
+  title: "Admizz Education | Study Abroad Consultancy in Nepal",
   description:
-    "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success worldwide.",
+    "Admizz Education is a study abroad consultancy in Kathmandu and Bengaluru. University admissions, visa support and scholarships for 2,000+ Nepali students.",
   alternates: {
     canonical: "https://admizzeducation.com/",
   },
   openGraph: {
-    title: "Admizz Education - Your Partner in Study Abroad",
+    title: "Admizz Education | Study Abroad Consultancy in Nepal",
     description:
-      "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success worldwide.",
+      "Admizz Education is a study abroad consultancy in Kathmandu and Bengaluru. University admissions, visa support and scholarships for 2,000+ Nepali students.",
     url: "https://admizzeducation.com/",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],
@@ -62,15 +62,15 @@ const services = [
 ];
 
 const destinations = [
-  { name: "Study in the USA", image: "/images/destinations/usa1.webp", href: "/study-in-the-usa" },
-  { name: "Study in the UK", image: "/images/destinations/uk1.webp", href: "/study-in-the-uk" },
-  { name: "Study in Australia", image: "/images/destinations/aus1.webp", href: "/study-in-australia" },
-  { name: "Study in Canada", image: "/images/destinations/canada1.webp", href: "/study-in-canada" },
-  { name: "Study in India", image: "/images/destinations/india1.webp", href: "/study-in-india" },
-  { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand" },
-  { name: "Study in Finland", image: "/images/destinations/finland1.webp", href: "/study-in-finland" },
-  { name: "Study in Germany", image: "/images/destinations/germany1.webp", href: "/study-in-germany" },
-  { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france" },
+  { name: "Study in the USA", image: "/images/destinations/usa1.webp", href: "/study-in-usa-from-nepal" },
+  { name: "Study in the UK", image: "/images/destinations/uk1.webp", href: "/study-in-uk-from-nepal" },
+  { name: "Study in Australia", image: "/images/destinations/aus1.webp", href: "/study-in-australia-from-nepal" },
+  { name: "Study in Canada", image: "/images/destinations/canada1.webp", href: "/study-in-canada-from-nepal" },
+  { name: "Study in India", image: "/images/destinations/india1.webp", href: "/study-in-india-from-nepal" },
+  { name: "Study in New Zealand", image: "/images/destinations/newzealand1.webp", href: "/study-in-newzealand-from-nepal" },
+  { name: "Study in Finland", image: "/images/destinations/finland1.webp", href: "/study-in-finland-from-nepal" },
+  { name: "Study in Germany", image: "/images/destinations/germany1.webp", href: "/study-in-germany-from-nepal-costs-intakes-visa-2026" },
+  { name: "Study in France", image: "/images/destinations/france1.webp", href: "/study-in-france-from-nepal" },
 ];
 
 const testLogos = [
@@ -625,9 +625,8 @@ export default function Home() {
       </LazyMount>
 
       {/* ===== 9. FAQ ===== */}
-      <LazyMount minHeight={400}>
-        <HomepageFAQ items={faqItems} />
-      </LazyMount>
+      {/* Rendered directly (not in LazyMount) so the FAQ text and FAQPage schema are in the server HTML for crawlers. */}
+      <HomepageFAQ items={faqItems} />
 
       {/* ===== 10. CTA BANNER ===== */}
       <section className="relative py-14 md:py-20 overflow-hidden cv-auto" style={{ background: "#FFFAED" }}>

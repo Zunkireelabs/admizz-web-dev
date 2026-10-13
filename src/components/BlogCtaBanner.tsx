@@ -16,7 +16,7 @@ export default function BlogCtaBanner() {
               <span className="w-2 h-2 rounded-full bg-green-600 animate-pulse" />
               <span className="text-[13px] font-semibold tracking-wide" style={{ color: "#0D1282" }}>Accepting Applications</span>
             </div>
-            <h2 className="text-[28px] md:text-[40px] font-bold leading-tight mb-4" style={{ fontFamily: "var(--font-rubik), sans-serif", color: "#0D1282" }}>
+            <h2 className="text-[26px] font-bold leading-tight mb-4" style={{ fontFamily: "var(--font-rubik), sans-serif", color: "#0D1282" }}>
               Ready to Build Your <span style={{ color: "#E8430C" }}>Global Career?</span>
             </h2>
             <p className="text-[15px] leading-relaxed max-w-md mb-8" style={{ color: "rgba(13,18,130,0.7)" }}>

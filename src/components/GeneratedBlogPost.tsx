@@ -32,6 +32,7 @@ import CTAForm from "@/components/ui/CTAForm";
 import generatedPostsData from "@/data/generated-posts.json";
 import type { GeneratedPostManifestEntry } from "@/types";
 import { renderMarkdownLite } from "./lib/markdown-lite";
+import { blogH2, blogP, blogFaqQuestion } from "./lib/blog-typography";
 
 export interface GeneratedBlogPostSection {
   heading: string;
@@ -241,22 +242,22 @@ export default function GeneratedBlogPost({
 
             {!html && !content && sections.map((section, i) => (
               <div key={i}>
-                <h2 className="text-2xl md:text-[28px] font-bold text-navy mt-8 mb-4">
+                <h2 className={blogH2.className} style={blogH2.style}>
                   {section.heading}
                 </h2>
-                {renderMarkdownLite(section.body, `section-${i}`)}
+                {renderMarkdownLite(section.body, `section-${i}`, "blog")}
               </div>
             ))}
 
             {faqs && !faqSchemaOnly && (
               <section id="faq">
-                <h2 className="text-2xl md:text-[28px] font-bold text-navy mt-8 mb-4">
+                <h2 className={blogH2.className} style={blogH2.style}>
                   Frequently Asked Questions
                 </h2>
                 {faqs.map((item) => (
                   <div key={item.question}>
-                    <h3 className="text-xl md:text-2xl font-bold text-navy mt-8 mb-4">{item.question}</h3>
-                    <p className="text-base text-gray-dark leading-relaxed mb-4">{item.answer}</p>
+                    <h3 className={blogFaqQuestion.className} style={blogFaqQuestion.style}>{item.question}</h3>
+                    <p className={blogP.className} style={blogP.style}>{item.answer}</p>
                   </div>
                 ))}
               </section>
@@ -282,7 +283,7 @@ export default function GeneratedBlogPost({
         <section className="py-14 md:py-20" style={{ background: "#F8F9FF" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2
-              className="text-[26px] md:text-[34px] font-bold text-center mb-3"
+              className="text-[26px] font-bold text-center mb-3"
               style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}
             >
               Related Articles

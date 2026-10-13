@@ -28,9 +28,9 @@ interface Beat {
 
 const BEATS: Beat[] = [
   {
-    eyebrow: "The numbers don't lie",
-    claim: "₹50,000 a year.",
-    support: "That's what a year at one of India's top government engineering schools costs — about a tenth of the equivalent in the West.",
+    eyebrow: "Scholarships for Nepal",
+    claim: "Around 1,500 seats a year.",
+    support: "According to the Embassy of India in Kathmandu, the Government of India provides around 1,500 scholarships and seats every year to Nepali nationals.",
     visual: {
       gradient: "linear-gradient(135deg, #1C5D3F 0%, #0B3D2E 100%)",
       landmark: "lotus-temple",
@@ -39,9 +39,9 @@ const BEATS: Beat[] = [
     },
   },
   {
-    eyebrow: "Since 1950",
+    eyebrow: "Open border",
     claim: "Zero visa hassle.",
-    support: "The India–Nepal open border treaty means no student visa, no embassy queues, no waiting weeks for a decision. Just enroll and go.",
+    support: "India's Bureau of Immigration says citizens of Nepal are exempt from the requirement of an Indian visa and registration. Get admitted, register on the Study in India portal, and enroll.",
     visual: {
       gradient: "linear-gradient(135deg, #FF6B1A 0%, #C9472A 100%)",
       landmark: "india-gate",
@@ -51,8 +51,8 @@ const BEATS: Beat[] = [
   },
   {
     eyebrow: "Right now. Across India.",
-    claim: "1,500+ Nepali students.",
-    support: "From IIT Bombay to AIIMS Delhi to Manipal — there's already a community waiting at the campus you choose.",
+    claim: "Nepali students across India.",
+    support: "Students from Nepal already study at institutions across the country, from Delhi to Bengaluru, so you will rarely be the only one from home.",
     visual: {
       gradient: "linear-gradient(135deg, #6B2B1F 0%, #1C5D3F 100%)",
       landmark: "taj-mahal",
@@ -317,46 +317,37 @@ function BeatVisual({ beat, active, index }: { beat: Beat; active: boolean; inde
 /* ============================================================ */
 function CostBars({ active, accent }: { active: boolean; accent: string }) {
   const rows = [
-    { country: "India", value: "₹50,000", width: 8, highlight: true },
-    { country: "Australia", value: "~₹20L", width: 65, highlight: false },
-    { country: "UK", value: "~₹15L", width: 50, highlight: false },
-    { country: "USA", value: "~₹25L", width: 85, highlight: false },
+    "COMPEX (Engineering, Pharmacy, Agriculture, Food Technology, Nursing)",
+    "ICCR scholarships (ABVGSS, SJSS, AYUSH)",
+    "Law Scholarship Scheme (announced Sept 2026)",
+    "SAARC, HJBSS, NAF and other schemes",
   ];
   return (
     <div className="w-full max-w-md">
       <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-1" style={{ color: accent }}>
-        Annual tuition
+        Embassy of India, Kathmandu
       </p>
       <p className="text-2xl font-bold mb-5" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
-        India vs. the West
+        Scholarship schemes for Nepali students
       </p>
-      <div className="space-y-3">
-        {rows.map((r) => (
-          <div key={r.country}>
-            <div className="flex items-baseline justify-between text-[12px] mb-1">
-              <span className={r.highlight ? "font-bold" : "opacity-80"} style={r.highlight ? { color: accent } : undefined}>
-                {r.country}
-              </span>
-              <span className={r.highlight ? "font-bold" : "opacity-70"} style={r.highlight ? { color: accent } : undefined}>
-                {r.value}
-              </span>
-            </div>
-            <div className="h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.12)" }}>
-              <div
-                className="h-full rounded-full"
-                style={{
-                  width: active ? `${r.width}%` : "0%",
-                  background: r.highlight ? accent : "rgba(255,255,255,0.55)",
-                  transition: "width 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
-                  boxShadow: r.highlight ? `0 0 18px ${accent}55` : "none",
-                }}
-              />
-            </div>
-          </div>
+      <ul className="space-y-3">
+        {rows.map((r, i) => (
+          <li
+            key={r}
+            className="flex items-start gap-3 text-[13px]"
+            style={{
+              opacity: active ? 0.9 : 0,
+              transform: active ? "translateX(0)" : "translateX(-8px)",
+              transition: `opacity 0.5s ease ${0.1 + i * 0.08}s, transform 0.5s ease ${0.1 + i * 0.08}s`,
+            }}
+          >
+            <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full" style={{ background: accent }} />
+            <span>{r}</span>
+          </li>
         ))}
-      </div>
+      </ul>
       <p className="text-[11px] mt-5 opacity-75 leading-relaxed">
-        Government-subsidised tuition for SAARC students keeps top Indian institutions a fraction of Western costs.
+        Apply directly to the Embassy. It does not accept applications through consultants or agencies.
       </p>
     </div>
   );
@@ -367,16 +358,15 @@ function CostBars({ active, accent }: { active: boolean; accent: string }) {
 /* ============================================================ */
 function NoVisaList({ active, accent }: { active: boolean; accent: string }) {
   const skips = [
-    "Student visa (6–8 weeks)",
-    "Embassy interview",
-    "I-20 / CAS letter",
-    "Biometric appointment",
-    "$160+ visa fee",
+    "Indian student visa",
+    "Visa application fee",
+    "Visa appointment",
+    "FRRO/FRO registration",
   ];
   return (
     <div className="w-full max-w-md">
       <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-1" style={{ color: accent }}>
-        Open border · since 1950
+        Open border · no visa
       </p>
       <p className="text-2xl font-bold mb-5" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
         What you don&apos;t need
@@ -413,7 +403,7 @@ function NoVisaList({ active, accent }: { active: boolean; accent: string }) {
           <polyline points="20 6 9 17 4 12" />
         </svg>
         <span className="text-[13px] font-semibold" style={{ color: accent }}>
-          Just: passport → cross border → enroll
+          Just: get admitted → cross the border → enroll
         </span>
       </div>
     </div>
@@ -439,7 +429,7 @@ function CommunityMap({ active, accent }: { active: boolean; accent: string }) {
         Right now · across India
       </p>
       <p
-        className="text-5xl font-bold mb-1"
+        className="text-4xl font-bold mb-1"
         style={{
           fontFamily: '"Playfair Display", Georgia, serif',
           color: accent,
@@ -447,9 +437,9 @@ function CommunityMap({ active, accent }: { active: boolean; accent: string }) {
           transition: "text-shadow 0.7s ease",
         }}
       >
-        1,500+
+        Across India
       </p>
-      <p className="text-[12px] opacity-80 mb-4">Nepali students enrolled</p>
+      <p className="text-[12px] opacity-80 mb-4">Students from Nepal on campus</p>
 
       <div className="relative w-full" style={{ aspectRatio: "1 / 1", maxWidth: 240 }}>
         <svg viewBox="0 0 1024 1024" className="w-full h-full" aria-hidden="true">

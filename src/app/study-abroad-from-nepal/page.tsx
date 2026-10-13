@@ -7,11 +7,15 @@ const post = {
   "sections": [
     {
       "heading": "The 8 steps at a glance",
-      "body": "1. **Choose a country and course** that fits your budget and goals.\n2. **Apply to universities** and collect your offers.\n3. **Prove your English level.**\n4. **Get your NOC** from Nepal's Ministry of Education, Science and Technology.\n5. **Arrange your money**: tuition, living funds and the tax on foreign payments.\n6. **Complete health and document checks.**\n7. **Apply for your visa.**\n8. **Prepare to travel.**\n\nThe sections below explain each step with the figures that apply to the most popular destinations. Every number is checked against an official source, and we list the sources at the end."
+      "body": "1. **Choose a country and course** that fits your budget and goals.\n2. **Apply to universities** and collect your offers.\n3. **Prove your English level.**\n4. **Get your NOC** from Nepal's Ministry of Education and Sports.\n5. **Arrange your money**: tuition, living funds and the tax on foreign payments.\n6. **Complete health and document checks.**\n7. **Apply for your visa.**\n8. **Prepare to travel.**\n\nThe sections below explain each step with the figures that apply to the most popular destinations. Every number is checked against an official source, and we list the sources at the end."
     },
     {
       "heading": "Step 1: Choose a country and course",
       "body": "Compare countries on cost, work rights after study and visa risk, not on rankings alone. These are the 2026 facts that most affect Nepali students:\n\n- **UK:** one-year Master's degrees. The Graduate visa is 18 months for applications from January 1, 2027, and 2 years before that date. See our [UK student visa guide](/uk-student-visa-from-nepal).\n- **Canada:** study permit applications are capped at 309,670 for 2026, and most new bachelor's and college applicants need a provincial attestation letter. Master's students at public institutions are exempt. See the [Canada cap guide](/canada-study-permit-cap-2026-nepali-students).\n- **Germany:** proof of funds of €11,904 a year through a blocked account. See the [Germany guide](/germany-blocked-account-2026-nepali-students).\n- **USA:** from September 15, 2026, F-1 students are admitted for a fixed period of up to four years. See the [H-1B guide](/h1b-wage-weighted-lottery-2026-nepali-students-opt) and our [F-1 versus UK comparison](/us-f1-vs-uk-student-visa-2026).\n- **Australia:** new Student visa rules took effect on October 2, 2026. See [all rule changes](/study-abroad-rule-updates)."
+    },
+    {
+      "heading": "Study destinations compared: visa fees and funds at a glance",
+      "body": "Costs and funds are the quickest way to narrow your list. These are the official figures as checked in October 2026:\n\n- **UK:** student visa £558, plus the £776-a-year health surcharge. Show £1,171 a month outside London (£1,529 in London) for up to 9 months, held for 28 days. For applications from November 30, 2026 the amounts are £1,203 and £1,570. After study, the Graduate visa lasts 18 months for applications from January 1, 2027.\n- **USA:** US$185 visa application fee plus the US$350 SEVIS fee. You must show how you will pay for your studies. After study, OPT applies, and STEM OPT adds 24 months for eligible STEM graduates.\n- **Canada:** CAN$150 study permit and CAN$85 biometrics. For applications from September 1, 2026, show CAN$23,448 for living costs plus first-year tuition and travel.\n- **Australia:** the student visa application charge is AUD 2,500 from July 1, 2026. Study Australia says to show at least AUD 29,710 and to hold compulsory health cover (OSHC).\n- **Germany:** €11,904 a year in a blocked account.\n\nIf your budget is tight, compare the funds line first, because it is the money you must hold before you can apply. Then compare work rights after study. Our guides cover each country in detail: [UK](/study-in-uk-from-nepal), [USA](/study-in-usa-from-nepal), [Canada](/study-in-canada-from-nepal) and [Australia](/study-in-australia)."
     },
     {
       "heading": "Step 2: Apply to universities",
@@ -23,7 +27,7 @@ const post = {
     },
     {
       "heading": "Step 4: Get your NOC",
-      "body": "Nepal's Ministry of Education, Science and Technology issues a No Objection Certificate for students going abroad to study. It is applied for online. Our [NOC guide](/how-to-get-your-noc-from-nepal-for-study-abroad) explains who needs one, the documents and the process. Check the ministry's portal for the current fee before you apply."
+      "body": "Nepal's Ministry of Education and Sports issues a No Objection Certificate for students going abroad to study. It is applied for online. Our [NOC guide](/how-to-get-your-noc-from-nepal-for-study-abroad) explains who needs one, the documents and the process. Check the ministry's portal for the current fee before you apply."
     },
     {
       "heading": "Step 5: Arrange your money",
@@ -55,7 +59,7 @@ const post = {
     },
     {
       "heading": "Sources",
-      "body": "- [GOV.UK: Student visa, knowledge of English](https://www.gov.uk/student-visa/knowledge-of-english)\n- [GOV.UK: Student visa, money you need](https://www.gov.uk/student-visa/money)\n- [OTS Solicitors: student visa maintenance funds increase from November 30, 2026](https://www.otssolicitors.co.uk/news/student-visa-maintenance-funds-increase-from-30-november-2026)\n- [GOV.UK: Student visa, apply](https://www.gov.uk/student-visa/apply)\n- [GOV.UK: TB test for a UK visa](https://www.gov.uk/tb-test-visa)\n- [IRCC: 2026 provincial and territorial allocations under the international student cap](https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html)\n- [ICEF Monitor: Nepal increases taxes for students studying abroad](https://monitor.icef.com/2023/07/government-of-nepal-increases-taxes-for-nepali-students-studying-abroad)\n\nFigures checked in October 2026. Rules change, so check the official site on the day you apply."
+      "body": "- [GOV.UK: Student visa](https://www.gov.uk/student-visa)\n- [US Department of State: Student visa](https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html)\n- [ICE: I-901 SEVIS fee](https://www.ice.gov/sevis/i901)\n- [IRCC: Proof of financial support](https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html)\n- [Study Australia: Student visa (subclass 500)](https://www.studyaustralia.gov.au/en/plan-your-move/your-guide-to-visas/student-visa-subclass-500)\n- [GOV.UK: Student visa, knowledge of English](https://www.gov.uk/student-visa/knowledge-of-english)\n- [GOV.UK: Student visa, money you need](https://www.gov.uk/student-visa/money)\n- [OTS Solicitors: student visa maintenance funds increase from November 30, 2026](https://www.otssolicitors.co.uk/news/student-visa-maintenance-funds-increase-from-30-november-2026)\n- [GOV.UK: Student visa, apply](https://www.gov.uk/student-visa/apply)\n- [GOV.UK: TB test for a UK visa](https://www.gov.uk/tb-test-visa)\n- [IRCC: 2026 provincial and territorial allocations under the international student cap](https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html)\n- [ICEF Monitor: Nepal increases taxes for students studying abroad](https://monitor.icef.com/2023/07/government-of-nepal-increases-taxes-for-nepali-students-studying-abroad)\n\nFigures checked in October 2026. Rules change, so check the official site on the day you apply."
     }
   ],
   "featuredImage": {
@@ -95,7 +99,7 @@ const post = {
     }
   ],
   "publishedAt": "2025-09-26T09:32:38",
-  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
   "description": "How to study abroad from Nepal: choose a country, prove your English, get your NOC, show funds, apply and get your visa, with official sources.",
   "quickAnswer": "To study abroad from Nepal you choose a country and course, apply to universities, prove your English level, get a No Objection Certificate (NOC) from Nepal's Ministry of Education, show proof of funds, then apply for your visa. Rules differ by country. For example, the UK asks for £1,203 to £1,570 a month for up to 9 months from November 30, 2026 (£1,171 to £1,529 before that date), held for 28 days, Canada capped study permit applications at 309,670 for 2026, and Germany asks for €11,904 in a blocked account.",
   "faqItems": [
@@ -105,7 +109,7 @@ const post = {
     },
     {
       "question": "Do I need an NOC to study abroad from Nepal?",
-      "answer": "Nepal's Ministry of Education, Science and Technology issues a No Objection Certificate for students going abroad to study. Check the ministry's portal and our NOC guide for who needs one and how to apply."
+      "answer": "Nepal's Ministry of Education and Sports issues a No Objection Certificate for students going abroad to study. Check the ministry's portal and our NOC guide for who needs one and how to apply."
     },
     {
       "question": "How much money do I need to study in the UK from Nepal?",

@@ -29,8 +29,8 @@ const post = {
     }
   ],
   "publishedAt": "2026-04-24T13:16:00.000Z",
-  "updatedAt": "2026-10-05T00:00:00.000Z",
-  "description": "Fully funded UK Master's for Nepali students. Chevening 2027/28 eligibility, benefits, essays and interview tips. Deadline: October 6, 2026, 11:00 UTC.",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
+  "description": "Chevening Nepal 2027/28: applications closed October 6, 2026. Interview and results dates, eligibility, benefits and how to prepare for 2028/29.",
   "faqItems": [
     {
       "answer": "No. Chevening requires at least two years of work experience by the application deadline. This can be paid work, voluntary work, or internships, but it must be documented with dates and responsibilities.",
@@ -70,12 +70,12 @@ const post = {
 };
 
 export const metadata: Metadata = {
-  title: "Chevening Scholarship 2027/28 Nepal: Deadline & How to Apply",
-  description: "Fully funded UK Master's for Nepali students. Chevening 2027/28 eligibility, benefits, essays and interview tips. Deadline: October 6, 2026, 11:00 UTC.",
+  title: "Chevening Scholarship Nepal 2027/28: Timeline & How to Apply",
+  description: "Chevening Nepal 2027/28: applications closed October 6, 2026. Interview and results dates, eligibility, benefits and how to prepare for 2028/29.",
   alternates: { canonical: "https://admizzeducation.com/chevening-scholarship-complete-guide-for-nepali-students" },
   openGraph: {
-    title: "Chevening Scholarship 2027/28 Nepal: Deadline & How to Apply",
-    description: "Fully funded UK Master's for Nepali students. Chevening 2027/28 eligibility, benefits, essays and interview tips. Deadline: October 6, 2026, 11:00 UTC.",
+    title: "Chevening Scholarship Nepal 2027/28: Timeline & How to Apply",
+    description: "Chevening Nepal 2027/28: applications closed October 6, 2026. Interview and results dates, eligibility, benefits and how to prepare for 2028/29.",
     url: "https://admizzeducation.com/chevening-scholarship-complete-guide-for-nepali-students",
     siteName: "Admizz Education",
     type: "article",

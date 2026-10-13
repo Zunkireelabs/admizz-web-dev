@@ -73,6 +73,8 @@ export interface CountryPageData {
   faqItems: FAQItem[];
   blogArticles?: string[];
   countryCategorySlug?: string;
+  /** Link to this destination's dedicated "from Nepal" guide, when one exists. */
+  nepalGuide?: { href: string; title: string; text: string };
 }
 
 interface CountryPageTemplateProps {
@@ -684,6 +686,21 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
           </div>
         </div>
       </section>
+
+      {/* ===== NEPAL GUIDE CALLOUT ===== */}
+      {data.nepalGuide && (
+        <section className="py-10 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Link
+              href={data.nepalGuide.href}
+              className="block rounded-2xl border border-border-light bg-off-white p-6 hover:shadow-lg transition-shadow"
+            >
+              <h2 className="text-lg font-bold text-navy mb-1">{data.nepalGuide.title}</h2>
+              <p className="text-[15px] text-gray-dark">{data.nepalGuide.text}</p>
+            </Link>
+          </div>
+        </section>
+      )}
 
       {/* ===== FAQ ===== */}
       <div id="faq" className="scroll-mt-32">
