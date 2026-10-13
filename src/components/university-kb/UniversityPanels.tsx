@@ -119,7 +119,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
                       </div>
                       <div>
                         <dt className="flex items-center gap-1.5 text-gray-dark"><CalendarDays className="w-4 h-4" aria-hidden />Intake</dt>
-                        <dd className="mt-1 font-semibold text-navy">{c.intakes.join(", ")}</dd>
+                        <dd className="mt-1 font-semibold text-navy">{c.intakes.length ? c.intakes.join(", ") : <span className="font-normal text-gray-dark">Ask a counsellor</span>}</dd>
                       </div>
                     </dl>
                     <div className="mt-auto pt-6">
@@ -289,7 +289,10 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
           <tbody>
             {upcomingIntakes(u).map((i) => (
               <tr key={`${i.month}-${i.year}`} className="border-b border-border-light">
-                <td className="py-4 font-semibold text-navy">{i.month} {i.year}</td>
+                <td className="py-4 font-semibold text-navy">
+                  {i.month} {i.year}
+                  {i.note && <span className="mt-0.5 block max-w-md text-[13px] font-normal text-gray-dark">{i.note}</span>}
+                </td>
                 <td className="py-4 text-gray-dark">{i.applicationDeadline ?? "Ask a counsellor"}</td>
               </tr>
             ))}
@@ -334,6 +337,13 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
         <section>
           <SectionTitle>About {u.name}</SectionTitle>
           <p className="text-[15px] leading-relaxed text-slate">{u.overview}</p>
+          {u.highlights && u.highlights.length > 0 && (
+            <ul className="mt-5 list-disc space-y-2 pl-5 text-[15px] leading-relaxed text-slate marker:text-blue-royal">
+              {u.highlights.map((h) => (
+                <li key={h}>{h}</li>
+              ))}
+            </ul>
+          )}
         </section>
         {u.deposits && u.deposits.length > 0 && (
           <section>
@@ -341,7 +351,10 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
             <ul className="divide-y divide-border-light border-y border-border-light text-[15px]">
               {u.deposits.map((d) => (
                 <li key={d.label} className="flex justify-between gap-3 py-3.5">
-                  <span className="text-gray-dark">{d.label}</span>
+                  <span className="text-gray-dark">
+                    {d.label}
+                    {d.note && <span className="block text-[13px]">{d.note}</span>}
+                  </span>
                   <span className="font-semibold text-navy">{formatMoney(d.amount, country.currency)}</span>
                 </li>
               ))}
