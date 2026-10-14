@@ -1,3 +1,4 @@
+// Visa, fee and funds facts checked against official sources in October 2026. Re-check before editing.
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
@@ -26,9 +27,14 @@ export const metadata: Metadata = {
 const nzData: CountryPageData = {
   countryName: "New Zealand",
   countryCategorySlug: "new-zealand",
+  nepalGuide: {
+    href: "/study-in-newzealand-from-nepal",
+    title: "Applying from Nepal? Read the Nepal-specific guide to studying in New Zealand",
+    text: "Costs, the student visa process, intakes, test scores and scholarships for Nepali students.",
+  },
   heroHeading: "STUDY IN NEW ZEALAND",
   heroSubheading: "Experience High-Quality Education and a Welcoming Lifestyle",
-  heroDescription: "Experience high-quality education, innovative learning, and a welcoming lifestyle in New Zealand. Admizz Education supports you with university selection, application guidance, visa processing, and personalized counseling to build a strong international career with confidence.",
+  heroDescription: "Experience high-quality education, innovative learning, and a welcoming lifestyle in New Zealand. Admizz Education supports you with university selection, application guidance, visa processing, and personalised counselling to build a strong international career with confidence.",
   heroBackground: "/images/hero/newzealand-hero.webp",
   quickFacts: [
     { label: "Capital", value: "Wellington" },
@@ -36,26 +42,27 @@ const nzData: CountryPageData = {
     { label: "Dialing Code", value: "+64" },
     { label: "Currency", value: "NZD ($)" },
     { label: "Population", value: "5+ Million" },
-    { label: "Tuition fee", value: "NZD 31,000" },
+    { label: "Student visa fee", value: "From NZD 850" },
+    { label: "Living costs to show", value: "NZD 20,000 a year" },
   ],
   whyStudyTitle: "Why Choose New Zealand?",
   whyStudyIntro:
-    "New Zealand offers a powerful blend of world-class education, safe living, and industry-focused opportunities. With globally recognized universities, innovative teaching methods, and strong post-study pathways, it has become one of the most trusted destinations for students seeking academic excellence and career growth.",
+    "New Zealand offers a powerful blend of world-class education, safe living, and industry-focused opportunities. With globally recognised universities, innovative teaching methods, and strong post-study pathways, it has become one of the most trusted destinations for students seeking academic excellence and career growth.",
   benefits: [
-    { icon: "/images/icons/school-1.webp", title: "Globally Ranked Universities", description: "Deliver internationally recognized degrees supported by strong research and modern academics." },
+    { icon: "/images/icons/school-1.webp", title: "Globally Ranked Universities", description: "Deliver internationally recognised degrees supported by strong research and modern academics." },
     { icon: "/images/icons/accomodation-108.webp", title: "Safe and Friendly Environment", description: "Offer welcoming communities, supportive campuses, and excellent quality of life." },
     { icon: "/images/icons/consultation.webp", title: "Industry-Connected Learning", description: "Provide practical learning experiences aligned with evolving global workforce requirements." },
-    { icon: "/images/icons/consultation.webp", title: "Work Opportunities for Students", description: "Allow flexible part-time work options that support financial stability and learning." },
-    { icon: "/images/icons/visa-108.webp", title: "Strong Post-Study Pathways", description: "Enable graduates to secure skilled employment through clear visa opportunities." },
-    { icon: "/images/icons/scholarship-108.webp", title: "Affordable, High-Quality Education", description: "Ensure excellent academic standards at comparatively lower tuition and living costs." },
+    { icon: "/images/icons/consultation.webp", title: "Work Opportunities for Students", description: "Eligible students can work up to 25 hours a week in term and full-time in holidays." },
+    { icon: "/images/icons/visa-108.webp", title: "Strong Post-Study Pathways", description: "Eligible graduates can apply for a Post-Study Work Visa for up to 3 years, depending on the level of the qualification." },
+    { icon: "/images/icons/scholarship-108.webp", title: "Affordable, High-Quality Education", description: "Know your costs early: tuition varies by university and course, and Immigration New Zealand sets a clear living-cost requirement." },
   ],
-  admissionTitle: "Admission Requirements for Studying in New Zealand",
+  admissionTitle: "Admission Requirement For Studying In New Zealand",
   admissionIntro:
     "New Zealand offers a transparent and student-friendly admission process. Understanding the requirements helps you prepare confidently and increases your chances of securing admission to top universities and institutes. Here's everything you need to begin your study journey.",
   documentSections: [
     {
       title: "Documents Required for Admission",
-      intro: "",
+      intro: "Documents Required for Admission:",
       documents: [
         "Academic Documents (Certificates & Transcripts)",
         "IELTS / TOEFL Score (if applicable)",
@@ -69,7 +76,7 @@ const nzData: CountryPageData = {
       ],
     },
     {
-      title: "Documents Required for CAS",
+      title: "Documents to Confirm Your Place",
       intro: "Prepare your New Zealand study application with essential documents that confirm your academic eligibility, financial capacity, identity proof, and genuine student intent.",
       documents: [
         "Valid Passport",
@@ -77,7 +84,7 @@ const nzData: CountryPageData = {
         "Academic Certificates & Transcripts",
         "Tuition Fee Payment Receipt (as required by institution)",
         "Financial Evidence (bank statements or sponsor documents)",
-        "Confirmation of Enrollment Details (course, duration, fees)",
+        "Confirmation of Enrolment Details (course, duration, fees)",
         "Passport-size Photograph (as per university guidelines)",
       ],
     },
@@ -88,13 +95,14 @@ const nzData: CountryPageData = {
         "Valid passport",
         "Offer Letter from a New Zealand education provider",
         "Academic certificates & transcripts",
-        "English proficiency test scores (IELTS/TOEFL/PTE)",
+        "English test scores, if you have them (not mandatory for the visa, but your university sets its own level)",
         "Statement of Purpose (SOP)",
         "Financial proof (tuition + living expenses)",
-        "Bank statements (latest 6 months)",
-        "Completed visa application form",
-        "Fee payment receipt (if required)",
+        "Evidence of living costs, such as bank statements",
+        "Online visa application with all supporting documents",
+        "Evidence of tuition payment and the visa fee",
         "Passport-size photographs",
+        "Chest X-ray or medical certificate and police certificate, where required",
       ],
     },
   ],
@@ -104,7 +112,7 @@ const nzData: CountryPageData = {
     items: [
       { name: "February Intake", details: ["Ideal for most undergraduate and postgraduate courses."] },
       { name: "July Intake", details: ["Secondary intake for selected programs and universities."] },
-      { name: "November Intake", details: ["Limited courses available, mostly postgraduate programs."] },
+      { name: "Other start dates", details: ["Some providers also start students in November or at other times of year. Check your course."] },
     ],
   },
   universities: [
@@ -122,24 +130,23 @@ const nzData: CountryPageData = {
   costTitle: "Cost of Studying in New Zealand",
   costIntro: "Studying in New Zealand offers world-class education, but understanding the expenses is crucial for international students. Costs vary by university, course, and city.",
   costTable: [
-    { program: "Undergraduate", fee: "NZD 22,000 – 32,000" },
-    { program: "Postgraduate", fee: "NZD 24,000 – 35,000" },
-    { program: "Professional / MBA", fee: "NZD 30,000 – 45,000+" },
-    { program: "Living Expenses", fee: "NZD 15,000 – 18,000" },
-    { program: "Health Insurance", fee: "NZD 600 – 800" },
+    { program: "Tuition (all levels)", fee: "Varies by university and course" },
+    { program: "PhD tuition", fee: "Domestic fee rate at NZ universities" },
+    { program: "Living costs to show (tertiary study)", fee: "NZD 20,000 a year" },
+    { program: "Student visa application fee", fee: "From NZD 850" },
   ],
-  costNote: "Note: Costs vary by city and lifestyle. Auckland is generally higher; smaller cities are more budget-friendly.",
+  costNote: "Note: Visa amounts are set by Immigration New Zealand and can change. Tuition depends on the course, so check your university's fee page.",
   visaTitle: "Visa Process",
   visaIntro: "Applying for a New Zealand student visa is a critical step for international students. Proper documentation, timely submission, and understanding the process ensure smooth approval and hassle-free travel.",
   visaSteps: [
     { title: "Choose Course & University", description: "Select a New Zealand Qualifications Authority (NZQA) approved institution and program." },
     { title: "Submit Application", description: "Apply directly through the university portal with required academic documents." },
     { title: "Receive Offer Letter", description: "Get conditional or unconditional offer based on your eligibility and academic profile." },
-    { title: "Meet Financial Requirements", description: "Maintain sufficient funds for tuition fees, living costs, and insurance." },
-    { title: "Prepare Visa Documents", description: "Collect passport, offer letter, financial proof, English proficiency scores, and health insurance." },
-    { title: "Apply for Student Visa", description: "Submit your online visa application through Immigration New Zealand (INZ) portal and pay applicable fees." },
-    { title: "Biometrics Submission", description: "Provide fingerprints and photo at a visa application center if required." },
-    { title: "Wait for Visa Decision", description: "Visa processing typically takes 2–6 weeks depending on your application and documents." },
+    { title: "Meet Financial Requirements", description: "Show tuition for 1 course or 1 year (whichever is shorter) and NZD 20,000 a year for living costs, and agree to hold travel and health insurance." },
+    { title: "Prepare Visa Documents", description: "Collect passport, offer letter, financial proof, any English test scores, and a chest X-ray or police certificate where required." },
+    { title: "Apply for Student Visa", description: "Submit your application online with Immigration New Zealand (INZ). Paper applications are no longer accepted. The fee is from NZD 850." },
+    { title: "Biometrics Submission", description: "Provide biometrics if Immigration New Zealand asks for them." },
+    { title: "Wait for Visa Decision", description: "INZ lists average waits of about 2.5 weeks for universities and 4.5 weeks for polytechnics, but advises students from Nepal to apply at least 3 months before travel." },
     { title: "Receive Visa Approval", description: "Get your student visa approval notice and check the visa conditions carefully." },
     { title: "Travel to New Zealand", description: "Carry all essential documents, including visa approval, offer letter, and insurance details." },
     { title: "Complete Arrival Formalities", description: "Provide documentation at the airport and comply with immigration and health regulations." },
@@ -147,12 +154,12 @@ const nzData: CountryPageData = {
   faqItems: [
     { question: "Why should I choose New Zealand for higher studies?", answer: "New Zealand offers world-class education, safe campuses, and global career opportunities." },
     { question: "What are the top universities in New Zealand?", answer: "University of Auckland, University of Otago, University of Canterbury, Victoria University of Wellington, Massey University, and University of Waikato." },
-    { question: "What is the academic intake in New Zealand?", answer: "Major intakes are in February and July, with some courses available in November." },
-    { question: "What are the admission requirements for New Zealand universities?", answer: "You need academic transcripts, English proficiency (IELTS/TOEFL), a valid passport, and SOP." },
-    { question: "How much does it cost to study in New Zealand?", answer: "Tuition ranges from NZD 22,000–35,000 per year, living costs NZD 15,000–18,000 annually." },
-    { question: "What documents are required for a New Zealand student visa?", answer: "Passport, offer letter, financial proof, health insurance, academic certificates, SOP, and English scores." },
-    { question: "How do I apply for a New Zealand student visa?", answer: "Apply online via Immigration New Zealand (INZ), submit documents, pay fees, and provide biometrics if required." },
-    { question: "Can I work while studying in New Zealand?", answer: "Yes, international students can work up to 20 hours per week during semesters and full-time during vacations." },
+    { question: "What is the academic intake in New Zealand?", answer: "Major intakes are in February and July, and some providers also start students in November or at other times." },
+    { question: "What are the admission requirements for New Zealand universities?", answer: "You need academic transcripts, a valid passport, and an English level set by your university (often shown by IELTS). Requirements differ by university and course, so check the course page." },
+    { question: "How much does it cost to study in New Zealand?", answer: "Tuition varies by university and course. For the visa, Immigration New Zealand requires NZD 20,000 a year for living costs plus tuition for 1 course or 1 year of study, whichever is shorter." },
+    { question: "What documents are required for a New Zealand student visa?", answer: "Passport, offer of place, evidence of tuition and living costs, agreement to hold insurance, and a chest X-ray or police certificate where required. English scores are not mandatory for the visa." },
+    { question: "How do I apply for a New Zealand student visa?", answer: "Apply online via Immigration New Zealand (INZ), submit documents, and pay the fee (from NZD 850). Paper applications are no longer accepted. Apply at least 3 months before travel." },
+    { question: "Can I work while studying in New Zealand?", answer: "Yes. Eligible students can work up to 25 hours a week in term and full-time in holidays. Check your visa conditions." },
   ],
 };
 

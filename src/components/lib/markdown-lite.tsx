@@ -1,3 +1,4 @@
+import { blogP, blogLi } from "./blog-typography";
 import type { ReactNode } from "react";
 
 // Minimal, dependency-free Markdown-lite renderer for agent-generated blog
@@ -97,12 +98,17 @@ function parseBlocks(body: string): Block[] {
   return blocks;
 }
 
-export function renderMarkdownLite(body: string, keyPrefix: string): ReactNode[] {
+export function renderMarkdownLite(body: string, keyPrefix: string, variant?: "blog"): ReactNode[] {
+  const blog = variant === "blog";
   return parseBlocks(body).map((block, i) => {
     const blockKey = `${keyPrefix}-block-${i}`;
     if (block.type === "paragraph") {
       return (
-        <p key={blockKey} className="text-base text-gray-dark leading-relaxed mb-4">
+        <p
+          key={blockKey}
+          className={blog ? blogP.className : "text-base text-gray-dark leading-relaxed mb-4"}
+          style={blog ? blogP.style : undefined}
+        >
           {renderInline(block.text, blockKey)}
         </p>
       );
@@ -114,7 +120,11 @@ export function renderMarkdownLite(body: string, keyPrefix: string): ReactNode[]
     return (
       <ListTag key={blockKey} className={listClass}>
         {block.items.map((item, j) => (
-          <li key={`${blockKey}-item-${j}`} className="text-base leading-relaxed">
+          <li
+            key={`${blockKey}-item-${j}`}
+            className={blog ? blogLi.className : "text-base leading-relaxed"}
+            style={blog ? blogLi.style : undefined}
+          >
             {renderInline(item, `${blockKey}-item-${j}`)}
           </li>
         ))}

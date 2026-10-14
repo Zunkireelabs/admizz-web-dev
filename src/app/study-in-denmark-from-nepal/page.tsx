@@ -1,3 +1,4 @@
+// Visa, fee and funds facts checked against official sources in October 2026. Re-check before editing.
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
@@ -30,14 +31,14 @@ const pageData: NepalVariantData = {
   heroSubheading: "Build a Bright Future in One of the World's Top Study Destinations",
 
   introTitle: "A Smart Step Towards a Global Future",
-  introContent: "Denmark is an educational destination featuring world-class universities, English-taught programs, and post-study work opportunities. Danish education prioritizes academic excellence, creativity, and real-world problem solving. At Admizz Education, we provide complete service handling university selection, application support, and IELTS coaching alongside visa processing and pre-departure assistance.",
+  introContent: "Denmark is an educational destination featuring internationally recognised universities, English-taught programs, and a job-seeking residence permit after graduation. Danish education prioritizes academic excellence, creativity, and real-world problem solving. At Admizz Education, we provide complete service handling university selection, application support, and IELTS coaching alongside visa processing and pre-departure assistance.",
 
   whyStudyTitle: "Why Study in Denmark from Nepal",
   whyStudyIntro: "Denmark offers an exceptional education system with innovative teaching methods and excellent opportunities for international students.",
   benefits: [
     {
       title: "World-Class Universities",
-      description: "Denmark offers world-class universities like Copenhagen, Aarhus, and DTU, providing globally recognized, career-focused degrees.",
+      description: "Denmark has internationally recognised universities such as Copenhagen, Aarhus, and DTU, offering career-focused degrees.",
     },
     {
       title: "English-Taught Programs",
@@ -49,202 +50,124 @@ const pageData: NepalVariantData = {
     },
     {
       title: "Affordable Tuition & Scholarships",
-      description: "Compared to other European countries, Denmark offers relatively lower tuition fees and several scholarship options.",
+      description: "Non-EU/EEA tuition is set by each institution (Study in Denmark lists DKK 45,000-120,000 a year), and Danish Government Scholarships can cover part or all of it.",
     },
     {
       title: "Safe, Clean & Student-Friendly",
-      description: "Ranked as one of the safest and happiest countries in the world, Denmark offers a peaceful, inclusive, and high-quality lifestyle.",
+      description: "Denmark offers a peaceful, inclusive, and high-quality lifestyle for international students.",
     },
     {
-      title: "Post-Study Work Opportunities",
-      description: "International students can stay back up to 2 years after graduation to work and gain experience in Denmark's robust job market.",
+      title: "Post-Study Job-Seeking Permit",
+      description: "After a completed Danish bachelor's or master's, you can apply for a job-seeking residence permit: up to 1 year for applications from 1 October 2026 (earlier applications could get up to 3 years).",
     },
   ],
 
-  visaTitle: "Denmark Student Visa Requirements for Nepali Students",
-  visaIntro: "The Danish Long-Stay Student Visa (Type D) is a Residence Permit for Higher Education. Here are the required documents and information.",
+  visaTitle: "Denmark Student Visa Requirements for Nepalese Students",
+  visaIntro: "Nepali students need a residence permit for studies, applied for online with form ST1 and decided by SIRI, the Danish Agency for International Recruitment and Integration. Here are the main requirements.",
   visaRequirements: [
     {
-      category: "Admission Letter",
-      details: "From recognized Danish university",
+      category: "Admission",
+      details: "Admission to a state-approved or publicly accredited Danish higher education programme",
     },
     {
       category: "ST1 Application Form",
-      details: "Filled jointly by student and institution",
-    },
-    {
-      category: "Valid Passport",
-      details: "Must be valid for entire study duration",
+      details: "Applied for online (form ST1) through the Danish immigration website, nyidanmark.dk",
     },
     {
       category: "Financial Proof",
-      details: "Approximately DKK 76,764/year or NPR 15,00,000+",
+      details: "DKK 7,426 per month of study (2026 level), up to DKK 89,112 for studies over a year",
     },
     {
-      category: "English Proficiency",
-      details: "IELTS/TOEFL/PTE scores",
-    },
-    {
-      category: "Accommodation Proof",
-      details: "Rental agreement or accommodation confirmation",
-    },
-    {
-      category: "Travel & Health Insurance",
-      details: "Valid travel and health insurance coverage",
-    },
-    {
-      category: "Passport Photos",
-      details: "35mm x 45mm passport-size photos",
+      category: "Language of Instruction",
+      details: "Ability to speak and understand the language of instruction well enough to take part in your programme",
     },
     {
       category: "Biometric Data",
-      details: "Fingerprints and photo",
+      details: "Fingerprints and photo, given within 14 days of submitting the online application, at a Danish diplomatic mission or application centre",
     },
     {
       category: "Visa Fee",
-      details: "Approximately DKK 1,890",
+      details: "DKK 3,060 (2026 rate)",
     },
   ],
-  visaNote: "Processing Time: 2 to 3 months. Apply early to avoid delays.",
+  visaNote: "Processing time: normally 2 months, up to 3 months if SIRI needs more information (nyidanmark.dk). Apply early. Check nyidanmark.dk for the full document list.",
 
-  intakesTitle: "Denmark Intakes for Nepali Students",
-  intakesIntro: "Denmark offers two main intakes throughout the year, with the autumn intake being the primary option for most programs.",
+  intakesTitle: "Denmark Intakes for Nepalese Students",
+  intakesIntro: "Denmark's main intake is September (autumn). Some programmes also start in February.",
   intakes: [
     {
       intake: "Main Intake (Autumn/September)",
-      months: "Application deadline: January – March (varies by university)",
-      details: "Bachelor's, Master's, Professional Programs - main intake with maximum course and university options",
+      months: "Bachelor's application deadline for international applicants: 15 March, 12 noon (CET)",
+      details: "Bachelor's applications go through optagelse.dk. Master's deadlines are set by each institution, so check your programme page",
     },
     {
       intake: "Secondary Intake (Spring/February)",
-      months: "Limited availability in select universities",
-      details: "Mostly limited to Master's or technical courses - fewer options overall",
+      months: "Offered by some programmes only",
+      details: "Check each programme page on studyindenmark.dk for start dates and deadlines",
     },
   ],
-  intakesNote: "Recommended Timeline for Nepali Students: Research & shortlist universities (August – October, previous year), Take English proficiency tests (September – November), Prepare documents & SOP (November – December), Submit applications (January – March), Receive offers (April – May), Apply for student visa (May – July), Intake begins (August – September).",
 
   testTitle: "English Language Requirements",
-  testIntro: "Most Danish universities require proof of English proficiency. Here are the typical requirements for Nepali students.",
+  testIntro: "English-taught programmes require English at Danish upper-secondary 'English B' level, and some require 'English A'. Study in Denmark gives these equivalents.",
   testRequirements: [
     {
       test: "IELTS",
-      score: "6.5 overall (no band less than 6.0)",
+      score: "6.5 for English B, 7.0 for English A",
     },
     {
       test: "TOEFL iBT",
-      score: "83–100",
-    },
-    {
-      test: "PTE",
-      score: "58–65",
+      score: "79-93 for English B, 94-101 for English A",
     },
   ],
-  testNote: "Requirements may vary by university and program. Check specific university requirements before applying.",
+  testNote: "Each institution sets its own score equivalents and may accept other tests. Check your university's requirements before applying.",
 
   costTitle: "Cost of Studying in Denmark from Nepal",
-  costIntro: "Understanding the costs involved is crucial for planning your study journey to Denmark. Here's a breakdown of tuition fees and living expenses.",
+  costIntro: "Tuition for non-EU/EEA students is set by each institution. Study in Denmark lists DKK 45,000-120,000 a year as the range. Contact your university for the exact fee.",
   costTables: [
     {
-      title: "Tuition Fees (Annual)",
+      title: "Tuition Fees (Annual, non-EU/EEA students)",
       rows: [
         {
-          category: "Bachelor's Programs",
-          cost: "DKK 45,000 – 105,000",
-          nprCost: "NPR 9 – 20+ Lakhs",
-        },
-        {
-          category: "Master's Programs",
-          cost: "DKK 55,000 – 120,000",
-          nprCost: "NPR 11 – 24+ Lakhs",
-        },
-        {
-          category: "MBA/Specialized",
-          cost: "Up to DKK 150,000",
-          nprCost: "NPR 30+ Lakhs",
+          category: "Typical range across programmes",
+          cost: "DKK 45,000 – 120,000",
         },
       ],
     },
     {
-      title: "Living Expenses (Monthly & Annual)",
+      title: "Money to Show and Fees",
       rows: [
         {
-          category: "Accommodation (Monthly/Yearly)",
-          cost: "DKK 2,500 – 4,500 / DKK 30,000 – 54,000",
+          category: "Funds to show per month of study (2026 level)",
+          cost: "DKK 7,426",
         },
         {
-          category: "Food & Utilities (Monthly/Yearly)",
-          cost: "DKK 1,500 – 2,000 / DKK 18,000 – 24,000",
+          category: "Maximum funds to show for studies over a year (2026 level)",
+          cost: "DKK 89,112",
         },
         {
-          category: "Transportation (Monthly/Yearly)",
-          cost: "DKK 300 – 500 / DKK 3,600 – 6,000",
-        },
-        {
-          category: "Miscellaneous (Monthly/Yearly)",
-          cost: "DKK 800 – 1,200 / DKK 9,600 – 14,400",
-        },
-        {
-          category: "Total Living Expenses",
-          cost: "DKK 60,000 – 96,000/year",
-          nprCost: "NPR 12–18 Lakhs",
-        },
-      ],
-    },
-    {
-      title: "Other Expenses",
-      rows: [
-        {
-          category: "Residence Permit (Visa)",
-          cost: "DKK 1,890",
-          nprCost: "NPR 37,000",
-        },
-        {
-          category: "Health Insurance",
-          cost: "DKK 3,000 – 5,000/year",
-        },
-        {
-          category: "IELTS or TOEFL Test",
-          cost: "NPR 20,000 – 25,000",
-        },
-        {
-          category: "Flight Ticket (One-way)",
-          cost: "NPR 60,000 – 100,000",
+          category: "Residence permit application fee (2026 rate)",
+          cost: "DKK 3,060",
         },
       ],
     },
   ],
-  costNote: "Estimated Total First-Year Cost: Tuition + Living (NPR 20 – 40 Lakhs) + Additional Expenses (NPR 1.5 – 2.5 Lakhs) = Total: NPR 21.5 – 42.5 Lakhs",
+  costNote: "Paying your first semester's tuition can count in place of financial documentation (nyidanmark.dk). Living costs vary by city and lifestyle.",
 
-  scholarshipsTitle: "Scholarships for Nepali Students to Study in Denmark",
-  scholarshipsIntro: "Several scholarship opportunities are available to help reduce the cost of studying in Denmark. Popular universities offering scholarships include University of Copenhagen, Aarhus University, Technical University of Denmark (DTU), Copenhagen Business School (CBS), Aalborg University, and Roskilde University.",
+  scholarshipsTitle: "Scholarships for Nepalese Students to Study in Denmark",
+  scholarshipsIntro: "Scholarship options for non-EU/EEA students are limited, and most are run by the institutions themselves. Ask your university what it offers.",
   scholarships: [
     {
-      name: "Danish Government Scholarship",
-      provider: "Ministry of Higher Education",
-      details: "Full or partial tuition + living expenses. Eligibility: Outstanding academic performance, non-EU/EEA students",
+      name: "Danish Government Scholarships",
+      provider: "Danish higher education institutions",
+      details: "A limited number each year for highly qualified non-EU/EEA full-degree students with a time-limited study permit. Can be full or partial tuition waivers and/or grants towards living costs. Apply through the institution",
     },
     {
-      name: "Erasmus+ Scholarship",
-      provider: "European Union",
-      details: "Tuition fees, travel allowance, living stipend. Eligibility: Erasmus Mundus Joint Master Degree programs",
-    },
-    {
-      name: "Nordplus Program",
-      provider: "Nordic Council",
-      details: "Travel + study grants (limited). Eligibility: Exchange students in Nordplus institutions",
-    },
-    {
-      name: "University-Specific Scholarships",
-      provider: "Individual Danish Universities",
-      details: "Tuition waivers, partial funding. Eligibility: Academic merit or financial need",
-    },
-    {
-      name: "Private Foundation Scholarships",
-      provider: "Danish Foundations/Alumni Networks",
-      details: "Variable coverage. Eligibility: Course-specific, merit-based",
+      name: "Erasmus Mundus Joint Master Degrees",
+      provider: "Individual Erasmus Mundus programmes",
+      details: "Open to EU/EEA and non-EU/EEA students. Scholarship availability varies by programme, so contact the programme directly",
     },
   ],
-  scholarshipsNote: "Tip: Apply early and ensure your SOP, recommendation letters, and test scores (IELTS/PTE) are strong.",
+  scholarshipsNote: "Tip: Apply early and ensure your SOP, recommendation letters, and English test scores are strong.",
 
   universities: [
     { name: "University of Copenhagen", logo: "/images/universities/denmark/university-of-copenhagen.webp" },
@@ -259,51 +182,117 @@ const pageData: NepalVariantData = {
     { name: "University College Copenhagen", logo: "/images/universities/denmark/university-college-copenhagen.webp" },
   ],
 
+  quickAnswer:
+    "To study in Denmark from Nepal you need admission to a state-approved Danish programme and a residence permit for studies, applied for online with form ST1 and decided by SIRI. The fee is DKK 3,060 and processing normally takes 2 months, up to 3. You must show DKK 7,426 per month of study (2026 level), or pay your first semester's tuition. Students may work 90 hours a month from September to May and full-time in June, July and August. Bachelor's applications for September close on 15 March.",
+  lastUpdated: "October 2026",
+  sources: [
+    { label: "Nyidanmark.dk: Higher educational programmes (residence permit for studies)", url: "https://www.nyidanmark.dk/en-GB/You-want-to-apply/Study/Higher-Education" },
+    { label: "Nyidanmark.dk: Fee overview", url: "https://www.nyidanmark.dk/en-GB/Words-and-concepts/F%C3%A6lles/Fees/Fee---overview-of-fee-rates" },
+    { label: "Nyidanmark.dk: New rules for third-country students (1 October 2026)", url: "https://www.nyidanmark.dk/en-GB/News-Front-Page/2026/09/SIRI---Nye-regler-for-studerende" },
+    { label: "Study in Denmark: Tuition fees", url: "https://studyindenmark.dk/study-options/tuition-fees-and-scholarships" },
+    { label: "Study in Denmark: Language requirements", url: "https://studyindenmark.dk/study-options/how-to-apply/language-requirements" },
+    { label: "Study in Denmark: Scholarships", url: "https://studyindenmark.dk/study-options/scholarships" },
+  ],
+  relatedLinks: [
+    { label: "Study in Denmark", href: "/study-in-denmark", description: "universities, admission and visa overview" },
+    { label: "Study abroad rule changes for Nepali students", href: "/study-abroad-rule-changes", description: "dated visa, funds and work-rule changes" },
+    { label: "Scholarship assistance in Nepal", href: "/scholarship-assistance-in-nepal" },
+    { label: "Visa assistance for study abroad", href: "/visa-assistance-for-study-abroad" },
+    { label: "Test preparation", href: "/test-prep", description: "IELTS, PTE and TOEFL coaching" },
+  ],
+  extraSections: [
+    {
+      id: "denmark-requirements",
+      title: "Denmark Residence Permit for Studies: Requirements",
+      bullets: [
+        "Your programme must be at a publicly accredited or state-approved institution subject to state supervision.",
+        "You apply online with form ST1 and give biometrics within 14 days of submitting; from Nepal this is done at a Danish diplomatic mission or application centre.",
+        "SIRI decides the application. Normal processing is 2 months, up to 3 months if more information is needed.",
+        "You must be able to speak and understand the language of instruction well enough to take part in your programme.",
+        "The permit normally matches the standard length of your programme and can be extended.",
+      ],
+      note: "Source: Nyidanmark.dk, Higher educational programmes. The date you submit determines which rules apply, so check the page before you apply.",
+    },
+    {
+      id: "denmark-money-needed",
+      title: "How Much Money You Must Show for Denmark",
+      table: {
+        headers: ["Item", "Amount"],
+        rows: [
+          ["Funds per month of study (2026 level)", "DKK 7,426"],
+          ["Maximum for studies longer than a year (2026 level)", "DKK 89,112"],
+          ["Residence permit application fee (2026)", "DKK 3,060"],
+          ["Tuition, non-EU/EEA students (range listed by Study in Denmark)", "DKK 45,000 – 120,000 a year"],
+        ],
+      },
+      note: "Funds can be shown with bank statements (no more than 30 days old) or a scholarship or loan granted to you. Paying your first semester's tuition can replace the financial documentation. Sources: Nyidanmark.dk and Study in Denmark.",
+    },
+    {
+      id: "denmark-work-rights",
+      title: "Working in Denmark During and After Your Studies",
+      bullets: [
+        "During study: students in state-approved programmes may work 90 hours per month from September to May and full-time in June, July and August.",
+        "After study: if you apply on or after 1 October 2026, a job-seeking residence permit after a completed bachelor's or master's programme can be granted for up to 1 year (it was up to 3 years for earlier applications; PhD candidates keep 3 years).",
+        "You can apply for the job-seeking permit when you hold a valid study permit and have completed the programme, with 4 months or less left on your permit. The fee is DKK 3,060.",
+        "From 1 October 2026 accompanying family members can no longer get a residence permit under the job-seeking rules.",
+      ],
+      note: "Sources: Nyidanmark.dk, Higher educational programmes, Job seeking after studies, and New rules for third-country students.",
+    },
+  ],
+
   faqItems: [
     {
-      question: "Why should Nepali students choose Denmark for higher education?",
-      answer: "Denmark offers world-class education, globally recognized degrees, innovative teaching methods, and excellent post-study work opportunities. It's known for its high quality of life, student-friendly cities, and strong English-taught programs.",
+      question: "Why should Nepalese students choose Denmark for higher education?",
+      answer: "Denmark has English-taught bachelor's and master's programmes, a practice-oriented teaching style, and a job-seeking residence permit after graduation. Non-EU/EEA tuition is set by each institution, and limited Danish Government Scholarships exist. Check the specific programme and its fee before you decide.",
     },
     {
       question: "Do I need to speak Danish to study in Denmark?",
-      answer: "No. Many Bachelor's and Master's programs are taught entirely in English. However, learning basic Danish can be helpful for daily life and part-time job opportunities.",
+      answer: "No, not for English-taught programmes. You must show English at the level the programme asks for, usually IELTS 6.5 or equivalent. The Danish immigration rules ask you to understand the language of instruction well enough to take part, which for these programmes is English.",
     },
     {
       question: "What are the English language requirements for Nepali students?",
-      answer: "Requirements typically include: IELTS: 6.5 overall (no band less than 6.0), TOEFL iBT: 83–100, PTE: 58–65. Requirements may vary by university and program.",
+      answer: "Study in Denmark lists IELTS 6.5 or TOEFL iBT 79-93 for 'English B', and IELTS 7.0 or TOEFL iBT 94-101 for 'English A', which some programmes require. Each institution sets its own equivalents and may accept other tests, so check your university.",
     },
     {
       question: "What are the intakes to apply for universities in Denmark?",
-      answer: "The primary intake is Autumn (September). Some universities also offer a Spring (February) intake for select programs.",
+      answer: "The main intake is September, and some programmes also start in February. For bachelor's programmes, international applicants apply through optagelse.dk by 15 March, 12 noon CET. Master's deadlines are set by each institution, so check your programme page.",
     },
     {
       question: "How much does it cost to study in Denmark for Nepali students?",
-      answer: "Tuition Fees: NPR 9 – 30+ Lakhs/year. Living Expenses: NPR 12 – 18 Lakhs/year. Scholarships available to help reduce costs.",
+      answer: "Study in Denmark lists non-EU/EEA tuition at DKK 45,000-120,000 a year, with exact fees set by each institution. Add the DKK 3,060 residence permit fee and living costs. For the permit you must show DKK 7,426 per month of study (2026 level).",
     },
     {
-      question: "Are there scholarships available for Nepali students in Denmark?",
-      answer: "Yes. Nepali students can apply for Danish Government Scholarships, Erasmus+ Scholarships, University-specific merit scholarships, and Private foundation or alumni scholarships.",
+      question: "Are there scholarships available for Nepalese students in Denmark?",
+      answer: "Yes, but they are limited. Danish universities receive a limited number of Danish Government Scholarships each year for highly qualified non-EU/EEA full-degree students, as full or partial tuition waivers and/or living-cost grants. Erasmus Mundus programmes also accept non-EU/EEA students. Apply through the institution.",
     },
     {
       question: "Can I work while studying in Denmark?",
-      answer: "Yes. International students can work 20 hours per week during the semester and full-time during holidays.",
+      answer: "Yes. Students in state-approved programmes may work 90 hours per month from September to May, and full-time in June, July and August, according to the Danish immigration service. That is roughly 20 hours a week in term time, but the official limit is counted monthly.",
     },
     {
       question: "Can I stay in Denmark after graduation?",
-      answer: "Yes. After completing your studies, you can apply for a 6-month post-study job search visa, and later for a work visa if you find employment.",
+      answer: "You can apply for a job-seeking residence permit after completing a bachelor's or master's. If you apply on or after 1 October 2026 it can be granted for up to 1 year; earlier applications could get up to 3 years. The fee is DKK 3,060. Accompanying family members are no longer included.",
     },
     {
-      question: "What are the student visa requirements for Nepali students?",
-      answer: "You'll need: Admission letter from Danish university, ST1 visa application form, Proof of funds (~NPR 15+ Lakhs/year), Health insurance, accommodation, and biometric data.",
+      question: "What are the student visa requirements for Nepalese students?",
+      answer: "You need admission to a state-approved Danish programme, the ST1 application, proof of DKK 7,426 per month of study (2026 level) or first-semester tuition paid, and the ability to follow the language of instruction. Give biometrics within 14 days at a Danish mission or application centre. The fee is DKK 3,060.",
+    },
+    {
+      question: "How long does a Denmark student visa take for Nepali students?",
+      answer: "The Danish immigration service says normal processing for a study residence permit is 2 months, and up to 3 months if SIRI needs additional information. Apply as soon as you have your admission, and submit complete documents to avoid delays. Always check nyidanmark.dk for the current estimate.",
+    },
+    {
+      question: "How much is the Denmark student visa fee?",
+      answer: "The fee for a residence permit for higher education is DKK 3,060 at the 2026 rate, according to SIRI's fee overview. The same fee applies to extensions and to the job-seeking permit after graduation. Fees change each year, so confirm on nyidanmark.dk before paying.",
     },
     {
       question: "How can Admizz Education help me study in Denmark?",
-      answer: "Admizz provides: University shortlisting, Test prep (IELTS/PTE), Scholarship guidance, Visa documentation & application support, Pre-departure counseling.",
+      answer: "Admizz provides university shortlisting, test prep (IELTS/PTE), scholarship guidance, visa documentation and application support, and pre-departure counseling.",
     },
   ],
 
   ctaTitle: "Start Your Journey to Study in Denmark from Nepal",
-  ctaContent: "At Admizz, we help Nepali students navigate the entire Denmark study process — from choosing the right university to preparing documents and applying for a visa. We make it clear, personalized, and stress-free. Your future in Denmark starts here — with Admizz.",
+  ctaContent: "At Admizz, we help Nepalese students navigate the entire Denmark study process — from choosing the right university to preparing documents and applying for a visa. We make it clear, personalized, and stress-free. Your future in Denmark starts here — with Admizz.",
 };
 
 export default async function StudyInDenmarkFromNepalPage() {

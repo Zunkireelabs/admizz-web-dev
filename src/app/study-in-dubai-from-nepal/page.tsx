@@ -1,5 +1,7 @@
+// Visa, fee and funds facts checked against official sources in October 2026. Re-check before editing.
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
+import { DESTINATION_COMPARE_HEADERS, DESTINATION_COMPARE_ROWS, DESTINATION_COMPARE_SOURCES } from "@/data/destination-compare";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { client } from "@/lib/sanity";
 import { postsByCategoryQuery } from "@/lib/queries";
@@ -32,307 +34,182 @@ const pageData: NepalVariantData = {
 
   introTitle: "The New Hub for Global Education",
   introContent:
-    "Dubai has emerged as a premier education destination, hosting top-ranked international branch campuses from the UK, USA, and Australia. These institutions provide flexible programs, industry-driven curricula, and practical learning experiences spanning business, engineering, IT, healthcare, and hospitality. Studying in Dubai ensures academic freedom, innovation, and hands-on exposure aligned with global career demands. The city's multicultural environment, modern infrastructure, and strong industry connections make it ideal for Nepali students. At Admizz Education, we assist you at every step — from university selection, scholarship guidance, and English test preparation to application support, visa documentation, and pre-departure counseling.",
+    "Dubai hosts international branch campuses from the UK, Australia, India and other countries, many of them in free zones such as Dubai International Academic City and regulated by the Knowledge and Human Development Authority (KHDA). These institutions offer programs in business, engineering, IT, healthcare, and hospitality. This page is about Dubai specifically: branch campuses, free zones, KHDA licensing and Dubai residence permits. For federal universities and other emirates such as Abu Dhabi and Sharjah, see our UAE guide. At Admizz Education, we assist you at every step: university selection, scholarship guidance, English test preparation, application support, visa documentation, and pre-departure counseling.",
+
+  // Last edit of this page in the repo (git). Update when the content is next changed or reviewed.
+  dateModified: "2026-10-08",
+  guideTabLabel: "Compare",
+  guideSections: [
+    {
+      id: "compare",
+      title: "Compare Dubai with Other Study Destinations",
+      intro:
+        "If you are still deciding, here is how the main alternatives compare on visa fees, the funds you must show and work after study, using official figures as checked in October 2026.",
+      table: { headers: DESTINATION_COMPARE_HEADERS, rows: DESTINATION_COMPARE_ROWS },
+      links: [
+        { label: "UK", href: "/study-in-uk-from-nepal" },
+        { label: "USA", href: "/study-in-usa-from-nepal" },
+        { label: "Canada", href: "/study-in-canada-from-nepal" },
+        { label: "Australia", href: "/study-in-australia" },
+        { label: "Study abroad checklist", href: "/study-abroad-from-nepal" },
+      ],
+    },
+  ],
+  sourcesTitle: "Official sources",
 
   whyStudyTitle: "Why Study in Dubai?",
   benefits: [
     {
-      title: "Academic Excellence",
+      title: "Branch Campuses in One City",
       description:
-        "Achieve academic excellence with globally recognized programs, expert faculty, practical learning, and career-focused opportunities.",
+        "KHDA's directory lists dozens of licensed international higher education providers in Dubai, most of them branch campuses of universities from other countries.",
     },
     {
-      title: "Flexible Learning",
+      title: "Regulated Quality",
       description:
-        "Customize your academic path with elective options, practical training, and internship-based programs designed for real-world success.",
+        "KHDA licenses higher education providers in Dubai, rates branch campuses on a star scale, and certifies degrees from licensed universities.",
     },
     {
       title: "Multicultural Experience",
       description:
-        "Join a global student community in a safe, inclusive environment that encourages cross-cultural friendships and global awareness.",
+        "Join an international student community in a multicultural city that encourages cross-cultural friendships and global awareness.",
     },
     {
       title: "Work Opportunities",
       description:
-        "Gain hands-on experience with part-time jobs during your studies and internships with top companies in Dubai.",
+        "Student training and employment permits exist through MOHRE, and many programs include internships. Check what your visa and university allow before you accept any job.",
     },
     {
       title: "Scholarships & Support",
       description:
-        "Access scholarships and dedicated student support services that make quality education affordable and stress-free.",
+        "Many universities offer their own scholarships and student support services. Amounts and eligibility are set by each university.",
     },
     {
-      title: "State-of-the-Art Facilities",
+      title: "Modern Campuses",
       description:
-        "Dubai's campuses are equipped with cutting-edge technology, well-stocked libraries, innovation labs, and dedicated career support centers.",
+        "Dubai's campuses are built for international programs, with libraries, labs and career support centers. Facilities differ by institution.",
     },
   ],
 
   visaTitle: "Dubai Student Visa Requirements",
+  visaIntro:
+    "In Dubai a foreign student gets a residence permit with the licensed university or college acting as host and guarantor. GDRFA Dubai issues the permit.",
   visaRequirements: [
     {
       category: "Valid Passport",
-      details: "Must be valid for at least 6 months from the application date",
+      details: "A copy of your passport is required",
     },
     {
-      category: "University Admission Letter",
+      category: "University Admission",
       details:
-        "Official offer or acceptance letter from a recognized Dubai institution",
+        "Enrolment in a university or college that is licensed in the UAE and approved by the Ministry of Education or the competent educational authority in the emirate (in Dubai, KHDA)",
     },
     {
-      category: "Visa Application Form",
-      details: "Generally processed and submitted by the university",
+      category: "Visa Application",
+      details: "The university, as sponsor and guarantor, normally handles the permit with you",
     },
     {
-      category: "Passport-Sized Photos",
-      details: "As per UAE visa specifications",
+      category: "Photo",
+      details: "A recent colour personal photo with a white background",
     },
     {
-      category: "Proof of Tuition Fee Payment",
-      details: "Receipt or confirmation of initial payment or deposit",
-    },
-    {
-      category: "Financial Support Proof",
-      details: "Bank statement or sponsor's financial documents",
-    },
-    {
-      category: "Medical Fitness Certificate",
-      details: "Conducted at an approved UAE medical center after arrival",
+      category: "Medical Fitness Test",
+      details: "A medical examination approved by the competent authorities; the UAE requires it for applicants aged 18 and above",
     },
     {
       category: "Health Insurance",
-      details: "Mandatory; must be arranged or approved by the university",
+      details: "Required for the residence permit application; health insurance is mandatory in Dubai",
     },
     {
-      category: "Visa Fees",
-      details: "AED 2,500–3,500 (varies by institution)",
+      category: "Emirates ID",
+      details: "Residence visa holders apply for an Emirates ID from the Federal Authority for Identity, Citizenship, Customs and Port Security (ICP)",
     },
     {
-      category: "Security Deposit",
-      details: "AED 1,000–2,000 (refundable)",
-    },
-    {
-      category: "Emirates ID & Medical Fees",
-      details: "Approximately AED 1,000",
+      category: "Residence Permit Fees (GDRFA)",
+      details: "AED 200 permit fee, AED 10 Knowledge Dirham, AED 10 Innovation Dirham, AED 500 in-country fee and AED 20 delivery (AED 740 in total). The fee rises by AED 100 a year when the residency is longer than two years",
     },
     {
       category: "Processing Time",
-      details: "Usually takes 2–4 weeks",
+      details: "GDRFA lists 48 hours for the residence permit service itself. Entry permit, medical test and Emirates ID steps add time, so apply early",
     },
     {
       category: "Visa Validity",
-      details: "Valid for 1 year; renewable annually",
+      details: "Varies by visa type and sponsor; a sponsored residence visa can be for 1, 2 or 3 years",
     },
     {
-      category: "Long-Term Visa Option",
-      details: "5-year student visa available for outstanding students",
-    },
-    {
-      category: "Visa Sponsor",
-      details: "University acts as the official visa sponsor",
+      category: "After Your Studies",
+      details: "GDRFA lists a 60-day grace period to stay in the country after the permit expires or is cancelled",
     },
   ],
+  visaNote:
+    "Sources: GDRFA Dubai, Issuing a residency permit to a student; u.ae, Residence visa for studying in the UAE. Fees and rules change, so confirm on the official websites before you apply.",
 
-  intakesTitle: "Dubai Intakes for Nepali Students",
+  intakesTitle: "Dubai Intakes for Nepalese Students",
+  intakesIntro: "Each university sets its own intakes and application deadlines.",
   intakes: [
     {
-      intake: "Fall Intake",
-      months: "September (Application: March to July)",
-      details:
-        "Most popular intake; widest range of programs and scholarships.",
+      intake: "Main intake",
+      months: "Set by each university",
+      details: "Confirm the start date and deadline with the university you apply to.",
     },
     {
-      intake: "Spring Intake",
-      months: "January / February (Application: August to November)",
-      details:
-        "Ideal for students who miss the Fall intake; decent course availability.",
-    },
-    {
-      intake: "Summer Intake",
-      months: "May / July (Application: January to March)",
-      details:
-        "Limited course options; suitable for short-term or special programs.",
+      intake: "Second intake",
+      months: "Set by each university",
+      details: "Not every program starts more than once a year.",
     },
   ],
 
   testTitle: "English Language & Standardized Test Requirements",
+  testIntro: "Minimum English scores differ by university and program, so check the admissions page of each institution.",
   testRequirements: [
     {
-      test: "IELTS",
-      score: "5.5 – 6.5 (UG), 6.0 – 7.0 (PG)",
-      notes: "Most commonly accepted across Dubai universities.",
-    },
-    {
-      test: "TOEFL (iBT)",
-      score: "61 – 79 (UG), 79 – 90 (PG)",
-      notes: "Internet-based version widely accepted.",
-    },
-    {
-      test: "PTE Academic",
-      score: "50 – 58 (UG), 58 – 65 (PG)",
-      notes: "Accepted as an alternative to IELTS/TOEFL.",
-    },
-    {
-      test: "Duolingo",
-      score: "90 – 110",
-      notes: "Accepted by select institutions for remote testing.",
+      test: "IELTS / TOEFL / PTE",
+      score: "Set by each university",
+      notes: "Most universities ask for an accepted English test.",
     },
     {
       test: "University Placement Test",
       score: "Varies",
-      notes: "Some universities conduct their own in-house English exams.",
+      notes: "Some universities may run their own English assessment.",
     },
     {
-      test: "Medium of Instruction (MOI)",
-      score: "Case-by-case",
-      notes: "May be accepted if previous education was in English.",
-    },
-    {
-      test: "SAT",
-      score: "Rarely required",
-      notes: "For undergraduate programs",
-    },
-    {
-      test: "GRE",
+      test: "GRE / GMAT",
       score: "As required",
-      notes: "Some Engineering or STEM-related master's programs",
-    },
-    {
-      test: "GMAT",
-      score: "As required",
-      notes: "Required for select MBA or business graduate programs",
+      notes: "Only for programs that ask for them.",
     },
   ],
 
   costTitle: "Cost of Studying in Dubai from Nepal",
+  costIntro:
+    "Tuition in Dubai is set by each university and varies widely by program, so ask the university for its current fee schedule. The fees below are the official Dubai residence permit fees.",
   costTables: [
     {
-      title: "Tuition Fees by Program Level",
+      title: "Dubai Student Residence Permit Fees (GDRFA)",
       rows: [
-        {
-          category: "Undergraduate",
-          cost: "AED 30,000 – 60,000",
-          nprCost: "1,080,000 – 2,160,000",
-        },
-        {
-          category: "Postgraduate / Master's",
-          cost: "AED 40,000 – 75,000",
-          nprCost: "1,440,000 – 2,700,000",
-        },
-        {
-          category: "MBA / Specialized Programs",
-          cost: "AED 60,000 – 100,000",
-          nprCost: "2,160,000 – 3,600,000",
-        },
-      ],
-    },
-    {
-      title: "Monthly Living Expenses",
-      rows: [
-        {
-          category: "Accommodation",
-          cost: "AED 1,500 – 3,000",
-          nprCost: "54,000 – 108,000",
-        },
-        {
-          category: "Food",
-          cost: "AED 800 – 1,200",
-          nprCost: "29,000 – 43,000",
-        },
-        {
-          category: "Transportation",
-          cost: "AED 250 – 400",
-          nprCost: "9,000 – 14,400",
-        },
-        {
-          category: "Miscellaneous",
-          cost: "AED 300 – 500",
-          nprCost: "10,800 – 18,000",
-        },
-      ],
-    },
-    {
-      title: "Visa & Insurance Costs",
-      rows: [
-        {
-          category: "Student Visa Fee",
-          cost: "AED 2,500 – 3,500",
-          nprCost: "90,000 – 126,000",
-        },
-        {
-          category: "Emirates ID & Medical",
-          cost: "AED 1,000",
-          nprCost: "36,000",
-        },
-        {
-          category: "Health Insurance",
-          cost: "AED 1,000 – 1,500",
-          nprCost: "36,000 – 54,000",
-        },
+        { category: "Residence permit", cost: "AED 200" },
+        { category: "Knowledge Dirham", cost: "AED 10" },
+        { category: "Innovation Dirham", cost: "AED 10" },
+        { category: "In-country fee", cost: "AED 500" },
+        { category: "Delivery", cost: "AED 20" },
+        { category: "Total", cost: "AED 740" },
       ],
     },
   ],
   costNote:
-    "Additional Costs: Airfare (One-way Nepal to Dubai): NPR 40,000 – 60,000 | Books & Supplies: AED 1,000 – 2,000 per year | Entrance Exams (IELTS/TOEFL): NPR 20,000 – 25,000",
+    "Tuition, accommodation, living costs and health insurance premiums depend on the university and your lifestyle. Health insurance is mandatory in Dubai. Ask your university for a written cost estimate before you pay a deposit.",
 
-  scholarshipsTitle: "Scholarships for Nepali Students",
+  scholarshipsTitle: "Scholarships for Nepalese Students",
+  scholarshipsIntro:
+    "Scholarships in Dubai are offered by individual universities. We do not list amounts here because they change each year.",
   scholarships: [
     {
-      name: "Academic Merit Scholarship",
-      provider: "University of Dubai",
-      details: "Based on GPA / board exam results",
-    },
-    {
-      name: "Vice Chancellor's Scholarship",
-      provider: "Middlesex University Dubai",
-      details: "10%–50% fee waiver based on academic merit",
-    },
-    {
-      name: "President's Scholarship",
-      provider: "Canadian University Dubai",
-      details: "Up to 100% scholarship for top performers",
-    },
-    {
-      name: "International Student Merit Scholarship",
-      provider: "Heriot-Watt University Dubai",
-      details: "Academic and extracurricular achievement",
-    },
-    {
-      name: "Entrance Scholarship",
-      provider: "Manipal Academy of Higher Education",
-      details: "Awarded to new students based on merit",
-    },
-    {
-      name: "Amity Global Talent Scholarship",
-      provider: "Amity University Dubai",
-      details: "For talent in academics, arts, sports",
-    },
-    {
-      name: "Merit & Merit-Cum-Need Scholarships",
-      provider: "BITS Pilani, Dubai Campus",
-      details: "Based on academic score and financial need",
-    },
-    {
-      name: "Alumni/Sibling Discount",
-      provider: "Various Universities",
-      details: "10%–20% tuition reduction for family ties",
-    },
-    {
-      name: "Sheikh Hamdan Award",
-      provider: "Dubai Government",
-      details: "For academic and leadership excellence",
-    },
-    {
-      name: "Mohammed bin Rashid Scholarship",
-      provider: "MBRF / Dubai Government",
-      details: "High-achieving international students",
-    },
-    {
-      name: "Dubai Cares Support",
-      provider: "Dubai Cares NGO",
-      details: "Case-by-case basis; need-based",
+      name: "University merit scholarships",
+      provider: "Each university",
+      details: "Ask the admissions office about current awards, criteria and deadlines",
     },
   ],
+  scholarshipsNote:
+    "Admizz can help you check which scholarships fit your profile and apply on time.",
 
   universities: [
     { name: "American University in Dubai", logo: "/images/universities/uae/american-university-in-dubai.webp" },
@@ -347,51 +224,128 @@ const pageData: NepalVariantData = {
     { name: "University of Wollongong Dubai", logo: "/images/universities/uae/university-of-wollongong-dubai.webp" },
   ],
 
+  quickAnswer:
+    "In Dubai, your licensed university sponsors your student residence permit and acts as host and guarantor. GDRFA Dubai asks for a passport copy, a recent colour photo, an approved medical exam and health insurance, and lists fees of AED 740 in total (AED 200 permit, AED 10, AED 10, AED 500 in-country and AED 20 delivery) with a stated service time of 48 hours. KHDA licenses Dubai's international higher education providers, most of them branch campuses. Confirm your university and program are licensed before you pay.",
+  lastUpdated: "October 2026",
+  sources: [
+    { label: "GDRFA Dubai: Issuing a residency permit to a student", url: "https://www.gdrfad.gov.ae/en/services/f52024e0-b812-11ed-5210-4cd98f768936" },
+    { label: "u.ae: Residence visa for studying in the UAE", url: "https://u.ae/en/information-and-services/visa-and-emirates-id/residence-visas/residence-visa-for-studying-in-the-uae" },
+    { label: "KHDA: Higher education directory and ratings", url: "https://web.khda.gov.ae/en/education-directory/Higher-Education" },
+    { label: "u.ae: Higher education regulatory bodies", url: "https://u.ae/en/information-and-services/education/higher-education/Higher-education-regulatory-bodies" },
+    { label: "MOHRE: Training and work permit for students", url: "https://www.mohre.gov.ae/en/services/training-and-work-permit-for-students-2022" },
+    { label: "Dubai.ae: Health insurance", url: "https://www.dubai.ae/living/healthcare/health-insurance" },
+    ...DESTINATION_COMPARE_SOURCES,
+  ],
+  extraSections: [
+    {
+      id: "dubai-visa-fees",
+      title: "Dubai Student Residence Permit: Documents and Fees",
+      intro: "Dubai residency is handled by GDRFA Dubai. The university, college or institute must be licensed to operate in the UAE and approved by the Ministry of Education or the competent authority in the emirate.",
+      table: {
+        headers: ["Item", "Detail"],
+        rows: [
+          ["Documents", "Passport copy, recent colour photo with white background, approved medical examination, health insurance, ID receipt"],
+          ["Permit fee", "AED 200"],
+          ["Knowledge Dirham and Innovation Dirham", "AED 10 each"],
+          ["In-country fee", "AED 500"],
+          ["Delivery", "AED 20"],
+          ["Total", "AED 740 (the fee rises by AED 100 a year when residency is over two years)"],
+          ["Stated service time", "48 hours"],
+          ["Grace period after the permit ends", "60 days"],
+        ],
+      },
+      note: "Source: GDRFA Dubai, Issuing a residency permit to a student. Amounts change, so confirm on the GDRFA website.",
+    },
+    {
+      id: "dubai-khda-free-zones",
+      title: "KHDA, Free Zones and Branch Campuses in Dubai",
+      bullets: [
+        "KHDA regulates the quality of education in Dubai and certifies higher education degrees from licensed universities in Dubai.",
+        "KHDA's directory lists 41 international higher education providers licensed in Dubai, 37 of them international branch campuses.",
+        "Institutions in Dubai free zones such as Dubai International Academic City need an Academic Authorisation from KHDA, valid for 12 months, based on approval by KHDA's UQAIB quality process or licensure by the Commission for Academic Accreditation (CAA).",
+        "KHDA rates branch campuses on a one to five star scale, developed with QS.",
+        "Before you pay, check that your university is on the KHDA directory or the CAA/Ministry of Education licensed list, and that your program is accredited.",
+      ],
+      note: "Sources: KHDA higher education directory and rating pages; u.ae, Higher education regulatory bodies. Counts change as new campuses open.",
+    },
+    {
+      id: "dubai-money-needed",
+      title: "Money to Show for a Dubai Student Visa",
+      bullets: [
+        "The official GDRFA student residence permit page does not list a fixed bank balance. The documents it lists are the passport copy, photo, medical examination, health insurance and ID receipt.",
+        "Your university may ask for proof of fees paid or a financial document as part of its own admission and sponsorship process. Ask it for the exact list in writing.",
+        "Plan for tuition, accommodation, living costs and health insurance. All of these depend on your university and lifestyle.",
+      ],
+      note: "Source: GDRFA Dubai, Issuing a residency permit to a student.",
+    },
+    {
+      id: "dubai-work-rights",
+      title: "Working and Staying in Dubai",
+      bullets: [
+        "During study: MOHRE issues a student training and employment permit. A non-national student needs a valid residence visa, and for training a no-objection certificate from the educational institution is required. The permit runs for three months.",
+        "We could not verify a fixed weekly hour limit for international students on official sites. Ask your university and check MOHRE before you start any job.",
+        "After study: the UAE Golden Residence (10 years) is open to top graduates who meet GPA, university classification and timing conditions. See our UAE guide for the conditions.",
+        "Otherwise, you have a 60-day grace period after your student residence ends.",
+      ],
+      note: "Sources: MOHRE, Training and work permit for students; GDRFA Dubai, Golden residence permit for top students and graduates.",
+    },
+  ],
+
   faqItems: [
     {
       question: "Why should I choose Dubai for higher education?",
       answer:
-        "Dubai offers globally recognized degrees, multicultural exposure, modern infrastructure, affordable tuition fees, and excellent job prospects after graduation.",
+        "Dubai has dozens of international higher education providers licensed by KHDA, most of them branch campuses of universities from other countries, in a multicultural city. KHDA licenses providers, rates branch campuses and certifies degrees, which gives you an official quality check before you apply.",
     },
     {
       question: "Are degrees from Dubai universities valid internationally?",
       answer:
-        "Yes, most Dubai universities are affiliated with or accredited by UK, US, or Australian institutions, making their degrees widely accepted worldwide.",
+        "KHDA certifies degrees from licensed universities in Dubai, and the Ministry of Education advises students to register only in accredited institutions and programs. Recognition abroad depends on the university, the program and the country, so check licensing, accreditation and attestation before you pay any fee.",
     },
     {
       question: "What are the major intakes for Dubai universities?",
       answer:
-        "The primary intakes are September (Fall) and January/February (Spring). Some universities also offer a May/July (Summer) intake.",
+        "Each university sets its own intakes and deadlines, and not every program starts more than once a year. Check the admissions page of your chosen university for exact start dates, and apply early because the student residence permit needs time after your offer.",
     },
     {
       question: "Do I need IELTS or TOEFL to apply to Dubai universities?",
       answer:
-        "Yes, most universities require English proficiency tests like IELTS, TOEFL, PTE, or Duolingo. Some may offer in-house placement tests or waive it with an English-medium education letter.",
+        "Most universities ask for an accepted English test, but the minimum score is set by each university and program. Some may run their own English assessment. Check the admissions page of your university for the current score and accepted tests.",
     },
     {
       question: "How much does it cost to study in Dubai from Nepal?",
       answer:
-        "Tuition ranges from AED 30,000 to AED 100,000 per year, and living expenses can range between AED 2,500 – 5,000 per month.",
+        "Tuition is set by each university and differs by program, so ask for the current fee schedule. The official Dubai student residence permit fees add up to AED 740 (AED 200 permit, AED 10, AED 10, AED 500 in-country and AED 20 delivery), plus health insurance, accommodation and living costs.",
     },
     {
-      question: "Are there scholarships available for Nepali students?",
+      question: "Are there scholarships available for Nepalese students?",
       answer:
-        "Yes, many universities offer merit-based, need-based, and sports/talent scholarships to Nepali students. Some also provide early-bird discounts and sibling/alumni waivers.",
+        "Scholarships in Dubai come from individual universities, so amounts and criteria differ and change each year. Ask each admissions office what is open to international students and what deadlines apply. Admizz can help you shortlist awards that fit your profile.",
     },
     {
       question: "Can I work part-time while studying in Dubai?",
       answer:
-        "Yes, students can work part-time (up to 15–20 hours/week) during semesters and full-time during breaks, provided they have a work permit through the university.",
+        "MOHRE issues a student training and employment permit, and a non-national student needs a valid residence visa. A no-objection certificate from the educational institution is required for training. We could not verify a fixed weekly hour limit, so check with your university and MOHRE before working.",
     },
     {
-      question: "Is a student visa required to study in Dubai?",
+      question: "How is a student visa issued in Dubai?",
       answer:
-        "Yes, students need a UAE residence visa for education, usually sponsored by the university. Visa processing takes about 2–4 weeks.",
+        "Your licensed university acts as host and guarantor, and GDRFA Dubai issues the student residence permit. It asks for a passport copy, a recent photo, an approved medical examination and health insurance. The listed fees total AED 740 and the stated service time is 48 hours.",
     },
     {
-      question: "What documents are required for admission?",
+      question: "What is KHDA and why does it matter?",
       answer:
-        "Academic transcripts, Passport copy, Passport-size photos, English test score (IELTS/TOEFL), Statement of Purpose (SOP), Recommendation letters (if required)",
+        "KHDA is Dubai's education regulator. It licenses higher education providers, rates branch campuses from one to five stars and certifies degrees from licensed universities in Dubai. Checking your university on KHDA's directory before you apply helps you avoid unlicensed providers.",
+    },
+    {
+      question: "Is health insurance compulsory for students in Dubai?",
+      answer:
+        "Yes. Health insurance is a requirement for the student residence permit application, and health insurance is mandatory in Dubai under Dubai's health insurance law. Ask your university whether it arranges a policy or requires you to buy one, and check what the policy covers.",
+    },
+    {
+      question: "Can I stay in Dubai after my studies?",
+      answer:
+        "After your student residence ends you get a 60-day grace period. Top graduates who meet the conditions can apply for the 10-year Golden Residence, which requires a high GPA from a qualifying university and applying within two years of graduating. Other options depend on a job and a work permit.",
     },
     {
       question: "How can Admizz Education help me?",
@@ -400,9 +354,16 @@ const pageData: NepalVariantData = {
     },
   ],
 
+  relatedLinks: [
+    { label: "Study in the UAE from Nepal", href: "/study-in-uae-from-nepal", description: "the UAE-wide guide: Abu Dhabi, Sharjah and public universities" },
+    { label: "Study in Dubai", href: "/study-in-dubai", description: "destination overview" },
+    { label: "Study abroad rule changes for Nepali students", href: "/study-abroad-rule-changes", description: "dated visa, funds and work-rule changes" },
+    { label: "Scholarship assistance in Nepal", href: "/scholarship-assistance-in-nepal" },
+    { label: "Visa assistance for study abroad", href: "/visa-assistance-for-study-abroad" },
+  ],
   ctaTitle: "Begin Your Journey to Study in Dubai from Nepal",
   ctaContent:
-    "Are you a student in Nepal dreaming of studying in a land of innovation, opportunity, and global exposure? Dubai is fast becoming a top destination for higher education — offering world-class universities, industry-focused programs, and an international learning environment. At Admizz Education, we support Nepali students throughout the entire Dubai study process — from selecting the right university to scholarship guidance, visa support, and pre-departure preparation. We make your journey easy, personalized, and stress-free. Don't let uncertainty hold you back. Join the growing number of students from Nepal who are successfully building their futures in Dubai with Admizz by their side. Contact us today to book your free Dubai education consultation. Your journey to Dubai begins here — with Admizz.",
+    "Are you a student in Nepal dreaming of studying in a land of innovation, opportunity, and global exposure? Dubai offers international branch campuses, industry-focused programs, and a multicultural learning environment. At Admizz Education, we support Nepalese students throughout the entire Dubai study process — from selecting the right university to scholarship guidance, visa support, and pre-departure preparation. We make your journey easy, personalized, and stress-free. Don't let uncertainty hold you back. Contact us today to book your free Dubai education consultation. Your journey to Dubai begins here — with Admizz.",
 };
 
 export default async function StudyInDubaiFromNepalPage() {

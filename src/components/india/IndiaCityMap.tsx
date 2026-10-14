@@ -21,10 +21,8 @@ interface City {
   popular?: boolean;
   region: string;
   universities: string[];
-  studentsApprox: string;
   signatureDish: string;
   climate: string;
-  flightHours: string;
   blurb: string;
 }
 
@@ -37,12 +35,10 @@ const CITIES: City[] = [
     popular: true,
     region: "North India · National Capital Region",
     universities: ["University of Delhi", "JNU", "IIT Delhi", "AIIMS", "Jamia Millia Islamia"],
-    studentsApprox: "~420 Nepali students",
     signatureDish: "Chole Bhature, Butter Chicken",
     climate: "Hot summers · Cold foggy winters",
-    flightHours: "1h 35m direct from Kathmandu",
     blurb:
-      "The political and academic capital. Home to India's most prestigious central universities, world-class research institutes, and a huge community of South Asian students.",
+      "The political and academic capital. Home to several central universities and national research institutes.",
   },
   {
     id: "mumbai",
@@ -52,10 +48,8 @@ const CITIES: City[] = [
     popular: true,
     region: "West India · Maharashtra",
     universities: ["University of Mumbai", "IIT Bombay", "TISS", "Jai Hind College", "NMIMS"],
-    studentsApprox: "~310 Nepali students",
     signatureDish: "Vada Pav, Pav Bhaji",
     climate: "Warm year-round · Monsoon Jun–Sep",
-    flightHours: "3h direct from Kathmandu",
     blurb:
       "India's financial and creative capital. Best place for business, finance, media, and design programs. Cosmopolitan, fast-paced, full of opportunity.",
   },
@@ -67,12 +61,10 @@ const CITIES: City[] = [
     popular: true,
     region: "South India · Karnataka",
     universities: ["IISc Bangalore", "Christ University", "Bangalore University", "IIM Bangalore"],
-    studentsApprox: "~280 Nepali students",
     signatureDish: "Masala Dosa, Bisi Bele Bath",
     climate: "Mild year-round · India's most pleasant climate",
-    flightHours: "3h 30m direct from Kathmandu",
     blurb:
-      "India's Silicon Valley. The default destination for engineering, computer science, AI, and entrepreneurship. Internship and placement opportunities are unmatched.",
+      "India's Silicon Valley. The default destination for engineering, computer science, AI, and entrepreneurship. A large technology and start-up scene.",
   },
   {
     id: "pune",
@@ -81,10 +73,8 @@ const CITIES: City[] = [
     y: 643,
     region: "West India · Maharashtra",
     universities: ["Symbiosis International", "Savitribai Phule Pune University", "MIT-WPU"],
-    studentsApprox: "~190 Nepali students",
     signatureDish: "Misal Pav, Puran Poli",
     climate: "Pleasant · Mild winters",
-    flightHours: "3h via Mumbai from Kathmandu",
     blurb:
       "The Oxford of the East. Strong in management, design, and engineering. Calmer than Mumbai but with all the academic prestige.",
   },
@@ -95,12 +85,10 @@ const CITIES: City[] = [
     y: 679,
     region: "South India · Telangana",
     universities: ["University of Hyderabad", "IIIT Hyderabad", "Osmania University", "ISB"],
-    studentsApprox: "~165 Nepali students",
     signatureDish: "Hyderabadi Biryani",
     climate: "Warm · Mild winters",
-    flightHours: "3h direct from Kathmandu",
     blurb:
-      "India's emerging tech and biotech hub. Strong in computer science, pharmacy, and business. Affordable cost of living with world-class infrastructure.",
+      "India's emerging tech and biotech hub. Strong in computer science, pharmacy, and business. A growing technology and education hub.",
   },
   {
     id: "chennai",
@@ -109,12 +97,10 @@ const CITIES: City[] = [
     y: 824,
     region: "South India · Tamil Nadu",
     universities: ["IIT Madras", "Anna University", "Loyola College", "Madras Christian College"],
-    studentsApprox: "~140 Nepali students",
     signatureDish: "Idli Sambar, Filter Coffee",
     climate: "Hot tropical · Coastal",
-    flightHours: "3h 45m via Kolkata",
     blurb:
-      "India's engineering and medical hub. IIT Madras is consistently ranked India's #1 engineering institute. Strong cultural identity and student-friendly.",
+      "India's engineering and medical hub. IIT Madras is among India's best-known engineering institutes. Strong cultural identity and student-friendly.",
   },
   {
     id: "manipal",
@@ -123,12 +109,10 @@ const CITIES: City[] = [
     y: 814,
     region: "South India · Karnataka",
     universities: ["Manipal Academy of Higher Education (MAHE)"],
-    studentsApprox: "~95 Nepali students",
     signatureDish: "Mangalorean coastal cuisine",
     climate: "Coastal · Warm · Monsoon Jun–Sep",
-    flightHours: "4h via Bangalore",
     blurb:
-      "A purpose-built university town. MAHE is one of India's top private universities for medicine, engineering, and management. Beautiful campus, focused academic culture.",
+      "A purpose-built university town. MAHE is a well-known private university with programs in medicine, engineering, and management. Beautiful campus, focused academic culture.",
   },
 ];
 
@@ -193,7 +177,7 @@ export default function IndiaCityMap() {
             Seven cities. One country. <span style={{ color: "#FF6B1A" }}>Every kind of student life.</span>
           </h2>
           <p className="text-[15px] md:text-base text-gray-700 max-w-2xl mx-auto">
-            Tap a city to see top universities, the student community, climate, and what makes each place special.
+            Tap a city to see top universities, climate, and what makes each place special.
           </p>
         </div>
 
@@ -344,8 +328,6 @@ export default function IndiaCityMap() {
             <p className="text-[14.5px] text-gray-700 leading-relaxed mb-6">{city.blurb}</p>
 
             <div className="grid grid-cols-2 gap-4 mb-6">
-              <Fact label="Nepali students" value={city.studentsApprox} />
-              <Fact label="Flight from KTM" value={city.flightHours} />
               <Fact label="Climate" value={city.climate} />
               <Fact label="Signature dish" value={city.signatureDish} />
             </div>
@@ -427,8 +409,6 @@ export default function IndiaCityMap() {
                   <div className="px-4 pb-4">
                     <p className="text-[13.5px] text-gray-700 leading-relaxed mb-3">{c.blurb}</p>
                     <div className="grid grid-cols-2 gap-3 mb-4">
-                      <Fact small label="Nepali students" value={c.studentsApprox} />
-                      <Fact small label="Flight from KTM" value={c.flightHours} />
                       <Fact small label="Climate" value={c.climate} />
                       <Fact small label="Dish" value={c.signatureDish} />
                     </div>

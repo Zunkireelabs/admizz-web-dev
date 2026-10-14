@@ -99,6 +99,14 @@ function readLocalPosts() {
   }
 }
 
+// Slugs with their own page file under src/app (they override the noindex flag on the Sanity post).
+function repoPageSlugs() {
+  const dir = path.join(ROOT, "src", "app");
+  return fs.readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && fs.existsSync(path.join(dir, e.name, "page.tsx")))
+    .map((e) => e.name);
+}
+
 async function main() {
   const llmsPath = path.join(ROOT, "public", "llms.txt");
   const existing = fs.readFileSync(llmsPath, "utf-8");
@@ -111,7 +119,7 @@ async function main() {
     .replace(/rated [\d.]+ from \d+ Google reviews \(as of [^)]+\)/, `rated ${r.value} from ${r.count} Google reviews (as of ${r.asOf})`);
 
   const sanityPosts = await client.fetch(
-    `*[_type == "post" && defined(slug.current) && !(slug.current in ${JSON.stringify(RETIRED)})] | order(coalesce(_updatedAt, publishedAt) desc) {
+    `*[_type == "post" && defined(slug.current) && !(slug.current in ${JSON.stringify(RETIRED)}) && (!(seo.noIndex == true) || slug.current in ${JSON.stringify(repoPageSlugs())})] | order(coalesce(_updatedAt, publishedAt) desc) {
       "slug": slug.current, title, excerpt, publishedAt, _updatedAt, seo
     }`
   );

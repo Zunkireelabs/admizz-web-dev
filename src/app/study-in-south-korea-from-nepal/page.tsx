@@ -1,21 +1,23 @@
+// Visa, fee and funds facts checked against official sources in October 2026. Re-check before editing.
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
+import { DESTINATION_COMPARE_HEADERS, DESTINATION_COMPARE_ROWS, DESTINATION_COMPARE_SOURCES } from "@/data/destination-compare";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { client } from "@/lib/sanity";
 import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in South Korea from Nepal: Cost, Visa, Scholarships",
+  title: "Study in South Korea from Nepal 2026: Cost, Visa & Scholarships",
   description:
-    "Study in South Korea from Nepal: D-2 visa, intakes, English and TOPIK requirements, annual costs and scholarships including GKS. Admizz Education can help.",
+    "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-south-korea-from-nepal",
   },
   openGraph: {
-    title: "Study in South Korea from Nepal: Cost, Visa, Scholarships",
+    title: "Study in South Korea from Nepal 2026: Cost, Visa & Scholarships",
     description:
-      "Study in South Korea from Nepal: D-2 visa, intakes, English and TOPIK requirements, annual costs and scholarships including GKS. Admizz Education can help.",
+      "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-south-korea-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/korean.webp"],
@@ -29,13 +31,34 @@ const pageData: NepalVariantData = {
   heroHeading: "Build a Bright Future in One of the World's Top Study Destinations",
   heroSubheading: "Study in South Korea from Nepal offers world-class education, scholarships, affordable tuition, cultural exposure, and global career opportunities.",
   introTitle: "Shape Your Future in Korea's World-Class Universities",
-  introContent: "South Korea is increasingly popular among Nepali students seeking world-class education, modern lifestyle, and global career opportunities. The country is recognized for academic excellence, cutting-edge technology, safe cities, and high standard of living. Key opportunities include prestigious universities like Seoul National University, government-funded options such as the Global Korea Scholarship (GKS), and programs in IT, engineering, business, design, and biotechnology. Partner with Admizz for a smooth and stress-free application journey.",
+  introContent: "South Korea is increasingly popular among Nepalese students: Nepal was the fifth-largest source of international students there in 2025, with 12,784 students. Opportunities include well-known universities like Seoul National University, government-funded options such as the Global Korea Scholarship (GKS), and programs in IT, engineering, business, design, and biotechnology. Partner with Admizz for a smooth and stress-free application journey.",
+  // Last edit of this page in the repo (git). Update when the content is next changed or reviewed.
+  dateModified: "2026-10-08",
+  guideTabLabel: "Compare",
+  guideSections: [
+    {
+      id: "compare",
+      title: "Compare South Korea with Other Study Destinations",
+      intro:
+        "If you are still deciding, here is how the main alternatives compare on visa fees, the funds you must show and work after study, using official figures as checked in October 2026.",
+      table: { headers: DESTINATION_COMPARE_HEADERS, rows: DESTINATION_COMPARE_ROWS },
+      links: [
+        { label: "UK", href: "/study-in-uk-from-nepal" },
+        { label: "USA", href: "/study-in-usa-from-nepal" },
+        { label: "Canada", href: "/study-in-canada-from-nepal" },
+        { label: "Australia", href: "/study-in-australia" },
+        { label: "Study abroad checklist", href: "/study-abroad-from-nepal" },
+      ],
+    },
+  ],
+  sourcesTitle: "Official sources",
+
   whyStudyTitle: "Why Study in South Korea from Nepal",
-  whyStudyIntro: "South Korea offers exceptional opportunities for Nepali students looking to pursue higher education abroad.",
+  whyStudyIntro: "South Korea offers exceptional opportunities for Nepalese students looking to pursue higher education abroad.",
   benefits: [
     {
       title: "Globally Respected Universities",
-      description: "Seoul National University, KAIST, and Yonsei, globally recognized for innovation, research excellence, and academic rigor"
+      description: "Well-known research universities such as Seoul National University, KAIST, and Yonsei, plus many other universities that accept international students"
     },
     {
       title: "High-Tech Learning Environment",
@@ -43,11 +66,11 @@ const pageData: NepalVariantData = {
     },
     {
       title: "Affordable Tuition & Scholarships",
-      description: "South Korea provides affordable tuition and diverse government or university scholarships, making it a cost-effective study destination"
+      description: "Average annual undergraduate tuition is about KRW 4.3 million at national and public universities and KRW 7.6 million at private ones, and government and university scholarships are available"
     },
     {
       title: "Post-Study Work & Job Opportunities",
-      description: "Excellent career opportunities for international graduates due to its robust economy and global company presence"
+      description: "After your degree you can move to a D-10-1 job-seeking visa, which can be extended in 6-month steps up to 2 years"
     },
     {
       title: "Cultural and Global Exposure",
@@ -55,11 +78,11 @@ const pageData: NepalVariantData = {
     },
     {
       title: "Safe, Student-Friendly Country",
-      description: "Ranked among the world's safest nations"
+      description: "Large international student community, including 12,784 Nepali students in 2025, and affordable public transport"
     }
   ],
-  visaTitle: "South Korea Student Visa for Nepali Students",
-  visaIntro: "Nepali students need a D-2 Student Visa to study in South Korea at the undergraduate, graduate, or doctoral level.",
+  visaTitle: "South Korea Student Visa for Nepalese Students",
+  visaIntro: "Nepalese students need a D-2 Student Visa to study in South Korea at the undergraduate, graduate, or doctoral level.",
   visaRequirements: [
     {
       category: "Visa Type",
@@ -71,57 +94,57 @@ const pageData: NepalVariantData = {
     },
     {
       category: "Where to Apply",
-      details: "Embassy of the Republic of Korea, Kathmandu"
+      details: "Embassy of the Republic of Korea, Kathmandu (an online appointment is required)"
     },
     {
       category: "Processing Time",
-      details: "2 to 4 weeks (after submission of all required documents)"
+      details: "The embassy says processing can take 21 working days or more. Apply at least 21 days before your departure date"
     },
     {
       category: "Validity",
-      details: "Usually matches the duration of your study program"
+      details: "A D-2 visa allows a stay of up to 2 years per issuance, with extensions depending on your program"
     },
     {
       category: "Work Rights",
-      details: "Up to 20 hours per week during semesters; full-time during holidays (with permission)"
+      details: "Allowed only with part-time work permission from immigration. Hours depend on your degree level, year and Korean language level"
     }
   ],
-  intakesTitle: "Korea University Intakes for Nepali Students",
-  intakesIntro: "South Korean universities offer two main academic intakes each year. Most Nepali students apply for Fall intake to allow time for scholarships and visa procedures.",
+  intakesTitle: "Korea University Intakes for Nepalese Students",
+  intakesIntro: "Korean universities run two main semesters, starting in March and September. Application windows differ by university, so check each university's international admissions page.",
   intakes: [
     {
       intake: "Spring Intake",
       months: "March",
-      details: "Main intake—ideal for new academic year start in most universities"
+      details: "First semester of the Korean academic year"
     },
     {
       intake: "Fall Intake",
       months: "September",
-      details: "Secondary intake—fewer programs, but still offers major course options"
+      details: "Second semester. Which programs admit in September depends on the university"
     }
   ],
   testTitle: "Language & English Proficiency Requirements",
-  testIntro: "English proficiency is required for English-taught programs. Korean-taught programs require TOPIK certification.",
+  testIntro: "Each university or department sets its own language requirement, in English for English-taught programs and in Korean for Korean-taught programs. Check your university's international admissions page for the exact score.",
   testRequirements: [
     {
-      test: "Undergraduate",
-      score: "IELTS 5.5–6.5 / TOEFL / Duolingo / TOPIK",
-      notes: "Requirements vary by university and program"
+      test: "Korean embassy visa application (Nepal)",
+      score: "IELTS or TOPIK report",
+      notes: "Applicants who completed secondary and higher education in the USA, UK, Canada, Australia, New Zealand, Ireland or South Africa may submit proof of education instead"
     },
     {
-      test: "Postgraduate",
-      score: "IELTS 6.0–7.0 or equivalent",
-      notes: "Higher scores may be required for competitive programs"
+      test: "English-taught programs",
+      score: "Set by each university",
+      notes: "Check the accepted tests and minimum scores with your chosen university"
     },
     {
       test: "Korean-taught programs",
-      score: "TOPIK Level 3–4 (minimum)",
-      notes: "Required for Korean-medium instruction programs"
+      score: "TOPIK, level set by each university",
+      notes: "TOPIK scores are valid for 2 years from the date of score announcement"
     }
   ],
-  testNote: "Key Tips for Nepali Students: Pre-sessional Korean language courses available. English-based programs do not always require TOPIK. Admizz provides IELTS & TOPIK coaching in Nepal.",
+  testNote: "Admizz provides IELTS and TOPIK guidance in Nepal. TOPIK is also used for GKS applications and, later, for part-time work permission.",
   costTitle: "Cost of Studying in South Korea from Nepal",
-  costIntro: "The cost of studying in South Korea varies depending on the university type (public vs. private) and program of study. Public universities are more affordable than private ones.",
+  costIntro: "The cost of studying in South Korea varies by university type (national, public or private), program and city. Estimates below are based on Study in Korea (NIIED) figures; check your university for exact fees.",
   costTables: [
     {
       title: "Annual Cost Breakdown",
@@ -133,74 +156,149 @@ const pageData: NepalVariantData = {
         },
         {
           category: "Living Expenses",
-          cost: "₩5,000,000–₩9,000,000",
-          nprCost: "NPR 500,000–900,000"
+          cost: "₩9,000,000–₩12,000,000 (₩750,000–₩1,000,000 a month)"
         },
         {
           category: "Health Insurance",
-          cost: "₩60,000–₩100,000",
-          nprCost: "NPR 6,000–10,000"
+          cost: "National Health Insurance applies after 6 months of stay; D-2 students get a 50% premium reduction"
         },
         {
           category: "Application & Admin Fees",
-          cost: "₩50,000–₩150,000",
-          nprCost: "NPR 5,000–15,000"
+          cost: "Set by each university"
         },
         {
-          category: "Total Estimated Cost",
-          cost: "₩9,000,000–₩19,000,000",
-          nprCost: "NPR 900,000–1,900,000"
+          category: "Tuition plus living (estimate)",
+          cost: "₩13,000,000–₩22,000,000"
         }
       ]
     }
   ],
-  costNote: "Public universities are more affordable than private ones. Tuition varies based on course (engineering, medicine, arts, etc.)",
-  scholarshipsTitle: "Scholarships for Nepali Students",
-  scholarshipsIntro: "South Korea offers numerous scholarship opportunities for Nepali students to help reduce the financial burden of studying abroad.",
+  costNote: "Study in Korea lists average annual undergraduate tuition of about KRW 4.3 million at national and public universities and KRW 7.6 million at private universities, and about KRW 2.5 million to 4.4 million for graduate programs. By department the averages run from about KRW 6.0 million (humanities and social sciences) to KRW 9.8 million (medicine). Study in Korea estimates living costs at KRW 750,000 to 1,000,000 a month, including housing of KRW 500,000 to 700,000 (dormitory fees vary).",
+  scholarshipsTitle: "Scholarships for Nepalese Students",
+  scholarshipsIntro: "Nepali students can apply for the Korean government's Global Korea Scholarship (GKS) and for scholarships offered by individual universities.",
   scholarships: [
     {
       name: "Global Korea Scholarship (GKS)",
-      details: "Fully-funded by the Korean government for Bachelor's & Master's degrees"
+      details: "Korean government scholarship for undergraduate and graduate degrees. It covers airfare, Korean language training, tuition and a monthly allowance"
     },
     {
       name: "University Scholarships",
-      details: "Tuition waivers or monthly stipends based on academic merit"
-    },
-    {
-      name: "Korean Language Awards",
-      details: "Offered to students who complete language programs and qualify for higher degrees"
+      details: "Many universities offer tuition discounts to international students. Amounts and eligibility are set by each university, so check with the university"
     }
   ],
   scholarshipsNote: "Apply through Admizz Education today and get expert support in finding, applying, and winning scholarships",
   universities: [],
+  quickAnswer:
+    "To study in South Korea from Nepal you need an admission letter from a Korean university and a D-2 student visa from the Korean Embassy in Kathmandu, applied for through an online appointment. The embassy asks for verified academic documents, a statement of purpose, an IELTS or TOPIK report, a TB medical report, a balance certificate and six months of bank statements, and says processing can take 21 working days or more. Average undergraduate tuition is about KRW 4.3 to 7.6 million a year, and living costs about KRW 750,000 to 1,000,000 a month. Part-time work needs permission from immigration.",
+  lastUpdated: "October 2026",
+  sources: [
+    { label: "Embassy of Korea in Nepal: Visa issuance", url: "https://overseas.mofa.go.kr/np-en/wpge/m_1714/contents.do" },
+    { label: "Study in Korea: Student visa and stay status", url: "https://www.studyinkorea.go.kr/en/plan/visaAndStay.do" },
+    { label: "Study in Korea: Part-time work and job-seeking visa", url: "https://www.studyinkorea.go.kr/en/life/residenceAndStayInfo.do?tab=part-time-job" },
+    { label: "Study in Korea: Study expenses in Korea", url: "https://www.studyinkorea.go.kr/en/plan/abroadExpenses.do" },
+    { label: "Study in Korea: Living costs and expenses", url: "https://www.studyinkorea.go.kr/en/life/livingExpense.do" },
+    { label: "Study in Korea: Scholarships (GKS)", url: "https://www.studyinkorea.go.kr/en/plan/scholarship.do" },
+    ...DESTINATION_COMPARE_SOURCES,
+  ],
+  relatedLinks: [
+    { label: "Study in South Korea", href: "/study-in-south-korea", description: "universities, admission and visa overview" },
+    { label: "Study abroad rule changes for Nepali students", href: "/study-abroad-rule-changes", description: "dated visa, funds and work-rule changes" },
+    { label: "Scholarship assistance in Nepal", href: "/scholarship-assistance-in-nepal" },
+    { label: "Visa assistance for study abroad", href: "/visa-assistance-for-study-abroad" },
+    { label: "Test preparation", href: "/test-prep", description: "IELTS and language test coaching" },
+  ],
+  extraSections: [
+    {
+      id: "korea-visa-documents",
+      title: "Documents for a South Korea Student Visa from Nepal",
+      intro: "The Korean Embassy in Kathmandu lists these documents for a D-2 student visa (stay of more than 90 days). A visa appointment must be booked online.",
+      bullets: [
+        "From the university: Standard Admission Certificate (original and photocopy), a scholarship certificate if you have one, and a photocopy of the university's business registration certificate.",
+        "Passport (original and photocopy), one recent passport-size photo, a visa cover letter and a statement of purpose (SOP).",
+        "Latest educational certificates for the course you are applying to (transcript and graduation certificate), plus mark sheets and character certificates. All school documents must be verified by the Korean Embassy in Nepal.",
+        "An IELTS or TOPIK report. Applicants who completed secondary and higher education in the USA, UK, Canada, Australia, New Zealand, Ireland or South Africa may submit proof of education instead.",
+        "A TB medical report from one of the four hospitals designated by the embassy, and a family relationship certificate.",
+        "A balance certificate and bank statements for the last 6 months, accepted only from an A-level bank.",
+      ],
+      note: "Source: Embassy of Korea in Nepal, Visa issuance. The embassy can request extra documents, so check its page before you apply.",
+    },
+    {
+      id: "korea-money",
+      title: "Money to Plan for When Studying in Korea",
+      intro: "The Nepal embassy page asks for a balance certificate and 6 months of bank statements but does not publish a minimum balance, so confirm the amount with the embassy and your university.",
+      table: {
+        headers: ["Item", "Amount"],
+        rows: [
+          ["Student visa fee for Nepali applicants (single entry, more than 90 days), from 1 July 2026", "NPR 9,300"],
+          ["Average annual undergraduate tuition, national and public universities", "About KRW 4.3 million"],
+          ["Average annual undergraduate tuition, private universities", "About KRW 7.6 million"],
+          ["Average annual graduate tuition (national and public to private)", "About KRW 2.5 million to 4.4 million"],
+          ["Living costs", "KRW 750,000 to 1,000,000 a month"],
+          ["Housing within living costs", "KRW 500,000 to 700,000 a month (dormitory fees vary)"],
+        ],
+      },
+      note: "Sources: Embassy of Korea in Nepal (visa fee); Study in Korea, Study expenses and Living costs. Actual tuition depends on your university and department.",
+    },
+    {
+      id: "korea-work-rights",
+      title: "Working in Korea During and After Your Studies",
+      bullets: [
+        "During study: D-2 students need part-time work permission before they work. You need a certain level of Korean language (TOPIK, Social Integration Program or King Sejong Institute) and confirmation from your university's international student advisor.",
+        "Hours depend on your degree level, year and Korean level. For bachelor's years 1 to 2 and for master's and doctoral students permission is available straight away, while bachelor's years 3 to 4 need TOPIK Level 4 or equivalent.",
+        "Check the exact weekday and weekend limits for your case in the official Study in Korea table before you take a job.",
+        "After study: you can change to a D-10-1 job-seeking visa. It can be extended in 6-month steps up to 2 years, and manual or unskilled work is not allowed on it.",
+      ],
+      note: "Source: Study in Korea, Part-time work and job-seeking visa (from Hi Korea).",
+    },
+    {
+      id: "korea-gks",
+      title: "Global Korea Scholarship (GKS) Basics",
+      bullets: [
+        "Benefits: airfare, Korean language training fees, tuition and a monthly allowance.",
+        "Duration: 1 year of Korean language training plus a 2 to 3 year associate degree or 4 to 6 year bachelor's degree for undergraduates, or a 2 year master's or 3 year doctoral degree for graduates.",
+        "Eligibility: you and both parents must hold non-Korean citizenship. Undergraduate applicants must be under 25 and graduates under 40. A minimum academic score of 80% (or equivalent) applies.",
+        "TOPIK is used for GKS applications and the level depends on the track, so read the notice for your year.",
+        "Application dates change every year. Check the Study in Korea scholarship notices and the Korean Embassy in Nepal for the current round.",
+      ],
+      note: "Source: Study in Korea, Scholarships (GKS).",
+    },
+  ],
   faqItems: [
     {
-      question: "Can I apply after completing +2 in Nepal?",
-      answer: "Yes, you can apply for undergraduate programs in Korea after completing Grade 12 from NEB, CBSE, or other equivalent boards. Some universities may require you to meet GPA and language proficiency criteria"
+      question: "How much does it cost to study in South Korea from Nepal?",
+      answer: "Average annual undergraduate tuition is about KRW 4.3 million at national and public universities and KRW 7.6 million at private ones, according to Study in Korea. Living costs are estimated at KRW 750,000 to 1,000,000 a month. Exact fees depend on your university and department, so check with the university."
+    },
+    {
+      question: "What are the requirements to study in South Korea from Nepal?",
+      answer: "You need a Korean university admission letter, verified academic documents, a statement of purpose, an IELTS or TOPIK report, and the D-2 student visa. Applicants must have completed 12 years of schooling, and each university sets its own language and grade requirements. Check your university's international admissions page."
+    },
+    {
+      question: "What documents are needed for a Korean student visa from Nepal?",
+      answer: "The Korean Embassy in Kathmandu asks for the Standard Admission Certificate, passport, SOP, verified educational certificates, an IELTS or TOPIK report, a TB medical report, a balance certificate and 6 months of bank statements from an A-level bank. Book your visa appointment online, and check the embassy page for updates."
+    },
+    {
+      question: "How long does the South Korea student visa take from Nepal?",
+      answer: "The Korean Embassy in Nepal says visa issuance can take 21 working days or more, and recommends applying at least 21 days before your departure date. Apply as soon as your admission certificate is ready and keep all documents complete."
+    },
+    {
+      question: "Can Nepalese students work part-time while studying in Korea?",
+      answer: "Yes, but only with part-time work permission from immigration. You need a certain Korean language level and confirmation from your university's international student advisor. Weekly hours depend on your degree level, year and Korean level, so check the official Study in Korea table."
+    },
+    {
+      question: "Who can apply for the Global Korea Scholarship (GKS)?",
+      answer: "GKS covers airfare, Korean language training, tuition and a monthly allowance. Applicants and both parents must be non-Korean citizens, undergraduate applicants must be under 25 and graduate applicants under 40, with a minimum score of 80% or equivalent. TOPIK is used for applications, and dates change every year."
+    },
+    {
+      question: "Can I stay and work in Korea after my degree?",
+      answer: "You can apply to change to a D-10-1 job-seeking visa after your studies. It can be extended in 6-month steps up to 2 years, and manual or unskilled work is not allowed on it. Once you find a job, the visa must be changed to one that matches the work."
     },
     {
       question: "Is Korean language (TOPIK) mandatory to study in South Korea?",
-      answer: "Not always. For English-taught programs, Korean language is not compulsory. However, for Korean-taught courses or to apply for government scholarships like GKS, a TOPIK Level 3 or higher may be required."
+      answer: "It depends on your university and program. Korean-taught programs usually ask for a TOPIK score, and English-taught programs set their own English requirement. The Korean Embassy in Nepal asks visa applicants for an IELTS or TOPIK report. TOPIK scores stay valid for 2 years from the score announcement."
     },
     {
-      question: "Can Nepali students work part-time while studying in Korea?",
-      answer: "Yes. International students with a D-2 visa can apply for part-time work permits after completing 6 months of study. You can work up to 20 hours/week during semesters and unlimited hours during holidays"
-    },
-    {
-      question: "Are scholarships available for Nepali students in South Korea?",
-      answer: "Yes. Korea offers many scholarships for Nepali students, such as the GKS (Global Korea Scholarship), university-based merit scholarships, and research fellowships. These may cover tuition fees, living expenses, and airfare."
-    },
-    {
-      question: "What is the student visa type for South Korea and how do I apply?",
-      answer: "You need the D-2 student visa, which allows full-time study at Korean universities. You'll need a university acceptance letter, academic documents, financial proof, and a visa application form."
-    },
-    {
-      question: "What English proficiency tests are accepted by Korean universities?",
-      answer: "Many Korean universities accept IELTS, TOEFL, or Duolingo English Test for English-taught programs. For Korean-medium programs, English test scores may not be required, but Korean proficiency (TOPIK) is essential."
-    },
-    {
-      question: "When is the best time to apply for Korean university intakes?",
-      answer: "Korean intakes are Spring Intake: March and Fall Intake: September. You should start preparing and applying at least 6–9 months in advance"
+      question: "When are the Korean university intakes?",
+      answer: "Korean universities run two main semesters, starting in March and September. Application windows differ by university and program, so check your university's international admissions page and start preparing early so your documents, scholarship applications and visa appointment fit the timeline."
     },
     {
       question: "Does Admizz provide Korean language or entrance exam preparation?",
@@ -208,7 +306,7 @@ const pageData: NepalVariantData = {
     }
   ],
   ctaTitle: "Get in Touch with Admizz",
-  ctaContent: "From helping you select the right Korean university and program to assisting with scholarship applications, visa documentation, and even basic Korean language support — we provide end-to-end guidance tailored to Nepali students. Contact us today to schedule your free Korea education counseling session. Your global career starts now — make South Korea your next academic destination with Admizz."
+  ctaContent: "From helping you select the right Korean university and program to assisting with scholarship applications, visa documentation, and even basic Korean language support — we provide end-to-end guidance tailored to Nepalese students. Contact us today to schedule your free Korea education counselling session. Your global career starts now — make South Korea your next academic destination with Admizz."
 };
 
 export default async function StudyInSouthKoreaFromNepalPage() {

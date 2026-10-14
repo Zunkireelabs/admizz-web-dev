@@ -16,6 +16,7 @@ import { postSeoOverrides } from "@/data/post-seo-overrides";
 import { postFaqSchemaOnly } from "@/data/post-faq-schema";
 import { postContentPatches } from "@/data/post-content-patches";
 import { applyContentPatches } from "@/lib/content-patches";
+import { blogH2, blogP, blogFaqQuestion } from "@/components/lib/blog-typography";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -241,15 +242,15 @@ export default async function BlogPostPage({ params }: PageProps) {
                 heading/paragraph styles as the body, so it reads as native. */}
             {curatedFaqItems && (
               <section id="faq">
-                <h2 className="text-2xl md:text-[28px] font-bold text-navy mt-8 mb-4">
+                <h2 className={blogH2.className} style={blogH2.style}>
                   Frequently Asked Questions
                 </h2>
                 {curatedFaqItems.map((item) => (
                   <div key={item.question}>
-                    <h3 className="text-xl md:text-2xl font-bold text-navy mt-8 mb-4">
+                    <h3 className={blogFaqQuestion.className} style={blogFaqQuestion.style}>
                       {item.question}
                     </h3>
-                    <p className="text-base text-gray-dark leading-relaxed mb-4">{item.answer}</p>
+                    <p className={blogP.className} style={blogP.style}>{item.answer}</p>
                   </div>
                 ))}
               </section>
@@ -275,7 +276,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         <section className="py-14 md:py-20" style={{ background: "#F8F9FF" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2
-              className="text-[26px] md:text-[34px] font-bold text-center mb-3"
+              className="text-[26px] font-bold text-center mb-3"
               style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}
             >
               Related Articles
@@ -390,7 +391,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <span className="w-2 h-2 rounded-full bg-green-600 animate-pulse" />
                 <span className="text-[13px] font-semibold tracking-wide" style={{ color: "#0D1282" }}>Accepting Applications</span>
               </div>
-              <h2 className="text-[28px] md:text-[40px] font-bold leading-tight mb-4" style={{ fontFamily: "var(--font-rubik), sans-serif", color: "#0D1282" }}>
+              <h2 className="text-[26px] font-bold leading-tight mb-4" style={{ fontFamily: "var(--font-rubik), sans-serif", color: "#0D1282" }}>
                 Ready to Build Your <span style={{ color: "#E8430C" }}>Global Career?</span>
               </h2>
               <p className="text-[15px] leading-relaxed max-w-md mb-8" style={{ color: "rgba(13,18,130,0.7)" }}>

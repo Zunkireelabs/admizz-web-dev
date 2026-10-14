@@ -16,6 +16,8 @@ const companyLinks = [
   { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact" },
   { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Cookie Policy", href: "/cookie-policy" },
+  { name: "Terms of Service", href: "/terms-of-service" },
 ];
 
 const socialLinks = [
@@ -174,7 +176,16 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-sm text-white/70">
             &copy; {new Date().getFullYear()}, All rights reserved. Admizz
-            Education.
+            Education. Website by{" "}
+            <a
+              href="https://zunkireelabs.com"
+              target="_blank"
+              rel="noopener"
+              className="underline underline-offset-2 hover:text-white"
+            >
+              Zunkireelabs
+            </a>
+            .
           </p>
           <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-center">
             {socialLinks.map((social) => (

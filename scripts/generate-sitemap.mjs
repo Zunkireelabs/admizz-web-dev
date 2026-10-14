@@ -41,10 +41,11 @@ const staticPages = [
   { path: "/career-counseling-for-international-students", priority: 0.7, freq: "monthly" },
   { path: "/study-destinations", priority: 0.8, freq: "monthly" },
   { path: "/privacy-policy", priority: 0.3, freq: "yearly" },
+  { path: "/cookie-policy", priority: 0.3, freq: "yearly" },
+  { path: "/terms-of-service", priority: 0.3, freq: "yearly" },
   { path: "/universities", priority: 0.7, freq: "monthly" },
   { path: "/recruitment-partners", priority: 0.7, freq: "monthly" },
   { path: "/affiliate", priority: 0.8, freq: "monthly" },
-  { path: "/affiliate-dashboard", priority: 0.5, freq: "monthly" },
   { path: "/careers", priority: 0.6, freq: "monthly" },
   // Country pages (main)
   { path: "/study-in-the-usa", priority: 0.8, freq: "monthly" },
@@ -62,6 +63,7 @@ const staticPages = [
   { path: "/study-in-dubai", priority: 0.8, freq: "monthly" },
   // Nepal variant pages
   { path: "/study-in-canada-from-nepal", priority: 0.7, freq: "monthly" },
+  { path: "/study-in-australia-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-south-korea-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-india-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-france-from-nepal", priority: 0.7, freq: "monthly" },
@@ -79,6 +81,7 @@ const staticPages = [
   { path: "/top-education-consultancy-in-nepal", priority: 0.8, freq: "monthly" },
   { path: "/accreditation-and-results", priority: 0.6, freq: "monthly" },
   { path: "/study-abroad-rule-updates", priority: 0.8, freq: "weekly" },
+  { path: "/study-abroad-rule-changes", priority: 0.8, freq: "weekly" },
   // City landing pages
   { path: "/birgunj", priority: 0.7, freq: "monthly" },
   { path: "/janakpur", priority: 0.7, freq: "monthly" },
@@ -165,13 +168,25 @@ function readGeneratedDirectAnswerSlugs() {
     .map((e) => e.name);
 }
 
+// Slugs that have their own page file under src/app (they win over [slug]).
+function repoPageSlugs() {
+  const dir = path.join(ROOT, "src", "app");
+  return fs.readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && fs.existsSync(path.join(dir, e.name, "page.tsx")))
+    .map((e) => e.name);
+}
+
 async function main() {
   console.log("Generating sitemap.xml...");
 
-  // Fetch from Sanity
+  // Fetch from Sanity. A post flagged seo.noIndex renders <meta robots noindex>
+  // (see src/app/[slug]/page.tsx), so it must not be in the sitemap either, unless a
+  // repo page overrides the slug (those pages set their own robots).
   const [posts, categories] = await Promise.all([
-    client.fetch(`*[_type == "post" && !(slug.current in ${JSON.stringify(RETIRED)})] | order(publishedAt desc) { "slug": slug.current, publishedAt, _updatedAt }`),
-    client.fetch(`*[_type == "category"] { "slug": slug.current, _updatedAt }`),
+    client.fetch(`*[_type == "post" && !(slug.current in ${JSON.stringify(RETIRED)}) && (!(seo.noIndex == true) || slug.current in ${JSON.stringify(repoPageSlugs())})] | order(publishedAt desc) { "slug": slug.current, publishedAt, _updatedAt }`),
+    // Only categories with a post: the category page noindexes empty ones (soft-404 in Search Console),
+    // so listing them here would contradict the page. Same filter as postsByCategoryQuery.
+    client.fetch(`*[_type == "category" && count(*[_type == "post" && !(slug.current in ${JSON.stringify(RETIRED)}) && references(^._id)]) > 0] { "slug": slug.current, _updatedAt }`),
   ]);
 
   const generatedPosts = readGeneratedPosts();

@@ -1,5 +1,5 @@
 {
-  "note": "Off-topic legacy posts retired for SEO (Search Console: crawled, not indexed). Each slug is 301-redirected to /blogs by the Traefik 'retired-posts' rule in docker-compose*.yml and is excluded from queries, the sitemap and llms files. Keep this list and the compose regex in sync.",
+  "note": "Off-topic legacy posts retired for SEO (Search Console: crawled, not indexed). Each slug is 301-redirected to /blogs by the Traefik 'retired-posts' rule in docker-compose*.yml and is excluded from queries, the sitemap and llms files. Keep this list and the compose regex in sync. The UK/USA duplicates added on 2026-10-13 are instead 301-redirected by nginx/static.conf to /study-in-uk-from-nepal and /study-in-usa-from-nepal (not to /blogs); they are not in the Traefik regex.",
   "slugs": [
     "effective-tips-for-using-technology-in-classroom",
     "shifting-winds-of-education",
@@ -8,6 +8,11 @@
     "history-of-india-in-a-minute",
     "5-simple-ways-to-increase-your-intelligence",
     "learning-a-new-sport-isns-a-kids-thing",
-    "strategies-to-stay-motivated-during-online-class"
+    "strategies-to-stay-motivated-during-online-class",
+    "study-in-the-uk-from-nepal-2026-complete-guide",
+    "studying-in-the-uk-from-nepal-2025",
+    "study-in-the-uk-after-2-from-nepal-complete-2025-guide",
+    "study-in-usa-with-scholarship-from-nepal-a-complete-guide",
+    "study-in-the-usa-for-nepali-students-f-1-visa-scholarships-work-opportunities"
   ]
 }

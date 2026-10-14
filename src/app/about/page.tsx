@@ -3,6 +3,7 @@ import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import AboutTimeline from "./AboutTimeline";
+import FAQ from "@/components/ui/FAQ";
 import UniversityPartners from "@/app/UniversityPartners";
 import { allUniversities } from "@/lib/universities";
 
@@ -111,6 +112,29 @@ const milestones = [
 /* ------------------------------------------------------------------ */
 /*  PAGE                                                               */
 /* ------------------------------------------------------------------ */
+
+const aboutFaqs = [
+  {
+    question: "What is Admizz Education?",
+    answer:
+      "Admizz Education is a study abroad consultancy founded in 2015. It helps students with university admissions, visa assistance, test preparation, scholarship guidance and career counseling, with offices in Kathmandu and partner offices abroad.",
+  },
+  {
+    question: "How many students has Admizz Education helped?",
+    answer:
+      "Admizz Education has enrolled more than 2,000 students at universities abroad, working with over 100 partner universities across more than 12 countries.",
+  },
+  {
+    question: "Is Admizz Education accredited?",
+    answer:
+      "Yes. Admizz Education is accredited by ICEF, the International Consultants for Education and Fairs, and displays the ICEF badge on its website. Details are on the accreditation and results page.",
+  },
+  {
+    question: "What services does Admizz Education offer?",
+    answer:
+      "Admizz offers study abroad counseling, university selection and applications, student visa assistance, scholarship assistance, IELTS and other test preparation, and career counseling for international students.",
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -990,6 +1014,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <FAQ items={aboutFaqs} />
     </main>
   );
 }

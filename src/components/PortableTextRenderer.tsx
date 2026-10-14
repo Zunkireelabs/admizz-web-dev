@@ -1,15 +1,16 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "@/lib/sanity";
+import { blogH2, blogH3, blogP, blogLi } from "./lib/blog-typography";
 
 const components: PortableTextComponents = {
   block: {
     h2: ({ children }) => (
-      <h2 className="text-2xl md:text-[28px] font-bold text-navy mt-8 mb-4">
+      <h2 className={blogH2.className} style={blogH2.style}>
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl md:text-2xl font-bold text-navy mt-8 mb-4">
+      <h3 className={blogH3.className} style={blogH3.style}>
         {children}
       </h3>
     ),
@@ -24,7 +25,7 @@ const components: PortableTextComponents = {
       </h5>
     ),
     normal: ({ children }) => (
-      <p className="text-base text-gray-dark leading-relaxed mb-4">{children}</p>
+      <p className={blogP.className} style={blogP.style}>{children}</p>
     ),
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-blue-royal pl-4 py-2 my-6 text-gray-dark italic bg-off-white rounded-r-lg">
@@ -64,10 +65,10 @@ const components: PortableTextComponents = {
   },
   listItem: {
     bullet: ({ children }) => (
-      <li className="text-base leading-relaxed">{children}</li>
+      <li className={blogLi.className} style={blogLi.style}>{children}</li>
     ),
     number: ({ children }) => (
-      <li className="text-base leading-relaxed">{children}</li>
+      <li className={blogLi.className} style={blogLi.style}>{children}</li>
     ),
   },
   types: {

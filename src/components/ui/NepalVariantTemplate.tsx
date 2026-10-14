@@ -53,6 +53,21 @@ export interface ScholarshipRow {
   details: string;
 }
 
+export interface GuideSection {
+  id: string;
+  title: string;
+  intro?: string;
+  table?: { headers: string[]; rows: string[][] };
+  bullets?: string[];
+  links?: { label: string; href: string }[];
+  note?: string;
+}
+
+export interface SourceLink {
+  label: string;
+  href: string;
+}
+
 export interface CountryTheme {
   // palette
   primary: string;
@@ -93,6 +108,16 @@ export interface CountryTheme {
     ringColor?: string;
     bgGradient?: string;
   };
+}
+
+export interface ExtraSection {
+  id: string;
+  title: string;
+  intro?: string;
+  bullets?: string[];
+  table?: { headers: string[]; rows: string[][] };
+  note?: string;
+  links?: { label: string; href: string }[];
 }
 
 export interface NepalVariantData {
@@ -136,6 +161,24 @@ export interface NepalVariantData {
   ctaTitle: string;
   ctaContent: string;
   countryCategorySlug?: string;
+  /** Answer-first summary shown right under the hero stats, for search and AI answer engines. */
+  quickAnswer?: string;
+  /** Human-readable month/year the page content was last revised, e.g. "October 2026". */
+  lastUpdated?: string;
+  /** Official sources the page's facts can be checked against. */
+  sources?: { label: string; url?: string; href?: string }[];
+  /** Extra guide sections (requirements, documents, work rights...) rendered before the FAQ. */
+  extraSections?: ExtraSection[];
+  /** Internal links to closely related Admizz pages. */
+  relatedLinks?: { label: string; href: string; description?: string }[];
+  /** ISO date (YYYY-MM-DD) of the last real content review. Only set it when the page was actually
+   * reviewed, because it is published as WebPage dateModified for search and AI engines. */
+  dateModified?: string;
+  /** Month/year shown as "Checked in ..." next to the quick answer. */
+  lastChecked?: string;
+  guideTabLabel?: string;
+  guideSections?: GuideSection[];
+  sourcesTitle?: string;
 }
 
 interface NepalVariantTemplateProps {
@@ -150,7 +193,7 @@ interface NepalVariantTemplateProps {
   insertBeforeCTA?: React.ReactNode;
 }
 
-const tabs = [
+const baseTabs = [
   { id: "why", label: "Why Study Here" },
   { id: "visa", label: "Visa Requirements" },
   { id: "intakes", label: "Intakes" },
@@ -160,6 +203,13 @@ const tabs = [
 
 export default function NepalVariantTemplate({ data, blogPosts, theme, customHero, replaceCostSection, replaceWhySection, replaceVisaSection, insertAfterIntakes, insertBeforeCTA }: NepalVariantTemplateProps) {
   const pathname = usePathname();
+  const tabs = data.guideSections?.length
+    ? [
+        ...baseTabs.slice(0, 3),
+        { id: data.guideSections[0].id, label: data.guideTabLabel ?? "Requirements" },
+        ...baseTabs.slice(3),
+      ]
+    : baseTabs;
   const themed = !!theme;
   const [activeTab, setActiveTab] = useState("why");
   const [showFade, setShowFade] = useState(true);
@@ -271,6 +321,46 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
   const tableAltRowStyle = themed ? { background: theme!.surfaceTint } : undefined;
   const tableLabelStyle = themed ? { color: theme!.primaryDeep } : undefined;
 
+  // Bullet lists in added guide sections render as the same themed table the native sections use.
+  // "Label: detail" bullets become two columns; anything else becomes one "Key points" column.
+  const renderBulletTable = (bullets: string[]) => {
+    const split = bullets.map((b) => {
+      const m = b.match(/^([^:]{2,48}): ([\s\S]+)$/);
+      return m ? [m[1], m[2]] : null;
+    });
+    const labelled = split.every(Boolean);
+    const headers = labelled ? ["Topic", "Details"] : ["Key points"];
+    const rows: string[][] = labelled ? (split as string[][]) : bullets.map((b) => [b]);
+    return (
+      <div className="overflow-x-auto mb-4">
+        <table className="w-full bg-white border border-border-light rounded-[10px] overflow-hidden" style={themed ? { borderColor: theme!.gold + "33" } : undefined}>
+          <thead>
+            <tr className="bg-navy text-white" style={tableHeaderStyle}>
+              {headers.map((h) => (
+                <th key={h} className="text-left px-3 sm:px-6 py-3 text-sm font-semibold">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody data-anim="row-slide">
+            {rows.map((row, r) => (
+              <tr key={r} className={r % 2 === 0 ? "bg-white" : "bg-off-white"} style={r % 2 === 1 ? tableAltRowStyle : undefined}>
+                {row.map((cell, c) => (
+                  <td
+                    key={c}
+                    className={`px-3 sm:px-6 py-3 text-sm ${labelled && c === 0 ? "text-navy font-medium" : "text-gray-dark"}`}
+                    style={labelled && c === 0 ? tableLabelStyle : undefined}
+                  >
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
+
   return (
     <main style={mainStyle}>
       <BreadcrumbSchema
@@ -284,6 +374,22 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
         countryName={data.countryName}
         url={`https://admizzeducation.com${pathname}`}
       />
+      {data.dateModified && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: data.heroHeading,
+              url: `https://admizzeducation.com${pathname}`,
+              dateModified: data.dateModified,
+              author: { "@type": "Organization", name: "Admizz Education", url: "https://admizzeducation.com" },
+              publisher: { "@type": "Organization", name: "Admizz Education", url: "https://admizzeducation.com" },
+            }),
+          }}
+        />
+      )}
       {themed && theme!.serifHeadings && (
         <style>{`@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');`}</style>
       )}
@@ -490,6 +596,21 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
             <p data-anim="fade-up" className="text-[15px] text-gray-dark leading-relaxed">
               {data.introContent}
             </p>
+          )}
+          {data.quickAnswer && (
+            <div
+              data-anim="fade-up"
+              className="mt-6 rounded-[10px] border border-border-light bg-off-white px-5 py-4"
+              style={themed ? { borderColor: theme!.gold + "55", background: theme!.surfaceTint } : undefined}
+            >
+              <p className="text-[13px] font-semibold uppercase tracking-wide text-navy mb-1" style={tableLabelStyle}>
+                Quick answer
+              </p>
+              <p className="text-[15px] text-gray-dark leading-relaxed">{data.quickAnswer}</p>
+              {(data.lastChecked ?? data.lastUpdated) && (
+                <p className="mt-2 text-[13px] text-gray-dark italic">Checked in {data.lastChecked ?? data.lastUpdated}</p>
+              )}
+            </div>
           )}
         </div>
       </section>
@@ -735,6 +856,64 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
         </section>
       )}
 
+      {/* ===== GUIDE SECTIONS (optional: eligibility, documents, work rights, ...) ===== */}
+      {data.guideSections?.map((section, idx) => (
+        <section
+          key={section.id}
+          id={section.id}
+          className={`py-16 scroll-mt-32 ${idx % 2 === 0 ? "" : "bg-off-white"}`}
+          style={idx % 2 === 0 ? undefined : sectionTintBg}
+        >
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 data-anim="fade-up" className="text-2xl md:text-[28px] font-bold text-navy mb-4" style={headingColor}>
+              {section.title}
+            </h2>
+            {section.intro && <p className="text-[15px] text-gray-dark mb-6">{section.intro}</p>}
+            {section.table && (
+              <div className="overflow-x-auto mb-4">
+                <table className="w-full bg-white border border-border-light rounded-[10px] overflow-hidden" style={themed ? { borderColor: theme!.gold + "33" } : undefined}>
+                  <thead>
+                    <tr className="bg-navy text-white" style={tableHeaderStyle}>
+                      {section.table.headers.map((h) => (
+                        <th key={h} className="text-left px-3 sm:px-6 py-3 text-sm font-semibold">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody data-anim="row-slide">
+                    {section.table.rows.map((row, r) => (
+                      <tr key={r} className={r % 2 === 0 ? "bg-white" : "bg-off-white"} style={r % 2 === 1 ? tableAltRowStyle : undefined}>
+                        {row.map((cell, c) => (
+                          <td
+                            key={c}
+                            className={`px-3 sm:px-6 py-3 text-sm ${c === 0 ? "text-navy font-medium" : "text-gray-dark"}`}
+                            style={c === 0 ? tableLabelStyle : undefined}
+                          >
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            {section.bullets && renderBulletTable(section.bullets)}
+            {section.note && <p className="mt-4 text-sm text-gray-dark italic">{section.note}</p>}
+            {section.links && (
+              <p className="mt-4 text-sm text-gray-dark">
+                Related guides:{" "}
+                {section.links.map((l, i) => (
+                  <span key={l.href}>
+                    {i > 0 && " · "}
+                    <Link href={l.href} className="text-blue-link underline">{l.label}</Link>
+                  </span>
+                ))}
+              </p>
+            )}
+          </div>
+        </section>
+      ))}
+
       {renderDivider()}
 
       {/* ===== COST ===== */}
@@ -937,9 +1116,122 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
       {renderDivider()}
 
       {/* ===== FAQ ===== */}
+      {/* ===== EXTRA GUIDE SECTIONS ===== */}
+      {data.extraSections?.map((sec, idx) => (
+        <section
+          key={sec.id}
+          id={sec.id}
+          className={`py-16 scroll-mt-32 ${idx % 2 === 0 ? "" : "bg-off-white"}`}
+          style={idx % 2 === 0 ? undefined : sectionTintBg}
+        >
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 data-anim="fade-up" className="text-2xl md:text-[28px] font-bold text-navy mb-4" style={headingColor}>
+              {sec.title}
+            </h2>
+            {sec.intro && <p className="text-[15px] text-gray-dark mb-6">{sec.intro}</p>}
+            {sec.table && (
+              <div className="overflow-x-auto mb-4">
+                <table className="w-full bg-white border border-border-light rounded-[10px] overflow-hidden" style={themed ? { borderColor: theme!.gold + "33" } : undefined}>
+                  <thead>
+                    <tr className="bg-navy text-white" style={tableHeaderStyle}>
+                      {sec.table.headers.map((h) => (
+                        <th key={h} className="text-left px-3 sm:px-6 py-3 text-sm font-semibold">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody data-anim="row-slide">
+                    {sec.table.rows.map((row, r) => (
+                      <tr key={row.join("|")} className={r % 2 === 0 ? "bg-white" : "bg-off-white"} style={r % 2 === 1 ? tableAltRowStyle : undefined}>
+                        {row.map((cell, c) => (
+                          <td
+                            key={c}
+                            className={`px-3 sm:px-6 py-3 text-sm ${c === 0 ? "text-navy font-medium" : "text-gray-dark"}`}
+                            style={c === 0 ? tableLabelStyle : undefined}
+                          >
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            {sec.bullets && renderBulletTable(sec.bullets)}
+            {sec.note && <p className="mt-4 text-sm text-gray-dark italic">{sec.note}</p>}
+            {sec.links && (
+              <p className="mt-4 text-sm text-gray-dark">
+                Related guides:{" "}
+                {sec.links.map((l, i) => (
+                  <span key={l.href}>
+                    {i > 0 && " · "}
+                    <Link href={l.href} className="text-blue-link underline">{l.label}</Link>
+                  </span>
+                ))}
+              </p>
+            )}
+          </div>
+        </section>
+      ))}
+
       <div id="faq" className="scroll-mt-32">
         <FAQ items={data.faqItems} />
       </div>
+
+      {/* ===== SOURCES & RELATED GUIDES ===== */}
+      {((data.sources && data.sources.length > 0) || (data.relatedLinks && data.relatedLinks.length > 0)) && (
+        <section className="py-14 bg-off-white" style={sectionTintBg}>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-6 md:grid-cols-2 items-stretch">
+            {data.relatedLinks && data.relatedLinks.length > 0 && (
+              <div
+                className="bg-white border border-border-light rounded-[14px] overflow-hidden flex flex-col"
+                style={themed ? { borderColor: theme!.gold + "55", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" } : { boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
+              >
+                <div className="px-5 sm:px-6 py-4 bg-navy text-white" style={tableHeaderStyle}>
+                  <h2 className="text-base font-semibold">Related guides</h2>
+                </div>
+                <ul>
+                  {data.relatedLinks.map((l, i) => (
+                    <li key={l.href} className={i > 0 ? "border-t border-border-light" : ""} style={i > 0 && themed ? { borderColor: theme!.gold + "33" } : undefined}>
+                      <Link href={l.href} className="group flex items-start justify-between gap-4 px-5 sm:px-6 py-3.5 transition-colors hover:bg-off-white" style={undefined}>
+                        <span>
+                          <span className="block text-[15px] font-semibold text-navy" style={tableLabelStyle}>{l.label}</span>
+                          {l.description && <span className="block text-[13px] text-gray-dark mt-0.5">{l.description}</span>}
+                        </span>
+                        <svg className="w-4 h-4 mt-1 flex-shrink-0 text-navy transition-transform group-hover:translate-x-0.5" style={themed ? { color: theme!.primary } : undefined} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {data.sources && data.sources.length > 0 && (
+              <div
+                className="bg-white border border-border-light rounded-[14px] overflow-hidden flex flex-col"
+                style={themed ? { borderColor: theme!.gold + "55", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" } : { boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
+              >
+                <div className="px-5 sm:px-6 py-4 bg-navy text-white" style={tableHeaderStyle}>
+                  <h2 className="text-base font-semibold">{data.sourcesTitle ?? "Official sources"}</h2>
+                </div>
+                <ul>
+                  {data.sources.map((src, i) => (
+                    <li key={src.url ?? src.href} className={i > 0 ? "border-t border-border-light" : ""} style={i > 0 && themed ? { borderColor: theme!.gold + "33" } : undefined}>
+                      <a href={src.url ?? src.href} target="_blank" rel="noopener noreferrer" className="group flex items-start justify-between gap-4 px-5 sm:px-6 py-3 text-[14px] text-gray-dark transition-colors hover:bg-off-white hover:text-navy">
+                        <span>{src.label}</span>
+                        <svg className="w-4 h-4 mt-0.5 flex-shrink-0 opacity-60 group-hover:opacity-100" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M14 5h5v5M19 5l-8 8M10 7H6a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-4" />
+                        </svg>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ===== STUDY ABROAD INSIGHTS (Blog) ===== */}
       {blogPosts && blogPosts.length > 0 && (

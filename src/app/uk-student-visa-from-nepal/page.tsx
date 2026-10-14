@@ -7,7 +7,7 @@ const post = {
   "sections": [
     {
       "heading": "The 8 steps from offer to visa",
-      "body": "1. **Get an offer** from a UK university for a course you want.\n2. **Receive your CAS.** The Confirmation of Acceptance for Studies comes from your course provider. It is one of the two documents GOV.UK says you must always provide, with your passport.\n3. **Prove your English.** You need CEFR level B2 for a degree-level course, or B1 below degree level.\n4. **Get your NOC** from Nepal's Ministry of Education, Science and Technology (see our [NOC guide](/how-to-get-your-noc-from-nepal-for-study-abroad)).\n5. **Hold your funds** for 28 days in a row.\n6. **Take the TB test** at an approved clinic.\n7. **Apply online** and pay the visa fee and health surcharge.\n8. **Wait for the decision.** GOV.UK says you will usually get one within 3 weeks if you are outside the UK.\n\nThe sections below explain each step."
+      "body": "1. **Get an offer** from a UK university for a course you want.\n2. **Receive your CAS.** The Confirmation of Acceptance for Studies comes from your course provider. It is one of the two documents GOV.UK says you must always provide, with your passport.\n3. **Prove your English.** You need CEFR level B2 for a degree-level course, or B1 below degree level.\n4. **Get your NOC** from Nepal's Ministry of Education and Sports (see our [NOC guide](/how-to-get-your-noc-from-nepal-for-study-abroad)).\n5. **Hold your funds** for 28 days in a row.\n6. **Take the TB test** at an approved clinic.\n7. **Apply online** and pay the visa fee and health surcharge.\n8. **Wait for the decision.** GOV.UK says you will usually get one within 3 weeks if you are outside the UK.\n\nThe sections below explain each step."
     },
     {
       "heading": "Step 1 and 2: Offer and CAS",
@@ -19,7 +19,7 @@ const post = {
     },
     {
       "heading": "Step 4: No Objection Certificate (NOC)",
-      "body": "Students from Nepal need a No Objection Certificate from the Ministry of Education, Science and Technology before they go abroad to study. Our [NOC guide](/how-to-get-your-noc-from-nepal-for-study-abroad) explains who needs one, the documents, the fee and the online process. Apply early, because you may need it for other parts of your plan, such as moving money abroad for tuition."
+      "body": "Students from Nepal need a No Objection Certificate from the Ministry of Education and Sports before they go abroad to study. Our [NOC guide](/how-to-get-your-noc-from-nepal-for-study-abroad) explains who needs one, the documents, the fee and the online process. Apply early, because you may need it for other parts of your plan, such as moving money abroad for tuition."
     },
     {
       "heading": "Step 5: Funds and the 28-day rule",
