@@ -28,10 +28,10 @@ const pageData: NepalVariantData = {
   countryName: "Canada",
   countryCategorySlug: "canada",
   heroHeading: "Study in Canada from Nepal",
-  heroSubheading: "Study in Canada from Nepal with Admizz Education—expert counselling, top universities, visa support & affordable study abroad solutions.",
+  heroSubheading: "Study in Canada from Nepal with Admizz Education—expert counseling, top universities, visa support & affordable study abroad solutions.",
 
   introTitle: "Your Gateway to Global Education with Admizz Education",
-  introContent: "Canada is one of the most popular study abroad destinations for Nepalese students because of its world-class education system, affordable tuition fees, scholarship opportunities, and excellent career prospects. Admizz Education helps Nepalese students pursue education in Canada with personalized support including scholarship assistance, visa documentation, statement of purpose (SOP) writing, and pre-departure preparation. Book your free counseling session with Admizz Education today and take the first step toward studying in Canada.",
+  introContent: "Canada is one of the most popular study abroad destinations for Nepali students because of its world-class education system, affordable tuition fees, scholarship opportunities, and excellent career prospects. Admizz Education helps Nepali students pursue education in Canada with personalized support including scholarship assistance, visa documentation, statement of purpose (SOP) writing, and pre-departure preparation. Book your free counseling session with Admizz Education today and take the first step toward studying in Canada.",
 
   quickAnswer:
     "For a Canada study permit application made on or after September 1, 2026, IRCC asks a single applicant to show CAN$23,448 for living costs, plus first-year tuition and travel. The permit costs CAN$150 and biometrics CAN$85. Most new bachelor's and college applicants also need a provincial attestation letter (PAL), while master's and doctoral students at public institutions are exempt.",
@@ -73,12 +73,13 @@ const pageData: NepalVariantData = {
   sources: [
     { label: "IRCC: Study permit", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit.html" },
     { label: "IRCC: Proof of financial support", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html" },
+    { label: "IRCC: Guide 5269, applying for a study permit outside Canada", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides/guide-5269-applying-study-permit-outside-canada.html" },
     { label: "IRCC: Work off campus as an international student", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/work-off-campus.html" },
     { label: "IRCC: About the post-graduation work permit", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/about.html" },
   ],
 
   whyStudyTitle: "Why Study in Canada from Nepal",
-  whyStudyIntro: "For Nepalese students, Canada offers the perfect blend of academic excellence, career opportunities, and quality of life.",
+  whyStudyIntro: "For Nepali students, Canada offers the perfect blend of academic excellence, career opportunities, and quality of life.",
   benefits: [
     {
       title: "Globally Recognized Universities",
@@ -127,7 +128,7 @@ const pageData: NepalVariantData = {
     "Media, Arts, and Communication",
   ],
 
-  visaTitle: "Student Visa Requirements for Canada (Nepalese Students)",
+  visaTitle: "Student Visa Requirements for Canada (Nepali Students)",
   visaIntro: "To study in Canada, students must secure a study permit. Admizz Education's visa experts ensure your application is accurate and complete to increase your success rate.",
   visaRequirements: [
     {
@@ -153,6 +154,10 @@ const pageData: NepalVariantData = {
     {
       category: "Medical & Police Clearance",
       details: "Medical and police clearance certificates",
+    },
+    {
+      category: "Translations",
+      details: "Any document that is not in English or French, such as Nepali-language certificates, needs an English or French translation. It can come from a Canadian certified translator, or from a person fluent in both languages who swears an affidavit. You and your family members cannot translate your own documents.",
     },
   ],
 
@@ -207,7 +212,7 @@ const pageData: NepalVariantData = {
   ],
 
   costTitle: "Cost to Study in Canada from Nepal",
-  costIntro: "With part-time work opportunities and scholarships, Nepalese students can manage their expenses effectively.",
+  costIntro: "With part-time work opportunities and scholarships, Nepali students can manage their expenses effectively.",
   costTables: [
     {
       title: "Tuition Fees (Annual)",
@@ -297,10 +302,10 @@ const pageData: NepalVariantData = {
       table: {
         headers: ["Item", "Amount"],
         rows: [
-          ["Living costs, single applicant (applications from 1 September 2026)", "CAD 23,448 a year"],
-          ["Living costs, single applicant (applications 1 January 2025 to 31 August 2026)", "CAD 22,895 a year"],
-          ["Each additional family member (from 1 September 2026)", "CAD 6,318 a year"],
-          ["Each additional family member (1 January 2025 to 31 August 2026)", "CAD 6,170 a year"],
+          ["Living costs, single applicant (applications from September 1, 2026)", "CAD 23,448 a year"],
+          ["Living costs, single applicant (applications January 1, 2025 to August 31, 2026)", "CAD 22,895 a year"],
+          ["Each additional family member (from September 1, 2026)", "CAD 6,318 a year"],
+          ["Each additional family member (January 1, 2025 to August 31, 2026)", "CAD 6,170 a year"],
           ["Tuition", "Your first year's tuition fees"],
           ["Travel", "Transportation to and from Canada for you and any family members"],
         ],
@@ -324,7 +329,7 @@ const pageData: NepalVariantData = {
       bullets: [
         "During study: eligible students can work off campus up to 24 hours a week in term time and unlimited hours in scheduled breaks. You must be a full-time student in a program of at least 6 months at a designated learning institution, have a study permit that allows off-campus work, and have a social insurance number.",
         "After study: a post-graduation work permit (PGWP) can be valid from 8 months up to 3 years. Programs from 8 months to under 2 years can get up to the program length, programs of 2 years or more can get 3 years, and a master's degree can get up to 3 years if the program was at least 8 months.",
-        "Language proof: since 1 November 2024 most PGWP applicants must give proof of language test results.",
+        "Language proof: since November 1, 2024 most PGWP applicants must give proof of language test results.",
         "Your PGWP cannot be valid for longer than your passport.",
       ],
       note: "Sources: IRCC, Work off campus as an international student, and About the post-graduation work permit.",
@@ -338,11 +343,15 @@ const pageData: NepalVariantData = {
     },
     {
       question: "How much money do I need to show for a Canada study permit?",
-      answer: "For a single applicant, CAD 22,895 for living costs if you apply between 1 January 2025 and 31 August 2026, and CAD 23,448 if you apply from 1 September 2026. On top of that you must show your first year of tuition and your travel costs.",
+      answer: "For a single applicant, CAD 22,895 for living costs if you apply between January 1, 2025 and August 31, 2026, and CAD 23,448 if you apply from September 1, 2026. On top of that you must show your first year of tuition and your travel costs.",
     },
     {
-      question: "Can Nepalese students work while studying in Canada?",
+      question: "Can Nepali students work while studying in Canada?",
       answer: "Yes. Eligible students can work off campus up to 24 hours a week during the academic term and full-time during scheduled breaks, according to IRCC. To work off campus you must be a full-time student in a program of at least 6 months at a designated learning institution, have a study permit that allows off-campus work, and have a social insurance number. Working more than the limit can cost you your student status.",
+    },
+    {
+      question: "Do I need to translate my Nepali documents for a Canada study permit?",
+      answer: "Yes. IRCC requires an English or French translation of any document that is not already in one of those languages. The translation can be done by a Canadian certified translator, or by a person fluent in both languages who swears an affidavit about their language skills and the accuracy of the translation. You and your family members cannot translate your own documents.",
     },
     {
       question: "Is IELTS compulsory for studying in Canada?",
@@ -358,22 +367,22 @@ const pageData: NepalVariantData = {
     },
     {
       question: "How long is a post-graduation work permit (PGWP) in Canada?",
-      answer: "A PGWP can be valid from 8 months up to 3 years. For programs from 8 months to under 2 years it can be up to the length of your program, for programs of 2 years or more it can be 3 years, and a master's degree can get up to 3 years if the program was at least 8 months. Since 1 November 2024 most applicants must give proof of language test results, and the permit cannot last longer than your passport is valid.",
+      answer: "A PGWP can be valid from 8 months up to 3 years. For programs from 8 months to under 2 years it can be up to the length of your program, for programs of 2 years or more it can be 3 years, and a master's degree can get up to 3 years if the program was at least 8 months. Since November 1, 2024 most applicants must give proof of language test results, and the permit cannot last longer than your passport is valid.",
     },
     {
       question: "Can studying in Canada lead to PR?",
       answer: "Yes, through PGWP and Canadian work experience, students can apply for PR.",
     },
     {
-      question: "What scholarships are available for Nepalese students?",
+      question: "What scholarships are available for Nepali students?",
       answer: "Vanier, OGS, Lester B. Pearson, McGill, and other university-specific awards.",
     },
     {
-      question: "Do Nepalese students need proof of funds?",
+      question: "Do Nepali students need proof of funds?",
       answer: "Yes, sufficient funds must be shown to cover tuition and living costs.",
     },
     {
-      question: "Which are the most popular courses in Canada for Nepalese students?",
+      question: "Which are the most popular courses in Canada for Nepali students?",
       answer: "Business, IT, Engineering, Data Science, Nursing, and Social Sciences.",
     },
     {

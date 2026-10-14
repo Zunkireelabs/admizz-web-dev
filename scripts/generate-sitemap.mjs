@@ -46,7 +46,6 @@ const staticPages = [
   { path: "/universities", priority: 0.7, freq: "monthly" },
   { path: "/recruitment-partners", priority: 0.7, freq: "monthly" },
   { path: "/affiliate", priority: 0.8, freq: "monthly" },
-  { path: "/affiliate-dashboard", priority: 0.5, freq: "monthly" },
   { path: "/careers", priority: 0.6, freq: "monthly" },
   // Country pages (main)
   { path: "/study-in-the-usa", priority: 0.8, freq: "monthly" },
@@ -185,7 +184,9 @@ async function main() {
   // repo page overrides the slug (those pages set their own robots).
   const [posts, categories] = await Promise.all([
     client.fetch(`*[_type == "post" && !(slug.current in ${JSON.stringify(RETIRED)}) && (!(seo.noIndex == true) || slug.current in ${JSON.stringify(repoPageSlugs())})] | order(publishedAt desc) { "slug": slug.current, publishedAt, _updatedAt }`),
-    client.fetch(`*[_type == "category"] { "slug": slug.current, _updatedAt }`),
+    // Only categories with a post: the category page noindexes empty ones (soft-404 in Search Console),
+    // so listing them here would contradict the page. Same filter as postsByCategoryQuery.
+    client.fetch(`*[_type == "category" && count(*[_type == "post" && !(slug.current in ${JSON.stringify(RETIRED)}) && references(^._id)]) > 0] { "slug": slug.current, _updatedAt }`),
   ]);
 
   const generatedPosts = readGeneratedPosts();

@@ -101,12 +101,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://admizzeducation.com/affiliate-dashboard</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://admizzeducation.com/careers</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -1077,18 +1071,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://admizzeducation.com/category/germany</loc>
-    <lastmod>2026-05-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://admizzeducation.com/category/bangladeshi-students</loc>
-    <lastmod>2026-05-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://admizzeducation.com/category/international-students</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -1107,18 +1089,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://admizzeducation.com/category/canada</loc>
-    <lastmod>2026-05-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://admizzeducation.com/category/sri-lankan-students</loc>
-    <lastmod>2026-05-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://admizzeducation.com/category/career-planning</loc>
     <lastmod>2026-05-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -1127,12 +1097,6 @@
   <url>
     <loc>https://admizzeducation.com/category/living-costs</loc>
     <lastmod>2026-05-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://admizzeducation.com/category/indian-students</loc>
-    <lastmod>2026-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1168,24 +1132,6 @@
   </url>
   <url>
     <loc>https://admizzeducation.com/category/engineering</loc>
-    <lastmod>2026-02-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://admizzeducation.com/category/science</loc>
-    <lastmod>2026-02-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://admizzeducation.com/category/business</loc>
-    <lastmod>2026-02-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://admizzeducation.com/category/medical</loc>
     <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

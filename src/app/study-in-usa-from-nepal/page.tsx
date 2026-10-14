@@ -46,7 +46,7 @@ const pageData: NepalVariantData = {
   ],
   relatedLinks: [
     { label: "Study in the USA", href: "/study-in-the-usa", description: "universities, admission and visa overview" },
-    { label: "Study in the USA with a scholarship from Nepal", href: "/study-in-usa-with-scholarship-from-nepal-a-complete-guide", description: "step-by-step scholarship guide" },
+    { label: "US F-1 student visa interview from Nepal", href: "/usa-f1-visa-interview-opt-nepali-students-2026", description: "fees, SEVIS, OPT and STEM OPT" },
     { label: "Study abroad rule changes for Nepali students", href: "/study-abroad-rule-changes", description: "dated visa, funds and work-rule changes" },
     { label: "Scholarship assistance in Nepal", href: "/scholarship-assistance-in-nepal", description: "how we help you find and win funding" },
     { label: "Visa assistance for study abroad", href: "/visa-assistance-for-study-abroad", description: "documents, mock interviews and application review" },

@@ -113,13 +113,18 @@ const pageData: NepalVariantData = {
         "A test result is not mandatory for the visa, but it can help show your genuine intention to study. Your university sets its own English entry level.",
     },
     {
+      category: "Paying Tuition",
+      details:
+        "If you apply from outside New Zealand, you can choose not to pay tuition until Immigration New Zealand tells you your application is approved in principle. You then send a receipt or letter from your provider showing you have paid, and you need an unconditional offer of place before the visa is approved. Paying first can make processing faster.",
+    },
+    {
       category: "Documents",
       details:
         "Offer of place, evidence of your tuition payment, and bank statements or proof that your living costs have been paid.",
     },
     {
       category: "Application Process",
-      details: "Online only. Paper student visa applications stopped on 18 September 2025. Immigration New Zealand advises students from Nepal to apply at least 3 months before travel.",
+      details: "Online only. Paper student visa applications stopped on September 18, 2025. Immigration New Zealand advises students from Nepal to apply at least 3 months before travel.",
     },
   ],
   visaNote:
@@ -227,7 +232,7 @@ const pageData: NepalVariantData = {
           ["Degree level 7 or higher", "At least 30 weeks of full-time study in New Zealand, and you can work in any job."],
           ["Non-degree level 7 or lower", "The qualification must be on the eligible list, and you must work in a job related to your study."],
           ["When to apply", "Within 3 months after your student visa expires (6 months for a doctorate). Show at least NZD 5,000 for living expenses, and meet health and character requirements."],
-          ["From 16 November 2026", "Post-Study Work Visa eligibility is extended to some Level 7 graduate diploma holders, and a new 6-month Short-Term Graduate Work Visa is introduced for some Level 5 to 7 graduates."],
+          ["From November 16, 2026", "Post-Study Work Visa eligibility is extended to some Level 7 graduate diploma holders, and a new 6-month Short-Term Graduate Work Visa is introduced for some Level 5 to 7 graduates."],
         ],
       },
       note: "Sources: Immigration New Zealand, Working on a student visa, Post-Study Work Visa, and New and updated post-study work visa options.",
@@ -246,6 +251,10 @@ const pageData: NepalVariantData = {
     {
       question: "Do I need a medical certificate or police certificate for a New Zealand student visa?",
       answer: "A chest X-ray is required for stays over 6 months if you are from a country not on INZ's low-incidence TB list, and results must be under 3 months old. A police certificate is needed if you are 17 or over and will stay 24 months or more.",
+    },
+    {
+      question: "Do I have to pay my tuition before applying for a New Zealand student visa from Nepal?",
+      answer: "Not always. If you apply from outside New Zealand, Immigration New Zealand lets you choose not to pay tuition until it tells you your application is approved in principle. You must then show a receipt or a letter from your provider confirming you have paid before the visa is issued, and you need an unconditional offer of place. Paying before you apply can make processing faster.",
     },
     {
       question: "Is IELTS compulsory for a New Zealand student visa?",
