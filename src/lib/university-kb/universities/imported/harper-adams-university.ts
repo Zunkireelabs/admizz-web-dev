@@ -185,5 +185,11 @@ export const harperAdamsUniversity: UniversityProfile = {
       applicationDeadline: "Application Deadline: 6 November 2026"
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      value: "50% of tuition fee"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

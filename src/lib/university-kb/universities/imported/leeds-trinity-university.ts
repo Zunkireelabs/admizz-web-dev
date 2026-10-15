@@ -404,5 +404,11 @@ export const leedsTrinityUniversity: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      value: "50% of total fees"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

@@ -1378,5 +1378,12 @@ export const universityOfEastLondon: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      value: "50%",
+      note: "60% to be paid before enrolment"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

@@ -1185,5 +1185,16 @@ export const universityOfChester: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "Deposit",
+      amount: 1500
+    },
+    {
+      label: "CAS deposit",
+      amount: 3500,
+      note: "£5,000 in total to secure your CAS. £3,000+ or the remaining tuition at enrolment."
+    }
+  ],
   lastVerified: "2026-10-07"
 };

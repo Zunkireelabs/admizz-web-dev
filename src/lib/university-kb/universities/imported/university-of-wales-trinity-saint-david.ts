@@ -676,5 +676,12 @@ export const universityOfWalesTrinitySaintDavid: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      value: "50% of total fees",
+      note: "DBA: full fee payment"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

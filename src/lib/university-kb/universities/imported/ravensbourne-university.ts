@@ -593,5 +593,11 @@ export const ravensbourneUniversity: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      value: "60% of tuition"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

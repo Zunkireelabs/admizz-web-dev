@@ -109,7 +109,10 @@ export interface ApplicationStage {
 
 export interface DepositInfo {
   label: string;
-  amount: number;
+  /** Fixed amount in the country's currency. Omit when the deposit is a share of the fee. */
+  amount?: number;
+  /** Text shown instead of `amount`, e.g. "50% of tuition fee". */
+  value?: string;
   note?: string;
 }
 

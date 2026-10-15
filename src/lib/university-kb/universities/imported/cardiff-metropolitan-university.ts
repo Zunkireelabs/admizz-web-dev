@@ -572,5 +572,11 @@ export const cardiffMetropolitanUniversity: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      value: "50% of fee"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

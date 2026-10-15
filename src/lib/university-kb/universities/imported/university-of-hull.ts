@@ -234,5 +234,15 @@ export const universityOfHull: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      amount: 6350
+    },
+    {
+      label: "At enrolment",
+      value: "50% of net tuition"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

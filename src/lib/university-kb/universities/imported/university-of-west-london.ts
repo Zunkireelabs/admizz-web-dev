@@ -895,5 +895,16 @@ export const universityOfWestLondon: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "PCI deposit",
+      amount: 1000
+    },
+    {
+      label: "CAS deposit",
+      amount: 10000,
+      note: "£12,000 for Enhanced Extended"
+    }
+  ],
   lastVerified: "2026-10-07"
 };
