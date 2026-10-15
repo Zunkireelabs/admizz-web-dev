@@ -145,5 +145,55 @@ export function toUniversityCard(u: UniversityProfile): UniversityCard {
   };
 }
 
+/** One course at one university, for the Find Course page. `u` indexes into `universities`. */
+export interface CourseCard {
+  u: number;
+  slug: string;
+  name: string;
+  subject: string;
+  level: CourseLevel;
+  durationMonths: number;
+  fee?: number;
+  /** "year" or "total" — what `fee` covers */
+  per?: "year" | "total";
+  feeFrom?: boolean;
+  intakes: IntakeMonth[];
+  placement?: boolean;
+}
+
+export interface CourseCatalog {
+  universities: { name: string; logo: string; href: string; cities: string[]; country: CountrySlug; currency: CurrencyCode }[];
+  courses: CourseCard[];
+}
+
+export function toCourseCatalog(profiles: UniversityProfile[]): CourseCatalog {
+  const catalog: CourseCatalog = { universities: [], courses: [] };
+  profiles.forEach((u, i) => {
+    catalog.universities.push({
+      name: u.name,
+      logo: u.logo,
+      href: universityPath(u),
+      cities: u.cities,
+      country: u.country,
+      currency: countries[u.country].currency,
+    });
+    for (const c of u.courses) {
+      const fee = c.fees[0];
+      catalog.courses.push({
+        u: i,
+        slug: c.slug,
+        name: c.name,
+        subject: c.subject,
+        level: c.level,
+        durationMonths: c.durationMonths,
+        ...(fee ? { fee: fee.amount, per: fee.per, ...(fee.from ? { feeFrom: true } : {}) } : {}),
+        intakes: c.intakes,
+        ...(c.withPlacement ? { placement: true } : {}),
+      });
+    }
+  });
+  return catalog;
+}
+
 export { countries };
 export * from "./types";
