@@ -26,13 +26,15 @@ interface ProviderProps {
   universitySlug: string;
   /** Upcoming intakes, e.g. ["January 2027", "September 2027"] */
   intakes: string[];
+  /** Overrides "advice about {university}" when the enquiry is not tied to one university. */
+  adviceAbout?: string;
   children: ReactNode;
 }
 
 type Status = "idle" | "submitting" | "success";
 type Errors = Partial<Record<"fullName" | "phone" | "email" | "studyLevel", string>>;
 
-export function EnquiryProvider({ university, universitySlug, intakes, children }: ProviderProps) {
+export function EnquiryProvider({ university, universitySlug, intakes, adviceAbout, children }: ProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [course, setCourse] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -115,7 +117,7 @@ export function EnquiryProvider({ university, universitySlug, intakes, children 
                   {status === "success" ? "Enquiry received" : "Talk to a counsellor"}
                 </h2>
                 {status !== "success" && (
-                  <p className="mt-1 text-[14px] text-gray-dark">Free, one-to-one advice about {university}.</p>
+                  <p className="mt-1 text-[14px] text-gray-dark">Free, one-to-one advice about {adviceAbout ?? university}.</p>
                 )}
               </div>
               <button type="button" onClick={close} aria-label="Close" className="rounded-full p-2 text-gray-dark hover:bg-off-white hover:text-navy">
