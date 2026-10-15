@@ -437,7 +437,8 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                         <dd className="text-right font-semibold text-navy">{u.nextIntake ?? "Ask a counsellor"}</dd>
                       </div>
                     </dl>
-                    <span className="mt-auto pt-5 pb-1 inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal group-hover:underline underline-offset-4">
+                    {/* pr-28 keeps this clear of the absolutely-positioned Compare button */}
+                    <span className="mt-auto pt-5 pb-1 pr-28 inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal group-hover:underline underline-offset-4">
                       View university <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
                     </span>
                   </div>
