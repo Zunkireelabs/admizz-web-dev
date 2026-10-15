@@ -25,8 +25,7 @@ const studyDestinations = [
 
 const navLinks = [
   { name: "Find College", href: "/explore-universities" },
-  { name: "Match Your Destination", href: "/match-your-destination" },
-  { name: "Test Prep", href: "/test-prep" },
+  { name: "Find Course", href: "/find-course" },
   { name: "About", href: "/about" },
   { name: "Blogs", href: "/blogs" },
 ];
