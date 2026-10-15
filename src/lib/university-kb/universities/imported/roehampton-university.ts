@@ -703,5 +703,16 @@ export const roehamptonUniversity: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit (UG & Adult Nursing)",
+      amount: 10500
+    },
+    {
+      label: "CAS deposit (PG)",
+      amount: 8500,
+      note: "Remaining fee before enrolment"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

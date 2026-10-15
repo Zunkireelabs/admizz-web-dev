@@ -44,6 +44,19 @@ function durationLabel(months: number) {
 
 export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo): Record<TabId, ReactNode> {
   const levels = Array.from(new Set(u.courses.map((c) => c.level)));
+  const gapGroups = (u.entryRequirements ?? []).filter((g) => g.gapAccepted !== undefined);
+
+  // Tuition range per level, from the course list; falls back to the level summary.
+  const tuitionRows: { level: string; min: number; max: number; per?: "year" | "total" }[] = levels.flatMap((level) => {
+    const priced = u.courses.filter((c) => c.level === level && c.fees.length > 0);
+    if (priced.length === 0) return [];
+    const amounts = priced.flatMap((c) => c.fees.map((f) => f.amount));
+    const pers = new Set(priced.map((c) => c.fees[0].per));
+    return [{ level: LEVEL_LABEL[level], min: Math.min(...amounts), max: Math.max(...amounts), per: pers.size === 1 ? priced[0].fees[0].per : undefined }];
+  });
+  if (tuitionRows.length === 0) {
+    for (const f of u.feeSummary ?? []) tuitionRows.push({ level: f.level, min: f.min, max: f.max });
+  }
 
   return {
     courses: (
@@ -90,7 +103,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
               {u.courses
                 .filter((c) => c.level === level)
                 .map((c) => (
-                  <article key={c.slug} className="flex flex-col rounded-2xl border border-border-light bg-white p-6">
+                  <article key={c.slug} id={`course-${c.slug}`} className="flex scroll-mt-44 flex-col rounded-2xl border border-border-light bg-white p-6 transition-shadow target:border-blue-royal target:ring-2 target:ring-blue-royal/30">
                     {c.withPlacement && (
                       <p className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-amber-700">{c.placementOptional ? "Placement year available" : "Includes placement year"}</p>
                     )}
@@ -164,15 +177,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
             <div className="space-y-6">
               {u.entryRequirements.map((g) => (
                 <div key={g.level} className="rounded-2xl border border-border-light p-6">
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-                    <h3 className="text-[16px] font-semibold text-navy">{g.level}</h3>
-                    {g.gapAccepted !== undefined && (
-                      <span className="text-[13px] text-gray-dark">
-                        Gap {g.gapAccepted ? "accepted" : "not accepted"}
-                        {g.gapAccepted && g.gapYearsAllowed ? gapNote(g.gapYearsAllowed) : ""}
-                      </span>
-                    )}
-                  </div>
+                  <h3 className="text-[16px] font-semibold text-navy">{g.level}</h3>
                   <ul className="mt-3 space-y-1.5 text-[14px] text-slate">
                     {g.criteria.map((c, i) => (
                       <li key={i} className="flex gap-2">
@@ -221,6 +226,88 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
               ))}
             </div>
           </section>
+        )}
+
+        {gapGroups.length > 0 && (
+          <section>
+            <SectionTitle sub="Study gap accepted between your last qualification and the intake.">Gap</SectionTitle>
+            <ul className="divide-y divide-border-light border-y border-border-light text-[15px]">
+              {gapGroups.map((g) => (
+                <li key={g.level} className="flex flex-wrap items-baseline justify-between gap-2 py-3.5">
+                  <span className="text-gray-dark">{g.level}</span>
+                  <span className="text-right font-semibold text-navy">
+                    {g.gapAccepted ? `Accepted${g.gapYearsAllowed ? gapNote(g.gapYearsAllowed) : ""}` : "Not accepted"}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </div>
+    ),
+
+    fees: (
+      <div className="space-y-10">
+        {tuitionRows.length > 0 && (
+          <section>
+            <SectionTitle sub="Published tuition for international students. The exact fee depends on the course.">Tuition fees</SectionTitle>
+            <ul className="divide-y divide-border-light border-y border-border-light text-[15px]">
+              {tuitionRows.map((r) => (
+                <li key={r.level} className="flex flex-wrap items-baseline justify-between gap-2 py-3.5">
+                  <span className="text-gray-dark">{r.level}</span>
+                  <span className="text-right font-semibold text-navy">
+                    {r.min === r.max
+                      ? formatMoney(r.min, country.currency)
+                      : `${formatMoney(r.min, country.currency)} – ${formatMoney(r.max, country.currency)}`}
+                    {r.per && <span className="ml-1 text-[12px] font-normal text-gray-dark">{r.per === "year" ? "per year" : "total"}</span>}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {u.scholarships.length > 0 && (
+          <section>
+            <SectionTitle>Scholarship</SectionTitle>
+            <ul className="divide-y divide-border-light border-y border-border-light">
+              {u.scholarships.map((s) => (
+                <li key={s.name} className="flex flex-wrap items-baseline justify-between gap-2 py-4 text-[15px]">
+                  <span className="text-slate">
+                    {s.name}
+                    {s.eligibility && <span className="block text-[13px] text-gray-dark">{s.eligibility}</span>}
+                  </span>
+                  <span className="font-semibold text-green-700">{s.value}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {u.deposits && u.deposits.length > 0 && (
+          <section>
+            <SectionTitle sub="Paid to secure your CAS (the visa confirmation letter).">CAS deposit</SectionTitle>
+            <ul className="divide-y divide-border-light border-y border-border-light text-[15px]">
+              {u.deposits.map((d) => (
+                <li key={d.label} className="flex justify-between gap-3 py-3.5">
+                  <span className="text-gray-dark">
+                    {d.label}
+                    {d.note && <span className="block text-[13px]">{d.note}</span>}
+                  </span>
+                  <span className="text-right font-semibold text-navy">
+                    {d.amount !== undefined ? formatMoney(d.amount, country.currency) : d.value}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {tuitionRows.length === 0 && u.scholarships.length === 0 && !(u.deposits && u.deposits.length > 0) && (
+          <p className="border-y border-border-light py-6 text-[15px] text-gray-dark">
+            Fee details for this university are being confirmed.{" "}
+            <EnquireButton className={`${textLink} inline-flex`}>Ask a counsellor</EnquireButton>
+          </p>
         )}
       </div>
     ),
@@ -345,22 +432,6 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
             </ul>
           )}
         </section>
-        {u.deposits && u.deposits.length > 0 && (
-          <section>
-            <SectionTitle>Deposits</SectionTitle>
-            <ul className="divide-y divide-border-light border-y border-border-light text-[15px]">
-              {u.deposits.map((d) => (
-                <li key={d.label} className="flex justify-between gap-3 py-3.5">
-                  <span className="text-gray-dark">
-                    {d.label}
-                    {d.note && <span className="block text-[13px]">{d.note}</span>}
-                  </span>
-                  <span className="font-semibold text-navy">{formatMoney(d.amount, country.currency)}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
         <p className="text-[13px] text-gray-dark">
           Information last verified on {u.lastVerified}. Fees and intakes can change — confirm with an Admizz counsellor before applying.{" "}
           <Link href="/register" className={textLink}>

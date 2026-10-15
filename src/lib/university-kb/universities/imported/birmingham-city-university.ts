@@ -571,5 +571,15 @@ export const birminghamCityUniversity: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "Initial payment",
+      amount: 1000
+    },
+    {
+      label: "CAS deposit",
+      value: "50% of tuition fee"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

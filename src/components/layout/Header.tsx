@@ -25,8 +25,7 @@ const studyDestinations = [
 
 const navLinks = [
   { name: "Find College", href: "/explore-universities" },
-  { name: "Match Your Destination", href: "/match-your-destination" },
-  { name: "Test Prep", href: "/test-prep" },
+  { name: "Find Course", href: "/find-course" },
   { name: "About", href: "/about" },
   { name: "Blogs", href: "/blogs" },
 ];
@@ -85,14 +84,14 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center xl:gap-1">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {/* Study Destinations Dropdown */}
             <div
               className="relative"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <button className="px-2 xl:px-4 py-2 text-[13px] lg:text-[14px] xl:text-[15px] font-medium text-slate hover:text-navy transition-colors flex items-center gap-1 whitespace-nowrap">
+              <button className="px-3 xl:px-4 py-2 text-[13px] lg:text-[14px] xl:text-[15px] font-medium text-slate hover:text-navy transition-colors flex items-center gap-1 whitespace-nowrap">
                 Study Destinations
                 <svg
                   className={`w-3 h-3 transition-transform duration-300 ${destOpen ? "rotate-180" : ""}`}
@@ -134,9 +133,9 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
-                className={`relative px-2 xl:px-4 py-2 text-[13px] lg:text-[14px] xl:text-[15px] font-medium transition-colors whitespace-nowrap rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-royal/40 ${
+                className={`relative px-3 xl:px-4 py-2 text-[13px] lg:text-[14px] xl:text-[15px] font-medium transition-colors whitespace-nowrap rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-royal/40 ${
                   isActive(link.href)
-                    ? "text-blue-royal after:absolute after:left-2 after:right-2 xl:after:left-4 xl:after:right-4 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-blue-royal"
+                    ? "text-blue-royal after:absolute after:left-3 after:right-3 xl:after:left-4 xl:after:right-4 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-blue-royal"
                     : "text-slate hover:text-navy"
                 }`}
               >
@@ -147,7 +146,7 @@ export default function Header() {
             {/* Register CTA */}
             <Link
               href="/register"
-              className="ml-2 xl:ml-4 bg-yellow text-black font-semibold text-[14px] xl:text-[15px] px-4 xl:px-6 py-2.5 rounded-[10px] whitespace-nowrap hover:bg-yellow-bright transition-colors"
+              className="ml-3 xl:ml-4 bg-yellow text-black font-semibold text-[14px] xl:text-[15px] px-4 xl:px-6 py-2.5 rounded-[10px] whitespace-nowrap hover:bg-yellow-bright transition-colors"
             >
               <span className="xl:hidden">Free Counseling</span>
               <span className="hidden xl:inline">Book a Free Counseling</span>

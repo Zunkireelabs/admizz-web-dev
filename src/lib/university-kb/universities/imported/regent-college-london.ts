@@ -270,5 +270,11 @@ export const regentCollegeLondon: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      amount: 13500
+    }
+  ],
   lastVerified: "2026-10-07"
 };

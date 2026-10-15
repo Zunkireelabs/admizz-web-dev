@@ -1,13 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
-import { GraduationCap, ListChecks, FileText, CalendarDays, MapPin, Info, ClipboardCheck, ChevronLeft, ChevronRight } from "lucide-react";
+import { GraduationCap, ListChecks, FileText, CalendarDays, MapPin, Info, ClipboardCheck, Wallet, ChevronLeft, ChevronRight } from "lucide-react";
 
-export type TabId = "courses" | "entry" | "apply" | "documents" | "intakes" | "location" | "more-info";
+export type TabId = "courses" | "entry" | "fees" | "apply" | "documents" | "intakes" | "location" | "more-info";
 
 const TABS: { id: TabId; label: string; icon: typeof GraduationCap }[] = [
   { id: "courses", label: "Courses", icon: GraduationCap },
-  { id: "entry", label: "Entry Requirements", icon: ClipboardCheck },
+  { id: "entry", label: "Requirements", icon: ClipboardCheck },
+  { id: "fees", label: "Fees", icon: Wallet },
   { id: "apply", label: "How to Apply", icon: ListChecks },
   { id: "documents", label: "Documents", icon: FileText },
   { id: "intakes", label: "Intakes", icon: CalendarDays },
@@ -52,8 +53,14 @@ export default function UniversityTabs({
 
   useEffect(() => {
     const fromHash = () => {
-      const id = window.location.hash.slice(1) as TabId;
-      if (TABS.some((t) => t.id === id)) setActive(id);
+      const hash = window.location.hash.slice(1);
+      // #course-<slug> (from Find Course) opens the Courses tab and scrolls to that course.
+      if (hash.startsWith("course-")) {
+        setActive("courses");
+        requestAnimationFrame(() => document.getElementById(hash)?.scrollIntoView({ block: "center" }));
+        return;
+      }
+      if (TABS.some((t) => t.id === hash)) setActive(hash as TabId);
     };
     fromHash();
     window.addEventListener("hashchange", fromHash);

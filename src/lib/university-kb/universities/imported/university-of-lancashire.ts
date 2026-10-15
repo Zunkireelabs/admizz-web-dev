@@ -517,5 +517,12 @@ export const universityOfLancashire: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      value: "50%",
+      note: "Instalments available"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

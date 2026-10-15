@@ -1840,5 +1840,11 @@ export const universityOfBedfordshire: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      value: "65% of total fee"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

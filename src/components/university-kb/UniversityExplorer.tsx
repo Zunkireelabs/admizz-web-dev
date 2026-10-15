@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Search, SlidersHorizontal, X, MapPin, ArrowRight, Wallet, Award, CalendarDays, TrendingUp } from "lucide-react";
 import Pagination from "./Pagination";
+import Dropdown from "./Dropdown";
 import type { CountrySlug, CourseLevel, CurrencyCode, IntakeMonth, UniversityCard } from "@/lib/university-kb";
 import { formatMoney } from "@/lib/university-kb/countries";
 import CompareToggle from "./CompareToggle";
@@ -28,9 +29,6 @@ interface Props {
   title: string;
   subtitle?: ReactNode;
 }
-
-const field =
-  "w-full rounded-[10px] border border-border-light bg-white text-[15px] text-navy placeholder:text-gray-medium focus:outline-none focus:border-blue-royal focus:ring-2 focus:ring-blue-royal/15";
 
 // Round fee caps to friendly steps, e.g. 10,000 / 12,500 / 15,000.
 function feeSteps(max: number) {
@@ -211,7 +209,6 @@ export default function UniversityExplorer({ universities, countries, fixedCount
     return picks;
   }, [scoped, courseQuery, scholarshipOnly, intake, level, city, levelOptions, cityOptions]);
 
-  const select = `${field} px-3 py-3 cursor-pointer`;
   const label = "mb-2 block text-[14px] font-semibold text-navy";
   const resultLabel = `${results.length} ${results.length === 1 ? "university" : "universities"}`;
 
@@ -357,18 +354,20 @@ export default function UniversityExplorer({ universities, countries, fixedCount
               </button>
             )}
           </div>
-          <label className="flex items-center gap-2 text-[14px] text-gray-dark">
+          <div className="flex items-center gap-2 text-[14px] text-gray-dark">
             Sort by
-            <select
+            <Dropdown
+              variant="compact"
+              label="Sort by"
               value={sort}
-              onChange={(e) => setSort(e.target.value as SortKey)}
-              className="cursor-pointer rounded-[10px] border border-border-light bg-white px-3 py-2 text-[14px] font-semibold text-navy focus:outline-none focus:border-blue-royal"
-            >
-              <option value="recommended">Recommended</option>
-              <option value="fee-asc">Lowest fees</option>
-              <option value="name">Name (A–Z)</option>
-            </select>
-          </label>
+              onChange={(v) => setSort((v || "recommended") as SortKey)}
+              options={[
+                { value: "recommended", label: "Recommended" },
+                { value: "fee-asc", label: "Lowest fees" },
+                { value: "name", label: "Name (A–Z)" },
+              ]}
+            />
+          </div>
         </div>
 
         {results.length === 0 ? (
@@ -437,7 +436,8 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                         <dd className="text-right font-semibold text-navy">{u.nextIntake ?? "Ask a counsellor"}</dd>
                       </div>
                     </dl>
-                    <span className="mt-auto pt-5 pb-1 inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal group-hover:underline underline-offset-4">
+                    {/* pr-28 keeps this clear of the absolutely-positioned Compare button */}
+                    <span className="mt-auto pt-5 pb-1 pr-28 inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal group-hover:underline underline-offset-4">
                       View university <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
                     </span>
                   </div>
@@ -491,59 +491,54 @@ export default function UniversityExplorer({ universities, countries, fixedCount
             {!fixedCountry && (
               <label className="block">
                 <span className={label}>Country</span>
-                <select className={select} value={country} onChange={(e) => changeCountry(e.target.value as CountrySlug | "")}>
-                  <option value="">All countries</option>
-                  {countries.map((c) => (
-                    <option key={c.slug} value={c.slug}>{c.name}</option>
-                  ))}
-                </select>
+                <Dropdown
+                  label="Country"
+                  value={country}
+                  onChange={changeCountry}
+                  options={[{ value: "", label: "All countries" }, ...countries.map((c) => ({ value: c.slug, label: c.name }))]}
+                />
               </label>
             )}
             <label className="block">
               <span className={label}>Study level</span>
-              <select className={select} value={level} onChange={(e) => setLevel(e.target.value as CourseLevel | "")}>
-                <option value="">All levels</option>
-                {levelOptions.map((l) => (
-                  <option key={l} value={l}>{LEVEL_LABEL[l]}</option>
-                ))}
-              </select>
+              <Dropdown
+                label="Study level"
+                value={level}
+                onChange={setLevel}
+                options={[{ value: "", label: "All levels" }, ...levelOptions.map((l) => ({ value: l, label: LEVEL_LABEL[l] }))]}
+              />
             </label>
             <label className="block">
               <span className={label}>Intake month</span>
-              <select className={select} value={intake} onChange={(e) => setIntake(e.target.value as IntakeMonth | "")}>
-                <option value="">All intakes</option>
-                {intakeOptions.map(({ month, count }) => (
-                  <option key={month} value={month}>{month} ({count})</option>
-                ))}
-              </select>
+              <Dropdown
+                label="Intake month"
+                value={intake}
+                onChange={setIntake}
+                options={[{ value: "", label: "All intakes" }, ...intakeOptions.map(({ month, count }) => ({ value: month, label: `${month} (${count})` }))]}
+              />
               <span className="mt-2 block text-[12px] leading-snug text-gray-dark">
                 Showing intakes currently open through Admizz. Ask a counsellor about other intakes.
               </span>
             </label>
             <label className="block">
               <span className={label}>City</span>
-              <select className={select} value={city} onChange={(e) => setCity(e.target.value)}>
-                <option value="">All cities</option>
-                {cityOptions.map((c) => (
-                  <option key={c} value={c}>{c}</option>
-                ))}
-              </select>
+              <Dropdown
+                label="City"
+                value={city}
+                onChange={setCity}
+                options={[{ value: "", label: "All cities" }, ...cityOptions.map((c) => ({ value: c, label: c }))]}
+              />
             </label>
             <div>
               <label className="block">
                 <span className={label}>Maximum tuition</span>
-                <select
-                  className={`${select} disabled:cursor-not-allowed disabled:bg-off-white disabled:text-gray-medium`}
+                <Dropdown
+                  label="Maximum tuition"
                   value={maxFee}
+                  onChange={setMaxFee}
                   disabled={!currency || feeOptions.length === 0}
-                  onChange={(e) => setMaxFee(e.target.value === "" ? "" : Number(e.target.value))}
-                >
-                  <option value="">Any fee</option>
-                  {currency &&
-                    feeOptions.map((f) => (
-                      <option key={f} value={f}>Up to {formatMoney(f, currency)}</option>
-                    ))}
-                </select>
+                  options={[{ value: "", label: "Any fee" }, ...(currency ? feeOptions.map((f) => ({ value: f, label: `Up to ${formatMoney(f, currency)}` })) : [])]}
+                />
               </label>
               {!currency && <p className="mt-1.5 text-[13px] text-gray-dark">Choose a country first to filter by fee.</p>}
             </div>

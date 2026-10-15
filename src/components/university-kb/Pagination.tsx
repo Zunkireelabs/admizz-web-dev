@@ -6,6 +6,8 @@ interface PaginationProps {
   totalItems: number;
   pageSize: number;
   onChange: (page: number) => void;
+  /** Plural noun for the count line. */
+  noun?: string;
 }
 
 /** 1 … 4 5 6 … 12 — always shows first, last and the pages around the current one. */
@@ -24,7 +26,7 @@ function pageItems(page: number, total: number): (number | "gap")[] {
 const base =
   "inline-flex h-10 min-w-10 items-center justify-center rounded-[10px] border px-3 text-[14px] font-semibold transition-colors";
 
-export default function Pagination({ page, totalPages, totalItems, pageSize, onChange }: PaginationProps) {
+export default function Pagination({ page, totalPages, totalItems, pageSize, onChange, noun = "universities" }: PaginationProps) {
   if (totalPages <= 1) return null;
   const from = (page - 1) * pageSize + 1;
   const to = Math.min(page * pageSize, totalItems);
@@ -32,7 +34,7 @@ export default function Pagination({ page, totalPages, totalItems, pageSize, onC
   return (
     <nav aria-label="Pagination" className="mt-10 flex flex-col items-center gap-4">
       <p className="text-[14px] text-gray-dark" aria-live="polite">
-        Showing <strong className="text-navy">{from}–{to}</strong> of <strong className="text-navy">{totalItems}</strong> universities
+        Showing <strong className="text-navy">{from}–{to}</strong> of <strong className="text-navy">{totalItems}</strong> {noun}
       </p>
       <ul className="flex flex-wrap items-center justify-center gap-2">
         <li>

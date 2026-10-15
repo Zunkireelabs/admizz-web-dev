@@ -873,5 +873,12 @@ export const ulsterUniversity: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "PCI deposit",
+      amount: 6500,
+      note: "London, Birmingham & Manchester campuses"
+    }
+  ],
   lastVerified: "2026-10-07"
 };

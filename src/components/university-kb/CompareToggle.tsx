@@ -39,7 +39,7 @@ export default function CompareToggle({ id, name, variant = "card" }: Props) {
       className={`inline-flex items-center justify-center gap-1.5 border font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${base} ${look}`}
     >
       {selected ? <Check className="w-4 h-4" aria-hidden /> : <Plus className="w-4 h-4" aria-hidden />}
-      {selected ? "Added to compare" : "Compare"}
+      {selected ? (variant === "card" ? "Added" : "Added to compare") : "Compare"}
     </button>
   );
 }

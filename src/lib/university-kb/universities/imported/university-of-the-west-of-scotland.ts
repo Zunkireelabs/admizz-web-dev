@@ -582,5 +582,12 @@ export const universityOfTheWestOfScotland: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS deposit",
+      value: "75%",
+      note: "Paid after PCI. The remaining 25% is due before the start of the 2nd term."
+    }
+  ],
   lastVerified: "2026-10-07"
 };

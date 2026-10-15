@@ -132,5 +132,12 @@ export const healthScienceUniversity: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "Pre-CAS deposit",
+      amount: 6250,
+      note: "50% of net fee. Remaining fee before enrolment."
+    }
+  ],
   lastVerified: "2026-10-07"
 };

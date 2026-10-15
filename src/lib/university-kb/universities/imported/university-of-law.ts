@@ -662,5 +662,12 @@ export const universityOfLaw: UniversityProfile = {
       year: 2027
     }
   ],
+  deposits: [
+    {
+      label: "CAS & enrolment deposit",
+      amount: 8000,
+      note: "Balance paid in 3 instalments"
+    }
+  ],
   lastVerified: "2026-10-07"
 };
