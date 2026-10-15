@@ -6,10 +6,11 @@ import Link from "next/link";
 import { Search, X, MapPin, ArrowRight, TrendingUp } from "lucide-react";
 import Pagination from "./Pagination";
 import Dropdown from "./Dropdown";
-import CourseCover from "./CourseCover";
+import CourseCover, { photoFor } from "./CourseCover";
 import { FEATURED_COURSES, TRENDING_CARDS, TRENDING_CHIPS } from "@/lib/university-kb/trending";
 import type { CourseCatalog, CourseLevel, IntakeMonth } from "@/lib/university-kb";
-import { groupCourses, searchGroups, minFee, type CourseGroup } from "@/lib/university-kb/course-groups";
+import { groupCourses, searchGroups, minFee, groupSubject, type CourseGroup } from "@/lib/university-kb/course-groups";
+import { labelForCourse } from "./courseTopic";
 import { formatMoney } from "@/lib/university-kb/countries";
 
 const LEVEL_LABEL: Record<CourseLevel, string> = {
@@ -18,13 +19,17 @@ const LEVEL_LABEL: Record<CourseLevel, string> = {
   postgraduate: "Postgraduate",
   research: "Research",
 };
-const LEVEL_SHORT: Record<CourseLevel, string> = { foundation: "Foundation", undergraduate: "UG", postgraduate: "PG", research: "Research" };
 
 type SortKey = "recommended" | "fee-asc" | "name";
 
 const PAGE_SIZE = 6;
 const TRENDING_ROWS = 3;
-const RESULT_ROWS = 5;
+const RESULT_ROWS = 3;
+
+// "University of Salford" -> "Salford", "Ulster University" -> "Ulster": the plain-text line only needs the recognisable part.
+function shortName(name: string) {
+  return name.replace(/^University of (the )?/i, "").replace(/ University$/i, "").replace(/\s*\(.*\)$/, "");
+}
 
 function durationLabel(months: number) {
   if (months % 12 === 0) return `${months / 12} year${months === 12 ? "" : "s"}`;
@@ -78,6 +83,17 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
   }, [allGroups]);
   const trendingCards = trending.slice(0, TRENDING_CARDS);
   const popularCourses = trending.slice(TRENDING_CARDS, TRENDING_CARDS + TRENDING_CHIPS);
+
+  // Numbers for the intro block and the "how widely offered" bars.
+  const stats = useMemo(() => {
+    const fees = catalog.courses.map((c) => c.fee).filter((f): f is number => f !== undefined);
+    return {
+      universities: universities.length,
+      courses: allGroups.length,
+      lowestFee: fees.length ? Math.min(...fees) : undefined,
+      maxOffers: Math.max(1, ...allGroups.map((g) => g.offers.length)),
+    };
+  }, [catalog.courses, universities.length, allGroups]);
 
   const suggestions = useMemo(() => {
     if (!words.length) return [];
@@ -186,8 +202,8 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
 
   return (
     <>
-      <section className="bg-gradient-to-r from-blue-royal to-blue-dark px-4 pt-6 pb-10">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-gradient-to-r from-blue-royal to-blue-dark pt-6 pb-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav aria-label="Breadcrumb" className="text-[13px] text-white/75">
             <Link href="/" className="hover:text-white hover:underline underline-offset-2">Home</Link>
             <span className="mx-1.5" aria-hidden>/</span>
@@ -287,25 +303,99 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
         </div>
       </section>
 
-      <section ref={resultsRef} className={`max-w-7xl mx-auto px-4 pt-8 scroll-mt-[90px] ${searching ? "pb-20" : ""}`}>
+      <section ref={resultsRef} className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 scroll-mt-[90px] ${searching ? "pb-20" : ""}`}>
         {!searching ? (
-          <div className="mx-auto py-10 text-center">
-            <h2 className="text-[22px] font-bold text-navy">Which course are you looking for?</h2>
-            <p className="mt-2 text-[15px] text-gray-dark">Search above, or tap a popular course to see the universities that offer it.</p>
+          <div className="grid gap-10 py-14 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-royal/10 text-blue-royal">
+                <Search className="h-6 w-6" aria-hidden />
+              </span>
+              <h2 className="mt-5 text-[28px] font-bold leading-tight text-navy md:text-[34px]">Which course are you looking for?</h2>
+              <span aria-hidden className="mt-4 block h-1 w-12 rounded-full bg-gradient-to-r from-blue-royal to-yellow" />
+              <p className="mt-4 max-w-md text-[15px] leading-relaxed text-gray-dark">
+                Search above, or pick a popular course to see every partner university that offers it, with the fee, duration and intake.
+              </p>
+
+              <dl className="mt-8 grid max-w-md grid-cols-3 divide-x divide-border-light border-y border-border-light py-5">
+                <div className="pr-4">
+                  <dd className="text-[26px] font-bold leading-none text-navy">{stats.universities}</dd>
+                  <dt className="mt-1.5 text-[12px] text-gray-dark">Partner universities</dt>
+                </div>
+                <div className="px-4">
+                  <dd className="text-[26px] font-bold leading-none text-navy">{stats.courses.toLocaleString("en-GB")}</dd>
+                  <dt className="mt-1.5 text-[12px] text-gray-dark">Courses</dt>
+                </div>
+                <div className="pl-4">
+                  <dd className="text-[26px] font-bold leading-none text-navy">{stats.lowestFee !== undefined ? formatMoney(stats.lowestFee, currency) : "—"}</dd>
+                  <dt className="mt-1.5 text-[12px] text-gray-dark">Lowest tuition</dt>
+                </div>
+              </dl>
+
+              <Link href="/register" className="mt-6 inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal hover:underline underline-offset-4">
+                Not sure? Talk to a counsellor <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </div>
+
             {popularCourses.length > 0 && (
-              <div className="mt-6 flex flex-wrap justify-center gap-2.5">
-                {popularCourses.map((c) => (
-                  <button
-                    key={c.key}
-                    type="button"
-                    onClick={() => run(c.name)}
-                    className="rounded-full border border-border-light bg-white px-4 py-2 text-[14px] font-semibold text-navy transition-colors hover:border-blue-royal hover:text-blue-royal"
-                  >
-                    {c.name}
-                    <span className="ml-2 text-[12px] font-normal text-gray-dark">{c.offers.length} universities</span>
-                  </button>
-                ))}
-              </div>
+              <ol className="grid border-t-2 border-navy sm:grid-cols-2 sm:gap-x-12">
+                {popularCourses.map((c, i) => {
+                  const from = minFee(c);
+                  // Names that fit on one line: take offers in order while the line stays short.
+                  const names: string[] = [];
+                  for (const o of c.offers.slice(0, 8)) {
+                    const n = shortName(universities[o.u].name);
+                    if (names.length < 3 && [...names, n].join(" · ").length <= 30) names.push(n);
+                  }
+                  if (names.length === 0) names.push(shortName(universities[c.offers[0].u].name));
+                  const more = c.offers.length - names.length;
+                  const reach = Math.max(8, Math.round((c.offers.length / stats.maxOffers) * 100));
+                  return (
+                    <li key={c.key} className="border-b border-border-light">
+                      <button
+                        type="button"
+                        onClick={() => run(c.name)}
+                        className="group relative -mx-3 flex w-[calc(100%+1.5rem)] items-center gap-4 rounded-xl px-3 py-5 text-left transition-colors hover:bg-blue-royal/[0.04] focus-visible:bg-blue-royal/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-royal"
+                      >
+                        <span aria-hidden className="absolute inset-y-4 left-0 w-[3px] origin-center scale-y-0 rounded-full bg-blue-royal transition-transform duration-200 group-hover:scale-y-100" />
+                        <span className="w-9 shrink-0 self-start text-[24px] font-bold leading-none tabular-nums text-blue-royal/25 transition-colors group-hover:text-blue-royal">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-[17px] font-bold leading-snug text-navy transition-colors group-hover:text-blue-royal">{c.name}</span>
+                          <span className="mt-1.5 block text-[13px] text-gray-dark">
+                            <span className="font-semibold text-navy">{c.offers.length}</span> universities
+                            {from !== undefined && (
+                              <>
+                                {" · from "}
+                                <span className="font-semibold text-navy">{formatMoney(from, currency)}</span>
+                              </>
+                            )}
+                          </span>
+                          <span aria-hidden className="mt-2 block h-1 w-full max-w-[150px] overflow-hidden rounded-full bg-blue-royal/10">
+                            <span className="block h-full rounded-full bg-gradient-to-r from-blue-royal to-[#5a72e0]" style={{ width: `${reach}%` }} />
+                          </span>
+                          <span className="mt-2 line-clamp-2 block text-[12px] leading-snug text-gray-medium">
+                            {names.join(" · ")}
+                            {more > 0 && ` +${more} more`}
+                          </span>
+                        </span>
+                        <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-navy">
+                          <Image
+                            src={`/images/course-covers/${photoFor(groupSubject(c), c.name)}.webp`}
+                            alt=""
+                            fill
+                            sizes="64px"
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <span aria-hidden className="absolute inset-0 flex items-center justify-center bg-navy/55 opacity-0 transition-opacity group-hover:opacity-100">
+                            <ArrowRight className="h-5 w-5 text-white" />
+                          </span>
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
             )}
           </div>
         ) : (
@@ -381,7 +471,7 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
                 </button>
               </div>
             ) : (
-              <ul className="mt-6 grid items-start gap-5 md:grid-cols-2 lg:grid-cols-3">
+              <ul className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {pageGroups.map((g) => (
                   <li key={g.key}>
                     <CourseGroupCard group={g} universities={universities} currency={currency} rows={RESULT_ROWS} />
@@ -397,7 +487,7 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
 
       {!searching && trendingCards.length > 0 && (
         <section aria-labelledby="trending-heading" className="pb-20 pt-6">
-          <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-royal/[0.08] px-3.5 py-1 text-[12px] font-bold uppercase tracking-wider text-blue-royal">
                 <TrendingUp className="h-3.5 w-3.5" aria-hidden />
@@ -432,25 +522,24 @@ function CourseGroupCard({
   currency: CourseCatalog["universities"][number]["currency"];
   rows: number;
 }) {
-  const [expanded, setExpanded] = useState(false);
   const total = group.offers.length;
-  const subject = (() => {
-    const counts = new Map<string, number>();
-    for (const o of group.offers) if (o.course.subject !== "General") counts.set(o.course.subject, (counts.get(o.course.subject) ?? 0) + 1);
-    return Array.from(counts).sort((a, b) => b[1] - a[1])[0]?.[0];
-  })();
-  const shown = expanded ? group.offers : group.offers.slice(0, rows);
+  const subject = groupSubject(group);
+  const shown = group.offers.slice(0, rows);
+  const topic = labelForCourse(group.name, subject);
   const from = minFee(group);
+  const intakes = Array.from(new Set(group.offers.flatMap((o) => o.course.intakes)));
+  const placement = group.offers.some((o) => o.course.placement);
+  const first = group.offers[0];
+  const courseHref = group.hasPage ? `/find-course/${group.slug}` : `${universities[first.u].href}#course-${first.course.slug}`;
+  const pill = "whitespace-nowrap rounded-full px-2.5 py-1 text-[12px] font-semibold";
 
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-border-light bg-white transition-shadow hover:shadow-[0_12px_32px_rgba(0,19,83,0.12)]">
-      <CourseCover subject={subject} name={group.name} label={subject} />
-      <div className="p-5 pb-4">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="text-[17px] font-bold leading-snug text-navy">{group.name}</h3>
-          <span className="shrink-0 rounded-full bg-blue-royal/[0.08] px-2.5 py-0.5 text-[12px] font-semibold text-blue-royal">{LEVEL_SHORT[group.level]}</span>
-        </div>
-        <p className="mt-1 text-[14px] text-gray-dark">
+    <div className="flex h-full flex-col rounded-2xl border border-border-light bg-white p-3.5 transition-all hover:border-blue-royal/40 hover:shadow-[0_14px_36px_rgba(0,19,83,0.12)]">
+      <CourseCover subject={subject} name={group.name} label={topic} />
+
+      <div className="px-2 pt-4">
+        <h3 className="flex min-h-[3.1rem] items-end text-[18px] font-bold leading-snug text-navy">{group.name}</h3>
+        <p className="mt-1.5 text-[14px] text-gray-dark">
           {total} {total === 1 ? "university" : "universities"}
           {from !== undefined && (
             <>
@@ -459,19 +548,32 @@ function CourseGroupCard({
             </>
           )}
         </p>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          <span className={`${pill} bg-blue-royal/[0.08] text-blue-royal`}>{LEVEL_LABEL[group.level]}</span>
+          {intakes.length > 0 && (
+            <span className={`${pill} border border-border-light text-navy`}>
+              {intakes.length > 1 ? `${intakes.length} intakes` : `${intakes[0]} intake`}
+            </span>
+          )}
+          {placement && <span className={`${pill} bg-golden/20 text-amber-800`}>Placement year</span>}
+        </div>
       </div>
 
-      <ul className="divide-y divide-border-light border-t border-border-light">
+      <div className="mt-4 flex flex-1 flex-col gap-2">
+      <ul className="space-y-2">
         {shown.map(({ u, course: c }) => {
           const uni = universities[u];
           return (
             <li key={u}>
-              <Link href={`${uni.href}#course-${c.slug}`} className="group flex items-center gap-3 px-5 py-3 hover:bg-off-white focus-visible:outline-none focus-visible:bg-off-white">
+              <Link
+                href={`${uni.href}#course-${c.slug}`}
+                className="group flex items-center gap-3 rounded-xl border border-border-light px-3 py-2.5 transition-colors hover:border-blue-royal/40 hover:bg-off-white focus-visible:bg-off-white focus-visible:outline-none"
+              >
                 <span className="flex h-10 w-14 shrink-0 items-center justify-center rounded-md border border-border-light bg-white p-1">
                   <Image src={uni.logo} alt="" width={72} height={40} className="max-h-full w-full object-contain" />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate text-[14px] font-semibold text-navy group-hover:text-blue-royal">{uni.name}</span>
+                  <span className="line-clamp-2 block text-[14px] font-semibold leading-snug text-navy group-hover:text-blue-royal">{uni.name}</span>
                   <span className="flex items-center gap-1 text-[12px] text-gray-dark">
                     <MapPin className="h-3 w-3 shrink-0" aria-hidden />
                     <span className="truncate">{uni.cities.slice(0, 2).join(", ")}</span>
@@ -498,24 +600,36 @@ function CourseGroupCard({
         })}
       </ul>
 
-      {total > rows && (
-        group.hasPage ? (
+      {/* Cards with fewer universities fill the leftover space with one clear way forward. */}
+      {total < rows && (
+        <Link
+          href={courseHref}
+          className="group flex min-h-[84px] flex-1 items-center gap-3 rounded-xl bg-blue-royal/[0.06] px-4 py-3 transition-colors hover:bg-blue-royal/[0.10] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-royal"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-blue-royal shadow-sm">
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+          </span>
+          <span className="min-w-0">
+            <span className="block text-[14px] font-semibold text-navy">
+              {group.hasPage ? "Compare fees, duration and intakes" : "See the full course details"}
+            </span>
+            <span className="block text-[13px] font-semibold text-blue-royal group-hover:underline underline-offset-4">
+              {group.hasPage ? "View course page" : "View course"}
+            </span>
+          </span>
+        </Link>
+      )}
+      </div>
+
+      {total >= rows && group.hasPage && (
+        <div className="px-2 pb-1 pt-4">
           <Link
             href={`/find-course/${group.slug}`}
-            className="mt-auto inline-flex items-center gap-1 border-t border-border-light px-5 py-3.5 text-[14px] font-semibold text-blue-royal hover:underline underline-offset-4"
+            className="inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal hover:underline underline-offset-4"
           >
-            +{total - rows} more · See all universities <ArrowRight className="h-4 w-4" aria-hidden />
+            See all {total} universities <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setExpanded(!expanded)}
-            aria-expanded={expanded}
-            className="mt-auto inline-flex items-center gap-1 border-t border-border-light px-5 py-3.5 text-left text-[14px] font-semibold text-blue-royal hover:underline underline-offset-4"
-          >
-            {expanded ? "Show fewer" : `Show all ${total} universities`}
-          </button>
-        )
+        </div>
       )}
     </div>
   );
