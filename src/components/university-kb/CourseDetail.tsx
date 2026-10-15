@@ -8,6 +8,7 @@ import Dropdown from "./Dropdown";
 import Pagination from "./Pagination";
 import { EnquiryProvider, EnquireButton } from "./EnquiryForm";
 import { photoFor } from "./CourseCover";
+import { labelForCourse } from "./courseTopic";
 import { formatMoney } from "@/lib/university-kb/countries";
 import type { CourseLevel, CurrencyCode, IntakeMonth } from "@/lib/university-kb";
 
@@ -90,10 +91,10 @@ function Content({ data }: { data: CourseDetailData }) {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-navy px-4 pb-10 pt-6 text-white">
+      <section className="relative overflow-hidden bg-navy pb-10 pt-6 text-white">
         <Image src={`/images/course-covers/${photoFor(data.subject, data.name)}.webp`} alt="" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-blue-dark/70" />
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-y-1 text-[13px] text-white/75">
             <Link href="/find-course" className="mr-3 inline-flex items-center gap-1.5 rounded-[10px] border border-white/30 px-3 py-1.5 font-semibold text-white hover:bg-white/10">
               <ArrowLeft className="h-4 w-4" aria-hidden /> Back
@@ -107,7 +108,7 @@ function Content({ data }: { data: CourseDetailData }) {
 
           <div className="mt-5 flex flex-wrap items-center gap-2">
             <span className="rounded-full bg-white px-3 py-1 text-[12px] font-bold uppercase tracking-wide text-navy">{LEVEL_LABEL[data.level]}</span>
-            {data.subject && <span className="rounded-full border border-white/40 px-3 py-1 text-[12px] font-semibold text-white">{data.subject}</span>}
+            {labelForCourse(data.name, data.subject) && <span className="rounded-full border border-white/40 px-3 py-1 text-[12px] font-semibold text-white">{labelForCourse(data.name, data.subject)}</span>}
           </div>
           <h1 className="mt-3 max-w-3xl text-3xl font-bold leading-tight md:text-[40px]">{data.name}</h1>
           <p className="mt-2 text-[16px] text-white/85">
@@ -140,7 +141,7 @@ function Content({ data }: { data: CourseDetailData }) {
         </div>
       </section>
 
-      <section ref={listRef} className="mx-auto max-w-7xl scroll-mt-[90px] px-4 pb-20 pt-10">
+      <section ref={listRef} className="mx-auto max-w-7xl scroll-mt-[90px] px-4 sm:px-6 lg:px-8 pb-20 pt-10">
         <h2 className="text-[24px] font-bold text-navy">Universities offering {data.name}</h2>
         <p className="mt-1 text-[15px] text-gray-dark">Compare the fee, duration and intake at each university, then open the one you like.</p>
 

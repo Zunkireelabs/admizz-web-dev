@@ -76,3 +76,10 @@ export function minFee(g: { offers: CourseOffer[] }): number | undefined {
   const fees = g.offers.map((o) => o.course.fee).filter((f): f is number => f !== undefined);
   return fees.length ? Math.min(...fees) : undefined;
 }
+
+/** The subject most of a course's offers belong to ("General" is ignored). */
+export function groupSubject(g: CourseGroup): string | undefined {
+  const counts = new Map<string, number>();
+  for (const o of g.offers) if (o.course.subject !== "General") counts.set(o.course.subject, (counts.get(o.course.subject) ?? 0) + 1);
+  return Array.from(counts).sort((a, b) => b[1] - a[1])[0]?.[0];
+}

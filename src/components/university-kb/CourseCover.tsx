@@ -44,7 +44,7 @@ export function photoFor(subject?: string, name?: string): string {
 export default function CourseCover({ subject, name, label }: { subject?: string; name?: string; label?: string }) {
   const photo = photoFor(subject, name);
   return (
-    <div aria-hidden className="relative h-36 overflow-hidden rounded-t-2xl bg-navy">
+    <div aria-hidden className="relative h-40 overflow-hidden rounded-xl bg-navy">
       <Image
         src={`/images/course-covers/${photo}.webp`}
         alt=""
@@ -55,7 +55,7 @@ export default function CourseCover({ subject, name, label }: { subject?: string
       {/* dark fade so the label stays readable on any photo */}
       <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent" />
       {label && (
-        <span className="absolute bottom-3 left-5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-navy shadow-sm">
+        <span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-navy shadow-sm">
           {label}
         </span>
       )}
