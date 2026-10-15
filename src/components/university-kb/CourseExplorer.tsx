@@ -5,7 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Search, X, MapPin, ArrowRight, TrendingUp } from "lucide-react";
 import Pagination from "./Pagination";
-import type { CourseCard, CourseCatalog, CourseLevel, IntakeMonth } from "@/lib/university-kb";
+import Dropdown from "./Dropdown";
+import CourseCover from "./CourseCover";
+import { FEATURED_COURSES, TRENDING_CARDS, TRENDING_CHIPS } from "@/lib/university-kb/trending";
+import type { CourseCatalog, CourseLevel, IntakeMonth } from "@/lib/university-kb";
+import { groupCourses, searchGroups, minFee, type CourseGroup } from "@/lib/university-kb/course-groups";
 import { formatMoney } from "@/lib/university-kb/countries";
 
 const LEVEL_LABEL: Record<CourseLevel, string> = {
@@ -18,11 +22,9 @@ const LEVEL_SHORT: Record<CourseLevel, string> = { foundation: "Foundation", und
 
 type SortKey = "recommended" | "fee-asc" | "name";
 
-const PAGE_SIZE = 9;
-const ROWS_SHOWN = 3;
-
-const select =
-  "w-full cursor-pointer rounded-[10px] border border-border-light bg-white px-3 py-2.5 text-[14px] text-navy focus:outline-none focus:border-blue-royal focus:ring-2 focus:ring-blue-royal/15";
+const PAGE_SIZE = 6;
+const TRENDING_ROWS = 3;
+const RESULT_ROWS = 5;
 
 function durationLabel(months: number) {
   if (months % 12 === 0) return `${months / 12} year${months === 12 ? "" : "s"}`;
@@ -61,75 +63,81 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
     return Array.from(counts).sort((a, b) => b[1] - a[1]).map(([s]) => s);
   }, [scoped]);
 
-  // Course names offered by the most universities (case-insensitive), for chips and suggestions.
-  const courseNames = useMemo(() => {
-    const map = new Map<string, { name: string; unis: Set<number> }>();
-    for (const c of scoped) {
-      const key = c.name.toLowerCase();
-      const entry = map.get(key) ?? { name: c.name, unis: new Set<number>() };
-      entry.unis.add(c.u);
-      map.set(key, entry);
-    }
-    return Array.from(map.values()).map((e) => ({ name: e.name, count: e.unis.size })).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
-  }, [scoped]);
+  // Every course name with the universities that offer it. All counts on this page come from here.
+  const allGroups = useMemo(() => groupCourses(catalog), [catalog]);
 
-  const popularCourses = useMemo(() => courseNames.filter((c) => c.count > 1).slice(0, 8), [courseNames]);
+  // Trending: featured names first, then the courses offered by the most universities.
+  const trending = useMemo(() => {
+    const byKey = new Map(allGroups.map((g) => [g.name.toLowerCase(), g]));
+    const featured = FEATURED_COURSES.map((f) => byKey.get(f.toLowerCase())).filter((g): g is CourseGroup => Boolean(g));
+    const featuredKeys = new Set(featured.map((g) => g.key));
+    const rest = allGroups
+      .filter((g) => !featuredKeys.has(g.key) && g.offers.length > 1)
+      .sort((a, b) => b.offers.length - a.offers.length || a.name.localeCompare(b.name));
+    return [...featured, ...rest];
+  }, [allGroups]);
+  const trendingCards = trending.slice(0, TRENDING_CARDS);
+  const popularCourses = trending.slice(TRENDING_CARDS, TRENDING_CARDS + TRENDING_CHIPS);
 
   const suggestions = useMemo(() => {
     if (!words.length) return [];
-    const subjects = popularSubjects.filter((s) => words.every((w) => s.toLowerCase().includes(w))).slice(0, 3).map((s) => ({ label: s, hint: "Subject", count: 0 }));
-    const names = courseNames.filter((c) => words.every((w) => c.name.toLowerCase().includes(w))).slice(0, 6).map((c) => ({ label: c.name, hint: `${c.count} ${c.count === 1 ? "university" : "universities"}`, count: c.count }));
+    const phrase = words.join(" ");
+    const subjects = popularSubjects.filter((s) => words.every((w) => s.toLowerCase().includes(w))).slice(0, 3).map((s) => ({ label: s, hint: "Subject" }));
+    const names = searchGroups(allGroups, phrase)
+      .sort((a, b) => a.tier - b.tier || b.group.offers.length - a.group.offers.length)
+      .slice(0, 6)
+      .map((x) => ({ label: x.group.name, hint: `${x.group.offers.length} ${x.group.offers.length === 1 ? "university" : "universities"}` }));
     return [...names, ...subjects];
-  }, [words, courseNames, popularSubjects]);
+  }, [words, allGroups, popularSubjects]);
 
-  // Courses matching the search and filters, grouped by university.
-  const groups = useMemo(() => {
+  // Course groups matching the typed phrase / subject (before level, intake, city and fee filters).
+  const baseGroups = useMemo(() => {
     if (!searching) return [];
-    const byUni = new Map<number, CourseCard[]>();
-    for (const c of scoped) {
-      if (words.length) {
-        const hay = `${c.name} ${c.subject}`.toLowerCase();
-        if (!words.every((w) => hay.includes(w))) continue;
-      }
-      if (subject && c.subject !== subject) continue;
-      if (level && c.level !== level) continue;
-      if (intake && !c.intakes.includes(intake)) continue;
-      if (city && !universities[c.u].cities.includes(city)) continue;
-      if (maxFee !== "" && (c.fee === undefined || c.fee > maxFee)) continue;
-      const list = byUni.get(c.u) ?? [];
-      list.push(c);
-      byUni.set(c.u, list);
-    }
-    const list = Array.from(byUni, ([u, cs]) => ({
-      u,
-      courses: [...cs].sort((a, b) => (a.fee ?? Infinity) - (b.fee ?? Infinity)),
-      minFee: Math.min(...cs.map((c) => c.fee ?? Infinity)),
-    }));
-    if (sort === "name") return list.sort((a, b) => universities[a.u].name.localeCompare(universities[b.u].name));
-    if (sort === "fee-asc") return list.sort((a, b) => a.minFee - b.minFee);
-    return list.sort((a, b) => b.courses.length - a.courses.length || universities[a.u].name.localeCompare(universities[b.u].name));
-  }, [searching, scoped, universities, words, subject, level, intake, city, maxFee, sort]);
+    const found = words.length ? searchGroups(allGroups, words.join(" ")) : allGroups.map((group) => ({ group, tier: 0 }));
+    return found
+      .map(({ group, tier }) => ({
+        tier,
+        group: subject ? { ...group, offers: group.offers.filter((o) => o.course.subject === subject) } : group,
+      }))
+      .filter((x) => x.group.offers.length > 0);
+  }, [searching, words, subject, allGroups]);
+
+  // Apply the filters to each course's university list; a course stays if any university is left.
+  const groups = useMemo(() => {
+    const kept = baseGroups
+      .map(({ group, tier }) => ({
+        tier,
+        group: {
+          ...group,
+          offers: group.offers.filter(
+            (o) =>
+              (!level || o.course.level === level) &&
+              (!intake || o.course.intakes.includes(intake)) &&
+              (!city || universities[o.u].cities.includes(city)) &&
+              (maxFee === "" || (o.course.fee !== undefined && o.course.fee <= maxFee)),
+          ),
+        },
+      }))
+      .filter((x) => x.group.offers.length > 0);
+    if (sort === "name") return kept.sort((a, b) => a.group.name.localeCompare(b.group.name));
+    if (sort === "fee-asc") return kept.sort((a, b) => (minFee(a.group) ?? Infinity) - (minFee(b.group) ?? Infinity));
+    return kept.sort((a, b) => a.tier - b.tier || b.group.offers.length - a.group.offers.length || a.group.name.localeCompare(b.group.name));
+  }, [baseGroups, universities, level, intake, city, maxFee, sort]);
 
   // Filter options only list values that exist for the current search.
-  const baseMatches = useMemo(
-    () =>
-      searching
-        ? scoped.filter((c) => (!words.length || words.every((w) => `${c.name} ${c.subject}`.toLowerCase().includes(w))) && (!subject || c.subject === subject))
-        : [],
-    [searching, scoped, words, subject],
-  );
-  const levelOptions = useMemo(() => Array.from(new Set(baseMatches.map((c) => c.level))), [baseMatches]);
-  const intakeOptions = useMemo(() => Array.from(new Set(baseMatches.flatMap((c) => c.intakes))), [baseMatches]);
-  const cityOptions = useMemo(() => Array.from(new Set(baseMatches.flatMap((c) => universities[c.u].cities))).sort(), [baseMatches, universities]);
+  const baseOffers = useMemo(() => baseGroups.flatMap((x) => x.group.offers), [baseGroups]);
+  const levelOptions = useMemo(() => Array.from(new Set(baseOffers.map((o) => o.course.level))), [baseOffers]);
+  const intakeOptions = useMemo(() => Array.from(new Set(baseOffers.flatMap((o) => o.course.intakes))), [baseOffers]);
+  const cityOptions = useMemo(() => Array.from(new Set(baseOffers.flatMap((o) => universities[o.u].cities))).sort(), [baseOffers, universities]);
   const feeOptions = useMemo(() => {
-    const fees = baseMatches.map((c) => c.fee).filter((f): f is number => f !== undefined);
+    const fees = baseOffers.map((o) => o.course.fee).filter((f): f is number => f !== undefined);
     if (!fees.length) return [];
     const max = Math.max(...fees);
     const step = max > 20000 ? 5000 : 2500;
     const steps: number[] = [];
     for (let v = step * 2; v < max + step; v += step) steps.push(v);
     return steps;
-  }, [baseMatches]);
+  }, [baseOffers]);
 
   // Back to page 1 whenever the search, filters or sort change.
   const listKey = JSON.stringify([query, subject, level, intake, city, maxFee, sort]);
@@ -140,7 +148,7 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
   }
   const totalPages = Math.max(1, Math.ceil(groups.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages);
-  const pageGroups = groups.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const pageGroups = groups.map((x) => x.group).slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
   const goToPage = (p: number) => {
     setPage(p);
     resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -174,8 +182,7 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
     setMaxFee("");
   };
 
-  const heading = query.trim() ? `Universities offering “${query.trim()}”` : subject ? `Universities offering ${subject} courses` : "";
-  const feeCurrency = (u: number) => universities[u].currency;
+  const heading = query.trim() ? `Courses matching “${query.trim()}”` : subject ? `${subject} courses` : "";
 
   return (
     <>
@@ -188,7 +195,7 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
           </nav>
           <h1 className="mt-4 text-3xl md:text-[38px] font-bold leading-tight text-white">Find your course abroad</h1>
           <p className="mt-2 max-w-2xl text-[16px] text-white/80">
-            Type a course and see every Admizz partner university that offers it, with the fee, duration and intake.{" "}
+            Search a course and see every Admizz partner university that offers it, with the fee, duration and intake.{" "}
             <Link href={findCollegeHref} className="font-semibold text-white underline underline-offset-4">Looking for a university instead?</Link>
           </p>
 
@@ -280,22 +287,22 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
         </div>
       </section>
 
-      <section ref={resultsRef} className="max-w-7xl mx-auto px-4 pt-8 scroll-mt-[90px]">
+      <section ref={resultsRef} className={`max-w-7xl mx-auto px-4 pt-8 scroll-mt-[90px] ${searching ? "pb-20" : ""}`}>
         {!searching ? (
-          <div className="mx-auto max-w-3xl py-10 text-center">
+          <div className="mx-auto py-10 text-center">
             <h2 className="text-[22px] font-bold text-navy">Which course are you looking for?</h2>
             <p className="mt-2 text-[15px] text-gray-dark">Search above, or tap a popular course to see the universities that offer it.</p>
             {popularCourses.length > 0 && (
               <div className="mt-6 flex flex-wrap justify-center gap-2.5">
                 {popularCourses.map((c) => (
                   <button
-                    key={c.name}
+                    key={c.key}
                     type="button"
                     onClick={() => run(c.name)}
                     className="rounded-full border border-border-light bg-white px-4 py-2 text-[14px] font-semibold text-navy transition-colors hover:border-blue-royal hover:text-blue-royal"
                   >
                     {c.name}
-                    <span className="ml-2 text-[12px] font-normal text-gray-dark">{c.count} universities</span>
+                    <span className="ml-2 text-[12px] font-normal text-gray-dark">{c.offers.length} universities</span>
                   </button>
                 ))}
               </div>
@@ -306,35 +313,38 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
             <h2 className="text-[22px] font-bold text-navy">{heading}</h2>
 
             <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" role="group" aria-label="Filters">
-              <select className={select} value={level} onChange={(e) => setLevel(e.target.value as CourseLevel | "")} aria-label="Study level">
-                <option value="">All levels</option>
-                {levelOptions.map((l) => <option key={l} value={l}>{LEVEL_LABEL[l]}</option>)}
-              </select>
-              <select className={select} value={intake} onChange={(e) => setIntake(e.target.value as IntakeMonth | "")} aria-label="Intake">
-                <option value="">Any intake</option>
-                {intakeOptions.map((m) => <option key={m} value={m}>{m}</option>)}
-              </select>
-              <select className={select} value={city} onChange={(e) => setCity(e.target.value)} aria-label="City">
-                <option value="">Any city</option>
-                {cityOptions.map((c) => <option key={c} value={c}>{c}</option>)}
-              </select>
-              {feeOptions.length > 0 && (
-                <select
-                  className={select}
+              <Dropdown
+                label="Study level"
+                value={level}
+                onChange={setLevel}
+                options={[{ value: "", label: "All levels" }, ...levelOptions.map((l) => ({ value: l, label: LEVEL_LABEL[l] }))]}
+              />
+              <Dropdown
+                label="Intake"
+                value={intake}
+                onChange={setIntake}
+                options={[{ value: "", label: "Any intake" }, ...intakeOptions.map((m) => ({ value: m, label: m }))]}
+              />
+              <Dropdown
+                label="City"
+                value={city}
+                onChange={setCity}
+                options={[{ value: "", label: "Any city" }, ...cityOptions.map((c) => ({ value: c, label: c }))]}
+              />
+              {feeOptions.length > 0 && currency && (
+                <Dropdown
+                  label="Maximum tuition fee"
                   value={maxFee}
-                  onChange={(e) => setMaxFee(e.target.value === "" ? "" : Number(e.target.value))}
-                  aria-label="Maximum tuition fee"
-                >
-                  <option value="">Any tuition fee</option>
-                  {feeOptions.map((f) => <option key={f} value={f}>Up to {formatMoney(f, universities[baseMatches[0].u].currency)}</option>)}
-                </select>
+                  onChange={setMaxFee}
+                  options={[{ value: "", label: "Any tuition fee" }, ...feeOptions.map((f) => ({ value: f, label: `Up to ${formatMoney(f, currency)}` }))]}
+                />
               )}
             </div>
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-b border-border-light pb-4">
               <div className="flex flex-wrap items-center gap-2">
                 <p className="mr-2 text-[15px] text-gray-dark" aria-live="polite">
-                  <strong className="text-navy">{groups.length}</strong> {groups.length === 1 ? "university" : "universities"} found
+                  <strong className="text-navy">{groups.length}</strong> {groups.length === 1 ? "course" : "courses"} found
                 </p>
                 {chips.map((chip) => (
                   <button key={chip.key} type="button" onClick={chip.clear} aria-label={`Remove filter: ${chip.label}`} className="inline-flex items-center gap-1.5 rounded-[10px] border border-blue-royal/30 bg-blue-royal/[0.06] px-3 py-1.5 text-[13px] font-semibold text-blue-royal hover:border-blue-royal hover:bg-blue-royal/10 transition-colors">
@@ -346,87 +356,167 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
                   New search
                 </button>
               </div>
-              <label className="flex items-center gap-2 text-[14px] text-gray-dark">
+              <div className="flex items-center gap-2 text-[14px] text-gray-dark">
                 Sort by
-                <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)} className="cursor-pointer rounded-[10px] border border-border-light bg-white px-3 py-2 text-[14px] font-semibold text-navy focus:outline-none focus:border-blue-royal">
-                  <option value="recommended">Most matching courses</option>
-                  <option value="fee-asc">Lowest fees</option>
-                  <option value="name">University (A–Z)</option>
-                </select>
-              </label>
+                <Dropdown
+                  variant="compact"
+                  label="Sort by"
+                  value={sort}
+                  onChange={(v) => setSort((v || "recommended") as SortKey)}
+                  options={[
+                    { value: "recommended", label: "Best match" },
+                    { value: "fee-asc", label: "Lowest fees" },
+                    { value: "name", label: "Course (A–Z)" },
+                  ]}
+                />
+              </div>
             </div>
 
             {groups.length === 0 ? (
               <div className="mt-8 rounded-2xl border border-dashed border-border-light p-10 text-center">
-                <p className="text-[18px] font-bold text-navy">No universities match your search</p>
+                <p className="text-[18px] font-bold text-navy">No courses match your search</p>
                 <p className="mt-2 text-[15px] text-gray-dark">Try a shorter word, remove a filter, or ask a counsellor to find options for you.</p>
                 <button type="button" onClick={resetAll} className="mt-5 rounded-[10px] border border-blue-royal px-5 py-2.5 text-[14px] font-semibold text-blue-royal hover:bg-blue-royal hover:text-white transition-colors">
                   Start a new search
                 </button>
               </div>
             ) : (
-              <ul className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {pageGroups.map((g) => {
-                  const uni = universities[g.u];
-                  return (
-                    <li key={g.u} className="flex flex-col rounded-2xl border border-border-light bg-white transition-shadow hover:shadow-[0_12px_32px_rgba(0,19,83,0.12)]">
-                      <Link href={uni.href} className="group flex items-center gap-4 p-5 pb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-royal rounded-t-2xl">
-                        <span className="flex h-14 w-20 shrink-0 items-center justify-center rounded-lg border border-border-light bg-white p-1.5">
-                          <Image src={uni.logo} alt="" width={120} height={56} className="max-h-full w-full object-contain" />
-                        </span>
-                        <span className="min-w-0">
-                          <span className="block text-[16px] font-bold leading-snug text-navy group-hover:text-blue-royal">{uni.name}</span>
-                          <span className="mt-0.5 flex items-center gap-1 text-[13px] text-gray-dark">
-                            <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden />
-                            <span className="truncate">{uni.cities.slice(0, 2).join(", ")}</span>
-                          </span>
-                        </span>
-                      </Link>
-                      <p className="px-5 text-[12px] font-semibold uppercase tracking-wide text-gray-dark">
-                        {g.courses.length} matching {g.courses.length === 1 ? "course" : "courses"}
-                      </p>
-                      <ul className="mt-2 divide-y divide-border-light border-t border-border-light">
-                        {g.courses.slice(0, ROWS_SHOWN).map((c) => (
-                          <li key={c.slug}>
-                            <Link href={`${uni.href}#course-${c.slug}`} className="group block px-5 py-3 hover:bg-off-white focus-visible:outline-none focus-visible:bg-off-white">
-                              <span className="flex items-start justify-between gap-3">
-                                <span className="text-[14px] font-semibold leading-snug text-navy group-hover:text-blue-royal">{c.name}</span>
-                                <span className="shrink-0 rounded-full bg-blue-royal/[0.08] px-2 py-0.5 text-[11px] font-semibold text-blue-royal">{LEVEL_SHORT[c.level]}</span>
-                              </span>
-                              <span className="mt-1 block text-[13px] text-gray-dark">
-                                {durationLabel(c.durationMonths)}
-                                {" · "}
-                                {c.fee !== undefined ? (
-                                  <span className="font-semibold text-navy">
-                                    {c.feeFrom ? "from " : ""}
-                                    {formatMoney(c.fee, feeCurrency(g.u))}
-                                    {c.per === "year" ? " / year" : ""}
-                                  </span>
-                                ) : (
-                                  "Ask a counsellor"
-                                )}
-                                {c.intakes.length > 0 && ` · ${c.intakes.join(", ")}`}
-                              </span>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                      <Link
-                        href={uni.href}
-                        className="mt-auto inline-flex items-center gap-1 border-t border-border-light px-5 py-3.5 text-[14px] font-semibold text-blue-royal hover:underline underline-offset-4"
-                      >
-                        {g.courses.length > ROWS_SHOWN ? `+${g.courses.length - ROWS_SHOWN} more · ` : ""}View university <ArrowRight className="h-4 w-4" aria-hidden />
-                      </Link>
-                    </li>
-                  );
-                })}
+              <ul className="mt-6 grid items-start gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {pageGroups.map((g) => (
+                  <li key={g.key}>
+                    <CourseGroupCard group={g} universities={universities} currency={currency} rows={RESULT_ROWS} />
+                  </li>
+                ))}
               </ul>
             )}
 
-            <Pagination page={currentPage} totalPages={totalPages} totalItems={groups.length} pageSize={PAGE_SIZE} onChange={goToPage} noun="universities" />
+            <Pagination page={currentPage} totalPages={totalPages} totalItems={groups.length} pageSize={PAGE_SIZE} onChange={goToPage} noun="courses" />
           </>
         )}
       </section>
+
+      {!searching && trendingCards.length > 0 && (
+        <section aria-labelledby="trending-heading" className="pb-20 pt-6">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-royal/[0.08] px-3.5 py-1 text-[12px] font-bold uppercase tracking-wider text-blue-royal">
+                <TrendingUp className="h-3.5 w-3.5" aria-hidden />
+                Trending now
+              </span>
+              <h2 id="trending-heading" className="mt-3 text-[26px] font-bold text-navy md:text-[30px]">Trending courses</h2>
+              <p className="mx-auto mt-2 max-w-xl text-[15px] text-gray-dark">Popular courses and the universities that offer them. Pick one to see every option.</p>
+            </div>
+            <ul className="mt-9 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {trendingCards.map((g) => (
+                <li key={g.key}>
+                  <CourseGroupCard group={g} universities={universities} currency={currency} rows={TRENDING_ROWS} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
     </>
+  );
+}
+
+// One course, with the universities that offer it. Used for trending and for search results.
+function CourseGroupCard({
+  group,
+  universities,
+  currency,
+  rows,
+}: {
+  group: CourseGroup;
+  universities: CourseCatalog["universities"];
+  currency: CourseCatalog["universities"][number]["currency"];
+  rows: number;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const total = group.offers.length;
+  const subject = (() => {
+    const counts = new Map<string, number>();
+    for (const o of group.offers) if (o.course.subject !== "General") counts.set(o.course.subject, (counts.get(o.course.subject) ?? 0) + 1);
+    return Array.from(counts).sort((a, b) => b[1] - a[1])[0]?.[0];
+  })();
+  const shown = expanded ? group.offers : group.offers.slice(0, rows);
+  const from = minFee(group);
+
+  return (
+    <div className="flex h-full flex-col rounded-2xl border border-border-light bg-white transition-shadow hover:shadow-[0_12px_32px_rgba(0,19,83,0.12)]">
+      <CourseCover subject={subject} name={group.name} label={subject} />
+      <div className="p-5 pb-4">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-[17px] font-bold leading-snug text-navy">{group.name}</h3>
+          <span className="shrink-0 rounded-full bg-blue-royal/[0.08] px-2.5 py-0.5 text-[12px] font-semibold text-blue-royal">{LEVEL_SHORT[group.level]}</span>
+        </div>
+        <p className="mt-1 text-[14px] text-gray-dark">
+          {total} {total === 1 ? "university" : "universities"}
+          {from !== undefined && (
+            <>
+              {" · from "}
+              <span className="font-semibold text-navy">{formatMoney(from, currency)}</span>
+            </>
+          )}
+        </p>
+      </div>
+
+      <ul className="divide-y divide-border-light border-t border-border-light">
+        {shown.map(({ u, course: c }) => {
+          const uni = universities[u];
+          return (
+            <li key={u}>
+              <Link href={`${uni.href}#course-${c.slug}`} className="group flex items-center gap-3 px-5 py-3 hover:bg-off-white focus-visible:outline-none focus-visible:bg-off-white">
+                <span className="flex h-10 w-14 shrink-0 items-center justify-center rounded-md border border-border-light bg-white p-1">
+                  <Image src={uni.logo} alt="" width={72} height={40} className="max-h-full w-full object-contain" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-[14px] font-semibold text-navy group-hover:text-blue-royal">{uni.name}</span>
+                  <span className="flex items-center gap-1 text-[12px] text-gray-dark">
+                    <MapPin className="h-3 w-3 shrink-0" aria-hidden />
+                    <span className="truncate">{uni.cities.slice(0, 2).join(", ")}</span>
+                  </span>
+                  <span className="mt-0.5 block text-[12px] text-gray-dark">
+                    {durationLabel(c.durationMonths)}
+                    {" · "}
+                    {c.fee !== undefined ? (
+                      <span className="font-semibold text-navy">
+                        {c.feeFrom ? "from " : ""}
+                        {formatMoney(c.fee, uni.currency)}
+                        {c.per === "year" ? " / year" : ""}
+                      </span>
+                    ) : (
+                      "Ask a counsellor"
+                    )}
+                    {c.intakes.length > 0 && ` · ${c.intakes.join(", ")}`}
+                  </span>
+                </span>
+                <ArrowRight className="h-4 w-4 shrink-0 text-gray-medium transition-transform group-hover:translate-x-0.5 group-hover:text-blue-royal" aria-hidden />
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+
+      {total > rows && (
+        group.hasPage ? (
+          <Link
+            href={`/find-course/${group.slug}`}
+            className="mt-auto inline-flex items-center gap-1 border-t border-border-light px-5 py-3.5 text-[14px] font-semibold text-blue-royal hover:underline underline-offset-4"
+          >
+            +{total - rows} more · See all universities <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setExpanded(!expanded)}
+            aria-expanded={expanded}
+            className="mt-auto inline-flex items-center gap-1 border-t border-border-light px-5 py-3.5 text-left text-[14px] font-semibold text-blue-royal hover:underline underline-offset-4"
+          >
+            {expanded ? "Show fewer" : `Show all ${total} universities`}
+          </button>
+        )
+      )}
+    </div>
   );
 }

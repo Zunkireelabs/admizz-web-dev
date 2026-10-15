@@ -15,7 +15,7 @@ export default function FindCoursePage() {
   const catalog = toCourseCatalog(universityProfiles);
 
   return (
-    <main className="bg-white pb-20">
+    <main className="bg-white">
       <CourseExplorer catalog={catalog} findCollegeHref={EXPLORE_BASE_PATH} />
     </main>
   );
