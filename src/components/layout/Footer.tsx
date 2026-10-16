@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const quickLinks: { name: string; href: string; external?: boolean }[] = [
+  { name: "Match Your Destination", href: "/match-your-destination" },
   { name: "Test Preparation", href: "/test-prep" },
   { name: "Students", href: "/study-destinations" },
   { name: "Events", href: "/events" },

@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import "./globals.css";
 import SiteChrome from "@/components/layout/SiteChrome";
 import ScrollToTop from "@/components/ScrollToTop";
+import NavTracker from "@/components/NavTracker";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import AffiliateRefCapture from "@/components/AffiliateRefCapture";
 import UtmAttributionCapture from "@/components/UtmAttributionCapture";
@@ -221,6 +222,7 @@ export default function RootLayout({
         />
         <AuthTokenCatcher />
         <ScrollToTop />
+        <NavTracker />
         <AffiliateRefCapture />
         <UtmAttributionCapture />
         <Suspense fallback={null}>
@@ -233,7 +235,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <SiteChrome>
-          <div id="main-content" className="min-h-[80vh]">
+          <div id="main-content" className="min-h-[80vh] overflow-x-clip">
             {children}
           </div>
         </SiteChrome>
