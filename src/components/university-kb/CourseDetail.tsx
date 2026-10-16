@@ -3,14 +3,16 @@
 import { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, ArrowRight, Clock, Wallet, CalendarDays, MessageCircle, ArrowLeft } from "lucide-react";
+import BackButton from "./BackButton";
+import { locationLines } from "@/lib/university-kb/locations";
+import { MapPin, ArrowRight, Clock, Wallet, CalendarDays, MessageCircle } from "lucide-react";
 import Dropdown from "./Dropdown";
 import Pagination from "./Pagination";
 import { EnquiryProvider, EnquireButton } from "./EnquiryForm";
 import { photoFor } from "./CourseCover";
 import { labelForCourse } from "./courseTopic";
 import { formatMoney } from "@/lib/university-kb/countries";
-import type { CourseLevel, CurrencyCode, IntakeMonth } from "@/lib/university-kb";
+import type { CountrySlug, CourseLevel, CurrencyCode, IntakeMonth } from "@/lib/university-kb";
 
 export interface CourseDetailData {
   name: string;
@@ -20,7 +22,7 @@ export interface CourseDetailData {
   /** e.g. ["January 2027"], for the enquiry form */
   intakes: string[];
   offers: {
-    university: { name: string; logo: string; href: string; cities: string[]; currency: CurrencyCode };
+    university: { name: string; logo: string; href: string; cities: string[]; country: CountrySlug; currency: CurrencyCode };
     course: { slug: string; fee?: number; per?: "year" | "total"; feeFrom?: boolean; durationMonths: number; intakes: IntakeMonth[]; placement?: boolean };
   }[];
   related: { name: string; count: number; href: string }[];
@@ -96,9 +98,9 @@ function Content({ data }: { data: CourseDetailData }) {
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-blue-dark/70" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-y-1 text-[13px] text-white/75">
-            <Link href="/find-course" className="mr-3 inline-flex items-center gap-1.5 rounded-[10px] border border-white/30 px-3 py-1.5 font-semibold text-white hover:bg-white/10">
-              <ArrowLeft className="h-4 w-4" aria-hidden /> Back
-            </Link>
+            <span className="mr-3">
+              <BackButton fallbackHref="/find-course" label="Back" />
+            </span>
             <Link href="/" className="hover:text-white hover:underline underline-offset-2">Home</Link>
             <span className="mx-1.5" aria-hidden>/</span>
             <Link href="/find-course" className="hover:text-white hover:underline underline-offset-2">Find Course</Link>
@@ -190,10 +192,12 @@ function Content({ data }: { data: CourseDetailData }) {
                   </span>
                   <span className="min-w-0 flex-1 basis-56">
                     <span className="block text-[16px] font-bold text-navy group-hover:text-blue-royal">{uni.name}</span>
-                    <span className="mt-0.5 flex items-center gap-1 text-[13px] text-gray-dark">
-                      <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden />
-                      {uni.cities.slice(0, 3).join(", ")}
-                    </span>
+                    {locationLines(uni.cities, uni.country).map((line) => (
+                      <span key={line} className="mt-0.5 flex items-center gap-1 text-[13px] text-gray-dark">
+                        <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                        {line}
+                      </span>
+                    ))}
                     {c.placement && <span className="mt-1 block text-[12px] font-semibold text-amber-700">Placement year included</span>}
                   </span>
                   <dl className="flex flex-wrap gap-x-8 gap-y-2 text-[14px]">

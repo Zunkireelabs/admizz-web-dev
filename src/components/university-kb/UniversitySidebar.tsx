@@ -2,6 +2,7 @@ import { EnquireButton } from "./EnquiryForm";
 import { MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import type { CourseLevel, UniversityProfile } from "@/lib/university-kb";
 import { upcomingIntakes } from "@/lib/university-kb";
+import { locationLines } from "@/lib/university-kb/locations";
 
 export const WHATSAPP_NUMBER = "9779802728444";
 
@@ -31,14 +32,14 @@ export default function UniversitySidebar({ university: u }: { university: Unive
     .filter(Boolean)
     .join(" · ");
 
-  const rows = [
-    { label: "Campuses", value: u.cities.join(", ") },
+  const rows: { label: string; value?: string; lines?: string[] }[] = [
+    { label: "Campus", lines: locationLines(u.cities, u.country) },
     { label: "Study level", value: levels.join(", ") },
     { label: "Course duration", value: durationRange(u) },
     { label: "Courses listed", value: u.courses.length ? String(u.courses.length) : undefined },
     { label: "Intake months", value: Array.from(new Set(upcomingIntakes(u).map((i) => i.month))).join(", ") },
     { label: "English test", value: english || "Ask a counsellor" },
-  ].filter((r): r is { label: string; value: string } => Boolean(r.value));
+  ].filter((r) => Boolean(r.value) || Boolean(r.lines?.length));
 
   return (
     <aside className="space-y-5 lg:sticky lg:top-[90px]">
@@ -48,7 +49,9 @@ export default function UniversitySidebar({ university: u }: { university: Unive
           {rows.map((r) => (
             <div key={r.label} className="flex justify-between gap-4 py-2.5">
               <dt className="text-gray-dark">{r.label}</dt>
-              <dd className="text-right font-semibold text-navy">{r.value}</dd>
+              <dd className="text-right font-semibold text-navy">
+                {r.lines ? r.lines.map((line) => <span key={line} className="block">{line}</span>) : r.value}
+              </dd>
             </div>
           ))}
         </dl>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { universityProfiles, toCourseCatalog, EXPLORE_BASE_PATH } from "@/lib/university-kb";
+import { universityProfiles, toCourseCatalog } from "@/lib/university-kb";
 import CourseExplorer from "@/components/university-kb/CourseExplorer";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function FindCoursePage() {
 
   return (
     <main className="bg-white">
-      <CourseExplorer catalog={catalog} findCollegeHref={EXPLORE_BASE_PATH} />
+      <CourseExplorer catalog={catalog} />
     </main>
   );
 }

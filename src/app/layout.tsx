@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import "./globals.css";
 import SiteChrome from "@/components/layout/SiteChrome";
 import ScrollToTop from "@/components/ScrollToTop";
+import NavTracker from "@/components/NavTracker";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import AffiliateRefCapture from "@/components/AffiliateRefCapture";
 import UtmAttributionCapture from "@/components/UtmAttributionCapture";
@@ -135,6 +136,7 @@ export default function RootLayout({
         />
         <AuthTokenCatcher />
         <ScrollToTop />
+        <NavTracker />
         <AffiliateRefCapture />
         <UtmAttributionCapture />
         <Suspense fallback={null}>

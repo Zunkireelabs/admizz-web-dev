@@ -13,6 +13,7 @@ import type { CountryInfo, UniversityProfile } from "@/lib/university-kb";
 import { EXPLORE_BASE_PATH, compareId, lowestFee, nextIntake, topScholarship } from "@/lib/university-kb";
 import CompareToggle from "./CompareToggle";
 import { formatMoney } from "@/lib/university-kb/countries";
+import { locationLines } from "@/lib/university-kb/locations";
 import { EnquireButton } from "./EnquiryForm";
 import BackButton from "./BackButton";
 
@@ -118,10 +119,14 @@ export default function UniversityHeader({ university: u, country }: Props) {
               <h1 className="text-2xl md:text-[28px] leading-tight font-bold text-navy">
                 {u.name}
               </h1>
-              <p className="mt-1.5 flex items-center gap-1.5 text-[15px] text-gray-dark">
-                <MapPin className="w-4 h-4 text-gray-dark" aria-hidden />
-                {u.cities.join(" · ")}, {country.name}
-              </p>
+              <div className="mt-1.5 space-y-1">
+                {locationLines(u.cities, u.country).map((line) => (
+                  <p key={line} className="flex items-center gap-1.5 text-[15px] text-gray-dark">
+                    <MapPin className="w-4 h-4 shrink-0 text-gray-dark" aria-hidden />
+                    {line}
+                  </p>
+                ))}
+              </div>
               {tags.length > 0 && (
                 <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[14px] text-slate">
                   {tags.map((t) => (
