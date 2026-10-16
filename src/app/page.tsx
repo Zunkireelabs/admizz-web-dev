@@ -11,14 +11,14 @@ import LazyMount from "@/components/LazyMount";
 export const metadata: Metadata = {
   title: "Your Partner in Study Abroad - Admizz Education",
   description:
-    "Admizz Education is a study abroad consultancy in Kathmandu and Bengaluru. University admissions, visa support and scholarships for 2,000+ Nepali students.",
+    "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success- all through one global portal.",
   alternates: {
     canonical: "https://admizzeducation.com/",
   },
   openGraph: {
     title: "Your Partner in Study Abroad - Admizz Education",
     description:
-      "Admizz Education is a study abroad consultancy in Kathmandu and Bengaluru. University admissions, visa support and scholarships for 2,000+ Nepali students.",
+      "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success- all through one global portal.",
     url: "https://admizzeducation.com/",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],
