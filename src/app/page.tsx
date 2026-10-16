@@ -9,14 +9,14 @@ import CommunityReels from "./CommunityReels";
 import LazyMount from "@/components/LazyMount";
 
 export const metadata: Metadata = {
-  title: "Admizz Education | Study Abroad Consultancy in Nepal",
+  title: "Your Partner in Study Abroad - Admizz Education",
   description:
     "Admizz Education is a study abroad consultancy in Kathmandu and Bengaluru. University admissions, visa support and scholarships for 2,000+ Nepali students.",
   alternates: {
     canonical: "https://admizzeducation.com/",
   },
   openGraph: {
-    title: "Admizz Education | Study Abroad Consultancy in Nepal",
+    title: "Your Partner in Study Abroad - Admizz Education",
     description:
       "Admizz Education is a study abroad consultancy in Kathmandu and Bengaluru. University admissions, visa support and scholarships for 2,000+ Nepali students.",
     url: "https://admizzeducation.com/",
