@@ -8,6 +8,7 @@ import Pagination from "./Pagination";
 import Dropdown from "./Dropdown";
 import type { CountrySlug, CourseLevel, CurrencyCode, IntakeMonth, UniversityCard } from "@/lib/university-kb";
 import { formatMoney } from "@/lib/university-kb/countries";
+import { locationLines } from "@/lib/university-kb/locations";
 import CompareToggle from "./CompareToggle";
 
 const LEVEL_LABEL: Record<CourseLevel, string> = {
@@ -369,14 +370,16 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                   </div>
                   <div className="flex flex-1 flex-col p-5">
                     <h2 className="line-clamp-2 min-h-[2.75rem] text-[16px] font-bold leading-snug text-navy group-hover:text-blue-royal">{u.name}</h2>
-                    <p className="mt-1 flex items-center gap-1.5 text-[13px] text-gray-dark">
-                      <MapPin className="w-3.5 h-3.5 shrink-0" aria-hidden />
-                      <span className="truncate">
-                        {u.cities.slice(0, 2).join(", ")}
-                        {u.cities.length > 2 ? ` +${u.cities.length - 2}` : ""}
-                        {countries.length > 1 ? `, ${u.countryName}` : ""}
-                      </span>
-                    </p>
+                    {/* One pin per campus; long lines wrap so the country is never cut off. */}
+                    <div className="mt-1 min-h-[2.75rem] space-y-1 text-[13px] text-gray-dark">
+                      {locationLines(u.cities, u.country, { maxCities: 2 }).map((line) => (
+                        <p key={line} className="flex items-start gap-1.5 leading-snug">
+                          <MapPin className="mt-0.5 w-3.5 h-3.5 shrink-0" aria-hidden />
+                          <span>{line}</span>
+                        </p>
+                      ))}
+                      {u.cities.length > 2 && <p className="pl-5 text-[12px]">+{u.cities.length - 2} more {u.cities.length - 2 === 1 ? "campus" : "campuses"}</p>}
+                    </div>
                     <p className="mt-3 flex min-h-[1.75rem] flex-wrap items-center gap-1.5">
                       {u.levels.map((l) => (
                         <span key={l} className="rounded-full bg-blue-royal/[0.08] px-2.5 py-0.5 text-[12px] font-semibold text-blue-royal">

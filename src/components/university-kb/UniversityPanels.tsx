@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { locationLines } from "@/lib/university-kb/locations";
 import { Clock, Wallet, CalendarDays, CheckCircle2, Circle, MapPin, ArrowRight, ExternalLink, MessageCircle } from "lucide-react";
 import { EnquireButton } from "./EnquiryForm";
 import type { CountryInfo, CourseLevel, UniversityProfile } from "@/lib/university-kb";
@@ -396,10 +397,10 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
       <section>
         <SectionTitle>Campus locations</SectionTitle>
         <ul className="border-t border-border-light">
-          {u.cities.map((city) => (
+          {u.cities.map((city, i) => (
             <li key={city} className="flex items-center gap-3 border-b border-border-light py-4 text-[15px]">
               <MapPin className="w-5 h-5 shrink-0 text-gray-dark" aria-hidden />
-              <span className="font-medium text-navy">{city}, {country.name}</span>
+              <span className="font-medium text-navy">{locationLines(u.cities, u.country)[i]}</span>
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${u.name} ${city}`)}`}
                 target="_blank"

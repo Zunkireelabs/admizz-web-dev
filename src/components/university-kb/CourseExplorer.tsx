@@ -12,7 +12,7 @@ import type { CourseCatalog, CourseLevel, IntakeMonth } from "@/lib/university-k
 import { groupCourses, searchGroups, minFee, groupSubject, type CourseGroup } from "@/lib/university-kb/course-groups";
 import { labelForCourse } from "./courseTopic";
 import FinderToggle from "./FinderToggle";
-import { formatLocation } from "@/lib/university-kb/locations";
+import { locationLines } from "@/lib/university-kb/locations";
 import { formatMoney } from "@/lib/university-kb/countries";
 
 const LEVEL_LABEL: Record<CourseLevel, string> = {
@@ -584,10 +584,12 @@ function CourseGroupCard({
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="line-clamp-2 block text-[14px] font-semibold leading-snug text-navy group-hover:text-blue-royal">{uni.name}</span>
-                  <span className="flex items-center gap-1 text-[12px] text-gray-dark">
-                    <MapPin className="h-3 w-3 shrink-0" aria-hidden />
-                    <span className="truncate">{formatLocation(uni.cities, uni.country, { withCountry: false, maxCities: 2 })}</span>
-                  </span>
+                  {locationLines(uni.cities, uni.country, { maxCities: 2 }).map((line) => (
+                    <span key={line} className="flex items-start gap-1 text-[12px] leading-snug text-gray-dark">
+                      <MapPin className="mt-0.5 h-3 w-3 shrink-0" aria-hidden />
+                      <span>{line}</span>
+                    </span>
+                  ))}
                   <span className="mt-0.5 block text-[12px] text-gray-dark">
                     {durationLabel(c.durationMonths)}
                     {" · "}

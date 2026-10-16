@@ -1,5 +1,5 @@
 import { EnquireButton } from "./EnquiryForm";
-import { MessageCircle, Phone, ShieldCheck } from "lucide-react";
+import { MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import type { CourseLevel, UniversityProfile } from "@/lib/university-kb";
 import { upcomingIntakes } from "@/lib/university-kb";
 import { locationLines } from "@/lib/university-kb/locations";
@@ -46,14 +46,27 @@ export default function UniversitySidebar({ university: u }: { university: Unive
       <section className="rounded-2xl border border-border-light bg-white p-6">
         <h2 className="text-[16px] font-semibold text-navy">At a glance</h2>
         <dl className="mt-4 divide-y divide-border-light text-[14px]">
-          {rows.map((r) => (
-            <div key={r.label} className="flex justify-between gap-4 py-2.5">
-              <dt className="text-gray-dark">{r.label}</dt>
-              <dd className="text-right font-semibold text-navy">
-                {r.lines ? r.lines.map((line) => <span key={line} className="block">{line}</span>) : r.value}
-              </dd>
-            </div>
-          ))}
+          {rows.map((r) =>
+            r.lines ? (
+              // Campuses are long, so the label sits above them and each campus gets its own pin.
+              <div key={r.label} className="py-2.5">
+                <dt className="text-gray-dark">{r.label}</dt>
+                <dd className="mt-2 space-y-2">
+                  {r.lines.map((line) => (
+                    <span key={line} className="flex items-start gap-2 font-semibold leading-snug text-navy">
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gray-dark" aria-hidden />
+                      {line}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            ) : (
+              <div key={r.label} className="flex justify-between gap-4 py-2.5">
+                <dt className="text-gray-dark">{r.label}</dt>
+                <dd className="text-right font-semibold text-navy">{r.value}</dd>
+              </div>
+            ),
+          )}
         </dl>
       </section>
 
