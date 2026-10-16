@@ -66,3 +66,5 @@ supabase/.temp/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/scripts/route2uni-raw/*.json
+/scripts/excel-raw/*.json
