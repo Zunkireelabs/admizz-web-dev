@@ -2,20 +2,15 @@
 
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { hasInAppHistory } from "@/lib/nav-history";
 
-// Goes back in history when the visitor came from within the site (keeps their
-// search/filters); otherwise falls back to the listing page.
+// Goes back to the previous page when the visitor has clicked through the site (keeps their
+// search/filters); otherwise (direct landing) falls back to the listing page.
 export default function BackButton({ fallbackHref, label }: { fallbackHref: string; label: string }) {
   const router = useRouter();
 
   const goBack = () => {
-    let cameFromSite = false;
-    try {
-      cameFromSite = Boolean(document.referrer) && new URL(document.referrer).origin === window.location.origin;
-    } catch {
-      // Malformed referrer: treat as an external visit and use the fallback.
-    }
-    if (cameFromSite && window.history.length > 1) router.back();
+    if (hasInAppHistory() && window.history.length > 1) router.back();
     else router.push(fallbackHref);
   };
 

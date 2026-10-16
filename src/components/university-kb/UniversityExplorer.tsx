@@ -8,6 +8,7 @@ import Pagination from "./Pagination";
 import Dropdown from "./Dropdown";
 import type { CountrySlug, CourseLevel, CurrencyCode, IntakeMonth, UniversityCard } from "@/lib/university-kb";
 import { formatMoney } from "@/lib/university-kb/countries";
+import { locationLines } from "@/lib/university-kb/locations";
 import CompareToggle from "./CompareToggle";
 
 const LEVEL_LABEL: Record<CourseLevel, string> = {
@@ -46,19 +47,9 @@ const LEVEL_SHORT: Record<string, string> = {
 };
 
 const PAGE_SIZE = 8;
-const MATCHES_SHOWN = 3;
-
-type CardCourse = UniversityCard["courses"][number];
-
-// Every typed word must appear in the course name or its subject, e.g. "msc data" or "nursing foundation".
-function matchesCourse(c: CardCourse, words: string[], level: CourseLevel | "") {
-  const hay = `${c.name} ${c.subject}`.toLowerCase();
-  return words.every((w) => hay.includes(w)) && (!level || c.level === level);
-}
 
 export default function UniversityExplorer({ universities, countries, fixedCountry, breadcrumb, title, subtitle }: Props) {
   const [nameQuery, setNameQuery] = useState("");
-  const [courseQuery, setCourseQuery] = useState("");
   const [country, setCountry] = useState<CountrySlug | "">(fixedCountry ?? "");
   const [level, setLevel] = useState<CourseLevel | "">("");
   const [intake, setIntake] = useState<IntakeMonth | "">("");
@@ -104,15 +95,11 @@ export default function UniversityExplorer({ universities, countries, fixedCount
     return fees.length ? feeSteps(Math.max(...fees)) : [];
   }, [scoped]);
 
-  const courseWords = useMemo(() => courseQuery.trim().toLowerCase().split(/\s+/).filter(Boolean), [courseQuery]);
-
   const results = useMemo(() => {
     const n = nameQuery.trim().toLowerCase();
-    const words = courseWords;
     const list = scoped.filter(
       (u) =>
         (!n || u.name.toLowerCase().includes(n)) &&
-        (!words.length || u.courses.some((c) => matchesCourse(c, words, level))) &&
         (!level || u.levels.includes(level)) &&
         (!intake || u.intakeMonths.includes(intake)) &&
         (!city || u.cities.includes(city)) &&
@@ -122,10 +109,10 @@ export default function UniversityExplorer({ universities, countries, fixedCount
     if (sort === "name") return [...list].sort((a, b) => a.name.localeCompare(b.name));
     if (sort === "fee-asc") return [...list].sort((a, b) => (a.feeFrom ?? Infinity) - (b.feeFrom ?? Infinity));
     return list;
-  }, [scoped, nameQuery, courseWords, level, intake, city, maxFee, scholarshipOnly, sort]);
+  }, [scoped, nameQuery, level, intake, city, maxFee, scholarshipOnly, sort]);
 
   // Back to page 1 whenever the search, filters or sort change (state adjusted during render).
-  const listKey = JSON.stringify([nameQuery, courseQuery, country, level, intake, city, maxFee, scholarshipOnly, sort]);
+  const listKey = JSON.stringify([nameQuery, country, level, intake, city, maxFee, scholarshipOnly, sort]);
   const [prevListKey, setPrevListKey] = useState(listKey);
   if (listKey !== prevListKey) {
     setPrevListKey(listKey);
@@ -134,10 +121,6 @@ export default function UniversityExplorer({ universities, countries, fixedCount
   const totalPages = Math.max(1, Math.ceil(results.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages);
   const pageResults = results.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
-  // The courses that matched the course search, per visible card.
-  const matchesById = new Map(
-    pageResults.map((u) => [u.id, courseWords.length ? u.courses.filter((c) => matchesCourse(c, courseWords, level)) : []]),
-  );
   const goToPage = (p: number) => {
     setPage(p);
     resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -175,16 +158,11 @@ export default function UniversityExplorer({ universities, countries, fixedCount
   const clearEverything = () => {
     resetFilters();
     setNameQuery("");
-    setCourseQuery("");
   };
 
   // Popular searches are built from the data, so a pick never leads to an empty list.
   const quickPicks = useMemo(() => {
     const picks: { label: string; active: boolean; toggle: () => void }[] = [];
-    const subjects = Array.from(new Set(scoped.flatMap((u) => u.subjects))).slice(0, 3);
-    for (const sub of subjects) {
-      picks.push({ label: sub, active: courseQuery === sub, toggle: () => setCourseQuery(courseQuery === sub ? "" : sub) });
-    }
     if (scoped.some((u) => u.scholarship)) {
       picks.push({ label: "Scholarships", active: scholarshipOnly, toggle: () => setScholarshipOnly(!scholarshipOnly) });
     }
@@ -207,7 +185,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
       picks.push({ label: topCity, active: city === topCity, toggle: () => setCity(city === topCity ? "" : topCity) });
     }
     return picks;
-  }, [scoped, courseQuery, scholarshipOnly, intake, level, city, levelOptions, cityOptions]);
+  }, [scoped, scholarshipOnly, intake, level, city, levelOptions, cityOptions]);
 
   const label = "mb-2 block text-[14px] font-semibold text-navy";
   const resultLabel = `${results.length} ${results.length === 1 ? "university" : "universities"}`;
@@ -215,8 +193,8 @@ export default function UniversityExplorer({ universities, countries, fixedCount
   return (
     <>
       {/* Hero + search */}
-      <section className="bg-gradient-to-r from-blue-royal to-blue-dark px-4 pt-6 pb-10">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-gradient-to-r from-blue-royal to-blue-dark pt-6 pb-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {breadcrumb}
           <h1 className="mt-4 text-3xl md:text-[38px] font-bold leading-tight text-white">{title}</h1>
           {subtitle && <div className="mt-2 max-w-2xl text-[16px] text-white/80">{subtitle}</div>}
@@ -235,13 +213,6 @@ export default function UniversityExplorer({ universities, countries, fixedCount
               placeholder="Search university name"
               value={nameQuery}
               onChange={setNameQuery}
-            />
-            <div className="mx-5 h-px bg-border-light md:mx-0 md:my-3 md:h-auto md:w-px" aria-hidden />
-            <SearchField
-              label="Course"
-              placeholder="e.g. MBA, Nursing, Computer Science"
-              value={courseQuery}
-              onChange={setCourseQuery}
             />
             <div className="flex items-center gap-2 border-t border-border-light p-2 md:border-t-0 md:pl-0">
               <button
@@ -399,14 +370,16 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                   </div>
                   <div className="flex flex-1 flex-col p-5">
                     <h2 className="line-clamp-2 min-h-[2.75rem] text-[16px] font-bold leading-snug text-navy group-hover:text-blue-royal">{u.name}</h2>
-                    <p className="mt-1 flex items-center gap-1.5 text-[13px] text-gray-dark">
-                      <MapPin className="w-3.5 h-3.5 shrink-0" aria-hidden />
-                      <span className="truncate">
-                        {u.cities.slice(0, 2).join(", ")}
-                        {u.cities.length > 2 ? ` +${u.cities.length - 2}` : ""}
-                        {countries.length > 1 ? `, ${u.countryName}` : ""}
-                      </span>
-                    </p>
+                    {/* One pin per campus; long lines wrap so the country is never cut off. */}
+                    <div className="mt-1 min-h-[2.75rem] space-y-1 text-[13px] text-gray-dark">
+                      {locationLines(u.cities, u.country, { maxCities: 2 }).map((line) => (
+                        <p key={line} className="flex items-start gap-1.5 leading-snug">
+                          <MapPin className="mt-0.5 w-3.5 h-3.5 shrink-0" aria-hidden />
+                          <span>{line}</span>
+                        </p>
+                      ))}
+                      {u.cities.length > 2 && <p className="pl-5 text-[12px]">+{u.cities.length - 2} more {u.cities.length - 2 === 1 ? "campus" : "campuses"}</p>}
+                    </div>
                     <p className="mt-3 flex min-h-[1.75rem] flex-wrap items-center gap-1.5">
                       {u.levels.map((l) => (
                         <span key={l} className="rounded-full bg-blue-royal/[0.08] px-2.5 py-0.5 text-[12px] font-semibold text-blue-royal">
@@ -417,7 +390,6 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                         <span className="text-[12px] text-gray-dark">{u.courses.length} courses</span>
                       )}
                     </p>
-                    <MatchingCourses courses={matchesById.get(u.id) ?? []} />
                     <dl className="mt-3 space-y-2.5 border-t border-border-light pt-4 text-[13px]">
                       <div className="flex items-center justify-between gap-3">
                         <dt className="flex items-center gap-1.5 text-gray-dark"><Wallet className="w-4 h-4" aria-hidden />Fees from</dt>
@@ -577,24 +549,6 @@ export default function UniversityExplorer({ universities, countries, fixedCount
   );
 }
 
-function MatchingCourses({ courses }: { courses: CardCourse[] }) {
-  if (!courses.length) return null;
-  return (
-    <div className="mt-3 rounded-lg bg-off-white px-3 py-2.5">
-      <p className="text-[12px] font-semibold text-navy">
-        {courses.length} matching {courses.length === 1 ? "course" : "courses"}
-      </p>
-      <ul className="mt-1 space-y-0.5 text-[12px] text-gray-dark">
-        {courses.slice(0, MATCHES_SHOWN).map((c) => (
-          <li key={c.name} className="truncate">{c.name}</li>
-        ))}
-        {courses.length > MATCHES_SHOWN && (
-          <li className="font-medium text-blue-royal">+{courses.length - MATCHES_SHOWN} more</li>
-        )}
-      </ul>
-    </div>
-  );
-}
 
 function SearchField({
   label,

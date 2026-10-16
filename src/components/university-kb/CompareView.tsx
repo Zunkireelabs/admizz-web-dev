@@ -8,6 +8,7 @@ import { ArrowRight, MessageCircle, Plus, Trophy, X } from "lucide-react";
 import type { CountryInfo, CountrySlug, UniversityProfile } from "@/lib/university-kb";
 import { compareId, LEVEL_LABEL, lowestFee, upcomingIntakes, universityPath, EXPLORE_BASE_PATH } from "@/lib/university-kb";
 import { approxNpr, formatMoney, NPR_RATES, NPR_RATES_DATE } from "@/lib/university-kb/countries";
+import { locationLines } from "@/lib/university-kb/locations";
 import { COMPARE_MAX, setCompareList, useCompareList } from "@/lib/university-kb/compare-store";
 import BackButton from "./BackButton";
 import { EnquireButton, EnquiryProvider } from "./EnquiryForm";
@@ -97,7 +98,13 @@ export default function CompareView({ universities, countries }: Props) {
     {
       label: "Location",
       raw: (u) => `${u.cities.join(",")}|${u.country}`,
-      render: (u) => `${u.cities.join(", ")}, ${countries[u.country].name}`,
+      render: (u) => (
+        <span className="block space-y-1">
+          {locationLines(u.cities, u.country).map((line) => (
+            <span key={line} className="block">{line}</span>
+          ))}
+        </span>
+      ),
     },
     {
       label: "Tuition from",

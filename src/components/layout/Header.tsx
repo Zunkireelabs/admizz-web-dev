@@ -23,16 +23,16 @@ const studyDestinations = [
   { name: "Study in Finland", href: "/study-in-finland", flag: "fi" },
 ];
 
-const navLinks = [
-  { name: "Find College", href: "/explore-universities" },
-  { name: "Find Course", href: "/find-course" },
+const navLinks: { name: string; href: string; match?: string[] }[] = [
+  { name: "Course Finder", href: "/find-course", match: ["/find-course", "/explore-universities"] },
   { name: "About", href: "/about" },
   { name: "Blogs", href: "/blogs" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
-  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const isActive = (link: { href: string; match?: string[] }) =>
+    (link.match ?? [link.href]).some((h) => pathname === h || pathname.startsWith(`${h}/`));
   const [mobileOpen, setMobileOpen] = useState(false);
   const [destOpen, setDestOpen] = useState(false);
   const [mobileDestOpen, setMobileDestOpen] = useState(false);
@@ -132,9 +132,9 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                aria-current={isActive(link.href) ? "page" : undefined}
+                aria-current={isActive(link) ? "page" : undefined}
                 className={`relative px-3 xl:px-4 py-2 text-[13px] lg:text-[14px] xl:text-[15px] font-medium transition-colors whitespace-nowrap rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-royal/40 ${
-                  isActive(link.href)
+                  isActive(link)
                     ? "text-blue-royal after:absolute after:left-3 after:right-3 xl:after:left-4 xl:after:right-4 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-blue-royal"
                     : "text-slate hover:text-navy"
                 }`}
@@ -234,8 +234,8 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                aria-current={isActive(link.href) ? "page" : undefined}
-                className={`block px-3 py-3 text-[15px] font-medium ${isActive(link.href) ? "text-blue-royal" : "text-slate hover:text-navy"}`}
+                aria-current={isActive(link) ? "page" : undefined}
+                className={`block px-3 py-3 text-[15px] font-medium ${isActive(link) ? "text-blue-royal" : "text-slate hover:text-navy"}`}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.name}

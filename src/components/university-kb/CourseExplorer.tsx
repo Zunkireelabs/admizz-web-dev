@@ -11,6 +11,8 @@ import { FEATURED_COURSES, TRENDING_CARDS, TRENDING_CHIPS } from "@/lib/universi
 import type { CourseCatalog, CourseLevel, IntakeMonth } from "@/lib/university-kb";
 import { groupCourses, searchGroups, minFee, groupSubject, type CourseGroup } from "@/lib/university-kb/course-groups";
 import { labelForCourse } from "./courseTopic";
+import FinderToggle from "./FinderToggle";
+import { locationLines } from "@/lib/university-kb/locations";
 import { formatMoney } from "@/lib/university-kb/countries";
 
 const LEVEL_LABEL: Record<CourseLevel, string> = {
@@ -38,10 +40,9 @@ function durationLabel(months: number) {
 
 interface Props {
   catalog: CourseCatalog;
-  findCollegeHref: string;
 }
 
-export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
+export default function CourseExplorer({ catalog }: Props) {
   const { universities, courses } = catalog;
   const [query, setQuery] = useState("");
   const [subject, setSubject] = useState("");
@@ -209,10 +210,10 @@ export default function CourseExplorer({ catalog, findCollegeHref }: Props) {
             <span className="mx-1.5" aria-hidden>/</span>
             <span className="text-white font-medium">Find Course</span>
           </nav>
+          <FinderToggle active="course" />
           <h1 className="mt-4 text-3xl md:text-[38px] font-bold leading-tight text-white">Find your course abroad</h1>
           <p className="mt-2 max-w-2xl text-[16px] text-white/80">
-            Search a course and see every Admizz partner university that offers it, with the fee, duration and intake.{" "}
-            <Link href={findCollegeHref} className="font-semibold text-white underline underline-offset-4">Looking for a university instead?</Link>
+            Search a course and see every Admizz partner university that offers it, with the fee, duration and intake.
           </p>
 
           <div className="relative mt-7">
@@ -538,7 +539,16 @@ function CourseGroupCard({
       <CourseCover subject={subject} name={group.name} label={topic} />
 
       <div className="px-2 pt-4">
-        <h3 className="flex min-h-[3.1rem] items-end text-[18px] font-bold leading-snug text-navy">{group.name}</h3>
+        <div className="flex items-end justify-between gap-3">
+          <h3 className="flex min-h-[3.1rem] min-w-0 flex-1 items-end text-[18px] font-bold leading-snug text-navy">{group.name}</h3>
+          <Link
+            href={courseHref}
+            aria-label={`View details for ${group.name}`}
+            className="mb-0.5 inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full border border-blue-royal/40 px-3 py-1.5 text-[13px] font-semibold text-blue-royal transition-colors hover:bg-blue-royal hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-royal"
+          >
+            View details <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+          </Link>
+        </div>
         <p className="mt-1.5 text-[14px] text-gray-dark">
           {total} {total === 1 ? "university" : "universities"}
           {from !== undefined && (
@@ -574,10 +584,12 @@ function CourseGroupCard({
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="line-clamp-2 block text-[14px] font-semibold leading-snug text-navy group-hover:text-blue-royal">{uni.name}</span>
-                  <span className="flex items-center gap-1 text-[12px] text-gray-dark">
-                    <MapPin className="h-3 w-3 shrink-0" aria-hidden />
-                    <span className="truncate">{uni.cities.slice(0, 2).join(", ")}</span>
-                  </span>
+                  {locationLines(uni.cities, uni.country, { maxCities: 2 }).map((line) => (
+                    <span key={line} className="flex items-start gap-1 text-[12px] leading-snug text-gray-dark">
+                      <MapPin className="mt-0.5 h-3 w-3 shrink-0" aria-hidden />
+                      <span>{line}</span>
+                    </span>
+                  ))}
                   <span className="mt-0.5 block text-[12px] text-gray-dark">
                     {durationLabel(c.durationMonths)}
                     {" · "}

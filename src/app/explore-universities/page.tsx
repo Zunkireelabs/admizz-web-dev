@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { universityProfiles, getActiveCountries, toUniversityCard, EXPLORE_BASE_PATH } from "@/lib/university-kb";
+import FinderToggle from "@/components/university-kb/FinderToggle";
 import UniversityExplorer from "@/components/university-kb/UniversityExplorer";
 
 export const metadata: Metadata = {
@@ -24,11 +25,14 @@ export default function ExploreUniversitiesPage() {
         title="Find your university abroad"
         subtitle="Courses, tuition fees, scholarships, intakes and required documents for every Admizz partner university."
         breadcrumb={
+          <>
           <nav aria-label="Breadcrumb" className="text-[13px] text-white/75">
             <Link href="/" className="hover:text-white hover:underline underline-offset-2">Home</Link>
             <span className="mx-1.5" aria-hidden>/</span>
             <span className="text-white font-medium">Find College</span>
           </nav>
+          <FinderToggle active="college" />
+          </>
         }
       />
     </main>
