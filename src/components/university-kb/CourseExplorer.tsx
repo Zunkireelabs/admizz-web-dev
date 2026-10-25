@@ -531,7 +531,7 @@ function CourseGroupCard({
   const intakes = Array.from(new Set(group.offers.flatMap((o) => o.course.intakes)));
   const placement = group.offers.some((o) => o.course.placement);
   const first = group.offers[0];
-  const courseHref = group.hasPage ? `/find-course/${group.slug}` : `${universities[first.u].href}#course-${first.course.slug}`;
+  const courseHref = group.hasPage ? `/course-finder/${group.slug}` : `${universities[first.u].href}#course-${first.course.slug}`;
   const pill = "whitespace-nowrap rounded-full px-2.5 py-1 text-[12px] font-semibold";
 
   return (
@@ -636,7 +636,7 @@ function CourseGroupCard({
       {total >= rows && group.hasPage && (
         <div className="px-2 pb-1 pt-4">
           <Link
-            href={`/find-course/${group.slug}`}
+            href={`/course-finder/${group.slug}`}
             className="inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal hover:underline underline-offset-4"
           >
             See all {total} universities <ArrowRight className="h-4 w-4" aria-hidden />

@@ -24,7 +24,7 @@ const studyDestinations = [
 ];
 
 const navLinks: { name: string; href: string; match?: string[] }[] = [
-  { name: "Course Finder", href: "/find-course", match: ["/find-course", "/explore-universities"] },
+  { name: "Course Finder", href: "/course-finder", match: ["/course-finder", "/explore-universities"] },
   { name: "About", href: "/about" },
   { name: "Blogs", href: "/blogs" },
 ];

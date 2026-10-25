@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${g.name}: ${g.offers.length} Universities, Fees & Intakes | Admizz Education`,
     description: `${g.name} is offered by ${g.offers.length} Admizz partner universities${from !== undefined ? `, from ${formatMoney(from, currency)}` : ""}. Compare fees, duration and intakes.`,
-    alternates: { canonical: `https://admizzeducation.com/find-course/${g.slug}` },
+    alternates: { canonical: `https://admizzeducation.com/course-finder/${g.slug}` },
     // Keep out of search until the feature launches (same as Find College).
     robots: { index: false, follow: false },
   };
@@ -55,7 +55,7 @@ export default async function CoursePage({ params }: PageProps) {
         name: group.name,
         count: group.offers.length,
         // A course page when one exists, otherwise straight to the only university that offers it.
-        href: group.hasPage ? `/find-course/${group.slug}` : `${catalog.universities[first.u].href}#course-${first.course.slug}`,
+        href: group.hasPage ? `/course-finder/${group.slug}` : `${catalog.universities[first.u].href}#course-${first.course.slug}`,
       };
     });
 
