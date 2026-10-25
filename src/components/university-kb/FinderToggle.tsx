@@ -3,7 +3,7 @@ import { EXPLORE_BASE_PATH } from "@/lib/university-kb";
 
 const options = [
   { key: "college", label: "Find College", href: EXPLORE_BASE_PATH },
-  { key: "course", label: "Find Course", href: "/find-course" },
+  { key: "course", label: "Find Course", href: "/course-finder" },
 ] as const;
 
 // Switch between the two Course Finder pages (separate URLs).

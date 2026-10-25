@@ -11,7 +11,7 @@ export interface CourseOffer {
 
 export interface CourseGroup {
   key: string;
-  /** URL part for /find-course/<slug>; unique across all groups */
+  /** URL part for /course-finder/<slug>; unique across all groups */
   slug: string;
   /** True when a course page exists (2+ universities offer it) */
   hasPage: boolean;
