@@ -99,11 +99,11 @@ function Content({ data }: { data: CourseDetailData }) {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-y-1 text-[13px] text-white/75">
             <span className="mr-3">
-              <BackButton fallbackHref="/find-course" label="Back" />
+              <BackButton fallbackHref="/course-finder" label="Back" />
             </span>
             <Link href="/" className="hover:text-white hover:underline underline-offset-2">Home</Link>
             <span className="mx-1.5" aria-hidden>/</span>
-            <Link href="/find-course" className="hover:text-white hover:underline underline-offset-2">Find Course</Link>
+            <Link href="/course-finder" className="hover:text-white hover:underline underline-offset-2">Find Course</Link>
             <span className="mx-1.5" aria-hidden>/</span>
             <span className="font-medium text-white">{data.name}</span>
           </nav>
