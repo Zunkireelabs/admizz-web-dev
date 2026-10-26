@@ -26,10 +26,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!g) return {};
   const from = minFee(g);
   const currency = catalog.universities[g.offers[0].u].currency;
+  const title = `${g.name}: ${g.offers.length} Universities, Fees & Intakes | Admizz Education`;
+  const description = `${g.name} is offered by ${g.offers.length} Admizz partner universities${from !== undefined ? `, from ${formatMoney(from, currency)}` : ""}. Compare fees, duration and intakes.`;
   return {
-    title: `${g.name}: ${g.offers.length} Universities, Fees & Intakes | Admizz Education`,
-    description: `${g.name} is offered by ${g.offers.length} Admizz partner universities${from !== undefined ? `, from ${formatMoney(from, currency)}` : ""}. Compare fees, duration and intakes.`,
+    title,
+    description,
     alternates: { canonical: `https://admizzeducation.com/course-finder/${g.slug}` },
+    // Overrides the site-wide share card; the image comes from opengraph-image.tsx.
+    openGraph: {
+      title,
+      description,
+      url: `https://admizzeducation.com/course-finder/${g.slug}`,
+      siteName: "Admizz Education",
+      type: "website",
+    },
     // Keep out of search until the feature launches (same as Find College).
     robots: { index: false, follow: false },
   };
