@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   description:
     "Search courses at Admizz partner universities abroad by subject, level, intake and fees. Pick a course and see the university that offers it.",
   alternates: { canonical: "https://admizzeducation.com/course-finder" },
+  // Overrides the site-wide share card; the image comes from opengraph-image.tsx.
+  openGraph: {
+    title: "Find a Course Abroad | Admizz Education",
+    description: "Search courses at Admizz partner universities abroad by subject, level, intake and fees.",
+    url: "https://admizzeducation.com/course-finder",
+    siteName: "Admizz Education",
+    type: "website",
+  },
   // Keep out of search until the feature launches (same as Find College).
   robots: { index: false, follow: false },
 };
