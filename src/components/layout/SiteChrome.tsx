@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Header from "./Header";
 import Footer from "./Footer";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
+import TawkChat from "@/components/TawkChat";
 
 const PORTAL_ROUTES = ["/affiliate-dashboard", "/affiliate-admin"];
 
@@ -35,7 +35,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
           <Footer />
         </div>
       </ErrorBoundary>
-      <WhatsAppWidget />
+      <TawkChat />
     </>
   );
 }
