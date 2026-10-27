@@ -28,17 +28,74 @@ export const healthScienceUniversity: UniversityProfile = {
       intakes: [
         "January"
       ]
+    },
+    {
+      slug: "mba-management-with-health-data-analytics-and-ai",
+      name: "MBA Management with Health Data Analytics and AI",
+      level: "postgraduate",
+      subject: "Business & Management",
+      durationMonths: 12,
+      fees: [
+        {
+          label: "Gross Fee",
+          amount: 15000,
+          per: "total"
+        }
+      ],
+      intakes: [
+        "January"
+      ]
+    },
+    {
+      slug: "mba-management-with-health-economics-and-finance",
+      name: "MBA Management with Health Economics and Finance",
+      level: "postgraduate",
+      subject: "Business & Management",
+      durationMonths: 12,
+      fees: [
+        {
+          label: "Gross Fee",
+          amount: 15000,
+          per: "total"
+        }
+      ],
+      intakes: [
+        "January"
+      ]
+    },
+    {
+      slug: "mba-management-with-healthcare-supply-chain-management",
+      name: "MBA Management with Healthcare Supply Chain Management",
+      level: "postgraduate",
+      subject: "Business & Management",
+      durationMonths: 12,
+      fees: [
+        {
+          label: "Gross Fee",
+          amount: 15000,
+          per: "total"
+        }
+      ],
+      intakes: [
+        "January"
+      ]
     }
+  ],
+  highlights: [
+    "No interview required",
+    "No IELTS/PTE required for the January 2027 intake (partner update)",
+    "Up to 9 years of study gap accepted",
+    "CAS deposit: 50% of the net tuition fee"
   ],
   scholarships: [
     {
       name: "Postgraduate scholarship",
-      value: "£2,000"
+      value: "£2,500"
     }
   ],
   english: {
     ielts: 6,
-    note: "MOI accepted for some programmes"
+    note: "No IELTS/PTE required for the January 2027 intake (partner update). MOI accepted for some programmes"
   },
   entryRequirements: [
     {
@@ -139,5 +196,5 @@ export const healthScienceUniversity: UniversityProfile = {
       note: "50% of net fee. Remaining fee before enrolment."
     }
   ],
-  lastVerified: "2026-10-07"
+  lastVerified: "2026-10-27"
 };
