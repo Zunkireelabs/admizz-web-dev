@@ -13,6 +13,10 @@ interface FAQProps {
   twoColumn?: boolean;
   sidebar?: boolean;
   sidebarSubtitle?: string;
+  /** Heading shown in the sticky sidebar (sidebar mode only) */
+  sidebarTitle?: string;
+  /** Tailwind `top-*` class for the sticky sidebar offset (sidebar mode only) */
+  sidebarTopClass?: string;
   compact?: boolean;
   bgColor?: string;
 }
@@ -208,6 +212,8 @@ export default function FAQ({
   twoColumn = false,
   sidebar = false,
   sidebarSubtitle = "Still wondering about studying abroad, and how Admizz can get you there? Read these answers to our most commonly asked questions.",
+  sidebarTitle = "Got Questions? We Have Answers",
+  sidebarTopClass = "md:top-[100px]",
   compact = false,
   bgColor,
 }: FAQProps) {
@@ -219,7 +225,7 @@ export default function FAQ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-[2fr_3fr] gap-10 md:gap-16">
             {/* Left Sidebar - Sticky */}
-            <div className="md:sticky md:top-[100px] md:self-start">
+            <div className={`md:sticky ${sidebarTopClass} md:self-start`}>
               <p
                 className="text-[13px] font-semibold uppercase tracking-[0.15em] mb-4"
                 style={{ color: "#1E6DEB" }}
@@ -230,7 +236,7 @@ export default function FAQ({
                 className="text-[26px] md:text-[32px] font-bold leading-tight mb-4"
                 style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}
               >
-                Got Questions? We Have Answers
+                {sidebarTitle}
               </h2>
               <p className="text-[14px] leading-relaxed" style={{ color: "#5a6275" }}>
                 {sidebarSubtitle}
