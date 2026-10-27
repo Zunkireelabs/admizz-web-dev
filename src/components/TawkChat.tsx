@@ -2,8 +2,10 @@
 
 import { useEffect } from "react";
 
-const PROPERTY_ID = process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID;
-const WIDGET_ID = process.env.NEXT_PUBLIC_TAWK_WIDGET_ID;
+// Public identifiers (visible in the page source of any tawk.to site). The env vars override
+// them; `||` because an unset CI secret arrives as an empty string.
+const PROPERTY_ID = process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID || "6ae067123e759c347449e954";
+const WIDGET_ID = process.env.NEXT_PUBLIC_TAWK_WIDGET_ID || "1k5u95929";
 
 interface TawkApi {
   customStyle?: {
