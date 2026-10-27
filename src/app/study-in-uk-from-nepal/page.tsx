@@ -34,7 +34,7 @@ const pageData: NepalVariantData = {
   countryCategorySlug: "uk",
   heroHeading: "Study in UK from Nepal",
   heroSubheading:
-    "From university selection to visa approval, we guide Nepali students through every step of their UK education journey. Join 2,000+ students who achieved their British university dreams with Admizz Education.",
+    "From university selection to enrollment, we guide Nepali students through every step of their UK education journey.",
 
   introTitle: "Study in UK from Nepal with Expert Guidance",
   introContent:
