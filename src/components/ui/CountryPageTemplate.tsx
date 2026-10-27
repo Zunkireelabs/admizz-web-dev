@@ -365,19 +365,44 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
 
   return (
     <main>
+      {data.heroBackground && (
+        <link rel="preload" as="image" href={data.heroBackground} fetchPriority="high" />
+      )}
       {/* ===== HERO ===== */}
-      <section
-        className="relative overflow-hidden pt-10 pb-12 md:pt-16 md:pb-16"
-        style={{ background: "linear-gradient(180deg, #EEF2FF 0%, #FFFFFF 100%)" }}
-      >
-        <div className={containerClass}>
+      <section className="relative overflow-hidden py-10 md:py-14">
+        {data.heroBackground ? (
+          <>
+            <div
+              className="absolute inset-0 z-0"
+              style={{
+                backgroundImage: `url(${data.heroBackground})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+            <div className="absolute inset-0 z-0 bg-white/90 md:hidden" />
+            <div
+              className="absolute inset-0 z-0 hidden md:block"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.86) 40%, rgba(238,242,255,0.4) 100%)",
+              }}
+            />
+          </>
+        ) : (
+          <div
+            className="absolute inset-0 z-0"
+            style={{ background: "linear-gradient(180deg, #EEF2FF 0%, #FFFFFF 100%)" }}
+          />
+        )}
+        <div className={`relative z-10 ${containerClass}`}>
           <div className="grid lg:grid-cols-[1fr_472px] gap-10 lg:gap-14 items-center">
             <div>
-              <p className="text-sm md:text-base font-semibold text-blue-royal mb-3">
+              <p className="text-sm md:text-lg font-semibold text-blue-royal mb-3">
                 {data.heroSubheading}
               </p>
               <h1
-                className="text-[32px] sm:text-4xl md:text-[52px] font-bold leading-[1.1] text-navy"
+                className="text-[34px] sm:text-5xl md:text-[60px] font-bold leading-[1.08] text-navy"
                 style={rubikFont}
               >
                 {headingBefore}
@@ -385,7 +410,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
                 {headingAfter}
               </h1>
               {data.heroDescription && (
-                <p className="mt-5 text-[15px] md:text-base leading-relaxed text-gray-dark max-w-xl">
+                <p className="mt-6 text-[15px] md:text-[17px] leading-relaxed text-slate max-w-xl">
                   {data.heroDescription}
                 </p>
               )}
@@ -395,20 +420,20 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
                   e.preventDefault();
                   scrollToSection("admission");
                 }}
-                className="inline-flex items-center mt-7 bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-8 py-3 rounded-full transition-colors cursor-pointer"
+                className="inline-flex items-center mt-8 bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-8 py-3 rounded-full transition-colors cursor-pointer"
               >
                 Learn More
               </a>
             </div>
             <div className="w-full lg:w-[472px] lg:ml-auto">
-              <CTAForm defaultDestination={data.countryName} colorScheme="light" />
+              <CTAForm defaultDestination={data.countryName} colorScheme="light" embedHeight={556} />
             </div>
           </div>
         </div>
       </section>
 
       {/* ===== QUICK FACTS ===== */}
-      <section className="bg-white pb-6">
+      <section className="bg-white py-6">
         <div className={containerClass}>
           <div className="rounded-3xl border border-border-light bg-white shadow-sm px-4 py-6">
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-y-5 gap-x-4">
@@ -524,7 +549,6 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
             title={data.admissionTitle}
             intro={data.admissionIntro}
             photo="/images/about/2-3-763x1024.webp"
-            photo2="/images/about/2-4-763x1024.webp"
             alt="Graduates celebrating"
             flip
           />
