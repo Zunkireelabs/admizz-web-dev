@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import CTAForm from "@/components/ui/CTAForm";
+import ConsultationPopup from "@/components/ui/consultation/ConsultationPopup";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
@@ -131,6 +131,13 @@ const docTabIcons = [
   "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5",
   "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z",
   "M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z",
+];
+
+// Hero card perks: wording only, no figures (all numbers must come from docs/FACTS.md)
+const heroPerks = [
+  { title: "Personal university shortlist", subtitle: "Matched to your grades and budget", icon: docTabIcons[0] },
+  { title: "Scholarship and visa guidance", subtitle: "Support from application to arrival", icon: docTabIcons[2] },
+  { title: "Free, no-commitment advice", subtitle: "Talk through your options with a counselor", icon: ctaPerks[1].icon },
 ];
 
 /** Splits "Valid Passport (min. 6 months)" into the item name and a lighter qualifier */
@@ -289,6 +296,9 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
   const [activeTab, setActiveTab] = useState("why");
   const [visaStep, setVisaStep] = useState(0);
   const [docTab, setDocTab] = useState(0);
+  const [popupOpen, setPopupOpen] = useState(false);
+  const openPopup = () => setPopupOpen(true);
+  const closePopup = useCallback(() => setPopupOpen(false), []);
   const [visaAutoScroll, setVisaAutoScroll] = useState(true);
   const visaTrackRef = useRef<HTMLDivElement>(null);
   const visaStickyRef = useRef<HTMLDivElement>(null);
@@ -493,19 +503,56 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
                   {data.heroDescription}
                 </p>
               )}
-              <a
-                href="#admission"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("admission");
-                }}
-                className="inline-flex items-center mt-8 bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-8 py-3 rounded-full transition-colors cursor-pointer"
-              >
-                Learn More
-              </a>
+              <div className="mt-8">
+                <a
+                  href="#admission"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("admission");
+                  }}
+                  className="inline-flex items-center border border-blue-royal/30 hover:bg-white text-blue-royal font-semibold text-[15px] px-8 py-3 rounded-full transition-colors cursor-pointer"
+                >
+                  Learn More
+                </a>
+              </div>
             </div>
             <div className="w-full lg:w-[472px] lg:ml-auto">
-              <CTAForm defaultDestination={data.countryName} colorScheme="light" embedHeight={556} />
+              <div className="rounded-3xl border border-border-light bg-white p-6 md:p-8 shadow-lg">
+                <p className="text-xs font-semibold tracking-[0.14em] uppercase text-blue-royal mb-2">
+                  Free Counselling
+                </p>
+                <h2 className="text-xl md:text-2xl font-bold text-navy leading-tight" style={rubikFont}>
+                  Planning to study in {data.countryName}?
+                </h2>
+                <p className="mt-2 text-base text-body leading-relaxed">
+                  Get a personal plan for universities, scholarships and your visa from our counselors.
+                </p>
+                <ul className="mt-6 grid gap-3">
+                  {heroPerks.map((perk) => (
+                    <li key={perk.title} className="flex items-center gap-4 rounded-2xl bg-[#F4F6FF] px-4 py-3">
+                      <span className="flex-shrink-0 w-10 h-10 rounded-full bg-white text-blue-royal flex items-center justify-center shadow-sm">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d={perk.icon} />
+                        </svg>
+                      </span>
+                      <span>
+                        <span className="block text-[15px] font-semibold text-navy">{perk.title}</span>
+                        <span className="block text-sm text-gray-dark">{perk.subtitle}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  type="button"
+                  onClick={openPopup}
+                  className="mt-6 w-full inline-flex items-center justify-center bg-golden hover:bg-golden-hover text-black font-semibold text-base px-8 py-3.5 rounded-full transition-colors cursor-pointer"
+                >
+                  Start Your Journey
+                </button>
+                <p className="mt-3 text-center text-[13px] text-gray-dark">
+                  Takes under a minute · No spam
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -1061,12 +1108,13 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
                   Let our expert counselors guide you through university selection, applications, visas, and everything in between.
                 </p>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-                  <Link
-                    href="/register"
-                    className="inline-flex items-center justify-center bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-8 py-3.5 rounded-full transition-colors"
+                  <button
+                    type="button"
+                    onClick={openPopup}
+                    className="inline-flex items-center justify-center bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-8 py-3.5 rounded-full transition-colors cursor-pointer"
                   >
-                    Schedule a Free Consultation
-                  </Link>
+                    Talk to an Expert
+                  </button>
                   <a
                     href="mailto:hello@admizz.com"
                     className="inline-flex items-center justify-center gap-2 border border-white/30 hover:bg-white/10 text-white font-semibold text-[15px] px-6 py-3.5 rounded-full transition-colors"
@@ -1129,6 +1177,13 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
           </div>
         </div>
       </section>
+
+      <ConsultationPopup
+        open={popupOpen}
+        onClose={closePopup}
+        countryName={data.countryName}
+        formSource={`country-${shortCountry.toLowerCase().replace(/\s+/g, "-")}`}
+      />
     </main>
   );
 }

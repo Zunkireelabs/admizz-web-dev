@@ -27,7 +27,7 @@ const nepalData: CountryPageData = {
   countryName: "Nepal",
   countryCategorySlug: "nepal",
   heroHeading: "STUDY IN NEPAL",
-  flagColors: ["#DC143C", "#003893"],
+  flagColors: ["#DC143C", "#9E0F2A"],
   heroSubheading: "Discover Quality Education in the Heart of the Himalayas",
   heroDescription:
     "Nepal offers internationally recognised universities, English-medium programs, affordable tuition, and a unique cultural environment between South and East Asia. From program selection and application support to visas, accommodation, and pre-arrival guidance, Admizz Education helps international students secure admission to leading Nepali universities with complete confidence.",
