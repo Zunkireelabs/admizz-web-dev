@@ -27,6 +27,7 @@ const southKoreaData: CountryPageData = {
   countryName: "South Korea",
   countryCategorySlug: "south-korea",
   heroHeading: "STUDY IN SOUTH KOREA",
+  flagColors: ["#CD2E3A", "#0047A0"],
   heroSubheading: "Enter a Dynamic Academic World With Innovation and Creativity",
   heroDescription: "South Korea has become a global learning hub where innovation hums through every lecture hall and creativity blooms in every campus street. Admizz Education stands beside you as your trusted navigator, helping you enter this dynamic academic world with confidence and clarity.",
   heroBackground: "/images/hero/south-korea-hero.webp",

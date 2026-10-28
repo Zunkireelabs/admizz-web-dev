@@ -27,6 +27,7 @@ const dubaiData: CountryPageData = {
   countryName: "UAE",
   countryCategorySlug: "uae",
   heroHeading: "Study in UAE",
+  flagColors: ["#00732F", "#C8102E"],
   heroSubheading: "Explore World-Class Education in a Dynamic Global Hub",
   heroDescription: "Study in UAE and explore world-class universities, industry-driven programs, and a dynamic international lifestyle. Admizz Education assists with course selection, admissions, documentation, and visa guidance — ensuring a seamless, well-supported journey toward top-quality education and global career opportunities in the UAE.",
   heroBackground: "/images/hero/dubai-hero.webp",

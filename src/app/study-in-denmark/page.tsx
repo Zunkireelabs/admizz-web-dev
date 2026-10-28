@@ -27,6 +27,7 @@ const denmarkData: CountryPageData = {
   countryName: "Denmark",
   countryCategorySlug: "denmark",
   heroHeading: "STUDY IN DENMARK",
+  flagColors: ["#C8102E", "#8E0B20"],
   heroSubheading: "Access Innovative Education in a Welcoming European Hub",
   heroDescription: "Study in Denmark and access innovative education, industry-focused programs, and a welcoming international environment. Admizz Education guides you through course selection, admissions, documentation, and visa support — ensuring a smooth, informed journey toward world-class learning and future-ready opportunities in Denmark.",
   heroBackground: "/images/hero/denmark-hero.webp",

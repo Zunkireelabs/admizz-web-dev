@@ -27,6 +27,7 @@ const nzData: CountryPageData = {
   countryName: "New Zealand",
   countryCategorySlug: "new-zealand",
   heroHeading: "STUDY IN NEW ZEALAND",
+  flagColors: ["#00247D", "#CC142B"],
   heroSubheading: "Experience High-Quality Education and a Welcoming Lifestyle",
   heroDescription: "Experience high-quality education, innovative learning, and a welcoming lifestyle in New Zealand. Admizz Education supports you with university selection, application guidance, visa processing, and personalised counselling to build a strong international career with confidence.",
   heroBackground: "/images/hero/newzealand-hero.webp",

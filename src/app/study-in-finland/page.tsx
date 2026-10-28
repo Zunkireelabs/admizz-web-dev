@@ -27,6 +27,7 @@ const finlandData: CountryPageData = {
   countryName: "Finland",
   countryCategorySlug: "finland",
   heroHeading: "STUDY IN FINLAND",
+  flagColors: ["#003580", "#1E5BB8"],
   heroSubheading: "World-Class Education in the Happiest Country on Earth",
   heroDescription:
     "Finland is globally renowned for its innovative, research-driven education system, tuition-free degree programmes at public universities for EU/EEA students, and affordable options for non-EU students. With a safe, inclusive society, stunning natural landscapes, and strong post-study career prospects, Finland is an ideal destination for international students. Admizz Education guides you through every step — from university selection and applications to visa support and pre-departure preparation.",

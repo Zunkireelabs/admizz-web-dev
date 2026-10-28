@@ -27,6 +27,7 @@ const usaData: CountryPageData = {
   countryName: "the USA",
   countryCategorySlug: "usa",
   heroHeading: "STUDY IN THE USA",
+  flagColors: ["#0A3161", "#B31942"],
   heroSubheading: "Shape Your Global Future With World-Class US Education",
   heroDescription: "Kick-start your study abroad journey with Admizz Education, your trusted partner for studying in the USA. From university selection and application support to scholarships, visas, and pre-departure guidance, we help you secure admission to top US universities with complete confidence and clarity.",
   heroBackground: "/images/hero/usa-hero.webp",

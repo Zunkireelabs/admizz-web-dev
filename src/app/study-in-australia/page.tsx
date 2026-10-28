@@ -27,6 +27,7 @@ const ausData: CountryPageData = {
   countryName: "Australia",
   countryCategorySlug: "australia",
   heroHeading: "STUDY IN AUSTRALIA",
+  flagColors: ["#012169", "#E4002B"],
   heroSubheading: "Shape Your Future at World-Class Australian Education",
   heroDescription: "Australia offers world-class universities, globally recognised degrees, strong post-study work opportunities, and a safe multicultural environment. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top Australian universities with complete confidence.",
   heroBackground: "/images/hero/australia-hero.webp",

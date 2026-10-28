@@ -27,6 +27,7 @@ const franceData: CountryPageData = {
   countryName: "France",
   countryCategorySlug: "france",
   heroHeading: "STUDY IN FRANCE",
+  flagColors: ["#0055A4", "#EF4135"],
   heroSubheading: "Experience Prestigious Universities and Rich Cultural Heritage",
   heroDescription: "Study in France and experience prestigious universities, innovative programs, and a vibrant cultural landscape. Admizz Education supports you with course guidance, admissions, documentation, and visa assistance — ensuring a smooth, confident journey toward top-quality education and international opportunities in France.",
   heroBackground: "/images/hero/france-hero.webp",
