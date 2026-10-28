@@ -27,6 +27,7 @@ const ukData: CountryPageData = {
   countryName: "the UK",
   countryCategorySlug: "uk",
   heroHeading: "STUDY IN THE UK",
+  flagColors: ["#012169", "#C8102E"],
   heroSubheading: "Shape Your Future at World-Class Universities",
   heroDescription: "Choosing the UK for higher studies opens doors to international exposure, employment opportunities, and globally recognized qualifications. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top UK universities with complete confidence.",
   heroBackground: "/images/hero/uk-hero.webp",

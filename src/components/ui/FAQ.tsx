@@ -17,6 +17,8 @@ interface FAQProps {
   sidebarTitle?: string;
   /** Tailwind `top-*` class for the sticky sidebar offset (sidebar mode only) */
   sidebarTopClass?: string;
+  /** Larger, darker text for the sidebar variant (sidebar mode only) */
+  comfortableText?: boolean;
   compact?: boolean;
   bgColor?: string;
 }
@@ -141,11 +143,13 @@ function FAQSidebarItem({
   index,
   isOpen,
   onToggle,
+  comfortable = false,
 }: {
   item: FAQItem;
   index: number;
   isOpen: boolean;
   onToggle: () => void;
+  comfortable?: boolean;
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -169,14 +173,14 @@ function FAQSidebarItem({
         aria-expanded={isOpen}
       >
         <span
-          className={`text-[13px] font-bold flex-shrink-0 transition-colors duration-300 ${
+          className={`${comfortable ? "text-[14px]" : "text-[13px]"} font-bold flex-shrink-0 transition-colors duration-300 ${
             isOpen ? "text-blue-royal" : "text-navy/40"
           }`}
         >
           {index + 1}.
         </span>
         <span
-          className={`text-[14px] font-medium flex-1 pr-2 transition-colors duration-300 ${
+          className={`${comfortable ? "text-[16px]" : "text-[14px]"} font-medium flex-1 pr-2 transition-colors duration-300 ${
             isOpen ? "text-blue-royal" : "text-navy"
           }`}
         >
@@ -199,7 +203,11 @@ function FAQSidebarItem({
         className="transition-[height] duration-300 ease-in-out overflow-hidden"
       >
         <div ref={contentRef} className="px-5 pb-5 pl-12">
-          <p className="text-[13px] text-gray-dark leading-relaxed">{item.answer}</p>
+          <p
+            className={`${comfortable ? "text-[15px] text-body" : "text-[13px] text-gray-dark"} leading-relaxed`}
+          >
+            {item.answer}
+          </p>
         </div>
       </div>
     </div>
@@ -214,6 +222,7 @@ export default function FAQ({
   sidebarSubtitle = "Still wondering about studying abroad, and how Admizz can get you there? Read these answers to our most commonly asked questions.",
   sidebarTitle = "Got Questions? We Have Answers",
   sidebarTopClass = "md:top-[100px]",
+  comfortableText = false,
   compact = false,
   bgColor,
 }: FAQProps) {
@@ -238,7 +247,10 @@ export default function FAQ({
               >
                 {sidebarTitle}
               </h2>
-              <p className="text-[14px] leading-relaxed" style={{ color: "#5a6275" }}>
+              <p
+                className={`${comfortableText ? "text-base" : "text-[14px]"} leading-relaxed`}
+                style={{ color: comfortableText ? "#3D4A5E" : "#5a6275" }}
+              >
                 {sidebarSubtitle}
               </p>
             </div>
@@ -252,6 +264,7 @@ export default function FAQ({
                   index={index}
                   isOpen={openIndex === index}
                   onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+                  comfortable={comfortableText}
                 />
               ))}
             </div>

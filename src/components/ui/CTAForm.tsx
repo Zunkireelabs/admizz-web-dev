@@ -13,12 +13,15 @@ export interface CTAFormProps {
   colorScheme?: "default" | "light";
   /** Identifies which page/context this form is embedded on (sent to CRM for attribution) */
   formSource?: string;
+  /** Desktop iframe height in px (defaults to the embed's own default) */
+  embedHeight?: number;
 }
 
 export default function CTAForm({
   title = "Book Your Free Consultation",
   colorScheme = "default",
   formSource = "consultation",
+  embedHeight,
 }: CTAFormProps) {
   return (
     <div
@@ -36,7 +39,7 @@ export default function CTAForm({
           {title}
         </p>
       )}
-      <CRMFormEmbed formSource={formSource} />
+      <CRMFormEmbed formSource={formSource} height={embedHeight} />
     </div>
   );
 }

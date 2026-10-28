@@ -27,6 +27,7 @@ const canadaData: CountryPageData = {
   countryName: "Canada",
   countryCategorySlug: "canada",
   heroHeading: "STUDY IN CANADA",
+  flagColors: ["#D52B1E", "#8C1B14"],
   heroSubheading: "Build Your Global Career With World-Class Canadian Education",
   heroDescription: "Canada is one of the most popular study destinations for international students, offering globally recognised degrees, high academic standards, affordable tuition, and promising post-study work opportunities. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top Canadian universities with complete confidence and clarity.",
   heroBackground: "/images/hero/canada-hero.webp",

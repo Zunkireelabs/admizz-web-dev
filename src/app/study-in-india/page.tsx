@@ -27,6 +27,7 @@ const indiaData: CountryPageData = {
   countryName: "India",
   countryCategorySlug: "india",
   heroHeading: "STUDY IN INDIA",
+  flagColors: ["#E8751A", "#138808"],
   heroSubheading: "Unlock Quality Education and Career-Ready Opportunities",
   heroDescription: "Study in India and unlock quality education, diverse programs, and career-ready opportunities. Admizz Education guides you through course selection, university admissions, documentation, and support — making your journey effortless, informed, and future-focused across India's leading academic destinations.",
   heroBackground: "/images/hero/india-hero.webp",

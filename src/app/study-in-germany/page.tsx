@@ -27,6 +27,7 @@ const germanyData: CountryPageData = {
   countryName: "Germany",
   countryCategorySlug: "germany",
   heroHeading: "STUDY IN GERMANY",
+  flagColors: ["#000000", "#DD0000", "#E0A800"],
   heroSubheading: "World-Class Education with Tuition-Free Public Universities",
   heroDescription:
     "Study in Germany and benefit from tuition-free public universities, cutting-edge research facilities, and globally recognised degrees. Admizz Education supports you with course guidance, admissions, documentation, and visa assistance \u2014 ensuring a smooth, confident journey toward top-quality education and career opportunities in Germany.",
