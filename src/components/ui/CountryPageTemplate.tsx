@@ -575,9 +575,9 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
       </section>
 
       {/* ===== TAB NAVIGATION ===== */}
-      <nav className="sticky top-[70px] z-40 bg-white/95 backdrop-blur py-3">
+      <nav className="sticky top-[70px] z-40 py-3">
         <div className="max-w-4xl mx-auto relative px-4">
-          <div className="w-fit max-w-full mx-auto rounded-full border border-border-light bg-white shadow-sm">
+          <div className="w-fit max-w-full mx-auto rounded-full border border-white/70 bg-gradient-to-b from-white/75 to-white/45 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_32px_rgba(0,19,83,0.12)]">
             <div
               ref={tabScrollRef}
               className="overflow-x-auto scrollbar-hide rounded-full p-1.5"
@@ -590,8 +590,8 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
                     onClick={() => scrollToSection(tab.id)}
                     className={`px-4 py-2 text-sm sm:text-[15px] font-medium whitespace-nowrap rounded-full transition-colors ${
                       activeTab === tab.id
-                        ? "bg-[#E8ECFB] text-blue-royal font-semibold"
-                        : "text-gray-dark hover:text-navy"
+                        ? "bg-white/80 text-blue-royal font-semibold shadow-[0_2px_10px_rgba(49,66,156,0.15)] ring-1 ring-white"
+                        : "text-body hover:text-navy hover:bg-white/50"
                     }`}
                   >
                     {tab.label}
@@ -604,7 +604,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
           {showFade && (
             <div
               className="absolute right-4 top-0 bottom-0 w-10 rounded-r-full pointer-events-none md:hidden"
-              style={{ background: "linear-gradient(to right, transparent, white)" }}
+              style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.7))" }}
             />
           )}
         </div>
