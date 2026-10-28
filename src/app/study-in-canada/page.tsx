@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!",
     url: "https://admizzeducation.com/study-in-canada",
     siteName: "Admizz Education",
-    images: ["/images/og/untitled-design-80.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-canada.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in Canada - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in Canada - Admizz Education",
+    description:
+      "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!",
+    images: ["/images/og/countries/study-in-canada.jpg"],
   },
 };
 

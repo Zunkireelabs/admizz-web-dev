@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for 2025 intake now!",
     url: "https://admizzeducation.com/study-in-the-uk",
     siteName: "Admizz Education",
-    images: ["/images/hero/web-ad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-the-uk.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in the UK - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in the UK - Admizz Education",
+    description:
+      "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for 2025 intake now!",
+    images: ["/images/og/countries/study-in-the-uk.jpg"],
   },
 };
 

@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!",
     url: "https://admizzeducation.com/study-in-south-korea",
     siteName: "Admizz Education",
-    images: ["/images/og/korean.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-south-korea.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in South Korea - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in South Korea - Admizz Education",
+    description:
+      "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!",
+    images: ["/images/og/countries/study-in-south-korea.jpg"],
   },
 };
 
