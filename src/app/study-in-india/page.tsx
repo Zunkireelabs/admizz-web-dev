@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!",
     url: "https://admizzeducation.com/study-in-india",
     siteName: "Admizz Education",
-    images: ["/images/hero/web-ad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-india.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in India - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in India - Admizz Education",
+    description:
+      "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!",
+    images: ["/images/og/countries/study-in-india.jpg"],
   },
 };
 

@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in New Zealand with top-ranked universities, expert guidance, visa support, and scholarships. Start your global journey today!",
     url: "https://admizzeducation.com/study-in-newzealand",
     siteName: "Admizz Education",
-    images: ["/images/og/stuyabroad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-newzealand.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in New Zealand - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in New Zealand - Admizz Education",
+    description:
+      "Study in New Zealand with top-ranked universities, expert guidance, visa support, and scholarships. Start your global journey today!",
+    images: ["/images/og/countries/study-in-newzealand.jpg"],
   },
 };
 

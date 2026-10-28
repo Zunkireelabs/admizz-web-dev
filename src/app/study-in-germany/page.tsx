@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in Germany at world-renowned universities with tuition-free public education, expert guidance, visa support, and scholarships. Begin your international journey today!",
     url: "https://admizzeducation.com/study-in-germany",
     siteName: "Admizz Education",
-    images: ["/images/og/stuyabroad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-germany.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in Germany - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in Germany - Admizz Education",
+    description:
+      "Study in Germany at world-renowned universities with tuition-free public education, expert guidance, visa support, and scholarships. Begin your international journey today!",
+    images: ["/images/og/countries/study-in-germany.jpg"],
   },
 };
 

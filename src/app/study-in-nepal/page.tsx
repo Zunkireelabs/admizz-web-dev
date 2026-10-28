@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognised degrees. Discover how international students can apply, settle in, and study in Nepal.",
     url: "https://admizzeducation.com/study-in-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/untitled-design-80.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-nepal.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in Nepal - Admizz Education",
+    description:
+      "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognised degrees. Discover how international students can apply, settle in, and study in Nepal.",
+    images: ["/images/og/countries/study-in-nepal.jpg"],
   },
 };
 

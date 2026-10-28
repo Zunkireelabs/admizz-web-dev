@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in Denmark with world-class education, expert guidance, visa support, and scholarship options. Apply now for a brighter future!",
     url: "https://admizzeducation.com/study-in-denmark",
     siteName: "Admizz Education",
-    images: ["/images/hero/web-ad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-denmark.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in Denmark - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in Denmark - Admizz Education",
+    description:
+      "Study in Denmark with world-class education, expert guidance, visa support, and scholarship options. Apply now for a brighter future!",
+    images: ["/images/og/countries/study-in-denmark.jpg"],
   },
 };
 

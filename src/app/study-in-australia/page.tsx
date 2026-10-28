@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in Australia at top universities with expert guidance, visa support, and scholarship opportunities. Start your global journey today!",
     url: "https://admizzeducation.com/study-in-australia",
     siteName: "Admizz Education",
-    images: ["/images/og/untitled-design-80.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-australia.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in Australia - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in Australia - Admizz Education",
+    description:
+      "Study in Australia at top universities with expert guidance, visa support, and scholarship opportunities. Start your global journey today!",
+    images: ["/images/og/countries/study-in-australia.jpg"],
   },
 };
 

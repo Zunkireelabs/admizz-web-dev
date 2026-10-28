@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!",
     url: "https://admizzeducation.com/study-in-dubai",
     siteName: "Admizz Education",
-    images: ["/images/og/UAE.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-dubai.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in UAE - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in UAE - Admizz Education",
+    description:
+      "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!",
+    images: ["/images/og/countries/study-in-dubai.jpg"],
   },
 };
 
