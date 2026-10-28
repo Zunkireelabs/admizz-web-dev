@@ -451,7 +451,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
       {/* ===== TAB NAVIGATION ===== */}
       <nav className="sticky top-[70px] z-40 bg-white/95 backdrop-blur py-3">
         <div className="max-w-4xl mx-auto relative px-4">
-          <div className="rounded-full border border-border-light bg-white shadow-sm">
+          <div className="w-fit max-w-full mx-auto rounded-full border border-border-light bg-white shadow-sm">
             <div
               ref={tabScrollRef}
               className="overflow-x-auto scrollbar-hide rounded-full p-1.5"
