@@ -10,6 +10,7 @@ import IndiaStickyMobileCTA from "@/components/india/IndiaStickyMobileCTA";
 import { client } from "@/lib/sanity";
 import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Study in India from Nepal - Admizz Education",
@@ -309,9 +310,9 @@ const indiaTheme: CountryTheme = {
   ctaLandmarks: { left: "charminar", right: "victoria-memorial" },
   journeyStrip: {
     stats: [
-      { value: "1500+", label: "Students successfully enrolled worldwide" },
-      { value: "95%", label: "Student Visa Approval Rate with Expert Guidance" },
-      { value: "$2M+", label: "In Scholarships Awarded to Our Students" },
+      { value: ADMIZZ_STATS.studentsPlaced, label: "Students successfully enrolled worldwide" },
+      { value: "Free", label: "First Consultation with Expert Counsellors" },
+      { value: "ICEF", label: "Accredited Study Abroad Agency" },
     ],
   },
 };

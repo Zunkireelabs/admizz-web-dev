@@ -6,6 +6,7 @@ import { supabase } from "@/lib/supabase";
 import type { Affiliate } from "@/lib/affiliate/types";
 import { QUICK_PICK_DESTINATIONS } from "@/lib/affiliate/linkDestinations";
 import { CHANNEL_PRESETS, type ChannelPreset } from "@/lib/affiliate/channelPresets";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 interface Props {
   affiliate: Affiliate;
@@ -218,7 +219,7 @@ export default function ReferralLinkBox({ affiliate }: Props) {
 
   const shareWhatsApp = () => {
     if (!url) return;
-    const msg = `Hi! If you're planning to study abroad, I highly recommend Admizz Education. They've helped 1,500+ students get into top universities worldwide.\n\nGet a free consultation through my link: ${url}`;
+    const msg = `Hi! If you're planning to study abroad, I highly recommend Admizz Education. They've helped ${ADMIZZ_STATS.studentsPlaced} students get into top universities worldwide.\n\nGet a free consultation through my link: ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
     persistUse();
   };

@@ -10,6 +10,7 @@ import CrownDivider from "@/components/uk/CrownDivider";
 import { client } from "@/lib/sanity";
 import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Study in UK from Nepal - Admizz Education",
@@ -34,11 +35,11 @@ const pageData: NepalVariantData = {
   countryCategorySlug: "uk",
   heroHeading: "Study in UK from Nepal",
   heroSubheading:
-    "From university selection to visa approval, we guide Nepali students through every step of their UK education journey. Join 2,000+ students who achieved their British university dreams with Admizz Education.",
+    `From university selection to visa approval, we guide Nepali students through every step of their UK education journey. Join ${ADMIZZ_STATS.studentsPlaced} students who achieved their British university dreams with Admizz Education.`,
 
   introTitle: "Study in UK from Nepal with Expert Guidance",
   introContent:
-    "The UK offers a perfect balance of quality education, affordability, and career growth for Nepali students. From globally recognised degrees to 2-year post-study work visas, the UK remains one of the top destinations for Nepali students seeking world-class education and international career opportunities.",
+    "The UK offers a perfect balance of quality education, affordability, and career growth for Nepali students. From globally recognised degrees to post-study work visas, the UK remains one of the top destinations for Nepali students seeking world-class education and international career opportunities.",
 
   whyStudyTitle: "Why Study in the UK from Nepal?",
   whyStudyIntro:
@@ -57,7 +58,7 @@ const pageData: NepalVariantData = {
     {
       title: "Graduate Route Visa - 2 Years",
       description:
-        "Work in UK for 2 years after graduation. 3 years for PhD graduates. Gain valuable international experience.",
+        "Work in UK for 18 months after graduation (applications from 1 January 2027). 3 years for PhD graduates. Gain valuable international experience.",
     },
     {
       title: "Multicultural & Safe",
@@ -67,7 +68,7 @@ const pageData: NepalVariantData = {
     {
       title: "Part-Time Work Allowed",
       description:
-        "Work 20 hours/week during term. Full-time work during holidays. Earn £10-15/hour minimum wage.",
+        "Work 20 hours/week during term (10 hours below degree level). Full-time work during holidays. Earn £10-15/hour minimum wage.",
     },
     {
       title: "Quality Assurance",
@@ -78,7 +79,7 @@ const pageData: NepalVariantData = {
 
   visaTitle: "UK Student Visa Process – Step by Step",
   visaIntro:
-    "Admizz Education provides end-to-end UK visa support with 95% success rate.",
+    "Admizz Education provides end-to-end UK visa support.",
   visaRequirements: [
     {
       category: "1. Choose Course",
@@ -110,7 +111,7 @@ const pageData: NepalVariantData = {
     },
     {
       category: "8. Visa Approval",
-      details: "Decision within 3-4 weeks. Priority services available for faster processing.",
+      details: "Decision within 3-4 weeks. Your visa is issued as an eVisa, accessed through your UKVI account.",
     },
   ],
 
@@ -163,12 +164,16 @@ const pageData: NepalVariantData = {
       title: "Additional Costs (Per Year)",
       rows: [
         {
-          category: "Living Expenses",
-          cost: "£9,000 – £12,000",
+          category: "Living Expenses (London)",
+          cost: "£1,529 per month (up to 9 months)",
+        },
+        {
+          category: "Living Expenses (outside London)",
+          cost: "£1,171 per month (up to 9 months)",
         },
         {
           category: "Health Surcharge (NHS)",
-          cost: "£470",
+          cost: "£776",
         },
       ],
     },
@@ -234,7 +239,7 @@ const pageData: NepalVariantData = {
     {
       question: "Can I work while studying in the UK?",
       answer:
-        "Yes, 20 hours/week during term time and full-time during holidays. The UK minimum wage is £10-15/hour.",
+        "Yes, 20 hours/week during term time on degree-level courses (10 hours below degree level) and full-time during holidays. The UK minimum wage is £10-15/hour.",
     },
     {
       question: "Do I need IELTS for UK study?",
@@ -244,7 +249,7 @@ const pageData: NepalVariantData = {
     {
       question: "What is the post-study work visa duration?",
       answer:
-        "2-year Graduate Route Visa for Bachelor's/Master's graduates, and 3 years for PhD students to work in the UK.",
+        "The Graduate Route Visa gives Bachelor's/Master's graduates 18 months (applications from 1 January 2027), and PhD graduates 3 years to work in the UK.",
     },
     {
       question: "Can I apply with a study gap?",
@@ -254,7 +259,7 @@ const pageData: NepalVariantData = {
     {
       question: "What are the living expenses in the UK?",
       answer:
-        "£9,000-£12,000/year outside London, £15,600/year in London including accommodation, food, and transport.",
+        "UKVI requires you to show £1,529 per month in London or £1,171 per month outside London, for up to 9 months, to cover accommodation, food, and transport.",
     },
   ],
 
@@ -300,9 +305,9 @@ const ukTheme: CountryTheme = {
   ctaLandmarks: { left: "big-ben", right: "tower-bridge" },
   journeyStrip: {
     stats: [
-      { value: "2000+", label: "Nepali students placed in UK universities" },
-      { value: "97%", label: "UK Student Visa Approval Rate" },
-      { value: "£3M+", label: "In Scholarships Secured for Our Students" },
+      { value: ADMIZZ_STATS.studentsPlaced, label: "Nepali students placed in UK universities" },
+      { value: "Free", label: "First Consultation with Expert Counsellors" },
+      { value: "ICEF", label: "Accredited Study Abroad Agency" },
     ],
     eyebrow: "Study Across the United Kingdom",
     accentColor: "#C8102E",

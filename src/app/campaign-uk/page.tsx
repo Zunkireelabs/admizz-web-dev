@@ -2,23 +2,24 @@
 
 import { useState } from "react";
 import CRMFormEmbed from "@/components/ui/CRMFormEmbed";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { value: "95%", label: "Visa Success Rate" },
+  { value: "Free", label: "First Consultation" },
   { value: "100+", label: "Prestigious Institutions" },
-  { value: "1500+", label: "Students Enrolled" },
-  { value: "$2M+", label: "Scholarships Awarded" },
+  { value: ADMIZZ_STATS.studentsPlaced, label: "Students Enrolled" },
+  { value: "ICEF", label: "Accredited Agency" },
 ];
 
 const services = [
   {
     title: "UK Study Visa",
     description:
-      "Expert guidance for your UK student visa application with 95% success rate.",
+      "Expert guidance for your UK student visa application.",
     icon: (
       <svg
         className="w-12 h-12 text-blue-royal mx-auto"

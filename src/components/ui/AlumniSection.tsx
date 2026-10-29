@@ -1,4 +1,5 @@
 "use client";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 const DEFAULT_ROW1 = [
   { img: "Dipesh_Kalwar_2024_UK.jpg",              name: "Dipesh Kalwar",              uni: "",                      batch: "2024", destination: "🇬🇧 UK" },
@@ -121,7 +122,7 @@ export default function AlumniSection({
   alumni = [DEFAULT_ROW1, DEFAULT_ROW2],
   eyebrow = "Our Alumni",
   title = "Students Who Made It",
-  description = "2,000+ students placed in top universities across the world — and counting.",
+  description = `${ADMIZZ_STATS.studentsPlaced} students placed in top universities across the world — and counting.`,
   stats = [],
   imagePath = "/images/alumni/",
 }: AlumniSectionProps) {

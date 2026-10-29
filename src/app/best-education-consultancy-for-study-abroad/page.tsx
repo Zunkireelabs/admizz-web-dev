@@ -10,6 +10,7 @@ import type { SanityPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import CTAForm from "@/components/ui/CTAForm";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Best Education Consultancy for Study Abroad - Admizz Education",
@@ -30,9 +31,9 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "1500+", label: "Students Successfully Enrolled" },
-  { value: "95%", label: "Visa Approval Rate" },
-  { value: "$2M+", label: "Scholarships Secured" },
+  { value: ADMIZZ_STATS.studentsPlaced, label: "Students Successfully Enrolled" },
+  { value: "Free", label: "First Consultation" },
+  { value: "ICEF", label: "Accredited Agency" },
 ];
 
 const services = [
@@ -89,7 +90,7 @@ const services = [
   {
     title: "Proven Success Stories",
     description:
-      "With over 2,000+ students placed in top universities worldwide and a 95% visa approval rate, our track record speaks for itself.",
+      `With over ${ADMIZZ_STATS.studentsPlaced} students placed in top universities worldwide, our track record speaks for itself.`,
     icon: (
       <svg className="w-8 h-8 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -191,7 +192,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What kind of visa support does Admizz Education offer?",
     answer:
-      "We provide comprehensive visa assistance including document preparation, financial verification guidance, application form review, and mock interview sessions to prepare you for consular interviews. Our 95% visa approval rate reflects the thoroughness and expertise of our visa support team.",
+      `We provide comprehensive visa assistance including document preparation, financial verification guidance, application form review, and mock interview sessions to prepare you for consular interviews.`,
   },
   {
     question: "Can I work part-time while studying abroad?",
@@ -352,7 +353,7 @@ export default async function BestEducationConsultancyPage() {
             Ready to Begin Your Study Abroad Journey?
           </h2>
           <p className="mt-4 text-[15px] text-white/90 leading-relaxed max-w-xl mx-auto">
-            Join over 2,000+ students who have achieved their dream of studying at top universities
+            Join over {ADMIZZ_STATS.studentsPlaced} students who have achieved their dream of studying at top universities
             worldwide. Book your free counselling session today and take the first step toward a
             brighter future.
           </p>
