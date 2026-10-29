@@ -10,6 +10,7 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Top Education Consultancy in Nepal - Admizz Education",
@@ -34,10 +35,10 @@ export const metadata: Metadata = {
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { value: "1500+", label: "Students Successfully Enrolled" },
+  { value: ADMIZZ_STATS.studentsPlaced, label: "Students Successfully Enrolled" },
   { value: "100+", label: "Partner Institutions Worldwide" },
-  { value: "95%", label: "Visa Approval Rate" },
-  { value: "$2M+", label: "Scholarships Awarded" },
+  { value: "Free", label: "First Consultation" },
+  { value: "ICEF", label: "Accredited Agency" },
 ];
 
 const features = [
@@ -198,7 +199,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What happens if my visa application is refused?",
     answer:
-      "We review the feedback, improve your documentation, and assist with re-application. Our 95% visa approval rate reflects our thorough preparation process.",
+      `We review the feedback, improve your documentation, and assist with re-application.`,
   },
   {
     question: "Do you provide guidance after reaching my destination?",

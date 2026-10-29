@@ -9,6 +9,7 @@ import type { SanityPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import CTAForm from "@/components/ui/CTAForm";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Study Abroad Consultants in Kathmandu - Admizz Education",
@@ -33,10 +34,10 @@ export const metadata: Metadata = {
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { value: "1500+", label: "Students Successfully Enrolled" },
+  { value: ADMIZZ_STATS.studentsPlaced, label: "Students Successfully Enrolled" },
   { value: "100+", label: "Partner Institutions Worldwide" },
-  { value: "95%", label: "Student Visa Approval Rate" },
-  { value: "$2M+", label: "Scholarships Awarded" },
+  { value: "Free", label: "First Consultation with Expert Counsellors" },
+  { value: "ICEF", label: "Accredited Agency" },
 ];
 
 const services = [
@@ -173,7 +174,7 @@ const whyChoose = [
   },
   {
     title: "Experienced Visa Experts",
-    description: "95% visa success rate with accurate documentation and interview prep.",
+    description: "Accurate documentation and interview prep for a strong visa application.",
     icon: (
       <svg className="w-8 h-8 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />

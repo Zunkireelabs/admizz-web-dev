@@ -9,6 +9,7 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Overseas Education Consultants in Nepal - Admizz Education",
@@ -29,10 +30,10 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "1500+", label: "Students Successfully Enrolled Worldwide" },
+  { value: ADMIZZ_STATS.studentsPlaced, label: "Students Successfully Enrolled Worldwide" },
   { value: "100+", label: "Prestigious Institutions in Our Global Network" },
-  { value: "95%", label: "Student Visa Approval Rate with Expert Guidance" },
-  { value: "$2M+", label: "in Scholarships Awarded to Our Students" },
+  { value: "Free", label: "First Consultation with Expert Counsellors" },
+  { value: "ICEF", label: "Accredited Study Abroad Agency" },
 ];
 
 const benefits = [
@@ -386,7 +387,7 @@ export default async function OverseasEducationConsultantsNepalPage() {
               </h3>
               <p className="text-sm text-gray-dark leading-relaxed">
                 From document preparation to mock interviews, we provide
-                comprehensive visa assistance with a 95% approval rate. Our team
+                comprehensive visa assistance. Our team
                 ensures your application is accurate and complete.
               </p>
             </div>

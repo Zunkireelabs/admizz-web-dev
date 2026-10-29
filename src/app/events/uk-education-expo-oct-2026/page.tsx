@@ -3,6 +3,7 @@ import UKEducationExpoInit from "./UKEducationExpoInit";
 import UniversityPartners from "../../UniversityPartners";
 import AlumniSection from "@/components/ui/AlumniSection";
 import { allUniversities } from "@/lib/universities";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "UK Education Expo 2026 (October) | Admizz Education",
@@ -106,8 +107,7 @@ export default function UKEducationExpoPage() {
           <div className="grid grid-cols-2 gap-3 sm:hidden">
             {[
               { icon: "📋", bold: "Free 1-on-1,", text: "Counselling" },
-              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
-              { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
+              { icon: "🎓", bold: ADMIZZ_STATS.studentsPlaced, text: "Students Admitted" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item) => (
               <div key={item.bold} className="flex items-center gap-2.5 bg-[#F8F9FF] rounded-xl px-3 py-3">
@@ -122,8 +122,7 @@ export default function UKEducationExpoPage() {
           <div className="hidden sm:flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {[
               { icon: "📋", bold: "Free 1-on-1,", text: "Counselling" },
-              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
-              { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
+              { icon: "🎓", bold: ADMIZZ_STATS.studentsPlaced, text: "Students Admitted" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item, i, arr) => (
               <div key={item.bold} className="flex items-center gap-4 flex-shrink-0">
@@ -370,7 +369,7 @@ export default function UKEducationExpoPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 2,000+ Students Enrolled</span>
+            <span>🎓 {ADMIZZ_STATS.studentsPlaced} Students Enrolled</span>
             <span>•</span>
             <span>🌍 50+ Partner Universities</span>
           </div>

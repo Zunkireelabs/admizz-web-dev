@@ -9,6 +9,7 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Education Consultancy in Kathmandu - Admizz Education",
@@ -33,10 +34,10 @@ export const metadata: Metadata = {
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { value: "1500+", label: "Students Successfully Enrolled" },
+  { value: ADMIZZ_STATS.studentsPlaced, label: "Students Successfully Enrolled" },
   { value: "100+", label: "Partner Institutions Worldwide" },
-  { value: "95%", label: "Visa Approval Rate" },
-  { value: "$2M+", label: "Scholarships Awarded" },
+  { value: "Free", label: "First Consultation" },
+  { value: "ICEF", label: "Accredited Agency" },
 ];
 
 const whatWeOffer = [

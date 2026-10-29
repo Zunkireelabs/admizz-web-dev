@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRightIcon } from "../shared/Icons";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 const STORY_BG =
   "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=2400&q=80";
@@ -23,7 +24,7 @@ export default function AdmizzStory() {
 
         <div className="wc-admizz-stats">
           <div className="wc-admizz-stat">
-            <div className="wc-admizz-stat-num">2,000+</div>
+            <div className="wc-admizz-stat-num">{ADMIZZ_STATS.studentsPlaced}</div>
             <div className="wc-admizz-stat-label">Students Placed</div>
           </div>
           <div className="wc-admizz-stat">
@@ -31,8 +32,8 @@ export default function AdmizzStory() {
             <div className="wc-admizz-stat-label">Countries</div>
           </div>
           <div className="wc-admizz-stat">
-            <div className="wc-admizz-stat-num">95%</div>
-            <div className="wc-admizz-stat-label">Visa Success</div>
+            <div className="wc-admizz-stat-num">ICEF</div>
+            <div className="wc-admizz-stat-label">Accredited</div>
           </div>
         </div>
 

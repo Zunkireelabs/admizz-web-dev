@@ -3,6 +3,7 @@ import SpinWheelInit from "./SpinWheelInit";
 import AlumniSection from "@/components/ui/AlumniSection";
 import FAQ from "@/components/ui/FAQ";
 import type { AlumniCard } from "@/components/ui/AlumniSection";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Study Abroad Rewards Event | Admizz Education",
@@ -137,9 +138,7 @@ export default function SpinAndWinPage() {
             <div className="trust-inline">
               <div className="trust-badge"><span className="trust-icon">🎁</span><span className="trust-text"><strong>Real Rewards,</strong> Real Students</span></div>
               <div className="trust-divider"></div>
-              <div className="trust-badge"><span className="trust-icon">🎓</span><span className="trust-text"><strong>2,000+</strong> Students Admitted</span></div>
-              <div className="trust-divider"></div>
-              <div className="trust-badge"><span className="trust-icon">🎯</span><span className="trust-text"><strong>95%</strong> Visa Approval Rate</span></div>
+              <div className="trust-badge"><span className="trust-icon">🎓</span><span className="trust-text"><strong>{ADMIZZ_STATS.studentsPlaced}</strong> Students Admitted</span></div>
               <div className="trust-divider"></div>
               <div className="trust-badge"><span className="trust-icon">🏆</span><span className="trust-text"><strong>ICEF</strong> Accredited Agency</span></div>
             </div>
@@ -226,9 +225,8 @@ export default function SpinAndWinPage() {
             </div>
             <div className="why-trust-bar">
               <span>🏆 ICEF Accredited Agency</span><span>•</span>
-              <span>🪃 2,000+ Students Enrolled</span><span>•</span>
-              <span>🌍 100+ Partner Universities</span><span>•</span>
-              <span>🎯 95% Visa Approval Rate</span>
+              <span>🪃 {ADMIZZ_STATS.studentsPlaced} Students Enrolled</span><span>•</span>
+              <span>🌍 100+ Partner Universities</span>
             </div>
           </div>
         </section>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "About Us (Old) | Admizz Education",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 const achievements = [
   {
     icon: "/images/about/about-achievement-1.webp",
-    value: "1500+",
+    value: ADMIZZ_STATS.studentsPlaced,
     label: "Students Successfully Enrolled Worldwide",
     gradient: "linear-gradient(135deg, #F857A6 0%, #FF5858 100%)",
   },
@@ -24,14 +25,14 @@ const achievements = [
   },
   {
     icon: "/images/about/about-achievement-3.webp",
-    value: "95%",
-    label: "Student Visa Approval Rate With Expert Guidance",
+    value: "Free",
+    label: "First Consultation with Expert Counsellors",
     gradient: "linear-gradient(135deg, #38BDF8 0%, #7DD3FC 100%)",
   },
   {
     icon: "/images/about/about-achievement-4.webp",
-    value: "$2M+",
-    label: "In Scholarships Awarded To Our Students",
+    value: "ICEF",
+    label: "Accredited Study Abroad Agency",
     gradient: "linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)",
   },
 ];

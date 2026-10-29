@@ -1,4 +1,5 @@
 import type { CityLandingData } from "./types";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 // TODO(content): replace office address, phone, WhatsApp, photos, and student
 // testimonials with verified Janakpur-specific content before launch.
@@ -10,7 +11,7 @@ export const janakpurData: CityLandingData = {
   meta: {
     title: "Study Abroad from Janakpur | Admizz Education",
     description:
-      "Janakpur's trusted study abroad consultancy. Local Maithili-speaking counsellors, 95% visa success, scholarships to UK, USA, Australia, Canada and more.",
+      `Janakpur's trusted study abroad consultancy. Local Maithili-speaking counsellors, expert visa guidance, scholarships to UK, USA, Australia, Canada and more.`,
     canonical: "https://admizzeducation.com/janakpur",
     ogImage: "/images/og/stuyabroad.webp",
   },
@@ -21,7 +22,7 @@ export const janakpurData: CityLandingData = {
     highlightedWord: "Janakpur's",
     subheading:
       "Hyperlocal guidance, transparent fees, and a Maithili-speaking team that gets your family. From profile evaluation to pre-departure — handled in Janakpur.",
-    trustBadge: "★ 4.9 · Trusted by 2,000+ students",
+    trustBadge: `★ 4.9 · Trusted by ${ADMIZZ_STATS.studentsPlaced} students`,
     primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
     secondaryCta: {
       text: "Chat on WhatsApp",
@@ -48,8 +49,8 @@ export const janakpurData: CityLandingData = {
     },
     inlineTrustBadges: [
       { iconKey: "star", value: "4.9", label: "Google rating" },
-      { iconKey: "graduate", value: "2,000+", label: "Enrolled" },
-      { iconKey: "shieldCheck", value: "95%", label: "Visa success" },
+      { iconKey: "graduate", value: ADMIZZ_STATS.studentsPlaced, label: "Enrolled" },
+      { iconKey: "shieldCheck", value: "ICEF", label: "Accredited" },
       { iconKey: "certified", value: "ICEF", label: "Certified" },
     ],
     activityFeed: [],
@@ -99,8 +100,8 @@ export const janakpurData: CityLandingData = {
         iconKey: "visa",
         title: "Visa-tested success record",
         description:
-          "95% visa approval rate across UK, USA, Australia, Canada and Europe. We know what each embassy looks for — and prepare you for it.",
-        proofPoint: "95% visa rate",
+          "Visa guidance for the UK, USA, Australia, Canada and Europe. We know what each embassy looks for — and prepare you for it.",
+        proofPoint: "Embassy-ready files",
       },
     ],
   },
@@ -113,7 +114,6 @@ export const janakpurData: CityLandingData = {
     highlightStats: [
       { value: "11+", label: "Countries" },
       { value: "100+", label: "Partner universities" },
-      { value: "$2M+", label: "Scholarships unlocked" },
     ],
     items: [
       {
@@ -325,7 +325,7 @@ export const janakpurData: CityLandingData = {
       },
       {
         q: "What if my IELTS score is low?",
-        a: "We don't push students into wrong courses just to close a deal. If your score isn't ready, we'll connect you with vetted IELTS prep partners and reapply on the next intake — that honesty is why our visa rate stays at 95%.",
+        a: `We don't push students into wrong courses just to close a deal. If your score isn't ready, we'll connect you with vetted IELTS prep partners and reapply on the next intake — we'd rather wait than risk a refusal.`,
       },
       {
         q: "How long does the full process take from Janakpur?",

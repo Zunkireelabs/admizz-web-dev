@@ -15,6 +15,7 @@ import LandmarkSilhouette, { type LandmarkName } from "@/components/india/Landma
 import JourneyStrip from "@/components/india/JourneyStrip";
 import CrownDivider from "@/components/uk/CrownDivider";
 import UKFiligreeDivider from "@/components/uk/UKFiligreeDivider";
+import { ADMIZZ_STATS, ADMIZZ_STATS_BASIS } from "@/lib/admizz-stats";
 
 export interface NepalBenefit {
   title: string;
@@ -377,18 +378,21 @@ export default function NepalVariantTemplate({ data, blogPosts, theme, customHer
         <section className="bg-off-white py-8">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
             <div>
-              <p className="text-2xl font-bold text-navy">1500+</p>
+              <p className="text-2xl font-bold text-navy">{ADMIZZ_STATS.studentsPlaced}</p>
               <p className="text-[13px] text-gray-dark">Students successfully enrolled worldwide</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-navy">95%</p>
-              <p className="text-[13px] text-gray-dark">Student Visa Approval Rate with Expert Guidance</p>
+              <p className="text-2xl font-bold text-navy">Free</p>
+              <p className="text-[13px] text-gray-dark">First consultation with an expert counsellor</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-navy">$2M+</p>
-              <p className="text-[13px] text-gray-dark">In Scholarships Awarded to Our Students</p>
+              <p className="text-2xl font-bold text-navy">ICEF</p>
+              <p className="text-[13px] text-gray-dark">Accredited study abroad agency</p>
             </div>
           </div>
+          {ADMIZZ_STATS_BASIS && (
+            <p className="text-[12px] text-gray-dark text-center mt-3">{ADMIZZ_STATS_BASIS}</p>
+          )}
         </section>
       )}
 

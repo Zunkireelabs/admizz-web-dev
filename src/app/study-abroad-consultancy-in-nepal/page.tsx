@@ -9,6 +9,7 @@ import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Study Abroad Consultancy in Nepal - Admizz Education",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
 const stats = [
   {
     icon: "/images/icons/user.webp",
-    value: "1500+",
+    value: ADMIZZ_STATS.studentsPlaced,
     label: "Students Successfully Enrolled Worldwide",
   },
   {
@@ -39,14 +40,14 @@ const stats = [
     label: "Prestigious Institutions in Our Global Network",
   },
   {
-    icon: "/images/icons/excellence.webp",
-    value: "95%",
-    label: "Student Visa Approval Rate with Expert Guidance",
+    icon: "/images/icons/consultation.webp",
+    value: "Free",
+    label: "First Consultation with Expert Counsellors",
   },
   {
-    icon: "/images/icons/scholarship-108.webp",
-    value: "$2M+",
-    label: "In Scholarships Awarded to Our Students",
+    icon: "/images/icons/excellence.webp",
+    value: "ICEF",
+    label: "Accredited Study Abroad Agency",
   },
 ];
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Study Destinations - Admizz Education",
@@ -20,9 +21,9 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "1500+", label: "Students" },
-  { value: "95%", label: "Visa Approval Rate" },
-  { value: "$2M+", label: "Scholarships" },
+  { value: ADMIZZ_STATS.studentsPlaced, label: "Students" },
+  { value: "Free", label: "First Consultation" },
+  { value: "ICEF", label: "Accredited Agency" },
 ];
 
 const destinations = [

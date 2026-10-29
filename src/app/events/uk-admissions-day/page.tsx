@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import UKAdmissionsInit from "./UKAdmissionsInit";
 import UniversityPartners from "../../UniversityPartners";
 import { allUniversities } from "@/lib/universities";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "UK Admission Day - March 17, 2026 | Admizz Education",
@@ -90,7 +91,7 @@ export default function UKAdmissionsDayPage() {
           <div className="trust-inline">
             <div className="trust-badge">
               <span className="trust-icon">🎓</span>
-              <span className="trust-text"><strong>2,000+</strong> Students Enrolled</span>
+              <span className="trust-text"><strong>{ADMIZZ_STATS.studentsPlaced}</strong> Students Enrolled</span>
             </div>
             <div className="trust-divider"></div>
             <div className="trust-badge">
@@ -255,7 +256,7 @@ export default function UKAdmissionsDayPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 2,000+ Students Enrolled</span>
+            <span>🎓 {ADMIZZ_STATS.studentsPlaced} Students Enrolled</span>
             <span>•</span>
             <span>🌍 50+ Partner Universities</span>
           </div>

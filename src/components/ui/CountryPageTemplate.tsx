@@ -9,6 +9,7 @@ import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import type { SanityPost } from "@/types";
+import { ADMIZZ_STATS, ADMIZZ_STATS_BASIS } from "@/lib/admizz-stats";
 
 export interface QuickFact {
   label: string;
@@ -615,18 +616,21 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
         <div className={containerClass}>
           <div className="rounded-3xl bg-[#F4F6FF] px-4 py-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div>
-              <p className="text-3xl md:text-4xl font-bold text-navy" style={rubikFont}>1500+</p>
+              <p className="text-3xl md:text-4xl font-bold text-navy" style={rubikFont}>{ADMIZZ_STATS.studentsPlaced}</p>
               <p className="text-[15px] text-body mt-1">Students successfully enrolled worldwide</p>
             </div>
             <div>
-              <p className="text-3xl md:text-4xl font-bold text-navy" style={rubikFont}>95%</p>
-              <p className="text-[15px] text-body mt-1">Student Visa Approval Rate with Expert Guidance</p>
+              <p className="text-3xl md:text-4xl font-bold text-navy" style={rubikFont}>Free</p>
+              <p className="text-[15px] text-body mt-1">First consultation with an expert counsellor</p>
             </div>
             <div>
-              <p className="text-3xl md:text-4xl font-bold text-navy" style={rubikFont}>$2M+</p>
-              <p className="text-[15px] text-body mt-1">In Scholarships Awarded to Our Students</p>
+              <p className="text-3xl md:text-4xl font-bold text-navy" style={rubikFont}>ICEF</p>
+              <p className="text-[15px] text-body mt-1">Accredited study abroad agency</p>
             </div>
           </div>
+          {ADMIZZ_STATS_BASIS && (
+            <p className="text-[12px] text-body/70 text-center mt-2">{ADMIZZ_STATS_BASIS}</p>
+          )}
         </div>
       </section>
 

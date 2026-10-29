@@ -4,6 +4,7 @@ import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { client } from "@/lib/sanity";
 import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Study in USA from Nepal - Admizz Education",
@@ -74,10 +75,10 @@ const pageData: NepalVariantData = {
   whyAdmizzPoints: [
     "Free career counselling – Personalized guidance tailored to your goals",
     "University shortlisting – Access to 100+ partner universities",
-    "Scholarship assistance – $5M+ awarded to our students",
-    "F-1 visa support – 95% visa approval success rate",
+    "Scholarship assistance – Help finding and applying for scholarships",
+    "F-1 visa support – Document preparation and interview practice",
     "End-to-end support – From Nepal to USA and beyond",
-    "Proven track record – 2,000+ successful placements",
+    `Proven track record – ${ADMIZZ_STATS.studentsPlaced} successful placements`,
   ],
 
   topCoursesTitle: "Best Courses to Study in the USA",
@@ -125,7 +126,7 @@ const pageData: NepalVariantData = {
     },
     {
       category: "8. Visa Approval",
-      details: "Receive F-1 visa stamp. Admizz provides comprehensive support with 95% success rate.",
+      details: "Receive F-1 visa stamp. Admizz supports you through every step.",
     },
   ],
 

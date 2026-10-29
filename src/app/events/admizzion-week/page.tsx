@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AdmizzionInit from "./AdmizzionInit";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Admizzion Week - Feb 12-20, 2026 | Admizz Education",
@@ -115,7 +116,7 @@ export default function AdmizzionWeekPage() {
             <div className="trust-badge">
               <span className="trust-icon">🎓</span>
               <span className="trust-text">
-                <strong>2,000+</strong> Students Enrolled
+                <strong>{ADMIZZ_STATS.studentsPlaced}</strong> Students Enrolled
               </span>
             </div>
             <div className="trust-divider"></div>
@@ -453,7 +454,7 @@ export default function AdmizzionWeekPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 2,000+ Students Enrolled</span>
+            <span>🎓 {ADMIZZ_STATS.studentsPlaced} Students Enrolled</span>
             <span>•</span>
             <span>🌍 50+ Partner Universities</span>
           </div>

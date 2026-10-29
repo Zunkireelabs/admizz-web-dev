@@ -36,7 +36,7 @@ export const destinations: Record<DestinationKey, Destination> = {
     tagline:
       "Where centuries of academic tradition meet your global career ambitions.",
     whyFits:
-      "Academic prestige plus multicultural cities, a 1-year master's, and a 95% Admizz visa approval rate — the most-picked destination for Admizz students.",
+      `Academic prestige plus multicultural cities, a 1-year master's, and end-to-end Admizz visa support — the most-picked destination for Admizz students.`,
     match: 94,
     image: "/images/destinations/uk1.webp",
     countryPageHref: "/study-in-the-uk",
@@ -44,7 +44,7 @@ export const destinations: Record<DestinationKey, Destination> = {
       { icon: "🏛️", label: "Top Universities", value: "Oxford, UCL, Manchester, Roehampton", cls: "accent" },
       { icon: "🎓", label: "Avg. Tuition", value: "£10,000–£20,000/year", cls: "" },
       { icon: "🏆", label: "Scholarships", value: "Chevening & University Merit Awards", cls: "gold" },
-      { icon: "✈️", label: "Student Visa", value: "Tier 4 — 95% Approval Rate", cls: "" },
+      { icon: "✈️", label: "Student Visa", value: "Full visa support", cls: "" },
     ],
   },
   usa: {
