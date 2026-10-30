@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Dubai from Nepal - Admizz Education",
   description:
-    "Study in Dubai from Nepal for quality education, affordable tuition, global exposure, and top university options. Apply now for 2025 intakes!",
+    "Study in Dubai from Nepal: branch campuses, tuition in AED, the university-sponsored student visa, intakes and living costs, explained for Nepali students.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-dubai-from-nepal",
   },
   openGraph: {
     title: "Study in Dubai from Nepal - Admizz Education",
     description:
-      "Study in Dubai from Nepal for quality education, affordable tuition, global exposure, and top university options. Apply now for 2025 intakes!",
+      "Study in Dubai from Nepal: branch campuses, tuition in AED, the university-sponsored student visa, intakes and living costs, explained for Nepali students.",
     url: "https://admizzeducation.com/study-in-dubai-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/UAE.webp"],
@@ -27,313 +27,104 @@ const pageData: NepalVariantData = {
   countryName: "Dubai",
   countryCategorySlug: "dubai",
   heroHeading: "Study in Dubai from Nepal",
-  heroSubheading:
-    "Planning to study in Dubai from Nepal? Discover globally ranked universities, modern campuses, and diverse career paths. Explore opportunities, apply with ease, and turn your international education dream into reality.",
-
-  introTitle: "The New Hub for Global Education",
+  heroSubheading: "UK, Australian and US degrees at Dubai campuses, with your university sponsoring the student visa. We guide you from Kathmandu.",
+  heroImage: "/images/hero/dubai-hero.webp",
+  quickFacts: [
+    { label: "Intakes", value: "Sep · Jan · Apr" },
+    { label: "Tuition from", value: "AED 60,000 / yr" },
+    { label: "Bachelor's", value: "3–4 years" },
+    { label: "Golden visa", value: "10 yrs, top grads" },
+    { label: "English", value: "IELTS 6.0+" },
+  ],
+  introTitle: "Study in Dubai from Nepal",
   introContent:
-    "Dubai has emerged as a premier education destination, hosting top-ranked international branch campuses from the UK, USA, and Australia. These institutions provide flexible programs, industry-driven curricula, and practical learning experiences spanning business, engineering, IT, healthcare, and hospitality. Studying in Dubai ensures academic freedom, innovation, and hands-on exposure aligned with global career demands. The city's multicultural environment, modern infrastructure, and strong industry connections make it ideal for Nepalese students. At Admizz Education, we assist you at every step — from university selection, scholarship guidance, and English test preparation to application support, visa documentation, and pre-departure counseling.",
-
-  whyStudyTitle: "Why Study in Dubai?",
+    "Most of Dubai's universities are branch campuses of foreign universities, based in Dubai Knowledge Park and Dubai International Academic City. They teach in English and award their home university's degree. Kathmandu to Dubai is a direct flight of about four and a half hours.",
+  whyStudyTitle: "A foreign degree, closer to home",
+  whyStudyIntro: "Why students from Nepal pick Dubai.",
+  highlightStats: [
+    {
+      value: "37",
+      unit: "branch campuses",
+      label: "International universities in Dubai",
+      note: "out of 41 international higher education providers, per KHDA figures for 2024–25.",
+    },
+    { value: "10", unit: "years", label: "golden visa for top graduates" },
+    { value: "3", unit: "years", label: "for most UK-style bachelor's" },
+  ],
   benefits: [
     {
-      title: "Academic Excellence",
-      description:
-        "Achieve academic excellence with globally recognized programs, expert faculty, practical learning, and career-focused opportunities.",
+      title: "Home-campus degrees",
+      description: "Branch campuses such as Heriot-Watt, Middlesex and Wollongong award the same degree as their home university.",
     },
     {
-      title: "Flexible Learning",
-      description:
-        "Customize your academic path with elective options, practical training, and internship-based programs designed for real-world success.",
+      title: "Checked by KHDA",
+      description: "Universities in Dubai's free zones need KHDA approval for every programme they teach.",
     },
     {
-      title: "Multicultural Experience",
-      description:
-        "Join a global student community in a safe, inclusive environment that encourages cross-cultural friendships and global awareness.",
+      title: "Visa through your university",
+      description: "Your university sponsors your student residence visa. You don't need a family member in the UAE.",
     },
     {
-      title: "Work Opportunities",
-      description:
-        "Gain hands-on experience with part-time jobs during your studies and internships with top companies in Dubai.",
-    },
-    {
-      title: "Scholarships & Support",
-      description:
-        "Access scholarships and dedicated student support services that make quality education affordable and stress-free.",
-    },
-    {
-      title: "State-of-the-Art Facilities",
-      description:
-        "Dubai's campuses are equipped with cutting-edge technology, well-stocked libraries, innovation labs, and dedicated career support centers.",
+      title: "A route to stay on",
+      description: "Top graduates of UAE universities can apply for a 10-year golden visa within two years of graduating.",
     },
   ],
-
-  visaTitle: "Dubai Student Visa Requirements",
+  visaTitle: "Your student visa, step by step",
+  visaIntro: "In Dubai the university is your visa sponsor. Its visa team files the application with GDRFA Dubai.",
   visaRequirements: [
-    {
-      category: "Valid Passport",
-      details: "Must be valid for at least 6 months from the application date",
-    },
-    {
-      category: "University Admission Letter",
-      details:
-        "Official offer or acceptance letter from a recognized Dubai institution",
-    },
-    {
-      category: "Visa Application Form",
-      details: "Generally processed and submitted by the university",
-    },
-    {
-      category: "Passport-Sized Photos",
-      details: "As per UAE visa specifications",
-    },
-    {
-      category: "Proof of Tuition Fee Payment",
-      details: "Receipt or confirmation of initial payment or deposit",
-    },
-    {
-      category: "Financial Support Proof",
-      details: "Bank statement or sponsor's financial documents",
-    },
-    {
-      category: "Medical Fitness Certificate",
-      details: "Conducted at an approved UAE medical center after arrival",
-    },
-    {
-      category: "Health Insurance",
-      details: "Mandatory; must be arranged or approved by the university",
-    },
-    {
-      category: "Visa Fees",
-      details: "AED 2,500–3,500 (varies by institution)",
-    },
-    {
-      category: "Security Deposit",
-      details: "AED 1,000–2,000 (refundable)",
-    },
-    {
-      category: "Emirates ID & Medical Fees",
-      details: "Approximately AED 1,000",
-    },
-    {
-      category: "Processing Time",
-      details: "Usually takes 2–4 weeks",
-    },
-    {
-      category: "Visa Validity",
-      details: "Valid for 1 year; renewable annually",
-    },
-    {
-      category: "Long-Term Visa Option",
-      details: "5-year student visa available for outstanding students",
-    },
-    {
-      category: "Visa Sponsor",
-      details: "University acts as the official visa sponsor",
-    },
+    { category: "Choose a university", details: "Pick a KHDA-approved university and course. We shortlist with you." },
+    { category: "Offer & fee NOC", details: "Get your offer, then a no objection letter from Nepal's Ministry of Education to send fees abroad." },
+    { category: "Pay deposit & visa fee", details: "Part of the first year's tuition, the visa fee and a refundable visa deposit." },
+    { category: "University files your visa", details: "It applies to GDRFA Dubai for your entry permit. We brief you in Kathmandu before you fly." },
+    { category: "Fly to Dubai", details: "Enter on the entry permit, then report to your university's visa office." },
+    { category: "Medical test & Emirates ID", details: "Medical fitness test and Emirates ID biometrics in Dubai. Your residence visa is then issued and renewed each year." },
   ],
-
-  intakesTitle: "Dubai Intakes for Nepalese Students",
+  visaDocuments: [
+    "Passport valid at least 1 year",
+    "Unconditional offer letter",
+    "Photo on a white background",
+    "Tuition deposit and visa fee receipts",
+    "Academic transcripts",
+    "IELTS or PTE result",
+  ],
+  intakesTitle: "When you can start",
+  intakesIntro: "September has the most courses. Leave a few weeks for the visa before you start.",
   intakes: [
-    {
-      intake: "Fall Intake",
-      months: "September (Application: March to July)",
-      details:
-        "Most popular intake; widest range of programs and scholarships.",
-    },
-    {
-      intake: "Spring Intake",
-      months: "January / February (Application: August to November)",
-      details:
-        "Ideal for students who miss the Fall intake; decent course availability.",
-    },
-    {
-      intake: "Summer Intake",
-      months: "May / July (Application: January to March)",
-      details:
-        "Limited course options; suitable for short-term or special programs.",
-    },
+    { intake: "September intake", months: "Apply March – July", details: "Main intake. Most courses and scholarships." },
+    { intake: "January intake", months: "Apply August – November", details: "Offered by most Dubai universities." },
+    { intake: "April intake", months: "Check with each university", details: "Selected courses only." },
   ],
-
-  testTitle: "English Language & Standardized Test Requirements",
-  testRequirements: [
-    {
-      test: "IELTS",
-      score: "5.5 – 6.5 (UG), 6.0 – 7.0 (PG)",
-      notes: "Most commonly accepted across Dubai universities.",
-    },
-    {
-      test: "TOEFL (iBT)",
-      score: "61 – 79 (UG), 79 – 90 (PG)",
-      notes: "Internet-based version widely accepted.",
-    },
-    {
-      test: "PTE Academic",
-      score: "50 – 58 (UG), 58 – 65 (PG)",
-      notes: "Accepted as an alternative to IELTS/TOEFL.",
-    },
-    {
-      test: "Duolingo",
-      score: "90 – 110",
-      notes: "Accepted by select institutions for remote testing.",
-    },
-    {
-      test: "University Placement Test",
-      score: "Varies",
-      notes: "Some universities conduct their own in-house English exams.",
-    },
-    {
-      test: "Medium of Instruction (MOI)",
-      score: "Case-by-case",
-      notes: "May be accepted if previous education was in English.",
-    },
-    {
-      test: "SAT",
-      score: "Rarely required",
-      notes: "For undergraduate programs",
-    },
-    {
-      test: "GRE",
-      score: "As required",
-      notes: "Some Engineering or STEM-related master's programs",
-    },
-    {
-      test: "GMAT",
-      score: "As required",
-      notes: "Required for select MBA or business graduate programs",
-    },
-  ],
-
-  costTitle: "Cost of Studying in Dubai from Nepal",
+  costTitle: "What a year in Dubai costs",
+  costIntro: "Typical tuition at Dubai campuses, plus housing and visa costs at two universities as examples.",
   costTables: [
     {
-      title: "Tuition Fees by Program Level",
+      title: "Tuition per year",
       rows: [
-        {
-          category: "Undergraduate",
-          cost: "AED 30,000 – 60,000",
-          nprCost: "1,080,000 – 2,160,000",
-        },
-        {
-          category: "Postgraduate / Master's",
-          cost: "AED 40,000 – 75,000",
-          nprCost: "1,440,000 – 2,700,000",
-        },
-        {
-          category: "MBA / Specialized Programs",
-          cost: "AED 60,000 – 100,000",
-          nprCost: "2,160,000 – 3,600,000",
-        },
+        { category: "Foundation year", cost: "AED 49k – 60k" },
+        { category: "Undergraduate", cost: "AED 60k – 90k" },
+        { category: "Postgraduate / MBA", cost: "AED 60k – 90k" },
       ],
     },
     {
-      title: "Monthly Living Expenses",
+      title: "Living & visa costs",
       rows: [
-        {
-          category: "Accommodation",
-          cost: "AED 1,500 – 3,000",
-          nprCost: "54,000 – 108,000",
-        },
-        {
-          category: "Food",
-          cost: "AED 800 – 1,200",
-          nprCost: "29,000 – 43,000",
-        },
-        {
-          category: "Transportation",
-          cost: "AED 250 – 400",
-          nprCost: "9,000 – 14,400",
-        },
-        {
-          category: "Miscellaneous",
-          cost: "AED 300 – 500",
-          nprCost: "10,800 – 18,000",
-        },
-      ],
-    },
-    {
-      title: "Visa & Insurance Costs",
-      rows: [
-        {
-          category: "Student Visa Fee",
-          cost: "AED 2,500 – 3,500",
-          nprCost: "90,000 – 126,000",
-        },
-        {
-          category: "Emirates ID & Medical",
-          cost: "AED 1,000",
-          nprCost: "36,000",
-        },
-        {
-          category: "Health Insurance",
-          cost: "AED 1,000 – 1,500",
-          nprCost: "36,000 – 54,000",
-        },
+        { category: "Shared student room", cost: "AED 8,500 / semester" },
+        { category: "Student visa (from Nepal)", cost: "AED 5,555" },
+        { category: "Visa deposit (refundable)", cost: "AED 2,500" },
+        { category: "Visa renewal", cost: "AED 4,570 / yr" },
       ],
     },
   ],
   costNote:
-    "Additional Costs: Airfare (One-way Nepal to Dubai): NPR 40,000 – 60,000 | Books & Supplies: AED 1,000 – 2,000 per year | Entrance Exams (IELTS/TOEFL): NPR 20,000 – 25,000",
-
-  scholarshipsTitle: "Scholarships for Nepalese Students",
+    "Tuition: 2026–27 fee lists of Dubai campuses (e.g. Middlesex, Wollongong, Amity). Housing: American University in Dubai. Visa: Middlesex University Dubai, fee includes Emirates ID and medical insurance. Sources: aud.edu, mdx.ac.ae, checked October 2026.",
+  scholarshipsTitle: "Funding you can apply for",
+  scholarshipsIntro: "Most funding in Dubai is a tuition discount from your university. We check what you qualify for.",
   scholarships: [
-    {
-      name: "Academic Merit Scholarship",
-      provider: "University of Dubai",
-      details: "Based on GPA / board exam results",
-    },
-    {
-      name: "Vice Chancellor's Scholarship",
-      provider: "Middlesex University Dubai",
-      details: "10%–50% fee waiver based on academic merit",
-    },
-    {
-      name: "President's Scholarship",
-      provider: "Canadian University Dubai",
-      details: "Up to 100% scholarship for top performers",
-    },
-    {
-      name: "International Student Merit Scholarship",
-      provider: "Heriot-Watt University Dubai",
-      details: "Academic and extracurricular achievement",
-    },
-    {
-      name: "Entrance Scholarship",
-      provider: "Manipal Academy of Higher Education",
-      details: "Awarded to new students based on merit",
-    },
-    {
-      name: "Amity Global Talent Scholarship",
-      provider: "Amity University Dubai",
-      details: "For talent in academics, arts, sports",
-    },
-    {
-      name: "Merit & Merit-Cum-Need Scholarships",
-      provider: "BITS Pilani, Dubai Campus",
-      details: "Based on academic score and financial need",
-    },
-    {
-      name: "Alumni/Sibling Discount",
-      provider: "Various Universities",
-      details: "10%–20% tuition reduction for family ties",
-    },
-    {
-      name: "Sheikh Hamdan Award",
-      provider: "Dubai Government",
-      details: "For academic and leadership excellence",
-    },
-    {
-      name: "Mohammed bin Rashid Scholarship",
-      provider: "MBRF / Dubai Government",
-      details: "High-achieving international students",
-    },
-    {
-      name: "Dubai Cares Support",
-      provider: "Dubai Cares NGO",
-      details: "Case-by-case basis; need-based",
-    },
+    { name: "Undergraduate Merit Scholarship", provider: "Heriot-Watt University Dubai", details: "30%, 40% or 50% off first-year tuition, based on your grades." },
+    { name: "Postgraduate Merit Scholarship", provider: "Heriot-Watt University Dubai", details: "10% or 15% off tuition, based on your bachelor's results." },
+    { name: "International Study Grant", provider: "Middlesex University Dubai", details: "Tuition grant for international applicants, set by admissions." },
+    { name: "University awards", provider: "Other Dubai campuses", details: "Merit discounts that change each intake. We check current terms." },
   ],
-
   universities: [
     { name: "American University in Dubai", logo: "/images/universities/uae/american-university-in-dubai.webp" },
     { name: "American University of Sharjah", logo: "/images/universities/uae/american-university-of-sharjah.webp" },
@@ -349,60 +140,39 @@ const pageData: NepalVariantData = {
 
   faqItems: [
     {
-      question: "Why should I choose Dubai for higher education?",
+      question: "Who sponsors my student visa in Dubai?",
       answer:
-        "Dubai offers globally recognized degrees, multicultural exposure, modern infrastructure, affordable tuition fees, and excellent job prospects after graduation.",
+        "Your university. It applies to GDRFA Dubai for your entry permit, and you finish the residence visa in Dubai with a medical test and Emirates ID.",
     },
     {
-      question: "Are degrees from Dubai universities valid internationally?",
+      question: "How long does the Dubai student visa take?",
       answer:
-        "Yes, most Dubai universities are affiliated with or accredited by UK, US, or Australian institutions, making their degrees widely accepted worldwide.",
-    },
-    {
-      question: "What are the major intakes for Dubai universities?",
-      answer:
-        "The primary intakes are September (Fall) and January/February (Spring). Some universities also offer a May/July (Summer) intake.",
-    },
-    {
-      question: "Do I need IELTS or TOEFL to apply to Dubai universities?",
-      answer:
-        "Yes, most universities require English proficiency tests like IELTS, TOEFL, PTE, or Duolingo. Some may offer in-house placement tests or waive it with an English-medium education letter.",
-    },
-    {
-      question: "How much does it cost to study in Dubai from Nepal?",
-      answer:
-        "Tuition ranges from AED 30,000 to AED 100,000 per year, and living expenses can range between AED 2,500 – 5,000 per month.",
-    },
-    {
-      question: "Are there scholarships available for Nepalese students?",
-      answer:
-        "Yes, many universities offer merit-based, need-based, and sports/talent scholarships to Nepalese students. Some also provide early-bird discounts and sibling/alumni waivers.",
+        "It depends on the university's visa team. Apply for your course early and allow a few weeks before your start date.",
     },
     {
       question: "Can I work part-time while studying in Dubai?",
       answer:
-        "Yes, students can work part-time (up to 15–20 hours/week) during semesters and full-time during breaks, provided they have a work permit through the university.",
+        "Only with a work permit from the Ministry of Human Resources and Emiratisation (MOHRE), which your employer applies for. Most universities also ask you to get their approval first.",
     },
     {
-      question: "Is a student visa required to study in Dubai?",
+      question: "Do I need IELTS to study in Dubai?",
       answer:
-        "Yes, students need a UAE residence visa for education, usually sponsored by the university. Visa processing takes about 2–4 weeks.",
+        "Most universities ask for IELTS 6.0 or the PTE or TOEFL equivalent. Some run their own English test or offer a foundation year.",
     },
     {
-      question: "What documents are required for admission?",
+      question: "Are Dubai degrees recognised?",
       answer:
-        "Academic transcripts, Passport copy, Passport-size photos, English test score (IELTS/TOEFL), Statement of Purpose (SOP), Recommendation letters (if required)",
+        "Branch campuses award their home university's degree. Check that your university and course are approved by KHDA before you apply.",
     },
     {
-      question: "How can Admizz Education help me?",
+      question: "Can I stay in the UAE after graduating?",
       answer:
-        "Admizz Education provides free guidance on university selection, test prep, scholarships, application filing, visa support, and pre-departure briefings.",
+        "Top graduates can apply for a 10-year golden visa: a bachelor's GPA of 3.5 or higher (3.8 at some universities), within two years of graduating. Others need a job and a work visa.",
     },
   ],
 
-  ctaTitle: "Begin Your Journey to Study in Dubai from Nepal",
-  ctaContent:
-    "Are you a student in Nepal dreaming of studying in a land of innovation, opportunity, and global exposure? Dubai is fast becoming a top destination for higher education — offering world-class universities, industry-focused programs, and an international learning environment. At Admizz Education, we support Nepalese students throughout the entire Dubai study process — from selecting the right university to scholarship guidance, visa support, and pre-departure preparation. We make your journey easy, personalized, and stress-free. Don't let uncertainty hold you back. Join the growing number of students from Nepal who are successfully building their futures in Dubai with Admizz by their side. Contact us today to book your free Dubai education consultation. Your journey to Dubai begins here — with Admizz.",
+  ctaTitle: "Plan your Dubai move with us",
+  ctaContent: "Free first consultation with our Dubai team, in person or on a call.",
 };
 
 export default async function StudyInDubaiFromNepalPage() {

@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Canada from Nepal - Admizz Education",
   description:
-    "Study in Canada from Nepal with Admizz Education \u2013 Expert guidance, top universities, visa support & affordable study abroad solutions.",
+    "Study in Canada from Nepal with Admizz Education – colleges and universities, study permit steps, costs, intakes and PGWP work rights for Nepali students.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-canada-from-nepal",
   },
   openGraph: {
     title: "Study in Canada from Nepal - Admizz Education",
     description:
-      "Study in Canada from Nepal with Admizz Education \u2013 Expert guidance, top universities, visa support & affordable study abroad solutions.",
+      "Study in Canada from Nepal with Admizz Education – colleges and universities, study permit steps, costs, intakes and PGWP work rights for Nepali students.",
     url: "https://admizzeducation.com/study-in-canada-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/stuyabroad.webp"],
@@ -27,200 +27,104 @@ const pageData: NepalVariantData = {
   countryName: "Canada",
   countryCategorySlug: "canada",
   heroHeading: "Study in Canada from Nepal",
-  heroSubheading: "Study in Canada from Nepal with Admizz Education—expert counselling, top universities, visa support & affordable study abroad solutions.",
-
-  introTitle: "Your Gateway to Global Education with Admizz Education",
-  introContent: "Canada is one of the most popular study abroad destinations for Nepalese students because of its world-class education system, affordable tuition fees, scholarship opportunities, and excellent career prospects. Admizz Education helps Nepalese students pursue education in Canada with personalized support including scholarship assistance, visa documentation, statement of purpose (SOP) writing, and pre-departure preparation. Book your free counseling session with Admizz Education today and take the first step toward studying in Canada.",
-
-  whyStudyTitle: "Why Study in Canada from Nepal",
-  whyStudyIntro: "For Nepalese students, Canada offers the perfect blend of academic excellence, career opportunities, and quality of life.",
+  heroSubheading: "College or university choice, your study permit and biometrics, handled with a counsellor at our Kathmandu office.",
+  heroImage: "/images/hero/canada-hero.webp",
+  quickFacts: [
+    { label: "Intakes", value: "Sep · Jan · May" },
+    { label: "Avg. grad tuition", value: "CAD 24,000 / yr" },
+    { label: "Work in term", value: "24 hrs / week" },
+    { label: "PGWP", value: "Up to 3 years" },
+    { label: "English", value: "IELTS / PTE" },
+  ],
+  introTitle: "Study in Canada from Nepal",
+  introContent:
+    "Canada offers college diplomas and university degrees, lets you work 24 hours a week during term, and graduates can stay to work on a Post-Graduation Work Permit.",
+  whyStudyTitle: "Study, work and stay on after you graduate",
+  whyStudyIntro: "Why so many students from Nepal pick Canada.",
+  highlightStats: [
+    {
+      value: "3",
+      unit: "years",
+      label: "Post-Graduation Work Permit",
+      note: "for master's graduates (programmes of 8 months or more) and programmes of 2+ years. Shorter programmes get up to the length of the course.",
+    },
+    { value: "24", unit: "hours a week", label: "off-campus work in term" },
+    { value: "CAD 23,448", label: "living funds to show for one year" },
+  ],
   benefits: [
     {
-      title: "Globally Recognized Universities",
-      description: "Study at world-class institutions with globally recognized programs and degrees.",
+      title: "Work after you graduate",
+      description: "The PGWP gives up to 3 years of open work, and Canadian work experience can help a later PR application.",
     },
     {
-      title: "Affordable Tuition",
-      description: "Affordable tuition compared to the USA, UK, or Australia, making quality education accessible.",
+      title: "Work while you study",
+      description: "Up to 24 hours a week off campus during term, and unlimited hours in scheduled breaks.",
     },
     {
-      title: "Work While Studying",
-      description: "Work part-time while studying with opportunities to gain valuable work experience.",
+      title: "Master's without a PAL",
+      description: "Since January 2026, master's and PhD students at public institutions don't need a provincial attestation letter.",
     },
     {
-      title: "Post-Graduation Work Permit",
-      description: "Post-Graduation Work Permit (PGWP) for up to 3 years to gain Canadian work experience.",
-    },
-    {
-      title: "Safe & Multicultural",
-      description: "Safe, multicultural environment welcoming international students from around the world.",
-    },
-    {
-      title: "High Standard of Living",
-      description: "High standard of living with excellent healthcare and security for students and families.",
+      title: "College or university",
+      description: "Choose a practical college diploma or a degree. College PGWPs need an eligible field of study.",
     },
   ],
-
-  whyAdmizzTitle: "Why Choose Admizz Education",
-  whyAdmizzPoints: [
-    "Team of experienced counselors with 1000+ student success stories",
-    "Direct partnerships with top Canadian universities and colleges",
-    "Scholarship assistance and SOP/Essay guidance",
-    "High visa success rate for Canada study permits",
-    "Full support—admission, visa, test prep, and pre-departure sessions",
-  ],
-
-  topCoursesTitle: "Top Courses to Study in Canada",
-  topCourses: [
-    "Business and Management",
-    "Engineering and Technology",
-    "Computer Science and IT",
-    "Data Science and Artificial Intelligence",
-    "Health Sciences and Nursing",
-    "Environmental Studies",
-    "Social Sciences and Humanities",
-    "Media, Arts, and Communication",
-  ],
-
-  visaTitle: "Student Visa Requirements for Canada (Nepalese Students)",
-  visaIntro: "To study in Canada, students must secure a study permit. Admizz Education's visa experts ensure your application is accurate and complete to increase your success rate.",
+  visaTitle: "Your study permit, step by step",
+  visaIntro: "You apply online. Biometrics and your medical exam are done in Kathmandu.",
   visaRequirements: [
-    {
-      category: "Letter of Acceptance",
-      details: "Letter of Acceptance from a Canadian Designated Learning Institution (DLI)",
-    },
-    {
-      category: "Proof of Funds",
-      details: "Proof of sufficient funds to cover tuition and living expenses",
-    },
-    {
-      category: "Valid Passport",
-      details: "Valid passport with at least 6 months validity",
-    },
-    {
-      category: "Statement of Purpose",
-      details: "SOP (Statement of Purpose) explaining your study plans and goals",
-    },
-    {
-      category: "Visa Application",
-      details: "Visa application and biometrics submission",
-    },
-    {
-      category: "Medical & Police Clearance",
-      details: "Medical and police clearance certificates",
-    },
+    { category: "Get your letter of acceptance", details: "From a Designated Learning Institution (DLI). We shortlist and apply with you." },
+    { category: "Get a PAL if you need one", details: "Most bachelor's and college students need one. Master's and PhD at public DLIs don't." },
+    { category: "Medical exam in Kathmandu", details: "With an IRCC panel physician. Required for applicants from Nepal." },
+    { category: "Apply online & pay fees", details: "In your IRCC account: CAD 150 study permit fee plus CAD 85 biometrics." },
+    { category: "Biometrics in Kathmandu", details: "Photo and fingerprints at the VFS Global Canada visa centre, within 30 days of your letter." },
+    { category: "Decision & approval letter", details: "Your visa goes in your passport and the study permit is issued when you land. We brief you before you fly." },
   ],
-
-  intakesTitle: "Study Intakes in Canada",
-  intakesIntro: "Canadian universities and colleges offer three main intakes throughout the year.",
+  visaDocuments: [
+    "Valid passport",
+    "Letter of acceptance from a DLI",
+    "PAL, if your programme needs one",
+    "Proof of funds: tuition + CAD 23,448",
+    "Immigration medical exam",
+    "Academic transcripts",
+    "IELTS, PTE or TOEFL result",
+  ],
+  intakesTitle: "When you can start",
+  intakesIntro: "September has the most programmes. Apply early, because PAL spaces are limited.",
   intakes: [
-    {
-      intake: "Fall Intake",
-      months: "September",
-      details: "Primary intake with maximum course availability",
-    },
-    {
-      intake: "Winter Intake",
-      months: "January",
-      details: "Second major intake with good course options",
-    },
-    {
-      intake: "Summer Intake",
-      months: "May",
-      details: "Limited programs available at select institutions",
-    },
+    { intake: "Fall intake (September)", months: "Apply October – March", details: "Main intake. Most programmes and scholarships." },
+    { intake: "Winter intake (January)", months: "Apply May – September", details: "Good option if you miss September." },
+    { intake: "Summer intake (May)", months: "Check with each institution", details: "Selected programmes, mostly at colleges." },
   ],
-
-  testTitle: "Test Preparation for Canada Study Visa",
-  testIntro: "With customized study plans, mock tests, and expert trainers, Admizz Education helps you achieve the required scores for Canadian universities.",
-  testRequirements: [
-    {
-      test: "IELTS",
-      score: "6.0 - 7.0 overall (minimum)",
-      notes: "Most commonly accepted for Canadian institutions",
-    },
-    {
-      test: "TOEFL",
-      score: "80 - 100 iBT",
-      notes: "Alternative to IELTS",
-    },
-    {
-      test: "PTE",
-      score: "58 - 65",
-      notes: "Accepted by many Canadian universities",
-    },
-    {
-      test: "Duolingo English Test",
-      score: "105 - 120",
-      notes: "Increasingly accepted alternative",
-    },
-    {
-      test: "SAT/GRE/GMAT",
-      score: "Varies by program",
-      notes: "Required for specific programs",
-    },
-  ],
-
-  costTitle: "Cost to Study in Canada from Nepal",
-  costIntro: "With part-time work opportunities and scholarships, Nepalese students can manage their expenses effectively.",
+  costTitle: "What a year in Canada costs",
+  costIntro: "Average tuition for international students, plus the living funds IRCC asks you to show.",
   costTables: [
     {
-      title: "Tuition Fees (Annual)",
+      title: "Tuition per year",
       rows: [
-        {
-          category: "Undergraduate Programs",
-          cost: "CAD 15,000 – 25,000/year",
-          nprCost: "NPR 16,50,000 – 27,50,000",
-        },
-        {
-          category: "Postgraduate Programs",
-          cost: "CAD 20,000 – 30,000/year",
-          nprCost: "NPR 22,00,000 – 33,00,000",
-        },
-        {
-          category: "Diplomas/Certificates",
-          cost: "CAD 10,000 – 18,000/year",
-          nprCost: "NPR 11,00,000 – 19,80,000",
-        },
+        { category: "Undergraduate (avg)", cost: "CAD 41,746" },
+        { category: "Graduate (avg)", cost: "CAD 24,028" },
+        { category: "Ontario undergrad (avg)", cost: "CAD 49,802" },
       ],
     },
     {
-      title: "Living Expenses (Annual)",
+      title: "Living & visa costs",
       rows: [
-        {
-          category: "Living Expenses",
-          cost: "CAD 10,000 – 15,000/year",
-          nprCost: "NPR 11,00,000 – 16,50,000",
-        },
+        { category: "Living funds (1 person)", cost: "CAD 23,448 / yr" },
+        { category: "Study permit fee", cost: "CAD 150" },
+        { category: "Biometrics fee", cost: "CAD 85" },
       ],
     },
   ],
-
-  scholarshipsTitle: "Scholarships to Study in Canada",
-  scholarshipsIntro: "Admizz Education assists you in applying for scholarships that best suit your profile.",
+  costNote:
+    "Tuition: Statistics Canada 2025/2026 university averages for international students. Living funds (outside Quebec, applications from 1 September 2026) and fees: IRCC, canada.ca. Checked October 2026.",
+  scholarshipsTitle: "Funding you can apply for",
+  scholarshipsIntro: "We check which of these you qualify for in your first consultation.",
   scholarships: [
-    {
-      name: "Vanier Canada Graduate Scholarships",
-      details: "CAD 50,000/year for doctoral students",
-    },
-    {
-      name: "Ontario Graduate Scholarship (OGS)",
-      details: "CAD 15,000 for graduate students in Ontario",
-    },
-    {
-      name: "University of Manitoba Graduate Fellowships",
-      details: "Various amounts for graduate students",
-    },
-    {
-      name: "University of Toronto Lester B. Pearson Scholarship",
-      details: "Full tuition, books, and living expenses for international students",
-    },
-    {
-      name: "McGill Entrance Scholarships",
-      details: "Merit-based scholarships for undergraduate students",
-    },
+    { name: "Lester B. Pearson Scholarship", provider: "University of Toronto", details: "Covers tuition, books and residence for 4 years. Your school must nominate you." },
+    { name: "Ontario Graduate Scholarship", provider: "Province of Ontario & universities", details: "CAD 5,000 a term, up to CAD 15,000 a year. Limited places for international students." },
+    { name: "Entrance scholarships", provider: "Universities & colleges", details: "One-off or renewable awards based on your grades." },
+    { name: "Graduate funding", provider: "Universities", details: "Research master's and PhD offers often include teaching or research assistant pay." },
   ],
-
   universities: [
     { name: "University of Toronto", logo: "/images/universities/canada/university-of-toronto.webp" },
     { name: "McGill University", logo: "/images/universities/canada/mcgill-university.webp" },
@@ -236,49 +140,43 @@ const pageData: NepalVariantData = {
 
   faqItems: [
     {
-      question: "Can Nepalese students work while studying in Canada?",
-      answer: "Yes, up to 20 hours per week during semesters and full-time during breaks.",
+      question: "Can I work while studying in Canada?",
+      answer: "Yes, up to 24 hours a week off campus during term and unlimited hours during scheduled breaks.",
     },
     {
-      question: "Is IELTS compulsory for studying in Canada?",
-      answer: "Most institutions require IELTS, TOEFL, PTE, or Duolingo. Some offer pathway programs without IELTS.",
+      question: "Is IELTS compulsory for Canada?",
+      answer:
+        "Most institutions ask for IELTS, PTE, TOEFL or Duolingo. For the PGWP you will also need a language test: CLB 7 after a degree, CLB 5 after a college programme.",
     },
     {
-      question: "What is the cost of studying in Canada?",
-      answer: "Tuition fees range from CAD 15,000 to CAD 30,000/year depending on the course.",
+      question: "Do I need a PAL?",
+      answer:
+        "Most bachelor's, diploma and certificate students need a provincial attestation letter. Master's and PhD students at public institutions don't, since January 2026.",
     },
     {
-      question: "How long does it take to process a Canada student visa?",
-      answer: "Generally 4–8 weeks, depending on your application and biometrics.",
+      question: "How much money do I need to show?",
+      answer:
+        "Your first year's tuition plus CAD 23,448 for living costs (one person, outside Quebec, applications from 1 September 2026), plus travel.",
+    },
+    {
+      question: "How long does a Canada study permit take?",
+      answer:
+        "Processing starts once IRCC has your biometrics, and times change often. Check IRCC's processing-times tool and apply as early as you can.",
     },
     {
       question: "Can studying in Canada lead to PR?",
-      answer: "Yes, through PGWP and Canadian work experience, students can apply for PR.",
+      answer:
+        "It can. Work experience on a PGWP can count towards permanent residence programmes, but PR is not guaranteed.",
     },
     {
-      question: "What scholarships are available for Nepalese students?",
-      answer: "Vanier, OGS, Lester B. Pearson, McGill, and other university-specific awards.",
-    },
-    {
-      question: "Do Nepalese students need proof of funds?",
-      answer: "Yes, sufficient funds must be shown to cover tuition and living costs.",
-    },
-    {
-      question: "Which are the most popular courses in Canada for Nepalese students?",
-      answer: "Business, IT, Engineering, Data Science, Nursing, and Social Sciences.",
-    },
-    {
-      question: "Can students apply to Canadian colleges instead of universities?",
-      answer: "Yes, colleges are affordable and offer industry-focused programs.",
-    },
-    {
-      question: "How can Admizz Education help me?",
-      answer: "By providing counseling, university selection, scholarship guidance, visa assistance, and pre-departure sessions.",
+      question: "Should I choose a college or a university?",
+      answer:
+        "Colleges offer shorter, practical diplomas; universities offer degrees. For a college PGWP, your programme must be in an eligible field of study.",
     },
   ],
 
-  ctaTitle: "Ready to Study in Canada from Nepal?",
-  ctaContent: "Book your free counseling session with Admizz Education today and take the first step toward studying in Canada.",
+  ctaTitle: "Plan your Canada move with us",
+  ctaContent: "Free first consultation with our Canada team, in person or on a call.",
 };
 
 export default async function StudyInCanadaFromNepalPage() {

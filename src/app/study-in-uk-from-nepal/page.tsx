@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
-import type { NepalVariantData, CountryTheme } from "@/components/ui/NepalVariantTemplate";
-import UKCinematicHero from "@/components/uk/UKCinematicHero";
-import UKWhyNarrative from "@/components/uk/UKWhyNarrative";
-import UKCityMap from "@/components/uk/UKCityMap";
-import UKCostViz from "@/components/uk/UKCostViz";
-import UKStickyMobileCTA from "@/components/uk/UKStickyMobileCTA";
-import CrownDivider from "@/components/uk/CrownDivider";
+import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { client } from "@/lib/sanity";
 import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
-import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Study in UK from Nepal - Admizz Education",
@@ -31,187 +24,112 @@ export const metadata: Metadata = {
 };
 
 const pageData: NepalVariantData = {
-  countryName: "UK",
+  countryName: "the UK",
   countryCategorySlug: "uk",
-  heroHeading: "Study in UK from Nepal",
-  heroSubheading:
-    `From university selection to visa approval, we guide Nepali students through every step of their UK education journey. Join ${ADMIZZ_STATS.studentsPlaced} students who achieved their British university dreams with Admizz Education.`,
-
-  introTitle: "Study in UK from Nepal with Expert Guidance",
+  heroHeading: "Study in the UK from Nepal",
+  heroSubheading: "Course choice, applications and your Student visa, handled with a counsellor at our Kathmandu office.",
+  heroImage: "/images/hero/uk-hero.webp",
+  quickFacts: [
+    { label: "Intakes", value: "Sep · Jan · May" },
+    { label: "Tuition from", value: "£11,000 / yr" },
+    { label: "Master's", value: "1 year" },
+    { label: "Graduate visa", value: "18 months" },
+    { label: "English", value: "IELTS 6.0+" },
+  ],
+  introTitle: "Study in the UK from Nepal",
   introContent:
-    "The UK offers a perfect balance of quality education, affordability, and career growth for Nepali students. From globally recognised degrees to post-study work visas, the UK remains one of the top destinations for Nepali students seeking world-class education and international career opportunities.",
-
-  whyStudyTitle: "Why Study in the UK from Nepal?",
-  whyStudyIntro:
-    "The UK offers a perfect balance of quality education, affordability, and career growth for Nepali students.",
+    "UK degrees are recognised worldwide, most master's take one year, and graduates can stay to work on the Graduate visa.",
+  whyStudyTitle: "A shorter degree that still opens doors",
+  whyStudyIntro: "Why so many students from Nepal pick the UK.",
+  highlightStats: [
+    {
+      value: "18",
+      unit: "months",
+      label: "Graduate visa",
+      note: "to work in the UK after a bachelor's or master's (applications from 1 January 2027). PhD graduates get 3 years.",
+    },
+    { value: "12", unit: "months", label: "for most master's" },
+    { value: "20", unit: "hours a week", label: "work during term" },
+  ],
   benefits: [
     {
-      title: "Globally Recognised Degrees",
-      description:
-        "UK universities rank among the world's top institutions. Degrees recognized worldwide by employers. 4 UK universities in QS World Top 10.",
+      title: "1-year master's",
+      description: "Most taught master's take 12 months, so you pay a year less in fees and rent.",
     },
     {
-      title: "1-Year Master's Programs",
-      description:
-        "Save time and money with shorter duration. Start your career faster than other countries. Intensive, industry-focused curriculum.",
+      title: "Quality-checked universities",
+      description: "Every university is regulated and regularly reviewed by UK bodies.",
     },
     {
-      title: "Graduate Route Visa - 2 Years",
-      description:
-        "Work in UK for 18 months after graduation (applications from 1 January 2027). 3 years for PhD graduates. Gain valuable international experience.",
+      title: "Work while you study",
+      description: "Up to 20 hours a week in term on degree courses (10 below degree level), full-time in holidays.",
     },
     {
-      title: "Multicultural & Safe",
-      description:
-        "Diverse community from 200+ countries. Safe cities with excellent transport. Strong Nepali student community.",
-    },
-    {
-      title: "Part-Time Work Allowed",
-      description:
-        "Work 20 hours/week during term (10 hours below degree level). Full-time work during holidays. Earn £10-15/hour minimum wage.",
-    },
-    {
-      title: "Quality Assurance",
-      description:
-        "All universities rigorously quality-checked. Qualifications recognized globally. High employability after graduation.",
+      title: "Degrees recognised worldwide",
+      description: "Accepted by employers and universities in Nepal and abroad.",
     },
   ],
-
-  visaTitle: "UK Student Visa Process – Step by Step",
-  visaIntro:
-    "Admizz Education provides end-to-end UK visa support.",
+  visaTitle: "Your Student visa, step by step",
+  visaIntro: "Most decisions arrive within 3 weeks of your biometrics appointment.",
   visaRequirements: [
-    {
-      category: "1. Choose Course",
-      details: "Select your program and receive offer from a UKVI-approved university",
-    },
-    {
-      category: "2. Receive Offer",
-      details: "Accept offer and meet conditions set by the university",
-    },
-    {
-      category: "3. Pay Deposit",
-      details: "Secure your place with tuition deposit payment",
-    },
-    {
-      category: "4. Get CAS",
-      details: "Receive Confirmation of Acceptance for Studies from the university",
-    },
-    {
-      category: "5. Prepare Docs",
-      details: "Gather all required documents including financial proof and English proficiency",
-    },
-    {
-      category: "6. Submit Application",
-      details: "Complete online visa application with all supporting documents",
-    },
-    {
-      category: "7. Biometrics",
-      details: "Attend VFS appointment in Kathmandu for biometric submission",
-    },
-    {
-      category: "8. Visa Approval",
-      details: "Decision within 3-4 weeks. Your visa is issued as an eVisa, accessed through your UKVI account.",
-    },
+    { category: "Choose a course", details: "Pick a course at a UKVI-licensed university. We shortlist with you." },
+    { category: "Offer, deposit & CAS", details: "Accept your offer, pay the deposit and receive your CAS number." },
+    { category: "TB test in Kathmandu", details: "At a UKVI-approved clinic. The certificate goes with your application." },
+    { category: "Apply online & pay fees", details: "Visa form, visa fee and the immigration health surcharge." },
+    { category: "Biometrics in Kathmandu", details: "Photo and fingerprints at the visa application centre." },
+    { category: "Decision & eVisa", details: "Your visa is digital, in your UKVI account. Then we brief you before you fly." },
   ],
-
-  intakesTitle: "Key Intakes in the UK",
-  intakesIntro:
-    "Understanding UK intakes helps you plan early and avoid last-minute rejections.",
+  visaDocuments: [
+    "Valid passport",
+    "CAS from your university",
+    "Bank statements held 28 days",
+    "Academic transcripts",
+    "IELTS or PTE result",
+    "TB test certificate",
+  ],
+  intakesTitle: "When you can start",
+  intakesIntro: "September has the most courses and scholarships. Apply early.",
   intakes: [
-    {
-      intake: "Michaelmas Term — September (Main Intake)",
-      months: "Application: November – May",
-      details:
-        "The traditional British autumn term. Most popular intake — maximum universities, course options, and scholarship availability.",
-    },
-    {
-      intake: "Hilary / Lent Term — January (Alternative)",
-      months: "Application: July – October",
-      details:
-        "The winter–spring term. A solid alternative if you miss Michaelmas. Slightly limited course options. Ideal for gap-year students.",
-    },
-    {
-      intake: "Trinity Term — May (Limited)",
-      months: "Select universities only",
-      details:
-        "The shorter summer term. Suitable for diploma and selected master's programs. Smaller, more intimate cohorts.",
-    },
+    { intake: "September intake", months: "Apply November – May", details: "Main intake. Most courses and scholarships." },
+    { intake: "January intake", months: "Apply July – October", details: "Good option if you miss September." },
+    { intake: "May intake", months: "Check with each university", details: "Selected courses only." },
   ],
-
-  costTitle: "Cost of Studying in the UK from Nepal",
-  costIntro:
-    "Planning to study in UK requires a clear understanding of the overall costs involved.",
+  costTitle: "What a year in the UK costs",
+  costIntro: "Typical tuition, plus the living-cost amount UKVI asks you to show for your visa.",
   costTables: [
     {
-      title: "Tuition Fees (Per Year)",
+      title: "Tuition per year",
       rows: [
-        {
-          category: "Undergraduate",
-          cost: "£10,000 – £20,000",
-        },
-        {
-          category: "Postgraduate",
-          cost: "£12,000 – £25,000",
-        },
-        {
-          category: "MBA / Professional",
-          cost: "£20,000 – £35,000+",
-        },
+        { category: "Undergraduate", cost: "£11k – £20k" },
+        { category: "Postgraduate", cost: "£12k – £25k" },
+        { category: "MBA", cost: "£20k – £35k+" },
       ],
     },
     {
-      title: "Additional Costs (Per Year)",
+      title: "Living & visa costs",
       rows: [
-        {
-          category: "Living Expenses (London)",
-          cost: "£1,529 per month (up to 9 months)",
-        },
-        {
-          category: "Living Expenses (outside London)",
-          cost: "£1,171 per month (up to 9 months)",
-        },
-        {
-          category: "Health Surcharge (NHS)",
-          cost: "£776",
-        },
+        { category: "London", cost: "£1,529 / mo" },
+        { category: "Outside London", cost: "£1,171 / mo" },
+        { category: "Health surcharge", cost: "£776 / yr" },
       ],
     },
   ],
-  costNote:
-    "Total costs vary by city. London is higher; smaller cities are more budget-friendly.",
-
-  scholarshipsTitle: "Scholarships for Nepalese Students",
-  scholarshipsIntro:
-    "The UK offers a wide range of funding opportunities to reduce financial stress.",
+  costNote: "Living costs: UKVI funds requirement for up to 9 months. Source: GOV.UK, checked October 2026.",
+  scholarshipsTitle: "Funding you can apply for",
+  scholarshipsIntro: "We check which of these you qualify for in your first consultation.",
   scholarships: [
-    {
-      name: "Chevening Scholarships",
-      details:
-        "Fully funded master's degree for future leaders from Nepal. Covers tuition, living costs, and travel.",
-    },
-    {
-      name: "Commonwealth Scholarships",
-      details:
-        "Full funding for postgraduate students from developing Commonwealth nations. Focus on development-related subjects.",
-    },
-    {
-      name: "GREAT Scholarships",
-      details:
-        "Minimum £10,000 offered by UK universities & British Council. Available across multiple fields of study.",
-    },
-    {
-      name: "Saltire Scholarships",
-      details:
-        "£8,000 for science, tech, and renewable energy studies at Scottish universities only.",
-    },
-    {
-      name: "University Awards",
-      details:
-        "£2,000 - £20,000 based on merit and financial need. Examples include Manchester and Edinburgh Global scholarships.",
-    },
+    { name: "Chevening", provider: "UK Government", details: "Fully funded master's for future leaders." },
+    { name: "Commonwealth", provider: "UK Government", details: "Fully funded development-related postgraduate study." },
+    { name: "GREAT Scholarships", provider: "British Council", details: "From £10,000 towards tuition, many subjects." },
+    { name: "Saltire", provider: "Scottish Government", details: "£8,000 for science and technology in Scotland." },
+    { name: "University awards", provider: "Universities", details: "£2,000 – £20,000, based on merit or need." },
   ],
-
+  students: [
+    { name: "Aashis Kuswar", image: "/events/assets/alumni/Aashis_Kuswar_2026_UK.jpeg", caption: "UK · 2026 intake" },
+    { name: "Anshu Kumari Mahato", image: "/events/assets/alumni/AnshuKumariMahato_2025_UK.jpg", caption: "UK · 2025 intake" },
+    { name: "Bikash Sah Teli", image: "/events/assets/alumni/Bikash_Sah_Teli_2026_UK.jpeg", caption: "UK · 2026 intake", imagePosition: "center 75%" },
+    { name: "Biky Sah Teli", image: "/events/assets/alumni/Biky_Sah_Teli_2026_UK.jpeg", caption: "UK · 2026 intake" },
+  ],
   universities: [
     { name: "Buckinghamshire New University", logo: "/images/universities/uk/Buckinghamshire-New-University.webp" },
     { name: "BPP University", logo: "/images/universities/uk/BPP-University.webp" },
@@ -234,12 +152,12 @@ const pageData: NepalVariantData = {
     {
       question: "How long does the UK student visa process take?",
       answer:
-        "Usually 3-4 weeks after biometric submission from VFS Global Kathmandu. Priority services are available for faster processing.",
+        "Usually about 3 weeks after your biometrics appointment in Kathmandu. Priority services can be faster.",
     },
     {
       question: "Can I work while studying in the UK?",
       answer:
-        "Yes, 20 hours/week during term time on degree-level courses (10 hours below degree level) and full-time during holidays. The UK minimum wage is £10-15/hour.",
+        "Yes, 20 hours/week during term time on degree-level courses (10 hours below degree level) and full-time during holidays.",
     },
     {
       question: "Do I need IELTS for UK study?",
@@ -263,124 +181,11 @@ const pageData: NepalVariantData = {
     },
   ],
 
-  ctaTitle: "Ready to Begin Your Study Abroad Journey?",
-  ctaContent:
-    "Our expert consultants are here to guide you every step of the way.",
-};
-
-const ukTheme: CountryTheme = {
-  primary: "#1E3A8A",
-  primaryDeep: "#0A1F44",
-  accent: "#C8102E",
-  accentSoft: "#E63946",
-  gold: "#B08D57",
-  surfaceTint: "#F5F3EE",
-  ink: "#1A1A1A",
-
-  heroImage:
-    "https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&w=2000&q=80",
-  heroEyebrow: "Pursue your British education",
-  heroGradient:
-    "linear-gradient(115deg, rgba(10,31,68,0.92) 0%, rgba(10,31,68,0.7) 45%, rgba(200,16,46,0.55) 100%)",
-
-  dividerStyle: "uk-alternating",
-  showFlagStripeOnCards: true,
-  flagColors: ["#C8102E", "#FFFFFF", "#012169"],
-  serifHeadings: true,
-  heritagePattern: true,
-  towerBridgeTransition: true,
-  crownTabIcon: true,
-  dropCapIntro: true,
-  ctaCrownOrnament: true,
-  benefitLandmarks: [
-    "big-ben",
-    "tower-bridge",
-    "oxford-spires",
-    "kings-college",
-    "edinburgh-castle",
-    "manchester-town-hall",
-  ],
-  universitiesBackdrop: "oxford-spires",
-  universitiesEyebrow: "Renowned British Institutions",
-  ctaLandmarks: { left: "big-ben", right: "tower-bridge" },
-  journeyStrip: {
-    stats: [
-      { value: ADMIZZ_STATS.studentsPlaced, label: "Nepali students placed in UK universities" },
-      { value: "Free", label: "First Consultation with Expert Counsellors" },
-      { value: "ICEF", label: "Accredited Study Abroad Agency" },
-    ],
-    eyebrow: "Study Across the United Kingdom",
-    accentColor: "#C8102E",
-    accentSoftColor: "#E63946",
-    ringColor: "#B08D57",
-    bgGradient: "linear-gradient(180deg, #F5F3EE 0%, #FFFFFF 100%)",
-    cities: [
-      {
-        name: "London",
-        landmark: "Big Ben",
-        image: "https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        name: "Edinburgh",
-        landmark: "Edinburgh Castle",
-        image: "https://images.unsplash.com/photo-1546617605-31567bc8c7d3?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        name: "Oxford",
-        landmark: "Radcliffe Camera",
-        image: "https://images.unsplash.com/photo-1568792923760-d70635a89fdc?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        name: "Cambridge",
-        landmark: "King's College",
-        image: "https://images.unsplash.com/photo-1504817343863-5092a923803e?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        name: "Manchester",
-        landmark: "Town Hall",
-        image: "https://images.unsplash.com/photo-1577310528320-fb74a8d5a99e?auto=format&fit=crop&w=400&q=80",
-      },
-    ],
-  },
+  ctaTitle: "Plan your UK move with us",
+  ctaContent: "Free first consultation with our UK team, in person or on a call.",
 };
 
 export default async function StudyInUKFromNepalPage() {
-  const blogPosts: SanityPost[] = await client.fetch(
-    postsByCategoryQuery,
-    { categorySlug: "uk" }
-  );
-  return (
-    <>
-      <NepalVariantTemplate
-        data={pageData}
-        blogPosts={blogPosts}
-        theme={ukTheme}
-        customHero={
-          <>
-            <UKCinematicHero
-              heading={pageData.heroHeading}
-              subheading={pageData.heroSubheading}
-              countryName={pageData.countryName}
-            />
-            <CrownDivider />
-          </>
-        }
-        replaceWhySection={<UKWhyNarrative />}
-        insertAfterIntakes={
-          <>
-            <CrownDivider />
-            <UKCityMap />
-          </>
-        }
-        replaceCostSection={
-          <UKCostViz
-            scholarshipsTitle={pageData.scholarshipsTitle}
-            scholarshipsIntro={pageData.scholarshipsIntro}
-            scholarships={pageData.scholarships}
-          />
-        }
-      />
-      <UKStickyMobileCTA />
-    </>
-  );
+  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "uk" });
+  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

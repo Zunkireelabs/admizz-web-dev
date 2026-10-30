@@ -1,28 +1,21 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
-import type { NepalVariantData, CountryTheme } from "@/components/ui/NepalVariantTemplate";
-import IndiaAnimations from "@/components/india/IndiaAnimations";
-import IndiaCinematicHero from "@/components/india/IndiaCinematicHero";
-import IndiaCostViz from "@/components/india/IndiaCostViz";
-import IndiaCityMap from "@/components/india/IndiaCityMap";
-import IndiaWhyNarrative from "@/components/india/IndiaWhyNarrative";
-import IndiaStickyMobileCTA from "@/components/india/IndiaStickyMobileCTA";
+import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { client } from "@/lib/sanity";
 import { postsByCategoryQuery } from "@/lib/queries";
 import type { SanityPost } from "@/types";
-import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Study in India from Nepal - Admizz Education",
   description:
-    "Study in India from Nepal with top universities, affordable fees, quality education & global exposure. Apply now for 2025 intake!",
+    "Study in India from Nepal: no visa needed, admission steps, fees, Embassy of India scholarships and intakes for the 2027 academic year.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-india-from-nepal",
   },
   openGraph: {
     title: "Study in India from Nepal - Admizz Education",
     description:
-      "Study in India from Nepal with top universities, affordable fees, quality education & global exposure. Apply now for 2025 intake!",
+      "Study in India from Nepal: no visa needed, admission steps, fees, Embassy of India scholarships and intakes for the 2027 academic year.",
     url: "https://admizzeducation.com/study-in-india-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/nepali-2.webp"],
@@ -34,198 +27,113 @@ const pageData: NepalVariantData = {
   countryName: "India",
   countryCategorySlug: "india",
   heroHeading: "Study in India from Nepal",
-  heroSubheading: "Build a Bright Future in One of the World's Top Study Destinations",
-
-  introTitle: "Your Path to Quality Education",
-  introContent: "Study in India from Nepal has become one of the most popular choices for students seeking quality education with affordability and convenience. India's strong academic system, low tuition fees, cultural similarities, and proximity to Nepal make it an ideal destination. Prestigious institutions like IITs, IIMs, and AIIMS, alongside UGC-recognized universities and AICTE-approved colleges, offer world-class opportunities right next door. Whether you pursue Engineering, Medicine, Management, IT, or Humanities programs, Admizz provides comprehensive guidance from college selection through entrance exam preparation, accommodation, and documentation.",
-
-  whyStudyTitle: "Why Study in India from Nepal",
+  heroSubheading: "No visa needed. Course choice, admission and documents, handled with a counsellor at our Kathmandu office.",
+  heroImage: "/images/hero/india-hero.webp",
+  quickFacts: [
+    { label: "Intakes", value: "Jul – Aug" },
+    { label: "NIT tuition", value: "US$2,000 / sem" },
+    { label: "Bachelor's", value: "3 – 4 years" },
+    { label: "Visa", value: "Not needed" },
+    { label: "English", value: "Class 12 marks" },
+  ],
+  introTitle: "Study in India from Nepal",
+  introContent:
+    "Nepali citizens can study in India without a visa. Many courses are taught in English, fees are lower than in Western countries, and home is a bus ride or short flight away.",
+  whyStudyTitle: "Close to home, no visa, lower fees",
+  whyStudyIntro: "Why so many students from Nepal pick India.",
+  highlightStats: [
+    {
+      value: "0",
+      unit: "visas",
+      label: "needed to study in India",
+      note: "Nepali citizens entering by land or air from Nepal need no passport or visa (MHA Exemption Order, September 2025). Carry your citizenship certificate or passport.",
+    },
+    { value: "US$2,000", unit: "a semester", label: "NIT tuition, SAARC rate (DASA)" },
+    { value: "6.4", unit: "lakh NPR a year", label: "Embassy law scholarship cap" },
+  ],
   benefits: [
     {
-      title: "Globally Accepted Degrees",
-      description: "Indian universities are globally recognized and accepted for jobs or higher studies worldwide."
+      title: "No visa or permit",
+      description: "Enter with your citizenship certificate or passport. There is no visa fee or visa wait.",
     },
     {
-      title: "Affordable Tuition & Living",
-      description: "Study at top institutions at lower costs compared to UK, USA, or Australia."
+      title: "Lower fees",
+      description: "Government institutes charge SAARC students reduced rates, e.g. US$2,000 a semester at NITs via DASA.",
     },
     {
-      title: "Cultural & Linguistic Familiarity",
-      description: "Easy adjustment due to shared culture, food, festivals, and in many cases, language (Hindi/English)."
+      title: "Government scholarships",
+      description: "The Embassy of India in Kathmandu runs several schemes for Nepali students each year.",
     },
     {
-      title: "Excellent Medical & Engineering Colleges",
-      description: "India is home to renowned institutes in medicine, engineering, pharmacy, and IT."
+      title: "Close to home",
+      description: "Similar food, culture and climate, and you can travel home by road for holidays.",
     },
-    {
-      title: "Thousands of Courses",
-      description: "Pick from AI, data science, hotel management, fashion design, business, arts, or traditional subjects."
-    },
-    {
-      title: "Easy Travel & Entry Process",
-      description: "Open border and strong bilateral ties ensure smooth entry, faster admissions, and simple documentation."
-    }
   ],
-
-  visaTitle: "Indian Visa Requirements",
-  visaIntro: "Nepalese students do not require a traditional student visa to study in India due to the open-border policy. However, registration at the university and FRRO documentation may be required depending on duration and region.",
+  visaTitle: "Your admission, step by step",
+  visaIntro: "No visa is needed, so the work is in admission and documents. Start 4–6 months before your course.",
   visaRequirements: [
-    {
-      category: "Visa Needed",
-      details: "No visa required for Nepalese nationals"
-    },
-    {
-      category: "Entry",
-      details: "Valid passport or citizenship card"
-    },
-    {
-      category: "University Registration",
-      details: "Required at time of admission"
-    },
-    {
-      category: "FRRO/Police Registration",
-      details: "Not required except some cases based on duration/region"
-    },
-    {
-      category: "Study Permit",
-      details: "Academic documents and NOC from Nepal's Ministry of Education"
-    }
+    { category: "Choose a course", details: "Pick a UGC-recognised university or AICTE-approved college. We shortlist with you." },
+    { category: "Entrance test if needed", details: "NEET-UG for MBBS/BDS, DASA for NITs, or the university's own test." },
+    { category: "Apply & get your admission letter", details: "Apply to the university, or through an Embassy scheme in Kathmandu." },
+    { category: "Equivalence certificate", details: "UGC or AIU certificate that your +2 equals Class 12 in India." },
+    { category: "Pay fees & book housing", details: "Pay the first-semester fee and confirm a hostel place." },
+    { category: "Travel & enrol", details: "Cross by road or fly from Kathmandu, then complete enrolment on campus." },
   ],
-
-  intakesTitle: "Admission Intakes & Duration",
+  visaDocuments: [
+    "Citizenship certificate (with English translation)",
+    "Passport, if flying in from a third country",
+    "Class 10 and 12 mark sheets",
+    "UGC or AIU equivalence certificate",
+    "Admission letter from the university",
+    "Character certificate from your last school",
+    "Entrance test score (NEET, DASA etc.)",
+  ],
+  intakesTitle: "When you can start",
+  intakesIntro: "Most Indian universities start once a year, in July or August.",
   intakes: [
-    {
-      intake: "Main Intake",
-      months: "July–August",
-      details: "Primary intake for most institutions"
-    },
-    {
-      intake: "Winter Intake",
-      months: "January–February",
-      details: "Selected institutions based on availability"
-    },
-    {
-      intake: "Rolling Intake",
-      months: "Throughout the year",
-      details: "Limited programs, common for short-term certifications"
-    }
+    { intake: "July intake", months: "Apply March – June", details: "Main intake for most universities and Embassy schemes." },
+    { intake: "August intake", months: "Apply April – July", details: "Many private universities and late rounds." },
+    { intake: "January intake", months: "Check with each university", details: "Selected private universities and courses only." },
   ],
-  intakesNote: "Apply 4–6 months before your preferred intake to ensure smooth admission, documentation, and accommodation arrangements.",
-
-  testTitle: "Eligibility & Entrance Exams",
-  testIntro: "Admizz assists with entrance exam preparation and university applications.",
+  testTitle: "Entrance tests by course",
+  testIntro: "What you may need, depending on the course.",
   testRequirements: [
-    {
-      test: "Engineering (B.Tech)",
-      score: "JEE Advanced / IELTS / TOEFL / Direct for Nepalese Students",
-      notes: ""
-    },
-    {
-      test: "Medical (MBBS/BDS)",
-      score: "NEET",
-      notes: ""
-    },
-    {
-      test: "Management (MBA)",
-      score: "University-specific / Direct for Nepalese Students",
-      notes: ""
-    },
-    {
-      test: "General UG/PG",
-      score: "Direct for Nepalese Students",
-      notes: ""
-    },
-    {
-      test: "Law",
-      score: "CLAT / LSAT",
-      notes: ""
-    }
+    { test: "MBBS / BDS", score: "NEET-UG", notes: "Required for foreign applicants. Embassy schemes ask for the 50th percentile or above." },
+    { test: "NITs / IIITs", score: "DASA", notes: "Admission for foreign nationals, based on JEE Main rank." },
+    { test: "Embassy COMPEX", score: "Computer test in Kathmandu", notes: "For Embassy-funded engineering, pharmacy, agriculture and nursing seats." },
+    { test: "Most other courses", score: "Class 12 marks", notes: "Plus any test the university sets." },
   ],
-
-  costTitle: "Cost of Studying",
-  costIntro: "Government institutions like IITs, AIIMS, and central universities offer subsidized education for SAARC country students, including Nepal.",
+  costTitle: "What studying in India costs",
+  costIntro: "Fees depend heavily on the college. These are verified figures from official notices.",
   costTables: [
     {
-      title: "Approximate Annual Tuition Fees",
+      title: "Tuition",
       rows: [
-        {
-          category: "Diploma",
-          cost: "₹15,000–₹50,000 (Government) | ₹40,000–₹1,00,000 (Private)"
-        },
-        {
-          category: "Undergraduate",
-          cost: "₹30,000–₹1,00,000 (Government) | ₹80,000–₹3,00,000 (Private)"
-        },
-        {
-          category: "Postgraduate",
-          cost: "₹50,000–₹2,00,000 (Government) | ₹1,00,000–₹4,00,000 (Private)"
-        },
-        {
-          category: "Engineering (B.Tech)",
-          cost: "₹40,000–₹1,20,000 (Government) | ₹1,00,000–₹3,50,000 (Private)"
-        },
-        {
-          category: "Medical (MBBS)",
-          cost: "₹50,000–₹2,00,000 (Government) | ₹5,00,000–₹15,00,000 (Private)"
-        },
-        {
-          category: "MBA Programs",
-          cost: "₹1,00,000–₹2,50,000 (Government) | ₹2,00,000–₹7,00,000 (Private)"
-        }
-      ]
+        { category: "NITs via DASA (SAARC)", cost: "US$2,000 / sem + institute fees" },
+        { category: "Embassy SFS seats (MBBS, BE)", cost: "College fees, self-paid" },
+        { category: "Private universities", cost: "Varies; we share fee sheets" },
+      ],
     },
     {
-      title: "Course Duration",
+      title: "Visa, fees & funding",
       rows: [
-        {
-          category: "Bachelor's Degree",
-          cost: "3–4 years"
-        },
-        {
-          category: "Master's Degree",
-          cost: "2 years"
-        },
-        {
-          category: "Medical (MBBS/BDS)",
-          cost: "5–5.5 years"
-        },
-        {
-          category: "Engineering (B.Tech)",
-          cost: "4 years"
-        },
-        {
-          category: "Diploma Programs",
-          cost: "1–3 years"
-        },
-        {
-          category: "PhD Programs",
-          cost: "3–5 years"
-        }
-      ]
-    }
+        { category: "Visa fee", cost: "None" },
+        { category: "COMPEX application", cost: "NPR 400" },
+        { category: "Law scholarship", cost: "Up to NPR 6.4 lakh / yr" },
+      ],
+    },
   ],
-
-  scholarshipsTitle: "Scholarships",
-  scholarshipsIntro: "Admizz helps identify and apply for eligible scholarships.",
+  costNote: "Sources: DASA 2026 fee structure (dasanit.org) and Embassy of India Kathmandu notices, checked October 2026.",
+  scholarshipsTitle: "Funding you can apply for",
+  scholarshipsIntro: "We check which of these you qualify for in your first consultation.",
   scholarships: [
-    {
-      name: "ICCR Scholarships",
-      details: "Full/partial scholarships for UG, PG, and PhD students from Nepal"
-    },
-    {
-      name: "SAARC Scholarship Schemes",
-      details: "Regional initiatives to support education among SAARC members"
-    },
-    {
-      name: "University Merit Scholarships",
-      details: "Provided by private/public universities based on academic scores"
-    },
-    {
-      name: "COMPEX Scholarships",
-      details: "Fully Funded Scholarship offered by the Indian Embassy exclusively for Nepalese Students"
-    }
+    { name: "ICCR Scholarships", provider: "Government of India (ICCR)", details: "Bachelor's, master's and PhD study in India. Apply via the ICCR portal." },
+    { name: "COMPEX Scholarship", provider: "Embassy of India, Kathmandu", details: "Bachelor's in engineering, pharmacy, agriculture, food tech or nursing." },
+    { name: "Law Scholarship Scheme", provider: "Embassy of India, Kathmandu", details: "Up to NPR 6.4 lakh a year at top-20 NIRF law colleges." },
+    { name: "Dr. Homi Jahangir Bhabha", provider: "Embassy of India, Kathmandu", details: "ME / M.Tech study in India." },
+    { name: "Nepal Aid Fund", provider: "Embassy of India, Kathmandu", details: "M.Sc. (Agriculture) study in India." },
   ],
-
+  scholarshipsNote: "The Embassy accepts scholarship applications only from students directly, not through agents. We help you prepare; you submit yourself.",
   universities: [
     { name: "IISc Bangalore", logo: "/images/universities/india/iisc-bangalore.webp" },
     { name: "University of Delhi", logo: "/images/universities/india/university-of-delhi.webp" },
@@ -242,108 +150,42 @@ const pageData: NepalVariantData = {
 
   faqItems: [
     {
-      question: "Do Nepalese students need a visa to study in India?",
-      answer: "No. Due to the open-border policy between India and Nepal, Nepalese students do not require a visa. However, registration at the university is necessary."
+      question: "Do Nepali students need a visa to study in India?",
+      answer:
+        "No. Nepali citizens entering India by land or air from Nepal need no passport or visa. Carry your citizenship certificate or passport as ID. If you fly in from another country, you need a valid passport.",
+    },
+    {
+      question: "Do I need to register with the FRRO?",
+      answer:
+        "Nepali citizens have not been required to register with the FRRO. Your university will still record your details as a foreign student, so keep your ID and admission papers ready.",
     },
     {
       question: "Are Indian degrees valid in Nepal?",
-      answer: "Yes. Degrees from Indian universities are recognized in Nepal and accepted for employment and further education."
+      answer:
+        "Degrees from UGC-recognised universities are accepted in Nepal. Check recognition before you apply, and get your degree's equivalence in Nepal when you return.",
     },
     {
-      question: "What entrance exams are required for Indian universities?",
-      answer: "Exams like JEE, NEET, CAT, CUET, or university-specific tests may be needed, depending on the course."
+      question: "What entrance exams do I need?",
+      answer:
+        "NEET-UG for MBBS/BDS, DASA for NITs, and the Embassy's own test for COMPEX seats. Many private universities admit on Class 12 marks.",
     },
     {
-      question: "How much does it cost to study in India for a Nepali student?",
-      answer: "Annual tuition may range from ₹50,000 to ₹2,00,000, depending on the course and institution. Living expenses are also lower than Western countries."
+      question: "How much does it cost to study in India?",
+      answer:
+        "It depends on the college. NITs charge SAARC students US$2,000 a semester in tuition through DASA, plus institute fees. Private university fees vary widely.",
     },
     {
-      question: "Are there scholarships for Nepali students?",
-      answer: "Yes. ICCR, university-level, and merit-based scholarships are available for students from Nepal."
+      question: "When should I apply?",
+      answer:
+        "Start 4–6 months before your course. Most courses start in July or August, and Embassy scheme deadlines usually fall between April and September.",
     },
-    {
-      question: "When should I apply to Indian universities?",
-      answer: "Ideally, 3–6 months before your intended intake (March–April for July, October–November for January)."
-    },
-    {
-      question: "Can I work part-time while studying in India?",
-      answer: "Part-time jobs are allowed off-campus but subject to institutional policy and Indian labor laws. Most students take internships or assistantships."
-    },
-    {
-      question: "Does Admizz help with India study admissions?",
-      answer: "Yes. Admizz provides complete guidance for Nepali students — from university selection and document prep to scholarships and admission."
-    }
   ],
 
-  ctaTitle: "Take the First Step – Start Your Education in India",
-  ctaContent: "India offers top-tier education, cultural connection, and cost-effective learning with hundreds of globally recognized institutions across medicine, engineering, business, IT, and humanities. Admizz helps you choose the right college/university, navigate entrance exams, secure scholarships, and complete admission formalities. Thousands of students from Nepal are already studying in India and building successful careers. Now it's your turn!"
-};
-
-const indiaTheme: CountryTheme = {
-  primary: "#1C5D3F",
-  primaryDeep: "#0B3D2E",
-  accent: "#FF6B1A",
-  accentSoft: "#FFB870",
-  gold: "#C9A961",
-  surfaceTint: "#FFF8F1",
-  ink: "#1A1A1A",
-
-  heroImage:
-    "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2000&q=80",
-  heroGradient:
-    "linear-gradient(115deg, rgba(11,61,46,0.92) 0%, rgba(11,61,46,0.7) 45%, rgba(255,107,26,0.55) 100%)",
-
-  showChakraDividers: true,
-  dividerStyle: "filigree",
-  heritagePattern: true,
-  serifHeadings: true,
-  showFlagStripeOnCards: true,
-  benefitLandmarks: [
-    "taj-mahal",
-    "lotus-temple",
-    "hawa-mahal",
-    "india-gate",
-    "mysore-palace",
-    "red-fort",
-  ],
-  universitiesBackdrop: "gateway-of-india",
-  ctaLandmarks: { left: "charminar", right: "victoria-memorial" },
-  journeyStrip: {
-    stats: [
-      { value: ADMIZZ_STATS.studentsPlaced, label: "Students successfully enrolled worldwide" },
-      { value: "Free", label: "First Consultation with Expert Counsellors" },
-      { value: "ICEF", label: "Accredited Study Abroad Agency" },
-    ],
-  },
+  ctaTitle: "Plan your India move with us",
+  ctaContent: "Free first consultation with our India team, in person or on a call.",
 };
 
 export default async function StudyInIndiaFromNepalPage() {
   const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "india" });
-  return (
-    <>
-      <NepalVariantTemplate
-        data={pageData}
-        blogPosts={blogPosts}
-        theme={indiaTheme}
-        customHero={
-          <IndiaCinematicHero
-            heading={pageData.heroHeading}
-            subheading={pageData.heroSubheading}
-            countryName={pageData.countryName}
-          />
-        }
-        replaceWhySection={<IndiaWhyNarrative />}
-        insertAfterIntakes={<IndiaCityMap />}
-        replaceCostSection={
-          <IndiaCostViz
-            scholarshipsTitle={pageData.scholarshipsTitle}
-            scholarshipsIntro={pageData.scholarshipsIntro}
-            scholarships={pageData.scholarships}
-          />
-        }
-      />
-      <IndiaAnimations />
-      <IndiaStickyMobileCTA />
-    </>
-  );
+  return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }
