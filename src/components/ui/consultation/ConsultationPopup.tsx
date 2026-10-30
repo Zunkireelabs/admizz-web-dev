@@ -41,6 +41,8 @@ interface ConsultationPopupProps {
   countryName?: string;
   /** Attribution tag sent to the CRM, e.g. "country-germany" */
   formSource?: string;
+  /** Values the visitor already typed elsewhere (e.g. an inline hero form) */
+  prefill?: { fullName?: string; phone?: string };
 }
 
 /** Maps a page country name ("the UK", "New Zealand") to the CRM destination value ("uk", "new_zealand") */
@@ -88,16 +90,18 @@ function PopupBody({
   onClose,
   countryName,
   formSource = "consultation",
+  prefill,
 }: Omit<ConsultationPopupProps, "open">) {
   const uid = useId();
   const id = (name: string) => `${uid}-${name}`;
 
+  const [prefillFirst = "", ...prefillRest] = (prefill?.fullName ?? "").trim().split(/\s+/);
   const initialForm = (): FormState => ({
-    firstName: "",
-    lastName: "",
+    firstName: prefillFirst,
+    lastName: prefillRest.join(" "),
     email: "",
     country: "nepal",
-    phone: "",
+    phone: prefill?.phone ?? "",
     city: "",
     destination: destinationValueFor(countryName),
     program: "",

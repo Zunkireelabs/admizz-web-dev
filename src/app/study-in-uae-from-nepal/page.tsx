@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in UAE from Nepal - Admizz Education",
   description:
-    "Study in the UAE with top-ranked universities, expert admission support, modern campuses, and visa assistance. Apply for 2025 intake now!",
+    "Study in the UAE from Nepal: universities in Abu Dhabi, Dubai and Sharjah, tuition in AED, the university-sponsored student visa, intakes and costs.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-uae-from-nepal",
   },
   openGraph: {
     title: "Study in UAE from Nepal - Admizz Education",
     description:
-      "Study in the UAE with top-ranked universities, expert admission support, modern campuses, and visa assistance. Apply for 2025 intake now!",
+      "Study in the UAE from Nepal: universities in Abu Dhabi, Dubai and Sharjah, tuition in AED, the university-sponsored student visa, intakes and costs.",
     url: "https://admizzeducation.com/study-in-uae-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/UAE.webp"],
@@ -26,154 +26,105 @@ export const metadata: Metadata = {
 const pageData: NepalVariantData = {
   countryName: "UAE",
   countryCategorySlug: "uae",
-  heroHeading: "Build a Bright Future in One of the World's Top Study Destinations",
-  heroSubheading: "Experience world-class education in a vibrant international hub. Study in the UAE with Admizz Education—get expert counselling, top university options, visa guidance, and scholarship support for your academic success.",
-  introTitle: "Shape Your Future in the Heart of Innovation",
-  introContent: "Dreaming of studying in a global education hub that blends modern innovation with cultural heritage? The United Arab Emirates (UAE) is a rapidly growing destination for international students offering globally recognized degrees, modern infrastructure, and world-class campuses. With campuses of top international universities, strong academic standards, and English-taught programs, the UAE is ideal for undergraduate, postgraduate, and doctoral studies. Cities like Dubai, Abu Dhabi, and Sharjah are not only education centers but also dynamic economic and cultural hotspots. At Admizz Education, we help you choose the right university, prepare for admissions, apply for scholarships, and guide you through visa processing—ensuring a smooth academic journey to the UAE.",
-  whyStudyTitle: "Why Study in the UAE?",
-  whyStudyIntro: "The UAE offers more than just excellent academics—it's a gateway to global career opportunities and diverse learning experiences. Here's why students from around the world choose the UAE:",
+  heroHeading: "Study in the UAE from Nepal",
+  heroSubheading: "Universities in Abu Dhabi, Dubai and Sharjah, with your university sponsoring the student visa. We guide you from Kathmandu.",
+  heroImage: "/images/hero/dubai-hero.webp",
+  quickFacts: [
+    { label: "Intakes", value: "Sep · Jan" },
+    { label: "Tuition from", value: "AED 55,000 / yr" },
+    { label: "Bachelor's", value: "3–4 years" },
+    { label: "Golden visa", value: "10 yrs, top grads" },
+    { label: "English", value: "IELTS 6.0+" },
+  ],
+  introTitle: "Study in the UAE from Nepal",
+  introContent:
+    "The UAE has public universities, private universities and foreign branch campuses across Abu Dhabi, Dubai, Sharjah and the other emirates. Most courses are taught in English. Kathmandu has direct flights to Dubai, Abu Dhabi and Sharjah.",
+  whyStudyTitle: "Many kinds of university, one visa system",
+  whyStudyIntro: "Why students from Nepal pick the UAE.",
+  highlightStats: [
+    {
+      value: "10",
+      unit: "years",
+      label: "Golden visa",
+      note: "for top graduates of UAE universities: bachelor's GPA of 3.5+ (3.8+ at some universities), applied for within two years of graduating.",
+    },
+    { value: "37", unit: "branch campuses", label: "in Dubai alone" },
+    { value: "3–4", unit: "years", label: "for a bachelor's" },
+  ],
   benefits: [
     {
-      title: "Academic Excellence",
-      description: "Study at international branch campuses of top-ranked global universities or renowned UAE institutions like Khalifa University and UAEU.",
+      title: "Choice across emirates",
+      description: "Public universities like UAEU, private ones like AUS, and branch campuses of UK and Australian universities.",
     },
     {
-      title: "Global Recognition",
-      description: "Earn degrees that are internationally accredited and respected by employers and universities worldwide.",
+      title: "Checked by the government",
+      description: "Federal programmes are accredited by the CAA. Dubai free-zone campuses are approved by KHDA.",
     },
     {
-      title: "English-Taught Programs",
-      description: "Most programs are taught in English, making it easy for international students to adapt and succeed.",
+      title: "Visa through your university",
+      description: "Your university sponsors your student residence visa. You don't need a family member in the UAE.",
     },
     {
-      title: "Safe & Student-Friendly Environment",
-      description: "Live and learn in a safe, multicultural, and innovation-driven society.",
-    },
-    {
-      title: "Work While You Study",
-      description: "International students can take up part-time internships or work in designated zones under student visa rules.",
-    },
-    {
-      title: "Scholarships & Financial Support",
-      description: "Many institutions offer merit-based and need-based scholarships to reduce your financial burden.",
+      title: "A route to stay on",
+      description: "Top graduates of UAE universities can apply for a 10-year golden visa within two years of graduating.",
     },
   ],
-  visaTitle: "Student Visa Requirements for the UAE",
-  visaIntro: "To study in the UAE, international students must apply for a Student Residence Visa sponsored by a recognized university.",
+  visaTitle: "Your student visa, step by step",
+  visaIntro: "In the UAE the university is your visa sponsor. Its visa team files the application with the immigration authority of its emirate.",
   visaRequirements: [
-    {
-      category: "Visa Type",
-      details: "UAE Student Residence Visa",
-    },
-    {
-      category: "Who It's For",
-      details: "International students enrolled in full-time academic programs in UAE",
-    },
-    {
-      category: "Validity",
-      details: "Usually 1 year, renewable annually",
-    },
-    {
-      category: "Documents Required",
-      details: "Admission letter, passport, medical certificate, proof of funds, Emirates ID registration",
-    },
-    {
-      category: "Processing Time",
-      details: "2 to 6 weeks (depending on university and location)",
-    },
-    {
-      category: "More Info",
-      details: "Check UAE Government Portal for updates",
-    },
+    { category: "Choose a university", details: "Pick an accredited university and course. We shortlist with you." },
+    { category: "Offer & fee NOC", details: "Get your offer, then a no objection letter from Nepal's Ministry of Education to send fees abroad." },
+    { category: "Pay deposit & visa fee", details: "Part of the first year's tuition, the visa fee and any visa deposit." },
+    { category: "University files your visa", details: "It applies for your entry permit (ICP, or GDRFA in Dubai). We brief you in Kathmandu before you fly." },
+    { category: "Fly to the UAE", details: "Enter on the entry permit, then report to your university's visa office." },
+    { category: "Medical test & Emirates ID", details: "Medical fitness test and Emirates ID biometrics. Your residence visa is then issued and renewed each year." },
   ],
-  intakesTitle: "Intakes Available in the UAE",
-  intakesIntro: "UAE universities usually offer two major intakes with some institutions also allowing mid-year enrollments.",
+  visaDocuments: [
+    "Passport valid at least 1 year",
+    "Unconditional offer letter",
+    "Photo on a white background",
+    "Tuition deposit and visa fee receipts",
+    "Academic transcripts",
+    "IELTS or PTE result",
+  ],
+  intakesTitle: "When you can start",
+  intakesIntro: "September has the most courses. Leave a few weeks for the visa before you start.",
   intakes: [
-    {
-      intake: "Fall Intake",
-      months: "August – September",
-    },
-    {
-      intake: "Spring Intake",
-      months: "January – February",
-    },
-    {
-      intake: "Summer (Optional)",
-      months: "May – June (in selected programs)",
-    },
+    { intake: "September intake", months: "Apply March – July", details: "Main intake at every university." },
+    { intake: "January intake", months: "Apply August – November", details: "Offered by most universities." },
+    { intake: "April / May intake", months: "Check with each university", details: "Selected courses at some campuses." },
   ],
-  intakesNote: "Plan your application accordingly to secure your seat and apply for scholarships early.",
-  testTitle: "IELTS Requirements for Studying in the UAE",
-  testIntro: "English proficiency is mandatory for admission into most UAE universities. IELTS is widely accepted across institutions.",
-  testRequirements: [
-    {
-      test: "Undergraduate",
-      score: "5.5 – 6.0 overall band",
-    },
-    {
-      test: "Postgraduate",
-      score: "6.0 – 6.5 overall band",
-    },
-    {
-      test: "Top Universities",
-      score: "May require 7.0 or higher",
-    },
-  ],
-  testNote: "Some institutions accept alternatives like TOEFL, PTE, or may conduct their own language tests. Contact Admizz for guidance on test prep and admissions.",
-  costTitle: "Cost to Study in the UAE",
-  costIntro: "The UAE offers affordable and high-quality education in a globally connected environment.",
+  costTitle: "What a year in the UAE costs",
+  costIntro: "Typical tuition across the UAE, plus housing and visa costs at named universities as examples.",
   costTables: [
     {
+      title: "Tuition per year",
       rows: [
-        {
-          category: "Foundation Courses",
-          cost: "AED 15,000 – AED 25,000",
-        },
-        {
-          category: "Undergraduate Programs",
-          cost: "AED 35,000 – AED 70,000",
-        },
-        {
-          category: "Postgraduate Programs",
-          cost: "AED 45,000 – AED 90,000",
-        },
-        {
-          category: "MBA / Specialized Courses",
-          cost: "AED 60,000 – AED 120,000",
-        },
-        {
-          category: "Living Expenses",
-          cost: "AED 2,500 – AED 4,000/month",
-        },
+        { category: "Foundation year", cost: "AED 49k – 60k" },
+        { category: "Undergraduate", cost: "AED 55k – 111k" },
+        { category: "Postgraduate / MBA", cost: "AED 60k – 90k+" },
+      ],
+    },
+    {
+      title: "Living & visa costs",
+      rows: [
+        { category: "University housing", cost: "AED 5,000 – 8,500 / semester" },
+        { category: "Student visa (from Nepal)", cost: "AED 5,555" },
+        { category: "Visa deposit (refundable)", cost: "AED 2,500" },
+        { category: "Visa renewal", cost: "AED 4,570 / yr" },
       ],
     },
   ],
-  costNote: "Living expenses include rent, food, travel, and basic needs.",
-  scholarshipsTitle: "Scholarships to Study in the UAE",
-  scholarshipsIntro: "Many UAE universities offer scholarships to attract and support international students based on academic merit and financial need.",
+  costNote:
+    "Tuition: university fee lists, from UAEU (AED 1,900–2,500 per credit hour) to AUS (AED 110,876). Housing: UAEU and American University in Dubai. Visa: Middlesex University Dubai, fee includes Emirates ID and medical insurance; other universities differ. Checked October 2026.",
+  scholarshipsTitle: "Funding you can apply for",
+  scholarshipsIntro: "Most funding in the UAE comes from universities. We check what you qualify for.",
   scholarships: [
-    {
-      name: "Khalifa University Scholarships",
-      details: "Full or partial funding for STEM programs at undergraduate and postgraduate levels",
-    },
-    {
-      name: "University of Dubai Merit Scholarships",
-      details: "Offered to high-achieving students across business and IT programs",
-    },
-    {
-      name: "Middlesex University Dubai Scholarships",
-      details: "Tuition discounts and academic grants for outstanding international students",
-    },
-    {
-      name: "Abu Dhabi University Scholarships",
-      details: "Multiple categories including merit, family tuition waivers, and athletic scholarships",
-    },
-    {
-      name: "Amity University Dubai Scholarships",
-      details: "Merit-based and sports scholarships available across multiple disciplines",
-    },
+    { name: "Graduate Scholarship", provider: "Khalifa University, Abu Dhabi", details: "For international master's and PhD students. Top tiers cover full tuition." },
+    { name: "Undergraduate Merit Scholarship", provider: "Heriot-Watt University Dubai", details: "30%, 40% or 50% off first-year tuition, based on your grades." },
+    { name: "International Study Grant", provider: "Middlesex University Dubai", details: "Tuition grant for international applicants, set by admissions." },
+    { name: "University awards", provider: "Other UAE universities", details: "Merit discounts that change each intake. We check current terms." },
   ],
-  scholarshipsNote: "Contact Admizz to discover scholarships tailored to your profile and simplify the application process.",
   universities: [
     { name: "American University in Dubai", logo: "/images/universities/uae/american-university-in-dubai.webp" },
     { name: "American University of Sharjah", logo: "/images/universities/uae/american-university-of-sharjah.webp" },
@@ -186,50 +137,42 @@ const pageData: NepalVariantData = {
     { name: "Zayed University", logo: "/images/universities/uae/zayed-university.webp" },
     { name: "University of Wollongong Dubai", logo: "/images/universities/uae/university-of-wollongong-dubai.webp" },
   ],
+
   faqItems: [
     {
-      question: "Why should I choose the UAE for higher education?",
-      answer: "The UAE combines quality education with multicultural living, globally accredited degrees, and excellent career opportunities.",
+      question: "Who sponsors my student visa in the UAE?",
+      answer:
+        "Your university. It applies for your entry permit, and you finish the residence visa in the UAE with a medical test and Emirates ID.",
     },
     {
-      question: "What are the major intakes in the UAE?",
-      answer: "The two primary intakes are Fall (Aug–Sept) and Spring (Jan–Feb), with limited courses available in Summer.",
+      question: "Is studying in the UAE different from studying in Dubai?",
+      answer:
+        "Dubai is one of seven emirates. Visa rules are the same across the UAE. Dubai free-zone campuses are approved by KHDA; universities elsewhere are accredited federally by the CAA.",
     },
     {
-      question: "What is the cost of studying in the UAE?",
-      answer: "Tuition ranges from AED 35,000 to AED 90,000 per year depending on the program. Living costs range between AED 2,500–4,000/month.",
+      question: "Can I work part-time while studying in the UAE?",
+      answer:
+        "Only with a work permit from the Ministry of Human Resources and Emiratisation (MOHRE), which your employer applies for. Most universities also ask you to get their approval first.",
     },
     {
-      question: "Do I need IELTS to apply?",
-      answer: "Yes, most universities require IELTS or equivalent proof of English proficiency.",
+      question: "Do I need IELTS to study in the UAE?",
+      answer:
+        "Most universities ask for IELTS 6.0 or the PTE or TOEFL equivalent. Some run their own English test or offer a foundation year.",
     },
     {
-      question: "Are scholarships available for international students?",
-      answer: "Yes, many institutions offer scholarships based on merit, need, or special achievements.",
+      question: "How much does it cost to study in the UAE?",
+      answer:
+        "Undergraduate tuition runs from about AED 55,000 a year at public universities to about AED 111,000 at AUS. Add housing, food and visa costs.",
     },
     {
-      question: "Can I work while studying in the UAE?",
-      answer: "Yes, students can work part-time under specific visa permissions and university guidelines.",
-    },
-    {
-      question: "Is the UAE safe for international students?",
-      answer: "Absolutely. The UAE is one of the safest countries globally, with a student-friendly environment.",
-    },
-    {
-      question: "What kind of visa is required to study in the UAE?",
-      answer: "You need a Student Residence Visa sponsored by your university, renewable annually.",
-    },
-    {
-      question: "How long does it take to process a student visa?",
-      answer: "Typically 2–6 weeks, depending on documentation and university timelines.",
-    },
-    {
-      question: "How can Admizz help me study in the UAE?",
-      answer: "Admizz provides expert support in university selection, application, scholarship help, visa process, and relocation planning.",
+      question: "Can I stay in the UAE after graduating?",
+      answer:
+        "Top graduates can apply for a 10-year golden visa: a bachelor's GPA of 3.5 or higher (3.8 at some universities), within two years of graduating. Others need a job and a work visa.",
     },
   ],
-  ctaTitle: "Get in Touch with Admizz",
-  ctaContent: "Dreaming of studying in the UAE? Admizz Education is your trusted partner in making that dream a reality. From selecting top universities to helping with scholarship applications and guiding you through the visa process—we're with you every step of the way. Whether it's a business degree in Dubai, engineering in Abu Dhabi, or media studies in Sharjah, we simplify your path to success in the UAE. Take the first step toward your global education journey with Admizz today!",
+
+  ctaTitle: "Plan your UAE move with us",
+  ctaContent: "Free first consultation with our UAE team, in person or on a call.",
 };
 
 export default async function StudyInUAEFromNepalPage() {

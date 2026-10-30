@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in France from Nepal - Admizz Education",
   description:
-    "Study in France from Nepal with Admizz \u2013 expert guidance for top universities, visa support & a smooth journey to global education.",
+    "Study in France from Nepal: Campus France and student visa steps, 2026-27 tuition, living costs, scholarships and intakes for Nepali students.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-france-from-nepal",
   },
   openGraph: {
     title: "Study in France from Nepal - Admizz Education",
     description:
-      "Study in France from Nepal with Admizz \u2013 expert guidance for top universities, visa support & a smooth journey to global education.",
+      "Study in France from Nepal: Campus France and student visa steps, 2026-27 tuition, living costs, scholarships and intakes for Nepali students.",
     url: "https://admizzeducation.com/study-in-france-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/france.webp"],
@@ -26,176 +26,104 @@ export const metadata: Metadata = {
 const pageData: NepalVariantData = {
   countryName: "France",
   countryCategorySlug: "france",
-  heroHeading: "Build a Bright Future in One of the World's Top Study Destinations",
-  heroSubheading: "Study in France from Nepal with world-class universities, affordable tuition, scholarships, cultural exposure, and excellent career opportunities abroad.",
-
-  introTitle: "Your Pathway to a Premier Education in France",
-  introContent: "France has emerged as a preferred destination for Nepalese students seeking quality education and European career prospects. The country features globally recognized universities, reasonably priced public institution tuition, and numerous programs taught in English across Business, Engineering, Arts, Science, and Hospitality disciplines. Admizz Education provides comprehensive support including university selection, scholarship guidance, visa assistance, and pre-departure preparation for students planning to study in France.",
-
-  whyStudyTitle: "Why Study in France from Nepal?",
+  heroHeading: "Study in France from Nepal",
+  heroSubheading: "Course choice, Campus France and your student visa, handled with a counsellor at our Kathmandu office.",
+  heroImage: "/images/hero/france-hero.webp",
+  quickFacts: [
+    { label: "Intakes", value: "Sep · Jan" },
+    { label: "Tuition from", value: "€2,902 / yr" },
+    { label: "Work", value: "964 hrs / yr" },
+    { label: "Job-search permit", value: "1 year" },
+    { label: "Language", value: "IELTS / DELF" },
+  ],
+  introTitle: "Study in France from Nepal",
+  introContent:
+    "Public universities in France charge set national fees, many master's programmes are taught in English, and master's graduates can stay a year to look for work.",
+  whyStudyTitle: "Set public fees and a year to find work",
+  whyStudyIntro: "Why students from Nepal pick France.",
+  highlightStats: [
+    {
+      value: "964",
+      unit: "hours a year",
+      label: "work while you study",
+      note: "About 60% of full-time hours. Internships that are part of your course don't count towards it.",
+    },
+    { value: "€2,902", unit: "a year", label: "public bachelor's tuition (2026-27)" },
+    { value: "12", unit: "months", label: "job-search permit after a master's" },
+  ],
   benefits: [
     {
-      title: "Top-Ranked Universities",
-      description: "France is home to prestigious institutions and Grandes Écoles that offer globally respected degrees."
+      title: "Set public university fees",
+      description: "€2,902 a year for a bachelor's and €3,950 for a master's at public universities in 2026-27.",
     },
     {
-      title: "Affordable Tuition",
-      description: "Public universities offer some of the lowest tuition fees in Europe, even for international students."
+      title: "Programmes in English",
+      description: "Many master's and business school programmes are taught fully in English.",
     },
     {
-      title: "English-Taught Programs",
-      description: "Thousands of bachelor's and master's courses are available in English — especially in business, engineering, and tech."
+      title: "Work while you study",
+      description: "Up to 964 hours a year on a student residence permit.",
     },
     {
-      title: "Multicultural Environment",
-      description: "France offers a vibrant student life, with many services and discounts for international students."
+      title: "A year to find work",
+      description: "Master's-level graduates can get a 1-year permit to look for a job or start a business.",
     },
-    {
-      title: "Post-Study Work Rights",
-      description: "Stay up to 2 years in France after graduation to explore career opportunities."
-    },
-    {
-      title: "Scholarships for Nepalese Students",
-      description: "French and EU-funded scholarships help reduce financial burden."
-    }
   ],
-
-  visaTitle: "France Student Visa Requirements for Nepalese Students",
-  visaIntro: "Nepalese students pursuing studies longer than 3 months require a Long-Stay Student Visa (VLS-TS).",
+  visaTitle: "Your student visa, step by step",
+  visaIntro: "Nepali students apply through Études en France first, then for a long-stay student visa (VLS-TS).",
   visaRequirements: [
-    {
-      category: "Valid Passport",
-      details: "At least 3 months beyond stay"
-    },
-    {
-      category: "Campus France Registration",
-      details: "Mandatory for visa processing"
-    },
-    {
-      category: "University Acceptance Letter",
-      details: "From recognized French institution"
-    },
-    {
-      category: "Proof of Accommodation",
-      details: "Booking confirmation or housing letter"
-    },
-    {
-      category: "Financial Proof",
-      details: "€615/month via bank statement or sponsor"
-    },
-    {
-      category: "Insurance",
-      details: "Medical & travel coverage up to €30,000"
-    },
-    {
-      category: "Academic Documents",
-      details: "Transcripts, certificates, CV, SOP"
-    },
-    {
-      category: "Passport-Size Photos",
-      details: "Recent, per visa guidelines"
-    },
-    {
-      category: "Visa Fee Receipt",
-      details: "Approx. €50–€99"
-    },
-    {
-      category: "Visa Application Form",
-      details: "Available at france-visas.gouv.fr"
-    }
+    { category: "Choose a programme", details: "Pick a public university or school. We shortlist with you." },
+    { category: "Études en France application", details: "Apply online via Campus France Nepal, Pulchowk, Lalitpur." },
+    { category: "Campus France interview", details: "A short interview on your study plan and background." },
+    { category: "Admission & housing", details: "Accept your offer and arrange accommodation." },
+    { category: "Visa form on France-Visas", details: "Fill in the long-stay student visa form online." },
+    { category: "Submit at VFS Kathmandu", details: "Documents and biometrics at VFS Global, Thapathali." },
+    { category: "Decision & arrival", details: "Validate your visa online within 3 months of arriving (€150)." },
   ],
-  visaNote: "Visa application submission occurs at VFS Global Kathmandu following Campus France approval.",
-
-  intakesTitle: "France Intakes for Nepalese Students",
+  visaDocuments: [
+    "Valid passport",
+    "Admission letter",
+    "Campus France / Études en France number",
+    "Proof of funds (€877.50 a month)",
+    "Proof of accommodation",
+    "Academic transcripts and certificates",
+    "IELTS or French test result",
+  ],
+  intakesTitle: "When you can start",
+  intakesIntro: "September has the most programmes. Études en France takes time, so apply early.",
   intakes: [
-    {
-      intake: "Fall",
-      months: "September – October (Primary intake)"
-    },
-    {
-      intake: "Spring",
-      months: "January – February (Limited programs)"
-    }
+    { intake: "September intake", months: "Apply October – March", details: "Main intake. Most programmes and scholarships." },
+    { intake: "January intake", months: "Check with each school", details: "Selected programmes, mostly at business schools." },
   ],
-  intakesNote: "Advisory: Begin applications 6–9 months before intended intake.",
-
-  testTitle: "Language & IELTS Requirements",
-  testRequirements: [
-    {
-      test: "IELTS",
-      score: "6.0–6.5 for most programs"
-    },
-    {
-      test: "Other Accepted Tests",
-      score: "TOEFL, PTE, Duolingo (varies by institution)"
-    }
-  ],
-  testNote: "While French isn't mandatory for English-taught courses, basic French proficiency supports daily life and employment prospects.",
-
-  costTitle: "Cost of Studying in France from Nepal",
-  costIntro: "France ranks among Europe's most economical study destinations. Public institution tuition receives government subsidization, significantly lowering costs compared to alternative countries. Students additionally benefit from affordable healthcare and housing assistance programs.",
+  costTitle: "What a year in France costs",
+  costIntro: "Public tuition is set nationally for 2026-27. Private schools set their own fees.",
   costTables: [
     {
-      title: "Estimated Annual Expenses for Nepalese Students",
+      title: "Tuition per year",
       rows: [
-        {
-          category: "Public University Tuition (UG)",
-          cost: "€170 – €600/year"
-        },
-        {
-          category: "Public University Tuition (PG)",
-          cost: "€250 – €700/year"
-        },
-        {
-          category: "Private Institutions",
-          cost: "€3,000 – €10,000/year"
-        },
-        {
-          category: "Living Expenses",
-          cost: "€8,000 – €12,000/year"
-        },
-        {
-          category: "Accommodation (Monthly)",
-          cost: "€200 – €600 depending on city"
-        },
-        {
-          category: "Health Insurance",
-          cost: "Around €300/year"
-        },
-        {
-          category: "Transportation & Misc.",
-          cost: "€50 – €100/month"
-        }
-      ]
-    }
+        { category: "Public bachelor's", cost: "€2,902" },
+        { category: "Public master's", cost: "€3,950" },
+        { category: "Private / business schools", cost: "€6k – €18k+" },
+      ],
+    },
+    {
+      title: "Living & visa costs",
+      rows: [
+        { category: "Funds to show", cost: "€877.50 / mo" },
+        { category: "Visa validation", cost: "€150" },
+        { category: "Student contribution (CVEC)", cost: "€105 / yr" },
+      ],
+    },
   ],
-  costNote: "Tip for Nepalese Students: CAF (French Housing Assistance) may reduce monthly rent by up to 35%.",
-
-  scholarshipsTitle: "Scholarships for Nepalese Students",
-  scholarshipsIntro: "France provides several scholarship opportunities:",
+  costNote: "Sources: Campus France (tuition), service-public.gouv.fr (funds, validation) and etudiant.gouv.fr (CVEC), checked October 2026.",
+  scholarshipsTitle: "Funding you can apply for",
+  scholarshipsIntro: "We check which of these you qualify for in your first consultation.",
   scholarships: [
-    {
-      name: "Charpak Scholarship",
-      details: "Offered by French Embassy for bachelor's and master's degrees"
-    },
-    {
-      name: "Eiffel Excellence Scholarship",
-      details: "Government-funded for outstanding master's and PhD students"
-    },
-    {
-      name: "Erasmus+",
-      details: "EU-funded for joint degree programs"
-    },
-    {
-      name: "Campus France Merit Scholarships",
-      details: "Based on academic performance"
-    },
-    {
-      name: "University-specific awards",
-      details: "Based on academic performance or financial need"
-    }
+    { name: "France Excellence Eiffel", provider: "French Government", details: "Master's and PhD. Your French university nominates you." },
+    { name: "Erasmus Mundus", provider: "European Union", details: "Full scholarships for joint master's across European universities." },
+    { name: "University fee waivers", provider: "Universities", details: "Some public universities reduce fees for international students." },
+    { name: "School scholarships", provider: "Business & engineering schools", details: "Merit-based tuition reductions, set by each school." },
   ],
-
   universities: [
     { name: "Sorbonne University", logo: "/images/universities/france/sorbonne-university.webp" },
     { name: "Universit\u00E9 PSL", logo: "/images/universities/france/universite-psl.svg" },
@@ -212,40 +140,43 @@ const pageData: NepalVariantData = {
   faqItems: [
     {
       question: "Can I study in France without knowing French?",
-      answer: "Yes. Many universities offer full-time programs in English, particularly at the postgraduate level."
+      answer:
+        "Yes. Many master's and business school programmes are taught in English. Basic French helps with daily life and part-time work.",
     },
     {
-      question: "Do I need IELTS to study in France from Nepal?",
-      answer: "Yes, most English-taught programs require IELTS or equivalent test."
+      question: "Do I need IELTS to study in France?",
+      answer:
+        "For English-taught programmes, most schools ask for IELTS or a similar test. For French-taught programmes, you need a French test such as DELF or TCF.",
     },
     {
-      question: "How long can I stay in France after graduation?",
-      answer: "Students may apply for post-study work visas valid for up to 2 years after graduation."
-    },
-    {
-      question: "What is the average cost of studying in France?",
-      answer: "Public university tuition runs approximately €2,770–€3,770 annually. Living expenses span €700–€1,200 monthly."
-    },
-    {
-      question: "Are scholarships available for Nepalese students?",
-      answer: "Yes. Charpak, Eiffel, and Erasmus+ scholarships accept Nepalese applicants."
+      question: "How much money do I need to show for the visa?",
+      answer:
+        "At least €877.50 a month for your stay, through bank statements, a sponsor or a scholarship.",
     },
     {
       question: "Can I work part-time while studying?",
-      answer: "Yes. International students may work up to 964 hours annually (averaging 20 hours weekly)."
+      answer:
+        "Yes, up to 964 hours a year on a student residence permit. Internships that are part of your course don't count.",
     },
     {
-      question: "When should I start the application process?",
-      answer: "Begin 6–9 months before intended intake for admissions and visa processing."
+      question: "Can I stay in France after graduating?",
+      answer:
+        "If you finish a master's-level degree, you can get a 1-year permit to look for work or start a business. The permit can't be renewed.",
     },
     {
-      question: "Does Admizz help with French student visa applications?",
-      answer: "Absolutely. Admizz provides complete documentation and guidance for France visa applications."
-    }
+      question: "How much is tuition at public universities?",
+      answer:
+        "For new non-EU students in 2026-27: €2,902 a year for a bachelor's and €3,950 for a master's. Some universities offer fee waivers.",
+    },
+    {
+      question: "Where do Nepali students apply for the visa?",
+      answer:
+        "Complete Études en France with Campus France Nepal, fill in the form on France-Visas, then submit your documents at VFS Global in Kathmandu.",
+    },
   ],
 
-  ctaTitle: "Start Your France Journey with Admizz Today",
-  ctaContent: "France offers unmatched advantages for Nepalese students including academic prestige, innovation, lifestyle, and career opportunities across business, science, fashion, hospitality, and arts fields. Admizz specializes in comprehensive support covering university selection, SOP writing, Campus France procedures, visa interview preparation, and accommodation arrangement. With Admizz, you're not just applying — you're preparing to succeed."
+  ctaTitle: "Plan your France move with us",
+  ctaContent: "Free first consultation with our France team, in person or on a call.",
 };
 
 export default async function StudyInFranceFromNepalPage() {

@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Finland from Nepal - Admizz Education",
   description:
-    "Study in Finland from Nepal with Admizz. Get expert help with university selection, scholarships, residence permit & more. Start your journey today!",
+    "Study in Finland from Nepal: tuition, the January application round, residence permit steps and costs, explained for Nepali students.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-finland-from-nepal",
   },
   openGraph: {
     title: "Study in Finland from Nepal - Admizz Education",
     description:
-      "Study in Finland from Nepal with Admizz. Get expert help with university selection, scholarships, residence permit & more. Start your journey today!",
+      "Study in Finland from Nepal: tuition, the January application round, residence permit steps and costs, explained for Nepali students.",
     url: "https://admizzeducation.com/study-in-finland-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],
@@ -27,246 +27,99 @@ const pageData: NepalVariantData = {
   countryName: "Finland",
   countryCategorySlug: "finland",
   heroHeading: "Study in Finland from Nepal",
-  heroSubheading: "Build Your Future in the World's Happiest Country",
-
-  introTitle: "A Gateway to World-Class Nordic Education",
+  heroSubheading: "English-taught degrees, a two-year job-search permit after graduation, and help with every step from Kathmandu.",
+  quickFacts: [
+    { label: "Main application", value: "January" },
+    { label: "Tuition from", value: "€9,000 / yr" },
+    { label: "Work in studies", value: "30 h / week avg" },
+    { label: "Job-search permit", value: "2 years" },
+    { label: "English", value: "IELTS 6.0+" },
+  ],
+  introTitle: "Study in Finland from Nepal",
   introContent:
-    "Finland is renowned for its innovative, research-driven education system, consistently ranking among the best globally. Finnish universities offer English-taught programmes, affordable tuition, and strong connections to industry. For Nepali students, Finland represents an excellent opportunity to gain a globally recognised degree in a safe, inclusive, and technologically advanced society. At Admizz Education, we provide end-to-end support — from university selection and application assistance to IELTS coaching, residence permit processing, and pre-departure guidance.",
-
-  whyStudyTitle: "Why Study in Finland from Nepal",
-  whyStudyIntro:
-    "Finland offers exceptional education quality, safety, and career opportunities that make it an increasingly popular destination for Nepali students.",
+    "Finnish universities and universities of applied sciences teach many bachelor's and master's programmes in English. You apply through one national system, and after graduating you can stay to look for work.",
+  whyStudyTitle: "Practical degrees and time to find work after",
+  whyStudyIntro: "Why students from Nepal look at Finland.",
+  highlightStats: [
+    {
+      value: "2",
+      unit: "years",
+      label: "Job-search permit",
+      note: "to look for work after a Finnish degree. You can apply within 5 years of graduating.",
+    },
+    { value: "30", unit: "hours a week", label: "average work allowed" },
+    { value: "€800", unit: "a month", label: "funds to show for your permit" },
+  ],
   benefits: [
     {
-      title: "Top-Ranked Education System",
-      description:
-        "Finnish universities are globally recognised for innovative teaching, cutting-edge research, and practical learning approaches.",
+      title: "Taught in English",
+      description: "Many bachelor's and master's programmes are fully in English. Finnish is not needed to study.",
     },
     {
-      title: "English-Taught Programmes",
-      description:
-        "Over 500 degree programmes are taught entirely in English across universities and universities of applied sciences (UAS).",
+      title: "One application system",
+      description: "Apply to up to six programmes with one form on Studyinfo.fi.",
     },
     {
-      title: "Affordable Tuition & Scholarships",
-      description:
-        "Tuition fees range from €4,000–€18,000/year for non-EU students, with generous scholarship and tuition waiver programmes available.",
+      title: "Work while you study",
+      description: "An average of 30 hours a week, in any field, as long as your studies progress.",
     },
     {
-      title: "Safe & Inclusive Society",
-      description:
-        "Ranked the happiest and one of the safest countries in the world, Finland offers an excellent quality of life for international students.",
-    },
-    {
-      title: "Innovation & Technology Hub",
-      description:
-        "Home to companies like Nokia and a thriving startup ecosystem, Finland connects academic learning with real industry opportunities.",
-    },
-    {
-      title: "Post-Study Work Opportunities",
-      description:
-        "Graduates receive an extended residence permit of up to two years to search for employment in Finland after completing their degree.",
+      title: "Stay to find a job",
+      description: "A permit of up to 2 years to look for work after you graduate.",
     },
   ],
-
-  visaTitle: "Finland Student Residence Permit Requirements for Nepalese Students",
-  visaIntro:
-    "Non-EU/EEA students need a student residence permit to study in Finland. The application is processed through the Enter Finland online portal.",
+  visaTitle: "Your residence permit for studies, step by step",
+  visaIntro: "Apply as soon as you accept your place. June and July are the busiest months.",
   visaRequirements: [
-    {
-      category: "Acceptance Letter",
-      details: "From a recognised Finnish university or UAS",
-    },
-    {
-      category: "Valid Passport",
-      details: "Must be valid for the entire duration of study",
-    },
-    {
-      category: "Financial Proof",
-      details: "Minimum €6,720/year (~NPR 10,00,000+) in a bank account",
-    },
-    {
-      category: "English Proficiency",
-      details: "IELTS/TOEFL/PTE scores as required by the university",
-    },
-    {
-      category: "Health Insurance",
-      details: "Comprehensive health insurance for the duration of stay",
-    },
-    {
-      category: "Accommodation Proof",
-      details: "Rental agreement or student housing confirmation",
-    },
-    {
-      category: "Passport Photos",
-      details: "Recent passport-size photographs (36mm x 47mm)",
-    },
-    {
-      category: "Biometric Data",
-      details: "Fingerprints and photograph at the embassy or VFS centre",
-    },
-    {
-      category: "Residence Permit Fee",
-      details: "€350 (online application)",
-    },
+    { category: "Apply on Studyinfo", details: "Joint application in January. Non-EU applicants pay a €100 fee." },
+    { category: "Accept your place", details: "Pay the first-year tuition, or show the money for it in your account." },
+    { category: "Apply in Enter Finland", details: "Online application and the €600 fee to the Finnish Immigration Service (Migri)." },
+    { category: "Identity check in Kathmandu", details: "Book an appointment at the Embassy of Finland after you apply. Bring original documents." },
+    { category: "Decision by Migri", details: "Your permit card reaches Kathmandu about 2–3 weeks after a positive decision." },
+    { category: "Arrive in Finland", details: "Register your address and start studies. We brief you before you fly." },
   ],
-  visaNote:
-    "Processing Time: 1 to 3 months. Apply as early as possible after receiving your acceptance letter.",
-
-  intakesTitle: "Finland Intakes for Nepalese Students",
-  intakesIntro:
-    "Finnish universities primarily follow an autumn-based academic calendar, with the main application window in January.",
+  visaDocuments: [
+    "Valid passport",
+    "Letter of acceptance",
+    "Proof of tuition paid or funds for it",
+    "€9,600 in your bank account",
+    "Private health insurance",
+    "Academic transcripts",
+  ],
+  intakesTitle: "When you can start",
+  intakesIntro: "Most English-taught programmes start in autumn. The January application window is short.",
   intakes: [
-    {
-      intake: "Main Intake (Autumn/September)",
-      months: "Application deadline: January (via Studyinfo.fi)",
-      details:
-        "Bachelor's and Master's programmes — primary intake with the widest selection of courses and universities",
-    },
-    {
-      intake: "Secondary Intake (Spring/January)",
-      months: "Limited availability, varies by university",
-      details:
-        "Mostly limited to select Master's programmes and UAS courses — fewer options overall",
-    },
+    { intake: "August intake", months: "Apply 7–21 January 2027", details: "Main intake. Studies start late August or early September." },
+    { intake: "January intake", months: "Apply late August – early September", details: "Fewer programmes, mostly universities of applied sciences." },
   ],
-  intakesNote:
-    "Recommended Timeline for Nepalese Students: Research & shortlist universities (June – September, previous year), Take English proficiency tests (August – November), Prepare documents & motivation letter (November – December), Submit applications via Studyinfo.fi (January), Receive offers (March – May), Apply for residence permit (May – July), Intake begins (August – September).",
-
-  testTitle: "English Language Requirements",
-  testIntro:
-    "Finnish universities require proof of English proficiency. Here are the typical requirements for Nepali students.",
-  testRequirements: [
-    {
-      test: "IELTS",
-      score: "6.0 – 6.5 overall (no band less than 5.5)",
-    },
-    {
-      test: "TOEFL iBT",
-      score: "79 – 92",
-    },
-    {
-      test: "PTE",
-      score: "54 – 62",
-    },
-  ],
-  testNote:
-    "Requirements vary by university and programme. Some UAS institutions may accept lower scores. Always check specific programme requirements.",
-
-  costTitle: "Cost of Studying in Finland from Nepal",
-  costIntro:
-    "Finland offers competitive costs compared to many Western countries. Here's a breakdown of tuition fees and living expenses for Nepali students.",
+  costTitle: "What a year in Finland costs",
+  costIntro: "Typical tuition, plus the living-cost amount Migri asks you to show for your permit.",
   costTables: [
     {
-      title: "Tuition Fees (Annual)",
+      title: "Tuition per year",
       rows: [
-        {
-          category: "Bachelor's Programmes (UAS)",
-          cost: "€4,000 – €10,000",
-          nprCost: "NPR 6 – 15 Lakhs",
-        },
-        {
-          category: "Master's Programmes",
-          cost: "€6,000 – €18,000",
-          nprCost: "NPR 9 – 27 Lakhs",
-        },
-        {
-          category: "MBA / Specialised Programmes",
-          cost: "€8,000 – €24,000",
-          nprCost: "NPR 12 – 36 Lakhs",
-        },
+        { category: "Bachelor's & master's", cost: "€9k – €20k" },
+        { category: "Finnish-taught & PhD", cost: "Free" },
+        { category: "Application fee", cost: "€100 once" },
       ],
     },
     {
-      title: "Living Expenses (Monthly & Annual)",
+      title: "Living & permit costs",
       rows: [
-        {
-          category: "Accommodation (Monthly/Yearly)",
-          cost: "€300 – €700 / €3,600 – €8,400",
-        },
-        {
-          category: "Food & Groceries (Monthly/Yearly)",
-          cost: "€200 – €350 / €2,400 – €4,200",
-        },
-        {
-          category: "Transportation (Monthly/Yearly)",
-          cost: "€30 – €60 / €360 – €720",
-        },
-        {
-          category: "Miscellaneous (Monthly/Yearly)",
-          cost: "€100 – €200 / €1,200 – €2,400",
-        },
-        {
-          category: "Total Living Expenses",
-          cost: "€7,500 – €15,000/year",
-          nprCost: "NPR 11 – 22 Lakhs",
-        },
-      ],
-    },
-    {
-      title: "Other Expenses",
-      rows: [
-        {
-          category: "Residence Permit Fee",
-          cost: "€350",
-          nprCost: "NPR 52,000",
-        },
-        {
-          category: "Health Insurance",
-          cost: "€300 – €600/year",
-        },
-        {
-          category: "IELTS or TOEFL Test",
-          cost: "NPR 20,000 – 25,000",
-        },
-        {
-          category: "Flight Ticket (One-way)",
-          cost: "NPR 50,000 – 90,000",
-        },
+        { category: "Funds to show", cost: "€800 / mo" },
+        { category: "Realistic budget", cost: "€900 – €1,200 / mo" },
+        { category: "Permit fee (online)", cost: "€600" },
       ],
     },
   ],
-  costNote:
-    "Estimated Total First-Year Cost: Tuition + Living (NPR 17 – 49 Lakhs) + Additional Expenses (NPR 1.5 – 2 Lakhs) = Total: NPR 18.5 – 51 Lakhs. Helsinki is the most expensive city; Tampere, Turku, and Oulu are more affordable.",
-
-  scholarshipsTitle: "Scholarships for Nepalese Students to Study in Finland",
-  scholarshipsIntro:
-    "Several scholarship opportunities are available to help Nepali students reduce tuition costs. Many Finnish universities offer their own tuition fee waivers and scholarships for non-EU/EEA students.",
+  costNote: "Sources: Study in Finland (tuition, budget) and Migri (funds, permit fee), checked October 2026.",
+  scholarshipsTitle: "Funding you can apply for",
+  scholarshipsIntro: "Finland has no government scholarships for bachelor's or master's. Funding comes from universities.",
   scholarships: [
-    {
-      name: "Finnish Government Scholarship",
-      provider: "EDUFI (Finnish National Agency for Education)",
-      details:
-        "Monthly grant for doctoral-level studies and research. Eligibility: Doctoral students and young researchers",
-    },
-    {
-      name: "University Tuition Fee Waivers",
-      provider: "Individual Finnish Universities & UAS",
-      details:
-        "Partial or full tuition fee waivers (50%–100%). Eligibility: Academic excellence, applied automatically with admission",
-    },
-    {
-      name: "Erasmus+ Scholarship",
-      provider: "European Union",
-      details:
-        "Tuition fees, travel allowance, living stipend. Eligibility: Erasmus Mundus Joint Master Degree programmes",
-    },
-    {
-      name: "CIMO Fellowships",
-      provider: "Finnish National Agency for Education",
-      details:
-        "Monthly stipend for visiting students and researchers. Eligibility: Master's and doctoral students from developing countries",
-    },
-    {
-      name: "University-Specific Scholarships",
-      provider: "Haaga-Helia, LAB, SAMK, Karelia, VAMK, XAMK",
-      details:
-        "Merit-based tuition discounts and early-bird scholarships. Eligibility: High academic performance and timely application",
-    },
+    { name: "University scholarships", provider: "Finnish universities", details: "Partial or full tuition waivers. Usually applied for with your admission." },
+    { name: "Erasmus Mundus Joint Masters", provider: "European Union", details: "Fully funded joint master's offered with Finnish partner universities." },
   ],
-  scholarshipsNote:
-    "Tip: Apply early and ensure your motivation letter, recommendation letters, and test scores (IELTS/PTE) are strong. Many Finnish UAS institutions offer automatic scholarship consideration during admission.",
-
+  scholarshipsNote: "Awards cover tuition, not living costs. Many are renewed each year only if you earn enough credits.",
   universities: [
     { name: "Haaga-Helia University of Applied Science", logo: "/images/universities/finland/haaga-helia.webp" },
     { name: "South-Eastern Finland University of Applied Science", logo: "/images/universities/finland/south-eastern-finland.webp" },
@@ -278,60 +131,39 @@ const pageData: NepalVariantData = {
 
   faqItems: [
     {
-      question: "Why should Nepalese students choose Finland for higher education?",
-      answer:
-        "Finland offers world-class education, innovative teaching methods, affordable tuition with scholarships, a safe society, and strong post-study work opportunities — making it an excellent choice for Nepali students.",
-    },
-    {
       question: "Do I need to speak Finnish to study in Finland?",
-      answer:
-        "No. Over 500 degree programmes are taught entirely in English. However, learning basic Finnish can help with daily life and part-time job opportunities.",
+      answer: "No. Many programmes are taught fully in English. Basic Finnish helps with daily life and part-time jobs.",
     },
     {
-      question: "What are the English language requirements for Nepali students?",
+      question: "When do I apply?",
       answer:
-        "Requirements typically include: IELTS 6.0–6.5, TOEFL iBT 79–92, or PTE 54–62. Requirements vary by university and programme.",
+        "For autumn 2027 starts, the joint application on Studyinfo.fi runs 7–21 January 2027. A smaller round for January starts opens in late August.",
     },
     {
-      question: "What are the intakes to apply for universities in Finland?",
+      question: "How much money do I need to show?",
       answer:
-        "The primary intake is Autumn (September), with applications opening in January via Studyinfo.fi. Some universities offer a limited Spring (January) intake.",
+        "Migri asks for €800 per month. For a year or longer, you need €9,600 in your bank account when you apply, plus the tuition fee if not yet paid.",
     },
     {
-      question: "How much does it cost to study in Finland for Nepali students?",
-      answer:
-        "Tuition Fees: NPR 6–36 Lakhs/year depending on programme. Living Expenses: NPR 11–22 Lakhs/year. Scholarships and tuition waivers are widely available.",
-    },
-    {
-      question: "Are there scholarships available for Nepalese students in Finland?",
-      answer:
-        "Yes. Nepali students can apply for university tuition fee waivers (50%–100%), EDUFI fellowships, Erasmus+ scholarships, and university-specific merit scholarships.",
+      question: "Where do I give my fingerprints from Nepal?",
+      answer: "At the Embassy of Finland in Kathmandu. Book the appointment after submitting your Enter Finland application.",
     },
     {
       question: "Can I work while studying in Finland?",
-      answer:
-        "Yes. International students can work up to 25 hours per week during term time and full-time during holidays without a separate work permit.",
+      answer: "Yes, an average of 30 hours a week in any field. You can work more in some weeks if the yearly average stays within the limit.",
     },
     {
       question: "Can I stay in Finland after graduation?",
-      answer:
-        "Yes. Graduates receive an extended residence permit of up to two years to search for employment in Finland.",
+      answer: "Yes. You can apply for a residence permit to look for work for up to 2 years, within 5 years of graduating.",
     },
     {
-      question: "What are the residence permit requirements for Nepalese students?",
-      answer:
-        "You'll need: Acceptance letter from a Finnish university, valid passport, proof of funds (€6,720/year, ~NPR 10 Lakhs), health insurance, and biometric data. The fee is €350.",
-    },
-    {
-      question: "How can Admizz Education help me study in Finland?",
-      answer:
-        "Admizz provides: University shortlisting, test prep (IELTS/PTE), scholarship guidance, residence permit documentation & application support, and pre-departure counselling.",
+      question: "What English score do I need?",
+      answer: "Usually IELTS 6.0–6.5, depending on the programme. Check each programme on Studyinfo.fi.",
     },
   ],
 
-  ctaTitle: "Start Your Journey to Study in Finland from Nepal",
-  ctaContent:
-    "At Admizz, we help Nepalese students navigate the entire Finland study process — from choosing the right university to preparing documents and applying for a residence permit. We make it clear, personalised, and stress-free. Your future in Finland starts here — with Admizz.",
+  ctaTitle: "Plan your Finland move with us",
+  ctaContent: "Free first consultation with our Finland team, in person or on a call.",
 };
 
 export default async function StudyInFinlandFromNepalPage() {
