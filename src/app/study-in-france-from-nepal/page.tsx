@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in France from Nepal: Campus France and student visa steps, 2026-27 tuition, living costs, scholarships and intakes for Nepali students.",
     url: "https://admizzeducation.com/study-in-france-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/france.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-france.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in France from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in France from Nepal - Admizz Education",
+    description:
+      "Study in France from Nepal: Campus France and student visa steps, 2026-27 tuition, living costs, scholarships and intakes for Nepali students.",
+    images: ["/images/og/countries/study-in-france.jpg"],
   },
 };
 

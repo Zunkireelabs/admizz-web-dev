@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in the UAE from Nepal: universities in Abu Dhabi, Dubai and Sharjah, tuition in AED, the university-sponsored student visa, intakes and costs.",
     url: "https://admizzeducation.com/study-in-uae-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/UAE.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-dubai.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in UAE from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in UAE from Nepal - Admizz Education",
+    description:
+      "Study in the UAE from Nepal: universities in Abu Dhabi, Dubai and Sharjah, tuition in AED, the university-sponsored student visa, intakes and costs.",
+    images: ["/images/og/countries/study-in-dubai.jpg"],
   },
 };
 

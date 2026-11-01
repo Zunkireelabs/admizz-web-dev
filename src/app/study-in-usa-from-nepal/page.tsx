@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in the USA from Nepal with Admizz Education – universities, F-1 visa steps, costs, intakes and OPT work rights for Nepali students.",
     url: "https://admizzeducation.com/study-in-usa-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/stuyabroad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-the-usa.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in USA from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in USA from Nepal - Admizz Education",
+    description:
+      "Study in the USA from Nepal with Admizz Education – universities, F-1 visa steps, costs, intakes and OPT work rights for Nepali students.",
+    images: ["/images/og/countries/study-in-the-usa.jpg"],
   },
 };
 

@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in New Zealand from Nepal: intakes, tuition, the Fee Paying Student Visa, work rights and the Post Study Work Visa, with help from Admizz Education in Kathmandu.",
     url: "https://admizzeducation.com/study-in-newzealand-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/stuyabroad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-newzealand.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in New Zealand from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in New Zealand from Nepal - Admizz Education",
+    description:
+      "Study in New Zealand from Nepal: intakes, tuition, the Fee Paying Student Visa, work rights and the Post Study Work Visa, with help from Admizz Education in Kathmandu.",
+    images: ["/images/og/countries/study-in-newzealand.jpg"],
   },
 };
 
