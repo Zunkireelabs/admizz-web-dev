@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in Finland from Nepal: tuition, the January application round, residence permit steps and costs, explained for Nepali students.",
     url: "https://admizzeducation.com/study-in-finland-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/hero/web-ad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-finland.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in Finland from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in Finland from Nepal - Admizz Education",
+    description:
+      "Study in Finland from Nepal: tuition, the January application round, residence permit steps and costs, explained for Nepali students.",
+    images: ["/images/og/countries/study-in-finland.jpg"],
   },
 };
 

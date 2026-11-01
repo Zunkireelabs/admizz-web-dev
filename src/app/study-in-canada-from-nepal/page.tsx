@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in Canada from Nepal with Admizz Education – colleges and universities, study permit steps, costs, intakes and PGWP work rights for Nepali students.",
     url: "https://admizzeducation.com/study-in-canada-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/stuyabroad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-canada.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in Canada from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in Canada from Nepal - Admizz Education",
+    description:
+      "Study in Canada from Nepal with Admizz Education – colleges and universities, study permit steps, costs, intakes and PGWP work rights for Nepali students.",
+    images: ["/images/og/countries/study-in-canada.jpg"],
   },
 };
 

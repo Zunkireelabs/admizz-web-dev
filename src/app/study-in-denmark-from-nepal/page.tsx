@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in Denmark from Nepal: tuition, admission deadlines, residence permit steps and costs, explained for Nepali students.",
     url: "https://admizzeducation.com/study-in-denmark-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/hero/web-ad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-denmark.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in Denmark from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in Denmark from Nepal - Admizz Education",
+    description:
+      "Study in Denmark from Nepal: tuition, admission deadlines, residence permit steps and costs, explained for Nepali students.",
+    images: ["/images/og/countries/study-in-denmark.jpg"],
   },
 };
 

@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in South Korea from Nepal: March and September intakes, tuition, the D-2 student visa at the Korean Embassy in Kathmandu, part-time work and GKS scholarships.",
     url: "https://admizzeducation.com/study-in-south-korea-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/korean.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-south-korea.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in South Korea from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in South Korea from Nepal - Admizz Education",
+    description:
+      "Study in South Korea from Nepal: March and September intakes, tuition, the D-2 student visa at the Korean Embassy in Kathmandu, part-time work and GKS scholarships.",
+    images: ["/images/og/countries/study-in-south-korea.jpg"],
   },
 };
 

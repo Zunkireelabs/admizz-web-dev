@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in India from Nepal: no visa needed, admission steps, fees, Embassy of India scholarships and intakes for the 2027 academic year.",
     url: "https://admizzeducation.com/study-in-india-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/nepali-2.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-india.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in India from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in India from Nepal - Admizz Education",
+    description:
+      "Study in India from Nepal: no visa needed, admission steps, fees, Embassy of India scholarships and intakes for the 2027 academic year.",
+    images: ["/images/og/countries/study-in-india.jpg"],
   },
 };
 

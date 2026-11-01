@@ -18,8 +18,22 @@ export const metadata: Metadata = {
       "Study in Dubai from Nepal: branch campuses, tuition in AED, the university-sponsored student visa, intakes and living costs, explained for Nepali students.",
     url: "https://admizzeducation.com/study-in-dubai-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/UAE.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-dubai.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in Dubai from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in Dubai from Nepal - Admizz Education",
+    description:
+      "Study in Dubai from Nepal: branch campuses, tuition in AED, the university-sponsored student visa, intakes and living costs, explained for Nepali students.",
+    images: ["/images/og/countries/study-in-dubai.jpg"],
   },
 };
 
