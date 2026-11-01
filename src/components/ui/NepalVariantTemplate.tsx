@@ -238,7 +238,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
                 <button
                   type="button"
                   onClick={openPopup}
-                  className="inline-flex items-center bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-8 py-3.5 rounded-full transition-colors"
+                  className="inline-flex lg:hidden items-center bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-8 py-3.5 rounded-full transition-colors"
                 >
                   Get free counselling →
                 </button>
