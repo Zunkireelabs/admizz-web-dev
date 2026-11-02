@@ -142,6 +142,110 @@ function shortMonth(intake: string): string | null {
   return hit ?? null;
 }
 
+/** Decorative blurred card shape (no text) used at the row edges so the main intake reads as the centre */
+function GhostCard({ side }: { side: "left" | "right" }) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`hidden md:block absolute top-1/2 -translate-y-1/2 scale-90 h-[85%] w-[min(340px,26vw)] rounded-3xl border border-[#DCE2F5] bg-white p-8 opacity-90 blur-[2px] shadow-[0_20px_40px_-25px_rgba(0,19,83,0.35)] pointer-events-none ${
+        side === "left" ? "right-full -mr-10" : "left-full -ml-10"
+      }`}
+    >
+      <div className="h-12 w-24 rounded-xl bg-[#C9D1EA]" />
+      <div className="mt-6 h-4 w-36 rounded bg-[#D5DCF0]" />
+      <div className="mt-3 h-3 w-48 rounded bg-[#E1E6F5]" />
+      <div className="mt-8 h-px w-full bg-[#E1E6F5]" />
+      <div className="mt-5 h-3 w-32 rounded bg-[#D5DCF0]" />
+    </div>
+  );
+}
+
+/**
+ * Intake cards with the main intake (listed first in the data) in the middle and the real
+ * intakes beside it, all readable. Blurred empty cards at the edges make the row feel like it
+ * continues. Phone: swipe carousel that opens on the main intake.
+ */
+function IntakeCards({ intakes }: { intakes: IntakeRow[] }) {
+  // [main, b, c] → [c, main, b]; with two intakes the main one stays first
+  const ordered = intakes.length >= 3 ? [intakes[2], intakes[0], intakes[1], ...intakes.slice(3)] : intakes;
+  const mainIndex = ordered.indexOf(intakes[0]);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(mainIndex);
+
+  const cards = () => Array.from(scrollRef.current?.querySelectorAll<HTMLElement>("[data-intake-card]") ?? []);
+
+  // Phone: start with the main intake centred
+  useEffect(() => {
+    const box = scrollRef.current;
+    const card = cards()[mainIndex];
+    if (!box || !card || box.scrollWidth <= box.clientWidth) return;
+    box.scrollLeft = card.offsetLeft - (box.clientWidth - card.offsetWidth) / 2;
+  }, [mainIndex]);
+
+  const onScroll = () => {
+    const box = scrollRef.current;
+    if (!box) return;
+    const centre = box.scrollLeft + box.clientWidth / 2;
+    let nearest = 0;
+    let best = Infinity;
+    cards().forEach((el, i) => {
+      const d = Math.abs(el.offsetLeft + el.offsetWidth / 2 - centre);
+      if (d < best) {
+        best = d;
+        nearest = i;
+      }
+    });
+    setActive(nearest);
+  };
+
+  return (
+    <>
+      <div
+        ref={scrollRef}
+        onScroll={onScroll}
+        className="relative mt-10 -mx-4 px-[11%] md:mx-auto md:px-0 md:w-fit flex items-center gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        <GhostCard side="left" />
+        {ordered.map((row, i) => {
+          const month = shortMonth(row.intake);
+          const main = i === mainIndex;
+          return (
+            <div
+              key={row.intake}
+              data-intake-card
+              className={`relative z-10 snap-center shrink-0 w-[78vw] max-w-[320px] md:max-w-none rounded-3xl ${
+                main
+                  ? "md:w-[min(420px,34vw)] p-7 md:p-10 bg-navy text-white shadow-[0_30px_60px_-25px_rgba(0,19,83,0.55)]"
+                  : "md:w-[min(340px,26vw)] p-7 md:p-8 bg-white"
+              }`}
+            >
+              {main && (
+                <span className="absolute top-5 right-5 rounded-full bg-golden px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-black">
+                  Main intake
+                </span>
+              )}
+              {month && (
+                <p className={`font-bold leading-none ${main ? "text-golden text-6xl md:text-[80px]" : "text-navy text-5xl md:text-[64px]"}`} style={rubikFont}>{month}</p>
+              )}
+              <h3 className={`mt-4 text-lg md:text-xl font-semibold ${main ? "text-white" : "text-navy"}`} style={rubikFont}>{row.intake}</h3>
+              {row.details && <p className={`mt-2 text-[15px] leading-relaxed ${main ? "text-[#B9C3E6]" : "text-body"}`}>{row.details}</p>}
+              <p className={`mt-5 pt-4 border-t text-sm font-semibold ${main ? "border-white/15 text-white" : "border-border-light text-navy"}`}>{row.months}</p>
+            </div>
+          );
+        })}
+        <GhostCard side="right" />
+      </div>
+      {/* Phone: position dots */}
+      <div className="mt-5 flex justify-center gap-2 md:hidden" aria-hidden="true">
+        {ordered.map((row, i) => (
+          <span key={row.intake} className={`h-2 rounded-full transition-all ${i === active ? "w-5 bg-blue-royal" : "w-2 bg-[#C9D1EA]"}`} />
+        ))}
+      </div>
+      <p className="mt-3 text-center text-sm text-gray-dark md:hidden">← Swipe to see other intakes →</p>
+    </>
+  );
+}
+
 /** "1. Choose Course" → "Choose Course" */
 const stripStepNumber = (s: string) => s.replace(/^\s*\d+\.\s*/, "");
 
@@ -532,7 +636,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
       </section>
 
       {/* ===== INTAKES ===== */}
-      <section id="intakes" className="scroll-mt-32 bg-[#F4F6FF] py-16 md:py-24">
+      <section id="intakes" className="scroll-mt-32 bg-[#F4F6FF] py-16 md:py-24 overflow-x-clip">
         <div className={containerClass}>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
@@ -541,25 +645,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
             </div>
             {data.intakesIntro && <p className="text-[15px] text-gray-dark max-w-sm">{data.intakesIntro}</p>}
           </div>
-          <div className="mt-10 -mx-4 px-4 flex md:grid md:grid-cols-3 gap-5 overflow-x-auto md:overflow-visible snap-x scroll-px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {data.intakes.map((row, i) => {
-              const month = shortMonth(row.intake);
-              const main = i === 0;
-              return (
-                <div
-                  key={row.intake}
-                  className={`snap-start shrink-0 w-[260px] md:w-auto rounded-3xl p-7 md:p-8 ${main ? "bg-navy text-white" : "bg-white"}`}
-                >
-                  {month && (
-                    <p className={`text-5xl md:text-[64px] font-bold leading-none ${main ? "text-golden" : "text-navy"}`} style={rubikFont}>{month}</p>
-                  )}
-                  <h3 className={`mt-4 text-lg md:text-xl font-semibold ${main ? "text-white" : "text-navy"}`} style={rubikFont}>{row.intake}</h3>
-                  {row.details && <p className={`mt-2 text-[15px] leading-relaxed ${main ? "text-[#B9C3E6]" : "text-body"}`}>{row.details}</p>}
-                  <p className={`mt-5 pt-4 border-t text-sm font-semibold ${main ? "border-white/15 text-white" : "border-border-light text-navy"}`}>{row.months}</p>
-                </div>
-              );
-            })}
-          </div>
+          <IntakeCards intakes={data.intakes} />
           {data.intakesNote && <p className="mt-6 text-sm text-gray-dark">{data.intakesNote}</p>}
 
           {/* English tests (optional) */}
