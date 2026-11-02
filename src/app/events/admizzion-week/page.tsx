@@ -683,7 +683,7 @@ export default function AdmizzionWeekPage() {
             </svg>
             <span>Back</span>
           </button>
-          <h2>Book FREE Consultation</h2>
+          <h2>Book a Free Consultation</h2>
           <button
             type="button"
             className="register-panel-close"

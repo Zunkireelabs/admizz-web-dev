@@ -243,7 +243,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
                   onClick={openPopup}
                   className="inline-flex lg:hidden items-center bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-8 py-3.5 rounded-full transition-colors"
                 >
-                  Get free counselling →
+                  Book a Free Consultation →
                 </button>
                 <button
                   type="button"
@@ -304,7 +304,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
                 type="submit"
                 className="mt-4 w-full bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] py-3.5 rounded-full transition-colors"
               >
-                Book free consultation
+                Book a Free Consultation
               </button>
               <p className="mt-3 text-center text-xs text-gray-dark">Takes under a minute · No spam</p>
             </form>
@@ -692,7 +692,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
                   onClick={openPopup}
                   className="bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-7 py-3.5 rounded-full transition-colors"
                 >
-                  Book free consultation
+                  Book a Free Consultation
                 </button>
                 <Link
                   href="/contact"
@@ -718,7 +718,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
           onClick={openPopup}
           className="w-full bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] py-3.5 rounded-full transition-colors"
         >
-          Free consultation
+          Book a Free Consultation
         </button>
       </div>
 

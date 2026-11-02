@@ -289,7 +289,7 @@ export default function LocalOffice({ city, office }: LocalOfficeProps) {
                     border: "1px solid rgba(30,109,235,0.2)",
                   }}
                 >
-                  Book Free Consultation
+                  Book a Free Consultation
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>

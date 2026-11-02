@@ -23,7 +23,7 @@ export const janakpurData: CityLandingData = {
     subheading:
       "Hyperlocal guidance, transparent fees, and a Maithili-speaking team that gets your family. From profile evaluation to pre-departure — handled in Janakpur.",
     trustBadge: `★ 4.9 · Trusted by ${ADMIZZ_STATS.studentsPlaced} students`,
-    primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
+    primaryCta: { text: "Book a Free Consultation", href: "#hero-form" },
     secondaryCta: {
       text: "Chat on WhatsApp",
       // TODO(content): replace with real Janakpur counsellor WhatsApp number
@@ -339,7 +339,7 @@ export const janakpurData: CityLandingData = {
     heading: "Ready to start, Janakpur?",
     subheading:
       "Book a free 30-minute consultation. Walk out with a clear plan — even if you don't choose us.",
-    primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
+    primaryCta: { text: "Book a Free Consultation", href: "#hero-form" },
     whatsappCta: {
       number: "9779802728444",
       message: "Hi Admizz, I'm interested in studying abroad",
@@ -375,6 +375,6 @@ export const janakpurData: CityLandingData = {
       { icon: "✅", text: "TITI Certified Counsellor" },
       { icon: "✅", text: "10Th Years of Excellence" },
     ],
-    cta: { text: "Book Free Consultation", href: "#hero-form" },
+    cta: { text: "Book a Free Consultation", href: "#hero-form" },
   },
 };

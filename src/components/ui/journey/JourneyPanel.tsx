@@ -120,7 +120,7 @@ export default function JourneyPanel({ activeIndex }: Props) {
                 className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-[13px] font-bold transition-all hover:-translate-y-0.5 hover:shadow-md"
                 style={{ background: "#FDED22", color: "#0D1282", minHeight: 44 }}
               >
-                Book free consultation
+                Book a Free Consultation
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
