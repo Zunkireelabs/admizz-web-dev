@@ -41,7 +41,7 @@ const pageData: NepalVariantData = {
   countryName: "India",
   countryCategorySlug: "india",
   heroHeading: "Study in India from Nepal",
-  heroSubheading: "No visa needed. Course choice, admission and documents, handled with a counsellor at our Kathmandu office.",
+  heroSubheading: "No visa needed. Course choice, admission and documents, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/india-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Jul – Aug" },

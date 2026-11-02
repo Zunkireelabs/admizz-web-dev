@@ -41,7 +41,7 @@ const pageData: NepalVariantData = {
   countryName: "South Korea",
   countryCategorySlug: "south-korea",
   heroHeading: "Study in South Korea from Nepal",
-  heroSubheading: "Course choice, applications and your D-2 student visa, handled with a counsellor at our Kathmandu office.",
+  heroSubheading: "Course choice, applications and your D-2 student visa, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/south-korea-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Mar · Sep" },

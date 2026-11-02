@@ -41,7 +41,7 @@ const pageData: NepalVariantData = {
   countryName: "New Zealand",
   countryCategorySlug: "new-zealand",
   heroHeading: "Study in New Zealand from Nepal",
-  heroSubheading: "Course choice, applications and your Fee Paying Student Visa, handled with a counsellor at our Kathmandu office.",
+  heroSubheading: "Course choice, applications and your Fee Paying Student Visa, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/newzealand-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Feb · Jul" },

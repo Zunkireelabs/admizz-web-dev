@@ -41,7 +41,7 @@ const pageData: NepalVariantData = {
   countryName: "Canada",
   countryCategorySlug: "canada",
   heroHeading: "Study in Canada from Nepal",
-  heroSubheading: "College or university choice, your study permit and biometrics, handled with a counsellor at our Kathmandu office.",
+  heroSubheading: "College or university choice, your study permit and biometrics, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/canada-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Sep · Jan · May" },

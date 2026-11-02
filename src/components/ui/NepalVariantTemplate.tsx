@@ -9,6 +9,7 @@ import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import ConsultationPopup from "@/components/ui/consultation/ConsultationPopup";
 import Select from "@/components/ui/consultation/Select";
 import { countryOptions, dialFor } from "@/components/ui/consultation/useConsultationForm";
+import { NEPAL_OFFICES } from "@/data/nepalOffices";
 import type { SanityPost } from "@/types";
 
 export interface NepalBenefit {
@@ -681,9 +682,9 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
       {/* ===== CTA ===== */}
       <section className="py-16 md:py-24">
         <div className={containerClass}>
-          <div className="overflow-hidden rounded-[28px] bg-navy grid lg:grid-cols-[1fr_420px]">
+          <div className="overflow-hidden rounded-[28px] bg-navy grid lg:grid-cols-2">
             <div className="p-8 md:p-14">
-              <p className="text-xs font-bold tracking-[0.16em] uppercase text-golden mb-3">Kathmandu office</p>
+              <p className="text-xs font-bold tracking-[0.16em] uppercase text-golden mb-3">{NEPAL_OFFICES.length} offices in Nepal</p>
               <h2 className="text-3xl md:text-[44px] font-bold leading-[1.15] text-white" style={rubikFont}>{data.ctaTitle}</h2>
               <p className="mt-4 text-base md:text-[17px] text-[#B9C3E6] max-w-lg">{data.ctaContent}</p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -703,10 +704,37 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
               </div>
             </div>
             {data.heroImage && (
-              <div className="relative min-h-[220px] lg:min-h-full">
-                <Image src={data.heroImage} alt="" fill className="object-cover object-[85%_center]" sizes="(min-width: 1024px) 420px, 100vw" />
+              <div className="relative min-h-[220px] lg:min-h-full order-last lg:order-none">
+                <Image src={data.heroImage} alt="" fill className="object-cover object-[85%_center]" sizes="(min-width: 1024px) 50vw, 100vw" />
               </div>
             )}
+            {/* Offices: under the buttons on phones, a full-width strip below text + photo on desktop,
+                so the taller cards don't stretch (and over-crop) the photo */}
+            <div className="px-8 pb-8 md:px-14 md:pb-14 lg:col-span-2 lg:border-t lg:border-white/10 lg:py-8">
+              <ul className="grid sm:grid-cols-3 gap-3">
+                {NEPAL_OFFICES.map((office) => (
+                  <li key={office.city} className="rounded-2xl border border-white/15 bg-white/5 p-4">
+                    <p className="flex items-center gap-2 font-semibold text-white">
+                      <svg className="h-4 w-4 shrink-0 text-golden" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                      </svg>
+                      {office.city}
+                    </p>
+                    <p className="mt-0.5 text-sm text-[#B9C3E6]">{office.area}</p>
+                    <a
+                      href={office.directionsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Directions to Admizz ${office.city} office`}
+                      className="mt-3 inline-flex text-sm font-semibold text-golden hover:underline"
+                    >
+                      Get directions →
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
