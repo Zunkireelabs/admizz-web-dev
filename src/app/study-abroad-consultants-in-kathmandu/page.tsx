@@ -337,11 +337,11 @@ export default async function StudyAbroadConsultantsKathmanduPage() {
                 href="/register"
                 className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
               >
-                Book Free Counseling
+                Book a Free Consultation
               </Link>
             </div>
             <div className="hidden md:block lg:w-[472px] ml-auto">
-              <CTAForm title="Book Your Free Consultation" />
+              <CTAForm title="Book a Free Consultation" />
             </div>
           </div>
         </div>
@@ -515,7 +515,7 @@ export default async function StudyAbroadConsultantsKathmanduPage() {
             href="/register"
             className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-10 py-3.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
           >
-            Book Free Counseling
+            Book a Free Consultation
           </Link>
         </div>
       </section>

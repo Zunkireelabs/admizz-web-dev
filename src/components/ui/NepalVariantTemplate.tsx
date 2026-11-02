@@ -7,6 +7,8 @@ import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import ConsultationPopup from "@/components/ui/consultation/ConsultationPopup";
+import Select from "@/components/ui/consultation/Select";
+import { countryOptions, dialFor } from "@/components/ui/consultation/useConsultationForm";
 import type { SanityPost } from "@/types";
 
 export interface NepalBenefit {
@@ -158,6 +160,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
 
   const [popupOpen, setPopupOpen] = useState(false);
   const [heroName, setHeroName] = useState("");
+  const [heroCountry, setHeroCountry] = useState("nepal");
   const [heroPhone, setHeroPhone] = useState("");
   const openPopup = () => setPopupOpen(true);
   const closePopup = useCallback(() => setPopupOpen(false), []);
@@ -240,7 +243,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
                   onClick={openPopup}
                   className="inline-flex lg:hidden items-center bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-8 py-3.5 rounded-full transition-colors"
                 >
-                  Get free counselling →
+                  Book a Free Consultation →
                 </button>
                 <button
                   type="button"
@@ -269,22 +272,39 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
                   autoComplete="name"
                   className="h-12 rounded-xl border border-border-light px-4 text-[15px] text-navy outline-none focus:border-blue-royal focus:ring-2 focus:ring-blue-royal/15"
                 />
-                <label className="sr-only" htmlFor="hero-phone">Phone number</label>
-                <input
-                  id="hero-phone"
-                  value={heroPhone}
-                  onChange={(e) => setHeroPhone(e.target.value)}
-                  placeholder="Phone number"
-                  inputMode="tel"
-                  autoComplete="tel"
-                  className="h-12 rounded-xl border border-border-light px-4 text-[15px] text-navy outline-none focus:border-blue-royal focus:ring-2 focus:ring-blue-royal/15"
-                />
+                <div className="flex gap-2">
+                  <div className="w-[112px] flex-shrink-0">
+                    <Select
+                      id="hero-country"
+                      ariaLabel="Country code"
+                      value={heroCountry}
+                      onChange={setHeroCountry}
+                      options={countryOptions}
+                      placeholder="+"
+                      searchable
+                      searchPlaceholder="Search country or code"
+                      buttonLabel={(o) => dialFor(o.value) || "+"}
+                      minListWidth={300}
+                    />
+                  </div>
+                  <label className="sr-only" htmlFor="hero-phone">Phone number</label>
+                  <input
+                    id="hero-phone"
+                    value={heroPhone}
+                    onChange={(e) => setHeroPhone(e.target.value.replace(/\D/g, "").slice(0, 15))}
+                    placeholder="Phone number"
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="tel-national"
+                    className="h-12 min-w-0 flex-1 rounded-xl border border-border-light px-4 text-[15px] text-navy outline-none focus:border-blue-royal focus:ring-2 focus:ring-blue-royal/15"
+                  />
+                </div>
               </div>
               <button
                 type="submit"
                 className="mt-4 w-full bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] py-3.5 rounded-full transition-colors"
               >
-                Book free consultation
+                Book a Free Consultation
               </button>
               <p className="mt-3 text-center text-xs text-gray-dark">Takes under a minute · No spam</p>
             </form>
@@ -672,7 +692,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
                   onClick={openPopup}
                   className="bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] px-7 py-3.5 rounded-full transition-colors"
                 >
-                  Book free consultation
+                  Book a Free Consultation
                 </button>
                 <Link
                   href="/contact"
@@ -698,7 +718,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
           onClick={openPopup}
           className="w-full bg-golden hover:bg-golden-hover text-black font-semibold text-[15px] py-3.5 rounded-full transition-colors"
         >
-          Free consultation
+          Book a Free Consultation
         </button>
       </div>
 
@@ -707,7 +727,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
         onClose={closePopup}
         countryName={data.countryName}
         formSource={`nepal-${shortCountry.toLowerCase().replace(/\s+/g, "-")}`}
-        prefill={{ fullName: heroName, phone: heroPhone }}
+        prefill={{ fullName: heroName, country: heroCountry, phone: heroPhone }}
       />
     </main>
   );

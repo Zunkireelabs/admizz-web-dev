@@ -37,7 +37,7 @@ export interface ConsultationFormOptions {
   /** Attribution tag sent to the CRM, e.g. "country-germany" */
   formSource?: string;
   /** Values the visitor already typed elsewhere (e.g. an inline hero form) */
-  prefill?: { fullName?: string; phone?: string };
+  prefill?: { fullName?: string; country?: string; phone?: string };
 }
 
 // Same fields as before, split across three short screens. The CRM payload is unchanged.
@@ -55,17 +55,34 @@ export function destinationValueFor(countryName?: string): string {
   return DESTINATION_OPTIONS.some((o) => o.value === value) ? value : "";
 }
 
+/** Dial code for a CRM country value ("nepal" → "+977"); "" for "Other" */
+export function dialFor(country: string): string {
+  return COUNTRY_OPTIONS.find((c) => c.value === country)?.dial ?? "";
+}
+
+/** Phone check shared by the popup and the hero card: +977 needs exactly 10 digits, others at least 6 */
+export function phoneError(dial: string, phone: string): string | undefined {
+  if (!phone) return "Phone number is required";
+  if (dial === "+977" ? phone.length !== 10 : phone.length < 6)
+    return "Enter a valid phone number for the selected country";
+}
+
 /** Step state, validation and CRM submission shared by the popup and the inline card */
 export function useConsultationForm({ countryName, formSource = "consultation", prefill }: ConsultationFormOptions) {
   const [prefillFirst = "", ...prefillRest] = (prefill?.fullName ?? "").trim().split(/\s+/);
-  // The hero card's phone box is free text; keep digits only and drop a typed +977 prefix
-  const prefillDigits = (prefill?.phone ?? "").replace(/\D/g, "");
-  const prefillPhone = (prefillDigits.length === 13 && prefillDigits.startsWith("977") ? prefillDigits.slice(3) : prefillDigits).slice(0, 15);
+  const prefillCountry = prefill?.country || "nepal";
+  const prefillDial = dialFor(prefillCountry);
+  // Keep digits only, and drop the dial code if the visitor typed it into the number too
+  const prefillDigits = (prefill?.phone ?? "").replace(/\D/g, "").slice(0, 15);
+  const dialDigits = prefillDial.replace("+", "");
+  const withoutDial = dialDigits && prefillDigits.startsWith(dialDigits) ? prefillDigits.slice(dialDigits.length) : prefillDigits;
+  const prefillPhone =
+    phoneError(prefillDial, prefillDigits) && !phoneError(prefillDial, withoutDial) ? withoutDial : prefillDigits;
   const initialForm = (): FormState => ({
     firstName: prefillFirst,
     lastName: prefillRest.join(" "),
     email: "",
-    country: "nepal",
+    country: prefillCountry,
     phone: prefillPhone,
     city: "",
     destination: destinationValueFor(countryName),
@@ -75,16 +92,16 @@ export function useConsultationForm({ countryName, formSource = "consultation", 
   });
 
   const [form, setForm] = useState<FormState>(initialForm);
-  // Skip "About you" when the hero card already gave a full name and a valid Nepal phone
+  // Skip "About you" when the hero card already gave a full name and a valid phone
   const [step, setStep] = useState(() =>
-    prefillFirst && prefillRest.length > 0 && prefillPhone.length === 10 ? 1 : 0,
+    prefillFirst && prefillRest.length > 0 && !phoneError(prefillDial, prefillPhone) ? 1 : 0,
   );
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
 
-  const dial = COUNTRY_OPTIONS.find((c) => c.value === form.country)?.dial ?? "";
+  const dial = dialFor(form.country);
 
   const set = (patch: Partial<FormState>) => {
     setForm((f) => ({ ...f, ...patch }));
@@ -100,10 +117,8 @@ export function useConsultationForm({ countryName, formSource = "consultation", 
     if (forStep === 0) {
       if (!form.firstName.trim()) next.firstName = "First name is required";
       if (!form.lastName.trim()) next.lastName = "Last name is required";
-      const minDigits = dial === "+977" ? 10 : 6;
-      if (!form.phone) next.phone = "Phone number is required";
-      else if (form.phone.length < minDigits || (dial === "+977" && form.phone.length !== 10))
-        next.phone = "Enter a valid phone number for the selected country";
+      const phoneMsg = phoneError(dial, form.phone);
+      if (phoneMsg) next.phone = phoneMsg;
     } else if (forStep === 1) {
       if (!form.email.trim()) next.email = "Email is required";
       else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) next.email = "Enter a valid email address";
@@ -187,9 +202,28 @@ export function useConsultationForm({ countryName, formSource = "consultation", 
 
 export type ConsultationFormState = ReturnType<typeof useConsultationForm>;
 
-const countryOptions = COUNTRY_OPTIONS.map((c) => ({
+/** Everyday names students type for countries whose list name differs (search only; CRM values unchanged) */
+const COUNTRY_SEARCH_NAMES: Record<string, string[]> = {
+  usa: ["usa", "us", "america", "united states of america"],
+  uk: ["uk", "gb", "great britain", "britain", "england", "scotland", "wales", "northern ireland"],
+  uae: ["dubai", "abu dhabi", "sharjah", "emirates", "united arab emirates"],
+  south_korea: ["korea", "republic of korea"],
+  czech_republic: ["czechia"],
+  netherlands: ["holland"],
+  bosnia: ["bosnia and herzegovina", "herzegovina"],
+  taiwan: ["chinese taipei"],
+  myanmar: ["burma"],
+  turkey: ["turkiye"],
+  north_macedonia: ["macedonia"],
+  trinidad_tobago: ["trinidad and tobago", "tobago"],
+  hong_kong: ["hk"],
+  saudi_arabia: ["ksa", "saudi"],
+};
+
+export const countryOptions = COUNTRY_OPTIONS.map((c) => ({
   label: c.dial ? `${c.label} (${c.dial})` : c.label,
   value: c.value,
+  keywords: COUNTRY_SEARCH_NAMES[c.value] ?? [],
 }));
 
 const inputClass =

@@ -38,7 +38,7 @@ export default function AdmizzStory() {
         </div>
 
         <a href="/register" className="wc-btn-primary" style={{ marginTop: 16 }}>
-          Book Your Free Consultation
+          Book a Free Consultation
           <ArrowRightIcon size={16} strokeWidth={2.2} />
         </a>
       </div>

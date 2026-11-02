@@ -78,7 +78,7 @@ export default function UniversitySidebar({ university: u }: { university: Unive
         <div className="mt-5 space-y-3">
           <EnquireButton className="w-full flex items-center justify-center gap-2 bg-yellow text-black font-semibold text-[15px] px-5 py-3 rounded-[10px] hover:bg-yellow-bright hover:-translate-y-px transition-all">
             <Phone className="w-4 h-4" aria-hidden />
-            Book free counselling
+            Book a Free Consultation
           </EnquireButton>
           <a
             href={whatsappLink(`Hi Admizz, I'd like to know more about studying at ${u.name}.`)}

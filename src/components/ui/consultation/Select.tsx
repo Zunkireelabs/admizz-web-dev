@@ -7,7 +7,12 @@ import { motion } from "framer-motion";
 export interface SelectOption {
   label: string;
   value: string;
+  /** Other names the search should match, e.g. ["usa", "america"] for "United States" */
+  keywords?: readonly string[];
 }
+
+/** Lowercase and drop spaces, dots and brackets so "U.S.A" matches "usa" */
+const normalize = (text: string) => text.toLowerCase().replace(/[\s.()]/g, "");
 
 interface SelectProps {
   id: string;
@@ -20,6 +25,11 @@ interface SelectProps {
   searchPlaceholder?: string;
   invalid?: boolean;
   autoFocus?: boolean;
+  /** Short text for the closed button, e.g. "+977" instead of "Nepal (+977)" */
+  buttonLabel?: (option: SelectOption) => string;
+  /** Lets the list be wider than a narrow button */
+  minListWidth?: number;
+  ariaLabel?: string;
 }
 
 interface Position {
@@ -48,6 +58,9 @@ export default function Select({
   searchPlaceholder = "Search",
   invalid = false,
   autoFocus = false,
+  buttonLabel,
+  minListWidth = 0,
+  ariaLabel,
 }: SelectProps) {
   const listId = useId();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -60,8 +73,21 @@ export default function Select({
 
   const selected = options.find((o) => o.value === value);
   const visible = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return q ? options.filter((o) => o.label.toLowerCase().includes(q)) : options;
+    const q = normalize(query);
+    if (!q) return options;
+    // Best matches first: an exact other-name ("uk"), then names starting with the text, then the rest
+    const rank = (o: SelectOption) => {
+      const names = (o.keywords ?? []).map(normalize);
+      if (names.includes(q)) return 0;
+      if (normalize(o.label).startsWith(q)) return 1;
+      if (normalize(o.label).includes(q) || names.some((n) => n.includes(q))) return 2;
+      return -1;
+    };
+    return options
+      .map((o) => ({ o, r: rank(o) }))
+      .filter(({ r }) => r >= 0)
+      .sort((a, b) => a.r - b.r)
+      .map(({ o }) => o);
   }, [options, query]);
 
   const close = (refocus = true) => {
@@ -91,9 +117,10 @@ export default function Select({
       const below = window.innerHeight - rect.bottom - EDGE - GAP;
       const above = rect.top - EDGE - GAP;
       const openUp = below < 220 && above > below;
+      const width = Math.min(Math.max(rect.width, minListWidth), window.innerWidth - EDGE * 2);
       setPos({
-        left: rect.left,
-        width: rect.width,
+        left: Math.max(EDGE, Math.min(rect.left, window.innerWidth - EDGE - width)),
+        width,
         maxHeight: Math.min(MAX_LIST, openUp ? above : below),
         ...(openUp
           ? { bottom: window.innerHeight - rect.top + GAP }
@@ -107,7 +134,7 @@ export default function Select({
       window.removeEventListener("resize", place);
       window.removeEventListener("scroll", place, true);
     };
-  }, [open]);
+  }, [open, minListWidth]);
 
   // Close on outside click
   useEffect(() => {
@@ -205,6 +232,7 @@ export default function Select({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={open ? listId : undefined}
+        aria-label={ariaLabel}
         autoFocus={autoFocus}
         onClick={() => (open ? close() : openList())}
         onKeyDown={onKeyDown}
@@ -212,7 +240,7 @@ export default function Select({
         style={{ borderColor: invalid ? "#c41e3a" : open ? "#31429C" : "#D7DAE8" }}
       >
         <span className={`truncate ${selected ? "text-navy" : "text-gray-medium"}`}>
-          {selected ? selected.label : placeholder}
+          {selected ? (buttonLabel ? buttonLabel(selected) : selected.label) : placeholder}
         </span>
         <svg
           className={`w-4 h-4 flex-shrink-0 text-gray-dark transition-transform duration-200 ${open ? "rotate-180" : ""}`}

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type RefObject } from "react";
 import { motion } from "framer-motion";
 import { event } from "./content";
-import { DIAL_CODES, dialSpec, phoneDigits } from "@/lib/dialCodes";
+import { dialSpec, phoneDigits, searchDialCodes } from "@/lib/dialCodes";
 import { isValidPhoneNumber } from "libphonenumber-js/min";
 import { getUtmAttribution } from "@/lib/attribution/utmStorage";
 
@@ -286,13 +286,7 @@ function PhoneCountrySelect({ value, onChange }: { value: string; onChange: (key
     }
   }, [open]);
 
-  const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase();
-    if (!q) return DIAL_CODES;
-    return DIAL_CODES.filter(
-      (d) => d.country.toLowerCase().includes(q) || d.dial.includes(q) || d.key.toLowerCase().includes(q)
-    );
-  }, [search]);
+  const filtered = useMemo(() => searchDialCodes(search), [search]);
 
   return (
     <div ref={rootRef} className="relative flex-shrink-0" style={{ width: 148 }}>

@@ -18,7 +18,7 @@ export interface CTAFormProps {
 }
 
 export default function CTAForm({
-  title = "Book Your Free Consultation",
+  title = "Book a Free Consultation",
   colorScheme = "default",
   formSource = "consultation",
   embedHeight,
