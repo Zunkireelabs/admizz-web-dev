@@ -147,8 +147,9 @@ function GhostCard({ side }: { side: "left" | "right" }) {
   return (
     <div
       aria-hidden="true"
-      className={`hidden md:block absolute top-1/2 -translate-y-1/2 scale-90 h-[85%] w-[min(340px,26vw)] rounded-3xl border border-[#DCE2F5] bg-white p-8 opacity-90 blur-[2px] shadow-[0_20px_40px_-25px_rgba(0,19,83,0.35)] pointer-events-none ${
-        side === "left" ? "right-full -mr-10" : "left-full -ml-10"
+      // Same gap as the real cards (gap-6) and shrunk toward that gap, so it reads as its own card
+      className={`hidden md:block absolute top-1/2 -translate-y-1/2 scale-90 h-[85%] w-[min(340px,26vw)] rounded-3xl border border-[#DCE2F5] bg-white p-8 opacity-50 blur-[1.5px] pointer-events-none ${
+        side === "left" ? "right-full mr-6 origin-right" : "left-full ml-6 origin-left"
       }`}
     >
       <div className="h-12 w-24 rounded-xl bg-[#C9D1EA]" />
@@ -612,11 +613,12 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
             )}
           </div>
           <ol className="relative pl-12">
-            <span className="absolute left-[19px] top-2 bottom-2 w-0.5 bg-border-light" aria-hidden="true" />
             {data.visaRequirements.map((step, i) => {
               const last = i === data.visaRequirements.length - 1;
               return (
                 <li key={step.category} className={`relative ${last ? "" : "pb-8"}`}>
+                  {/* Connector to the next step's circle only, so the line stops at the last (✓) step */}
+                  {!last && <span className="absolute -left-[29px] top-10 bottom-0 w-0.5 bg-border-light" aria-hidden="true" />}
                   <span
                     className={`absolute -left-12 top-0 flex h-10 w-10 items-center justify-center rounded-full text-[15px] font-semibold ${
                       last ? "bg-golden text-black" : i === 0 ? "bg-blue-royal text-white" : "border-2 border-border-light bg-white text-navy"
