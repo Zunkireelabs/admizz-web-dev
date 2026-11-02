@@ -70,6 +70,9 @@ export const metadata: Metadata = {
   },
 };
 
+// Google Tag Manager container (CRET-3): head script as high as possible + noscript after <body>
+const GTM_ID = "GTM-TX24X74T";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -78,11 +81,30 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} ${rubik.variable} ${openSans.variable} ${playfair.variable}`}>
       <head>
+        {/* Standard GTM snippet, first in <head> as the client's GTM setup expects */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+          }}
+        />
         <link rel="preconnect" href="https://cdn.sanity.io" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <link rel="dns-prefetch" href="https://edgex.zunkireelabs.com" />
       </head>
       <body suppressHydrationWarning>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
