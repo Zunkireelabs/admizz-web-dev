@@ -216,3 +216,39 @@ export const isValidPhoneLength = (s: string): boolean => {
   const n = phoneDigits(s).length;
   return n >= 7 && n <= 15;
 };
+
+/** Everyday names people type for countries whose list name differs (search only) */
+export const SEARCH_NAMES: Record<string, string[]> = {
+  US: ["usa", "america", "united states of america"],
+  GB: ["uk", "britain", "great britain", "england", "scotland", "wales", "northern ireland"],
+  AE: ["uae", "dubai", "abu dhabi", "sharjah", "emirates"],
+  KR: ["korea", "republic of korea"],
+  CZ: ["czech republic"],
+  NL: ["holland"],
+  MM: ["burma"],
+  TR: ["turkiye"],
+  SA: ["ksa", "saudi"],
+};
+
+/** Lowercase and drop spaces, dots and brackets so "U.S.A" matches "usa" */
+const normalize = (s: string): string => s.toLowerCase().replace(/[\s.()]/g, "");
+
+/**
+ * Searches dial codes by country name, dial code, ISO key or common name
+ * ("usa", "uk", "dubai"). Best matches come first.
+ */
+export const searchDialCodes = (query: string): DialCode[] => {
+  const q = normalize(query);
+  if (!q) return DIAL_CODES;
+  const rank = (d: DialCode): number => {
+    const names = (SEARCH_NAMES[d.key] ?? []).map(normalize);
+    if (names.includes(q) || d.key.toLowerCase() === q) return 0;
+    if (normalize(d.country).startsWith(q)) return 1;
+    if (normalize(d.country).includes(q) || d.dial.includes(q) || names.some((n) => n.includes(q))) return 2;
+    return -1;
+  };
+  return DIAL_CODES.map((d) => ({ d, r: rank(d) }))
+    .filter(({ r }) => r >= 0)
+    .sort((a, b) => a.r - b.r)
+    .map(({ d }) => d);
+};
