@@ -47,11 +47,8 @@ const nepalData: CountryPageData = {
     "Nepal offers internationally recognised universities, English-medium programs, affordable tuition, and a unique cultural environment between South and East Asia. From program selection and application support to visas, accommodation, and pre-arrival guidance, Admizz Education helps international students secure admission to leading Nepali universities with complete confidence.",
   heroBackground: "/images/hero/nepal-hero.webp",
   quickFacts: [
-    { label: "Capital", value: "Kathmandu" },
     { label: "Language", value: "Nepali / English" },
-    { label: "Dialing Code", value: "+977" },
     { label: "Currency", value: "Nepalese Rupee" },
-    { label: "Population", value: "30+ Million" },
     { label: "Universities", value: "14+" },
     { label: "Intl. Students", value: "Growing" },
     { label: "Tuition fee", value: "USD 1,500 – 5,000" },
@@ -186,76 +183,12 @@ const nepalData: CountryPageData = {
   visaIntro:
     "The Nepal student visa process is straightforward for admitted international students. Visas are issued through Nepali embassies or on arrival depending on nationality.",
   visaSteps: [
-    {
-      title: "Receive Offer Letter",
-      description:
-        "Get official admission confirmation from your chosen Nepali university or institute.",
-    },
-    {
-      title: "Accept Offer & Pay Deposit",
-      description:
-        "Confirm your seat by paying the required initial tuition or registration fee.",
-    },
-    {
-      title: "University Registers You with the Ministry",
-      description:
-        "Your university files your admission with Nepal's Ministry of Education for visa endorsement.",
-    },
-    {
-      title: "Receive Recommendation Letter",
-      description:
-        "The Ministry issues a visa recommendation letter required for your student visa application.",
-    },
-    {
-      title: "Prepare Required Visa Documents",
-      description:
-        "Collect academic, financial, health, and identification documents before applying.",
-    },
-    {
-      title: "Apply at the Nepali Embassy / Consulate",
-      description:
-        "Submit your visa application at the nearest Nepali embassy or consulate in your country.",
-    },
-    {
-      title: "Pay Visa Application Fee",
-      description:
-        "Make the mandatory payment to officially process your visa submission.",
-    },
-    {
-      title: "Provide Biometrics If Requested",
-      description:
-        "Some embassies require fingerprinting and photographs as part of the application.",
-    },
-    {
-      title: "Await Visa Outcome",
-      description:
-        "Embassy reviews your application and issues the visa decision, usually within 2–4 weeks.",
-    },
-    {
-      title: "Receive Student Visa",
-      description:
-        "Your single-entry student visa is issued — typically valid for one academic year.",
-    },
-    {
-      title: "Book Your Flight to Nepal",
-      description:
-        "Plan travel to Kathmandu (TIA airport) ahead of your program start date.",
-    },
-    {
-      title: "Complete On-Arrival Registration",
-      description:
-        "Register with your university and the Department of Immigration within 15 days of arrival.",
-    },
-    {
-      title: "Extend Visa Annually If Required",
-      description:
-        "Multi-year programs need annual visa renewal supported by your university.",
-    },
-    {
-      title: "Begin Your Studies in Nepal",
-      description:
-        "Carry passport, visa, offer letter, and academic records to your institution on day one.",
-    },
+    { title: "Get Your Offer", description: "Receive admission from a Nepali university or institute and pay the deposit to confirm your seat." },
+    { title: "Ministry Recommendation Letter", description: "Your university registers you with the Ministry of Education, which issues your visa recommendation letter." },
+    { title: "Apply at the Nepali Embassy", description: "Prepare your documents, apply at the nearest Nepali embassy or consulate, and pay the fee." },
+    { title: "Visa Decision", description: "Give biometrics if requested. Your single-entry student visa is usually issued within 2\u20134 weeks." },
+    { title: "Travel & Register", description: "Fly to Kathmandu and register with your university and the Department of Immigration within 15 days." },
+    { title: "Study & Renew Yearly", description: "Begin your studies. Multi-year programs need an annual visa renewal supported by your university." },
   ],
   faqItems: [
     {

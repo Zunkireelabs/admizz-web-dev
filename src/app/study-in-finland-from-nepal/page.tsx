@@ -42,6 +42,7 @@ const pageData: NepalVariantData = {
   countryCategorySlug: "finland",
   heroHeading: "Study in Finland from Nepal",
   heroSubheading: "English-taught degrees, a two-year job-search permit after graduation, and help with every step from Kathmandu.",
+  heroImage: "/images/hero/finland-hero.webp",
   quickFacts: [
     { label: "Main application", value: "January" },
     { label: "Tuition from", value: "€9,000 / yr" },

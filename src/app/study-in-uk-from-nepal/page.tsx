@@ -41,7 +41,7 @@ const pageData: NepalVariantData = {
   countryName: "the UK",
   countryCategorySlug: "uk",
   heroHeading: "Study in the UK from Nepal",
-  heroSubheading: "Course choice, applications and your Student visa, handled with a counsellor at our Kathmandu office.",
+  heroSubheading: "Course choice, applications and your Student visa, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/uk-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Sep · Jan · May" },

@@ -41,7 +41,7 @@ const pageData: NepalVariantData = {
   countryName: "USA",
   countryCategorySlug: "usa",
   heroHeading: "Study in the USA from Nepal",
-  heroSubheading: "University choice, your I-20 and F-1 visa interview prep, handled with a counsellor at our Kathmandu office.",
+  heroSubheading: "University choice, your I-20 and F-1 visa interview prep, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/usa-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Aug/Sep · Jan" },

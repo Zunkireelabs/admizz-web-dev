@@ -314,13 +314,13 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
   const heroPhoto = data.heroBackground ?? "/images/about/2-1-763x1024.webp";
   const shortCountry = data.countryName.replace(/^the /, "");
 
-  // Highlight the country name inside the hero heading (case-insensitive)
-  const headingIdx = data.heroHeading.toLowerCase().indexOf(data.countryName.toLowerCase());
+  // Highlight the country name inside the hero heading (case-insensitive); "the UK" highlights just "UK"
+  const headingIdx = data.heroHeading.toLowerCase().indexOf(shortCountry.toLowerCase());
   const headingBefore = headingIdx === -1 ? data.heroHeading : data.heroHeading.slice(0, headingIdx);
   const headingHighlight =
-    headingIdx === -1 ? "" : data.heroHeading.slice(headingIdx, headingIdx + data.countryName.length);
+    headingIdx === -1 ? "" : data.heroHeading.slice(headingIdx, headingIdx + shortCountry.length);
   const headingAfter =
-    headingIdx === -1 ? "" : data.heroHeading.slice(headingIdx + data.countryName.length);
+    headingIdx === -1 ? "" : data.heroHeading.slice(headingIdx + shortCountry.length);
 
   const otherDestinations = destinations.filter(
     (d) => !pathname || !pathname.replace(/\/$/, "").endsWith(d.href)
@@ -465,42 +465,34 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
   return (
     <main>
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden py-10 md:py-14">
+      {/* Country photo with a navy fade on the text side, same look as the "from Nepal" pages */}
+      <section className="relative overflow-hidden bg-navy pt-10 pb-24 md:pt-14 md:pb-32">
+        <Image src={heroPhoto} alt="" fill priority className="object-cover object-center" sizes="100vw" />
         <div
-          className="absolute inset-0 z-0"
-          style={{ background: "linear-gradient(180deg, #EEF2FF 0%, #FFFFFF 100%)" }}
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(0,19,83,0.94) 0%, rgba(0,19,83,0.82) 42%, rgba(0,19,83,0.25) 78%, rgba(0,19,83,0.05) 100%)",
+          }}
         />
+        {/* Phones: text spans the full width, so darken the whole photo for readability */}
+        <div className="absolute inset-0 bg-navy/60 lg:hidden" />
         <div className={`relative z-10 ${containerClass}`}>
           <div className="grid lg:grid-cols-[1fr_472px] gap-10 lg:gap-14 items-center">
             <div>
-              <p className="text-base md:text-lg font-semibold text-blue-royal mb-3">
+              <p className="text-base md:text-lg font-semibold text-golden mb-3">
                 {data.heroSubheading}
               </p>
               <h1
-                className="text-[34px] sm:text-5xl md:text-[60px] font-bold leading-[1.08] text-navy"
+                className="text-[34px] sm:text-5xl md:text-[60px] font-bold leading-[1.08] text-white"
                 style={rubikFont}
               >
                 {headingBefore}
-                {headingHighlight &&
-                  (data.flagColors && data.flagColors.length > 0 ? (
-                    <span
-                      className="text-blue-royal box-decoration-clone"
-                      style={{
-                        backgroundImage: `linear-gradient(90deg, ${data.flagColors.join(", ")})`,
-                        WebkitBackgroundClip: "text",
-                        backgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                      }}
-                    >
-                      {headingHighlight}
-                    </span>
-                  ) : (
-                    <span className="text-blue-royal">{headingHighlight}</span>
-                  ))}
+                {headingHighlight && <span className="text-golden">{headingHighlight}</span>}
                 {headingAfter}
               </h1>
               {data.heroDescription && (
-                <p className="mt-6 text-base md:text-lg leading-relaxed text-slate max-w-xl">
+                <p className="mt-6 text-base md:text-lg leading-relaxed text-white/85 max-w-xl">
                   {data.heroDescription}
                 </p>
               )}
@@ -511,14 +503,14 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
                     e.preventDefault();
                     scrollToSection("admission");
                   }}
-                  className="inline-flex items-center border border-blue-royal/30 hover:bg-white text-blue-royal font-semibold text-[15px] px-8 py-3 rounded-full transition-colors cursor-pointer"
+                  className="inline-flex items-center border border-white/50 hover:border-white hover:bg-white/10 text-white font-semibold text-[15px] px-8 py-3 rounded-full transition-colors cursor-pointer"
                 >
                   Learn More
                 </a>
               </div>
             </div>
             <div className="w-full lg:w-[472px] lg:ml-auto">
-              <div className="rounded-3xl border border-border-light bg-white p-6 md:p-8 shadow-lg">
+              <div className="rounded-3xl bg-white p-6 md:p-8 shadow-[0_30px_60px_-30px_rgba(0,19,83,0.45)]">
                 <p className="text-xs font-semibold tracking-[0.14em] uppercase text-blue-royal mb-2">
                   Free Counselling
                 </p>
@@ -559,19 +551,62 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
         </div>
       </section>
 
-      {/* ===== QUICK FACTS ===== */}
-      <section className="bg-white py-6">
+      {/* ===== QUICK FACTS (overlaps the hero) ===== */}
+      <div className={`relative z-10 -mt-14 ${containerClass}`}>
+        <dl className="bg-white rounded-2xl shadow-[0_30px_60px_-30px_rgba(0,19,83,0.35)] grid grid-cols-2 md:grid-cols-5 py-2 md:py-6">
+          {data.quickFacts.map((fact, i) => (
+            <div
+              key={fact.label}
+              className={`px-5 py-3 md:py-0 md:px-6 ${i > 0 ? "md:border-l" : ""} ${i % 2 === 1 ? "border-l" : ""} ${i > 1 ? "border-t md:border-t-0" : ""} border-border-light`}
+            >
+              <dt className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.08em] text-gray-dark">{fact.label}</dt>
+              <dd className="mt-1 text-[17px] md:text-xl font-semibold text-navy" style={rubikFont}>{fact.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      {/* ===== STATS ===== */}
+      <section className="bg-white pt-6 pb-2">
         <div className={containerClass}>
-          <div className="rounded-3xl border border-border-light bg-white shadow-sm px-4 py-6">
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-y-5 gap-x-4">
-              {data.quickFacts.map((fact) => (
-                <div key={fact.label} className="text-center">
-                  <p className="text-[15px] font-bold text-navy">{fact.value}</p>
-                  <p className="text-sm text-gray-dark mt-0.5">{fact.label}</p>
-                </div>
-              ))}
+          <div className="rounded-3xl border border-border-light bg-white shadow-[0_20px_40px_-28px_rgba(0,19,83,0.35)] grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#E6EAF5]">
+            <div className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-7">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF]">
+                <svg className="h-[26px] w-[26px] text-blue-royal" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c3 2 9 2 12 0v-5" />
+                </svg>
+              </span>
+              <div>
+                <p className="text-3xl md:text-[32px] font-bold leading-none text-navy" style={rubikFont}>{ADMIZZ_STATS.studentsPlaced}</p>
+                <p className="text-[15px] text-body mt-1.5">Students successfully enrolled worldwide</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-7">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF]">
+                <svg className="h-[26px] w-[26px] text-blue-royal" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.2-4.6A8 8 0 1 1 21 12Z" />
+                </svg>
+              </span>
+              <div>
+                <p className="text-3xl md:text-[32px] font-bold leading-none text-navy" style={rubikFont}>Free</p>
+                <p className="text-[15px] text-body mt-1.5">First consultation with an expert counsellor</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-7">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF]">
+                <svg className="h-[26px] w-[26px] text-blue-royal" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z" /><path d="m9 12 2 2 4-4" />
+                </svg>
+              </span>
+              <div>
+                <p className="text-3xl md:text-[32px] font-bold leading-none text-navy" style={rubikFont}>ICEF</p>
+                <p className="text-[15px] text-body mt-1.5">Accredited study abroad agency</p>
+              </div>
             </div>
           </div>
+          {ADMIZZ_STATS_BASIS && (
+            <p className="text-[12px] text-body/70 text-center mt-2">{ADMIZZ_STATS_BASIS}</p>
+          )}
         </div>
       </section>
 
@@ -581,7 +616,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
           <div className="w-fit max-w-full mx-auto rounded-full border border-white/70 bg-gradient-to-b from-white/75 to-white/45 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_32px_rgba(0,19,83,0.12)]">
             <div
               ref={tabScrollRef}
-              className="overflow-x-auto scrollbar-hide rounded-full p-1.5"
+              className="overflow-x-auto scrollbar-hide rounded-full p-1"
             >
               <div className="flex gap-1 min-w-max md:justify-center">
                 {tabs.map((tab) => (
@@ -589,7 +624,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
                     key={tab.id}
                     data-tab={tab.id}
                     onClick={() => scrollToSection(tab.id)}
-                    className={`px-4 py-2 text-sm sm:text-[15px] font-medium whitespace-nowrap rounded-full transition-colors ${
+                    className={`px-3.5 py-1.5 text-[13px] sm:text-[14px] font-medium whitespace-nowrap rounded-full transition-colors ${
                       activeTab === tab.id
                         ? "bg-white/80 text-blue-royal font-semibold shadow-[0_2px_10px_rgba(49,66,156,0.15)] ring-1 ring-white"
                         : "text-body hover:text-navy hover:bg-white/50"
@@ -610,29 +645,6 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
           )}
         </div>
       </nav>
-
-      {/* ===== STATS ===== */}
-      <section className="bg-white pt-6 pb-4">
-        <div className={containerClass}>
-          <div className="rounded-3xl bg-[#F4F6FF] px-4 py-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div>
-              <p className="text-3xl md:text-4xl font-bold text-navy" style={rubikFont}>{ADMIZZ_STATS.studentsPlaced}</p>
-              <p className="text-[15px] text-body mt-1">Students successfully enrolled worldwide</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-4xl font-bold text-navy" style={rubikFont}>Free</p>
-              <p className="text-[15px] text-body mt-1">First consultation with an expert counsellor</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-4xl font-bold text-navy" style={rubikFont}>ICEF</p>
-              <p className="text-[15px] text-body mt-1">Accredited study abroad agency</p>
-            </div>
-          </div>
-          {ADMIZZ_STATS_BASIS && (
-            <p className="text-[12px] text-body/70 text-center mt-2">{ADMIZZ_STATS_BASIS}</p>
-          )}
-        </div>
-      </section>
 
       {/* ===== WHY STUDY HERE ===== */}
       <section id="why" className="py-16 md:py-20 scroll-mt-32">

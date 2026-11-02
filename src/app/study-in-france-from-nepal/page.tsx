@@ -41,7 +41,7 @@ const pageData: NepalVariantData = {
   countryName: "France",
   countryCategorySlug: "france",
   heroHeading: "Study in France from Nepal",
-  heroSubheading: "Course choice, Campus France and your student visa, handled with a counsellor at our Kathmandu office.",
+  heroSubheading: "Course choice, Campus France and your student visa, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/france-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Sep · Jan" },
