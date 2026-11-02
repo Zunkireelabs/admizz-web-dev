@@ -83,6 +83,9 @@ interface CountryPageTemplateProps {
 
 
 
+// Stats card (1,500+ / Free / ICEF) under the facts box. Hidden at the client's request (CRET-9).
+const SHOW_STATS_CARD = false;
+
 const tabs = [
   { id: "why", label: "Why Study Here" },
   { id: "admission", label: "Admission" },
@@ -566,52 +569,54 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
         </dl>
       </div>
 
-      {/* ===== STATS ===== */}
-      <section className="bg-white pt-6 pb-2">
-        <div className={containerClass}>
-          <div className="rounded-3xl border border-border-light bg-white shadow-[0_20px_40px_-28px_rgba(0,19,83,0.35)] grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#E6EAF5]">
-            <div className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-7">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF]">
-                <svg className="h-[26px] w-[26px] text-blue-royal" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c3 2 9 2 12 0v-5" />
-                </svg>
-              </span>
-              <div>
-                <p className="text-3xl md:text-[32px] font-bold leading-none text-navy" style={rubikFont}>{ADMIZZ_STATS.studentsPlaced}</p>
-                <p className="text-[15px] text-body mt-1.5">Students successfully enrolled worldwide</p>
+      {/* ===== STATS ===== (hidden for now, CRET-9; flip SHOW_STATS_CARD to bring it back) */}
+      {SHOW_STATS_CARD && (
+        <section className="bg-white pt-6 pb-2">
+          <div className={containerClass}>
+            <div className="rounded-3xl border border-border-light bg-white shadow-[0_20px_40px_-28px_rgba(0,19,83,0.35)] grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#E6EAF5]">
+              <div className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-7">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF]">
+                  <svg className="h-[26px] w-[26px] text-blue-royal" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c3 2 9 2 12 0v-5" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-3xl md:text-[32px] font-bold leading-none text-navy" style={rubikFont}>{ADMIZZ_STATS.studentsPlaced}</p>
+                  <p className="text-[15px] text-body mt-1.5">Students successfully enrolled worldwide</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-7">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF]">
+                  <svg className="h-[26px] w-[26px] text-blue-royal" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.2-4.6A8 8 0 1 1 21 12Z" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-3xl md:text-[32px] font-bold leading-none text-navy" style={rubikFont}>Free</p>
+                  <p className="text-[15px] text-body mt-1.5">First consultation with an expert counsellor</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-7">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF]">
+                  <svg className="h-[26px] w-[26px] text-blue-royal" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z" /><path d="m9 12 2 2 4-4" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-3xl md:text-[32px] font-bold leading-none text-navy" style={rubikFont}>ICEF</p>
+                  <p className="text-[15px] text-body mt-1.5">Accredited study abroad agency</p>
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-7">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF]">
-                <svg className="h-[26px] w-[26px] text-blue-royal" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.2-4.6A8 8 0 1 1 21 12Z" />
-                </svg>
-              </span>
-              <div>
-                <p className="text-3xl md:text-[32px] font-bold leading-none text-navy" style={rubikFont}>Free</p>
-                <p className="text-[15px] text-body mt-1.5">First consultation with an expert counsellor</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-7">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF]">
-                <svg className="h-[26px] w-[26px] text-blue-royal" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z" /><path d="m9 12 2 2 4-4" />
-                </svg>
-              </span>
-              <div>
-                <p className="text-3xl md:text-[32px] font-bold leading-none text-navy" style={rubikFont}>ICEF</p>
-                <p className="text-[15px] text-body mt-1.5">Accredited study abroad agency</p>
-              </div>
-            </div>
+            {ADMIZZ_STATS_BASIS && (
+              <p className="text-[12px] text-body/70 text-center mt-2">{ADMIZZ_STATS_BASIS}</p>
+            )}
           </div>
-          {ADMIZZ_STATS_BASIS && (
-            <p className="text-[12px] text-body/70 text-center mt-2">{ADMIZZ_STATS_BASIS}</p>
-          )}
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ===== TAB NAVIGATION ===== */}
-      <nav className="sticky top-[70px] z-40 py-3">
+      <nav className="sticky top-[70px] z-40 mt-4 py-3">
         <div className="max-w-4xl mx-auto relative px-4">
           <div className="w-fit max-w-full mx-auto rounded-full border border-white/70 bg-gradient-to-b from-white/75 to-white/45 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_32px_rgba(0,19,83,0.12)]">
             <div
