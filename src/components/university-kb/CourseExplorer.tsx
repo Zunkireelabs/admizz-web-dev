@@ -333,7 +333,7 @@ export default function CourseExplorer({ catalog }: Props) {
               </dl>
 
               <Link href="/register" className="mt-6 inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal hover:underline underline-offset-4">
-                Not sure? Talk to a counsellor <ArrowRight className="h-4 w-4" aria-hidden />
+                Not sure? Talk to a counselor <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </div>
 
@@ -466,7 +466,7 @@ export default function CourseExplorer({ catalog }: Props) {
             {groups.length === 0 ? (
               <div className="mt-8 rounded-2xl border border-dashed border-border-light p-10 text-center">
                 <p className="text-[18px] font-bold text-navy">No courses match your search</p>
-                <p className="mt-2 text-[15px] text-gray-dark">Try a shorter word, remove a filter, or ask a counsellor to find options for you.</p>
+                <p className="mt-2 text-[15px] text-gray-dark">Try a shorter word, remove a filter, or ask a counselor to find options for you.</p>
                 <button type="button" onClick={resetAll} className="mt-5 rounded-[10px] border border-blue-royal px-5 py-2.5 text-[14px] font-semibold text-blue-royal hover:bg-blue-royal hover:text-white transition-colors">
                   Start a new search
                 </button>
@@ -600,7 +600,7 @@ function CourseGroupCard({
                         {c.per === "year" ? " / year" : ""}
                       </span>
                     ) : (
-                      "Ask a counsellor"
+                      "Ask a counselor"
                     )}
                     {c.intakes.length > 0 && ` · ${c.intakes.join(", ")}`}
                   </span>

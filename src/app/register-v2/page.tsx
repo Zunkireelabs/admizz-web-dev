@@ -47,7 +47,7 @@ const offices = [
     cities: [
       {
         name: "Kathmandu",
-        address: "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (Opp. to Nabil Bank)",
+        address: "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (opposite Nabil Bank)",
         phone: "+977-9802728444",
       },
       {
@@ -171,7 +171,7 @@ export default function RegisterPage() {
 
             {[
               { step: "Step 1", emoji: "📝", title: "Share your details", desc: "Tell us your target country, field of study, and budget. Takes under 2 minutes.", accent: "#1E6DEB", bg: "#EBF3FF" },
-              { step: "Step 2", emoji: "📞", title: "Your counsellor calls within 24 hours", desc: "They'll map out your options, answer your questions, and explain exactly what comes next — no pressure.", accent: "#3FB5A0", bg: "#EDFAF7" },
+              { step: "Step 2", emoji: "📞", title: "Your counselor calls within 24 hours", desc: "They'll map out your options, answer your questions, and explain exactly what comes next — no pressure.", accent: "#3FB5A0", bg: "#EDFAF7" },
               { step: "Step 3", emoji: "🎯", title: "Receive your personalized roadmap", desc: "A curated university shortlist with deadlines, scholarship options, and a clear action plan.", accent: "#E86F3C", bg: "#FFF4EE" },
             ].map((s) => (
               <div key={s.step} className="flex-1 bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md flex flex-col" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 10px rgba(13,18,130,0.04)" }}>
@@ -268,7 +268,7 @@ export default function RegisterPage() {
       {/* ===== Alumni Section ===== */}
       <AlumniSection />
 
-      {/* ===== COUNSELLOR FACES BAND (NEW — preview only) ===== */}
+      {/* ===== COUNSELOR FACES BAND (NEW — preview only) ===== */}
       <section className="py-10 md:py-16" style={{ background: "#F8F9FF" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-10">
@@ -276,10 +276,10 @@ export default function RegisterPage() {
               Real people, real expertise
             </p>
             <h2 className="text-[22px] md:text-[32px] font-bold leading-tight mb-3" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
-              Meet your counsellors
+              Meet your counselors
             </h2>
             <p className="text-[14px] md:text-[15px] max-w-xl mx-auto" style={{ color: "#5C7189" }}>
-              Speak with the right counsellor for your goal — they&rsquo;ll guide you personally through every step.
+              Speak with the right counselor for your goal — they&rsquo;ll guide you personally through every step.
             </p>
           </div>
 
@@ -287,7 +287,7 @@ export default function RegisterPage() {
           <div className="md:hidden -mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <div className="flex gap-4 w-max">
               {[
-                { initial: "A", name: "Aarav Sharma", role: "Senior Counsellor", langs: "EN · NE · HI", color: "#1E6DEB", bg: "#EBF3FF" },
+                { initial: "A", name: "Aarav Sharma", role: "Senior Counselor", langs: "EN · NE · HI", color: "#1E6DEB", bg: "#EBF3FF" },
                 { initial: "P", name: "Priya Gurung", role: "UK Programs Lead", langs: "EN · NE", color: "#3FB5A0", bg: "#EDFAF7" },
                 { initial: "S", name: "Sita Tamang", role: "USA Programs Lead", langs: "EN · NE", color: "#E86F3C", bg: "#FFF4EE" },
                 { initial: "R", name: "Rajesh KC", role: "Visa Specialist", langs: "EN · NE · HI", color: "#BB5FEC", bg: "#F8F0FF" },
@@ -307,7 +307,7 @@ export default function RegisterPage() {
 
           <div className="hidden md:grid md:grid-cols-5 gap-4 md:gap-6">
             {[
-              { initial: "A", name: "Aarav Sharma", role: "Senior Counsellor", langs: "EN · NE · HI", color: "#1E6DEB", bg: "#EBF3FF" },
+              { initial: "A", name: "Aarav Sharma", role: "Senior Counselor", langs: "EN · NE · HI", color: "#1E6DEB", bg: "#EBF3FF" },
               { initial: "P", name: "Priya Gurung", role: "UK Programs Lead", langs: "EN · NE", color: "#3FB5A0", bg: "#EDFAF7" },
               { initial: "S", name: "Sita Tamang", role: "USA Programs Lead", langs: "EN · NE", color: "#E86F3C", bg: "#FFF4EE" },
               { initial: "R", name: "Rajesh KC", role: "Visa Specialist", langs: "EN · NE · HI", color: "#BB5FEC", bg: "#F8F0FF" },
@@ -345,7 +345,7 @@ export default function RegisterPage() {
                 a: "Yes, completely free for students. Admizz earns from our university partners — never from you. No fees, deposits, or commission charged to your side, ever.",
               },
               {
-                q: "How long is the counselling call?",
+                q: "How long is the counseling call?",
                 a: "Typically 15–30 minutes. Just enough time to understand your goals, answer your questions, and recommend next steps — no pressure or sales pitch.",
               },
               {
@@ -354,7 +354,7 @@ export default function RegisterPage() {
               },
               {
                 q: "What if I'm not sure where I want to study yet?",
-                a: "That's exactly why most students reach out — to figure it out. Our counsellors help you compare destinations based on your budget, goals, and preferred field of study.",
+                a: "That's exactly why most students reach out — to figure it out. Our counselors help you compare destinations based on your budget, goals, and preferred field of study.",
               },
               {
                 q: "Can I change my mind after registering?",

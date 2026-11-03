@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Germany - Admizz Education",
   description:
-    "Study in Germany at world-renowned universities with tuition-free public education, expert guidance, visa support, and scholarships. Begin your international journey today!",
+    "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-germany",
   },
   openGraph: {
     title: "Study in Germany - Admizz Education",
     description:
-      "Study in Germany at world-renowned universities with tuition-free public education, expert guidance, visa support, and scholarships. Begin your international journey today!",
+      "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
     url: "https://admizzeducation.com/study-in-germany",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in Germany - Admizz Education",
     description:
-      "Study in Germany at world-renowned universities with tuition-free public education, expert guidance, visa support, and scholarships. Begin your international journey today!",
+      "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
     images: ["/images/og/countries/study-in-germany.jpg"],
   },
 };
@@ -44,7 +44,7 @@ const germanyData: CountryPageData = {
   flagColors: ["#000000", "#DD0000", "#E0A800"],
   heroSubheading: "World-Class Education with Tuition-Free Public Universities",
   heroDescription:
-    "Study in Germany and benefit from tuition-free public universities, cutting-edge research facilities, and globally recognised degrees. Admizz Education supports you with course guidance, admissions, documentation, and visa assistance \u2014 ensuring a smooth, confident journey toward top-quality education and career opportunities in Germany.",
+    "Study in Germany and benefit from tuition-free public universities, cutting-edge research facilities, and globally recognized degrees. Admizz Education supports you with course guidance, admissions, documentation, and visa assistance \u2014 ensuring a smooth, confident journey toward top-quality education and career opportunities in Germany.",
   heroBackground: "/images/hero/germany-hero.webp",
   quickFacts: [
     { label: "Language", value: "German English" },
@@ -61,37 +61,37 @@ const germanyData: CountryPageData = {
       icon: "/images/icons/school-1.webp",
       title: "Tuition-Free Public Universities",
       description:
-        "Most public universities in Germany charge no tuition fees for international students, making it one of the most affordable study destinations worldwide.",
+        "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
     },
     {
       icon: "/images/icons/scholarship-108.webp",
       title: "Globally Ranked Institutions",
       description:
-        "Home to prestigious universities like TU Munich, LMU Munich, Heidelberg University, and Humboldt University, consistently ranked among the world\u2019s best.",
+        "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
     },
     {
       icon: "/images/icons/knowledge.webp",
       title: "English-Taught Programs",
       description:
-        "Over 1,800 international programs are available fully in English at Bachelor\u2019s, Master\u2019s, and PhD levels across German universities.",
+        "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
     },
     {
       icon: "/images/icons/accomodation-108.webp",
       title: "Strong Economy & Career Prospects",
       description:
-        "Germany is Europe\u2019s largest economy and home to global companies like BMW, Siemens, SAP, and Bosch, offering excellent internship and job opportunities.",
+        "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
     },
     {
       icon: "/images/icons/consultation.webp",
       title: "Post-Study Work Opportunities",
       description:
-        "Graduates receive an 18-month post-study work visa to find employment in Germany, one of the most generous policies in Europe.",
+        "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
     },
     {
       icon: "/images/icons/visa-1.webp",
       title: "Rich Cultural Experience",
       description:
-        "Experience a vibrant cultural scene, historic cities, world-class museums, and a diverse, welcoming student community across Germany.",
+        "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move.",
     },
   ],
   admissionTitle: "Admission Requirements for Studying in Germany",
@@ -111,7 +111,7 @@ const germanyData: CountryPageData = {
         "Letters of Recommendation (LORs)",
         "English Proficiency Test Scores (IELTS/TOEFL/PTE) \u2013 for English-taught programs",
         "German Language Test Scores (TestDaF/DSH/Goethe-Zertifikat) \u2013 for German-taught programs",
-        "Proof of Funds / Blocked Account (\u20AC11,208 per year)",
+        "Proof of Funds / Blocked Account (\u20AC11,904 per year)",
         "Health Insurance (mandatory)",
         "Visa Application Documents",
       ],
@@ -119,7 +119,7 @@ const germanyData: CountryPageData = {
     {
       title: "Documents Required for University Admission",
       intro:
-        "Prepare your Germany university application with essential documents, including passport, academic transcripts, language scores, SOP, LORs, proof of funds, health insurance, and admission-specific papers for smooth enrolment.",
+        "Prepare your Germany university application with essential documents, including passport, academic transcripts, language scores, SOP, LORs, proof of funds, health insurance, and admission-specific papers for smooth enrollment.",
       documents: [
         "Valid Passport",
         "Academic Transcripts & Certificates",
@@ -141,7 +141,7 @@ const germanyData: CountryPageData = {
       documents: [
         "Valid Passport (minimum 6 months validity)",
         "University Admission Letter",
-        "Blocked Account Proof (\u20AC11,208)",
+        "Blocked Account Proof (\u20AC11,904)",
         "Health Insurance Certificate",
         "Academic Transcripts & Certificates",
         "Language Proficiency Scores",
@@ -177,7 +177,7 @@ const germanyData: CountryPageData = {
   costIntro:
     "Understanding the cost of studying in Germany helps international students plan their budget effectively. Germany is known for its affordable education, with most public universities charging no tuition fees.",
   costTable: [
-    { program: "Public University \u2013 Bachelor\u2019s / Master\u2019s", fee: "\u20AC0 (Semester contribution: \u20AC150\u2013\u20AC350)" },
+    { program: "Public University \u2013 Bachelor\u2019s / Master\u2019s", fee: "\u20AC0 (Semester contribution: \u20AC70\u2013\u20AC430)" },
     { program: "Public University \u2013 Baden-W\u00FCrttemberg (non-EU)", fee: "\u20AC1,500 per semester" },
     { program: "Private Universities", fee: "\u20AC5,000 \u2013 \u20AC20,000 per year" },
     { program: "MBA / Professional Programs", fee: "\u20AC15,000 \u2013 \u20AC40,000 per year" },
@@ -186,23 +186,23 @@ const germanyData: CountryPageData = {
     { program: "Health Insurance", fee: "\u20AC110 \u2013 \u20AC180 per month" },
   ],
   costNote:
-    "Note: Most public universities in Germany do not charge tuition fees (except Baden-W\u00FCrttemberg for non-EU students). Students must open a blocked account with \u20AC11,208 as proof of financial means for the visa. Costs vary by city, program, and lifestyle.",
+    "Note: Most public universities in Germany do not charge tuition fees (except Baden-W\u00FCrttemberg, which charges non-EU students \u20AC1,500 per semester, and some Bavarian universities, which may charge non-EU students). Students must open a blocked account with \u20AC11,904 as proof of financial means for the visa. Costs vary by city, program, and lifestyle.",
   visaTitle: "Germany Student Visa Process",
   visaIntro:
     "Follow the simplified Germany student visa process \u2014 from university admission to visa approval \u2014 for a smooth, stress-free study journey.",
   visaSteps: [
-    { title: "Choose & Apply", description: "Pick your German university and program, then apply through uni-assist or directly to the university." },
-    { title: "Get Your Admission Letter", description: "Receive your official admission letter (Zulassungsbescheid) from the university." },
-    { title: "Blocked Account & Insurance", description: "Open a blocked account (Sperrkonto) with \u20AC11,208 as proof of funds, and get mandatory health insurance." },
-    { title: "Book & Attend Visa Appointment", description: "Schedule your appointment at the German Embassy or Consulate, then submit biometrics and documents at your visa interview." },
-    { title: "Visa Decision", description: "Processing takes 4 to 12 weeks. Collect your passport with the student visa stamp." },
-    { title: "Travel & Register", description: "Arrive before your semester starts, then complete your Anmeldung (city registration) and university enrolment." },
+    { title: "Choose & Apply", description: "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move." },
+    { title: "Get Your Admission Letter", description: "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move." },
+    { title: "Blocked Account & Insurance", description: "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move." },
+    { title: "Book & Attend Visa Appointment", description: "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move." },
+    { title: "Visa Decision", description: "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move." },
+    { title: "Travel & Register", description: "Study in Germany at tuition-free public universities. Admizz Education helps with course guidance, admissions, documents and visa assistance for your move." },
   ],
   faqItems: [
-    { question: "Is studying in Germany really free?", answer: "Yes, most public universities in Germany do not charge tuition fees for international students. However, students pay a small semester contribution (\u20AC150\u2013\u20AC350) that covers administrative fees and a public transport pass. Private universities do charge tuition fees ranging from \u20AC5,000 to \u20AC20,000 per year." },
-    { question: "What are the eligibility requirements to study in Germany?", answer: "Students need academic transcripts, a valid passport, language proficiency scores (English or German depending on the program), a Statement of Purpose or Motivation Letter, Letters of Recommendation, and proof of financial means (blocked account with \u20AC11,208)." },
+    { question: "Is studying in Germany really free?", answer: "Yes, most public universities in Germany do not charge tuition fees for international students. However, students pay a small semester contribution (\u20AC70\u2013\u20AC430) that covers administrative fees and a public transport pass. Private universities do charge tuition fees ranging from \u20AC5,000 to \u20AC20,000 per year." },
+    { question: "What are the eligibility requirements to study in Germany?", answer: "Students need academic transcripts, a valid passport, language proficiency scores (English or German depending on the program), a Statement of Purpose or Motivation Letter, Letters of Recommendation, and proof of financial means (blocked account with \u20AC11,904)." },
     { question: "Do I need to know German to study in Germany?", answer: "Not necessarily. Germany offers over 1,800 English-taught programs at various levels. However, knowing basic German is helpful for daily life. For German-taught programs, you need TestDaF, DSH, or Goethe-Zertifikat scores." },
-    { question: "What is a blocked account and how much do I need?", answer: "A blocked account (Sperrkonto) is a special bank account required for the student visa. You must deposit \u20AC11,208 per year, from which you can withdraw a fixed monthly amount (\u20AC934) for living expenses." },
+    { question: "What is a blocked account and how much do I need?", answer: "A blocked account (Sperrkonto) is a special bank account required for the student visa. You must deposit \u20AC11,904 per year, from which you can withdraw a fixed monthly amount (\u20AC992) for living expenses." },
     { question: "How long does the Germany student visa process take?", answer: "The visa process typically takes 4 to 12 weeks after submitting your application at the German Embassy. It is recommended to apply at least 3 months before your intended travel date." },
     { question: "Can I work while studying in Germany?", answer: "Yes, international students in Germany can work up to 120 full days or 240 half days per year without a special work permit. Many students find part-time jobs, internships, or working student (Werkstudent) positions." },
     { question: "What are the major academic intakes in Germany?", answer: "Germany has two major intakes: Winter Semester (October, primary intake with the most programs) and Summer Semester (April, secondary intake with fewer available programs). Application deadlines are typically July 15 for winter and January 15 for summer." },

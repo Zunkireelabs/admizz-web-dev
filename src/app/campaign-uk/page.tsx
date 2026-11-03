@@ -376,7 +376,7 @@ export default function CampaignUKPage() {
               },
               {
                 title: "Shorter Durations",
-                desc: "1-year Masters and 3-year Bachelors programs.",
+                desc: "1-year Master's and 3-year Bachelor's programs.",
                 icon: (
                   <svg
                     className="w-8 h-8 text-blue-royal"

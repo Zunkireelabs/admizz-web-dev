@@ -18,12 +18,12 @@ const CANONICAL = "https://admizzeducation.com/events/worldcup-2026";
 export const metadata: Metadata = {
   title: "FIFA World Cup 2026 — Live Hub & Predict to Win | Admizz Education",
   description:
-    "The premium World Cup 2026 hub. Live scores, full bracket, group standings, top scorers — predict the next match and win prizes plus free study-abroad counselling with Admizz.",
+    "The premium World Cup 2026 hub. Live scores, full bracket, group standings, top scorers — predict the next match and win prizes plus free study-abroad counseling with Admizz.",
   alternates: { canonical: CANONICAL },
   openGraph: {
     title: "FIFA World Cup 2026 — Live Hub & Predict to Win | Admizz Education",
     description:
-      "The premium World Cup 2026 hub. Live scores, full bracket, group standings, top scorers — predict the next match and win prizes plus free study-abroad counselling with Admizz.",
+      "The premium World Cup 2026 hub. Live scores, full bracket, group standings, top scorers — predict the next match and win prizes plus free study-abroad counseling with Admizz.",
     url: CANONICAL,
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],

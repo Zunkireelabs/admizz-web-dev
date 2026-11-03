@@ -27,7 +27,7 @@ const CENTER = SIZE / 2;
 const OUTER_R = 220;
 const INNER_R = 124;
 const POP_OUT = 8;
-const ROTATION_OFFSET = -36; // shifts Counselling slice midpoint to 12 o'clock
+const ROTATION_OFFSET = -36; // shifts Counseling slice midpoint to 12 o'clock
 
 const COMPLETE_COLOR = "#2F9D85";
 const COMPLETE_DEEP = "#1F7A66";

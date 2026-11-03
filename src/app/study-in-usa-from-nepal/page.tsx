@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in USA from Nepal - Admizz Education",
   description:
-    "Study in the USA from Nepal with Admizz Education – universities, F-1 visa steps, costs, intakes and OPT work rights for Nepali students.",
+    "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-usa-from-nepal",
   },
   openGraph: {
     title: "Study in USA from Nepal - Admizz Education",
     description:
-      "Study in the USA from Nepal with Admizz Education – universities, F-1 visa steps, costs, intakes and OPT work rights for Nepali students.",
+      "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-usa-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in USA from Nepal - Admizz Education",
     description:
-      "Study in the USA from Nepal with Admizz Education – universities, F-1 visa steps, costs, intakes and OPT work rights for Nepali students.",
+      "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     images: ["/images/og/countries/study-in-the-usa.jpg"],
   },
 };
@@ -41,7 +41,7 @@ const pageData: NepalVariantData = {
   countryName: "USA",
   countryCategorySlug: "usa",
   heroHeading: "Study in the USA from Nepal",
-  heroSubheading: "University choice, your I-20 and F-1 visa interview prep, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
+  heroSubheading: "University choice, your I-20 and F-1 visa interview prep, handled with a counselor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/usa-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Aug/Sep · Jan" },
@@ -68,19 +68,19 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "Work after you graduate",
-      description: "OPT lets you work in your field for 12 months, plus 24 more with an eligible STEM degree.",
+      description: "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Flexible degrees",
-      description: "Many bachelor's programmes let you take a range of classes before you choose your major.",
+      description: "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Funding for strong students",
-      description: "Many universities give merit scholarships, and graduate students can apply for assistantships.",
+      description: "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Work on campus",
-      description: "Up to 20 hours a week during term, with your school's approval, and full-time in breaks.",
+      description: "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
   visaTitle: "Your F-1 visa, step by step",
@@ -105,7 +105,7 @@ const pageData: NepalVariantData = {
   intakesTitle: "When you can start",
   intakesIntro: "Fall has the most courses and funding. Deadlines differ by university, so apply early.",
   intakes: [
-    { intake: "Fall intake (August/September)", months: "Apply November – February", details: "Main intake. Most courses and scholarships." },
+    { intake: "Fall intake (August/September)", months: "Apply November – January (some schools later)", details: "Main intake. Most courses and scholarships." },
     { intake: "Spring intake (January)", months: "Apply July – October", details: "Good option if you miss Fall." },
     { intake: "Summer intake (May/June)", months: "Check with each university", details: "Selected courses only." },
   ],
@@ -170,7 +170,7 @@ const pageData: NepalVariantData = {
     {
       question: "Can I apply to US universities after +2 in Nepal?",
       answer:
-        "Yes. US universities accept +2 for bachelor's programmes. You also need an English test score, and some universities ask for the SAT.",
+        "Yes. US universities accept +2 for bachelor's programs. You also need an English test score, and some universities ask for the SAT.",
     },
     {
       question: "Is IELTS or TOEFL mandatory for the USA?",

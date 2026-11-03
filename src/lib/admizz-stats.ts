@@ -2,7 +2,7 @@
 // change the value there first, then here. Never hardcode these on a page.
 
 export const ADMIZZ_STATS = {
-  studentsPlaced: "1,500+",
+  studentsPlaced: "2,000+",
 } as const;
 
 // Removed from the site on 2026-10-29 until Admizz confirms them with a basis

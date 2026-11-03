@@ -134,7 +134,7 @@ export default function FinalCta({
               />
               <Image
                 src={counsellorImage}
-                alt="Admizz counsellor"
+                alt="Admizz counselor"
                 fill
                 sizes="500px"
                 className="object-cover"

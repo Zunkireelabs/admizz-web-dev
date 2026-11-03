@@ -70,7 +70,7 @@ const STEPS: Step[] = [
     tagColor: "#31429C",
     tagBorder: "rgba(49,66,156,0.22)",
     accent: "#31429C",
-    url: "admizz.com/affiliate/apply",
+    url: "admizzeducation.com/affiliate/apply",
     preview: (
       <>
         <p className="text-[10.5px] font-bold uppercase mb-4" style={{ color: "#5C7189", letterSpacing: "0.15em" }}>
@@ -104,7 +104,7 @@ const STEPS: Step[] = [
     tagColor: "#b07400",
     tagBorder: "rgba(252,183,48,0.3)",
     accent: "#FCB730",
-    url: "admizz.com/affiliate/dashboard",
+    url: "admizzeducation.com/affiliate/dashboard",
     preview: (
       <>
         <p className="text-[10.5px] font-bold uppercase mb-4" style={{ color: "#5C7189", letterSpacing: "0.15em" }}>
@@ -132,7 +132,7 @@ const STEPS: Step[] = [
           style={{ background: "rgba(252,183,48,0.1)", border: "1px solid rgba(252,183,48,0.3)" }}
         >
           <span className="text-[10px] font-semibold" style={{ color: "#5C7189" }}>
-            admizz.com/ref/
+            admizzeducation.com/ref/
           </span>
           <span className="text-[10px] font-bold" style={{ color: "#31429C" }}>
             yourname123
@@ -153,7 +153,7 @@ const STEPS: Step[] = [
     tagColor: "#7a6f00",
     tagBorder: "rgba(253,237,34,0.32)",
     accent: "#FDED22",
-    url: "admizz.com/affiliate/earnings",
+    url: "admizzeducation.com/affiliate/earnings",
     preview: (
       <>
         <p className="text-[10.5px] font-bold uppercase mb-4" style={{ color: "#5C7189", letterSpacing: "0.15em" }}>

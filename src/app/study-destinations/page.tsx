@@ -1,18 +1,21 @@
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import { ADMIZZ_STATS } from "@/lib/admizz-stats";
+import FAQ from "@/components/ui/FAQ";
+import type { FAQItem } from "@/components/ui/FAQ";
 
 export const metadata: Metadata = {
-  title: "Study Destinations - Admizz Education",
+  title: "Study Destinations for Nepali Students",
   description:
-    "Explore top study abroad destinations with expert guidance on universities, courses, visas, costs, and student life to help you choose the right country.",
+    "Compare 10 study abroad destinations with Admizz Education: Australia, Canada, the UK, USA and more. Get guidance on universities, courses, visas and costs.",
   alternates: {
     canonical: "https://admizzeducation.com/study-destinations",
   },
   openGraph: {
-    title: "Study Destinations - Admizz Education",
+    title: "Study Destinations for Nepali Students",
     description:
-      "Explore top study abroad destinations with expert guidance on universities, courses, visas, costs, and student life to help you choose the right country.",
+      "Compare 10 study abroad destinations with Admizz Education: Australia, Canada, the UK, USA and more. Get guidance on universities, courses, visas and costs.",
     url: "https://admizzeducation.com/study-destinations",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],
@@ -60,7 +63,7 @@ const destinations = [
   {
     name: "Study in Nepal",
     description:
-      "Affordable, English-medium programs at recognised universities — with the Himalayas as your campus backdrop.",
+      "Affordable, English-medium programs at recognized universities — with the Himalayas as your campus backdrop.",
     href: "/study-in-nepal",
   },
   {
@@ -89,9 +92,38 @@ const destinations = [
   },
 ];
 
+const faqItems: FAQItem[] = [
+  {
+    question: "Which countries does Admizz Education help students study in?",
+    answer:
+      "Admizz Education supports applications to 10 popular study destinations: Australia, Canada, Finland, France, India, Nepal, New Zealand, South Korea, the UK, and the USA — each with its own guidance on universities, courses, visas, costs, and student life.",
+  },
+  {
+    question: "How many students has Admizz Education helped choose a destination?",
+    answer:
+      "Admizz Education has worked with 2,000+ students, with a 95% visa approval rate and over $2M in scholarships secured for students across these destinations.",
+  },
+  {
+    question: "What support is included when I'm deciding on a study destination?",
+    answer:
+      "Every student gets personalized counseling to match their academic goals and budget with the right country, plus university admissions support and complete visa assistance — all handled by Admizz Education.",
+  },
+  {
+    question: "Which destinations are known for more affordable study options?",
+    answer:
+      "Among Admizz Education's destinations, Canada, India, and Nepal are highlighted for affordable education — Canada for affordable tuition alongside multicultural communities and residency pathways, India for affordable options in a culturally diverse environment, and Nepal for affordable, English-medium programs at recognized universities.",
+  },
+];
+
 export default function StudyDestinationsPage() {
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Study Destinations", url: "https://admizzeducation.com/study-destinations" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-16">
         <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -113,7 +145,7 @@ export default function StudyDestinationsPage() {
           <p className="text-[15px] text-gray-dark leading-relaxed">
             Admizz Education helps you discover the best study abroad
             destinations aligned with your academic goals and budget. Get
-            personalised counselling, university admissions support, and
+            personalized counseling, university admissions support, and
             complete visa assistance&mdash;all under one roof.
           </p>
 
@@ -144,7 +176,7 @@ export default function StudyDestinationsPage() {
             career opportunities, lifestyle, and long-term prospects. At Admizz
             Education, we help students explore and select the best study abroad
             destinations based on their academic goals, budget, and future
-            aspirations. With expert counselling and end-to-end support, we make
+            aspirations. With expert counseling and end-to-end support, we make
             your international education journey simple, transparent, and
             successful.
           </p>
@@ -184,6 +216,9 @@ export default function StudyDestinationsPage() {
         </div>
       </section>
 
+      {/* ===== FAQ ===== */}
+      <FAQ items={faqItems} title="Everything You Need to Know" twoColumn />
+
       {/* ===== BOTTOM CTA ===== */}
       <section className="py-16">
         <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -191,8 +226,8 @@ export default function StudyDestinationsPage() {
             Still deciding? Talk to Our Study Abroad Experts
           </h2>
           <p className="text-[15px] text-gray-dark mb-8">
-            Choose your ideal destination with personalised guidance from our
-            experienced counsellors.
+            Choose your ideal destination with personalized guidance from our
+            experienced counselors.
           </p>
           <Link
             href="/register"

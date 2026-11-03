@@ -108,14 +108,14 @@ export const destinations: Record<DestinationKey, Destination> = {
     tagline:
       "Nearly tuition-free public universities in the heart of Europe.",
     whyFits:
-      "Nearly tuition-free public universities, strong tech and engineering programmes, and a central European base — best value for budget-conscious ambitious students.",
+      "Nearly tuition-free public universities, strong tech and engineering programs, and a central European base — best value for budget-conscious ambitious students.",
     match: 90,
     image: "/images/destinations/germany1.webp",
     countryPageHref: "/study-in-germany",
     cards: [
       { icon: "🏛️", label: "Top Universities", value: "TU Munich, Heidelberg, KIT", cls: "accent" },
       { icon: "🎓", label: "Avg. Tuition", value: "€0–€3,000/year (Public!)", cls: "" },
-      { icon: "🏆", label: "Scholarships", value: "DAAD Scholarship Programme", cls: "gold" },
+      { icon: "🏆", label: "Scholarships", value: "DAAD Scholarship Program", cls: "gold" },
       { icon: "✈️", label: "Student Visa", value: "National Visa Type D", cls: "" },
     ],
   },

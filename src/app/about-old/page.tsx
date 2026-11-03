@@ -6,7 +6,7 @@ import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 export const metadata: Metadata = {
   title: "About Us (Old) | Admizz Education",
   description:
-    "Top education consultancy providing expert study abroad guidance, visa assistance, and career counselling for a brighter future.",
+    "Top education consultancy providing expert study abroad guidance, visa assistance, and career counseling for a brighter future.",
   robots: { index: false, follow: false },
 };
 
@@ -26,7 +26,7 @@ const achievements = [
   {
     icon: "/images/about/about-achievement-3.webp",
     value: "Free",
-    label: "First Consultation with Expert Counsellors",
+    label: "First Consultation with Expert Counselors",
     gradient: "linear-gradient(135deg, #38BDF8 0%, #7DD3FC 100%)",
   },
   {

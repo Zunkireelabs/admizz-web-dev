@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in UAE from Nepal - Admizz Education",
   description:
-    "Study in the UAE from Nepal: universities in Abu Dhabi, Dubai and Sharjah, tuition in AED, the university-sponsored student visa, intakes and costs.",
+    "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-uae-from-nepal",
   },
   openGraph: {
     title: "Study in UAE from Nepal - Admizz Education",
     description:
-      "Study in the UAE from Nepal: universities in Abu Dhabi, Dubai and Sharjah, tuition in AED, the university-sponsored student visa, intakes and costs.",
+      "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-uae-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in UAE from Nepal - Admizz Education",
     description:
-      "Study in the UAE from Nepal: universities in Abu Dhabi, Dubai and Sharjah, tuition in AED, the university-sponsored student visa, intakes and costs.",
+      "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     images: ["/images/og/countries/study-in-dubai.jpg"],
   },
 };
@@ -68,19 +68,19 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "Choice across emirates",
-      description: "Public universities like UAEU, private ones like AUS, and branch campuses of UK and Australian universities.",
+      description: "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Checked by the government",
-      description: "Federal programmes are accredited by the CAA. Dubai free-zone campuses are approved by KHDA.",
+      description: "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Visa through your university",
-      description: "Your university sponsors your student residence visa. You don't need a family member in the UAE.",
+      description: "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "A route to stay on",
-      description: "Top graduates of UAE universities can apply for a 10-year golden visa within two years of graduating.",
+      description: "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
   visaTitle: "Your student visa, step by step",
@@ -91,7 +91,7 @@ const pageData: NepalVariantData = {
     { category: "Pay deposit & visa fee", details: "Part of the first year's tuition, the visa fee and any visa deposit." },
     { category: "University files your visa", details: "It applies for your entry permit (ICP, or GDRFA in Dubai). We brief you in Kathmandu before you fly." },
     { category: "Fly to the UAE", details: "Enter on the entry permit, then report to your university's visa office." },
-    { category: "Medical test & Emirates ID", details: "Medical fitness test and Emirates ID biometrics. Your residence visa is then issued and renewed each year." },
+    { category: "Medical test & Emirates ID", details: "Medical fitness test (age 18 and above), health insurance and Emirates ID biometrics. Validity varies by visa type and sponsor; a sponsored residence visa can be for 1, 2 or 3 years." },
   ],
   visaDocuments: [
     "Passport valid at least 1 year",
@@ -156,22 +156,22 @@ const pageData: NepalVariantData = {
     {
       question: "Who sponsors my student visa in the UAE?",
       answer:
-        "Your university. It applies for your entry permit, and you finish the residence visa in the UAE with a medical test and Emirates ID.",
+        "Your accredited university, or a resident parent if you have one in the UAE. The university applies for your entry permit, and you finish the residence visa in the UAE with a medical test, health insurance and an Emirates ID.",
     },
     {
       question: "Is studying in the UAE different from studying in Dubai?",
       answer:
-        "Dubai is one of seven emirates. Visa rules are the same across the UAE. Dubai free-zone campuses are approved by KHDA; universities elsewhere are accredited federally by the CAA.",
+        "Dubai is one of seven emirates. The visa type is the same, a student residence visa sponsored by your university, but processing is handled by the local immigration authority (GDRFA in Dubai), so steps and fees can differ. Dubai free-zone campuses are approved by KHDA; universities elsewhere are accredited federally by the CAA.",
     },
     {
       question: "Can I work part-time while studying in the UAE?",
       answer:
-        "Only with a work permit from the Ministry of Human Resources and Emiratisation (MOHRE), which your employer applies for. Most universities also ask you to get their approval first.",
+        "MOHRE issues a student training and employment permit. You need a valid residence visa, training needs a no-objection certificate from your institution, and the permit runs for three months. We could not verify a weekly hour limit, so confirm with your university and MOHRE.",
     },
     {
       question: "Do I need IELTS to study in the UAE?",
       answer:
-        "Most universities ask for IELTS 6.0 or the PTE or TOEFL equivalent. Some run their own English test or offer a foundation year.",
+        "Most universities ask for proof of English, and the score is set by each one. Zayed University, for example, lists EmSAT English 1250, IELTS 5.5 or TOEFL iBT 71 for international undergraduates. Check your university's current requirement.",
     },
     {
       question: "How much does it cost to study in the UAE?",
@@ -181,7 +181,7 @@ const pageData: NepalVariantData = {
     {
       question: "Can I stay in the UAE after graduating?",
       answer:
-        "Top graduates can apply for a 10-year golden visa: a bachelor's GPA of 3.5 or higher (3.8 at some universities), within two years of graduating. Others need a job and a work visa.",
+        "Top graduates can apply for a 10-year golden visa: a bachelor's GPA of 3.5 or higher (3.8 at some universities), within two years of graduating. You also get a 60-day grace period after your student residence ends (as listed by GDRFA Dubai). Others need a job and a work visa.",
     },
   ],
 

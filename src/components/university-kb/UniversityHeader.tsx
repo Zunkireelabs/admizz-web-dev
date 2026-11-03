@@ -143,7 +143,7 @@ export default function UniversityHeader({ university: u, country }: Props) {
             <CompareToggle id={compareId(u.country, u.slug)} name={u.name} variant="header" />
             <EnquireButton className=" inline-flex items-center justify-center gap-2 bg-yellow text-black font-semibold text-[15px] px-6 py-3 rounded-[10px] whitespace-nowrap shadow-[0_2px_0_rgba(0,0,0,0.08)] hover:bg-yellow-bright hover:-translate-y-px hover:shadow-[0_6px_16px_rgba(253,237,34,0.45)] transition-all">
               <MessageCircle className="w-4 h-4" aria-hidden />
-              Talk to a Counsellor
+              Talk to a Counselor
             </EnquireButton>
             </div>
           </div>

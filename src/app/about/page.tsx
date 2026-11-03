@@ -1,7 +1,9 @@
 import Image from "next/image";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import Link from "next/link";
 import type { Metadata } from "next";
 import AboutTimeline from "./AboutTimeline";
+import FAQ from "@/components/ui/FAQ";
 import UniversityPartners from "@/app/UniversityPartners";
 import { allUniversities } from "@/lib/universities";
 import { ADMIZZ_STATS } from "@/lib/admizz-stats";
@@ -9,14 +11,14 @@ import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 export const metadata: Metadata = {
   title: "About Us | Admizz Education",
   description:
-    "Top education consultancy providing expert study abroad guidance, visa assistance, and career counselling for a brighter future.",
+    "Top education consultancy providing expert study abroad guidance, visa assistance, and career counseling for a brighter future.",
   alternates: {
     canonical: "https://admizzeducation.com/about",
   },
   openGraph: {
     title: "About Us | Admizz Education",
     description:
-      "Top education consultancy providing expert study abroad guidance, visa assistance, and career counselling for a brighter future.",
+      "Top education consultancy providing expert study abroad guidance, visa assistance, and career counseling for a brighter future.",
     url: "https://admizzeducation.com/about",
     siteName: "Admizz Education",
     images: ["/images/og/stuyabroad.webp"],
@@ -112,11 +114,40 @@ const milestones = [
 /*  PAGE                                                               */
 /* ------------------------------------------------------------------ */
 
+const aboutFaqs = [
+  {
+    question: "What is Admizz Education?",
+    answer:
+      "Admizz Education is a study abroad consultancy founded in 2015. It helps students with university admissions, visa assistance, test preparation, scholarship guidance and career counseling, with offices in Kathmandu and partner offices abroad.",
+  },
+  {
+    question: "How many students has Admizz Education helped?",
+    answer:
+      "Admizz Education has enrolled more than 2,000 students at universities abroad, working with over 100 partner universities across more than 12 countries.",
+  },
+  {
+    question: "Is Admizz Education accredited?",
+    answer:
+      "Yes. Admizz Education is accredited by ICEF, the International Consultants for Education and Fairs, and displays the ICEF badge on its website. Details are on the accreditation and results page.",
+  },
+  {
+    question: "What services does Admizz Education offer?",
+    answer:
+      "Admizz offers study abroad counseling, university selection and applications, student visa assistance, scholarship assistance, IELTS and other test preparation, and career counseling for international students.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <main
       style={{ fontFamily: "'Open Sans', var(--font-opensans), sans-serif" }}
     >
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "About Us", url: "https://admizzeducation.com/about" },
+        ]}
+      />
       <style>{`
         main h1, main h2, main h3 {
           font-family: 'Montserrat', var(--font-montserrat), sans-serif;
@@ -308,7 +339,7 @@ export default function AboutPage() {
               },
               {
                 value: "Free",
-                label: "First Consultation with Expert Counsellors",
+                label: "First Consultation with Expert Counselors",
                 icon: "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
                 accent: "#E86F3C",
               },
@@ -363,6 +394,20 @@ export default function AboutPage() {
 
       {/* ===== 4. MEET OUR FOUNDER ===== */}
       <section className="py-16 md:py-20 bg-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "@id": "https://admizzeducation.com/about#founder",
+              name: "Manish K Sah",
+              jobTitle: "Founder & CEO, Admizz Group",
+              worksFor: { "@id": "https://admizzeducation.com/#organization" },
+              url: "https://admizzeducation.com/about",
+            }),
+          }}
+        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p
             className="text-[13px] font-semibold uppercase tracking-[0.12em] text-center mb-3"
@@ -936,7 +981,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold" style={{ color: "#0D1282" }}>Expert Team</p>
-                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years experience</p>
+                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years of experience</p>
                   </div>
                 </div>
               </div>
@@ -970,6 +1015,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <FAQ items={aboutFaqs} />
     </main>
   );
 }

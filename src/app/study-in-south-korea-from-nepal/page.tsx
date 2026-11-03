@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in South Korea from Nepal - Admizz Education",
   description:
-    "Study in South Korea from Nepal: March and September intakes, tuition, the D-2 student visa at the Korean Embassy in Kathmandu, part-time work and GKS scholarships.",
+    "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-south-korea-from-nepal",
   },
   openGraph: {
     title: "Study in South Korea from Nepal - Admizz Education",
     description:
-      "Study in South Korea from Nepal: March and September intakes, tuition, the D-2 student visa at the Korean Embassy in Kathmandu, part-time work and GKS scholarships.",
+      "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-south-korea-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in South Korea from Nepal - Admizz Education",
     description:
-      "Study in South Korea from Nepal: March and September intakes, tuition, the D-2 student visa at the Korean Embassy in Kathmandu, part-time work and GKS scholarships.",
+      "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
     images: ["/images/og/countries/study-in-south-korea.jpg"],
   },
 };
@@ -41,18 +41,18 @@ const pageData: NepalVariantData = {
   countryName: "South Korea",
   countryCategorySlug: "south-korea",
   heroHeading: "Study in South Korea from Nepal",
-  heroSubheading: "Course choice, applications and your D-2 student visa, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
+  heroSubheading: "Course choice, applications and your D-2 student visa, handled with a counselor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/south-korea-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Mar · Sep" },
     { label: "Tuition from", value: "₩4.3M / yr" },
     { label: "Bachelor's", value: "4 years" },
-    { label: "Job-seeker visa", value: "D-10" },
+    { label: "Job-seeker visa", value: "D-10-1" },
     { label: "Language", value: "IELTS / TOPIK" },
   ],
   introTitle: "Study in South Korea from Nepal",
   introContent:
-    "Korean universities teach in Korean and, on many programmes, in English. Public university fees are low, and you can start with a Korean language course on a D-4 visa.",
+    "Korean universities teach in Korean and, on many programs, in English. Public university fees are low, and you can start with a Korean language course on a D-4 visa.",
   whyStudyTitle: "Low public fees and a path to work",
   whyStudyIntro: "Why students from Nepal choose South Korea.",
   highlightStats: [
@@ -63,41 +63,41 @@ const pageData: NepalVariantData = {
       note: "for bachelor's degrees at national and public universities. Private universities average about ₩7.6M a year.",
     },
     { value: "2", unit: "intakes", label: "March and September" },
-    { value: "30", unit: "hours a week", label: "max work in term (bachelor's)" },
+    { value: "20", unit: "hours a week", label: "max weekday work in term (bachelor's, TOPIK 3\u20134+)" },
   ],
   benefits: [
     {
       title: "Low public tuition",
-      description: "National and public universities average about ₩4.3 million a year for a bachelor's.",
+      description: "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Work part-time",
-      description: "With a work permit, hours depend on your Korean level and year of study. No limit on weekends and holidays.",
+      description: "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Government scholarship",
-      description: "The Global Korea Scholarship covers tuition, airfare, a monthly allowance and Korean language study.",
+      description: "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Stay on to find work",
-      description: "Graduates can switch to the D-10 job-seeker visa, then to a work visa with a job offer.",
+      description: "Study in Korea from Nepal: costs, visa, intakes, GKS scholarship and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
   visaTitle: "Your D-2 student visa, step by step",
   visaIntro: "You apply at the Korean Embassy in Kathmandu. Allow 21 working days or more.",
   visaRequirements: [
-    { category: "Choose a course", details: "Pick a university and programme, English- or Korean-taught. We shortlist with you." },
-    { category: "Certificate of Admission", details: "Your university issues it once you are accepted and pay fees." },
+    { category: "Choose a course", details: "Pick a university and program, English- or Korean-taught. We shortlist with you." },
+    { category: "Standard Admission Certificate", details: "Your university issues it once you are accepted and pay fees." },
     { category: "Verify documents", details: "Academic papers verified by the Korean Embassy in Kathmandu. Allow 10 days." },
     { category: "TB test in Kathmandu", details: "At one of the 4 hospitals designated by the Embassy." },
-    { category: "Apply at the Embassy", details: "Book an appointment and submit your file. Fee: NPR 9,300." },
+    { category: "Apply at the Embassy", details: "Book an appointment online and submit your file. Fee: NPR 9,300 (single entry, over 90 days, from July 1, 2026)." },
     { category: "Decision & arrival", details: "Visa in your passport. Then we brief you before you fly." },
   ],
   visaDocuments: [
     "Valid passport",
     "Standard Admission Certificate",
     "Verified transcripts & certificates",
-    "IELTS or TOEFL result",
+    "IELTS or TOPIK report",
     "TB report (Embassy hospital)",
     "Balance certificate & 6 months' statements",
     "SOP and family relationship certificate",
@@ -105,12 +105,12 @@ const pageData: NepalVariantData = {
   intakesTitle: "When you can start",
   intakesIntro: "March is the start of the Korean academic year. Apply early.",
   intakes: [
-    { intake: "March intake", months: "Apply September – November", details: "Main intake (Spring). Most programmes." },
-    { intake: "September intake", months: "Apply March – May", details: "Fall intake. Fewer programmes." },
+    { intake: "March intake", months: "Apply September – November", details: "Main intake (Spring). Most programs." },
+    { intake: "September intake", months: "Apply March – May", details: "Fall intake. Fewer programs." },
     { intake: "Language courses", months: "Several start dates a year", details: "Korean language study on a D-4 visa." },
   ],
   testTitle: "Language requirements",
-  testIntro: "What you need depends on the language your programme is taught in.",
+  testIntro: "What you need depends on the language your program is taught in.",
   testRequirements: [
     { test: "English-taught", score: "IELTS or TOEFL", notes: "Minimum score set by each university." },
     { test: "Korean-taught", score: "TOPIK level 3–4+", notes: "Or finish a Korean language course first." },
@@ -154,17 +154,17 @@ const pageData: NepalVariantData = {
     {
       question: "Do I need TOPIK to study in South Korea?",
       answer:
-        "Not for English-taught programmes, which ask for IELTS or TOEFL. Korean-taught programmes usually need TOPIK level 3 or higher.",
+        "It depends on your university and program. Korean-taught programs usually ask for TOPIK, and English-taught programs set their own English requirement. The Korean Embassy in Nepal asks visa applicants for an IELTS or TOPIK report.",
     },
     {
       question: "Can I work part-time while studying?",
       answer:
-        "Yes, with a part-time work permit from Korean immigration. Weekly hours depend on your TOPIK level and year of study, up to 30 (bachelor's) or 35 (graduate) in term.",
+        "Yes, with a part-time work permit from Korean immigration. Weekday hours in term depend on your degree and TOPIK level: bachelor's students can work up to 20 hours with TOPIK Level 3 (years 1\u20132) or Level 4 (years 3\u20134) and 10 hours below that, while master's and doctoral students can work up to 30 hours with Level 4 and 15 below it. Weekends and vacations have no hour limit. Check your university's table.",
     },
     {
       question: "How much money do I need to show for the visa?",
       answer:
-        "The Embassy asks for a balance certificate and 6 months of bank statements from an A-class bank. Your university sets the amount; we check it with you.",
+        "The Embassy asks for a balance certificate and 6 months of bank statements from an A-level bank. The Nepal embassy page does not publish a minimum balance, so we confirm the amount with the embassy and your university.",
     },
     {
       question: "What is the difference between D-2 and D-4 visas?",
@@ -174,7 +174,7 @@ const pageData: NepalVariantData = {
     {
       question: "Can I stay in Korea after graduating?",
       answer:
-        "Yes. Graduates can apply for the D-10 job-seeker visa and move to a work visa such as E-7 once they get a job offer.",
+        "Yes. You can apply to change to a D-10-1 job-seeking visa after your studies. It can be extended in 6-month steps up to 2 years, and manual or unskilled work is not allowed on it. Once you find a job, the visa must be changed to one that matches the work.",
     },
     {
       question: "When should I start applying?",

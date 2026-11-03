@@ -30,7 +30,7 @@ const INITIAL: FormState = {
 const CRM_ENDPOINT = "https://edgex.zunkireelabs.com/api/public/submit/admizz/ielts-strategy-workshop-registration";
 const CRM_API_KEY = "crm_live_UVtPfdXD6lIZ0S5lSeny9Clv3jKzbGUGM8sgK2Gm3tw";
 
-const STUDY_LEVELS = ["Diploma", "Bachelors", "Masters", "PhD"];
+const STUDY_LEVELS = ["Diploma", "Bachelor's", "Master's", "PhD"];
 
 const DESTINATIONS = [
   "UK", "USA", "Canada", "Australia",

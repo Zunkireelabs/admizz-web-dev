@@ -535,7 +535,7 @@ export default function BracketViz() {
             <TrophyIcon size={30} strokeWidth={1.5} />
           </div>
           <div className="wc-br-trophy-label">FIFA World Cup 2026</div>
-          <div className="wc-br-trophy-venue">Final · 19 July · MetLife Stadium</div>
+          <div className="wc-br-trophy-venue">Final · July 19 · MetLife Stadium</div>
         </div>
 
         {isMobile && (

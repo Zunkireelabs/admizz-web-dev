@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Finland from Nepal - Admizz Education",
   description:
-    "Study in Finland from Nepal: tuition, the January application round, residence permit steps and costs, explained for Nepali students.",
+    "Study in Finland from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-finland-from-nepal",
   },
   openGraph: {
     title: "Study in Finland from Nepal - Admizz Education",
     description:
-      "Study in Finland from Nepal: tuition, the January application round, residence permit steps and costs, explained for Nepali students.",
+      "Study in Finland from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-finland-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in Finland from Nepal - Admizz Education",
     description:
-      "Study in Finland from Nepal: tuition, the January application round, residence permit steps and costs, explained for Nepali students.",
+      "Study in Finland from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     images: ["/images/og/countries/study-in-finland.jpg"],
   },
 };
@@ -52,7 +52,7 @@ const pageData: NepalVariantData = {
   ],
   introTitle: "Study in Finland from Nepal",
   introContent:
-    "Finnish universities and universities of applied sciences teach many bachelor's and master's programmes in English. You apply through one national system, and after graduating you can stay to look for work.",
+    "Finnish universities and universities of applied sciences teach many bachelor's and master's programs in English. You apply through one national system, and after graduating you can stay to look for work.",
   whyStudyTitle: "Practical degrees and time to find work after",
   whyStudyIntro: "Why students from Nepal look at Finland.",
   highlightStats: [
@@ -68,19 +68,19 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "Taught in English",
-      description: "Many bachelor's and master's programmes are fully in English. Finnish is not needed to study.",
+      description: "Study in Finland from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "One application system",
-      description: "Apply to up to six programmes with one form on Studyinfo.fi.",
+      description: "Study in Finland from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Work while you study",
-      description: "An average of 30 hours a week, in any field, as long as your studies progress.",
+      description: "Study in Finland from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Stay to find a job",
-      description: "A permit of up to 2 years to look for work after you graduate.",
+      description: "Study in Finland from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
   visaTitle: "Your residence permit for studies, step by step",
@@ -102,10 +102,10 @@ const pageData: NepalVariantData = {
     "Academic transcripts",
   ],
   intakesTitle: "When you can start",
-  intakesIntro: "Most English-taught programmes start in autumn. The January application window is short.",
+  intakesIntro: "Most English-taught programs start in autumn. The January application window is short.",
   intakes: [
     { intake: "August intake", months: "Apply 7–21 January 2027", details: "Main intake. Studies start late August or early September." },
-    { intake: "January intake", months: "Apply late August – early September", details: "Fewer programmes, mostly universities of applied sciences." },
+    { intake: "January intake", months: "Apply late August – early September", details: "Fewer programs, mostly universities of applied sciences." },
   ],
   costTitle: "What a year in Finland costs",
   costIntro: "Typical tuition, plus the living-cost amount Migri asks you to show for your permit.",
@@ -147,12 +147,12 @@ const pageData: NepalVariantData = {
   faqItems: [
     {
       question: "Do I need to speak Finnish to study in Finland?",
-      answer: "No. Many programmes are taught fully in English. Basic Finnish helps with daily life and part-time jobs.",
+      answer: "No. Many programs are taught fully in English. Basic Finnish helps with daily life and part-time jobs.",
     },
     {
       question: "When do I apply?",
       answer:
-        "For autumn 2027 starts, the joint application on Studyinfo.fi runs 7–21 January 2027. A smaller round for January starts opens in late August.",
+        "For autumn 2027 starts, the joint application on Studyinfo.fi runs 7–21 January 2027. A smaller round for January starts runs from late August to early September (31 August to 10 September in 2026), with a limited number of English-taught programs.",
     },
     {
       question: "How much money do I need to show?",
@@ -173,7 +173,7 @@ const pageData: NepalVariantData = {
     },
     {
       question: "What English score do I need?",
-      answer: "Usually IELTS 6.0–6.5, depending on the programme. Check each programme on Studyinfo.fi.",
+      answer: "There is no single national score. Each university or program sets its accepted tests and minimum scores, so check the admission criteria of each program on Studyinfo.fi.",
     },
   ],
 

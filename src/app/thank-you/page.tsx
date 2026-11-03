@@ -22,12 +22,12 @@ const nextSteps = [
   {
     icon: "📞",
     title: "Expert calls you within 24 hours",
-    desc: "A dedicated counsellor will contact you to understand your goals.",
+    desc: "A dedicated counselor will contact you to understand your goals.",
   },
   {
     icon: "🎓",
-    title: "Free counselling session",
-    desc: "Get a personalised session covering courses, countries & eligibility.",
+    title: "Free counseling session",
+    desc: "Get a personalized session covering courses, countries & eligibility.",
   },
   {
     icon: "🗺️",

@@ -41,7 +41,7 @@ export default function LocalOffice({ city, office }: LocalOfficeProps) {
               lineHeight: 1.1,
             }}
           >
-            Your {city} counsellors are ready
+            Your {city} counselors are ready
           </h2>
           <p className="mt-4 text-[15px] text-gray-dark leading-relaxed">
             Local experts who speak your language, understand your goals, and guide you step by step — from country selection to visa approval.
@@ -263,7 +263,7 @@ export default function LocalOffice({ city, office }: LocalOfficeProps) {
               </h3>
 
               <p className="text-[14px] leading-relaxed mb-8" style={{ color: "#5C7189" }}>
-                Our local counsellors are ready to guide you — from choosing the right country to getting your visa sorted, step by step.
+                Our local counselors are ready to guide you — from choosing the right country to getting your visa sorted, step by step.
               </p>
 
               <div className="flex flex-col gap-3">

@@ -30,7 +30,7 @@ interface Row {
 
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-const muted = <span className="text-gray-medium">Ask a counsellor</span>;
+const muted = <span className="text-gray-medium">Ask a counselor</span>;
 
 function durationRange(u: UniversityProfile) {
   const m = u.courses.map((c) => c.durationMonths);
@@ -325,18 +325,18 @@ export default function CompareView({ universities, countries }: Props) {
         </div>
 
         <p className="mt-3 text-[12px] text-gray-dark">
-          ≈ NPR amounts are approximate conversions (rates as of {NPR_RATES_DATE}) to help you compare — always confirm the exact fee with a counsellor.
+          ≈ NPR amounts are approximate conversions (rates as of {NPR_RATES_DATE}) to help you compare — always confirm the exact fee with a counselor.
         </p>
 
         {selected.length > 0 && (
           <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-border-light bg-off-white p-6 md:flex-row md:items-center md:justify-between md:p-8">
             <div>
               <h2 className="text-[20px] font-bold text-navy">Need help choosing?</h2>
-              <p className="mt-1 text-[15px] text-gray-dark">A counsellor can check your eligibility for each of these universities — free.</p>
+              <p className="mt-1 text-[15px] text-gray-dark">A counselor can check your eligibility for each of these universities — free.</p>
             </div>
             <EnquireButton className="inline-flex items-center justify-center gap-2 rounded-[10px] bg-yellow px-6 py-3 text-[15px] font-semibold text-black whitespace-nowrap hover:bg-yellow-bright transition-colors">
               <MessageCircle className="w-4 h-4" aria-hidden />
-              Talk to a Counsellor
+              Talk to a Counselor
             </EnquireButton>
           </div>
         )}

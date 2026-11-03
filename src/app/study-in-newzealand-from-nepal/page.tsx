@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in New Zealand from Nepal - Admizz Education",
   description:
-    "Study in New Zealand from Nepal: intakes, tuition, the Fee Paying Student Visa, work rights and the Post Study Work Visa, with help from Admizz Education in Kathmandu.",
+    "Study in New Zealand from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-newzealand-from-nepal",
   },
   openGraph: {
     title: "Study in New Zealand from Nepal - Admizz Education",
     description:
-      "Study in New Zealand from Nepal: intakes, tuition, the Fee Paying Student Visa, work rights and the Post Study Work Visa, with help from Admizz Education in Kathmandu.",
+      "Study in New Zealand from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-newzealand-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in New Zealand from Nepal - Admizz Education",
     description:
-      "Study in New Zealand from Nepal: intakes, tuition, the Fee Paying Student Visa, work rights and the Post Study Work Visa, with help from Admizz Education in Kathmandu.",
+      "Study in New Zealand from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     images: ["/images/og/countries/study-in-newzealand.jpg"],
   },
 };
@@ -41,11 +41,11 @@ const pageData: NepalVariantData = {
   countryName: "New Zealand",
   countryCategorySlug: "new-zealand",
   heroHeading: "Study in New Zealand from Nepal",
-  heroSubheading: "Course choice, applications and your Fee Paying Student Visa, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
+  heroSubheading: "Course choice, applications and your Fee Paying Student Visa, handled with a counselor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/newzealand-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Feb · Jul" },
-    { label: "Tuition from", value: "NZ$22,000 / yr" },
+    { label: "Bachelor's tuition", value: "NZ$35,000 \u2013 55,000 / yr" },
     { label: "Work in term", value: "25 hrs / week" },
     { label: "Post-study work", value: "Up to 3 years" },
     { label: "English", value: "IELTS 6.0+" },
@@ -68,29 +68,29 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "Work while you study",
-      description: "Up to 25 hours a week during study and full-time in scheduled holidays.",
+      description: "Study in New Zealand from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Stay on to work",
-      description: "The Post Study Work Visa lets eligible graduates work for any employer for up to 3 years.",
+      description: "Study in New Zealand from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Lower PhD fees",
-      description: "International PhD students living in New Zealand pay the same fees as local students.",
+      description: "Study in New Zealand from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Quality-checked qualifications",
-      description: "Courses are approved by NZQA or Universities New Zealand and recognised abroad.",
+      description: "Study in New Zealand from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
   visaTitle: "Your Student visa, step by step",
-  visaIntro: "You apply online for a Fee Paying Student Visa. 80% of applications are decided within 7 weeks.",
+  visaIntro: "You apply online for a Fee Paying Student Visa. Immigration New Zealand lists average waits of about 2.5 weeks for universities and 4.5 weeks for polytechnics, but advises students from Nepal to apply at least 3 months before travel.",
   visaRequirements: [
     { category: "Choose a course", details: "Pick a course at an approved education provider. We shortlist with you." },
     { category: "Offer of place", details: "Get your offer letter showing the course, length and fees." },
     { category: "Chest X-ray in Nepal", details: "With an INZ panel physician. Needed for stays over 6 months." },
     { category: "Police certificate", details: "From Nepal Police, if you are 17+ and will stay 24 months or more." },
-    { category: "Apply online & pay fee", details: "On the Immigration New Zealand portal, with proof of funds and insurance." },
+    { category: "Apply online & pay fee", details: "Online only (fee from NZ$850), with proof of funds and insurance. Apply at least 3 months before travel." },
     { category: "Decision & eVisa", details: "Your visa is sent by email. Then we brief you before you fly." },
   ],
   visaDocuments: [
@@ -115,22 +115,22 @@ const pageData: NepalVariantData = {
     {
       title: "Tuition per year",
       rows: [
-        { category: "Bachelor's", cost: "NZ$22k – NZ$32k" },
-        { category: "Master's", cost: "NZ$26k – NZ$37k" },
-        { category: "PhD", cost: "NZ$6.5k – NZ$9k" },
+        { category: "Bachelor's", cost: "NZ$35k \u2013 NZ$55k" },
+        { category: "Master's", cost: "Varies by university and course" },
+        { category: "PhD", cost: "NZ$6.5k – NZ$7.5k" },
       ],
     },
     {
       title: "Living & visa costs",
       rows: [
-        { category: "Living funds", cost: "NZ$20,000 / yr" },
+        { category: "Living funds (to show)", cost: "NZ$20,000 / yr" },
         { category: "Student visa fee", cost: "From NZ$850" },
         { category: "Post Study Work Visa fee", cost: "From NZ$1,670" },
       ],
     },
   ],
   costNote:
-    "Tuition: typical ranges from Study with New Zealand; medicine and veterinary science cost more. Living funds and visa fees: Immigration New Zealand, checked October 2026.",
+    "Tuition: bachelor's range from Study with New Zealand (updated March 2025), master's varies by university; living costs for a budget are about NZ$20,000\u201327,000 a year (Auckland and Wellington universities); medicine and veterinary science cost more. Living funds and visa fees: Immigration New Zealand, checked October 2026.",
   scholarshipsTitle: "Funding you can apply for",
   scholarshipsIntro: "We check which of these you qualify for in your first consultation.",
   scholarships: [

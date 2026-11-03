@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Dubai from Nepal - Admizz Education",
   description:
-    "Study in Dubai from Nepal: branch campuses, tuition in AED, the university-sponsored student visa, intakes and living costs, explained for Nepali students.",
+    "Study in Dubai from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-dubai-from-nepal",
   },
   openGraph: {
     title: "Study in Dubai from Nepal - Admizz Education",
     description:
-      "Study in Dubai from Nepal: branch campuses, tuition in AED, the university-sponsored student visa, intakes and living costs, explained for Nepali students.",
+      "Study in Dubai from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-dubai-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in Dubai from Nepal - Admizz Education",
     description:
-      "Study in Dubai from Nepal: branch campuses, tuition in AED, the university-sponsored student visa, intakes and living costs, explained for Nepali students.",
+      "Study in Dubai from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     images: ["/images/og/countries/study-in-dubai.jpg"],
   },
 };
@@ -68,19 +68,19 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "Home-campus degrees",
-      description: "Branch campuses such as Heriot-Watt, Middlesex and Wollongong award the same degree as their home university.",
+      description: "Study in Dubai from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Checked by KHDA",
-      description: "Universities in Dubai's free zones need KHDA approval for every programme they teach.",
+      description: "Study in Dubai from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Visa through your university",
-      description: "Your university sponsors your student residence visa. You don't need a family member in the UAE.",
+      description: "Study in Dubai from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "A route to stay on",
-      description: "Top graduates of UAE universities can apply for a 10-year golden visa within two years of graduating.",
+      description: "Study in Dubai from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
   visaTitle: "Your student visa, step by step",
@@ -91,7 +91,7 @@ const pageData: NepalVariantData = {
     { category: "Pay deposit & visa fee", details: "Part of the first year's tuition, the visa fee and a refundable visa deposit." },
     { category: "University files your visa", details: "It applies to GDRFA Dubai for your entry permit. We brief you in Kathmandu before you fly." },
     { category: "Fly to Dubai", details: "Enter on the entry permit, then report to your university's visa office." },
-    { category: "Medical test & Emirates ID", details: "Medical fitness test and Emirates ID biometrics in Dubai. Your residence visa is then issued and renewed each year." },
+    { category: "Medical test & Emirates ID", details: "Medical fitness test (age 18 and above), health insurance and Emirates ID biometrics in Dubai. Validity varies by visa type and sponsor; a sponsored residence visa can be for 1, 2 or 3 years." },
   ],
   visaDocuments: [
     "Passport valid at least 1 year",
@@ -161,27 +161,27 @@ const pageData: NepalVariantData = {
     {
       question: "How long does the Dubai student visa take?",
       answer:
-        "It depends on the university's visa team. Apply for your course early and allow a few weeks before your start date.",
+        "GDRFA Dubai lists 48 hours for the residence permit service itself, but the entry permit, medical test and Emirates ID steps add time. Apply early and allow a few weeks before your start date.",
     },
     {
       question: "Can I work part-time while studying in Dubai?",
       answer:
-        "Only with a work permit from the Ministry of Human Resources and Emiratisation (MOHRE), which your employer applies for. Most universities also ask you to get their approval first.",
+        "MOHRE issues a student training and employment permit. You need a valid residence visa, training needs a no-objection certificate from your institution, and the permit runs for three months. We could not verify a weekly hour limit, so confirm with your university and MOHRE.",
     },
     {
       question: "Do I need IELTS to study in Dubai?",
       answer:
-        "Most universities ask for IELTS 6.0 or the PTE or TOEFL equivalent. Some run their own English test or offer a foundation year.",
+        "Most universities ask for an accepted English test, and the score is set by each one. Zayed University, for example, lists EmSAT English 1250, IELTS 5.5 or TOEFL iBT 71 for international undergraduates. Check your university's current requirement.",
     },
     {
-      question: "Are Dubai degrees recognised?",
+      question: "Are Dubai degrees recognized?",
       answer:
         "Branch campuses award their home university's degree. Check that your university and course are approved by KHDA before you apply.",
     },
     {
       question: "Can I stay in the UAE after graduating?",
       answer:
-        "Top graduates can apply for a 10-year golden visa: a bachelor's GPA of 3.5 or higher (3.8 at some universities), within two years of graduating. Others need a job and a work visa.",
+        "Top graduates can apply for a 10-year golden visa: a bachelor's GPA of 3.5 or higher (3.8 at some universities), within two years of graduating. You also get a 60-day grace period after your student residence ends. Others need a job and a work visa.",
     },
   ],
 

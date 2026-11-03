@@ -89,7 +89,7 @@ const UNIVERSITIES: Record<string, { name: string; logo: string }[]> = {
   France: [
     { name: 'Sorbonne University', logo: 'https://admizzeducation.com/images/universities/france/sorbonne-university.png' },
     { name: 'Sciences Po', logo: 'https://admizzeducation.com/images/universities/france/sciences-po.png' },
-    { name: 'Ecole Polytechnique', logo: 'https://admizzeducation.com/images/universities/france/ecole-polytechnique.png' },
+    { name: 'École Polytechnique', logo: 'https://admizzeducation.com/images/universities/france/ecole-polytechnique.png' },
     { name: 'Université de Bordeaux', logo: 'https://admizzeducation.com/images/universities/france/universite-de-bordeaux.png' },
   ],
 };

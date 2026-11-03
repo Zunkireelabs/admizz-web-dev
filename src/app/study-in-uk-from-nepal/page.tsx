@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in UK from Nepal - Admizz Education",
   description:
-    "Study in UK from Nepal with Admizz Education – Your complete guide to UK education, visas, costs & careers. Expert guidance for Nepali students.",
+    "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-uk-from-nepal",
   },
   openGraph: {
     title: "Study in UK from Nepal - Admizz Education",
     description:
-      "Study in UK from Nepal with Admizz Education – Your complete guide to UK education, visas, costs & careers. Expert guidance for Nepali students.",
+      "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-uk-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in UK from Nepal - Admizz Education",
     description:
-      "Study in UK from Nepal with Admizz Education – Your complete guide to UK education, visas, costs & careers. Expert guidance for Nepali students.",
+      "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     images: ["/images/og/countries/study-in-the-uk.jpg"],
   },
 };
@@ -41,7 +41,7 @@ const pageData: NepalVariantData = {
   countryName: "the UK",
   countryCategorySlug: "uk",
   heroHeading: "Study in the UK from Nepal",
-  heroSubheading: "Course choice, applications and your Student visa, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
+  heroSubheading: "Course choice, applications and your Student visa, handled with a counselor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/uk-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Sep · Jan · May" },
@@ -52,7 +52,7 @@ const pageData: NepalVariantData = {
   ],
   introTitle: "Study in the UK from Nepal",
   introContent:
-    "UK degrees are recognised worldwide, most master's take one year, and graduates can stay to work on the Graduate visa.",
+    "UK degrees are recognized worldwide, most master's take one year, and graduates can stay to work on the Graduate visa.",
   whyStudyTitle: "A shorter degree that still opens doors",
   whyStudyIntro: "Why so many students from Nepal pick the UK.",
   highlightStats: [
@@ -68,19 +68,19 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "1-year master's",
-      description: "Most taught master's take 12 months, so you pay a year less in fees and rent.",
+      description: "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Quality-checked universities",
-      description: "Every university is regulated and regularly reviewed by UK bodies.",
+      description: "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Work while you study",
-      description: "Up to 20 hours a week in term on degree courses (10 below degree level), full-time in holidays.",
+      description: "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
-      title: "Degrees recognised worldwide",
-      description: "Accepted by employers and universities in Nepal and abroad.",
+      title: "Degrees recognized worldwide",
+      description: "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
   visaTitle: "Your Student visa, step by step",
@@ -89,8 +89,8 @@ const pageData: NepalVariantData = {
     { category: "Choose a course", details: "Pick a course at a UKVI-licensed university. We shortlist with you." },
     { category: "Offer, deposit & CAS", details: "Accept your offer, pay the deposit and receive your CAS number." },
     { category: "TB test in Kathmandu", details: "At a UKVI-approved clinic. The certificate goes with your application." },
-    { category: "Apply online & pay fees", details: "Visa form, visa fee and the immigration health surcharge." },
-    { category: "Biometrics in Kathmandu", details: "Photo and fingerprints at the visa application centre." },
+    { category: "Apply online & pay fees", details: "Visa form, the £558 visa fee and the immigration health surcharge (£776 per year)." },
+    { category: "Biometrics in Kathmandu", details: "Photo and fingerprints at the visa application center." },
     { category: "Decision & eVisa", details: "Your visa is digital, in your UKVI account. Then we brief you before you fly." },
   ],
   visaDocuments: [
@@ -128,7 +128,7 @@ const pageData: NepalVariantData = {
       ],
     },
   ],
-  costNote: "Living costs: UKVI funds requirement for up to 9 months. Source: GOV.UK, checked October 2026.",
+  costNote: "Living costs: UKVI funds requirement for up to 9 months. For applications from November 30, 2026, these rise to £1,570 / mo in London and £1,203 / mo outside London. Source: GOV.UK, checked October 2026.",
   scholarshipsTitle: "Funding you can apply for",
   scholarshipsIntro: "We check which of these you qualify for in your first consultation.",
   scholarships: [
@@ -191,7 +191,7 @@ const pageData: NepalVariantData = {
     {
       question: "What are the living expenses in the UK?",
       answer:
-        "UKVI requires you to show £1,529 per month in London or £1,171 per month outside London, for up to 9 months, to cover accommodation, food, and transport.",
+        "UKVI requires you to show £1,529 per month in London or £1,171 per month outside London, for up to 9 months, to cover accommodation, food, and transport. These rise to £1,570 and £1,203 for applications from November 30, 2026. Hold the funds for 28 consecutive days.",
     },
   ],
 

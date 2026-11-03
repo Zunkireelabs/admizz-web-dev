@@ -7,7 +7,16 @@ import type { Metadata } from "next";
 import type { SanityPost } from "@/types";
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 import ArticleInfoBox from "@/components/ArticleInfoBox";
+import PostSummary from "@/components/PostSummary";
+import { postSummaries } from "@/data/post-summaries";
 import CTAForm from "@/components/ui/CTAForm";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
+import { postFaqs } from "@/data/post-faqs";
+import { postSeoOverrides } from "@/data/post-seo-overrides";
+import { postFaqSchemaOnly } from "@/data/post-faq-schema";
+import { postContentPatches } from "@/data/post-content-patches";
+import { applyContentPatches } from "@/lib/content-patches";
+import { blogH2, blogP, blogFaqQuestion } from "@/components/lib/blog-typography";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -25,8 +34,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return {};
 
   const seo = post.seo;
-  const title = seo?.metaTitle || post.title;
-  const description = seo?.metaDescription || post.excerpt || "";
+  const override = postSeoOverrides[post.slug.current];
+  const title = override?.title || seo?.metaTitle || post.title;
+  const description = override?.description || seo?.metaDescription || post.excerpt || "";
   const canonical =
     seo?.canonicalUrl || `https://admizzeducation.com/${post.slug.current}`;
 
@@ -63,6 +73,11 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
+  // Corrections kept in this repo (src/data/post-content-patches.ts) are applied
+  // to the body here, so outdated facts can be fixed without editing Sanity.
+  const patchSet = postContentPatches[post.slug.current];
+  const bodyContent = applyContentPatches(post.content, patchSet, post.slug.current);
+
   const formattedDate = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString("en-US", {
         year: "numeric",
@@ -81,8 +96,88 @@ export default async function BlogPostPage({ params }: PageProps) {
     ? await client.fetch(relatedPostsQuery, { slug, categorySlugs })
     : [];
 
+  // Real BlogPosting structured data, built only from this post's own real
+  // fields (headline/description/date/image) — never invented. Every post
+  // on the site goes through this one route, so this closes the "add
+  // schema markup" gap sitewide in one place instead of per-post.
+  const canonicalUrl = post.seo?.canonicalUrl || `https://admizzeducation.com/${post.slug.current}`;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.seo?.metaDescription || post.excerpt || undefined,
+    url: canonicalUrl,
+    mainEntityOfPage: canonicalUrl,
+    inLanguage: "en",
+    isPartOf: { "@id": "https://admizzeducation.com/#website" },
+    ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
+    ...((patchSet?.updated || post._updatedAt || post.publishedAt)
+      ? { dateModified: patchSet?.updated || post._updatedAt || post.publishedAt }
+      : {}),
+    ...(featuredImageUrl ? { image: featuredImageUrl } : {}),
+    author: {
+      "@type": "EducationalOrganization",
+      "@id": "https://admizzeducation.com/#organization",
+      name: "Admizz Education",
+      url: "https://admizzeducation.com",
+    },
+    publisher: {
+      "@type": "EducationalOrganization",
+      "@id": "https://admizzeducation.com/#organization",
+      name: "Admizz Education",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://admizzeducation.com/icon-192.webp",
+      },
+    },
+  };
+
+  // FAQPage schema is only emitted alongside a real, visible FAQ. Posts that
+  // already carry faqItems (matching their own in-body FAQ section) are
+  // untouched. For a post with none, a curated entry in postFaqs is used AND
+  // rendered visibly below the body — unless the body already has its own FAQ
+  // heading, in which case neither is added (a page never gets a 2nd FAQ).
+  const bodyHasFaq = (post.content || []).some(
+    (b: { _type?: string; style?: string; children?: { text?: string }[] }) =>
+      b._type === "block" &&
+      /^h[1-6]$/.test(b.style || "") &&
+      /faq|frequently asked/i.test((b.children || []).map((c) => c.text || "").join("")),
+  );
+  const ownFaqItems = post.faqItems && post.faqItems.length > 0 ? post.faqItems : null;
+  const curatedFaqItems = !ownFaqItems && !bodyHasFaq ? postFaqs[post.slug.current] || null : null;
+  // Schema-only items: the body already shows these questions, so no visible
+  // section is added (see post-faq-schema.ts).
+  const schemaOnlyFaqItems = !ownFaqItems && !curatedFaqItems ? postFaqSchemaOnly[post.slug.current] || null : null;
+  const faqItems = ownFaqItems || curatedFaqItems || schemaOnlyFaqItems;
+  const faqSchema = faqItems ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  } : null;
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Blogs", url: "https://admizzeducation.com/blogs" },
+          { name: post.title, url: canonicalUrl },
+        ]}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {/* ===== HERO ===== */}
       <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +201,10 @@ export default async function BlogPostPage({ params }: PageProps) {
           </h1>
 
           {formattedDate && (
-            <p className="mt-3 text-white/70 text-sm">{formattedDate}</p>
+            <p className="mt-3 text-white/70 text-sm">
+              By Admizz Education{" "}
+              <span aria-hidden="true">·</span> {formattedDate}
+            </p>
           )}
         </div>
       </section>
@@ -132,21 +230,44 @@ export default async function BlogPostPage({ params }: PageProps) {
             {/* Info Box */}
             {post.infoBox && <ArticleInfoBox items={post.infoBox} />}
 
+            {/* Quick Answer (visible, answer-first summary — curated posts only) */}
+            {postSummaries[post.slug.current] && (
+              <PostSummary text={postSummaries[post.slug.current]} />
+            )}
+
             {/* Body */}
-            {post.content && <PortableTextRenderer content={post.content} />}
+            {post.content && <PortableTextRenderer content={bodyContent ?? post.content} />}
+
+            {/* Visible FAQ (only for posts whose body has none) — same
+                heading/paragraph styles as the body, so it reads as native. */}
+            {curatedFaqItems && (
+              <section id="faq">
+                <h2 className={blogH2.className} style={blogH2.style}>
+                  Frequently Asked Questions
+                </h2>
+                {curatedFaqItems.map((item) => (
+                  <div key={item.question}>
+                    <h3 className={blogFaqQuestion.className} style={blogFaqQuestion.style}>
+                      {item.question}
+                    </h3>
+                    <p className={blogP.className} style={blogP.style}>{item.answer}</p>
+                  </div>
+                ))}
+              </section>
+            )}
           </div>
 
           {/* Right: Sticky Consultation Form (desktop) */}
           <aside className="hidden lg:block w-[472px] shrink-0">
             <div className="sticky top-[90px]">
-              <CTAForm title="Talk to Counselor Today" colorScheme="light" />
+              <CTAForm title="Book a Free Counseling Session" colorScheme="light" />
             </div>
           </aside>
         </div>
 
         {/* Mobile: Form below content */}
         <div className="lg:hidden mt-10 max-w-xl mx-auto">
-          <CTAForm title="Talk to Counselor Today" colorScheme="light" />
+          <CTAForm title="Book a Free Counseling Session" colorScheme="light" />
         </div>
       </article>
 
@@ -155,7 +276,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         <section className="py-14 md:py-20" style={{ background: "#F8F9FF" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2
-              className="text-[26px] md:text-[34px] font-bold text-center mb-3"
+              className="text-[26px] font-bold text-center mb-3"
               style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}
             >
               Related Articles
@@ -270,7 +391,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <span className="w-2 h-2 rounded-full bg-green-600 animate-pulse" />
                 <span className="text-[13px] font-semibold tracking-wide" style={{ color: "#0D1282" }}>Accepting Applications</span>
               </div>
-              <h2 className="text-[28px] md:text-[40px] font-bold leading-tight mb-4" style={{ fontFamily: "var(--font-rubik), sans-serif", color: "#0D1282" }}>
+              <h2 className="text-[26px] font-bold leading-tight mb-4" style={{ fontFamily: "var(--font-rubik), sans-serif", color: "#0D1282" }}>
                 Ready to Build Your <span style={{ color: "#E8430C" }}>Global Career?</span>
               </h2>
               <p className="text-[15px] leading-relaxed max-w-md mb-8" style={{ color: "rgba(13,18,130,0.7)" }}>
@@ -301,7 +422,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   </div>
                   <div>
                     <p className="text-sm font-semibold" style={{ color: "#0D1282" }}>Expert Team</p>
-                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years experience</p>
+                    <p className="text-[13px] sm:text-[11px]" style={{ color: "rgba(13,18,130,0.5)" }}>10+ years of experience</p>
                   </div>
                 </div>
               </div>

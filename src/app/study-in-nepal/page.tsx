@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Nepal - Admizz Education",
   description:
-    "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognised degrees. Discover how international students can apply, settle in, and study in Nepal.",
+    "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-nepal",
   },
   openGraph: {
     title: "Study in Nepal - Admizz Education",
     description:
-      "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognised degrees. Discover how international students can apply, settle in, and study in Nepal.",
+      "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students.",
     url: "https://admizzeducation.com/study-in-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in Nepal - Admizz Education",
     description:
-      "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognised degrees. Discover how international students can apply, settle in, and study in Nepal.",
+      "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students.",
     images: ["/images/og/countries/study-in-nepal.jpg"],
   },
 };
@@ -44,7 +44,7 @@ const nepalData: CountryPageData = {
   flagColors: ["#DC143C", "#9E0F2A"],
   heroSubheading: "Discover Quality Education in the Heart of the Himalayas",
   heroDescription:
-    "Nepal offers internationally recognised universities, English-medium programs, affordable tuition, and a unique cultural environment between South and East Asia. From program selection and application support to visas, accommodation, and pre-arrival guidance, Admizz Education helps international students secure admission to leading Nepali universities with complete confidence.",
+    "Nepal offers internationally recognized universities, English-medium programs, affordable tuition, and a unique cultural environment between South and East Asia. From program selection and application support to visas, accommodation, and pre-arrival guidance, Admizz Education helps international students secure admission to leading Nepali universities with complete confidence.",
   heroBackground: "/images/hero/nepal-hero.webp",
   quickFacts: [
     { label: "Language", value: "Nepali / English" },
@@ -55,48 +55,48 @@ const nepalData: CountryPageData = {
   ],
   whyStudyTitle: "Why Study In Nepal?",
   whyStudyIntro:
-    "Nepal offers affordable, internationally recognised education with English-medium programs in medicine, engineering, business, and the humanities. Its diverse natural landscape, rich cultural heritage, and strategic location between India and China make it a unique destination for international students seeking quality education and lifelong experiences.",
+    "Nepal offers affordable, internationally recognized education with English-medium programs in medicine, engineering, business, and the humanities. Its diverse natural landscape, rich cultural heritage, and strategic location between India and China make it a unique destination for international students seeking quality education and lifelong experiences.",
   benefits: [
     {
       title: "Affordable Quality Education",
       icon: "/images/icons/school-1.webp",
       description:
-        "Nepali universities offer globally accredited programs at a fraction of Western tuition costs, making advanced study highly accessible.",
+        "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students.",
     },
     {
       title: "English-Medium Programs",
       icon: "/images/icons/exam-1.webp",
       description:
-        "Most degree programs in medicine, engineering, business, and IT are taught entirely in English at top Nepali institutions.",
+        "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students.",
     },
     {
       title: "Strong Medical & Engineering Programs",
       icon: "/images/icons/visa-1.webp",
       description:
-        "Nepal is well known for its MBBS and engineering programs, recognised by global councils including WHO and the Medical Council of India.",
+        "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students.",
     },
     {
       title: "Safe & Welcoming Culture",
       icon: "/images/icons/consultation.webp",
       description:
-        "Nepalis are known worldwide for their hospitality. International students settle in quickly with a warm, supportive community.",
+        "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students.",
     },
     {
       title: "Unique Cultural & Natural Setting",
       icon: "/images/icons/knowledge.webp",
       description:
-        "Study with the Himalayas as your backdrop — explore trekking, world heritage sites, and rich cultural traditions during your degree.",
+        "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students.",
     },
     {
       title: "Affordable Cost of Living",
       icon: "/images/icons/school-1.webp",
       description:
-        "Daily living costs in Nepal are significantly lower than most study destinations, allowing students to live comfortably on a modest budget.",
+        "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students.",
     },
   ],
   admissionTitle: "Admission Requirements for Studying in Nepal",
   admissionIntro:
-    "Planning to study in Nepal as an international student? Understanding the admission requirements is your first step toward joining recognised Nepali universities and building a globally relevant career.",
+    "Planning to study in Nepal as an international student? Understanding the admission requirements is your first step toward joining recognized Nepali universities and building a globally relevant career.",
   documentSections: [
     {
       title: "Admission Requirements for International Students",
@@ -135,7 +135,7 @@ const nepalData: CountryPageData = {
         "Preparing the right visa documentation is essential for international students planning to study in Nepal.",
       documents: [
         "Valid Passport (with at least 6 months validity)",
-        "Letter of Admission from Recognised University",
+        "Letter of Admission from Recognized University",
         "Academic Transcripts & Certificates",
         "Proof of Funds (Tuition + Living + Travel)",
         "Passport-size Photographs",
@@ -183,18 +183,18 @@ const nepalData: CountryPageData = {
   visaIntro:
     "The Nepal student visa process is straightforward for admitted international students. Visas are issued through Nepali embassies or on arrival depending on nationality.",
   visaSteps: [
-    { title: "Get Your Offer", description: "Receive admission from a Nepali university or institute and pay the deposit to confirm your seat." },
-    { title: "Ministry Recommendation Letter", description: "Your university registers you with the Ministry of Education, which issues your visa recommendation letter." },
-    { title: "Apply at the Nepali Embassy", description: "Prepare your documents, apply at the nearest Nepali embassy or consulate, and pay the fee." },
-    { title: "Visa Decision", description: "Give biometrics if requested. Your single-entry student visa is usually issued within 2\u20134 weeks." },
-    { title: "Travel & Register", description: "Fly to Kathmandu and register with your university and the Department of Immigration within 15 days." },
-    { title: "Study & Renew Yearly", description: "Begin your studies. Multi-year programs need an annual visa renewal supported by your university." },
+    { title: "Get Your Offer", description: "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students." },
+    { title: "Ministry Recommendation Letter", description: "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students." },
+    { title: "Apply at the Nepali Embassy", description: "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students." },
+    { title: "Visa Decision", description: "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students." },
+    { title: "Travel & Register", description: "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students." },
+    { title: "Study & Renew Yearly", description: "Study in Nepal at top universities with affordable tuition, English-medium programs, and globally recognized degrees for international students." },
   ],
   faqItems: [
     {
       question: "Is Nepal a good destination for international students?",
       answer:
-        "Yes. Nepal offers affordable tuition, English-medium programs, recognised universities, and a safe, welcoming culture for international students.",
+        "Yes. Nepal offers affordable tuition, English-medium programs, recognized universities, and a safe, welcoming culture for international students.",
     },
     {
       question: "What are the minimum requirements to study in Nepal?",
@@ -239,7 +239,7 @@ const nepalData: CountryPageData = {
     {
       question: "How can Admizz Education help with studying in Nepal?",
       answer:
-        "Admizz provides personalised university selection, application support, SOP assistance, scholarship guidance, visa documentation, and complete pre-arrival services for international students coming to Nepal.",
+        "Admizz provides personalized university selection, application support, SOP assistance, scholarship guidance, visa documentation, and complete pre-arrival services for international students coming to Nepal.",
     },
   ],
 };

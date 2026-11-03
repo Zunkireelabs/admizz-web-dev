@@ -119,7 +119,7 @@ export default function JourneySection({
           >
             {isHero
               ? "You start at Step 1 — click any step to explore what's ahead."
-              : "Click any step to explore what happens — from your first counselling call to landing in your new country."}
+              : "Click any step to explore what happens — from your first counseling call to landing in your new country."}
           </p>
 
           {isHero && (
@@ -134,7 +134,7 @@ export default function JourneySection({
                 <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ background: "#FCB730" }} />
                 <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: "#FCB730" }} />
               </span>
-              You start here — Step 1: Counselling
+              You start here — Step 1: Counseling
             </div>
           )}
         </div>

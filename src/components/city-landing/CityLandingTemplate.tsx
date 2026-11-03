@@ -20,6 +20,31 @@ interface CityLandingTemplateProps {
 export default function CityLandingTemplate({ data }: CityLandingTemplateProps) {
   return (
     <main>
+      {/* FAQPage schema for the SAME faq.items CityFAQ below already
+          renders visibly — no second, duplicate FAQ block, just the
+          structured-data counterpart of the one that's already on the
+          page. Every city page (birgunj, janakpur, ...) gets this the
+          same way, since none of them emit it today. */}
+      {data.faq.items.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: data.faq.items.map((item) => ({
+                "@type": "Question",
+                name: item.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: item.a,
+                },
+              })),
+            }),
+          }}
+        />
+      )}
+
       {data.topBanner && <TopPromoBanner banner={data.topBanner} />}
 
       <CityHero city={data.city} data={data.hero} />
