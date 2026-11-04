@@ -1,13 +1,12 @@
 /**
  * Pre-build script: Generates public/sitemap.xml
  *
- * Fetches blog post slugs and category slugs from Sanity,
+ * Reads blog post and category slugs from src/content/blog (CRET-12),
  * combines with static page paths, and writes sitemap.xml.
  *
  * Run before `next build` so the file gets copied to out/.
  */
 
-import { createClient } from "@sanity/client";
 import fs from "fs";
 import { execFileSync } from "child_process";
 import path from "path";
@@ -20,12 +19,19 @@ const ROOT = path.resolve(__dirname, "..");
 
 const BASE_URL = "https://admizzeducation.com";
 
-const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "vd27cmpc",
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2026-02-10",
-  useCdn: true,
-});
+const CONTENT_DIR = path.join(ROOT, "src", "content", "blog");
+
+// Blog posts and categories now come from committed files. Both lists reproduce
+// the filters the old GROQ queries applied, so the sitemap keeps the same URLs.
+function readBlogIndex() {
+  const file = path.join(CONTENT_DIR, "index.json");
+  return JSON.parse(fs.readFileSync(file, "utf-8")).filter((p) => !RETIRED.includes(p.slug));
+}
+
+function readBlogCategories() {
+  const file = path.join(CONTENT_DIR, "categories.json");
+  return JSON.parse(fs.readFileSync(file, "utf-8"));
+}
 
 // Static pages with priorities (no trailing slashes, no thank-you/utility pages)
 const staticPages = [
@@ -179,20 +185,28 @@ function repoPageSlugs() {
 async function main() {
   console.log("Generating sitemap.xml...");
 
-  // Fetch from Sanity. A post flagged seo.noIndex renders <meta robots noindex>
-  // (see src/app/[slug]/page.tsx), so it must not be in the sitemap either, unless a
+  // A post flagged seo.noIndex renders <meta robots noindex> (see
+  // src/app/[slug]/page.tsx), so it must not be in the sitemap either, unless a
   // repo page overrides the slug (those pages set their own robots).
-  const [posts, categories] = await Promise.all([
-    client.fetch(`*[_type == "post" && !(slug.current in ${JSON.stringify(RETIRED)}) && (!(seo.noIndex == true) || slug.current in ${JSON.stringify(repoPageSlugs())})] | order(publishedAt desc) { "slug": slug.current, publishedAt, _updatedAt }`),
-    // Only categories with a post: the category page noindexes empty ones (soft-404 in Search Console),
-    // so listing them here would contradict the page. Same filter as postsByCategoryQuery.
-    client.fetch(`*[_type == "category" && count(*[_type == "post" && !(slug.current in ${JSON.stringify(RETIRED)}) && references(^._id)]) > 0] { "slug": slug.current, _updatedAt }`),
-  ]);
+  const blogIndex = readBlogIndex();
+  const overrides = repoPageSlugs();
+  const posts = blogIndex
+    .filter((p) => !p.noIndex || overrides.includes(p.slug))
+    .map((p) => ({ slug: p.slug, publishedAt: p.publishedAt, _updatedAt: p.updatedAt }))
+    .sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
+
+  // Only categories with a post: the category page noindexes empty ones (soft-404
+  // in Search Console), so listing them here would contradict the page. Same
+  // filter the old category query applied via references().
+  const usedCategorySlugs = new Set(blogIndex.flatMap((p) => (p.categories || []).map((c) => c.slug)));
+  const categories = readBlogCategories()
+    .filter((c) => usedCategorySlugs.has(c.slug.current))
+    .map((c) => ({ slug: c.slug.current, _updatedAt: c._updatedAt }));
 
   const generatedPosts = readGeneratedPosts();
   const generatedAnswerSlugs = readGeneratedDirectAnswerSlugs();
 
-  console.log(`  Found ${posts.length} Sanity posts, ${categories.length} categories, ${generatedPosts.length} locally-generated posts, ${generatedAnswerSlugs.length} direct-answer pages`);
+  console.log(`  Found ${posts.length} repo blog posts, ${categories.length} categories, ${generatedPosts.length} locally-generated posts, ${generatedAnswerSlugs.length} direct-answer pages`);
 
   const today = new Date().toISOString().split("T")[0];
 

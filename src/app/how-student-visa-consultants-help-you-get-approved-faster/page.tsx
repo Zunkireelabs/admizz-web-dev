@@ -35,7 +35,7 @@ const post = {
     }
   ],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/8b59237aa3f695ad748048318f695d4f40413973-1600x900.jpg?w=1200&auto=format",
+    "url": "/images/blog/sa-8b59237aa3-1200.webp",
     "alt": "How Student Visa Consultants Help"
   },
   "categories": [
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/how-student-visa-consultants-help-you-get-approved-faster",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/8b59237aa3f695ad748048318f695d4f40413973-1600x900.jpg?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-8b59237aa3-og.jpg"],
   },
 };
 

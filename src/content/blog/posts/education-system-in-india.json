@@ -1,0 +1,109 @@
+{
+  "_id": "wp-post-1683",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:45:00Z",
+  "_updatedAt": "2026-10-06T22:13:51Z",
+  "title": "Education System In India",
+  "slug": {
+    "_type": "slug",
+    "current": "education-system-in-india"
+  },
+  "publishedAt": "2023-03-15T17:22:00.000Z",
+  "excerpt": "India is not only the third largest country in Asia, but it is also the third largest education system in [&hellip;]",
+  "content": [
+    {
+      "_key": "cb900f2c04e1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "475036a6aec4",
+          "_type": "span",
+          "marks": [],
+          "text": "India is not only the third largest country in Asia, but it is also the third largest education system in the world. India constitutes more than 800 universities and 39,000 colleges. These education institutes provide a wide variety of courses to choose from. "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6958cdcbd9b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cb78a733d659",
+          "_type": "span",
+          "marks": [],
+          "text": "The education system of India is inherited from the United Kingdom. However, India’s higher education system has seen rapid expansion and development over the past few decades. Among others, 9 Indian institutions are in the 2019 QS World University Rankings top 500. Also, some of India’s top schools are now on a par with some American schools in some fields. With such vast and quality education service, India has the capacity to enroll more than 20 million students. "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0bbe37bd90c1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6916ece02925",
+          "_type": "span",
+          "marks": [],
+          "text": "India has a large higher education sector, the third largest in the world. It uses English as a principal language of higher education and research and has an extensive academic tradition. The new education system has evolved throughout history from the ‘Gurukul System’ of education. "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a8597354bb5e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6c7add684914",
+          "_type": "span",
+          "marks": [],
+          "text": "From traditional subject matter to modern IT courses, various universities offer high quality degree programs in a variety of fields. Not only is India home to the first university of the world, but it is home to various academics such as traditional courses like Yoga, Ayurveda, Sanskrit and classical dances to scientific advancement like Virtual and Augmented Reality, Artificial Intelligence and Cognitive Computing."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/education-system-in-india-1200.webp",
+    "card": "/images/blog/education-system-in-india-600.webp",
+    "og": "/images/blog/og/education-system-in-india.jpg",
+    "alt": "Education System In India",
+    "caption": null,
+    "_sanityRef": "image-a45c73b9bf49555379c4861c5da58fcf708a4078-1200x628-jpg",
+    "_sanityOgRef": "image-a45c73b9bf49555379c4861c5da58fcf708a4078-1200x628-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-52",
+      "title": "India",
+      "slug": {
+        "_type": "slug",
+        "current": "india"
+      }
+    },
+    {
+      "_id": "wp-category-46",
+      "title": "Study Abroad",
+      "slug": {
+        "_type": "slug",
+        "current": "study-abroad"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/education-system-in-india",
+    "metaDescription": "Learn about the education system in India—its structure, challenges, reforms, and opportunities from primary schooling to higher education.",
+    "metaTitle": "Education System In India - Admizz Education",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.031Z"
+}

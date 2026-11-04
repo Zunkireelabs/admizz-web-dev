@@ -1,0 +1,254 @@
+[
+  {
+    "_id": "wp-category-50",
+    "title": "Australia",
+    "slug": {
+      "_type": "slug",
+      "current": "australia"
+    },
+    "_updatedAt": "2026-02-10T06:41:22Z"
+  },
+  {
+    "_id": "2fc942cf-fbae-4b17-af4f-4fa553058bd3",
+    "title": "Bangladeshi Students",
+    "slug": {
+      "_type": "slug",
+      "current": "bangladeshi-students"
+    },
+    "_updatedAt": "2026-05-10T03:31:20Z"
+  },
+  {
+    "_id": "wp-category-29",
+    "title": "Business",
+    "slug": {
+      "_type": "slug",
+      "current": "business"
+    },
+    "_updatedAt": "2026-02-10T06:41:23Z"
+  },
+  {
+    "_id": "70812650-a846-4fdb-9ff3-12bc3932a1ee",
+    "title": "Canada",
+    "slug": {
+      "_type": "slug",
+      "current": "canada"
+    },
+    "_updatedAt": "2026-05-10T03:33:42Z"
+  },
+  {
+    "_id": "87f8f4ed-9de6-48f8-bf0e-d6f61d5a490a",
+    "title": "Career Planning",
+    "slug": {
+      "_type": "slug",
+      "current": "career-planning"
+    },
+    "_updatedAt": "2026-05-05T20:22:36Z"
+  },
+  {
+    "_id": "a27868dc-a9d2-415f-9c7f-391c2eb72327",
+    "title": "Course Guides",
+    "slug": {
+      "_type": "slug",
+      "current": "course-guides"
+    },
+    "_updatedAt": "2026-05-05T20:22:05Z"
+  },
+  {
+    "_id": "wp-category-22",
+    "title": "Engineering",
+    "slug": {
+      "_type": "slug",
+      "current": "engineering"
+    },
+    "_updatedAt": "2026-02-10T06:41:24Z"
+  },
+  {
+    "_id": "52f903f6-7b2d-4e85-8741-9e50df631d90",
+    "title": "France",
+    "slug": {
+      "_type": "slug",
+      "current": "france"
+    },
+    "_updatedAt": "2026-05-10T03:35:23Z"
+  },
+  {
+    "_id": "2f3852f2-7575-4a7a-9031-f6f86cd0f8ec",
+    "title": "Germany",
+    "slug": {
+      "_type": "slug",
+      "current": "germany"
+    },
+    "_updatedAt": "2026-05-10T03:32:17Z"
+  },
+  {
+    "_id": "wp-category-52",
+    "title": "India",
+    "slug": {
+      "_type": "slug",
+      "current": "india"
+    },
+    "_updatedAt": "2026-02-10T06:41:25Z"
+  },
+  {
+    "_id": "a1c23d35-46ec-4c6a-98dd-aec12fa35775",
+    "title": "Indian Students",
+    "slug": {
+      "_type": "slug",
+      "current": "indian-students"
+    },
+    "_updatedAt": "2026-05-10T03:29:09Z"
+  },
+  {
+    "_id": "416a0adf-9be1-49bf-aaba-e92ecf19ecba",
+    "title": "International Students",
+    "slug": {
+      "_type": "slug",
+      "current": "international-students"
+    },
+    "_updatedAt": "2026-05-10T03:28:38Z"
+  },
+  {
+    "_id": "8dc2fc36-cd00-45e3-a7c9-87d5d1250b2a",
+    "title": "Living Costs",
+    "slug": {
+      "_type": "slug",
+      "current": "living-costs"
+    },
+    "_updatedAt": "2026-05-06T03:16:09Z"
+  },
+  {
+    "_id": "wp-category-33",
+    "title": "Medical",
+    "slug": {
+      "_type": "slug",
+      "current": "medical"
+    },
+    "_updatedAt": "2026-02-10T06:41:26Z"
+  },
+  {
+    "_id": "wp-category-47",
+    "title": "Nepal",
+    "slug": {
+      "_type": "slug",
+      "current": "nepal"
+    },
+    "_updatedAt": "2026-02-10T06:41:27Z"
+  },
+  {
+    "_id": "1ca7fb5b-570a-4d8a-9853-8cf946a49959",
+    "title": "Nepalese Students",
+    "slug": {
+      "_type": "slug",
+      "current": "for-nepalese-students"
+    },
+    "_updatedAt": "2026-05-05T20:23:37Z"
+  },
+  {
+    "_id": "c5b62856-b036-49be-86c0-555783633e11",
+    "title": "New Zealand",
+    "slug": {
+      "_type": "slug",
+      "current": "new-zealand"
+    },
+    "_updatedAt": "2026-05-10T03:34:21Z"
+  },
+  {
+    "_id": "wp-category-21",
+    "title": "Other",
+    "slug": {
+      "_type": "slug",
+      "current": "other"
+    },
+    "_updatedAt": "2026-02-10T06:41:28Z"
+  },
+  {
+    "_id": "e8317810-c380-48bb-9cbd-63243196ce0d",
+    "title": "PR & Migration",
+    "slug": {
+      "_type": "slug",
+      "current": "pr-and-migration"
+    },
+    "_updatedAt": "2026-05-09T07:51:30Z"
+  },
+  {
+    "_id": "wp-category-44",
+    "title": "Scholarships",
+    "slug": {
+      "_type": "slug",
+      "current": "scholarships"
+    },
+    "_updatedAt": "2026-02-10T06:41:29Z"
+  },
+  {
+    "_id": "wp-category-28",
+    "title": "Science",
+    "slug": {
+      "_type": "slug",
+      "current": "science"
+    },
+    "_updatedAt": "2026-02-10T06:41:30Z"
+  },
+  {
+    "_id": "872ab22e-645b-43ce-86b0-1c745d9d80ca",
+    "title": "Sri Lankan Students",
+    "slug": {
+      "_type": "slug",
+      "current": "sri-lankan-students"
+    },
+    "_updatedAt": "2026-05-10T03:30:32Z"
+  },
+  {
+    "_id": "553422d5-ae57-44ad-9aa8-256f243bd81b",
+    "title": "Student Finance",
+    "slug": {
+      "_type": "slug",
+      "current": "student-finance"
+    },
+    "_updatedAt": "2026-05-06T03:15:38Z"
+  },
+  {
+    "_id": "wp-category-46",
+    "title": "Study Abroad",
+    "slug": {
+      "_type": "slug",
+      "current": "study-abroad"
+    },
+    "_updatedAt": "2026-02-10T06:41:32Z"
+  },
+  {
+    "_id": "wp-category-49",
+    "title": "UK",
+    "slug": {
+      "_type": "slug",
+      "current": "uk"
+    },
+    "_updatedAt": "2026-02-10T06:41:33Z"
+  },
+  {
+    "_id": "wp-category-51",
+    "title": "USA",
+    "slug": {
+      "_type": "slug",
+      "current": "usa"
+    },
+    "_updatedAt": "2026-02-10T06:41:35Z"
+  },
+  {
+    "_id": "wp-category-1",
+    "title": "Uncategorized",
+    "slug": {
+      "_type": "slug",
+      "current": "uncategorized"
+    },
+    "_updatedAt": "2026-02-10T06:41:34Z"
+  },
+  {
+    "_id": "1e1bd218-1b22-401a-9ebb-7df19c672a80",
+    "title": "Visa Guides",
+    "slug": {
+      "_type": "slug",
+      "current": "visa-guides"
+    },
+    "_updatedAt": "2026-05-15T18:08:18Z"
+  }
+]

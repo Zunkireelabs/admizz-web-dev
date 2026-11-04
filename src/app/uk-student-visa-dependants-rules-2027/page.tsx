@@ -7,7 +7,7 @@ const post = {
   "slug": "uk-student-visa-dependants-rules-2027",
   "sections": [],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/4203b83b843c95d75df895251db6ae75c40a3310-1200x628.png?w=1200&auto=format",
+    "url": "/images/blog/sa-4203b83b84-1200.webp",
     "alt": "International postgraduate student with partner and child planning a UK Student visa dependant application"
   },
   "categories": [
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/uk-student-visa-dependants-rules-2027",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/4203b83b843c95d75df895251db6ae75c40a3310-1200x628.png?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-4203b83b84-og.jpg"],
   },
 };
 

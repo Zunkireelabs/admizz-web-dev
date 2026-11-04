@@ -1,0 +1,184 @@
+{
+  "_id": "wp-post-1533",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:46:59Z",
+  "_updatedAt": "2026-10-06T22:13:51Z",
+  "title": "Top 3 Reasons to Study in India",
+  "slug": {
+    "_type": "slug",
+    "current": "top-3-reasons-to-study-in-india"
+  },
+  "publishedAt": "2025-03-28T10:00:24",
+  "excerpt": "Affordability Studying in India is much more affordable than studying in any other western country. You can get a high-quality [&hellip;]",
+  "content": [
+    {
+      "_key": "067abead6318",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "84b710074ae6",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Affordability"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "0fdf0785206d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "caabacf023c4",
+          "_type": "span",
+          "marks": [],
+          "text": "Studying in India is much more affordable than studying in any other western country. You can get a high-quality education at a cost that you can afford. The cost of tuition fees and living expenses in India is significantly lower than in the United States, the United Kingdom, or Canada. Additionally, there are various scholarships and grants available for international students to help them finance their studies."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "db8d3ed4ff0a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4b01db9aec3a",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Taught in English"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "cfbe45d7b6a9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cabc9c200460",
+          "_type": "span",
+          "marks": [],
+          "text": "One of the biggest advantages of studying in India is that the majority of the courses are taught in English. This means that you won’t have to go through the hassle of learning a new language before you can start your studies. Studying in English also opens up a range of opportunities for you, including the ability to communicate with local people and businesses."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b190ca594844",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "28f6a01f2ddf",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Diverse Course Options"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "03f1580b2e64",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4d77d8ec9955",
+          "_type": "span",
+          "marks": [],
+          "text": "Indian universities offer diverse course options that you can choose from. Whether you want to study engineering, medicine, business, or social sciences, there are plenty of options available. Based on your interests and career aspirations, you can choose the best available course for yourself. This diversity of options ensures that students are equipped with the knowledge and skills they need to succeed in their chosen career paths."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "26e4bbcd8547",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "da7a3955733c",
+          "_type": "span",
+          "marks": [],
+          "text": "If you are considering studying in India, "
+        },
+        {
+          "_key": "be3434393690",
+          "_type": "span",
+          "marks": [
+            "38b1e81abfc6"
+          ],
+          "text": "please"
+        },
+        {
+          "_key": "188769c91eab",
+          "_type": "span",
+          "marks": [],
+          "text": " send us a direct message to learn more about how we can assist you with the application process, finding a suitable university, and settling in."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "38b1e81abfc6",
+          "_type": "link",
+          "blank": false,
+          "href": "https://admizzeducation.com/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "4d569d165f3d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "44c7841bc795",
+          "_type": "span",
+          "marks": [],
+          "text": "We look forward to hearing from you!"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/top-3-reasons-to-study-in-india-1200.webp",
+    "card": "/images/blog/top-3-reasons-to-study-in-india-600.webp",
+    "og": "/images/blog/og/top-3-reasons-to-study-in-india.jpg",
+    "alt": "Top 3 Reasons to Study in India",
+    "caption": null,
+    "_sanityRef": "image-ed362552be546b605a602711b161a0343c3f54e2-1200x600-jpg",
+    "_sanityOgRef": "image-ed362552be546b605a602711b161a0343c3f54e2-1200x600-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/top-3-reasons-to-study-in-india",
+    "metaDescription": "Explore the top 3 reasons to study in India: affordable education, globally recognized universities, and a vibrant cultural experience.",
+    "metaTitle": "Top 3 Reasons to Study in India - Admizz Education",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.023Z"
+}

@@ -1,6 +1,5 @@
-import { client } from "@/lib/sanity";
-import { urlFor } from "@/lib/sanity";
-import { allPostSlugsQuery, postBySlugQuery, relatedPostsQuery } from "@/lib/queries";
+import { urlFor } from "@/lib/image";
+import { getAllPostSlugs, getPostBySlug, getRelatedPosts } from "@/lib/blog-content";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -25,13 +24,13 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs: { slug: string }[] = await client.fetch(allPostSlugsQuery);
+  const slugs: { slug: string }[] = getAllPostSlugs();
   return slugs.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post: SanityPost | null = await client.fetch(postBySlugQuery, { slug });
+  const post: SanityPost | null = getPostBySlug(slug);
 
   if (!post) return {};
 
@@ -69,7 +68,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
-  const post: SanityPost | null = await client.fetch(postBySlugQuery, { slug });
+  const post: SanityPost | null = getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -95,7 +94,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   // Fetch related posts by shared categories
   const categorySlugs = post.categories?.map((c) => c.slug.current) || [];
   const relatedPosts: SanityPost[] = categorySlugs.length > 0
-    ? await client.fetch(relatedPostsQuery, { slug, categorySlugs })
+    ? getRelatedPosts(slug, categorySlugs)
     : [];
 
   // Real BlogPosting structured data, built only from this post's own real
@@ -116,7 +115,9 @@ export default async function BlogPostPage({ params }: PageProps) {
     ...((patchSet?.updated || post._updatedAt || post.publishedAt)
       ? { dateModified: patchSet?.updated || post._updatedAt || post.publishedAt }
       : {}),
-    ...(featuredImageUrl ? { image: featuredImageUrl } : {}),
+    ...(featuredImageUrl
+      ? { image: featuredImageUrl.startsWith("http") ? featuredImageUrl : `https://admizzeducation.com${featuredImageUrl}` }
+      : {}),
     author: {
       "@type": "EducationalOrganization",
       "@id": "https://admizzeducation.com/#organization",

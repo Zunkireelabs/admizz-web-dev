@@ -55,7 +55,7 @@ const post = {
     }
   ],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/1f990a2fa15cdf7d3cba6555cd36841e99be6965-1600x900.jpg?w=1200&auto=format",
+    "url": "/images/blog/sa-1f990a2fa1-1200.webp",
     "alt": "COMPEX Scholarship 2026"
   },
   "categories": [
@@ -133,7 +133,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/1f990a2fa15cdf7d3cba6555cd36841e99be6965-1600x900.jpg?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-1f990a2fa1-og.jpg"],
   },
 };
 

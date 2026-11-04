@@ -1,0 +1,143 @@
+{
+  "_id": "wp-post-1539",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:46:53Z",
+  "_updatedAt": "2026-10-06T22:13:51Z",
+  "title": "About Higher Education in India",
+  "slug": {
+    "_type": "slug",
+    "current": "about-higher-education-in-india"
+  },
+  "publishedAt": "2025-03-28T10:07:33",
+  "excerpt": "Higher education in India has been a topic of much debate and discussion in recent years. With a population of [&hellip;]",
+  "content": [
+    {
+      "_key": "ad356076abff",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1c1a9f15e542",
+          "_type": "span",
+          "marks": [],
+          "text": "Higher education in India has been a topic of much debate and discussion in recent years. With a population of over 1.3 billion, India is home to one of the largest and most diverse student populations in the world."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8ea9cdbff3c6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4e91fa8bd804",
+          "_type": "span",
+          "marks": [],
+          "text": "In recent years, there has been a significant push to expand access to higher education in India. The government has set a target to raise the gross enrollment ratio (GER) in higher education to 30% by 2020. This goal has been achieved, with a GER of 31.3% in 2019-20."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a609042d2782",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b049622a0d63",
+          "_type": "span",
+          "marks": [],
+          "text": "To achieve this goal, the government has implemented a number of initiatives and policies. One major initiative is the establishment of new universities and colleges, particularly in rural and underserved areas. The government has also increased higher education funding, focusing on scholarships and fellowships for disadvantaged students."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a7d9adf6a995",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4414bd94cc48",
+          "_type": "span",
+          "marks": [],
+          "text": "In addition to government initiatives, the private sector has also played a major role in expanding access to higher education in India. Private universities and colleges have been established in large numbers, and many of these institutions have become major players in the higher education landscape."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1c085aada370",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "40a4f9bd6cb3",
+          "_type": "span",
+          "marks": [],
+          "text": "However, despite these efforts, there are still significant challenges facing higher education in India. Quality remains a major concern, with many institutions facing inadequate infrastructure and a lack of qualified faculty. Additionally, there is still a significant gap in access to higher education between urban and rural areas, as well as between different socioeconomic groups."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5db9263f0790",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7b50502cd3fb",
+          "_type": "span",
+          "marks": [],
+          "text": "In recent years, there has been a push towards online and distance education as a means of expanding access to higher education. The government has been promoting the idea of “education on demand” and in 2020, the University Grants Commission (UGC) allowed online education to be a regular mode of teaching."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b99f299906aa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f8d9d2372ec9",
+          "_type": "span",
+          "marks": [],
+          "text": "In conclusion, while there has been significant progress in expanding access to higher education in India, there are still substantial challenges that need to be addressed. The government and private sector will need to continue to work together to improve the quality of higher education and to ensure that all students, regardless of their background, have the opportunity to access and succeed in higher education."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/about-higher-education-in-india-1200.webp",
+    "card": "/images/blog/about-higher-education-in-india-600.webp",
+    "og": "/images/blog/og/about-higher-education-in-india.jpg",
+    "alt": "About Higher Education in India",
+    "caption": null,
+    "_sanityRef": "image-76ad496836ccbeba12bd7b078955629c31f0b226-1920x1080-webp",
+    "_sanityOgRef": "image-76ad496836ccbeba12bd7b078955629c31f0b226-1920x1080-webp"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/about-higher-education-in-india",
+    "metaDescription": "Learn about higher education in India—diverse programs, prestigious institutions, affordable tuition, and a growing global reputation.",
+    "metaTitle": "About Higher Education in India - Admizz Education",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.022Z"
+}

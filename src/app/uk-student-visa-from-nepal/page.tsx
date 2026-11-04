@@ -51,7 +51,7 @@ const post = {
     }
   ],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/ae91efcd218b1f3d100e817c9f01611740f820d3-1600x900.jpg?w=1200&auto=format",
+    "url": "/images/blog/sa-ae91efcd21-1200.webp",
     "alt": "UK Student Visa from Nepal"
   },
   "categories": [
@@ -128,7 +128,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/uk-student-visa-from-nepal",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/ae91efcd218b1f3d100e817c9f01611740f820d3-1600x900.jpg?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-ae91efcd21-og.jpg"],
   },
 };
 

@@ -94,8 +94,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* SEOAI:HEAD:START */}{/* SEOAI:HEAD:END */}
-        <link rel="preconnect" href="https://cdn.sanity.io" />
-        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <link rel="dns-prefetch" href="https://edgex.zunkireelabs.com" />
       </head>
       <body suppressHydrationWarning>

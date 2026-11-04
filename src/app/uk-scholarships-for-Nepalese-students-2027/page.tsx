@@ -7,7 +7,7 @@ const post = {
   "slug": "uk-scholarships-for-Nepalese-students-2027",
   "sections": [],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/40a094349f93bb0e1eb146f030affe81a189608d-1200x628.png?w=1200&auto=format",
+    "url": "/images/blog/sa-40a094349f-1200.webp",
     "alt": "Nepali student celebrating a UK scholarship award with documents"
   },
   "categories": [
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/uk-scholarships-for-Nepalese-students-2027",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/40a094349f93bb0e1eb146f030affe81a189608d-1200x628.png?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-40a094349f-og.jpg"],
   },
 };
 

@@ -1,0 +1,147 @@
+{
+  "_id": "wp-post-1686",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:44:57Z",
+  "_updatedAt": "2026-10-08T21:39:58Z",
+  "title": "Life Style of Indian People",
+  "slug": {
+    "_type": "slug",
+    "current": "life-style-of-indian-people"
+  },
+  "publishedAt": "2024-03-23T17:23:00.000Z",
+  "excerpt": "Just like the vast cultural and geographical diversity, the lifestyle of India also exhibits variety. Indian people staying in different [&hellip;]",
+  "content": [
+    {
+      "_key": "e3e0c106f5c1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d052f4d46ee1",
+          "_type": "span",
+          "marks": [],
+          "text": "Just like the vast cultural and geographical diversity, the lifestyle of India also exhibits variety. Indian people staying in different parts of the country vary from each other in terms of clothing, cuisine, language, habits, religion, festivals and so on. Despite the differences in their day-to-day life, people in India live together exemplifying “Unity in Diversity”."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "07d5b1bff081",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "138d8ab1d1b5",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Festivals:"
+        },
+        {
+          "_key": "c93a7a948531",
+          "_type": "span",
+          "marks": [],
+          "text": " Throughout the year, various festivals are celebrated in India. Various national, religious, regional as well as seasonal festivals are celebrated with great zeal and enthusiasm. Some of the examples are Diwali, Id, Holi, Goa Carnival, Jaisalmer Desert Festival, and Dance Festivals in Khajuraho & Konark etc. "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "550fd8a782cc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9df25bd30a76",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Clothing:"
+        },
+        {
+          "_key": "fd46b60b8726",
+          "_type": "span",
+          "marks": [],
+          "text": " Dresses in India vary depending on the geography, climate, ethnicity and cultural traditions of each region. The attires in India are usually featured with hard work, prints, embroidery, etc. However, people nowadays wear modern clothes for their simplicity. "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "cfcfa405611f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3e1f6462acd1",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Work Culture:"
+        },
+        {
+          "_key": "a41e95a3bdbb",
+          "_type": "span",
+          "marks": [],
+          "text": " Work timings are generally 9 am to 5 pm. Companies follow the hierarchical system and decision making is usually from top to the bottom. Titles such as Mr. and Ms. are used to address each other in Indian work culture. The customs and beliefs are often reflected in the working environment as well. "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a6545b42a67a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "58ac4db6939c",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Cuisine:"
+        },
+        {
+          "_key": "509b56a6ce98",
+          "_type": "span",
+          "marks": [],
+          "text": " Indian cuisine comprises everything right from sauces to salads, from non-vegetarian to vegetarian, from sensual to piquant and from desserts to bread. Spices like cardamom, saffron, cumin seeds, pepper and coriander seeds play an important role to add to the flavor of sumptuous dishes."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/life-style-of-indian-people-1200.webp",
+    "card": "/images/blog/life-style-of-indian-people-600.webp",
+    "og": "/images/blog/og/life-style-of-indian-people.jpg",
+    "alt": "Life Style of Indian People",
+    "caption": null,
+    "_sanityRef": "image-8e7fc9709726cc86b9de4dd57246528be484da6d-1200x628-jpg",
+    "_sanityOgRef": "image-8e7fc9709726cc86b9de4dd57246528be484da6d-1200x628-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/life-style-of-indian-people",
+    "metaDescription": "Explore the diverse lifestyle of Indian people—traditions, food, clothing, festivals, and daily life across various regions and cultures.",
+    "metaTitle": "Life Style of Indian People - Admizz Education",
+    "noIndex": true
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.029Z"
+}

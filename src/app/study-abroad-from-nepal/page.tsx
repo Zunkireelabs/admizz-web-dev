@@ -63,7 +63,7 @@ const post = {
     }
   ],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/b4bfbca0c881f98f692e3163ddb8458fef170ade-1600x900.jpg?w=1200&auto=format",
+    "url": "/images/blog/sa-b4bfbca0c8-1200.webp",
     "alt": "Study Abroad from Nepal"
   },
   "categories": [
@@ -137,7 +137,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/study-abroad-from-nepal",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/b4bfbca0c881f98f692e3163ddb8458fef170ade-1600x900.jpg?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-b4bfbca0c8-og.jpg"],
   },
 };
 

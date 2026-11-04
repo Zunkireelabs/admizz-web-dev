@@ -1,0 +1,57 @@
+{
+  "_id": "45c25bcb-c142-452f-ac31-3fd973f4bf3c",
+  "_type": "post",
+  "_createdAt": "2026-10-23T17:58:05Z",
+  "_updatedAt": "2026-11-02T21:56:25Z",
+  "title": "University of Bradford Scholarships (International)",
+  "slug": {
+    "_type": "slug",
+    "current": "university-of-bradford-international-scholarships-2027"
+  },
+  "publishedAt": "2026-10-23T18:10:00.000Z",
+  "excerpt": "The University of Bradford offers a tuition discount to international postgraduate students, including Nepalese applicants. See the amount, eligibility and how it works.",
+  "content": [
+    {
+      "_key": "h1",
+      "_type": "rawHtml",
+      "html": "<div class=\"container\"><article><div class=\"quick-facts\"><div class=\"quick-facts-title\">🎓 University of Bradford Scholarship — At a Glance</div><div class=\"facts-grid\"><div class=\"fact-item\"><span class=\"fact-label\">Scholarship</span><span class=\"fact-value\">60th Anniversary Scholarship</span></div><div class=\"fact-item\"><span class=\"fact-label\">Nepal Amount (2026/27)</span><span class=\"fact-value\">£3,200 Tuition Discount / Year</span></div><div class=\"fact-item\"><span class=\"fact-label\">Level</span><span class=\"fact-value\">Full-Time Postgraduate Taught</span></div><div class=\"fact-item\"><span class=\"fact-label\">Study Mode</span><span class=\"fact-value\">On Campus</span></div><div class=\"fact-item\"><span class=\"fact-label\">How to Apply</span><span class=\"fact-value\">Automatic — No Separate Form</span></div><div class=\"fact-item\"><span class=\"fact-label\">Awards</span><span class=\"fact-value\">Unlimited (As Stated)</span></div></div></div><section class=\"section\" id=\"s1\"><h2>The 60th Anniversary Scholarship</h2><p>For 2026/27 entry, the University of Bradford lists a <strong>60th Anniversary Scholarship</strong> as a tuition fee discount for self-funded international students. The amount depends on your nationality. For <strong>Nepal, the listed amount is £3,200 per year</strong>, compared with £2,200 for students from many other countries.</p><div class=\"callout warning\"><span class=\"callout-icon\">⚠️</span><div class=\"callout-body\"><strong>Check 2027 entry</strong>The figures above come from the university's 2026/27 page. Scholarship amounts can change, so confirm the amount for your intake before you apply.</div></div></section><section class=\"section\" id=\"s2\"><h2>Who Is Eligible?</h2><ul class=\"checklist\"><li><strong>Self-funded international students:</strong> students funded by a government or sponsor are not covered.</li><li><strong>New students:</strong> including those progressing from the pre-masters program.</li><li><strong>Full-time, on-campus postgraduate taught courses:</strong> undergraduate and online courses are not included.</li><li><strong>Not on discounted partnership programs:</strong> these are excluded.</li></ul></section><section class=\"section\" id=\"s3\"><h2>How the Scholarship Works</h2><p>The university states that no separate application is needed. The discount is applied automatically when you enroll, so make sure you hold a confirmed offer for an eligible course.</p><p>A tuition discount reduces what you pay each year, but it does not replace your maintenance funds. For a UK Student visa you still need to show living costs: £1,171 per month outside London now, rising to £1,203 from 30 November 2026, for up to nine months.</p><div class=\"inline-cta\"><div class=\"inline-cta-text\"><strong>Want to know your exact fee after the discount?</strong>Admizz Education works out your total cost and visa funds.</div><a href=\"https://admizzeducation.com/register\" rel=\"noopener\">Get Free Guidance →</a></div></section><section class=\"section\" id=\"s4\"><h2>Other Ways to Reduce Your Costs</h2><ul class=\"checklist\"><li><strong>Other Bradford awards:</strong> the university lists additional scholarships for different groups.</li><li><strong>GREAT Scholarships:</strong> British Council scholarships exist for selected countries; check whether your country is eligible.</li><li><strong>Part-time work:</strong> up to 20 hours a week in term time under Student visa rules.</li></ul></section><div class=\"cta-banner\"><h2>Make Your UK Degree More Affordable</h2><p>Admizz Education helps you find and apply for scholarships alongside your university application.</p><div class=\"cta-btns\"><a href=\"https://admizzeducation.com/register\" class=\"btn-primary\" rel=\"noopener\">Book Free Consultation →</a><a href=\"https://admizzeducation.com/\" class=\"btn-secondary\" rel=\"noopener\">Explore UK Universities</a></div></div><section class=\"section\" id=\"faq\"><h2>Frequently Asked Questions</h2><div class=\"faq-item\"><div class=\"faq-q\">Do I need to apply separately for the Bradford scholarship?</div><div class=\"faq-a\">No. The university states the discount is applied automatically at enrollment for eligible students.</div></div><div class=\"faq-item\"><div class=\"faq-q\">Is the scholarship paid in cash?</div><div class=\"faq-a\">It is a tuition fee discount, not a cash payment to you.</div></div><div class=\"faq-item\"><div class=\"faq-q\">Can undergraduates get this scholarship?</div><div class=\"faq-a\">The listed 60th Anniversary Scholarship is for full-time postgraduate taught courses. Undergraduates should check other awards.</div></div></section></article></div>"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/university-of-bradford-international-scholarships-2027-1200.webp",
+    "card": "/images/blog/university-of-bradford-international-scholarships-2027-600.webp",
+    "og": "/images/blog/og/university-of-bradford-international-scholarships-2027.jpg",
+    "alt": null,
+    "caption": null,
+    "_sanityRef": "image-b70002c7304a86d78366e1c1c2365d88ffe25bc6-1200x628-png"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-49",
+      "title": "UK",
+      "slug": {
+        "_type": "slug",
+        "current": "uk"
+      }
+    },
+    {
+      "_id": "wp-category-44",
+      "title": "Scholarships",
+      "slug": {
+        "_type": "slug",
+        "current": "scholarships"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/university-of-bradford-international-scholarships-2027",
+    "metaDescription": "University of Bradford scholarships for international students: the 60th Anniversary Scholarship, Nepal amount, eligibility and how it is awarded.",
+    "metaTitle": "University of Bradford Scholarships (2027)",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:33.922Z"
+}

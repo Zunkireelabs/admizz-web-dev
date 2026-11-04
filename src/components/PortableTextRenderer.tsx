@@ -1,6 +1,6 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { RICH_POST_CSS, RICH_POST_FONT_LINK, RICH_POST_MARKERS } from "@/components/lib/blog-rich-styles";
-import { urlFor } from "@/lib/sanity";
+import { urlFor } from "@/lib/image";
 import { blogH2, blogH3, blogP, blogLi } from "./lib/blog-typography";
 
 const components: PortableTextComponents = {

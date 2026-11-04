@@ -7,7 +7,7 @@ const post = {
   "slug": "chevening-scholarship-complete-guide-for-nepali-students",
   "sections": [],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/8cf72756d3af554eb9ecad93849d77c77b41b3c9-1376x697.webp?w=1200&auto=format",
+    "url": "/images/blog/sa-8cf72756d3-1200.webp",
     "alt": "Chevening Scholarship – Complete Guide for Nepali Students"
   },
   "categories": [
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/chevening-scholarship-complete-guide-for-nepali-students",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/8cf72756d3af554eb9ecad93849d77c77b41b3c9-1376x697.webp?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-8cf72756d3-og.jpg"],
   },
 };
 

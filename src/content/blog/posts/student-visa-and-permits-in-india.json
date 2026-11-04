@@ -1,0 +1,388 @@
+{
+  "_id": "wp-post-1638",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:45:42Z",
+  "_updatedAt": "2026-10-06T22:13:51Z",
+  "title": "Student Visa and Permits in India",
+  "slug": {
+    "_type": "slug",
+    "current": "student-visa-and-permits-in-india"
+  },
+  "publishedAt": "2025-03-28T10:57:20",
+  "excerpt": "Student Visas are granted to people who wish to come to India and study at an officially recognized educational institution. [&hellip;]",
+  "content": [
+    {
+      "_key": "a4468db0cdb1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9101991e1f0f",
+          "_type": "span",
+          "marks": [],
+          "text": "Student Visas are granted to people who wish to come to India and study at an officially recognized educational institution. The main document required is student admission/registration papers from the institution."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6021be6413e9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a0f7749efb3a",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": " Duration and Validity"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "0dffad871264",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dbb9a30a6d0b",
+          "_type": "span",
+          "marks": [],
+          "text": "A Student Visa is valid for the period of study as approved by the educational institution in India. Usually, they are issued for up to five years, depending on the duration of the course. Student visas can be extended as well."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5e65687e20a5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "185643be9c98",
+          "_type": "span",
+          "marks": [],
+          "text": "The Visa duration starts on the day of issuance, and not on the day of entry in India."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "398f14f366eb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "267fd01aa76c",
+          "_type": "span",
+          "marks": [],
+          "text": "If you are planning to apply, you should apply for Student Visa at least 8 weeks in advance of your intended date of travel. However, people of Pakistani heritage should apply at least three months in advance."
+        },
+        {
+          "_key": "a8bd46c44889",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": " "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1275cf564b29",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e0f6ec644e20",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Fee for Student Visa"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "cc1653b3f1aa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7f4c030a0260",
+          "_type": "span",
+          "marks": [],
+          "text": "Visa fees for Student visas are different for all countries. It ranges from $13 to $118."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ac68ebc9f589",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a5997057d6e9",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": " Eligibility"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "572009a66eb7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9b909d4b97e9",
+          "_type": "span",
+          "marks": [],
+          "text": "Indian Missions/Posts grant a Student Visa for a period of five years or for the duration of the course of study, whichever is less, to the below:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "dce5dbf9c44a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d351e923f75a",
+          "_type": "span",
+          "marks": [],
+          "text": "    To foreigner students coming to India to pursue regular and full-time academic studies in India."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "36aa4c25720d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0f2803def7a0",
+          "_type": "span",
+          "marks": [],
+          "text": "    For foreigner students coming for Industrial training, summer projects, and internships."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c93ba3dedee4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e2aabbd3bbed",
+          "_type": "span",
+          "marks": [],
+          "text": "    Provisional student visa valid for six months for the students exploring admission or taking admission tests."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d47bc649fb3b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2a455ea3531f",
+          "_type": "span",
+          "marks": [],
+          "text": "    Applicants should possess proof of admission to a full-time regular academic course in a reputed/recognized educational institution in India and evidence of financial support."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6d0562c76bc0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b77ff60461cd",
+          "_type": "span",
+          "marks": [],
+          "text": "    The applicant should also possess a “No Objection Certificate” from the Ministry of Health in case of admission to medical or Paramedical courses."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "20f59e322ad7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5e40d2db89f0",
+          "_type": "span",
+          "marks": [],
+          "text": "    Spouse and dependent family members accompanying the applicant must apply for an Entry Visa (Not Tourist Visa. Its termination date will coincide with the period of the principal visa holder."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "980ebc74bba8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "45f7e5441773",
+          "_type": "span",
+          "marks": [],
+          "text": " "
+        },
+        {
+          "_key": "7a8839449a50",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Provisional Visa"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "bce100c77304",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ded1aa13f8b4",
+          "_type": "span",
+          "marks": [],
+          "text": "Sometimes you may not have a firm letter from the university or recognized educational institution due to reasons like pending admissions tests or other requirements. In such a case, a provisional visa can be issued on the basis of a provisional admission certificate/letter of offer issued by an institution in India."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3ac07fb44681",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e95de324412a",
+          "_type": "span",
+          "marks": [],
+          "text": "A provisional visa is valid for 3 months. If admission is not given or confirmed within the stipulated period, the student will have to leave India. Extension of the provisional student visa is not allowed."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "564a65454007",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "30d0459eeb9d",
+          "_type": "span",
+          "marks": [],
+          "text": " "
+        },
+        {
+          "_key": "fe55b2deb4de",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Form"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "1fe0556ae2da",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bb4ebd86020b",
+          "_type": "span",
+          "marks": [],
+          "text": "The interested students are required to fill out an online visa Application by visiting a website which website is"
+        },
+        {
+          "_key": "f9e58a14ed47",
+          "_type": "span",
+          "marks": [
+            "b0c45db4f20f"
+          ],
+          "text": " http://indianvisaonline.gov.in/visa/ "
+        },
+        {
+          "_key": "c9842c1265fa",
+          "_type": "span",
+          "marks": [],
+          "text": "and visit their nearest embassy with a printout of the online filled application and required travel documents."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "b0c45db4f20f",
+          "_type": "link",
+          "blank": true,
+          "href": "http://indianvisaonline.gov.in/visa/"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/student-visa-and-permits-in-india-1200.webp",
+    "card": "/images/blog/student-visa-and-permits-in-india-600.webp",
+    "og": "/images/blog/og/student-visa-and-permits-in-india.jpg",
+    "alt": "Student Visa and Permits in India",
+    "caption": null,
+    "_sanityRef": "image-992127794440280906c30ec162b9b6958779afec-275x183-jpg",
+    "_sanityOgRef": "image-992127794440280906c30ec162b9b6958779afec-275x183-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/student-visa-and-permits-in-india",
+    "metaDescription": "Get insights on student visa and permits in India—learn about application process, eligibility, required documents, and key guidelines.",
+    "metaTitle": "Student Visa and Permits in India - Admizz Education",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.016Z"
+}
