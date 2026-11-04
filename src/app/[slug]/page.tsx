@@ -15,6 +15,8 @@ import { postFaqs } from "@/data/post-faqs";
 import { postSeoOverrides } from "@/data/post-seo-overrides";
 import { postFaqSchemaOnly } from "@/data/post-faq-schema";
 import { postContentPatches } from "@/data/post-content-patches";
+import { postSources } from "@/data/post-sources";
+import PostSources from "@/components/PostSources";
 import { applyContentPatches } from "@/lib/content-patches";
 import { blogH2, blogP, blogFaqQuestion } from "@/components/lib/blog-typography";
 
@@ -255,19 +257,22 @@ export default async function BlogPostPage({ params }: PageProps) {
                 ))}
               </section>
             )}
+
+            {/* Official sources + "checked in" line (only for posts with an entry in post-sources.ts) */}
+            {postSources[post.slug.current] && <PostSources entry={postSources[post.slug.current]} />}
           </div>
 
           {/* Right: Sticky Consultation Form (desktop) */}
           <aside className="hidden lg:block w-[472px] shrink-0">
             <div className="sticky top-[90px]">
-              <CTAForm title="Book a Free Counseling Session" colorScheme="light" />
+              <CTAForm title="Book a Free Consultation" colorScheme="light" />
             </div>
           </aside>
         </div>
 
         {/* Mobile: Form below content */}
         <div className="lg:hidden mt-10 max-w-xl mx-auto">
-          <CTAForm title="Book a Free Counseling Session" colorScheme="light" />
+          <CTAForm title="Book a Free Consultation" colorScheme="light" />
         </div>
       </article>
 

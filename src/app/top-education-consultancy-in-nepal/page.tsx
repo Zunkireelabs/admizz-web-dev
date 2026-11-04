@@ -386,7 +386,7 @@ export default async function TopEducationConsultancyInNepalPage() {
                 href="/register"
                 className="inline-block mt-8 bg-blue-royal text-white font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-blue-dark transition-colors"
               >
-                Get a Free Counseling Session
+                Book a Free Consultation
               </Link>
             </div>
           </div>

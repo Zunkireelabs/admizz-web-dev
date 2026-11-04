@@ -277,7 +277,7 @@ export default function StudyAbroadRuleChangesPage() {
 
           <aside className="hidden lg:block w-[472px] shrink-0">
             <div className="sticky top-[90px]">
-              <CTAForm title="Book a Free Counseling Session" colorScheme="light" formSource="blog-post" />
+              <CTAForm title="Book a Free Consultation" colorScheme="light" formSource="blog-post" />
             </div>
           </aside>
         </div>
