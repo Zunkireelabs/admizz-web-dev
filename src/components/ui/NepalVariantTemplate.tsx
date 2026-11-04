@@ -3,6 +3,9 @@
 import { useState, useEffect, useRef, useCallback, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
+import DestinationEntitySchema from "@/components/ui/DestinationEntitySchema";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
@@ -67,6 +70,24 @@ export interface StudentPhoto {
   imagePosition?: string;
 }
 
+export interface GuideSection {
+  id: string;
+  title: string;
+  intro?: string;
+  table?: { headers: string[]; rows: string[][] };
+  bullets?: string[];
+  links?: { label: string; href: string }[];
+  note?: string;
+}
+
+export interface SourceLink {
+  label: string;
+  href: string;
+}
+
+/** Same shape as GuideSection; rendered in the same style. */
+export type ExtraSection = GuideSection;
+
 export interface NepalVariantData {
   countryName: string;
   heroHeading: string;
@@ -120,6 +141,24 @@ export interface NepalVariantData {
   ctaTitle: string;
   ctaContent: string;
   countryCategorySlug?: string;
+  /** Answer-first summary shown under the "Why study" list, for search and AI answer engines. */
+  quickAnswer?: string;
+  /** Human-readable month/year the page content was last revised, e.g. "October 2026". */
+  lastUpdated?: string;
+  /** Official sources the page's facts can be checked against. */
+  sources?: { label: string; url?: string; href?: string }[];
+  /** Extra guide sections (requirements, documents, work rights...) rendered before the FAQ. */
+  extraSections?: ExtraSection[];
+  /** Internal links to closely related Admizz pages. */
+  relatedLinks?: { label: string; href: string; description?: string }[];
+  /** ISO date (YYYY-MM-DD) of the last real content review. Only set it when the page was actually
+   * reviewed, because it is published as WebPage dateModified for search and AI engines. */
+  dateModified?: string;
+  /** Month/year shown as "Checked in ..." next to the quick answer. */
+  lastChecked?: string;
+  guideTabLabel?: string;
+  guideSections?: GuideSection[];
+  sourcesTitle?: string;
 }
 
 interface NepalVariantTemplateProps {
@@ -142,7 +181,7 @@ function shortMonth(intake: string): string | null {
   return hit ?? null;
 }
 
-/** Decorative blurred card shape (no text) used at the row edges so the main intake reads as the centre */
+/** Decorative blurred card shape (no text) used at the row edges so the main intake reads as the center */
 function GhostCard({ side }: { side: "left" | "right" }) {
   return (
     <div
@@ -186,11 +225,11 @@ function IntakeCards({ intakes }: { intakes: IntakeRow[] }) {
   const onScroll = () => {
     const box = scrollRef.current;
     if (!box) return;
-    const centre = box.scrollLeft + box.clientWidth / 2;
+    const center = box.scrollLeft + box.clientWidth / 2;
     let nearest = 0;
     let best = Infinity;
     cards().forEach((el, i) => {
-      const d = Math.abs(el.offsetLeft + el.offsetWidth / 2 - centre);
+      const d = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
       if (d < best) {
         best = d;
         nearest = i;
@@ -250,7 +289,89 @@ function IntakeCards({ intakes }: { intakes: IntakeRow[] }) {
 /** "1. Choose Course" → "Choose Course" */
 const stripStepNumber = (s: string) => s.replace(/^\s*\d+\.\s*/, "");
 
-const tabs = [
+
+/** "Topic: details" bullets render as a two-column table, other bullets as one column. */
+function BulletTable({ bullets }: { bullets: string[] }) {
+  const split = bullets.map((b) => {
+    const m = b.match(/^([^:]{2,48}): ([\s\S]+)$/);
+    return m ? [m[1], m[2]] : null;
+  });
+  const labelled = split.every(Boolean);
+  const headers = labelled ? ["Topic", "Details"] : ["Key points"];
+  const rows: string[][] = labelled ? (split as string[][]) : bullets.map((b) => [b]);
+  return (
+    <div className="overflow-x-auto mb-4 rounded-2xl border border-border-light bg-white">
+      <table className="w-full">
+        <thead>
+          <tr className="bg-navy text-white">
+            {headers.map((h) => (
+              <th key={h} className="text-left px-4 sm:px-6 py-3 text-sm font-semibold">{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, r) => (
+            <tr key={row.join("|")} className={r % 2 === 0 ? "bg-white" : "bg-[#F4F6FF]"}>
+              {row.map((cell, c) => (
+                <td key={c} className={`px-4 sm:px-6 py-3 text-sm align-top ${labelled && c === 0 ? "text-navy font-medium" : "text-body"}`}>
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function GuideBlock({ section, tinted }: { section: GuideSection; tinted: boolean }) {
+  return (
+    <section id={section.id} className={`scroll-mt-32 py-14 md:py-20 ${tinted ? "bg-[#F4F6FF]" : ""}`}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl md:text-[30px] font-bold text-navy mb-4" style={rubikFont}>{section.title}</h2>
+        {section.intro && <p className="text-[15px] text-body mb-6">{section.intro}</p>}
+        {section.table && (
+          <div className="overflow-x-auto mb-4 rounded-2xl border border-border-light bg-white">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-navy text-white">
+                  {section.table.headers.map((h) => (
+                    <th key={h} className="text-left px-4 sm:px-6 py-3 text-sm font-semibold">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {section.table.rows.map((row) => (
+                  <tr key={row.join("|")} className="even:bg-[#F4F6FF]">
+                    {row.map((cell, c) => (
+                      <td key={c} className={`px-4 sm:px-6 py-3 text-sm align-top ${c === 0 ? "text-navy font-medium" : "text-body"}`}>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {section.bullets && <BulletTable bullets={section.bullets} />}
+        {section.note && <p className="mt-4 text-sm text-gray-dark italic">{section.note}</p>}
+        {section.links && (
+          <p className="mt-4 text-sm text-gray-dark">
+            Related guides:{" "}
+            {section.links.map((l, i) => (
+              <span key={l.href}>
+                {i > 0 && " · "}
+                <Link href={l.href} className="text-blue-royal underline">{l.label}</Link>
+              </span>
+            ))}
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
+
+const baseTabs = [
   { id: "why", label: "Why Study Here" },
   { id: "cost", label: "Costs" },
   { id: "visa", label: "Visa Steps" },
@@ -260,6 +381,12 @@ const tabs = [
 ];
 
 export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTemplateProps) {
+  const pathname = usePathname();
+  const guideTabs = data.guideSections?.length
+    ? [{ id: data.guideSections[0].id, label: data.guideTabLabel ?? "Requirements" }]
+    : [];
+  const tabs = [...baseTabs.slice(0, -1), ...guideTabs, baseTabs[baseTabs.length - 1]];
+  const tabIds = tabs.map((t) => t.id).join(",");
   const [activeTab, setActiveTab] = useState("why");
   const tabScrollRef = useRef<HTMLDivElement>(null);
   const isClickScrolling = useRef(false);
@@ -303,12 +430,12 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
       },
       { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
     );
-    tabs.forEach((t) => {
-      const el = document.getElementById(t.id);
+    tabIds.split(",").forEach((id) => {
+      const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
     return () => observer.disconnect();
-  }, [scrollTabIntoView]);
+  }, [scrollTabIntoView, tabIds]);
 
   const shortCountry = data.countryName.replace(/^the /i, "");
   const [mainStat, ...smallStats] = data.highlightStats ?? [];
@@ -316,6 +443,33 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Study Destinations", url: "https://admizzeducation.com/study-destinations" },
+          { name: data.countryName, url: `https://admizzeducation.com${pathname}` },
+        ]}
+      />
+      <DestinationEntitySchema
+        countryName={data.countryName}
+        url={`https://admizzeducation.com${pathname}`}
+      />
+      {data.dateModified && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: data.heroHeading,
+              url: `https://admizzeducation.com${pathname}`,
+              dateModified: data.dateModified,
+              author: { "@type": "Organization", name: "Admizz Education", url: "https://admizzeducation.com" },
+              publisher: { "@type": "Organization", name: "Admizz Education", url: "https://admizzeducation.com" },
+            }),
+          }}
+        />
+      )}
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden bg-navy">
         {data.heroImage && (
@@ -365,7 +519,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
               onSubmit={onHeroSubmit}
               className="hidden lg:block bg-white rounded-3xl p-8 shadow-[0_30px_60px_-30px_rgba(0,19,83,0.45)]"
             >
-              <p className={eyebrowClass}>Free counselling</p>
+              <p className={eyebrowClass}>Free counseling</p>
               <h2 className="text-2xl font-bold text-navy" style={rubikFont}>Get your {shortCountry} plan</h2>
               <p className="mt-1.5 mb-5 text-sm text-gray-dark">Universities, costs and visa steps for your profile.</p>
               <div className="grid gap-2.5">
@@ -539,6 +693,15 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
                 </li>
               ))}
             </ol>
+            {data.quickAnswer && (
+              <div className="mt-8 rounded-2xl border border-border-light bg-[#F4F6FF] px-5 py-4">
+                <p className="text-[13px] font-semibold uppercase tracking-wide text-navy mb-1">Quick answer</p>
+                <p className="text-[15px] text-body leading-relaxed">{data.quickAnswer}</p>
+                {(data.lastChecked ?? data.lastUpdated) && (
+                  <p className="mt-2 text-[13px] text-gray-dark italic">Checked in {data.lastChecked ?? data.lastUpdated}</p>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -751,6 +914,14 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
         </section>
       )}
 
+      {/* ===== GUIDE SECTIONS (optional: eligibility, documents, work rights, ...) ===== */}
+      {data.guideSections?.map((section, idx) => (
+        <GuideBlock key={section.id} section={section} tinted={idx % 2 === 1} />
+      ))}
+      {data.extraSections?.map((section, idx) => (
+        <GuideBlock key={section.id} section={section} tinted={idx % 2 === 1} />
+      ))}
+
       {/* ===== FAQ ===== */}
       <div id="faq" className="scroll-mt-32">
         <FAQ
@@ -762,10 +933,58 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
         />
       </div>
 
-      {/* ===== BLOG ===== */}
-      {blogPosts && blogPosts.length > 0 && (
-        <StudyAbroadInsights posts={blogPosts} countryName={data.countryName} categorySlug={data.countryCategorySlug} />
+      {/* ===== SOURCES & RELATED GUIDES ===== */}
+      {((data.sources && data.sources.length > 0) || (data.relatedLinks && data.relatedLinks.length > 0)) && (
+        <section className="py-14 bg-[#F4F6FF]">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-6 md:grid-cols-2 items-stretch">
+            {data.relatedLinks && data.relatedLinks.length > 0 && (
+              <div className="bg-white border border-border-light rounded-2xl overflow-hidden flex flex-col">
+                <div className="px-5 sm:px-6 py-4 bg-navy text-white">
+                  <h2 className="text-base font-semibold">Related guides</h2>
+                </div>
+                <ul>
+                  {data.relatedLinks.map((l, i) => (
+                    <li key={l.href} className={i > 0 ? "border-t border-border-light" : ""}>
+                      <Link href={l.href} className="group flex items-start justify-between gap-4 px-5 sm:px-6 py-3.5 transition-colors hover:bg-off-white">
+                        <span>
+                          <span className="block text-[15px] font-semibold text-navy">{l.label}</span>
+                          {l.description && <span className="block text-[13px] text-gray-dark mt-0.5">{l.description}</span>}
+                        </span>
+                        <svg className="w-4 h-4 mt-1 flex-shrink-0 text-navy transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {data.sources && data.sources.length > 0 && (
+              <div className="bg-white border border-border-light rounded-2xl overflow-hidden flex flex-col">
+                <div className="px-5 sm:px-6 py-4 bg-navy text-white">
+                  <h2 className="text-base font-semibold">{data.sourcesTitle ?? "Official sources"}</h2>
+                </div>
+                <ul>
+                  {data.sources.map((src, i) => (
+                    <li key={src.url ?? src.href} className={i > 0 ? "border-t border-border-light" : ""}>
+                      <a href={src.url ?? src.href} target="_blank" rel="noopener noreferrer" className="group flex items-start justify-between gap-4 px-5 sm:px-6 py-3 text-[14px] text-gray-dark transition-colors hover:bg-off-white hover:text-navy">
+                        <span>{src.label}</span>
+                        <svg className="w-4 h-4 mt-0.5 flex-shrink-0 opacity-60 group-hover:opacity-100" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M14 5h5v5M19 5l-8 8M10 7H6a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-4" />
+                        </svg>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </section>
       )}
+
+      {/* ===== BLOG ===== */}
+      {/* Renders itself only when there is something to show (Sanity posts or repo posts for this category). */}
+      <StudyAbroadInsights posts={blogPosts ?? []} countryName={data.countryName} categorySlug={data.countryCategorySlug} />
 
       {/* ===== CTA ===== */}
       <section className="py-16 md:py-24">

@@ -4,6 +4,7 @@ import path from 'path';
 import EventsInit from './EventsInit';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://admizzeducation.com/events' },
   title: 'Admizz Events | Admizz Education',
   description: 'Admizz Education Events — Study Abroad Guidance & Opportunities. Discover upcoming and past events to support your study-abroad journey.',
 };

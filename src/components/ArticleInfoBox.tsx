@@ -15,7 +15,7 @@ export default function ArticleInfoBox({ items }: ArticleInfoBoxProps) {
             <p className="text-[13px] font-semibold uppercase tracking-wider text-gray-500 mb-1">
               {item.label}
             </p>
-            <p className="text-lg font-bold text-[#001353]">{item.value}</p>
+            <p className="text-base font-bold leading-snug text-[#001353]">{item.value}</p>
           </div>
         ))}
       </div>

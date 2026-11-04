@@ -100,7 +100,7 @@ export default function HeroCinematic() {
             </h1>
 
             <p className="wc-hero-lede">
-              The world&apos;s biggest tournament. One match at a time. Predict the winner, follow the bracket, watch the standings, win prizes — and unlock free IELTS, PTE test-prep and a study-abroad counselling session with Admizz Education.
+              The world&apos;s biggest tournament. One match at a time. Predict the winner, follow the bracket, watch the standings, win prizes — and unlock free IELTS, PTE test-prep and a study-abroad counseling session with Admizz Education.
             </p>
 
             <div className="wc-hero-ctas">

@@ -38,7 +38,7 @@ export default function UniversitySidebar({ university: u }: { university: Unive
     { label: "Course duration", value: durationRange(u) },
     { label: "Courses listed", value: u.courses.length ? String(u.courses.length) : undefined },
     { label: "Intake months", value: Array.from(new Set(upcomingIntakes(u).map((i) => i.month))).join(", ") },
-    { label: "English test", value: english || "Ask a counsellor" },
+    { label: "English test", value: english || "Ask a counselor" },
   ].filter((r) => Boolean(r.value) || Boolean(r.lines?.length));
 
   return (
@@ -73,7 +73,7 @@ export default function UniversitySidebar({ university: u }: { university: Unive
       <section className="rounded-2xl bg-gradient-to-br from-blue-royal to-blue-dark p-6 text-white">
         <h2 className="text-[18px] font-bold leading-snug">Interested in {u.name}?</h2>
         <p className="mt-2 text-[14px] text-white/80">
-          Get free, one-to-one guidance on courses, scholarships and your application from an Admizz counsellor.
+          Get free, one-to-one guidance on courses, scholarships and your application from an Admizz counselor.
         </p>
         <div className="mt-5 space-y-3">
           <EnquireButton className="w-full flex items-center justify-center gap-2 bg-yellow text-black font-semibold text-[15px] px-5 py-3 rounded-[10px] hover:bg-yellow-bright hover:-translate-y-px transition-all">

@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Denmark from Nepal - Admizz Education",
   description:
-    "Study in Denmark from Nepal: tuition, admission deadlines, residence permit steps and costs, explained for Nepali students.",
+    "Study in Denmark from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-denmark-from-nepal",
   },
   openGraph: {
     title: "Study in Denmark from Nepal - Admizz Education",
     description:
-      "Study in Denmark from Nepal: tuition, admission deadlines, residence permit steps and costs, explained for Nepali students.",
+      "Study in Denmark from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-denmark-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in Denmark from Nepal - Admizz Education",
     description:
-      "Study in Denmark from Nepal: tuition, admission deadlines, residence permit steps and costs, explained for Nepali students.",
+      "Study in Denmark from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     images: ["/images/og/countries/study-in-denmark.jpg"],
   },
 };
@@ -45,14 +45,14 @@ const pageData: NepalVariantData = {
   heroSubheading: "English-taught degrees, part-time work during studies, and help with admission and your residence permit from Kathmandu.",
   quickFacts: [
     { label: "Bachelor's deadline", value: "15 March" },
-    { label: "Tuition from", value: "€6,000 / yr" },
+    { label: "Tuition from", value: "DKK 45,000 / yr" },
     { label: "Work in studies", value: "90 h / month" },
     { label: "Job-search permit", value: "1 year" },
     { label: "English", value: "IELTS 6.5 typical" },
   ],
   introTitle: "Study in Denmark from Nepal",
   introContent:
-    "Danish universities and university colleges teach many bachelor's and master's programmes in English. Students can work part-time during studies and full-time in summer.",
+    "Danish universities and university colleges teach many bachelor's and master's programs in English. Students can work part-time during studies and full-time in summer.",
   whyStudyTitle: "Project-based degrees with summer work rights",
   whyStudyIntro: "Why students from Nepal look at Denmark.",
   highlightStats: [
@@ -68,19 +68,19 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "Taught in English",
-      description: "Many bachelor's and master's programmes are fully in English. Danish is not needed to study.",
+      description: "Study in Denmark from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Project-based learning",
-      description: "Much of the teaching is group projects and problem-solving, often with companies.",
+      description: "Study in Denmark from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Work while you study",
-      description: "Up to 90 hours a month from September to May, full-time in June, July and August.",
+      description: "Study in Denmark from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Government scholarships",
-      description: "Universities award Danish Government Scholarships to selected non-EU students.",
+      description: "Study in Denmark from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
   visaTitle: "Your residence permit for studies, step by step",
@@ -89,7 +89,7 @@ const pageData: NepalVariantData = {
     { category: "Get admitted", details: "Bachelor's via optagelse.dk by 15 March. Master's directly with the university." },
     { category: "Create case order ID & pay fee", details: "Pay the DKK 3,060 fee to SIRI before you apply." },
     { category: "Submit form ST1", details: "Your university fills in its part online, then you complete yours." },
-    { category: "Biometrics in Kathmandu", details: "Within 14 days, at the VFS Global centre. The Danish Embassy in New Delhi handles the case." },
+    { category: "Biometrics in Kathmandu", details: "Within 14 days, at the VFS Global center. The Danish Embassy in New Delhi handles the case." },
     { category: "Decision by SIRI", details: "Usually within 2 months of a complete application." },
     { category: "Arrive in Denmark", details: "Register for your CPR number and residence card. We brief you before you fly." },
   ],
@@ -102,21 +102,21 @@ const pageData: NepalVariantData = {
     "Academic transcripts",
   ],
   visaNote:
-    "Only state-approved programmes give work rights and a job-search permit. Check your programme with us before you apply.",
+    "Only state-approved programs give work rights and a job-search permit. Check your program with us before you apply.",
   intakesTitle: "When you can start",
-  intakesIntro: "Most programmes start in late August or September. Deadlines are early in the year.",
+  intakesIntro: "Most programs start in late August or September. Deadlines are early in the year.",
   intakes: [
     { intake: "September intake", months: "Bachelor's: apply by 15 March", details: "Main intake. Master's deadlines are set by each university." },
-    { intake: "February intake", months: "Check with each university", details: "Selected programmes only." },
+    { intake: "February intake", months: "Check with each university", details: "Selected programs only." },
   ],
   costTitle: "What a year in Denmark costs",
-  costIntro: "Typical tuition, plus the living-cost amount SIRI asks you to show for your permit.",
+  costIntro: "Tuition for non-EU/EEA students is set by each institution (Study in Denmark lists DKK 45,000-120,000 a year), plus the living-cost amount SIRI asks you to show for your permit.",
   costTables: [
     {
       title: "Tuition per year",
       rows: [
-        { category: "Bachelor's & master's", cost: "€6k – €16k" },
-        { category: "Some specialised programmes", cost: "Higher, check each" },
+        { category: "Bachelor's & master's", cost: "DKK 45,000 – 120,000" },
+        { category: "Some specialized programs", cost: "Higher, check each" },
       ],
     },
     {
@@ -154,7 +154,7 @@ const pageData: NepalVariantData = {
   faqItems: [
     {
       question: "Do I need to speak Danish to study in Denmark?",
-      answer: "No. Many programmes are taught fully in English. Basic Danish helps with daily life and part-time jobs.",
+      answer: "No. Many programs are taught fully in English. Basic Danish helps with daily life and part-time jobs.",
     },
     {
       question: "When do I apply?",
@@ -168,11 +168,11 @@ const pageData: NepalVariantData = {
     },
     {
       question: "Where do I give my biometrics from Nepal?",
-      answer: "At the VFS Global centre in Kathmandu, within 14 days of applying. The Danish Embassy in New Delhi handles Nepali applications.",
+      answer: "At the VFS Global center in Kathmandu, within 14 days of applying. The Danish Embassy in New Delhi handles Nepali applications.",
     },
     {
       question: "Can I work while studying in Denmark?",
-      answer: "Yes, up to 90 hours a month from September to May and full-time in June, July and August, on a state-approved programme.",
+      answer: "Yes, up to 90 hours a month from September to May and full-time in June, July and August, on a state-approved program.",
     },
     {
       question: "Can I stay in Denmark after graduation?",

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const services = [
   {
     icon: "/images/icons/consult-108.webp",
-    title: "Career Counselling",
+    title: "Career Counseling",
     description:
       "Get personalized guidance from experienced counselors who understand global education opportunities and can help align your career goals.",
   },
@@ -99,7 +99,7 @@ const googleReviews = [
     name: "Purnima Lama",
     initial: "P",
     color: "#059669",
-    text: "Highly satisfied with Admizz Education! The counsellors are supportive, knowledgeable, and genuinely care about students.",
+    text: "Highly satisfied with Admizz Education! The counselors are supportive, knowledgeable, and genuinely care about students.",
   },
   {
     name: "Sagar Acharya",
@@ -123,7 +123,7 @@ const faqItems = [
   {
     question: "3. Does Admizz Education help with university shortlisting?",
     answer:
-      "Yes. Admizz uses expert counsellors and AI-assisted tools to shortlist universities that match your academic profile, preferred country, career goals, and budget. You receive a personalized list of universities with high acceptance chances.",
+      "Yes. Admizz uses expert counselors and AI-assisted tools to shortlist universities that match your academic profile, preferred country, career goals, and budget. You receive a personalized list of universities with high acceptance chances.",
   },
   {
     question: "4. Can Admizz assist with SOP, LOR, and application documents?",
@@ -148,7 +148,7 @@ const faqItems = [
   {
     question: "8. Is Admizz Education free for students?",
     answer:
-      "Admizz offers free counselling and guidance for many services. Some specialized services—like premium documentation, fast-track applications, and certain country-specific processing—may involve additional charges. Students are always informed upfront.",
+      "Admizz offers free counseling and guidance for many services. Some specialized services—like premium documentation, fast-track applications, and certain country-specific processing—may involve additional charges. Students are always informed upfront.",
   },
   {
     question: "9. How long does it take to get admission through Admizz Education?",
@@ -158,7 +158,7 @@ const faqItems = [
   {
     question: "10. Why should I choose Admizz Education over other study-abroad consultancies?",
     answer:
-      "Admizz combines expert counsellors with advanced technology to offer accurate university matches, faster processing, transparent workflows, and a higher visa success rate. Students benefit from personalized support, global partner universities, and a seamless digital platform.",
+      "Admizz combines expert counselors with advanced technology to offer accurate university matches, faster processing, transparent workflows, and a higher visa success rate. Students benefit from personalized support, global partner universities, and a seamless digital platform.",
   },
 ];
 
@@ -374,7 +374,7 @@ export default function HomepageOld() {
                 {[
                   { icon: "/images/icons/user.webp", label: "Personalized Coaching", bg: "linear-gradient(180deg, #dbeafe 0%, #ecfdf5 100%)" },
                   { icon: "/images/icons/online-learning.webp", label: "Flexible Online Learning", bg: "linear-gradient(180deg, #d1fae5 0%, #ecfdf5 100%)" },
-                  { icon: "/images/icons/excellence.webp", label: "Guaranteed Score Improvement", bg: "linear-gradient(180deg, #fef9c3 0%, #fef3c7 100%)" },
+                  { icon: "/images/icons/excellence.webp", label: "Proven Score Improvement", bg: "linear-gradient(180deg, #fef9c3 0%, #fef3c7 100%)" },
                 ].map((f) => (
                   <div key={f.label} className="rounded-[12px] p-5 pb-4 flex flex-col items-start" style={{ background: f.bg }}>
                     <Image src={f.icon} alt={f.label} width={40} height={40} className="mb-3" />

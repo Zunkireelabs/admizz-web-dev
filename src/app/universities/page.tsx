@@ -4,18 +4,20 @@ import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import TrustedPartners from "@/components/ui/TrustedPartners";
 import { allUniversities } from "@/lib/universities";
+import PartnerUniversitiesSchema from "@/components/ui/PartnerUniversitiesSchema";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 
 export const metadata: Metadata = {
-  title: "University & College Partnerships - Admizz Education",
+  title: "Partner With Admizz: University Recruitment from Nepal",
   description:
-    "Partner with Admizz Education to grow international enrollments. Trusted by 100+ universities across 11 countries. Ethical, data-driven recruitment with 24-48 hour application turnaround.",
+    "Universities and colleges can partner with Admizz Education for ethical student recruitment, with applications in 24-48 hours and offers in 7-14 days.",
   alternates: {
     canonical: "https://admizzeducation.com/universities",
   },
   openGraph: {
-    title: "University & College Partnerships - Admizz Education",
+    title: "Partner With Admizz: University Recruitment from Nepal",
     description:
-      "Partner with Admizz Education to grow international enrollments. Trusted by 100+ universities across 11 countries.",
+      "Partner with Admizz Education to grow international enrollments. Trusted by 100+ universities across 12 countries.",
     url: "https://admizzeducation.com/universities",
     siteName: "Admizz Education",
     images: ["/images/og/soHeroImg-scaled.webp"],
@@ -26,10 +28,10 @@ export const metadata: Metadata = {
 const PARTNER_FORM_URL = "https://forms.gle/dtVz3E4TucVFfWTq8";
 
 const heroStats = [
-  { value: "25,000+", label: "Students Placed" },
+  { value: "2,000+", label: "Students Placed" },
   { value: "100+", label: "Partner Universities" },
-  { value: "11", label: "Partner Countries" },
-  { value: "7+", label: "Years Operating" },
+  { value: "12", label: "Partner Countries" },
+  { value: "10+", label: "Years Operating" },
 ];
 
 const whyPartnerFeatures = [
@@ -142,7 +144,7 @@ const partnershipSteps = [
   {
     num: "3",
     title: "Onboarding & Training",
-    description: "Brief our counsellors, finalize materials, build market plan.",
+    description: "Brief our counselors, finalize materials, build market plan.",
   },
   {
     num: "4",
@@ -197,7 +199,7 @@ const programs = [
 const testimonials = [
   {
     quote:
-      "Admizz Education has consistently delivered well-prepared, qualified students who fit our programs. Their counsellors understand our admissions criteria and the partnership has been seamless.",
+      "Admizz Education has consistently delivered well-prepared, qualified students who fit our programs. Their counselors understand our admissions criteria and the partnership has been seamless.",
     source: "International Admissions Lead, UK Partner University",
     isSample: true,
   },
@@ -371,6 +373,13 @@ export default function UniversitiesPage() {
 
   return (
     <main style={{ fontFamily: "'Montserrat', var(--font-montserrat), sans-serif" }}>
+      <PartnerUniversitiesSchema />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "University & College Partnerships", url: "https://admizzeducation.com/universities" },
+        ]}
+      />
       {/* ===== HERO ===== */}
       <section className="py-20" style={{ background: "#E8EEFF" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -385,7 +394,7 @@ export default function UniversitiesPage() {
           <p className="mt-5 text-[15px] sm:text-[16px] max-w-2xl mx-auto leading-relaxed" style={{ color: "#3d4663" }}>
             Admizz Education connects universities and colleges with high-quality
             international students through ethical, data-driven recruitment.
-            Trusted by 100+ institutions across 11 countries.
+            Trusted by 100+ institutions across 12 countries.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
@@ -702,7 +711,7 @@ export default function UniversitiesPage() {
                         fontWeight="600"
                         fill="#5a6275"
                       >
-                        {s.percent}% &middot; {s.students}
+                        {s.percent}%
                       </text>
                       {/* Connecting node (right edge of pill) */}
                       <circle
@@ -844,9 +853,6 @@ export default function UniversitiesPage() {
                 <div className="text-2xl font-extrabold leading-none mb-1" style={{ color: "#0D1282" }}>
                   {m.percent}%
                 </div>
-                <div className="text-[11px] text-gray-dark">
-                  {m.students} students
-                </div>
               </div>
             ))}
           </div>
@@ -866,9 +872,9 @@ export default function UniversitiesPage() {
           </h2>
           <p className="text-[15px] text-gray-dark leading-relaxed text-center mb-10 max-w-3xl mx-auto">
             We have successfully placed{" "}
-            <span className="font-semibold text-navy">25,000+ students</span> at
+            <span className="font-semibold text-navy">2,000+ students</span> at
             their dream universities across{" "}
-            <span className="font-semibold text-navy">11 countries</span>, and
+            <span className="font-semibold text-navy">12 countries</span>, and
             continue to be the platform of choice for institutions seeking
             quality international enrollments.
           </p>
@@ -1049,7 +1055,7 @@ export default function UniversitiesPage() {
               </div>
               <h3 className="text-lg font-bold mb-3" style={{ color: "#0D1282" }}>Transparent Commission</h3>
               <p className="text-[14px] leading-relaxed" style={{ color: "#5a6275" }}>
-                Simplified commission structure with access to your personalised wallet.
+                Simplified commission structure with access to your personalized wallet.
               </p>
             </div>
           </div>
@@ -1166,7 +1172,7 @@ export default function UniversitiesPage() {
             {/* CTA copy */}
             <div className="text-center md:text-left">
               <p className="text-sm opacity-80 mb-4">
-                Trusted by 100+ universities across 11 countries
+                Trusted by 100+ universities across 12 countries
               </p>
               <h2 className="text-2xl md:text-[32px] font-bold leading-tight mb-4">
                 Let&rsquo;s Build Global Education Together

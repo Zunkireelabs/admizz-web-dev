@@ -67,7 +67,7 @@ const universities: Record<string, { name: string; logo: string }[]> = {
   ],
   Finland: [
     { name: "Haaga-Helia", logo: "https://admizzeducation.com/images/universities/finland/haaga-helia.webp" },
-    { name: "Lab University", logo: "https://admizzeducation.com/images/universities/finland/lab-university.webp" },
+    { name: "LAB University of Applied Sciences", logo: "https://admizzeducation.com/images/universities/finland/lab-university.webp" },
     { name: "Satakunta University", logo: "https://admizzeducation.com/images/universities/finland/satakunta-university.webp" },
     { name: "Vaasa University", logo: "https://admizzeducation.com/images/universities/finland/vaasa-university.webp" },
   ],
@@ -81,7 +81,7 @@ const universities: Record<string, { name: string; logo: string }[]> = {
   France: [
     { name: "Sorbonne University", logo: "https://admizzeducation.com/images/universities/france/sorbonne-university.webp" },
     { name: "Sciences Po", logo: "https://admizzeducation.com/images/universities/france/sciences-po.webp" },
-    { name: "Ecole Polytechnique", logo: "https://admizzeducation.com/images/universities/france/ecole-polytechnique.webp" },
+    { name: "École Polytechnique", logo: "https://admizzeducation.com/images/universities/france/ecole-polytechnique.webp" },
     { name: "Université de Bordeaux", logo: "https://admizzeducation.com/images/universities/france/universite-de-bordeaux.webp" },
   ],
 };

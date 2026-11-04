@@ -34,7 +34,7 @@ If a fact is not here (or is not marked **Confirmed**), it must not appear on a 
 ## 1. Company track record
 | Fact | Value | Status | Source | Last checked | Used on |
 |---|---|---|---|---|---|
-| Students placed / enrolled (total) | 1,500+ (interim) | Needs confirmation | Site previously showed both 1500+ and 2,000+. Lower value used until confirmed. Need: value + since which year. | 2026-10-29 | `ADMIZZ_STATS.studentsPlaced` — homepage, about, register, all country pages, SEO landing pages, city pages, events, campaign-uk, destination quiz, alumni section, affiliate referral message |
+| Students placed / enrolled (total) | 2,000+ | Confirmed (owner, 2026-10-08; kept by the team 2026-11-03) | Site previously showed both 1500+ and 2,000+. 2,000+ chosen. Basis (since which year) still to be written down. Need: value + since which year. | 2026-10-29 | `ADMIZZ_STATS.studentsPlaced` — homepage, about, register, all country pages, SEO landing pages, city pages, events, campaign-uk, destination quiz, alumni section, affiliate referral message |
 | Years of experience / year founded | _TBD_ | Needs confirmation | | | |
 | Partner universities (count) | _TBD_ | Needs confirmation | | | |
 | Countries served (count) | _TBD_ | Needs confirmation | | | |

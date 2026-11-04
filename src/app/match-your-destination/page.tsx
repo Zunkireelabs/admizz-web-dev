@@ -5,9 +5,9 @@ import DestinationQuiz from "./DestinationQuiz";
 const PAGE_URL = "https://admizzeducation.com/match-your-destination";
 
 export const metadata: Metadata = {
-  title: "Match Your Destination — Free 60-Second Quiz | Admizz Education",
+  title: "Free Study Abroad Quiz: Match Your Destination",
   description:
-    "Take Admizz Education's free 60-second quiz and discover your perfect study-abroad destination. Personalised country, top universities, scholarship picks, and visa guidance — all free.",
+    "Take the free 60-second quiz from Admizz Education to match your study-abroad country, universities and scholarships to your goals.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Match Your Destination — Free 60-Second Quiz",
@@ -73,7 +73,7 @@ export default function MatchYourDestinationPage() {
           {/* Heading */}
           <div className="text-center max-w-2xl mx-auto mb-3">
             <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white bg-white/15 border border-white/30 px-4 py-1.5 rounded-full mb-2">
-              🎯 Free · Personalised · 60 seconds
+              🎯 Free · Personalized · 60 seconds
             </div>
             <h1 className="text-[28px] sm:text-[36px] md:text-[40px] font-bold text-white leading-[1.1] tracking-tight mb-1">
               Which country should<br className="hidden sm:block" /> you study in?

@@ -8,6 +8,8 @@ import ConsultationPopup from "@/components/ui/consultation/ConsultationPopup";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
+import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
+import DestinationEntitySchema from "@/components/ui/DestinationEntitySchema";
 import type { SanityPost } from "@/types";
 import { ADMIZZ_STATS, ADMIZZ_STATS_BASIS } from "@/lib/admizz-stats";
 
@@ -74,6 +76,8 @@ export interface CountryPageData {
   faqItems: FAQItem[];
   blogArticles?: string[];
   countryCategorySlug?: string;
+  /** Link to this destination's dedicated "from Nepal" guide, when one exists. */
+  nepalGuide?: { href: string; title: string; text: string };
 }
 
 interface CountryPageTemplateProps {
@@ -83,7 +87,7 @@ interface CountryPageTemplateProps {
 
 
 
-// Stats card (1,500+ / Free / ICEF) under the facts box. Hidden at the client's request (CRET-9).
+// Stats card (2,000+ / Free / ICEF) under the facts box. Hidden at the client's request (CRET-9).
 const SHOW_STATS_CARD = false;
 
 const tabs = [
@@ -467,6 +471,25 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://admizzeducation.com/" },
+          { name: "Study Destinations", url: "https://admizzeducation.com/study-destinations" },
+          { name: data.countryName, url: `https://admizzeducation.com${pathname}` },
+        ]}
+      />
+      <DestinationEntitySchema
+        countryName={data.countryName}
+        url={`https://admizzeducation.com${pathname}`}
+      />
+      {data.heroBackground && (
+        <link
+          rel="preload"
+          as="image"
+          href={data.heroBackground}
+          fetchPriority="high"
+        />
+      )}
       {/* ===== HERO ===== */}
       {/* Country photo with a navy fade on the text side, same look as the "from Nepal" pages */}
       <section className="relative overflow-hidden bg-navy pt-10 pb-24 md:pt-14 md:pb-32">
@@ -515,7 +538,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
             <div className="w-full lg:w-[472px] lg:ml-auto">
               <div className="rounded-3xl bg-white p-6 md:p-8 shadow-[0_30px_60px_-30px_rgba(0,19,83,0.45)]">
                 <p className="text-xs font-semibold tracking-[0.14em] uppercase text-blue-royal mb-2">
-                  Free Counselling
+                  Free Counseling
                 </p>
                 <h2 className="text-xl md:text-2xl font-bold text-navy leading-tight" style={rubikFont}>
                   Planning to study in {data.countryName}?
@@ -593,7 +616,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
                 </span>
                 <div>
                   <p className="text-3xl md:text-[32px] font-bold leading-none text-navy" style={rubikFont}>Free</p>
-                  <p className="text-[15px] text-body mt-1.5">First consultation with an expert counsellor</p>
+                  <p className="text-[15px] text-body mt-1.5">First consultation with an expert counselor</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-7">
@@ -1084,6 +1107,21 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
         </div>
       </section>
 
+      {/* ===== NEPAL GUIDE CALLOUT ===== */}
+      {data.nepalGuide && (
+        <section className="py-10 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Link
+              href={data.nepalGuide.href}
+              className="block rounded-2xl border border-border-light bg-off-white p-6 hover:shadow-lg transition-shadow"
+            >
+              <h2 className="text-lg font-bold text-navy mb-1">{data.nepalGuide.title}</h2>
+              <p className="text-[15px] text-gray-dark">{data.nepalGuide.text}</p>
+            </Link>
+          </div>
+        </section>
+      )}
+
       {/* ===== FAQ ===== */}
       <div id="faq" className="scroll-mt-32">
         <FAQ
@@ -1096,13 +1134,12 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
       </div>
 
       {/* ===== STUDY ABROAD INSIGHTS (Blog) ===== */}
-      {blogPosts && blogPosts.length > 0 && (
-        <StudyAbroadInsights
-          posts={blogPosts}
-          countryName={data.countryName}
-          categorySlug={data.countryCategorySlug}
-        />
-      )}
+      {/* Renders itself only when there is something to show (Sanity posts or repo posts for this category). */}
+      <StudyAbroadInsights
+        posts={blogPosts ?? []}
+        countryName={data.countryName}
+        categorySlug={data.countryCategorySlug}
+      />
 
       {/* ===== CTA BANNER ===== */}
       <section className="py-14 md:py-20">

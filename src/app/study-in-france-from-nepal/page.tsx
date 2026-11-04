@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in France from Nepal - Admizz Education",
   description:
-    "Study in France from Nepal: Campus France and student visa steps, 2026-27 tuition, living costs, scholarships and intakes for Nepali students.",
+    "Study in France from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-france-from-nepal",
   },
   openGraph: {
     title: "Study in France from Nepal - Admizz Education",
     description:
-      "Study in France from Nepal: Campus France and student visa steps, 2026-27 tuition, living costs, scholarships and intakes for Nepali students.",
+      "Study in France from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-france-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in France from Nepal - Admizz Education",
     description:
-      "Study in France from Nepal: Campus France and student visa steps, 2026-27 tuition, living costs, scholarships and intakes for Nepali students.",
+      "Study in France from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     images: ["/images/og/countries/study-in-france.jpg"],
   },
 };
@@ -41,10 +41,10 @@ const pageData: NepalVariantData = {
   countryName: "France",
   countryCategorySlug: "france",
   heroHeading: "Study in France from Nepal",
-  heroSubheading: "Course choice, Campus France and your student visa, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
+  heroSubheading: "Course choice, Campus France and your student visa, handled with a counselor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/france-hero.webp",
   quickFacts: [
-    { label: "Intakes", value: "Sep · Jan" },
+    { label: "Intakes", value: "Sep + others" },
     { label: "Tuition from", value: "€2,902 / yr" },
     { label: "Work", value: "964 hrs / yr" },
     { label: "Job-search permit", value: "1 year" },
@@ -52,7 +52,7 @@ const pageData: NepalVariantData = {
   ],
   introTitle: "Study in France from Nepal",
   introContent:
-    "Public universities in France charge set national fees, many master's programmes are taught in English, and master's graduates can stay a year to look for work.",
+    "Public universities in France charge set national fees, many master's programs are taught in English, and master's graduates can stay a year to look for work.",
   whyStudyTitle: "Set public fees and a year to find work",
   whyStudyIntro: "Why students from Nepal pick France.",
   highlightStats: [
@@ -68,31 +68,31 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "Set public university fees",
-      description: "€2,902 a year for a bachelor's and €3,950 for a master's at public universities in 2026-27.",
+      description: "Study in France from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
-      title: "Programmes in English",
-      description: "Many master's and business school programmes are taught fully in English.",
+      title: "Programs in English",
+      description: "Study in France from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Work while you study",
-      description: "Up to 964 hours a year on a student residence permit.",
+      description: "Study in France from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "A year to find work",
-      description: "Master's-level graduates can get a 1-year permit to look for a job or start a business.",
+      description: "Study in France from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
   visaTitle: "Your student visa, step by step",
   visaIntro: "Nepali students apply through Études en France first, then for a long-stay student visa (VLS-TS).",
   visaRequirements: [
-    { category: "Choose a programme", details: "Pick a public university or school. We shortlist with you." },
+    { category: "Choose a program", details: "Pick a public university or school. We shortlist with you." },
     { category: "Études en France application", details: "Apply online via Campus France Nepal, Pulchowk, Lalitpur." },
     { category: "Campus France interview", details: "A short interview on your study plan and background." },
     { category: "Admission & housing", details: "Accept your offer and arrange accommodation." },
     { category: "Visa form on France-Visas", details: "Fill in the long-stay student visa form online." },
     { category: "Submit at VFS Kathmandu", details: "Documents and biometrics at VFS Global, Thapathali." },
-    { category: "Decision & arrival", details: "Validate your visa online within 3 months of arriving (€150)." },
+    { category: "Decision & arrival", details: "Validate your visa online within 3 months of arriving (€100)." },
   ],
   visaDocuments: [
     "Valid passport",
@@ -104,10 +104,10 @@ const pageData: NepalVariantData = {
     "IELTS or French test result",
   ],
   intakesTitle: "When you can start",
-  intakesIntro: "September has the most programmes. Études en France takes time, so apply early.",
+  intakesIntro: "September has the most programs. Campus France lists December 15 as the DAP registration closing date for the following September, so apply early.",
   intakes: [
-    { intake: "September intake", months: "Apply October – March", details: "Main intake. Most programmes and scholarships." },
-    { intake: "January intake", months: "Check with each school", details: "Selected programmes, mostly at business schools." },
+    { intake: "September intake", months: "DAP registration closes December 15", details: "Main intake. Most programs and scholarships." },
+    { intake: "Other start dates", months: "Check with each school", details: "Varies by institution and program." },
   ],
   costTitle: "What a year in France costs",
   costIntro: "Public tuition is set nationally for 2026-27. Private schools set their own fees.",
@@ -124,7 +124,7 @@ const pageData: NepalVariantData = {
       title: "Living & visa costs",
       rows: [
         { category: "Funds to show", cost: "€877.50 / mo" },
-        { category: "Visa validation", cost: "€150" },
+        { category: "Visa validation", cost: "€100" },
         { category: "Student contribution (CVEC)", cost: "€105 / yr" },
       ],
     },
@@ -155,17 +155,17 @@ const pageData: NepalVariantData = {
     {
       question: "Can I study in France without knowing French?",
       answer:
-        "Yes. Many master's and business school programmes are taught in English. Basic French helps with daily life and part-time work.",
+        "Yes. Many master's and business school programs are taught in English. Basic French helps with daily life and part-time work.",
     },
     {
       question: "Do I need IELTS to study in France?",
       answer:
-        "For English-taught programmes, most schools ask for IELTS or a similar test. For French-taught programmes, you need a French test such as DELF or TCF.",
+        "For English-taught programs, most schools ask for IELTS or a similar test. For French-taught programs, you need a French test such as DELF or TCF.",
     },
     {
       question: "How much money do I need to show for the visa?",
       answer:
-        "At least €877.50 a month for your stay, through bank statements, a sponsor or a scholarship.",
+        "At least €877.50 a month for visa applications from August 1, 2026 (it was €615 before that date), through bank statements, a sponsor or a scholarship. Holders of a French government scholarship are not affected by the change.",
     },
     {
       question: "Can I work part-time while studying?",
@@ -175,7 +175,7 @@ const pageData: NepalVariantData = {
     {
       question: "Can I stay in France after graduating?",
       answer:
-        "If you finish a master's-level degree, you can get a 1-year permit to look for work or start a business. The permit can't be renewed.",
+        "If you finish a licence professionnelle, a master's-level degree or equivalent, you may be eligible for a 12-month permit (APS) to look for work or start a business. It can't be renewed, and Campus France says access depends on a bilateral agreement with your country, so check before relying on it.",
     },
     {
       question: "How much is tuition at public universities?",

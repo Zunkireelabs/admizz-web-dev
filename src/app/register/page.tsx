@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FaqJsonLd } from "@/components/ui/FAQ";
 import Image from "next/image";
 import UniversityPartners from "@/app/UniversityPartners";
 import { allUniversities } from "@/lib/universities";
@@ -50,7 +51,7 @@ const offices = [
     cities: [
       {
         name: "Kathmandu",
-        address: "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (Opp. to Nabil Bank)",
+        address: "Sita Ram Square (4th Floor), Putalisadak, Kathmandu 44600, Nepal (opposite Nabil Bank)",
         phone: "+977-9802728444",
       },
       {
@@ -97,14 +98,14 @@ const SLIDING_TESTIMONIALS = [
     name: "Niraj Mairta Yadav",
     university: "Middle Tennessee State University",
     route: "🇳🇵 → 🇺🇸",
-    text: "I came in completely confused about which country to choose. My counsellor listened, asked the right questions, and had me enrolled in USA within weeks. Best decision I made.",
+    text: "I came in completely confused about which country to choose. My counselor listened, asked the right questions, and had me enrolled in USA within weeks. Best decision I made.",
   },
   {
     initial: "S",
     name: "Surangana Shrestha",
     university: "Coventry University",
     route: "🇳🇵 → 🇬🇧",
-    text: "Free counselling, zero sales pressure, and real results. Everything they promised, they delivered. I only wish I'd found Admizz a year sooner — would have saved me so much stress.",
+    text: "Free counseling, zero sales pressure, and real results. Everything they promised, they delivered. I only wish I'd found Admizz a year sooner — would have saved me so much stress.",
   },
   {
     initial: "B",
@@ -148,6 +149,33 @@ function Stars({ count = 5 }: { count?: number }) {
 /* ------------------------------------------------------------------ */
 /*  Page Component                                                     */
 /* ------------------------------------------------------------------ */
+
+const registerFaqs = [
+              {
+                q: "Is this really free? Are there any hidden costs?",
+                a: "Yes, completely free for students. Admizz earns from our university partners — never from you. No fees, deposits, or commission charged to your side, ever.",
+              },
+              {
+                q: "How long is the counseling call?",
+                a: "Typically 15–30 minutes. Just enough time to understand your goals, answer your questions, and recommend next steps — no pressure or sales pitch.",
+              },
+              {
+                q: "Will my data be sold or used for spam?",
+                a: "Never. Your information is used only by our team to guide your application. We don't sell or share your data with third parties. You can opt out of any communication at any time.",
+              },
+              {
+                q: "What if I'm not sure where I want to study yet?",
+                a: "That's exactly why most students reach out — to figure it out. Our counselors help you compare destinations based on your budget, goals, and preferred field of study.",
+              },
+              {
+                q: "Can I change my mind after registering?",
+                a: "Of course. Registering is just to start a conversation. You're under no obligation to proceed, and there's nothing to cancel. Take your time.",
+              },
+              {
+                q: "Do you have an office I can visit instead?",
+                a: "Yes — offices in Kathmandu (Putalisadak), Birgunj, plus partner offices in India, Bangladesh, USA, and Zambia. Walk in any time during business hours, no appointment needed.",
+              },
+];
 
 export default function RegisterPage() {
   const [showSticky, setShowSticky] = useState(false);
@@ -193,7 +221,7 @@ export default function RegisterPage() {
           {/* Mobile: 2×2 grid cards */}
           <div className="grid grid-cols-2 gap-3 sm:hidden">
             {[
-              { icon: "📋", bold: "Free 1-on-1", text: "Counselling" },
+              { icon: "📋", bold: "Free 1-on-1", text: "Counseling" },
               { icon: "🎓", bold: ADMIZZ_STATS.studentsPlaced, text: "Students Admitted" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item) => (
@@ -208,7 +236,7 @@ export default function RegisterPage() {
           {/* Desktop: single row */}
           <div className="hidden sm:flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {[
-              { icon: "📋", bold: "Free 1-on-1", text: "Counselling" },
+              { icon: "📋", bold: "Free 1-on-1", text: "Counseling" },
               { icon: "🎓", bold: ADMIZZ_STATS.studentsPlaced, text: "Students Admitted" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item, i, arr) => (
@@ -520,7 +548,7 @@ export default function RegisterPage() {
                 <p className="text-[11px] font-bold uppercase tracking-[0.14em] mb-2" style={{ color: "#D89218" }}>Prefer to chat?</p>
                 <h3 className="text-[18px] font-bold mb-3" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}>Talk to a real human</h3>
                 <p className="text-[13px] leading-relaxed mb-5 flex-1" style={{ color: "#5C7189" }}>
-                  Skip the form — message a counsellor directly on WhatsApp. Real people, real answers, no bots.
+                  Skip the form — message a counselor directly on WhatsApp. Real people, real answers, no bots.
                 </p>
                 <a
                   href="https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad"
@@ -543,7 +571,7 @@ export default function RegisterPage() {
       {/* ===== Alumni Section ===== */}
       <AlumniSection />
 
-      {/* ===== COUNSELLOR FACES BAND ===== */}
+      {/* ===== COUNSELOR FACES BAND ===== */}
       <section className="py-10 md:py-20 relative overflow-hidden" style={{ background: "#F8F9FF" }}>
         <div className="hidden md:block absolute top-20 right-0 w-[360px] h-[360px] rounded-full opacity-[0.12] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, #4F7DEB 0%, transparent 70%)" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -552,22 +580,22 @@ export default function RegisterPage() {
               Real people, real expertise
             </p>
             <h2 className="text-[26px] md:text-[36px] font-bold leading-tight mb-3" style={{ color: "#0D1282", fontFamily: "var(--font-rubik), 'Montserrat', sans-serif" }}>
-              Meet your counsellors
+              Meet your counselors
             </h2>
             <p className="text-[14px] md:text-[16px] max-w-xl mx-auto" style={{ color: "#5C7189" }}>
-              Speak with the right counsellor for your goal — they&rsquo;ll guide you personally through every step.
+              Speak with the right counselor for your goal — they&rsquo;ll guide you personally through every step.
             </p>
           </div>
 
           {(() => {
-            const counsellors = [
-              { name: "Mr. Bijay", region: "Australia & UK", flags: "🇦🇺🇬🇧", image: "/images/counsellors/bijay.jpeg", color: "#E04562", deep: "#B72D47" },
-              { name: "Mr. Nikhil", region: "USA & Canada", flags: "🇺🇸🇨🇦", image: "/images/counsellors/nikhil.jpeg", color: "#4FBFA8", deep: "#2F9D85" },
-              { name: "Mr. Amit", region: "Australia & India", flags: "🇦🇺🇮🇳", image: "/images/counsellors/amit.jpeg", color: "#F08A5F", deep: "#D76A3D" },
-              { name: "Mr. Gautam", region: "UK & Europe", flags: "🇬🇧🇪🇺", image: "/images/counsellors/gautam.jpeg", color: "#B373E5", deep: "#8B47C2" },
-              { name: "Mrs. Mamata", region: "India & Nepal", flags: "🇮🇳🇳🇵", image: "/images/counsellors/mamata.jpeg", color: "#4F7DEB", deep: "#2954C7" },
+            const counselors = [
+              { name: "Mr. Bijay", region: "Australia & UK", flags: "🇦🇺🇬🇧", image: "/images/counselors/bijay.jpeg", color: "#E04562", deep: "#B72D47" },
+              { name: "Mr. Nikhil", region: "USA & Canada", flags: "🇺🇸🇨🇦", image: "/images/counselors/nikhil.jpeg", color: "#4FBFA8", deep: "#2F9D85" },
+              { name: "Mr. Amit", region: "Australia & India", flags: "🇦🇺🇮🇳", image: "/images/counselors/amit.jpeg", color: "#F08A5F", deep: "#D76A3D" },
+              { name: "Mr. Gautam", region: "UK & Europe", flags: "🇬🇧🇪🇺", image: "/images/counselors/gautam.jpeg", color: "#B373E5", deep: "#8B47C2" },
+              { name: "Mrs. Mamata", region: "India & Nepal", flags: "🇮🇳🇳🇵", image: "/images/counselors/mamata.jpeg", color: "#4F7DEB", deep: "#2954C7" },
             ];
-            const Card = ({ c, size = "lg" }: { c: typeof counsellors[number]; size?: "sm" | "lg" }) => (
+            const Card = ({ c, size = "lg" }: { c: typeof counselors[number]; size?: "sm" | "lg" }) => (
               <div className="bg-white rounded-2xl overflow-hidden flex-shrink-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.05)", width: size === "sm" ? 160 : undefined }}>
                 <div className="relative w-full" style={{ aspectRatio: "3 / 4", background: c.color + "22" }}>
                   <Image src={c.image} alt={c.name} fill sizes={size === "sm" ? "160px" : "(min-width: 1024px) 240px, 200px"} className="object-cover object-top" loading="lazy" />
@@ -588,13 +616,13 @@ export default function RegisterPage() {
                 <div className="md:hidden overflow-hidden">
                   <div className="-mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     <div className="flex gap-4 w-max">
-                      {counsellors.map((c) => <Card key={c.name} c={c} size="sm" />)}
+                      {counselors.map((c) => <Card key={c.name} c={c} size="sm" />)}
                     </div>
                   </div>
                 </div>
                 <div className="hidden md:block max-w-4xl mx-auto">
                   <div className="grid grid-cols-5 gap-4">
-                    {counsellors.map((c) => <Card key={c.name} c={c} />)}
+                    {counselors.map((c) => <Card key={c.name} c={c} />)}
                   </div>
                 </div>
               </>
@@ -604,6 +632,7 @@ export default function RegisterPage() {
       </section>
 
       {/* ===== FAQ ACCORDION ===== */}
+      <FaqJsonLd items={registerFaqs.map((f) => ({ question: f.q, answer: f.a }))} />
       <section className="py-10 md:py-20 relative overflow-hidden bg-white">
         <div className="hidden md:block absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full opacity-[0.08] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, #B373E5 0%, transparent 70%)" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -617,32 +646,7 @@ export default function RegisterPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 md:gap-5 max-w-5xl mx-auto">
-            {[
-              {
-                q: "Is this really free? Are there any hidden costs?",
-                a: "Yes, completely free for students. Admizz earns from our university partners — never from you. No fees, deposits, or commission charged to your side, ever.",
-              },
-              {
-                q: "How long is the counselling call?",
-                a: "Typically 15–30 minutes. Just enough time to understand your goals, answer your questions, and recommend next steps — no pressure or sales pitch.",
-              },
-              {
-                q: "Will my data be sold or used for spam?",
-                a: "Never. Your information is used only by our team to guide your application. We don't sell or share your data with third parties. You can opt out of any communication at any time.",
-              },
-              {
-                q: "What if I'm not sure where I want to study yet?",
-                a: "That's exactly why most students reach out — to figure it out. Our counsellors help you compare destinations based on your budget, goals, and preferred field of study.",
-              },
-              {
-                q: "Can I change my mind after registering?",
-                a: "Of course. Registering is just to start a conversation. You're under no obligation to proceed, and there's nothing to cancel. Take your time.",
-              },
-              {
-                q: "Do you have an office I can visit instead?",
-                a: "Yes — offices in Kathmandu (Putalisadak), Birgunj, plus partner offices in India, Bangladesh, USA, and Zambia. Walk in any time during business hours, no appointment needed.",
-              },
-            ].map((item) => (
+            {registerFaqs.map((item) => (
               <details
                 key={item.q}
                 className="group bg-white rounded-2xl overflow-hidden transition-all duration-200 hover:shadow-lg"

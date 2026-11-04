@@ -8,14 +8,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Canada from Nepal - Admizz Education",
   description:
-    "Study in Canada from Nepal with Admizz Education – colleges and universities, study permit steps, costs, intakes and PGWP work rights for Nepali students.",
+    "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-canada-from-nepal",
   },
   openGraph: {
     title: "Study in Canada from Nepal - Admizz Education",
     description:
-      "Study in Canada from Nepal with Admizz Education – colleges and universities, study permit steps, costs, intakes and PGWP work rights for Nepali students.",
+      "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     url: "https://admizzeducation.com/study-in-canada-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in Canada from Nepal - Admizz Education",
     description:
-      "Study in Canada from Nepal with Admizz Education – colleges and universities, study permit steps, costs, intakes and PGWP work rights for Nepali students.",
+      "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     images: ["/images/og/countries/study-in-canada.jpg"],
   },
 };
@@ -41,7 +41,7 @@ const pageData: NepalVariantData = {
   countryName: "Canada",
   countryCategorySlug: "canada",
   heroHeading: "Study in Canada from Nepal",
-  heroSubheading: "College or university choice, your study permit and biometrics, handled with a counsellor at our offices in Kathmandu, Birgunj and Janakpur.",
+  heroSubheading: "College or university choice, your study permit and biometrics, handled with a counselor at our offices in Kathmandu, Birgunj and Janakpur.",
   heroImage: "/images/hero/canada-hero.webp",
   quickFacts: [
     { label: "Intakes", value: "Sep · Jan · May" },
@@ -60,7 +60,7 @@ const pageData: NepalVariantData = {
       value: "3",
       unit: "years",
       label: "Post-Graduation Work Permit",
-      note: "for master's graduates (programmes of 8 months or more) and programmes of 2+ years. Shorter programmes get up to the length of the course.",
+      note: "for master's graduates (programs of 8 months or more) and programs of 2+ years. Shorter programs get up to the length of the course.",
     },
     { value: "24", unit: "hours a week", label: "off-campus work in term" },
     { value: "CAD 23,448", label: "living funds to show for one year" },
@@ -68,46 +68,46 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "Work after you graduate",
-      description: "The PGWP gives up to 3 years of open work, and Canadian work experience can help a later PR application.",
+      description: "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Work while you study",
-      description: "Up to 24 hours a week off campus during term, and unlimited hours in scheduled breaks.",
+      description: "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "Master's without a PAL",
-      description: "Since January 2026, master's and PhD students at public institutions don't need a provincial attestation letter.",
+      description: "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
       title: "College or university",
-      description: "Choose a practical college diploma or a degree. College PGWPs need an eligible field of study.",
+      description: "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
   visaTitle: "Your study permit, step by step",
-  visaIntro: "You apply online. Biometrics and your medical exam are done in Kathmandu.",
+  visaIntro: "You apply online. Biometrics are given in Kathmandu, and you may also need a medical exam.",
   visaRequirements: [
     { category: "Get your letter of acceptance", details: "From a Designated Learning Institution (DLI). We shortlist and apply with you." },
     { category: "Get a PAL if you need one", details: "Most bachelor's and college students need one. Master's and PhD at public DLIs don't." },
-    { category: "Medical exam in Kathmandu", details: "With an IRCC panel physician. Required for applicants from Nepal." },
+    { category: "Medical exam (if required)", details: "With an IRCC panel physician. Whether you need one depends on your country of residence and how long you will stay. IRCC tells you in your application." },
     { category: "Apply online & pay fees", details: "In your IRCC account: CAD 150 study permit fee plus CAD 85 biometrics." },
-    { category: "Biometrics in Kathmandu", details: "Photo and fingerprints at the VFS Global Canada visa centre, within 30 days of your letter." },
+    { category: "Biometrics in Kathmandu", details: "Photo and fingerprints at the VFS Global Canada visa center, within 30 days of your letter." },
     { category: "Decision & approval letter", details: "Your visa goes in your passport and the study permit is issued when you land. We brief you before you fly." },
   ],
   visaDocuments: [
     "Valid passport",
     "Letter of acceptance from a DLI",
-    "PAL, if your programme needs one",
+    "PAL, if your program needs one",
     "Proof of funds: tuition + CAD 23,448",
     "Immigration medical exam",
     "Academic transcripts",
     "IELTS, PTE or TOEFL result",
   ],
   intakesTitle: "When you can start",
-  intakesIntro: "September has the most programmes. Apply early, because PAL spaces are limited.",
+  intakesIntro: "September has the most programs. Apply early, because PAL spaces are limited.",
   intakes: [
-    { intake: "Fall intake (September)", months: "Apply October – March", details: "Main intake. Most programmes and scholarships." },
+    { intake: "Fall intake (September)", months: "Apply October – March", details: "Main intake. Most programs and scholarships." },
     { intake: "Winter intake (January)", months: "Apply May – September", details: "Good option if you miss September." },
-    { intake: "Summer intake (May)", months: "Check with each institution", details: "Selected programmes, mostly at colleges." },
+    { intake: "Summer intake (May)", months: "Check with each institution", details: "Selected programs, mostly at colleges." },
   ],
   costTitle: "What a year in Canada costs",
   costIntro: "Average tuition for international students, plus the living funds IRCC asks you to show.",
@@ -160,7 +160,7 @@ const pageData: NepalVariantData = {
     {
       question: "Is IELTS compulsory for Canada?",
       answer:
-        "Most institutions ask for IELTS, PTE, TOEFL or Duolingo. For the PGWP you will also need a language test: CLB 7 after a degree, CLB 5 after a college programme.",
+        "Most institutions ask for IELTS, PTE, TOEFL or Duolingo. For the PGWP you will also need a language test: CLB 7 after a degree, CLB 5 after a college program.",
     },
     {
       question: "Do I need a PAL?",
@@ -180,12 +180,12 @@ const pageData: NepalVariantData = {
     {
       question: "Can studying in Canada lead to PR?",
       answer:
-        "It can. Work experience on a PGWP can count towards permanent residence programmes, but PR is not guaranteed.",
+        "It can. Work experience on a PGWP can count towards permanent residence programs, but PR is not guaranteed.",
     },
     {
       question: "Should I choose a college or a university?",
       answer:
-        "Colleges offer shorter, practical diplomas; universities offer degrees. For a college PGWP, your programme must be in an eligible field of study.",
+        "Colleges offer shorter, practical diplomas; universities offer degrees. For a college PGWP, your program must be in an eligible field of study.",
     },
   ],
 

@@ -11,7 +11,7 @@ export const janakpurData: CityLandingData = {
   meta: {
     title: "Study Abroad from Janakpur | Admizz Education",
     description:
-      `Janakpur's trusted study abroad consultancy. Local Maithili-speaking counsellors, expert visa guidance, scholarships to UK, USA, Australia, Canada and more.`,
+      `Janakpur's trusted study abroad consultancy. Local Maithili-speaking counselors, expert visa guidance, scholarships to UK, USA, Australia, Canada and more.`,
     canonical: "https://admizzeducation.com/janakpur",
     ogImage: "/images/og/stuyabroad.webp",
   },
@@ -26,7 +26,7 @@ export const janakpurData: CityLandingData = {
     primaryCta: { text: "Book a Free Consultation", href: "#hero-form" },
     secondaryCta: {
       text: "Chat on WhatsApp",
-      // TODO(content): replace with real Janakpur counsellor WhatsApp number
+      // TODO(content): replace with real Janakpur counselor WhatsApp number
       href: "https://wa.me/9779802728444?text=Hi%20Admizz%2C%20I%27m%20interested%20in%20studying%20abroad",
     },
 
@@ -39,10 +39,10 @@ export const janakpurData: CityLandingData = {
       "Australia",
       "Canada",
       "Germany",
-      "11+ countries",
+      "12+ countries",
     ],
     livePresence: {
-      onlineLabel: "Counsellors online",
+      onlineLabel: "Counselors online",
       offlineLabel: "Reply within 1 hour",
       timezone: "Asia/Kathmandu",
       workingHours: { startHour: 10, endHour: 18, days: [0, 1, 2, 3, 4, 5] },
@@ -79,12 +79,12 @@ export const janakpurData: CityLandingData = {
         iconKey: "pin",
         title: "Local presence in Janakpur",
         description:
-          "Get one-on-one guidance from a dedicated local counsellor who knows Janakpur students inside out — your schools, your boards, your goals. Document collection, applications, and visa prep handled with personal attention, right here.",
+          "Get one-on-one guidance from a dedicated local counselor who knows Janakpur students inside out — your schools, your boards, your goals. Document collection, applications, and visa prep handled with personal attention, right here.",
         proofPoint: "No Kathmandu trip",
       },
       {
         iconKey: "language",
-        title: "Counsellors who speak your language",
+        title: "Counselors who speak your language",
         description:
           "Explain your situation in Maithili, Hindi, Nepali or English — whatever's easiest. Bring your parents; we'll translate every visa rule clearly.",
         proofPoint: "4 languages spoken",
@@ -108,11 +108,11 @@ export const janakpurData: CityLandingData = {
 
   destinations: {
     eyebrow: "POPULAR FROM JANAKPUR",
-    heading: "Where Janakpur students are going?",
+    heading: "Where are Janakpur students going?",
     subheading:
       "Top destinations chosen by students who started their journey at our Janakpur office.",
     highlightStats: [
-      { value: "11+", label: "Countries" },
+      { value: "12+", label: "Countries" },
       { value: "100+", label: "Partner universities" },
     ],
     items: [
@@ -316,7 +316,7 @@ export const janakpurData: CityLandingData = {
         a: "No. Our Janakpur office handles everything from initial consultation to visa preparation. The only time you'll need to travel is if your country requires a biometric appointment in Kathmandu — and we coordinate that for you.",
       },
       {
-        q: "What languages do your Janakpur counsellors speak?",
+        q: "What languages do your Janakpur counselors speak?",
         a: "Our team speaks Maithili, Hindi, Nepali, and English. Bring your parents — we'll explain everything in the language they're most comfortable with.",
       },
       {
@@ -348,10 +348,10 @@ export const janakpurData: CityLandingData = {
   },
 
   topBanner: {
-    id: "janakpur-counselling-week-jun-2026-v1",
+    id: "janakpur-counseling-week-jun-2026-v1",
     variant: "campaign",
     eyebrow: "Limited time",
-    title: "Free Counselling Week at our Janakpur office",
+    title: "Free Counseling Week at our Janakpur office",
     subtitle: "Walk-in any day, no appointment needed",
     endsAt: "2026-06-07T18:00:00+05:45",
     cta: { text: "Reserve a slot", href: "#hero-form" },
@@ -362,7 +362,7 @@ export const janakpurData: CityLandingData = {
     eyebrow: "ROOTED IN JANAKPUR",
     heading: "We're not Kathmandu. We're yours.",
     subheading:
-      "Our Janakpur office was built for students who shouldn't have to travel three hours just to ask a question. Walk in, sit down, and talk to a counsellor who speaks your language — literally.",
+      "Our Janakpur office was built for students who shouldn't have to travel three hours just to ask a question. Walk in, sit down, and talk to a counselor who speaks your language — literally.",
     landmarkImage: "/images/cities/janakpur-landmark.jpg",
     landmarkImageAlt: "Janaki Mandir reflected in still water at dusk — Janakpur, Nepal",
     landmarkLabel: "Janaki Mandir, Janakpur",
@@ -372,8 +372,8 @@ export const janakpurData: CityLandingData = {
     ],
     facts: [
       { icon: "✅", text: "Licensed and Approved by Ministry of Education, Nepal" },
-      { icon: "✅", text: "TITI Certified Counsellor" },
-      { icon: "✅", text: "10Th Years of Excellence" },
+      { icon: "✅", text: "TITI Certified Counselor" },
+      { icon: "✅", text: "10+ Years of Excellence" },
     ],
     cta: { text: "Book a Free Consultation", href: "#hero-form" },
   },

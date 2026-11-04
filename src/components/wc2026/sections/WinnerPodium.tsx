@@ -64,7 +64,7 @@ export default function WinnerPodium() {
           <filter id="fBO">
             <feGaussianBlur stdDeviation="22 7"/>
           </filter>
-          {/* Core filter — moderate feathering for bright centre stripe */}
+          {/* Core filter — moderate feathering for bright center stripe */}
           <filter id="fBI">
             <feGaussianBlur stdDeviation="10 3"/>
           </filter>

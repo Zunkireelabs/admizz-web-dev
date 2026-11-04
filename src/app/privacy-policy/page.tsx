@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
           </div>
 
           {/* --- Terms of Use --- */}
-          <div>
+          <div id="terms-of-use" className="scroll-mt-32">
             <h2 className="text-xl font-bold text-navy mb-6">Terms of Use</h2>
 
             <div className="space-y-6">
@@ -91,7 +91,7 @@ export default function PrivacyPolicyPage() {
 
             <div className="space-y-8">
               {/* Cookies */}
-              <div>
+              <div id="cookies" className="scroll-mt-32">
                 <h3 className="text-lg font-bold text-navy mb-3">Cookies</h3>
                 <p className="text-[15px] text-gray-dark leading-relaxed mb-3">
                   The organization uses cookies to enhance website experience.
@@ -244,7 +244,7 @@ export default function PrivacyPolicyPage() {
                 <p className="text-[15px] text-gray-dark leading-relaxed">
                   Visitor comments may be processed by automated spam detection
                   services. Data is stored and processed in compliance with
-                  Indian law and may be transferred to secure servers as needed.
+                  Colorado, USA law and may be transferred to secure servers as needed.
                 </p>
               </div>
             </div>
@@ -273,8 +273,8 @@ export default function PrivacyPolicyPage() {
                   Governing Law
                 </h3>
                 <p className="text-[15px] text-gray-dark leading-relaxed">
-                  These terms are governed by Indian law. Any disputes will be
-                  resolved in accordance with Indian jurisdiction.
+                  These terms are governed by Colorado, USA law. Any disputes will be
+                  resolved in accordance with Colorado, USA jurisdiction.
                 </p>
               </div>
 

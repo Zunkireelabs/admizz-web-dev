@@ -66,7 +66,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
           <section className="rounded-2xl border border-dashed border-border-light p-8 text-center">
             <h2 className="text-[18px] font-bold text-navy">Course list coming soon</h2>
             <p className="mt-2 text-[15px] text-gray-dark">
-              We&apos;re adding this university&apos;s courses and fees. A counsellor can share the full list with you today.
+              We&apos;re adding this university&apos;s courses and fees. A counselor can share the full list with you today.
             </p>
             <EnquireButton
               className="mt-5 inline-flex items-center gap-2 rounded-[10px] border border-blue-royal px-4 py-2 text-[14px] font-semibold text-blue-royal hover:bg-blue-royal hover:text-white transition-colors"
@@ -118,7 +118,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
                         <dt className="flex items-center gap-1.5 text-gray-dark"><Wallet className="w-4 h-4" aria-hidden />Tuition</dt>
                         <dd className="mt-1 font-semibold text-navy">
                           {c.fees.length === 0 ? (
-                            <span className="font-normal text-gray-dark">Ask a counsellor</span>
+                            <span className="font-normal text-gray-dark">Ask a counselor</span>
                           ) : (
                             <>
                               {c.fees[0]?.from && <span className="mr-1 text-[12px] font-normal text-gray-dark">from</span>}
@@ -133,7 +133,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
                       </div>
                       <div>
                         <dt className="flex items-center gap-1.5 text-gray-dark"><CalendarDays className="w-4 h-4" aria-hidden />Intake</dt>
-                        <dd className="mt-1 font-semibold text-navy">{c.intakes.length ? c.intakes.join(", ") : <span className="font-normal text-gray-dark">Ask a counsellor</span>}</dd>
+                        <dd className="mt-1 font-semibold text-navy">{c.intakes.length ? c.intakes.join(", ") : <span className="font-normal text-gray-dark">Ask a counselor</span>}</dd>
                       </div>
                     </dl>
                     <div className="mt-auto pt-6">
@@ -191,7 +191,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
               ))}
             </div>
           ) : (
-            <p className="text-[15px] text-gray-dark">Entry requirements vary by course — ask a counsellor for your eligibility.</p>
+            <p className="text-[15px] text-gray-dark">Entry requirements vary by course — ask a counselor for your eligibility.</p>
           )}
         </section>
 
@@ -307,7 +307,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
         {tuitionRows.length === 0 && u.scholarships.length === 0 && !(u.deposits && u.deposits.length > 0) && (
           <p className="border-y border-border-light py-6 text-[15px] text-gray-dark">
             Fee details for this university are being confirmed.{" "}
-            <EnquireButton className={`${textLink} inline-flex`}>Ask a counsellor</EnquireButton>
+            <EnquireButton className={`${textLink} inline-flex`}>Ask a counselor</EnquireButton>
           </p>
         )}
       </div>
@@ -315,7 +315,7 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
 
     apply: (
       <section>
-        <SectionTitle sub="The typical steps from application to visa. Your counsellor manages each one with you.">
+        <SectionTitle sub="The typical steps from application to visa. Your counselor manages each one with you.">
           Application journey
         </SectionTitle>
         <ol>
@@ -363,8 +363,8 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
         <SectionTitle sub="Apply early — popular courses can close before the deadline.">Intakes &amp; deadlines</SectionTitle>
         {upcomingIntakes(u).length === 0 ? (
           <p className="border-y border-border-light py-6 text-[15px] text-gray-dark">
-            Intake dates for this university are being confirmed. A counsellor can tell you the next available intake.{" "}
-            <EnquireButton className={`${textLink} inline-flex`}>Ask a counsellor</EnquireButton>
+            Intake dates for this university are being confirmed. A counselor can tell you the next available intake.{" "}
+            <EnquireButton className={`${textLink} inline-flex`}>Ask a counselor</EnquireButton>
           </p>
         ) : (
         <table className="w-full text-left text-[15px] border-t border-border-light">
@@ -381,14 +381,14 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
                   {i.month} {i.year}
                   {i.note && <span className="mt-0.5 block max-w-md text-[13px] font-normal text-gray-dark">{i.note}</span>}
                 </td>
-                <td className="py-4 text-gray-dark">{i.applicationDeadline ?? "Ask a counsellor"}</td>
+                <td className="py-4 text-gray-dark">{i.applicationDeadline ?? "Ask a counselor"}</td>
               </tr>
             ))}
           </tbody>
         </table>
         )}
         <p className="mt-4 text-[13px] text-gray-dark">
-          Showing intakes currently open through Admizz. Other intakes may be available — ask a counsellor.
+          Showing intakes currently open through Admizz. Other intakes may be available — ask a counselor.
         </p>
       </section>
     ),
@@ -434,9 +434,9 @@ export function buildUniversityPanels(u: UniversityProfile, country: CountryInfo
           )}
         </section>
         <p className="text-[13px] text-gray-dark">
-          Information last verified on {u.lastVerified}. Fees and intakes can change — confirm with an Admizz counsellor before applying.{" "}
+          Information last verified on {u.lastVerified}. Fees and intakes can change — confirm with an Admizz counselor before applying.{" "}
           <Link href="/register" className={textLink}>
-            Ask a counsellor <ArrowRight className="w-3.5 h-3.5" aria-hidden />
+            Ask a counselor <ArrowRight className="w-3.5 h-3.5" aria-hidden />
           </Link>
         </p>
       </div>

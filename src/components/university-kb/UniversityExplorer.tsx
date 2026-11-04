@@ -344,7 +344,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
         {results.length === 0 ? (
           <div className="mt-8 rounded-2xl border border-dashed border-border-light p-10 text-center">
             <p className="text-[18px] font-bold text-navy">No universities match your search</p>
-            <p className="mt-2 text-[15px] text-gray-dark">Try removing a filter, or ask a counsellor to find options for you.</p>
+            <p className="mt-2 text-[15px] text-gray-dark">Try removing a filter, or ask a counselor to find options for you.</p>
             <button
               type="button"
               onClick={clearEverything}
@@ -394,7 +394,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                       <div className="flex items-center justify-between gap-3">
                         <dt className="flex items-center gap-1.5 text-gray-dark"><Wallet className="w-4 h-4" aria-hidden />Fees from</dt>
                         <dd className="text-right font-semibold text-navy">
-                          {u.feeFrom !== undefined ? formatMoney(u.feeFrom, u.currency) : "Ask a counsellor"}
+                          {u.feeFrom !== undefined ? formatMoney(u.feeFrom, u.currency) : "Ask a counselor"}
                         </dd>
                       </div>
                       <div className="flex items-center justify-between gap-3">
@@ -405,7 +405,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                       </div>
                       <div className="flex items-center justify-between gap-3">
                         <dt className="flex items-center gap-1.5 text-gray-dark"><CalendarDays className="w-4 h-4" aria-hidden />Next intake</dt>
-                        <dd className="text-right font-semibold text-navy">{u.nextIntake ?? "Ask a counsellor"}</dd>
+                        <dd className="text-right font-semibold text-navy">{u.nextIntake ?? "Ask a counselor"}</dd>
                       </div>
                     </dl>
                     {/* pr-28 keeps this clear of the absolutely-positioned Compare button */}
@@ -489,7 +489,7 @@ export default function UniversityExplorer({ universities, countries, fixedCount
                 options={[{ value: "", label: "All intakes" }, ...intakeOptions.map(({ month, count }) => ({ value: month, label: `${month} (${count})` }))]}
               />
               <span className="mt-2 block text-[12px] leading-snug text-gray-dark">
-                Showing intakes currently open through Admizz. Ask a counsellor about other intakes.
+                Showing intakes currently open through Admizz. Ask a counselor about other intakes.
               </span>
             </label>
             <label className="block">
