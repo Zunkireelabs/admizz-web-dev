@@ -7,8 +7,57 @@
 | **Site** | admizzeducation.com — education consultancy, Nepal → study abroad |
 | **Stack** | Next.js 16.1.6 · React · TypeScript · Tailwind CSS v4 · repo-based blog content · nginx · Docker · Traefik |
 | **GitHub** | https://github.com/Zunkireelabs/admizz-web-dev.git |
-| **Active branch** | `deploy/static-export-migration` (merges to `main` after prod verified) |
+| **Branches** | `stage` = staging, `main` = production. PRs target `stage`. |
 | **Scale** | 235 pages — 143 blog posts · 27 categories · ~65 static marketing pages |
+
+---
+
+## Task Management — Plane is the single source of truth
+
+All development work is tracked in **Plane** (project **Client Retainers**, key `CRET`, module **Admizz Education**,
+workspace `zunkireelabs`), via the `plane` MCP server. If the `plane` tools are missing, run `/mcp` → plane →
+authenticate (or see the onboarding SOP). Tickets for this repo are CRET items **in the Admizz Education module**.
+
+- Project id: `42c15a01-4b9a-4bf8-8bc5-51bdf8d04f89`; module id: `b80bfba0-4748-432c-bb02-d025dd1f5e9a`
+  (use with `mcp__plane__*` tools). Ids and queries: `.claude/skills/project-pm/plane.md`.
+- No work without a ticket. Search Plane first; create one only if none exists. New tickets go in the Admizz
+  Education module.
+- Ticket id goes in the branch name and PR title: `feature/CRET-123-short-name`, `CRET-123: ...`
+- CRET is a **client board**. Flow: `Backlog → Todo → In Progress → In Review → Client Review → Done`.
+  - The developer moves a ticket only `Backlog → Todo → In Progress → In Review`. **PR open, merged to `stage`
+    and live on `main` all stay In Review**; add a comment each time (PR link / merge commit).
+  - **Client Review, Done, and moving back to In Progress happen only on Sadin's word, never by Claude.**
+    Client Review = Sadin sends it to the client, with the comment "Sent to <client> on <date> via <channel>".
+    Done = client approved, with the comment `Approved by <person> on <date> via <channel>: "<quote>"`, added
+    only by Sadin or the Account Manager. Flow: OPS-98.
+- **Time:** add one `⏱` comment per work session, e.g. `⏱ 1h30m — added GTM to layout`. Hours feed the
+  month-end report.
+- Anything you can't verify is reported as unverified; never state it as fact. (CRET has no labels yet.)
+- This repo is **public**: no client data, no secrets, no keys in tickets, comments, PRs or files.
+
+**HARD RULE — every developer, every session (human or Claude), no exceptions:**
+1. **Your work is in Plane before you start it.** Every fix, feature, migration, data fix, hotfix, investigation
+   or follow-up has a `CRET` ticket with an assignee. Untracked work is not allowed, however small.
+2. **One ticket per piece of work — no duplicates.** Search Plane before creating. If someone else's ticket
+   already covers it, comment on that ticket or link a child; never open a second one.
+3. **`tasks/TRACKER.md` is the one to-do file in this repo**, for the whole team. It is **generated from Plane**
+   by `/project-pm sync`. **Never hand-edit it, and never push its content back into Plane.** A git conflict in
+   it → take either side and re-run sync. **Use `/project-pm` for all of this:** "status", "what's mine?",
+   "start CRET-n", "sync".
+4. **No other to-do lists.** Not in `todo.md`, handoffs, briefs, PR descriptions or session logs.
+5. **Claim your migration number in Plane** (in the ticket description) after checking `supabase/migrations/`
+   on `stage` and open PRs. Two PRs must never use the same number.
+6. **Keep the state honest** as the work moves, within the limits above. A PR without a `CRET-` id in its title
+   doesn't get merged.
+
+**Per-project choices**
+| Choice | Admizz Education website |
+|---|---|
+| Staging branch / production branch | `stage` / `main` |
+| PR target | `stage` (never `main` from a feature branch) |
+| Migration file pattern | `supabase/migrations/NNN_short_name.sql` (last used: 010) |
+| Commit trailer | `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>` (as in this repo's history) |
+| Who approves merges | the owner (Sadin) |
 
 ---
 
