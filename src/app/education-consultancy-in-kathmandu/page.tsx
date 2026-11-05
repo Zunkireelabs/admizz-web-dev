@@ -5,8 +5,7 @@ import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import CTAForm from "@/components/ui/CTAForm";
 import CountryCard from "@/components/ui/CountryCard";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
@@ -197,7 +196,7 @@ const faqItems: FAQItem[] = [
 /* ------------------------------------------------------------------ */
 
 export default async function EducationConsultancyInKathmanduPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "nepal" });
+  const blogPosts: SanityPost[] = getPostsByCategory("nepal");
 
   return (
     <main>

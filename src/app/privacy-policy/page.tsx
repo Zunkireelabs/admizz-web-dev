@@ -13,6 +13,7 @@ export const metadata: Metadata = {
       "Explore Admizz Education's Privacy Policy & Terms of Use. Learn how we handle your data, use cookies, and protect your rights at Admizz.",
     url: "https://admizzeducation.com/privacy-policy",
     siteName: "Admizz Education",
+    images: [{ url: "/images/og/stuyabroad.webp", alt: "Admizz Education" }],
     type: "website",
   },
 };

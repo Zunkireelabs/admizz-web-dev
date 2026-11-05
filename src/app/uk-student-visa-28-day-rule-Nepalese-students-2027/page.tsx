@@ -7,7 +7,7 @@ const post = {
   "slug": "uk-student-visa-28-day-rule-Nepalese-students-2027",
   "sections": [],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/688c69c4dfb01683574b242a1fcab5d94ae744ae-1200x628.png?w=1200&auto=format",
+    "url": "/images/blog/sa-688c69c4df-1200.webp",
     "alt": "Nepali student reviewing a bank statement showing 28 days of funds for a UK student visa application"
   },
   "categories": [
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/uk-student-visa-28-day-rule-Nepalese-students-2027",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/688c69c4dfb01683574b242a1fcab5d94ae744ae-1200x628.png?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-688c69c4df-og.jpg"],
   },
 };
 

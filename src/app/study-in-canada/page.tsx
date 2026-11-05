@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
@@ -142,6 +141,6 @@ const canadaData: CountryPageData = {
 };
 
 export default async function StudyInCanadaPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "canada" });
+  const blogPosts: SanityPost[] = getPostsByCategory("canada");
   return <CountryPageTemplate data={canadaData} blogPosts={blogPosts} />;
 }

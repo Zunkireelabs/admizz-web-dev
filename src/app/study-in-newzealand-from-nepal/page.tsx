@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
@@ -194,9 +193,6 @@ const pageData: NepalVariantData = {
 };
 
 export default async function StudyInNewZealandFromNepalPage() {
-  const blogPosts: SanityPost[] = await client.fetch(
-    postsByCategoryQuery,
-    { categorySlug: "new-zealand" }
-  );
+  const blogPosts: SanityPost[] = getPostsByCategory("new-zealand");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

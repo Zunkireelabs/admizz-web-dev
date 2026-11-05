@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in UK from Nepal - Admizz Education",
+  title: "Study in UK from Nepal: Visa, Costs, Intakes and Documents (2026) | Admizz Education",
   description:
-    "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+    "Study in the UK from Nepal: Student visa steps, funds, costs, intakes, IELTS and scholarships for Nepali students. Get free admission and visa support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-uk-from-nepal",
   },
   openGraph: {
-    title: "Study in UK from Nepal - Admizz Education",
+    title: "Study in UK from Nepal: Visa, Costs, Intakes and Documents (2026) | Admizz Education",
     description:
-      "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      "Study in the UK from Nepal: Student visa steps, funds, costs, intakes, IELTS and scholarships for Nepali students. Get free admission and visa support from Admizz.",
     url: "https://admizzeducation.com/study-in-uk-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -30,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Study in UK from Nepal - Admizz Education",
+    title: "Study in UK from Nepal: Visa, Costs, Intakes and Documents (2026) | Admizz Education",
     description:
-      "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      "Study in the UK from Nepal: Student visa steps, funds, costs, intakes, IELTS and scholarships for Nepali students. Get free admission and visa support from Admizz.",
     images: ["/images/og/countries/study-in-the-uk.jpg"],
   },
 };
@@ -52,7 +51,7 @@ const pageData: NepalVariantData = {
   ],
   introTitle: "Study in the UK from Nepal",
   introContent:
-    "UK degrees are recognized worldwide, most master's take one year, and graduates can stay to work on the Graduate visa.",
+    "To study in the UK from Nepal, you choose a course at a UKVI-licensed university, receive an offer and a CAS, show your funds held for 28 days, take a TB test and apply for a Student visa. UK degrees are recognized worldwide, most master's take one year, and graduates can stay to work on the Graduate visa.",
   whyStudyTitle: "A shorter degree that still opens doors",
   whyStudyIntro: "Why so many students from Nepal pick the UK.",
   highlightStats: [
@@ -60,7 +59,7 @@ const pageData: NepalVariantData = {
       value: "18",
       unit: "months",
       label: "Graduate visa",
-      note: "to work in the UK after a bachelor's or master's (applications from 1 January 2027). PhD graduates get 3 years.",
+      note: "to work in the UK after a bachelor's or master's. PhD graduates get 3 years.",
     },
     { value: "12", unit: "months", label: "for most master's" },
     { value: "20", unit: "hours a week", label: "work during term" },
@@ -68,19 +67,19 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "1-year master's",
-      description: "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Most UK master's take one year, so you finish sooner and spend less on tuition and living costs.",
     },
     {
       title: "Quality-checked universities",
-      description: "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Choose from universities licensed by the UK Home Office to sponsor Student visas, and we help you shortlist.",
     },
     {
       title: "Work while you study",
-      description: "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Work up to 20 hours a week in term on a degree-level course, and full-time in the holidays.",
     },
     {
       title: "Degrees recognized worldwide",
-      description: "Study in the UK from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "UK degrees are recognized by employers and universities around the world.",
     },
   ],
   visaTitle: "Your Student visa, step by step",
@@ -181,7 +180,7 @@ const pageData: NepalVariantData = {
     {
       question: "What is the post-study work visa duration?",
       answer:
-        "The Graduate Route Visa gives Bachelor's/Master's graduates 18 months (applications from 1 January 2027), and PhD graduates 3 years to work in the UK.",
+        "The Graduate Route Visa gives Bachelor's and Master's graduates 18 months to work in the UK after their degree. PhD graduates get 3 years.",
     },
     {
       question: "Can I apply with a study gap?",
@@ -193,6 +192,37 @@ const pageData: NepalVariantData = {
       answer:
         "UKVI requires you to show £1,529 per month in London or £1,171 per month outside London, for up to 9 months, to cover accommodation, food, and transport. These rise to £1,570 and £1,203 for applications from November 30, 2026. Hold the funds for 28 consecutive days.",
     },
+    {
+      question: "What documents do I need for a UK student visa from Nepal?",
+      answer:
+        "You need a valid passport, the CAS from your university, bank statements showing your funds held for 28 days, academic transcripts, an IELTS or PTE result and a TB test certificate. Your document list can vary by course, so check GOV.UK before you apply.",
+    },
+    {
+      question: "When should I apply for the September intake?",
+      answer:
+        "Apply between November and May for the September intake. The January intake is open from July to October, and some courses have a May intake. Applying early gives you more time for your funds, CAS and visa.",
+    },
+  ],
+
+  quickAnswer:
+    "To study in the UK from Nepal, choose a course at a UKVI-licensed university, get an offer and a CAS, show your funds held for 28 days, take a TB test in Nepal and apply online for a Student visa. You usually get a decision within 3 weeks of your biometrics. After a bachelor's or master's you can apply for the Graduate visa, which lasts 18 months (3 years for PhD graduates).",
+  lastChecked: "November 2026",
+  dateModified: "2026-11-05",
+  sourcesTitle: "Official sources",
+  sources: [
+    { label: "GOV.UK: Student visa", url: "https://www.gov.uk/student-visa" },
+    { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+    { label: "GOV.UK: Student visa fees", url: "https://www.gov.uk/student-visa/how-much-it-costs" },
+    { label: "GOV.UK: Graduate visa", url: "https://www.gov.uk/graduate-visa" },
+  ],
+  relatedLinks: [
+    { label: "UK student visa from Nepal: requirements, process and costs", href: "/uk-student-visa-from-nepal", description: "the 8 steps from offer to visa" },
+    { label: "Study in the UK", href: "/study-in-the-uk", description: "universities, admission and visa overview" },
+    { label: "UK Graduate visa: 18 months from 2027", href: "/uk-graduate-visa-18-months-from-2027-nepali-students" },
+    { label: "Cost of studying and living in the UK", href: "/cost-of-studying-and-living-in-the-uk" },
+    { label: "IELTS requirement for studying in the UK from Nepal", href: "/ielts-requirement-for-studying-in-the-uk-from-nepal" },
+    { label: "How to get your NOC from Nepal", href: "/how-to-get-your-noc-from-nepal-for-study-abroad" },
+    { label: "Study abroad rule changes for Nepali students", href: "/study-abroad-rule-changes", description: "dated visa, funds and work-rule changes" },
   ],
 
   ctaTitle: "Plan your UK move with us",
@@ -200,6 +230,6 @@ const pageData: NepalVariantData = {
 };
 
 export default async function StudyInUKFromNepalPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "uk" });
+  const blogPosts: SanityPost[] = getPostsByCategory("uk");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

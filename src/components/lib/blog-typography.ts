@@ -7,7 +7,7 @@ const font = "var(--font-rubik), 'Rubik', sans-serif";
 
 export const blogH2: { className: string; style: CSSProperties } = {
   className: "mt-8 mb-3.5 pb-2.5 border-b-2",
-  style: { fontFamily: font, fontSize: "clamp(20px, 2.8vw, 26px)", fontWeight: 700, lineHeight: 1.25, color: "#0d1b2a", borderColor: "#f5e8c0" },
+  style: { fontFamily: font, fontSize: "clamp(20px, 2.8vw, 26px)", fontWeight: 700, lineHeight: 1.25, color: "#0d1b2a", borderColor: "#C8D5EF" },
 };
 
 export const blogH3: { className: string; style: CSSProperties } = {

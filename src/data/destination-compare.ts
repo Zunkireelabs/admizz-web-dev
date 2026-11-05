@@ -10,7 +10,7 @@ export const DESTINATION_COMPARE_ROWS: string[][] = [
     "UK",
     "£558, plus £776 a year health surcharge",
     "£1,171 a month outside London (£1,529 in London) for up to 9 months, held 28 days. £1,203 and £1,570 for applications from November 30, 2026",
-    "Graduate visa: 18 months for applications from January 1, 2027 (2 years before that date)",
+    "Graduate visa: 18 months (3 years for PhD)",
   ],
   [
     "USA",

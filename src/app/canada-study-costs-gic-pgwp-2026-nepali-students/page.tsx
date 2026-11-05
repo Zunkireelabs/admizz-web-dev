@@ -35,7 +35,7 @@ const post = {
     }
   ],
   "featuredImage": {
-    "url": "/images/blog/canada-study-permit-cap-2026-nepali-students.webp",
+    "url": "/images/blog/canada-study-costs-gic-pgwp-2026-nepali-students.webp",
     "alt": "Nepali student reviewing Canada study permit costs and documents with a counselor in Kathmandu"
   },
   "categories": [
@@ -117,7 +117,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/canada-study-costs-gic-pgwp-2026-nepali-students",
     siteName: "Admizz Education",
     type: "article",
-    images: ["/images/blog/canada-study-permit-cap-2026-nepali-students.webp"],
+    images: ["/images/blog/canada-study-costs-gic-pgwp-2026-nepali-students.webp"],
   },
 };
 

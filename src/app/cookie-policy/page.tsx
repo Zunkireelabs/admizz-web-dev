@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "How Admizz Education uses cookies and similar technologies on admizzeducation.com, which third parties set them, and how you can control them.",
     url: "https://admizzeducation.com/cookie-policy",
     siteName: "Admizz Education",
+    images: [{ url: "/images/og/stuyabroad.webp", alt: "Admizz Education" }],
     type: "website",
   },
 };

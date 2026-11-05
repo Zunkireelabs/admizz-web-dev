@@ -6,8 +6,7 @@ import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import CTAForm from "@/components/ui/CTAForm";
 import CountryCard from "@/components/ui/CountryCard";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
@@ -198,7 +197,7 @@ const faqItems: FAQItem[] = [
 ];
 
 export default async function CareerCounselingForInternationalStudentsPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "career-planning" });
+  const blogPosts: SanityPost[] = getPostsByCategory("career-planning");
 
   return (
     <main>
@@ -233,7 +232,7 @@ export default async function CareerCounselingForInternationalStudentsPage() {
                 href="/register"
                 className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-10 py-3.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
               >
-                Book a Free Counseling Session
+                Book a Free Consultation
               </Link>
             </div>
             <div className="hidden md:block lg:w-[472px] ml-auto">
@@ -334,13 +333,13 @@ export default async function CareerCounselingForInternationalStudentsPage() {
             Ready to Plan Your Career Abroad?
           </h2>
           <p className="mt-4 text-[15px] text-white/90 leading-relaxed">
-            Our expert consultants are here to guide you every step of the way.
+            Our expert advisors are here to guide you every step of the way.
           </p>
           <Link
             href="/register"
             className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-10 py-3.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
           >
-            Book a Free Counseling Session
+            Book a Free Consultation
           </Link>
         </div>
       </section>

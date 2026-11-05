@@ -118,7 +118,7 @@ const aboutFaqs = [
   {
     question: "What is Admizz Education?",
     answer:
-      "Admizz Education is a study abroad consultancy founded in 2015. It helps students with university admissions, visa assistance, test preparation, scholarship guidance and career counseling, with offices in Kathmandu and partner offices abroad.",
+      "Admizz Education is a study abroad partner founded in 2015. It helps students with university admissions, visa assistance, test preparation, scholarship guidance and career counseling, with offices in Kathmandu and partner offices abroad.",
   },
   {
     question: "How many students has Admizz Education helped?",
@@ -213,7 +213,7 @@ export default function AboutPage() {
             <div className="flex items-center justify-center">
               <Image
                 src="/images/about/2main-image-1024x773.webp"
-                alt="Study abroad consultancy — Admizz Education"
+                alt="Study abroad partner — Admizz Education"
                 width={1024}
                 height={773}
                 priority
@@ -248,7 +248,7 @@ export default function AboutPage() {
             international students secure admission worldwide, offering test
             prep, expert guidance, scholarship support, and a seamless
             application process. We also support Recruitment Partners (Education
-            Consultants) in placing their students in our partnered institutions.
+            Advisors) in placing their students in our partnered institutions.
           </p>
 
           {/* 4 photo cards with pill background */}
@@ -707,7 +707,7 @@ export default function AboutPage() {
                   className="text-[14px] leading-[1.7] mb-6"
                   style={{ color: "#5a6275" }}
                 >
-                  With powerful platforms for education consultants, Admizz
+                  With powerful platforms for education advisors, Admizz
                   Education ensures students find the right institutions easily
                   and partners grow their network.
                 </p>
@@ -766,7 +766,7 @@ export default function AboutPage() {
                 Why Admizz?
               </p>
               <h3 className="text-white font-bold text-[22px] md:text-[26px] leading-tight mb-4">
-                We Are Not Just An Education Consultancy
+                We Are Not Just An Study Abroad Partner
               </h3>
               <p className="text-white/80 text-[15px] leading-[1.7] mb-8">
                 We Are the Future of International Student Recruitment.

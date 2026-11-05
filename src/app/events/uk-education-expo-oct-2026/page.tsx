@@ -373,7 +373,7 @@ export default function UKEducationExpoPage() {
         <div className="container">
           <h2 className="section-title">Why Choose Admizz?</h2>
           <p className="section-subtitle">
-            Unlike single-country consultancies, we offer:
+            Unlike single-country providers, we offer:
           </p>
           <div className="why-cards">
             <div className="why-card">
@@ -383,7 +383,7 @@ export default function UKEducationExpoPage() {
                 </svg>
               </div>
               <h3>Multi-Destination Expertise</h3>
-              <p>12+ countries, one consultancy. Not limited to single-country advice.</p>
+              <p>12+ countries, one partner. Not limited to single-country advice.</p>
             </div>
             <div className="why-card">
               <div className="why-card-icon">

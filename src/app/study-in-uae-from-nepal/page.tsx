@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Study in UAE from Nepal - Admizz Education",
   description:
     "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
@@ -190,6 +190,6 @@ const pageData: NepalVariantData = {
 };
 
 export default async function StudyInUAEFromNepalPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "uae" });
+  const blogPosts: SanityPost[] = getPostsByCategory("uae");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

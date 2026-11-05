@@ -1,6 +1,5 @@
-import { client } from "@/lib/sanity";
-import { urlFor } from "@/lib/sanity";
-import { allPostSlugsQuery, postBySlugQuery, relatedPostsQuery } from "@/lib/queries";
+import { urlFor } from "@/lib/image";
+import { getAllPostSlugs, getPostBySlug, getRelatedPosts } from "@/lib/blog-content";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -13,8 +12,11 @@ import CTAForm from "@/components/ui/CTAForm";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import { postFaqs } from "@/data/post-faqs";
 import { postSeoOverrides } from "@/data/post-seo-overrides";
+import { postFacts as writtenPostFacts } from "@/data/post-facts";
 import { postFaqSchemaOnly } from "@/data/post-faq-schema";
 import { postContentPatches } from "@/data/post-content-patches";
+import { postSources } from "@/data/post-sources";
+import PostSources from "@/components/PostSources";
 import { applyContentPatches } from "@/lib/content-patches";
 import { blogH2, blogP, blogFaqQuestion } from "@/components/lib/blog-typography";
 
@@ -23,13 +25,13 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs: { slug: string }[] = await client.fetch(allPostSlugsQuery);
+  const slugs: { slug: string }[] = getAllPostSlugs();
   return slugs.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post: SanityPost | null = await client.fetch(postBySlugQuery, { slug });
+  const post: SanityPost | null = getPostBySlug(slug);
 
   if (!post) return {};
 
@@ -67,7 +69,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
-  const post: SanityPost | null = await client.fetch(postBySlugQuery, { slug });
+  const post: SanityPost | null = getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -93,7 +95,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   // Fetch related posts by shared categories
   const categorySlugs = post.categories?.map((c) => c.slug.current) || [];
   const relatedPosts: SanityPost[] = categorySlugs.length > 0
-    ? await client.fetch(relatedPostsQuery, { slug, categorySlugs })
+    ? getRelatedPosts(slug, categorySlugs)
     : [];
 
   // Real BlogPosting structured data, built only from this post's own real
@@ -114,7 +116,9 @@ export default async function BlogPostPage({ params }: PageProps) {
     ...((patchSet?.updated || post._updatedAt || post.publishedAt)
       ? { dateModified: patchSet?.updated || post._updatedAt || post.publishedAt }
       : {}),
-    ...(featuredImageUrl ? { image: featuredImageUrl } : {}),
+    ...(featuredImageUrl
+      ? { image: featuredImageUrl.startsWith("http") ? featuredImageUrl : `https://admizzeducation.com${featuredImageUrl}` }
+      : {}),
     author: {
       "@type": "EducationalOrganization",
       "@id": "https://admizzeducation.com/#organization",
@@ -158,6 +162,14 @@ export default async function BlogPostPage({ params }: PageProps) {
       acceptedAnswer: { "@type": "Answer", text: item.answer },
     })),
   } : null;
+
+  const bodyWords = JSON.stringify(post.content || "").replace(/<[^>]+>|\\n|"[a-zA-Z_]+":/g, " ").split(/\s+/).filter(Boolean).length;
+  const postFacts = writtenPostFacts[post.slug.current] ?? [
+    ...(post.categories?.[0] ? [{ label: "Topic", value: post.categories[0].title }] : []),
+    ...(formattedDate ? [{ label: "Published", value: formattedDate }] : []),
+    { label: "Reading Time", value: `${Math.max(2, Math.round(bodyWords / 220))} min read` },
+    { label: "Written By", value: "Admizz Education" },
+  ];
 
   return (
     <main>
@@ -236,7 +248,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             )}
 
             {/* Body */}
-            {post.content && <PortableTextRenderer content={bodyContent ?? post.content} />}
+            {post.content && <PortableTextRenderer content={bodyContent ?? post.content} factsTitle="At a Glance" facts={postFacts} />}
 
             {/* Visible FAQ (only for posts whose body has none) — same
                 heading/paragraph styles as the body, so it reads as native. */}
@@ -255,19 +267,22 @@ export default async function BlogPostPage({ params }: PageProps) {
                 ))}
               </section>
             )}
+
+            {/* Official sources + "checked in" line (only for posts with an entry in post-sources.ts) */}
+            {postSources[post.slug.current] && <PostSources entry={postSources[post.slug.current]} />}
           </div>
 
           {/* Right: Sticky Consultation Form (desktop) */}
           <aside className="hidden lg:block w-[472px] shrink-0">
             <div className="sticky top-[90px]">
-              <CTAForm title="Book a Free Counseling Session" colorScheme="light" />
+              <CTAForm title="Book a Free Consultation" colorScheme="light" />
             </div>
           </aside>
         </div>
 
         {/* Mobile: Form below content */}
         <div className="lg:hidden mt-10 max-w-xl mx-auto">
-          <CTAForm title="Book a Free Counseling Session" colorScheme="light" />
+          <CTAForm title="Book a Free Consultation" colorScheme="light" />
         </div>
       </article>
 

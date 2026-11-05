@@ -7,7 +7,7 @@ const post = {
   "slug": "bank-balance-required-uk-student-visa-2027",
   "sections": [],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/e48ea174a0fb27bdfa20b7dc96e0b7aeea1135b2-1200x628.png?w=1200&auto=format",
+    "url": "/images/blog/sa-e48ea174a0-1200.webp",
     "alt": "International student calculating UK student visa maintenance funds and tuition on a calculator"
   },
   "categories": [
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/bank-balance-required-uk-student-visa-2027",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/e48ea174a0fb27bdfa20b7dc96e0b7aeea1135b2-1200x628.png?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-e48ea174a0-og.jpg"],
   },
 };
 

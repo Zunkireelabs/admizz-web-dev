@@ -35,7 +35,7 @@ const post = {
     }
   ],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/682cc52d120378e91f8c5dbeca76612a3d4b2d58-640x370.jpg?w=1200&auto=format",
+    "url": "/images/blog/sa-682cc52d12-1200.webp",
     "alt": "Online application vs education consultancy"
   },
   "categories": [
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/online-application-vs-application-through-direct-consultancy",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/682cc52d120378e91f8c5dbeca76612a3d4b2d58-640x370.jpg?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-682cc52d12-og.jpg"],
   },
 };
 

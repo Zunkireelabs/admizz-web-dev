@@ -95,3 +95,37 @@ strong{font-weight:600}
 
 // Markup markers that mean "this body expects the rich stylesheet".
 export const RICH_POST_MARKERS = /class="(?:quick-facts|elig-table|cta-banner|faq-item|callout|checklist|steps|pillars|timeline|inline-cta)\b/;
+
+// One shared look for every raw-HTML post. Posts carry their own <style> (cream page box, gold/green callouts,
+// rounded fact cards). This sheet is appended AFTER a post's own CSS, so all posts match the repo-written posts:
+// flush white body, navy facts strip, one callout style, navy table headers, site-colored CTAs. Posts keep any
+// layout classes this sheet does not mention (timelines, pillars, cards). Change the look here, not per post.
+export const BLOG_SHARED_OVERRIDES = `
+.blog-raw-content h2{border-bottom-color:#C8D5EF!important}
+.blog-raw-content .container{background:transparent!important;padding:0!important;max-width:100%!important}
+.blog-raw-content .section{margin-bottom:40px!important}
+.blog-raw-content .quick-facts{background:#fff!important;border:1px solid #e3e6f0!important;border-top:3px solid #001353!important;border-radius:6px!important;padding:20px 24px!important;margin-bottom:36px!important;box-shadow:none!important}
+.blog-raw-content .quick-facts-title{color:#001353!important}
+.blog-raw-content .fact-label{color:#5C7189!important}
+.blog-raw-content .fact-value{color:#001353!important}
+.blog-raw-content .callout,.blog-raw-content .callout.tip,.blog-raw-content .callout.warning,.blog-raw-content .callout.info{background:#F4F6FF!important;border:0!important;border-left:3px solid #31429C!important;border-radius:0 8px 8px 0!important}
+.blog-raw-content .callout .callout-body,.blog-raw-content .callout.tip .callout-body,.blog-raw-content .callout.warning .callout-body,.blog-raw-content .callout.info .callout-body{color:#1a1a18!important}
+.blog-raw-content .checklist li::before{background-color:#31429C!important}
+.blog-raw-content .steps li::before{background:#001353!important}
+.blog-raw-content .elig-table th{background:#001353!important;color:#fff!important}
+.blog-raw-content .elig-table tr:nth-child(even) td{background:#F8F8F8!important}
+.blog-raw-content .table-scroll{box-shadow:0 0 0 1px #D7DAE8!important}
+.blog-raw-content .inline-cta{background:#F4F6FF!important;border:1px solid #D7DAE8!important}
+.blog-raw-content .inline-cta-text,.blog-raw-content .inline-cta-text strong{color:#001353!important}
+.blog-raw-content .inline-cta a,.blog-raw-content .btn-primary{background:#FDED22!important;color:#000!important}
+.blog-raw-content .cta-banner{background:linear-gradient(135deg,#31429C 0%,#0D1282 100%)!important}
+.blog-raw-content .btn-secondary{border-color:rgba(255,255,255,.5)!important}
+.blog-raw-content .faq-q{color:#001353!important}
+.blog-raw-content .pillar-card{background:#F4F6FF!important;border-color:#D7DAE8!important}
+.blog-raw-content .pillar-num{color:#31429C!important}
+.blog-raw-content .timeline-item::before{background:#31429C!important;border-color:#31429C!important}
+.blog-raw-content .timeline-date{color:#31429C!important}
+.blog-raw-content .answer-box{background:#F4F6FF!important;border:0!important;border-left:3px solid #31429C!important}
+.blog-raw-content .toc-title{color:#001353!important}
+.blog-raw-content .btn-primary:hover,.blog-raw-content .inline-cta a:hover{background:#e6d61f!important}
+`;

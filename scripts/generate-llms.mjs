@@ -17,7 +17,6 @@
  * Run before `next build` (see package.json prebuild).
  */
 
-import { createClient } from "@sanity/client";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -30,12 +29,11 @@ const BASE_URL = "https://admizzeducation.com";
 const KEY_PAGE_LIMIT = 25;
 const KEY_PAGES_HEADING = "## Key Pages";
 
-const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "vd27cmpc",
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2026-02-10",
-  useCdn: true,
-});
+// Blog posts now come from committed files (CRET-12), not from Sanity.
+function readBlogIndex() {
+  const file = path.join(ROOT, "src", "content", "blog", "index.json");
+  return JSON.parse(fs.readFileSync(file, "utf-8")).filter((p) => !RETIRED.includes(p.slug));
+}
 
 // One line, no markdown-breaking characters.
 // Same style rule as src/lib/sanity-text.ts: "Nepali" in visible text (URLs keep their slug).
@@ -118,14 +116,21 @@ async function main() {
     // The rating is typed once in src/data/site-facts.json; keep the prose in sync.
     .replace(/rated [\d.]+ from \d+ Google reviews \(as of [^)]+\)/, `rated ${r.value} from ${r.count} Google reviews (as of ${r.asOf})`);
 
-  const sanityPosts = await client.fetch(
-    `*[_type == "post" && defined(slug.current) && !(slug.current in ${JSON.stringify(RETIRED)}) && (!(seo.noIndex == true) || slug.current in ${JSON.stringify(repoPageSlugs())})] | order(coalesce(_updatedAt, publishedAt) desc) {
-      "slug": slug.current, title, excerpt, publishedAt, _updatedAt, seo
-    }`
-  );
+  const overrides = repoPageSlugs();
+  const blogPosts = readBlogIndex()
+    .filter((p) => !p.noIndex || overrides.includes(p.slug))
+    .map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      publishedAt: p.publishedAt,
+      _updatedAt: p.updatedAt,
+      seo: p.seo,
+    }))
+    .sort((a, b) => new Date(b._updatedAt || b.publishedAt || 0) - new Date(a._updatedAt || a.publishedAt || 0));
   // Website-file posts first so they win if a slug is ever in both places.
   const bySlug = new Map();
-  for (const p of [...readLocalPosts(), ...readLocalAnswerPages(), ...sanityPosts]) if (!bySlug.has(p.slug)) bySlug.set(p.slug, p);
+  for (const p of [...readLocalPosts(), ...readLocalAnswerPages(), ...blogPosts]) if (!bySlug.has(p.slug)) bySlug.set(p.slug, p);
   const stamp = (p) => new Date(p._updatedAt || p.publishedAt || 0).getTime();
   const posts = [...bySlug.values()].sort((a, b) => stamp(b) - stamp(a));
 

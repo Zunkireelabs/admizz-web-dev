@@ -47,7 +47,7 @@ const post = {
     }
   ],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/54feed8e8309405efd96508e648c0a333290f8ca-1600x900.jpg?w=1200&auto=format",
+    "url": "/images/blog/sa-54feed8e83-1200.webp",
     "alt": "Australia Student Visa (Subclass 500)"
   },
   "categories": [
@@ -120,7 +120,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/australia-student-visa-subclass-500",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/54feed8e8309405efd96508e648c0a333290f8ca-1600x900.jpg?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-54feed8e83-og.jpg"],
   },
 };
 

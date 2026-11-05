@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Site** | admizzeducation.com — education consultancy, Nepal → study abroad |
-| **Stack** | Next.js 16.1.6 · React · TypeScript · Tailwind CSS v4 · Sanity CMS · nginx · Docker · Traefik |
+| **Stack** | Next.js 16.1.6 · React · TypeScript · Tailwind CSS v4 · repo-based blog content · nginx · Docker · Traefik |
 | **GitHub** | https://github.com/Zunkireelabs/admizz-web-dev.git |
 | **Active branch** | `deploy/static-export-migration` (merges to `main` after prod verified) |
 | **Scale** | 235 pages — 143 blog posts · 27 categories · ~65 static marketing pages |
@@ -39,7 +39,6 @@ When the user gives **any development request**, automatically invoke `/project-
 | `/aeo-geo-specialist` | **Specialist** | AI Search Optimization — ChatGPT/Perplexity/AI Overviews citations |
 | `/frontend-dev` | **Specialist** | React components, Tailwind styling, responsive layouts |
 | `/deploy` | **Utility** | Docker builds, dev/prod deployments, container health |
-| `/sanity-cms` | **Specialist** | Sanity schemas, GROQ queries, content migration, Portable Text |
 | `/skill-architect` | **Meta** | Create/optimize skills, audit coverage |
 
 ---
@@ -120,8 +119,6 @@ docker stats admizz-edu-web-dev --no-stream
 # Tail nginx logs
 docker logs admizz-edu-web-dev -f --tail 50
 
-# Sanity Studio
-npm run studio:deploy
 ```
 
 **Prebuild hook:** `npm run build` automatically runs `node scripts/generate-sitemap.mjs` first, which regenerates `public/sitemap.xml` with all static pages + blog posts + categories (212 URLs as of last run).
@@ -151,29 +148,13 @@ To add a new redirect: add a `redirectregex` middleware label pair to **both** `
 
 ---
 
-## Sanity CMS & Webhook Auto-Rebuild
+## Blog Content
 
-**Sanity config:**
-- Project ID: `vd27cmpc`
-- Dataset: `production`
-- API version: `2026-02-10`
-- Used for: **blog posts and categories only** — all other content is hardcoded
+Blogs live in the repo, not in a CMS (CRET-12). Sanity is no longer used at build or run time.
 
-**Webhook server** (`webhook/server.mjs`):
-- Listens on port `9090`
-- Endpoint: `POST /webhook` (HMAC-verified Sanity webhook)
-- Health check: `GET /health`
-- On valid event: runs `./deploy.sh $DEPLOY_ENV` (env set in `webhook/.env`)
-- Logs to `webhook/logs/YYYY-MM-DD.log`
-
-**Service file** (`webhook/admizz-webhook.service`): NOT yet installed as systemd.
-Currently running as a manual process. To install permanently (requires sudo → Anish):
-```bash
-sudo cp webhook/admizz-webhook.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable --now admizz-webhook
-systemctl status admizz-webhook
-```
+- Posts: `src/content/blog/posts/<slug>.json`, index in `src/content/blog/index.json`, images in `public/images/blog/`.
+- Reads go through `src/lib/blog-content.ts`. Content rules: `docs/seo-content-rules.md`.
+- To change a blog: edit the file, run `npm run build`, deploy. There is no webhook or auto-rebuild.
 
 ---
 
@@ -219,10 +200,7 @@ admizz-edu-web-dev/
 │   │       ├── StudyAbroadInsights.tsx
 │   │       └── ...
 │   ├── lib/
-│   │   ├── queries.ts            # All GROQ queries (Sanity)
-│   │   ├── sanity.ts             # Sanity client + urlFor
 │   │   └── universities.ts       # University data
-│   ├── sanity/schemas/           # Sanity content schemas
 │   └── types/index.ts            # TypeScript types (SanityPost, SanityCategory, etc.)
 ├── public/
 │   ├── images/                   # Hero images, og images, icons, university logos
@@ -233,10 +211,6 @@ admizz-edu-web-dev/
 ├── out/                          # Static export output (git-ignored, Docker needs it)
 ├── scripts/
 │   └── generate-sitemap.mjs      # Runs before every build
-├── webhook/
-│   ├── server.mjs                # Sanity webhook listener (port 9090)
-│   ├── admizz-webhook.service    # systemd unit (not yet installed)
-│   └── webhook/.env              # WEBHOOK_SECRET, DEPLOY_ENV, PROJECT_DIR
 ├── docs/                         # Migration plans, scraped content, audit docs
 ├── Dockerfile                    # nginx:alpine static image
 ├── Dockerfile.standalone.bak     # Old Node SSR Dockerfile (rollback reference)
@@ -255,7 +229,7 @@ admizz-edu-web-dev/
 - `next.config.ts` uses `output: "export"` — the whole site pre-renders to `./out/` at build time
 - **Never add `export const dynamic = "force-dynamic"`** to any page — it breaks the static export build
 - **Never add `export const dynamic = "force-static"` is fine** but unnecessary (default)
-- Dynamic blog/category pages work via `generateStaticParams()` — all slugs fetched from Sanity at build time
+- Dynamic blog/category pages work via `generateStaticParams()` — all slugs read from `src/content/blog` at build time
 - No API routes, no middleware, no server actions — the site is 100% static HTML
 
 ### Templates
@@ -387,6 +361,6 @@ Rule of thumb: never ship an event with a placeholder date. If the real date isn
 | `headers()` / `redirects()` in `next.config.ts` | Incompatible with `output: "export"` — use nginx/Traefik instead |
 | 404 page path | Next.js exports custom 404 to `/404.html` (root), not `/404/index.html` — nginx `error_page` must point to `/404.html` |
 | Prod container name | `1662127bf800_admizz-edu-web-prod` — must `docker rm -f` it before prod migration so new name `admizz-edu-web-prod` is free |
-| Blog page freshness | Static export = content frozen at build time. Sanity content changes only appear after a webhook-triggered rebuild |
+| Blog page freshness | Static export = content frozen at build time. Blog changes appear after the next build and deploy |
 | Traefik redirect codes | Traefik uses 308/307 (not 301/302) — correct for HTTP/2, works identically in browsers and search engines |
-| `npm run build` vs Docker build | `npm run build` runs on HOST (needs `.env.local` with Sanity vars). Docker build only copies the result — it does NOT re-run next build |
+| `npm run build` vs Docker build | `npm run build` runs on HOST . Docker build only copies the result — it does NOT re-run next build |

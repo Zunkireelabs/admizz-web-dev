@@ -1,0 +1,344 @@
+{
+  "_id": "wp-post-1564",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:46:38Z",
+  "_updatedAt": "2026-10-06T22:13:51Z",
+  "title": "Online application vs application through direct consultancy",
+  "slug": {
+    "_type": "slug",
+    "current": "online-application-vs-application-through-direct-consultancy"
+  },
+  "publishedAt": "2025-03-28T10:21:45",
+  "excerpt": "Exams have come to an end and most of the boards have already released the results. The biggest thing on [&hellip;]",
+  "content": [
+    {
+      "_key": "fb8877319b3d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b7699163477c",
+          "_type": "span",
+          "marks": [],
+          "text": "Exams have come to an end and most of the boards have already released the results. The biggest thing on every student’s mind right now is the next step. Every step of education is very important and it is best practice to prefer a better college, be it for high school, pre-graduation, graduation, or post-graduation. Better institutions might not always be near our premises and distance being a matter of delayed communication, many students and their parents prefer to go through the admission process via a consultancy. Especially for applying to colleges beyond the borders of a nation, consultancies are approached. But is this the only way available for admissions between 2 countries? NO!"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "379c0df7da9e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c7f08d85b65c",
+          "_type": "span",
+          "marks": [],
+          "text": " Over the past few years, the internet has exploded and grown at a great pace. Applying through colleges across country borders has also become easier with this. While some colleges directly take in applications through their websites, there are websites like "
+        },
+        {
+          "_key": "ea6947bc2473",
+          "_type": "span",
+          "marks": [
+            "9f8279fa5ea3"
+          ],
+          "text": "www.admizzeducation.com"
+        },
+        {
+          "_key": "1bf74589768f",
+          "_type": "span",
+          "marks": [],
+          "text": " that offer students the privilege to apply to as many colleges as possible. Such websites also facilitate the search for colleges and provide information regarding the colleges. In spite of this growth in the internet, consultancy application is still preferred by many students and parents. Here is a list of reasons why it is a better step to apply online, rather than through a consultancy"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "9f8279fa5ea3",
+          "_type": "link",
+          "blank": true,
+          "href": "http://www.admizzeducation.com/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "33085c54f935",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "539b3f27562c",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "1. Cost factor:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "057b17557662",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5e01798d804e",
+          "_type": "span",
+          "marks": [],
+          "text": "Consultancies charge a high amount of fee other than the application fee, which is definitely an extra burden; at least for most students. Applying online doesn’t cost extra for students and is totally free."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "09896e103c1c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2da4dbc95449",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "2. Transparency:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5470413de305",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7a16f4f69a7f",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": " "
+        },
+        {
+          "_key": "c4c746bee31a",
+          "_type": "span",
+          "marks": [],
+          "text": "Although some consultancies maintain transparency in terms of college fees and other details, most consultancies never show the correct fee details. This never happens during the online application."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "552750d55434",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f71998ae9808",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "3. Fake consultancies: "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "310eac3b19bf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a7006b2078d6",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": " "
+        },
+        {
+          "_key": "208ac43056e0",
+          "_type": "span",
+          "marks": [],
+          "text": "Due to the blind faith that people put in consultancies, there has been a high increase in the number of fake consultancies and the number of people getting cheated in the name of consultancy. So it is suggested to apply either directly online via the college website or via authenticated application providers like Admizz.com"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "921d65f598f7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "25bd04b9ccb9",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "4. Consultancy – college partnership: "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bace03c0b283",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "381be561900c",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": " "
+        },
+        {
+          "_key": "4c3ce74fd790",
+          "_type": "span",
+          "marks": [],
+          "text": "Many consultancies, especially the ones for overseas education, have collaborations with a few colleges, which are mostly prompted by the consultancies. In the case of online applications, promoted colleges and ads are clearly mentioned so, so that the students are given a choice to choose from all colleges."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "40b0c4fe0c37",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c01b5f10df96",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "5. Reviews:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "32c9f16aa16f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "56a957c1d0a9",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": " "
+        },
+        {
+          "_key": "ebcdf853b1c2",
+          "_type": "span",
+          "marks": [],
+          "text": "While applying online, reviews are also shown which helps the students in understanding the college better. This is not possible in the case of Consultancies since only the word of consultancy has to be taken into consideration."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9e02a50a61e7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "19adf06a8162",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "6. Smarter and easier:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "07a8077d9bad",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "794301d04e1a",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": " "
+        },
+        {
+          "_key": "d3579673481f",
+          "_type": "span",
+          "marks": [],
+          "text": "When applications are filled online, every update and response is directed to our inboxes which can be viewed in our comfort. In the case of consultancy applications, timely visits around consultancies become mandatory, consuming time and energy a lot!"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3fd8470f5b14",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b4773dd3f0f8",
+          "_type": "span",
+          "marks": [],
+          "text": " Not just these, while applying to online websites like Admizz.com, it is easier to directly address our queries to the colleges. Consultancies seldom help in student-college communication."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ac5e04eeccec",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "39ca5a8b85a1",
+          "_type": "span",
+          "marks": [
+            "em"
+          ],
+          "text": "So be it engineering or nursing or MBA or any other college, Bangalore provides the best facilities for a better student life and future. Apply directly online with Admizz now!"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/online-application-vs-application-through-direct-consultancy-1200.webp",
+    "card": "/images/blog/online-application-vs-application-through-direct-consultancy-600.webp",
+    "og": "/images/blog/og/online-application-vs-application-through-direct-consultancy.jpg",
+    "alt": "Online application vs application through direct consultancy",
+    "caption": null,
+    "_sanityRef": "image-682cc52d120378e91f8c5dbeca76612a3d4b2d58-640x370-jpg",
+    "_sanityOgRef": "image-682cc52d120378e91f8c5dbeca76612a3d4b2d58-640x370-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/online-application-vs-application-through-direct-consultancy",
+    "metaDescription": "Compare online applications vs direct consultancy for admissions—know the pros, cons, and best approach to secure your college seat effectively.",
+    "metaTitle": "Online application vs application through direct consultancy - Admizz Education",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.020Z"
+}

@@ -5,6 +5,7 @@ import { allUniversities } from "@/lib/universities";
 import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   alternates: { canonical: "https://admizzeducation.com/events/uk-admissions-day" },
   title: "UK Admission Day - March 17, 2026 | Admizz Education",
   description:
@@ -223,7 +224,7 @@ export default function UKAdmissionsDayPage() {
         <div className="container">
           <h2 className="section-title">Why Choose Admizz?</h2>
           <p className="section-subtitle">
-            Unlike single-country consultancies, we offer:
+            Unlike single-country providers, we offer:
           </p>
           <div className="why-cards">
             <div className="why-card">
@@ -233,7 +234,7 @@ export default function UKAdmissionsDayPage() {
                 </svg>
               </div>
               <h3>Multi-Destination Expertise</h3>
-              <p>12+ countries, one consultancy. Not limited to single-country advice.</p>
+              <p>12+ countries, one partner. Not limited to single-country advice.</p>
             </div>
             <div className="why-card">
               <div className="why-card-icon">

@@ -1,0 +1,191 @@
+{
+  "_id": "wp-post-1553",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:46:45Z",
+  "_updatedAt": "2026-10-08T21:39:58Z",
+  "title": "Tips for overall development of your child",
+  "slug": {
+    "_type": "slug",
+    "current": "tips-for-overall-development-of-your-child"
+  },
+  "publishedAt": "2025-03-28T10:14:14",
+  "excerpt": "Almost half of the session is over and your child has been labeled as an underperformer in the class. It [&hellip;]",
+  "content": [
+    {
+      "_key": "dfabc267f625",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "af0f99264e61",
+          "_type": "span",
+          "marks": [],
+          "text": "Almost half of the session is over and your child has been labeled as an underperformer in the class. It is obvious that parents worry about the academic growth of their children. Often parents get the blame for the poor performance of their child in academics."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d182e6cdf263",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "06ff807b229c",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Here are a few tips to guide your child in improving his / her grades in school"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a17bb4de1db3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ccf5397b535c",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Improve Confidence:"
+        },
+        {
+          "_key": "cdd87cfc3f97",
+          "_type": "span",
+          "marks": [],
+          "text": " An examination grade should not be able to shatter the confidence of your little one. You must know how to convince your child about his/her caliber and boost his / her confidence."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2b52f589f4a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c88ab276f194",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Follow a Routine:"
+        },
+        {
+          "_key": "efbc96b6e930",
+          "_type": "span",
+          "marks": [],
+          "text": " Try to make a daily routine for the kid and make sure he/she follows it without fail. The routine must be a balanced one including recreational activities, and outdoor sports, and focus on every subject in the syllabus."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c01941af2a2f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "371e48dfe3f8",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Follow the Social Circle:"
+        },
+        {
+          "_key": "d24c16ab7db8",
+          "_type": "span",
+          "marks": [],
+          "text": " You may look at your child as a toddler but the fact is that he has started going out in the world and making his own peer group with other little ones. To know a man, know his company. Try to know the kind of company he likes to have, and if it is not proper, try to change it. But always remember to be rational with the child rather than being forceful."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3da0cc69c6ac",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7abb34faa558",
+          "_type": "span",
+          "marks": [],
+          "text": "Know the strengths and weaknesses: Know the favorite subject of the kid where he can actually excel once he grows up. Try to motivate him more in that area. At the same time, know his weak subjects and help him do well there. You can take the help of online tutors or other materials available."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d74d79b489a2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e7466555b147",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Personality Development:"
+        },
+        {
+          "_key": "a39828ae9782",
+          "_type": "span",
+          "marks": [],
+          "text": " The duty of parents is not only to give good education but also to instill the virtues like patience, perseverance, honesty, hard work, and determination in the child. You need to be a little detached from your child at times to keep the track of his / her personal and academic development. The personal development of the child is a very important part of his / her academics. If the kid has no patience or no inclination to work hard, he cannot excel in life when he/she gets on his own."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "db2f7f94b011",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "13b7d46a93ae",
+          "_type": "span",
+          "marks": [],
+          "text": "Source: CareerIndia"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/tips-for-overall-development-of-your-child-1200.webp",
+    "card": "/images/blog/tips-for-overall-development-of-your-child-600.webp",
+    "og": "/images/blog/og/tips-for-overall-development-of-your-child.jpg",
+    "alt": "Tips for overall development of your child",
+    "caption": null,
+    "_sanityRef": "image-9467ce04a6f9f9af781bb01dbb7698bdaaef0094-1024x626-webp",
+    "_sanityOgRef": "image-9467ce04a6f9f9af781bb01dbb7698bdaaef0094-1024x626-webp"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/tips-for-overall-development-of-your-child",
+    "metaDescription": "Discover practical tips to support your child's overall development—boost their learning, creativity, confidence, and well-being.",
+    "metaTitle": "Tips for overall development of your child - Admizz Education",
+    "noIndex": true
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.021Z"
+}

@@ -1,0 +1,429 @@
+{
+  "_id": "wp-post-1662",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:45:21Z",
+  "_updatedAt": "2026-10-08T21:39:58Z",
+  "title": "Google for India – an event for the Country",
+  "slug": {
+    "_type": "slug",
+    "current": "google-for-india-an-event-for-the-country"
+  },
+  "publishedAt": "2025-03-28T11:08:58",
+  "excerpt": "Google for India is the company’s flagship event for the country. Google has been hosting Google for India event annually [&hellip;]",
+  "content": [
+    {
+      "_key": "8d930a1e4ade",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e94ab7824a84",
+          "_type": "span",
+          "marks": [
+            "191bf1eaecdb"
+          ],
+          "text": "Google for India"
+        },
+        {
+          "_key": "1ac2f860e2d6",
+          "_type": "span",
+          "marks": [],
+          "text": " is the company’s flagship event for the country. Google has been hosting Google for India event annually and its sixth edition was hosted in July 2020. Due to the pandemic, this event took place virtually. Google CEO Sundar Pichai delivered an address at the event. Further, the Google for India 2020 event was also attended by Ravi Shankar Prasad, Minister of Communications, Electronics and IT, Law & Justice. The Google fund is set to invest 10 billion dollars in India, in the next five to seven years. This amounts to Rs. 75,000 crores."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "191bf1eaecdb",
+          "_type": "link",
+          "blank": true,
+          "href": "https://blog.google/intl/en-in/company-news/outreach-initiatives/google-for-india-2021-paving-an-inclusive-growth-path-for-indias-digital-economy/#:~:text=Last%20year%2C%20we%20announced%20the,of%20connectivity%20to%20more%20users."
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "8a62f1688390",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6fad7ba1f0de",
+          "_type": "span",
+          "marks": [],
+          "text": "The main aim of this initiative is to bring the Internet to life for everyone in India. The more people have access to the tools, services, information, and training online, the more they can pursue their ambitions and reach their potential. Last year’s event, Google had announced an artificial intelligence (AI) lab in Bengaluru, Google Pay for Business app for merchants as well as expanded Indian language support across its products such as Google Assistant, Discover, Lens, and Bolo."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3554e17e8471",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d320189dabe6",
+          "_type": "span",
+          "marks": [],
+          "text": "In the event, "
+        },
+        {
+          "_key": "c7f1943ec5e4",
+          "_type": "span",
+          "marks": [
+            "8709d10cfb47"
+          ],
+          "text": "Google"
+        },
+        {
+          "_key": "960219637f3e",
+          "_type": "span",
+          "marks": [],
+          "text": " Fund declared that the will provide investment in four major areas:"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "8709d10cfb47",
+          "_type": "link",
+          "blank": true,
+          "href": "https://about.google/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "8eed3500a303",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c8544277e3bb",
+          "_type": "span",
+          "marks": [],
+          "text": "    "
+        },
+        {
+          "_key": "0bb9fc9cbba3",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Access to information in regional languages."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3a6c85ba413e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "174077ef9e79",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "    Manufacturing products and services according to the country’s needs."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3a1808524ef5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "72e47bef1d88",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "    Empowering businesses and helping them undergo a digital transformation."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8a3c519d7a95",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "49066a405d68",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "    Leveraging technology and AI for social in areas like health, education, and agriculture."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9cddeeeba2ad",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cfa60d6ea22f",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "About the Investment in Education Sector"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "c2581e9745ae",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a1299718e337",
+          "_type": "span",
+          "marks": [],
+          "text": "Google will invest 1 million dollars in the education sector. The Kaivalya Education Foundation will allocate 1 million dollars to train over 7, 00,000 teachers. Further, the allocated fund is to provide virtual education to students belonging to low-income backgrounds. Google has also announced a partnership with the CBSE board i.e. the Central Board of Secondary Education, to work in the area of skilled education and training."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e0557319f28b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f8325d87794b",
+          "_type": "span",
+          "marks": [],
+          "text": "This initiative will enable 1 million teachers in approximately 22,000 schools to deliver blended learning i.e. combining classroom training with online training. Some of the Google tools that would assist in online training are G-Suite for education, Google Classroom, and YouTube. Google has announced a partnership with Prasar Bharti. To sum up, This partnership will produce an edutainment series on Doordarshan, India’s public service broadcasting channel."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9ef69a973b00",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "23b35f8321bc",
+          "_type": "span",
+          "marks": [],
+          "text": "Also, India is the second-largest internet user base in the world, with over 400 million internet users today. Google aims to provide a positive online experience for current and future users, we support students with educational resources and tools to become responsible digital citizens who can safely navigate the risks of cyberspace."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6e97a1f2f95b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "028d080df261",
+          "_type": "span",
+          "marks": [],
+          "text": " "
+        },
+        {
+          "_key": "d718f6f99d57",
+          "_type": "span",
+          "marks": [
+            "3658cc54b182"
+          ],
+          "text": "Read more"
+        },
+        {
+          "_key": "660c5b1e0007",
+          "_type": "span",
+          "marks": [],
+          "text": " blogs like this."
+        },
+        {
+          "_key": "e2c2c7210449",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "  "
+        },
+        {
+          "_key": "ee370dbf0a3c",
+          "_type": "span",
+          "marks": [],
+          "text": "Don’t forget to share on your social."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "3658cc54b182",
+          "_type": "link",
+          "blank": true,
+          "href": "https://admizzeducation.com/blogs/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "0ef29cd6fbbe",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e229cfdf789a",
+          "_type": "span",
+          "marks": [],
+          "text": "If you are planning to study in India, "
+        },
+        {
+          "_key": "96e117f1d7bd",
+          "_type": "span",
+          "marks": [
+            "f66f25d94ca6",
+            "strong"
+          ],
+          "text": "Admizz"
+        },
+        {
+          "_key": "4a8145ef743d",
+          "_type": "span",
+          "marks": [],
+          "text": " is the best guide for you. "
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "f66f25d94ca6",
+          "_type": "link",
+          "blank": true,
+          "href": "https://admizzeducation.com/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "641db6bb904e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b5b43b7d3735",
+          "_type": "span",
+          "marks": [],
+          "text": "For more information, follow us on"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "07b8d89f0493",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "28a87ec54006",
+          "_type": "span",
+          "marks": [],
+          "text": "Facebook https://www.facebook.com/admizz "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4d21de4e4ca2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4dec66a4e090",
+          "_type": "span",
+          "marks": [],
+          "text": "Instagram https://www.instagram.com/admizz_official/ "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6ad0cd8caf83",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4fd21ba974d8",
+          "_type": "span",
+          "marks": [],
+          "text": "Twitter  "
+        },
+        {
+          "_key": "c8b077c953e5",
+          "_type": "span",
+          "marks": [
+            "664fb9943e27"
+          ],
+          "text": "https://twitter.com/admizz_official"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "664fb9943e27",
+          "_type": "link",
+          "blank": true,
+          "href": "https://twitter.com/admizz_official"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "33279b03d2e7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "832903633f2d",
+          "_type": "span",
+          "marks": [],
+          "text": "Linkedin https://www.linkedin.com/company/admizzofficial/"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/google-for-india-an-event-for-the-country-1200.webp",
+    "card": "/images/blog/google-for-india-an-event-for-the-country-600.webp",
+    "og": "/images/blog/og/google-for-india-an-event-for-the-country.jpg",
+    "alt": "Google for India",
+    "caption": null,
+    "_sanityRef": "image-8980fc62ea4e60225e255b80a8ba2aad6b5b8075-488x285-jpg",
+    "_sanityOgRef": "image-8980fc62ea4e60225e255b80a8ba2aad6b5b8075-488x285-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/google-for-india-an-event-for-the-country",
+    "metaDescription": "Discover how Google for India is driving digital growth, empowering businesses, enhancing education, and supporting innovation nationwide.",
+    "metaTitle": "Google for India – an event for the Country - Admizz Education",
+    "noIndex": true
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.012Z"
+}

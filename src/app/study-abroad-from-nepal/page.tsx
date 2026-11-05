@@ -11,7 +11,7 @@ const post = {
     },
     {
       "heading": "Step 1: Choose a country and course",
-      "body": "Compare countries on cost, work rights after study and visa risk, not on rankings alone. These are the 2026 facts that most affect Nepali students:\n\n- **UK:** one-year Master's degrees. The Graduate visa is 18 months for applications from January 1, 2027, and 2 years before that date. See our [UK student visa guide](/uk-student-visa-from-nepal).\n- **Canada:** study permit applications are capped at 309,670 for 2026, and most new bachelor's and college applicants need a provincial attestation letter. Master's students at public institutions are exempt. See the [Canada cap guide](/canada-study-permit-cap-2026-nepali-students).\n- **Germany:** proof of funds of €11,904 a year through a blocked account. See the [Germany guide](/germany-blocked-account-2026-nepali-students).\n- **USA:** from September 15, 2026, F-1 students are admitted for a fixed period of up to four years. See the [H-1B guide](/h1b-wage-weighted-lottery-2026-nepali-students-opt) and our [F-1 versus UK comparison](/us-f1-vs-uk-student-visa-2026).\n- **Australia:** new Student visa rules took effect on October 2, 2026. See [all rule changes](/study-abroad-rule-updates)."
+      "body": "Compare countries on cost, work rights after study and visa risk, not on rankings alone. These are the 2026 facts that most affect Nepali students:\n\n- **UK:** one-year Master's degrees. The Graduate visa is 18 months for bachelor's and master's graduates, and 3 years for PhD graduates. See our [UK student visa guide](/uk-student-visa-from-nepal).\n- **Canada:** study permit applications are capped at 309,670 for 2026, and most new bachelor's and college applicants need a provincial attestation letter. Master's students at public institutions are exempt. See the [Canada cap guide](/canada-study-permit-cap-2026-nepali-students).\n- **Germany:** proof of funds of €11,904 a year through a blocked account. See the [Germany guide](/germany-blocked-account-2026-nepali-students).\n- **USA:** from September 15, 2026, F-1 students are admitted for a fixed period of up to four years. See the [H-1B guide](/h1b-wage-weighted-lottery-2026-nepali-students-opt) and our [F-1 versus UK comparison](/us-f1-vs-uk-student-visa-2026).\n- **Australia:** new Student visa rules took effect on October 2, 2026. See [all rule changes](/study-abroad-rule-updates)."
     },
     {
       "heading": "Study destinations compared: visa fees and funds at a glance",
@@ -51,7 +51,7 @@ const post = {
     },
     {
       "heading": "Common mistakes to avoid",
-      "body": "- Starting the funds window too late\n- Choosing a country without checking the current rules\n- Documents that do not match each other\n- Relying on a consultant for guarantees nobody can give\n- Missing English test or deposit deadlines\n\nIf you use a consultancy, check it first. Our [checklist for choosing a genuine education consultancy](/how-to-choose-genuine-education-consultancy-nepal-2026) has ten questions to ask."
+      "body": "- Starting the funds window too late\n- Choosing a country without checking the current rules\n- Documents that do not match each other\n- Relying on an advisor for guarantees nobody can give\n- Missing English test or deposit deadlines\n\nIf you use a partner, check it first. Our [checklist for choosing a genuine study abroad partner](/how-to-choose-genuine-education-partner-nepal-2026) has ten questions to ask."
     },
     {
       "heading": "How Admizz Education can help",
@@ -63,7 +63,7 @@ const post = {
     }
   ],
   "featuredImage": {
-    "url": "https://cdn.sanity.io/images/vd27cmpc/production/b4bfbca0c881f98f692e3163ddb8458fef170ade-1600x900.jpg?w=1200&auto=format",
+    "url": "/images/blog/sa-b4bfbca0c8-1200.webp",
     "alt": "Study Abroad from Nepal"
   },
   "categories": [
@@ -137,7 +137,7 @@ export const metadata: Metadata = {
     url: "https://admizzeducation.com/study-abroad-from-nepal",
     siteName: "Admizz Education",
     type: "article",
-    images: ["https://cdn.sanity.io/images/vd27cmpc/production/b4bfbca0c881f98f692e3163ddb8458fef170ade-1600x900.jpg?w=1200&h=630&fit=crop&auto=format"],
+    images: ["/images/blog/sa-b4bfbca0c8-og.jpg"],
   },
 };
 
