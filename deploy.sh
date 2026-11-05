@@ -36,7 +36,9 @@ npm install --legacy-peer-deps
 
 # ── Step 2: Build Next.js (runs once regardless of env count) ───────────────
 echo "2. Building Next.js static export..."
-rm -rf out .next/cache
+# Remove all of .next, not just the cache: stale .next/dev/types from earlier runs
+# reference deleted pages and fail the type check ("Cannot find module ... page.js").
+rm -rf out .next
 npm run build
 chmod -R g+rwX .next node_modules 2>/dev/null || true
 
