@@ -89,8 +89,8 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
     description: "Learn the history, traditions and customs of Diwali, the Festival of Lights, and how its spirit of knowledge connects with students and education.",
   },
   "twice-the-chance-half-the-wait-biannual-admissions-are-here": {
-    title: "Biannual Admissions: July/August and January Intakes",
-    description: "Biannual admissions let universities accept students in July/August and January. See the benefits and how Admizz Education helps you plan both cycles.",
+    title: "Biannual Admissions in India: July and January Intakes",
+    description: "Indian universities can now admit students twice a year, in July/August and January/February. See what it means and how to plan both cycles.",
   },
   "form-i-20-your-essential-guide-to-studying-in-the-usa": {
     title: "Form I-20 Guide for Studying in the USA",

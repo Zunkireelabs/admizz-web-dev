@@ -5,16 +5,16 @@ import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in USA from Nepal - Admizz Education",
+  title: "Study in USA from Nepal: F-1 Visa, Costs, Intakes and Scholarships (2026) | Admizz Education",
   description:
-    "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+    "Study in the USA from Nepal: F-1 visa steps, costs, intakes, IELTS or TOEFL and scholarships for Nepali students. Get free admission and visa support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-usa-from-nepal",
   },
   openGraph: {
-    title: "Study in USA from Nepal - Admizz Education",
+    title: "Study in USA from Nepal: F-1 Visa, Costs, Intakes and Scholarships (2026) | Admizz Education",
     description:
-      "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      "Study in the USA from Nepal: F-1 visa steps, costs, intakes, IELTS or TOEFL and scholarships for Nepali students. Get free admission and visa support from Admizz.",
     url: "https://admizzeducation.com/study-in-usa-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Study in USA from Nepal - Admizz Education",
+    title: "Study in USA from Nepal: F-1 Visa, Costs, Intakes and Scholarships (2026) | Admizz Education",
     description:
-      "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      "Study in the USA from Nepal: F-1 visa steps, costs, intakes, IELTS or TOEFL and scholarships for Nepali students. Get free admission and visa support from Admizz.",
     images: ["/images/og/countries/study-in-the-usa.jpg"],
   },
 };
@@ -51,7 +51,7 @@ const pageData: NepalVariantData = {
   ],
   introTitle: "Study in the USA from Nepal",
   introContent:
-    "The USA has a wide choice of accredited universities and flexible degrees. After graduating, you can work on OPT for 12 months, or up to 36 months with a STEM degree.",
+    "To study in the USA from Nepal, you get admitted to a SEVP-certified school, receive your I-20, pay the SEVIS fee, complete the DS-160 and attend your F-1 visa interview at the US Embassy in Kathmandu. The USA has a wide choice of accredited universities and flexible degrees. After graduating, you can work on OPT for 12 months, or up to 36 months with a STEM degree.",
   whyStudyTitle: "Flexible degrees and real work experience after",
   whyStudyIntro: "Why students from Nepal choose the USA.",
   highlightStats: [
@@ -67,19 +67,19 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "Work after you graduate",
-      description: "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Stay and work after your degree on OPT: 12 months, or up to 36 months with a STEM degree.",
     },
     {
       title: "Flexible degrees",
-      description: "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Choose from a wide range of accredited universities and programs, from bachelor's to master's.",
     },
     {
       title: "Funding for strong students",
-      description: "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Merit scholarships, graduate assistantships and departmental awards can cover part or all of your tuition.",
     },
     {
       title: "Work on campus",
-      description: "Study in the USA from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Work on campus up to 20 hours a week in term, and full-time in breaks.",
     },
   ],
   visaTitle: "Your F-1 visa, step by step",
@@ -201,6 +201,36 @@ const pageData: NepalVariantData = {
       answer:
         "Yes, on OPT for 12 months (36 with a STEM degree). To stay longer you need an employer-sponsored work visa such as the H-1B.",
     },
+    {
+      question: "What documents do I need for a US student visa from Nepal?",
+      answer:
+        "You need a valid passport, your Form I-20 from the school, the DS-160 confirmation page, the SEVIS fee receipt, bank statements or sponsor documents, academic transcripts and an IELTS, TOEFL or Duolingo result. Check the US Embassy and your school for anything extra.",
+    },
+    {
+      question: "How much does the F-1 visa cost?",
+      answer:
+        "You pay the $185 visa application fee and the $350 SEVIS fee (Form I-901). Fees can change, so check the US Department of State and DHS sites before you pay.",
+    },
+  ],
+
+  quickAnswer:
+    "To study in the USA from Nepal, get admitted to a SEVP-certified school, receive your I-20, pay the $350 SEVIS fee, complete the DS-160 and pay the $185 visa fee, then attend your F-1 interview at the US Embassy in Kathmandu. After your degree you can work on OPT for 12 months, or up to 36 months with a STEM degree.",
+  lastChecked: "November 2026",
+  dateModified: "2026-11-05",
+  sourcesTitle: "Official sources",
+  sources: [
+    { label: "Travel.State.Gov: Student visa", url: "https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html" },
+    { label: "Study in the States: Paying the I-901 SEVIS fee", url: "https://studyinthestates.dhs.gov/students/prepare/paying-the-i-901-sevis-fee" },
+    { label: "Study in the States: Applying for practical training", url: "https://studyinthestates.dhs.gov/students/work/applying-for-practical-training" },
+    { label: "Study in the States: STEM OPT hub", url: "https://studyinthestates.dhs.gov/stem-opt-hub" },
+  ],
+  relatedLinks: [
+    { label: "F-1 visa interview and OPT guide for Nepali students", href: "/usa-f1-visa-interview-opt-nepali-students-2026" },
+    { label: "Form I-20: your essential guide", href: "/form-i-20-your-essential-guide-to-studying-in-the-usa" },
+    { label: "Study in the USA with a scholarship from Nepal", href: "/study-in-usa-with-scholarship-from-nepal-a-complete-guide" },
+    { label: "Fulbright scholarship for Nepal", href: "/fulbright-scholarship-for-nepal-complete-application-guide" },
+    { label: "September 15, 2026: what every F-1 student must know", href: "/us-f1-september-15-deadline-2026" },
+    { label: "Study abroad rule changes for Nepali students", href: "/study-abroad-rule-changes", description: "dated visa, funds and work-rule changes" },
   ],
 
   ctaTitle: "Plan your USA move with us",

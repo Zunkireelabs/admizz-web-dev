@@ -2,7 +2,7 @@
   "_id": "wp-post-1528",
   "_type": "post",
   "_createdAt": "2026-02-10T06:47:01Z",
-  "_updatedAt": "2026-10-06T22:13:51Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Top 5 Reasons to study in the USA",
   "slug": {
     "_type": "slug",
@@ -144,6 +144,112 @@
           "_type": "link",
           "blank": false,
           "href": "https://admizzeducation.com/contact/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "0030e48f4163",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8ebbe78dbb5c",
+          "_type": "span",
+          "marks": [],
+          "text": "Working and Staying After Your Degree"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "bbfce4f122b1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "28b5469ddc32",
+          "_type": "span",
+          "marks": [],
+          "text": "The US government’s Study in the States site explains Optional Practical Training (OPT): 12 months of regular OPT is available for each higher level of study, so a student can have 12 months for a bachelor’s degree and another 12 months for a master’s degree."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a1a4605bd9c9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cd6f5012009c",
+          "_type": "span",
+          "marks": [],
+          "text": "Students with a degree in an approved STEM field can apply for the STEM OPT extension, a 24-month period of temporary training that must directly relate to the program of study. Rules and approved fields change, so confirm them with your school’s designated school official."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "eb9c2728d37d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "42b33d410663",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "82e209e18296",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c54a06b6fc28",
+          "_type": "span",
+          "marks": [
+            "551e190bd821"
+          ],
+          "text": "USA Ends Duration of Status — F-1 Visa Guide 2026"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "551e190bd821",
+          "_type": "link",
+          "blank": false,
+          "href": "/us-f1-duration-of-status-ended-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "06ca6f2c8d69",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9d9109916a01",
+          "_type": "span",
+          "marks": [
+            "6363a5ebb309"
+          ],
+          "text": "Study in the USA from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "6363a5ebb309",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-usa-from-nepal"
         }
       ],
       "style": "normal"

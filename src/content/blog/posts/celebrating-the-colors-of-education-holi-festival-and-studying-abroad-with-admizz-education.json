@@ -211,6 +211,45 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "a9c615e0b6c5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d8f7c63bc512",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "927cae237960",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "56df76c09ed8",
+          "_type": "span",
+          "marks": [
+            "b1338e6b001b"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "b1338e6b001b",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -239,7 +278,7 @@
     "canonicalUrl": "https://admizzeducation.com/celebrating-the-colors-of-education-holi-festival-and-studying-abroad-with-admizz-education",
     "metaDescription": "As the vibrant hues of Holi paint the sky and streets of India and Nepal, it's not just about revelry and joyous celebrations. Holi, the festival of colors, holds profound",
     "metaTitle": "Celebrating the Colors of Education: Holi Festival and Studying Abroad with Admizz Education - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.029Z"

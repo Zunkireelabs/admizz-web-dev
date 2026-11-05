@@ -2,15 +2,37 @@
   "_id": "wp-post-11377",
   "_type": "post",
   "_createdAt": "2026-02-10T06:41:39Z",
-  "_updatedAt": "2026-10-08T05:23:00Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Top 15 Scholarships for Nepali Students to Study Abroad in 2026",
   "slug": {
     "_type": "slug",
     "current": "top-15-scholarships-for-nepali-students-to-study-abroad-in-2026"
   },
   "publishedAt": "2026-02-06T05:24:56",
-  "excerpt": "Are you a Nepali student dreaming of studying abroad but worried about the financial burden? Fortunately, numerous scholarship opportunities can [&hellip;]",
+  "excerpt": "A guide to scholarships Nepali students can use to study abroad, with eligibility notes and tips. Deadlines listed are for the 2026 intake, so check each official page for the next cycle.",
   "content": [
+    {
+      "_key": "bf46ded88857",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b9a7a5d1ae52",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Update, November 2026: "
+        },
+        {
+          "_key": "4799ae97e41d",
+          "_type": "span",
+          "marks": [],
+          "text": "the application deadlines in this list are for the 2026 intake and have passed. Check each scholarship’s official page for the next cycle before you plan. We also removed the Commonwealth Scholarship as an option for Nepali citizens, because the Commission’s eligible-countries list does not include Nepal (checked November 2026)."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
     {
       "_key": "5950f14dc1f1",
       "_type": "block",
@@ -2163,7 +2185,7 @@
           "marks": [
             "strong"
           ],
-          "text": "Commonwealth Scholarship and Fellowship Plan"
+          "text": "Commonwealth Scholarships (UK): not open to Nepali citizens"
         }
       ],
       "markDefs": [],
@@ -2179,65 +2201,7 @@
           "marks": [
             "strong"
           ],
-          "text": "Country:"
-        },
-        {
-          "_key": "80a10e6fa193",
-          "_type": "span",
-          "marks": [],
-          "text": " UK and Commonwealth nations"
-        },
-        {
-          "_key": "e580699cff6d",
-          "_type": "span",
-          "marks": [],
-          "text": "\n"
-        },
-        {
-          "_key": "a7ea4f8e0f58",
-          "_type": "span",
-          "marks": [],
-          "text": "\n"
-        },
-        {
-          "_key": "1d8b4d19a89a",
-          "_type": "span",
-          "marks": [
-            "strong"
-          ],
-          "text": "Level:"
-        },
-        {
-          "_key": "f2d37a18b808",
-          "_type": "span",
-          "marks": [],
-          "text": " Master’s and PhD"
-        },
-        {
-          "_key": "f7ac3739aa83",
-          "_type": "span",
-          "marks": [],
-          "text": "\n"
-        },
-        {
-          "_key": "53b093395c42",
-          "_type": "span",
-          "marks": [],
-          "text": "\n"
-        },
-        {
-          "_key": "5fc1e6d20016",
-          "_type": "span",
-          "marks": [
-            "strong"
-          ],
-          "text": "Coverage:"
-        },
-        {
-          "_key": "f0d573d33eec",
-          "_type": "span",
-          "marks": [],
-          "text": " Fully-funded"
+          "text": "Country: United Kingdom\n\nLevel: Master’s (Commonwealth Master’s Scholarships)\n\nCoverage: Fully-funded"
         }
       ],
       "markDefs": [],
@@ -2251,7 +2215,7 @@
           "_key": "962530a06bd1",
           "_type": "span",
           "marks": [],
-          "text": "Equally important, the Commonwealth Scholarship targets students from low and middle-income countries. Thus, Nepali students have excellent chances."
+          "text": "The Commonwealth Scholarship Commission (CSC) offers these scholarships only to citizens of eligible Commonwealth countries. Nepal is not a Commonwealth member and is not on the CSC’s eligible-countries list, so Nepali citizens cannot apply. Check the CSC site if your situation involves another eligible citizenship or refugee status."
         }
       ],
       "markDefs": [],
@@ -2267,7 +2231,7 @@
           "marks": [
             "strong"
           ],
-          "text": "Eligibility Requirements:"
+          "text": "CSC eligibility, as published:"
         }
       ],
       "markDefs": [],
@@ -2281,7 +2245,7 @@
           "_key": "4bc0d28923d6",
           "_type": "span",
           "marks": [],
-          "text": "Nepali citizenship and resident"
+          "text": "Citizen of, or refugee status in, an eligible low or middle income Commonwealth country"
         }
       ],
       "level": 1,
@@ -2297,7 +2261,7 @@
           "_key": "c4d19a06b42c",
           "_type": "span",
           "marks": [],
-          "text": "Bachelor’s degree with First Class or Upper Second Class"
+          "text": "Permanent residence in an eligible Commonwealth country"
         }
       ],
       "level": 1,
@@ -2313,7 +2277,7 @@
           "_key": "ec925033819b",
           "_type": "span",
           "marks": [],
-          "text": "Unable to afford UK studies without scholarship"
+          "text": "First degree of at least upper second-class (2:1) honours, or equivalent"
         }
       ],
       "level": 1,
@@ -2329,7 +2293,7 @@
           "_key": "e33eb9540153",
           "_type": "span",
           "marks": [],
-          "text": "Return to Nepal for minimum 2 years"
+          "text": "Unable to afford UK study without this scholarship"
         }
       ],
       "level": 1,
@@ -2345,7 +2309,7 @@
           "_key": "11c3189d0dba",
           "_type": "span",
           "marks": [],
-          "text": "English proficiency"
+          "text": "Return home after the scholarship (the CSC does not allow switching to a Graduate visa)"
         }
       ],
       "level": 1,
@@ -6795,7 +6759,7 @@
           "_key": "2b866d9799bf",
           "_type": "span",
           "marks": [],
-          "text": "Apply for fall intake scholarships (Chevening, Fulbright, Commonwealth)"
+          "text": "Apply for fall intake scholarships (Chevening, Fulbright)"
         }
       ],
       "level": 1,
@@ -7952,6 +7916,70 @@
         }
       ],
       "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "dccbc6935b02",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bbcda033d44a",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "41b50d001510",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2cc7ef33e19a",
+          "_type": "span",
+          "marks": [
+            "eea42094fa44"
+          ],
+          "text": "Gates Cambridge Scholarships"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "eea42094fa44",
+          "_type": "link",
+          "blank": false,
+          "href": "/gates-cambridge-commonwealth-scholarships-international-2027"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "03af2fedb261",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "179bc2a85790",
+          "_type": "span",
+          "marks": [
+            "e661168a09c3"
+          ],
+          "text": "Scholarship assistance in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "e661168a09c3",
+          "_type": "link",
+          "blank": false,
+          "href": "/scholarship-assistance-in-nepal"
+        }
+      ],
       "style": "normal"
     }
   ],

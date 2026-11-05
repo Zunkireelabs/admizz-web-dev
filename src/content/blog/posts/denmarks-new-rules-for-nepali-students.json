@@ -1462,6 +1462,45 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "39a5baefd183",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d4f10ad16afa",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "262b2bd11c92",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3a947c8c81c8",
+          "_type": "span",
+          "marks": [
+            "f2771d9f8200"
+          ],
+          "text": "Study in Denmark from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "f2771d9f8200",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-denmark-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

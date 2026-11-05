@@ -5,16 +5,16 @@ import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in Canada from Nepal - Admizz Education",
+  title: "Study in Canada from Nepal: Study Permit, Costs, Intakes and PAL (2026) | Admizz Education",
   description:
-    "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+    "Study in Canada from Nepal: study permit steps, PAL, funds, costs, intakes, IELTS and scholarships for Nepali students. Get free admission and visa support from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-canada-from-nepal",
   },
   openGraph: {
-    title: "Study in Canada from Nepal - Admizz Education",
+    title: "Study in Canada from Nepal: Study Permit, Costs, Intakes and PAL (2026) | Admizz Education",
     description:
-      "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      "Study in Canada from Nepal: study permit steps, PAL, funds, costs, intakes, IELTS and scholarships for Nepali students. Get free admission and visa support from Admizz.",
     url: "https://admizzeducation.com/study-in-canada-from-nepal",
     siteName: "Admizz Education",
     images: [
@@ -22,16 +22,16 @@ export const metadata: Metadata = {
         url: "/images/og/countries/study-in-canada.jpg",
         width: 1200,
         height: 630,
-        alt: "Study in Canada from Nepal - Admizz Education",
+        alt: "Study in Canada from Nepal: Study Permit, Costs, Intakes and PAL (2026) | Admizz Education",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Study in Canada from Nepal - Admizz Education",
+    title: "Study in Canada from Nepal: Study Permit, Costs, Intakes and PAL (2026) | Admizz Education",
     description:
-      "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      "Study in Canada from Nepal: study permit steps, PAL, funds, costs, intakes, IELTS and scholarships for Nepali students. Get free admission and visa support from Admizz.",
     images: ["/images/og/countries/study-in-canada.jpg"],
   },
 };
@@ -51,7 +51,7 @@ const pageData: NepalVariantData = {
   ],
   introTitle: "Study in Canada from Nepal",
   introContent:
-    "Canada offers college diplomas and university degrees, lets you work 24 hours a week during term, and graduates can stay to work on a Post-Graduation Work Permit.",
+    "To study in Canada from Nepal, you get a letter of acceptance from a Designated Learning Institution, a PAL if your program needs one, show your funds and apply online for a study permit, with biometrics in Kathmandu. Canada offers college diplomas and university degrees, lets you work 24 hours a week during term, and graduates can stay to work on a Post-Graduation Work Permit.",
   whyStudyTitle: "Study, work and stay on after you graduate",
   whyStudyIntro: "Why so many students from Nepal pick Canada.",
   highlightStats: [
@@ -67,19 +67,19 @@ const pageData: NepalVariantData = {
   benefits: [
     {
       title: "Work after you graduate",
-      description: "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Apply for a Post-Graduation Work Permit after your studies: up to 3 years for master's graduates and programs of 2+ years.",
     },
     {
       title: "Work while you study",
-      description: "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Work up to 24 hours a week off campus in term, and unlimited hours during scheduled breaks.",
     },
     {
       title: "Master's without a PAL",
-      description: "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Master's and PhD students at public institutions do not need a provincial attestation letter.",
     },
     {
       title: "College or university",
-      description: "Study in Canada from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      description: "Choose a college for a shorter, practical diploma, or a university for a degree.",
     },
   ],
   visaTitle: "Your study permit, step by step",
@@ -186,6 +186,36 @@ const pageData: NepalVariantData = {
       answer:
         "Colleges offer shorter, practical diplomas; universities offer degrees. For a college PGWP, your program must be in an eligible field of study.",
     },
+    {
+      question: "What documents do I need for a Canada study permit from Nepal?",
+      answer:
+        "You need a valid passport, a letter of acceptance from a DLI, a PAL if your program needs one, proof of funds (tuition plus CAD 23,448), an immigration medical exam if required, academic transcripts and an IELTS, PTE or TOEFL result.",
+    },
+    {
+      question: "How much does a Canada study permit cost?",
+      answer:
+        "The study permit fee is CAD 150 plus CAD 85 for biometrics. Fees can change, so check IRCC before you pay.",
+    },
+  ],
+
+  quickAnswer:
+    "To study in Canada from Nepal, get a letter of acceptance from a Designated Learning Institution, a provincial attestation letter (PAL) if your program needs one, and show tuition plus CAD 23,448 in living funds. You then apply online for a study permit (CAD 150 plus CAD 85 biometrics) and give biometrics in Kathmandu. Master's graduates can apply for a Post-Graduation Work Permit of up to 3 years.",
+  lastChecked: "November 2026",
+  dateModified: "2026-11-05",
+  sourcesTitle: "Official sources",
+  sources: [
+    { label: "IRCC: Study permit, how to apply", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/apply.html" },
+    { label: "IRCC: Proof of financial support", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html" },
+    { label: "IRCC: Provincial attestation letter", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/provincial-attestation-letter.html" },
+    { label: "IRCC: Work after graduation, eligibility", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility.html" },
+  ],
+  relatedLinks: [
+    { label: "Student visa for Canada: a guide for Nepali students", href: "/student-visa-for-canada" },
+    { label: "Canada study permit cap 2026", href: "/canada-study-permit-cap-2026-nepali-students" },
+    { label: "Canada study costs, GIC and PGWP", href: "/canada-study-costs-gic-pgwp-2026-nepali-students" },
+    { label: "Minimum IELTS for Canadian universities", href: "/minimum-ielts-requirement-for-canadian-universities" },
+    { label: "Study in Canada", href: "/study-in-canada", description: "universities, admission and visa overview" },
+    { label: "Study abroad rule changes for Nepali students", href: "/study-abroad-rule-changes", description: "dated visa, funds and work-rule changes" },
   ],
 
   ctaTitle: "Plan your Canada move with us",

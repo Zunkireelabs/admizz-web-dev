@@ -6,16 +6,16 @@ import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in Australia from Nepal 2026: Cost, Visa & Scholarships",
+  title: "Study in Australia from Nepal 2026: Cost, Visa, Scholarships",
   description:
-    "Study in Australia from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+    "Study in Australia from Nepal: Student visa (subclass 500) fee, funds, English scores, work rights and scholarships for Nepali students, with official sources. Free advice from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-australia-from-nepal",
   },
   openGraph: {
-    title: "Study in Australia from Nepal 2026: Cost, Visa & Scholarships",
+    title: "Study in Australia from Nepal 2026: Cost, Visa, Scholarships",
     description:
-      "Study in Australia from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      "Study in Australia from Nepal: Student visa (subclass 500) fee, funds, English scores, work rights and scholarships for Nepali students, with official sources. Free advice from Admizz.",
     url: "https://admizzeducation.com/study-in-australia-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/stuyabroad.webp"],
@@ -454,7 +454,7 @@ const pageData: NepalVariantData = {
 
   ctaTitle: "Ready to Begin Your Study Abroad Journey?",
   ctaContent:
-    "Our expert consultants are here to guide you every step of the way.",
+    "Our expert advisors are here to guide you every step of the way.",
 };
 
 export default async function StudyInAustraliaFromNepalPage() {

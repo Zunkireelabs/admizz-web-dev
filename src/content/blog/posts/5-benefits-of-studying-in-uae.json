@@ -118,6 +118,45 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "ae3d7f04a147",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "20db2bf058bc",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "893d716c55b3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5bb9f87d6613",
+          "_type": "span",
+          "marks": [
+            "7c196a5dd068"
+          ],
+          "text": "Study in the UAE from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "7c196a5dd068",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-dubai-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

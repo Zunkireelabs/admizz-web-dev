@@ -2,7 +2,7 @@
   "_id": "wp-post-4284",
   "_type": "post",
   "_createdAt": "2026-02-10T06:44:12Z",
-  "_updatedAt": "2026-10-08T08:22:11Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "UK Education Gaining Ground in Nepal – Here’s Why",
   "slug": {
     "_type": "slug",
@@ -252,6 +252,45 @@
           "_type": "link",
           "blank": false,
           "href": "http://admizzeducation.com/register"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "8e55d1ffd85c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "13678d670cbe",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "1fed3726801a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f65102aef402",
+          "_type": "span",
+          "marks": [
+            "7dd7ae3689f5"
+          ],
+          "text": "Study in the UK from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "7dd7ae3689f5",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-uk-from-nepal"
         }
       ],
       "style": "normal"

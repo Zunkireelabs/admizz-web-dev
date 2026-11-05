@@ -209,6 +209,45 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "df0b9d44bbf5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1944055cf7c6",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d864ba055baf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "10a895df9d15",
+          "_type": "span",
+          "marks": [
+            "8172f270bd27"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "8172f270bd27",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -237,7 +276,7 @@
     "canonicalUrl": "https://admizzeducation.com/top-5-professional-courses-to-study-in-2024",
     "metaDescription": "Explore the top 5 professional courses to study—Engineering, Medicine, Law, Business, and IT—for a successful and rewarding career path.",
     "metaTitle": "Top 5 professional courses to study in 2024 - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.029Z"

@@ -2,7 +2,7 @@
   "_id": "wp-post-1936",
   "_type": "post",
   "_createdAt": "2026-02-10T06:44:42Z",
-  "_updatedAt": "2026-10-06T22:13:51Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Is this the best time for Nepali students to study in Australia?",
   "slug": {
     "_type": "slug",
@@ -770,6 +770,91 @@
             "strong"
           ],
           "text": "Start your study abroad journey today! Contact Admizz Education for expert guidance and hassle-free admission to top Australian universities."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d65c47bd2f78",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "596a3383eb7a",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Update, November 2026: "
+        },
+        {
+          "_key": "571dfd51dfae",
+          "_type": "span",
+          "marks": [],
+          "text": "from October 2, 2026, Home Affairs applies new rules to Student visas (subclass 500). Its Student visa page says you must apply from outside Australia unless you hold an eligible visa and meet an exemption, and that you cannot bring family members (partners and children) unless you are exempt. Older text below that mentions accompanying family or applying from inside Australia may be out of date. Check the Home Affairs Student visa page and our "
+        },
+        {
+          "_key": "084bece25c14",
+          "_type": "span",
+          "marks": [
+            "d3f05dacf552"
+          ],
+          "text": "student visa changes guide"
+        },
+        {
+          "_key": "1ccda38905a5",
+          "_type": "span",
+          "marks": [],
+          "text": "."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "d3f05dacf552",
+          "_type": "link",
+          "blank": true,
+          "href": "/australia-student-visa-changes-october-2026-nepali-students"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "34ca750b1aed",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d3d33f406a37",
+          "_type": "span",
+          "marks": [],
+          "text": "What the Genuine Student Check Looks At"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "80f63d64597e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7881cc4c8214",
+          "_type": "span",
+          "marks": [],
+          "text": "Study Australia explains that when you apply for a Student visa, officers assess whether you meet the Genuine Student requirement. The questions can cover your current circumstances and ties to your home country, and why you chose Australia and your course. Answer from your own situation and keep your statement consistent with your documents."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1f07c8e60c46",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "97139f7c7aa4",
+          "_type": "span",
+          "marks": [],
+          "text": "The Home Affairs Visa Prices table lists the Student visa (subclass 500) base application charge as AUD 2,500 for most students and AUD 2,050 for ELICOS and Non-Award courses, with an extra AUD 1,530 for each additional applicant aged 18 or over. Charges are reviewed each year, so check the table before you pay."
         }
       ],
       "markDefs": [],

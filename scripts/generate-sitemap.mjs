@@ -77,7 +77,7 @@ const staticPages = [
   { path: "/study-in-uk-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-usa-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-denmark-from-nepal", priority: 0.7, freq: "monthly" },
-  // /study-in-uae-from-nepal is a near-duplicate of this page and canonicalises to it, so it is not listed.
+  // /study-in-uae-from-nepal duplicates this page, so it is noindex and not listed.
   { path: "/study-in-dubai-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-in-finland-from-nepal", priority: 0.7, freq: "monthly" },
   { path: "/study-abroad-from-nepal", priority: 0.8, freq: "monthly" },

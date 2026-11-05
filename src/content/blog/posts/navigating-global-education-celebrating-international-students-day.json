@@ -225,6 +225,45 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "78dfa01ee5cb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "189c19221594",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "fa1c821e5a51",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fd32559149ff",
+          "_type": "span",
+          "marks": [
+            "1d90db9fb361"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "1d90db9fb361",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -253,7 +292,7 @@
     "canonicalUrl": "https://admizzeducation.com/navigating-global-education-celebrating-international-students-day",
     "metaDescription": "Celebrate International Students Day—honoring student unity, cultural diversity, and the global impact of education worldwide.",
     "metaTitle": "Navigating Global Education: Celebrating International Students Day - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.026Z"

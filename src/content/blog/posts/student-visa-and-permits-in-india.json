@@ -353,6 +353,70 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "ca9cd89ab5e4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "44a8686f10ec",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "2fad948aee9b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1f4548e94093",
+          "_type": "span",
+          "marks": [
+            "16ed13fa7a4a"
+          ],
+          "text": "Why More International Students Are Choosing India in 2026?"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "16ed13fa7a4a",
+          "_type": "link",
+          "blank": false,
+          "href": "/why-international-students-choosing-india-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "bf9f3eb469d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d41d13ae6127",
+          "_type": "span",
+          "marks": [
+            "3178e45be150"
+          ],
+          "text": "Study in India from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "3178e45be150",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-india-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -381,7 +445,7 @@
     "canonicalUrl": "https://admizzeducation.com/student-visa-and-permits-in-india",
     "metaDescription": "Get insights on student visa and permits in India—learn about application process, eligibility, required documents, and key guidelines.",
     "metaTitle": "Student Visa and Permits in India - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.016Z"

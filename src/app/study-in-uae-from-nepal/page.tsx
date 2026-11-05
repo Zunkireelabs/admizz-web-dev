@@ -5,6 +5,7 @@ import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Study in UAE from Nepal - Admizz Education",
   description:
     "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",

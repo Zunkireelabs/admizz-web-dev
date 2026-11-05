@@ -223,6 +223,45 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "8dddc6d3dadc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bb81c863afbf",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "85455fc9c7e5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "57f1788ea979",
+          "_type": "span",
+          "marks": [
+            "573d5e62b6a2"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "573d5e62b6a2",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -251,7 +290,7 @@
     "canonicalUrl": "https://admizzeducation.com/diwali-illuminating-education-and-celebrating-achievements",
     "metaDescription": "Diwali, or Deepavali, transcends cultural boundaries, resonating with the spirit of Admizz Education. As the Festival of Lights, it symbolizes the triumph of knowledge and wisdom",
     "metaTitle": "Diwali: Illuminating Education and Celebrating Achievements - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.032Z"

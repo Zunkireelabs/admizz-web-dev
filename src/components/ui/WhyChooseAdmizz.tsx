@@ -10,7 +10,7 @@ export default function WhyChooseAdmizz() {
           Why Choose Admizz?
         </h2>
         <p className="text-center text-base text-white/80 mb-9">
-          Unlike single-country consultancies, we offer:
+          Unlike single-country providers, we offer:
         </p>
 
         {/* Cards */}
@@ -24,7 +24,7 @@ export default function WhyChooseAdmizz() {
             </div>
             <h3 className="text-[17px] font-bold mb-2.5">Multi-Destination Expertise</h3>
             <p className="text-sm text-white/85 leading-relaxed m-0">
-              12+ countries, one consultancy. Not limited to single-country advice.
+              12+ countries, one partner. Not limited to single-country advice.
             </p>
           </div>
 

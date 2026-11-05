@@ -2,7 +2,7 @@
   "_id": "wp-post-10015",
   "_type": "post",
   "_createdAt": "2026-02-10T06:43:10Z",
-  "_updatedAt": "2026-10-06T22:13:51Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Study in Europe from Nepal: Complete Guide 2025",
   "slug": {
     "_type": "slug",
@@ -11,6 +11,28 @@
   "publishedAt": "2025-10-15T10:07:36",
   "excerpt": "Studying in Europe is an exciting opportunity for Nepali students seeking world-class education, international exposure, and career growth. Europe is [&hellip;]",
   "content": [
+    {
+      "_key": "57405c51d2e7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "416ad72d6ad2",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Note, November 2026: "
+        },
+        {
+          "_key": "2030cef8167d",
+          "_type": "span",
+          "marks": [],
+          "text": "this article was written in 2025. Fees, visa rules and deadlines change every year, so use it as a starting guide and confirm current figures on each country’s official immigration and university pages before you apply."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
     {
       "_key": "becf08949847",
       "_type": "block",
@@ -1671,6 +1693,45 @@
           "_type": "link",
           "blank": false,
           "href": "https://admizzeducation.com/contact/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "9388d748df8a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1fe0045c80b9",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c5a145534685",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dd76238c6d92",
+          "_type": "span",
+          "marks": [
+            "7dda05b364fa"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "7dda05b364fa",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
         }
       ],
       "style": "normal"

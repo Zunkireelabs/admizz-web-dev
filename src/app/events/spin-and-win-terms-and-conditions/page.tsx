@@ -9,7 +9,7 @@ const PAGE_URL =
 export const metadata: Metadata = {
   title: "Spin & Win Terms & Conditions | Admizz Education",
   description:
-    "Official Spin & Win Terms & Conditions: one spin per person, 30-day claim window, prizes redeemable only as a discount on paid Admizz Education services. Read full rules.",
+    "Official Spin & Win rules: one spin per person, a 30-day claim window, and prizes redeemable only as a discount on paid Admizz services.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Spin & Win Terms & Conditions | Admizz Education",
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       "Read the official rules for the Admizz Education Spin & Win campaign — eligibility, prize claim process, and the 30-day redemption window.",
     url: PAGE_URL,
     siteName: "Admizz Education",
+    images: [{ url: "/images/og/stuyabroad.webp", alt: "Admizz Education" }],
     type: "website",
   },
 };

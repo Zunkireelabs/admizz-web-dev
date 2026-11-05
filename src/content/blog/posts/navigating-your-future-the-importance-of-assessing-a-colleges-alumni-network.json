@@ -258,6 +258,45 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "9641809b3b9c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ea680e6de618",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "fd336662ce34",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5f2be5dca661",
+          "_type": "span",
+          "marks": [
+            "fb7656b5edea"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "fb7656b5edea",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -286,7 +325,7 @@
     "canonicalUrl": "https://admizzeducation.com/navigating-your-future-the-importance-of-assessing-a-colleges-alumni-network",
     "metaDescription": "Learn why assessing a college’s alumni network is vital—it boosts career opportunities, mentorship, and valuable industry connections.",
     "metaTitle": "Navigating Your Future: The Importance of Assessing a College's Alumni Network - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.026Z"

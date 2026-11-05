@@ -184,6 +184,45 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "bb08f20f7e85",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "33a58a6f7c09",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "13a6beffe649",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6b4c81b08319",
+          "_type": "span",
+          "marks": [
+            "f8608d929ba5"
+          ],
+          "text": "Study in India from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "f8608d929ba5",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-india-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

@@ -1270,6 +1270,70 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "4ef47513aca2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d554ce7808c5",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d713301b5044",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f28df7c95e94",
+          "_type": "span",
+          "marks": [
+            "1e85ca123eb5"
+          ],
+          "text": "September 15, 2026: What Every F-1 Student Must Know Before the Deadline"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "1e85ca123eb5",
+          "_type": "link",
+          "blank": false,
+          "href": "/us-f1-september-15-deadline-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "9918ef8dc6d0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "149557301b40",
+          "_type": "span",
+          "marks": [
+            "d941ff3ac28b"
+          ],
+          "text": "Study in the USA from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "d941ff3ac28b",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-usa-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

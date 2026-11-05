@@ -1385,6 +1385,70 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "14e6735a758b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1b2cba1cda85",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "42e82e65b73b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "666dfc710c94",
+          "_type": "span",
+          "marks": [
+            "d7d7085daa50"
+          ],
+          "text": "IELTS Exam Preparation Guide: Format, Tips & Scoring Explained for Study Abroad"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "d7d7085daa50",
+          "_type": "link",
+          "blank": false,
+          "href": "/ielts-exam-preparation-guide-format-tips-scoring-explained-for-study-abroad"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "32633f1dd3e7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f57ec0143ed4",
+          "_type": "span",
+          "marks": [
+            "5e57a990cf8a"
+          ],
+          "text": "IELTS, PTE and test preparation"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "5e57a990cf8a",
+          "_type": "link",
+          "blank": false,
+          "href": "/test-prep"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

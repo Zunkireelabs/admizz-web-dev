@@ -2,8 +2,8 @@
   "_id": "wp-post-10688",
   "_type": "post",
   "_createdAt": "2026-02-10T06:42:44Z",
-  "_updatedAt": "2026-10-08T05:22:53Z",
-  "title": "Study in Australia Without IELTS: Updated Rules & Acceptable Alternatives",
+  "_updatedAt": "2026-11-04T09:00:00Z",
+  "title": "Study in Australia Without IELTS? English Test Options (2026 Update)",
   "slug": {
     "_type": "slug",
     "current": "study-in-australia-without-ielts"
@@ -11,6 +11,69 @@
   "publishedAt": "2025-11-20T12:18:49",
   "excerpt": "By Admizz Education — Trusted Study Abroad Platform Australia has always been one of the most preferred destinations for international [&hellip;]",
   "content": [
+    {
+      "_key": "ba884a331525",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6d69ff93ba93",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Update, November 2026: "
+        },
+        {
+          "_key": "459c9ed26b2b",
+          "_type": "span",
+          "marks": [],
+          "text": "This guide was first written in 2025. What English evidence you must attach to an Australian student visa depends on your passport country and your education provider, and for Nepal the requirements were reported to have been raised to Level 3 on January 8, 2026 ("
+        },
+        {
+          "_key": "b341ef0528c5",
+          "_type": "span",
+          "marks": [
+            "4682e6bc5d70"
+          ],
+          "text": "see our Level 3 guide"
+        },
+        {
+          "_key": "e5b4ba0edc32",
+          "_type": "span",
+          "marks": [],
+          "text": "). Under Level 3, English test results and proof of funds are expected upfront, and an MOI certificate or a university-only English test may not be enough for the visa itself. Use the "
+        },
+        {
+          "_key": "df4404cf550c",
+          "_type": "span",
+          "marks": [
+            "b3af7fae0d4e"
+          ],
+          "text": "Department of Home Affairs Document Checklist Tool"
+        },
+        {
+          "_key": "45917ea329c9",
+          "_type": "span",
+          "marks": [],
+          "text": " for your own passport and provider before you pay a deposit, and do not rely on an exemption from an English test unless the tool or your university confirms it in writing. Home Affairs does not publish country Evidence Levels, so the Level 3 statement is unconfirmed; use the Document Checklist Tool for what applies to you."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "4682e6bc5d70",
+          "_type": "link",
+          "blank": true,
+          "href": "/australia-assessment-level-3-nepal-2026"
+        },
+        {
+          "_key": "b3af7fae0d4e",
+          "_type": "link",
+          "blank": true,
+          "href": "https://immi.homeaffairs.gov.au/visas/web-evidentiary-tool"
+        }
+      ],
+      "style": "normal"
+    },
     {
       "_key": "c919628dd62e",
       "_type": "block",
@@ -1073,7 +1136,7 @@
           "_key": "86f2a5351f2e",
           "_type": "span",
           "marks": [],
-          "text": "Duolingo (if accepted by university and course type)"
+          "text": "Duolingo is accepted by some universities for admission, but check the Department's list before relying on it for the visa"
         }
       ],
       "level": 1,
@@ -1119,7 +1182,7 @@
           "marks": [
             "strong"
           ],
-          "text": "Acceptable Alternatives to IELTS for Australia (2025)"
+          "text": "Acceptable Alternatives to IELTS for Australia"
         }
       ],
       "markDefs": [],
@@ -1553,7 +1616,7 @@
           "_key": "c9bb253db3ae",
           "_type": "span",
           "marks": [],
-          "text": "Studying in Australia without IELTS is not only possible but also easier than ever in 2025. With multiple English proficiency alternatives—such as PTE, TOEFL, Duolingo, MOI, and pathway programs—students now have more options to begin their international education journey."
+          "text": "Studying in Australia without IELTS may be possible, depending on your passport country and education provider. With multiple English proficiency alternatives—such as PTE, TOEFL, Duolingo, MOI, and pathway programs—students now have more options to begin their international education journey."
         }
       ],
       "markDefs": [],
@@ -1636,6 +1699,70 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "d691eea37096",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a5b06b7b4558",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "acbfe3b96c28",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "812ccb90de60",
+          "_type": "span",
+          "marks": [
+            "447a925c3972"
+          ],
+          "text": "Changing Providers in Australia: Student Visa Update"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "447a925c3972",
+          "_type": "link",
+          "blank": false,
+          "href": "/australia-student-visa-change-provider-apply-outside-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "592a681d3b2b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "64014e81d4e2",
+          "_type": "span",
+          "marks": [
+            "bf178c7712e0"
+          ],
+          "text": "Study in Australia from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "bf178c7712e0",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-australia-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -1670,8 +1797,8 @@
   "seo": {
     "_type": "seo",
     "canonicalUrl": "https://admizzeducation.com/study-in-australia-without-ielts",
-    "metaDescription": "Study in Australia without IELTS using MOI, PTE, TOEFL or Duolingo. Learn updated rules, accepted alternatives & apply with Admizz Education.",
-    "metaTitle": "Study in Australia without IELTS - Admizz Education",
+    "metaDescription": "Which English tests Australian universities accept instead of IELTS, and why Nepali student visa applicants may need an approved test result upfront in 2026.",
+    "metaTitle": "Study in Australia Without IELTS? 2026 English Options",
     "noIndex": false
   },
   "faqItems": null,

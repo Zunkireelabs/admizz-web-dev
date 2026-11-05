@@ -108,6 +108,70 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "ce8307f96242",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1f5faf8ee7f9",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "a05b030ca4fa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b9ade41499ee",
+          "_type": "span",
+          "marks": [
+            "420eea631e3a"
+          ],
+          "text": "Why More International Students Are Choosing India in 2026?"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "420eea631e3a",
+          "_type": "link",
+          "blank": false,
+          "href": "/why-international-students-choosing-india-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "9fc41a3e12e3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "026d6711afc9",
+          "_type": "span",
+          "marks": [
+            "cbff6034c363"
+          ],
+          "text": "Study in India from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "cbff6034c363",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-india-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -136,7 +200,7 @@
     "canonicalUrl": "https://admizzeducation.com/about-higher-education-in-india",
     "metaDescription": "Learn about higher education in India—diverse programs, prestigious institutions, affordable tuition, and a growing global reputation.",
     "metaTitle": "About Higher Education in India - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.022Z"

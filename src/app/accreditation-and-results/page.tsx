@@ -19,7 +19,7 @@ const post = {
     },
     {
       "heading": "What we do not promise",
-      "body": "No consultancy decides a visa, so we never guarantee one. We do not guarantee scholarships or admission either, and we never use documents that are not yours or not true. If a profile is weak, we say so and discuss realistic options. For the questions to ask any consultancy, read our [checklist for choosing a genuine education consultancy](/how-to-choose-genuine-education-consultancy-nepal-2026)."
+      "body": "No partner decides a visa, so we never guarantee one. We do not guarantee scholarships or admission either, and we never use documents that are not yours or not true. If a profile is weak, we say so and discuss realistic options. For the questions to ask any partner, read our [checklist for choosing a genuine study abroad partner](/how-to-choose-genuine-education-partner-nepal-2026)."
     },
     {
       "heading": "How we keep our information accurate",

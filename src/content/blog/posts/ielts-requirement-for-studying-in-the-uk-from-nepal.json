@@ -2,7 +2,7 @@
   "_id": "wp-post-9175",
   "_type": "post",
   "_createdAt": "2026-02-10T06:44:02Z",
-  "_updatedAt": "2026-10-06T22:13:51Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "IELTS Requirement for Studying in the UK from Nepal",
   "slug": {
     "_type": "slug",
@@ -131,7 +131,7 @@
           "_key": "64236cbfc6e8",
           "_type": "span",
           "marks": [],
-          "text": "Minimum IELTS Score for UK Student Visa (Tier 4 – Student Route)"
+          "text": "Minimum IELTS Score for UK Student Visa (Student Route)"
         }
       ],
       "markDefs": [],
@@ -214,7 +214,7 @@
           "_key": "cf4139a63c61",
           "_type": "span",
           "marks": [],
-          "text": "University-Wise IELTS Score Requirements (2025 Entry)"
+          "text": "University-Wise IELTS Score Requirements (2025 Entry: Check Current Requirements)"
         }
       ],
       "markDefs": [],

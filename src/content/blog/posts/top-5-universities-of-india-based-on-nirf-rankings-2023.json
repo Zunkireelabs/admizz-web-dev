@@ -224,6 +224,70 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "729ca59560a0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3ab546fb863a",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "830c14ea25d6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "44b4b7e98f19",
+          "_type": "span",
+          "marks": [
+            "fdfc5801fed2"
+          ],
+          "text": "ICCR Scholarship 2026: Study in India"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "fdfc5801fed2",
+          "_type": "link",
+          "blank": false,
+          "href": "/iccr-scholarship-2026-study-in-india"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "f45aff5b6c63",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1570de6cb9f8",
+          "_type": "span",
+          "marks": [
+            "39a723b2a042"
+          ],
+          "text": "Study in India from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "39a723b2a042",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-india-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -252,7 +316,7 @@
     "canonicalUrl": "https://admizzeducation.com/top-5-universities-of-india-based-on-nirf-rankings-2023",
     "metaDescription": "Explore the top 5 universities in India as per NIRF Rankings—learn about academic excellence, research, and campus facilities.",
     "metaTitle": "Top 5 Universities of India Based on NIRF Rankings 2023 - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.030Z"

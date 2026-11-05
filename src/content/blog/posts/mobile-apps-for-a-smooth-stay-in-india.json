@@ -659,6 +659,70 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "fd05c2db7646",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "22aaad0f7419",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "ec94705b4bf5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "35001622f11c",
+          "_type": "span",
+          "marks": [
+            "6a6e31c2c67a"
+          ],
+          "text": "Why More International Students Are Choosing India in 2026?"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "6a6e31c2c67a",
+          "_type": "link",
+          "blank": false,
+          "href": "/why-international-students-choosing-india-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "afbf3d3ec252",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d7f9335cef35",
+          "_type": "span",
+          "marks": [
+            "26d561f13b4a"
+          ],
+          "text": "Study in India from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "26d561f13b4a",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-india-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

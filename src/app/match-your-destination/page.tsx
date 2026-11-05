@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "Answer 3 quick questions and we'll match you to the country that fits your study field, lifestyle, and budget.",
     url: PAGE_URL,
     siteName: "Admizz Education",
+    images: [{ url: "/images/og/stuyabroad.webp", alt: "Admizz Education" }],
     type: "website",
   },
 };

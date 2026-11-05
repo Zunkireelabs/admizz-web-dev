@@ -399,7 +399,7 @@
           "marks": [
             "strong"
           ],
-          "text": "2 years after completing their degree if they apply by December 31, 2026 (18 months for applications from January 1, 2027)"
+          "text": "18 months after completing their degree (3 years for PhD graduates)"
         },
         {
           "_key": "71e568a7d407",
@@ -1020,6 +1020,70 @@
           "_type": "link",
           "blank": false,
           "href": "https://admizzeducation.com/register/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "dc107c836ebf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "715f823c9b8b",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "0cef907d9835",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c537e5a46cd9",
+          "_type": "span",
+          "marks": [
+            "e23f7732559b"
+          ],
+          "text": "UK Settlement Doubles to 10 Years: What Students Need"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "e23f7732559b",
+          "_type": "link",
+          "blank": false,
+          "href": "/uk-earned-settlement-10-years-ilr-international-students-2027"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "5be50a3d7cb7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f37a231e6041",
+          "_type": "span",
+          "marks": [
+            "c0b7cc5fec55"
+          ],
+          "text": "Study in the UK from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "c0b7cc5fec55",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-uk-from-nepal"
         }
       ],
       "style": "normal"

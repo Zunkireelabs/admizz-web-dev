@@ -149,6 +149,70 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "42a0bb1cd719",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "831bc4f49901",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "35ce58875d22",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ad6cd25c16c4",
+          "_type": "span",
+          "marks": [
+            "0d85220be30d"
+          ],
+          "text": "Top Courses To Study at KIIT University"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "0d85220be30d",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-courses-to-study-at-kiit-university"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "e2e6fa263c74",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "84306ac09ee9",
+          "_type": "span",
+          "marks": [
+            "62fe6d8c6ed8"
+          ],
+          "text": "Study in India from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "62fe6d8c6ed8",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-india-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -177,7 +241,7 @@
     "canonicalUrl": "https://admizzeducation.com/3-reasons-why-you-should-study-at-kiit-university",
     "metaDescription": "Discover 3 compelling reasons to study at KIIT University – top-ranked education, global exposure & world-class campus life.",
     "metaTitle": "3 Reasons Why You Should Study at KIIT University - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.024Z"

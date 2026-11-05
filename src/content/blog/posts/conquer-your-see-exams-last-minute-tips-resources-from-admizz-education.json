@@ -549,6 +549,45 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "a88d45f02d5a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "082e7c151e68",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "ee6a9aa1589c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "16d3b870435f",
+          "_type": "span",
+          "marks": [
+            "1c043a196ba3"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "1c043a196ba3",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -577,7 +616,7 @@
     "canonicalUrl": "https://admizzeducation.com/conquer-your-see-exams-last-minute-tips-resources-from-admizz-education",
     "metaDescription": "Conquer your SEE exams with proven tips—effective study plans, time management, and stress relief for confident success!",
     "metaTitle": "Conquer Your SEE Exams - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.031Z"

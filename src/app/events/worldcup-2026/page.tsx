@@ -16,14 +16,14 @@ import AdmizzStory from "@/components/wc2026/sections/AdmizzStory";
 const CANONICAL = "https://admizzeducation.com/events/worldcup-2026";
 
 export const metadata: Metadata = {
-  title: "FIFA World Cup 2026 — Live Hub & Predict to Win | Admizz Education",
+  title: "FIFA World Cup 2026 Live Hub & Predictor | Admizz",
   description:
-    "The premium World Cup 2026 hub. Live scores, full bracket, group standings, top scorers — predict the next match and win prizes plus free study-abroad counseling with Admizz.",
+    "World Cup 2026 hub: live scores, bracket, group standings and top scorers. Predict the next match to win prizes and free study-abroad counseling.",
   alternates: { canonical: CANONICAL },
   openGraph: {
-    title: "FIFA World Cup 2026 — Live Hub & Predict to Win | Admizz Education",
+    title: "FIFA World Cup 2026 Live Hub & Predictor | Admizz",
     description:
-      "The premium World Cup 2026 hub. Live scores, full bracket, group standings, top scorers — predict the next match and win prizes plus free study-abroad counseling with Admizz.",
+      "World Cup 2026 hub: live scores, bracket, group standings and top scorers. Predict the next match to win prizes and free study-abroad counseling.",
     url: CANONICAL,
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],

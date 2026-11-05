@@ -8,7 +8,7 @@
  * what it renders. A follow-up can replace these call sites with a plain
  * `post.featuredImage.card` and delete this file.
  *
- * scripts/export-sanity-to-repo.mjs wrote three renditions per post, matching
+ * the one-time export from Sanity wrote three renditions per post, matching
  * what each call site asked the CDN for:
  *
  *   .width(1200).auto("format")          article hero   -> <slug>-1200.webp
@@ -72,7 +72,7 @@ export function urlFor(source: unknown): ImageUrlBuilderLike {
     // rather than a silently broken <img src="">.
     throw new Error(
       `urlFor() received a non-local image: ${JSON.stringify(source)?.slice(0, 200)}. ` +
-        "Blog images come from src/content/blog via scripts/export-sanity-to-repo.mjs.",
+        "Blog images come from src/content/blog (public/images/blog).",
     );
   }
   let width: number | null = null;

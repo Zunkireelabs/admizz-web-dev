@@ -2,7 +2,7 @@
   "_id": "wp-post-8678",
   "_type": "post",
   "_createdAt": "2026-02-10T06:44:08Z",
-  "_updatedAt": "2026-10-06T22:13:51Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Minimum IELTS Requirement for Canadian Universities",
   "slug": {
     "_type": "slug",
@@ -231,35 +231,7 @@
           "_key": "472d2e3244b3",
           "_type": "span",
           "marks": [],
-          "text": "However, some institutions and programs may accept lower scores under special categories like the "
-        },
-        {
-          "_key": "05478b69ea1c",
-          "_type": "span",
-          "marks": [
-            "strong"
-          ],
-          "text": "Student Direct Stream (SDS)"
-        },
-        {
-          "_key": "066949afef41",
-          "_type": "span",
-          "marks": [],
-          "text": " or offer "
-        },
-        {
-          "_key": "a0b4cd3bbcde",
-          "_type": "span",
-          "marks": [
-            "strong"
-          ],
-          "text": "conditional admissions"
-        },
-        {
-          "_key": "9a7048371627",
-          "_type": "span",
-          "marks": [],
-          "text": "."
+          "text": "However, some institutions and programs may offer conditional admission to applicants who are still below the required score."
         }
       ],
       "markDefs": [],
@@ -401,48 +373,49 @@
       "style": "normal"
     },
     {
-      "_key": "b3b09e01e89f",
+      "_key": "4c2875633196",
       "_type": "block",
       "children": [
         {
-          "_key": "a8a86182acce",
+          "_key": "52e2ce35edd4",
           "_type": "span",
           "marks": [
             "strong"
           ],
-          "text": "Choose SDS Route"
+          "text": "Check the current study permit rules: "
         },
         {
-          "_key": "ececa549f130",
+          "_key": "e1bace4239f7",
           "_type": "span",
           "marks": [],
-          "text": "\n"
+          "text": "The Student Direct Stream (SDS) ended on November 8, 2024, so all applicants now apply through the regular study permit stream. Confirm the English score your university and IRCC require before you apply. See the "
         },
         {
-          "_key": "e8fdbf71fc28",
-          "_type": "span",
-          "marks": [],
-          "text": "Under SDS (Student Direct Stream), a minimum "
-        },
-        {
-          "_key": "0b4b159a8613",
+          "_key": "56a02fd066fc",
           "_type": "span",
           "marks": [
-            "strong"
+            "e19bf69abf21"
           ],
-          "text": "6.0 in each band"
+          "text": "IRCC notice on the end of the SDS"
         },
         {
-          "_key": "382f063a7f6e",
+          "_key": "2a81d1c8aee8",
           "_type": "span",
           "marks": [],
-          "text": " is often sufficient for quicker visa processing."
+          "text": "."
         }
       ],
-      "level": 1,
+      "markDefs": [
+        {
+          "_key": "e19bf69abf21",
+          "_type": "link",
+          "blank": true,
+          "href": "https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/end-student-direct-stream-nigeria-student-express.html"
+        }
+      ],
+      "style": "normal",
       "listItem": "number",
-      "markDefs": [],
-      "style": "normal"
+      "level": 1
     },
     {
       "_key": "ec3a01528ac5",
@@ -701,6 +674,48 @@
           "href": "https://admizzeducation.com/contact/"
         }
       ],
+      "style": "normal"
+    },
+    {
+      "_key": "8006ea4d3076",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "defa8da5682e",
+          "_type": "span",
+          "marks": [],
+          "text": "Language Rules After Graduation: The PGWP"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d32fa9670cfb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e2ec78573612",
+          "_type": "span",
+          "marks": [],
+          "text": "Your English score also matters after you finish. To apply for a Post-Graduation Work Permit, IRCC says most applicants now have to give proof of language results. For bachelor’s, master’s and doctoral graduates the minimum is Canadian Language Benchmark (CLB) 7 in all four language areas, and for college and polytechnic programs it is CLB 5."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "52137c995ad3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cac458316678",
+          "_type": "span",
+          "marks": [],
+          "text": "IRCC also says graduating from a designated learning institution does not automatically make you eligible, your program must have been at least 8 months long, and you must apply within 180 days of confirmation that you completed it. Check which test results IRCC accepts for the CLB levels before you choose a test date."
+        }
+      ],
+      "markDefs": [],
       "style": "normal"
     }
   ],

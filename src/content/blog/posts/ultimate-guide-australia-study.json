@@ -2,7 +2,7 @@
   "_id": "wp-post-3997",
   "_type": "post",
   "_createdAt": "2026-02-10T06:44:18Z",
-  "_updatedAt": "2026-10-08T05:23:00Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "The Ultimate Guide to Studying in Australia",
   "slug": {
     "_type": "slug",
@@ -11,6 +11,69 @@
   "publishedAt": "2025-06-05T05:31:18",
   "excerpt": "Australia continues to be one of the top study destinations for Nepali students seeking global exposure, high-quality education, and excellent [&hellip;]",
   "content": [
+    {
+      "_key": "df091465df76",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ed07ddc4bd6e",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Update, November 2026: "
+        },
+        {
+          "_key": "6bef523cde03",
+          "_type": "span",
+          "marks": [],
+          "text": "Australian student visa requirements for Nepali applicants changed in 2026. Nepal was reported to have been moved to Level 3 on January 8, 2026, which expects English test results and proof of funds upfront. Read our "
+        },
+        {
+          "_key": "fd5dce13203b",
+          "_type": "span",
+          "marks": [
+            "d5ee08c562ea"
+          ],
+          "text": "Australia Level 3 guide for Nepal"
+        },
+        {
+          "_key": "da51f16231b9",
+          "_type": "span",
+          "marks": [],
+          "text": " and check the "
+        },
+        {
+          "_key": "73f923157f2a",
+          "_type": "span",
+          "marks": [
+            "42e73ca08a87"
+          ],
+          "text": "Document Checklist Tool"
+        },
+        {
+          "_key": "9bf53966d445",
+          "_type": "span",
+          "marks": [],
+          "text": " before you plan costs, work rights or PR pathways. Home Affairs does not publish country Evidence Levels, so the Level 3 statement is unconfirmed; use the Document Checklist Tool for what applies to you."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "d5ee08c562ea",
+          "_type": "link",
+          "blank": true,
+          "href": "/australia-assessment-level-3-nepal-2026"
+        },
+        {
+          "_key": "42e73ca08a87",
+          "_type": "link",
+          "blank": true,
+          "href": "https://immi.homeaffairs.gov.au/visas/web-evidentiary-tool"
+        }
+      ],
+      "style": "normal"
+    },
     {
       "_key": "e57b60124e68",
       "_type": "block",

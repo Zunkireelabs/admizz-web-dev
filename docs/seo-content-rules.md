@@ -38,3 +38,6 @@ Applies to every new blog post, answer page and comparison page. Enforced where 
 
 ## Legacy exemptions
 `LEGACY_EXEMPT` in `scripts/validate-content.mjs` lists older posts that lack a quickAnswer or Sources section. Backfill them and remove them from the list. Never add a new post to it.
+
+## One design for every blog
+New posts must not carry their own `<style>` or hand-written layout CSS. Write them as sections (`GeneratedBlogPost`) so they match every other blog. Older posts that still bring their own CSS are listed in `src/data/own-css-posts.json` and are restyled by `src/components/lib/blog-rich-styles.ts`. `scripts/validate-content.mjs` fails the build if a post outside that list carries its own `<style>`. Never add a new slug to the list.

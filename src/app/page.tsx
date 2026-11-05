@@ -12,14 +12,14 @@ import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 export const metadata: Metadata = {
   title: "Your Partner in Study Abroad - Admizz Education",
   description:
-    "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success- all through one global portal.",
+    "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities and prepare for success, all in one portal.",
   alternates: {
     canonical: "https://admizzeducation.com/",
   },
   openGraph: {
     title: "Your Partner in Study Abroad - Admizz Education",
     description:
-      "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities, and prepare for success- all through one global portal.",
+      "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities and prepare for success, all in one portal.",
     url: "https://admizzeducation.com/",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],
@@ -173,7 +173,7 @@ const faqItems = [
       "The timeline depends on the country, intake, university, and program. Typically, the entire admission cycle—shortlisting, application submission, and receiving an offer—takes 2 to 12 weeks. Early applicants usually receive faster decisions.",
   },
   {
-    question: "10. Why should I choose Admizz Education over other study-abroad consultancies?",
+    question: "10. Why should I choose Admizz Education over other study-abroad providers?",
     answer:
       "Admizz combines expert counselors with advanced technology to offer accurate university matches, faster processing, transparent workflows, and a higher visa success rate. Students benefit from personalized support, global partner universities, and a seamless digital platform.",
   },
@@ -467,7 +467,7 @@ export default function Home() {
                   <svg className="w-7 h-7" style={{ color: "#E86F3C" }} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /></svg>
                 </div>
                 <h3 className="text-[20px] font-bold mb-3" style={{ color: "#0D1282" }}>Recruitment Partners</h3>
-                <p className="text-[14px] leading-[1.7] mb-6" style={{ color: "#5a6275" }}>With powerful platforms for education consultants, Admizz Education ensures students find the right institutions easily and partners grow their network.</p>
+                <p className="text-[14px] leading-[1.7] mb-6" style={{ color: "#5a6275" }}>With powerful platforms for education advisors, Admizz Education ensures students find the right institutions easily and partners grow their network.</p>
                 <Link href="/recruitment-partners" className="inline-flex items-center gap-2 font-semibold text-[14px] py-3 -my-3 transition-colors duration-200 hover:opacity-80" style={{ color: "#E86F3C" }}>Partner With Us <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></Link>
               </div>
             </div>
@@ -480,7 +480,7 @@ export default function Home() {
             </div>
             <div className="rounded-2xl px-5 sm:px-8 py-8 md:py-10 flex flex-col justify-center" style={{ background: "linear-gradient(135deg, #1E6DEB 0%, #0D1282 100%)" }}>
               <p className="text-[13px] font-semibold uppercase tracking-[0.12em] mb-4" style={{ color: "#FCB730" }}>Why Admizz?</p>
-              <h3 className="text-white font-bold text-[22px] md:text-[26px] leading-tight mb-4">We Are Not Just An Education Consultancy</h3>
+              <h3 className="text-white font-bold text-[22px] md:text-[26px] leading-tight mb-4">We Are Not Just An Study Abroad Partner</h3>
               <p className="text-white/80 text-[15px] leading-[1.7] mb-8">We Are the Future of International Student Recruitment.</p>
               <Link href="/register" className="inline-flex items-center gap-2 font-bold text-[15px] px-7 py-3.5 rounded-lg self-start transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5" style={{ background: "#FFD800", color: "#0D1282" }}>Book a Free Consultation <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></Link>
             </div>

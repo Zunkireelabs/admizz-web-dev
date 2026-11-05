@@ -2,7 +2,7 @@
   "_id": "wp-post-1517",
   "_type": "post",
   "_createdAt": "2026-02-10T06:47:09Z",
-  "_updatedAt": "2026-10-06T22:13:51Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Five Reasons Why You Should Study in Australia",
   "slug": {
     "_type": "slug",
@@ -206,6 +206,112 @@
           "_type": "link",
           "blank": false,
           "href": "https://admizzeducation.com/contact/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "649a3716e825",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "14c46cc9232e",
+          "_type": "span",
+          "marks": [],
+          "text": "Working While You Study in Australia"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "635b1d8bf773",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3a56abaaf6bc",
+          "_type": "span",
+          "marks": [],
+          "text": "Study Australia, the Australian Government’s study site, says a student visa holder can work up to 48 hours per fortnight while their course is in session, and unlimited hours during scheduled course breaks. You cannot work before your course starts unless you hold another visa that allows it, and your own visa conditions may vary, so check them on VEVO."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "80826bea3e16",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ff77f79f3728",
+          "_type": "span",
+          "marks": [],
+          "text": "After graduation, the Temporary Graduate visa (subclass 485) is open to applicants aged 35 or under, unless an exception applies, who held a Student visa in the last 6 months and recently completed an eligible qualification at a CRICOS-registered provider."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0758b49524ae",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "27b7e637acac",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "8988c0c2a632",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8c9f6a0fe6e8",
+          "_type": "span",
+          "marks": [
+            "fa343fc23a20"
+          ],
+          "text": "Changing Providers in Australia: Student Visa Update"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "fa343fc23a20",
+          "_type": "link",
+          "blank": false,
+          "href": "/australia-student-visa-change-provider-apply-outside-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "3bf4ab310ad0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "933463e9f841",
+          "_type": "span",
+          "marks": [
+            "bbb8bc5da909"
+          ],
+          "text": "Study in Australia from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "bbb8bc5da909",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-australia-from-nepal"
         }
       ],
       "style": "normal"

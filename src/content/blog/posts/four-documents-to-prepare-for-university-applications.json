@@ -186,6 +186,70 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "04d8d1dee510",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "42667a203c2e",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "f863d6fee298",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "679dc91c15d9",
+          "_type": "span",
+          "marks": [
+            "935f8a689373"
+          ],
+          "text": "How Nepali Students Can Prepare for GRE, GMAT, and SAT Exams"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "935f8a689373",
+          "_type": "link",
+          "blank": false,
+          "href": "/foreign-university-admission-from-nepal"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "cd65e0a1dcbe",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2e8d0a831e2e",
+          "_type": "span",
+          "marks": [
+            "0abdff2bd6fa"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "0abdff2bd6fa",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

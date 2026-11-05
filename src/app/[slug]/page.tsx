@@ -12,6 +12,7 @@ import CTAForm from "@/components/ui/CTAForm";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import { postFaqs } from "@/data/post-faqs";
 import { postSeoOverrides } from "@/data/post-seo-overrides";
+import { postFacts as writtenPostFacts } from "@/data/post-facts";
 import { postFaqSchemaOnly } from "@/data/post-faq-schema";
 import { postContentPatches } from "@/data/post-content-patches";
 import { postSources } from "@/data/post-sources";
@@ -162,6 +163,14 @@ export default async function BlogPostPage({ params }: PageProps) {
     })),
   } : null;
 
+  const bodyWords = JSON.stringify(post.content || "").replace(/<[^>]+>|\\n|"[a-zA-Z_]+":/g, " ").split(/\s+/).filter(Boolean).length;
+  const postFacts = writtenPostFacts[post.slug.current] ?? [
+    ...(post.categories?.[0] ? [{ label: "Topic", value: post.categories[0].title }] : []),
+    ...(formattedDate ? [{ label: "Published", value: formattedDate }] : []),
+    { label: "Reading Time", value: `${Math.max(2, Math.round(bodyWords / 220))} min read` },
+    { label: "Written By", value: "Admizz Education" },
+  ];
+
   return (
     <main>
       <script
@@ -239,7 +248,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             )}
 
             {/* Body */}
-            {post.content && <PortableTextRenderer content={bodyContent ?? post.content} />}
+            {post.content && <PortableTextRenderer content={bodyContent ?? post.content} factsTitle="At a Glance" facts={postFacts} />}
 
             {/* Visible FAQ (only for posts whose body has none) — same
                 heading/paragraph styles as the body, so it reads as native. */}

@@ -66,6 +66,45 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "6f94feb460ea",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "efc3c1cf5689",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "fe6847f4643c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6f24381636fe",
+          "_type": "span",
+          "marks": [
+            "f5fd034d2569"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "f5fd034d2569",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -94,7 +133,7 @@
     "canonicalUrl": "https://admizzeducation.com/are-nepalese-youth-going-abroad-coming-back-to-nepal-after-abroad-studies",
     "metaDescription": "Do Nepali students return after studying abroad? Explore trends, reasons, and what influences their decision to stay abroad or come back.",
     "metaTitle": "Are Nepali youth going abroad coming back to Nepal after abroad studies? - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.018Z"

@@ -1628,6 +1628,70 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "bc25610d1e8d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0309fa0e11bf",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "fc94ada6af4a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3ab64c837739",
+          "_type": "span",
+          "marks": [
+            "85e6c915acaf"
+          ],
+          "text": "GRE for Study Abroad: Complete Guide to GRE Exam Preparation with Admizz Education"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "85e6c915acaf",
+          "_type": "link",
+          "blank": false,
+          "href": "/gre-for-study-abroad-complete-guide-to-gre-exam-preparation-with-admizz-education"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "6cbd6894f9c7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2bcbc53dd56e",
+          "_type": "span",
+          "marks": [
+            "3f62872c532e"
+          ],
+          "text": "IELTS, PTE and test preparation"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "3f62872c532e",
+          "_type": "link",
+          "blank": false,
+          "href": "/test-prep"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

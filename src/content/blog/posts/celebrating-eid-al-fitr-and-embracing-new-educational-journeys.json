@@ -239,6 +239,45 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "606104a84340",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e4de8bdf3bd0",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "50452668fc21",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "339c221a9a91",
+          "_type": "span",
+          "marks": [
+            "b839f43fd8ff"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "b839f43fd8ff",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -267,7 +306,7 @@
     "canonicalUrl": "https://admizzeducation.com/celebrating-eid-al-fitr-and-embracing-new-educational-journeys",
     "metaDescription": "Celebrate Eid al-Fitr—marking the end of Ramadan with joy, prayers, feasts, and togetherness in Muslim communities worldwide.",
     "metaTitle": "Celebrating Eid al-Fitr and Embracing New Educational Journeys - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.031Z"

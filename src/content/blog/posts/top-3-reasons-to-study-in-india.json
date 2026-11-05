@@ -149,6 +149,70 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "93a020f7cdca",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b2b5b923c155",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "1f6901caa8ca",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7981f609ba75",
+          "_type": "span",
+          "marks": [
+            "00c394c62c18"
+          ],
+          "text": "Why More International Students Are Choosing India in 2026?"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "00c394c62c18",
+          "_type": "link",
+          "blank": false,
+          "href": "/why-international-students-choosing-india-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "a35c34eb172e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "44cefcd5412e",
+          "_type": "span",
+          "marks": [
+            "9b7a9f755d9c"
+          ],
+          "text": "Study in India from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "9b7a9f755d9c",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-india-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -177,7 +241,7 @@
     "canonicalUrl": "https://admizzeducation.com/top-3-reasons-to-study-in-india",
     "metaDescription": "Explore the top 3 reasons to study in India: affordable education, globally recognized universities, and a vibrant cultural experience.",
     "metaTitle": "Top 3 Reasons to Study in India - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.023Z"

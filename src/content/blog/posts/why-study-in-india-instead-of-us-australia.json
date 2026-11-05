@@ -158,6 +158,70 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "e3219c179df7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "02bf210911e3",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "47de6dfb4852",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "31fc3b05fe1f",
+          "_type": "span",
+          "marks": [
+            "b704bab62fd2"
+          ],
+          "text": "Changing Providers in Australia: Student Visa Update"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "b704bab62fd2",
+          "_type": "link",
+          "blank": false,
+          "href": "/australia-student-visa-change-provider-apply-outside-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "60e87055ff23",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4deb68f71556",
+          "_type": "span",
+          "marks": [
+            "10f30543af46"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "10f30543af46",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

@@ -2,7 +2,7 @@
   "_id": "wp-post-2307",
   "_type": "post",
   "_createdAt": "2026-02-10T06:44:37Z",
-  "_updatedAt": "2026-10-06T22:13:51Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Explore: Why Global Education is Trending in 2025",
   "slug": {
     "_type": "slug",
@@ -11,6 +11,28 @@
   "publishedAt": "2025-04-21T22:18:37",
   "excerpt": "Are you dreaming of an education that transcends borders? Do you envision a future enriched by diverse perspectives and global [&hellip;]",
   "content": [
+    {
+      "_key": "99aa17ea9cd5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bd7030d3bb58",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Note, November 2026: "
+        },
+        {
+          "_key": "00d60f66b186",
+          "_type": "span",
+          "marks": [],
+          "text": "this article was written in 2025. Fees, visa rules and deadlines change every year, so use it as a starting guide and confirm current figures on each country’s official immigration and university pages before you apply."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
     {
       "_key": "bab7910bdc45",
       "_type": "block",
@@ -718,6 +740,45 @@
         }
       ],
       "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e0f626483628",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "270881881dbd",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "6176e90b9043",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "25d311e594c6",
+          "_type": "span",
+          "marks": [
+            "58fde24d7c37"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "58fde24d7c37",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
       "style": "normal"
     }
   ],

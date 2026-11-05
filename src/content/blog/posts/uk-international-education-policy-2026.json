@@ -2,7 +2,7 @@
   "_id": "wp-post-11289",
   "_type": "post",
   "_createdAt": "2026-02-10T06:41:53Z",
-  "_updatedAt": "2026-11-03T23:29:33Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "UK International Education Policy 2026: What International Students Need to Know",
   "slug": {
     "_type": "slug",
@@ -1103,6 +1103,70 @@
         }
       ],
       "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "881dbe97956f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b5390808f52b",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "e258e73c47ac",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "aa12ea61ca4f",
+          "_type": "span",
+          "marks": [
+            "f6c9fda37598"
+          ],
+          "text": "UK Settlement Doubles to 10 Years: What Students Need"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "f6c9fda37598",
+          "_type": "link",
+          "blank": false,
+          "href": "/uk-earned-settlement-10-years-ilr-international-students-2027"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "a310f1d96222",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c5bf01cd44e2",
+          "_type": "span",
+          "marks": [
+            "4bf469b4792a"
+          ],
+          "text": "Study in the UK from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "4bf469b4792a",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-uk-from-nepal"
+        }
+      ],
       "style": "normal"
     }
   ],

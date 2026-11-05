@@ -2,7 +2,7 @@
   "_id": "wp-post-11140",
   "_type": "post",
   "_createdAt": "2026-02-10T06:42:24Z",
-  "_updatedAt": "2026-10-08T05:22:53Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Australia Student Visa (Subclass 500)",
   "slug": {
     "_type": "slug",
@@ -11,6 +11,49 @@
   "publishedAt": "2025-12-20T10:02:47",
   "excerpt": "Australia is one of the most preferred study destinations for international students, known for its world-class universities, multicultural environment, and [&hellip;]",
   "content": [
+    {
+      "_key": "251930b20c8a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dbce346e33d1",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Update, November 2026: "
+        },
+        {
+          "_key": "33563b363f83",
+          "_type": "span",
+          "marks": [],
+          "text": "from October 2, 2026, Home Affairs applies new rules to Student visas (subclass 500). Its Student visa page says you must apply from outside Australia unless you hold an eligible visa and meet an exemption, and that you cannot bring family members (partners and children) unless you are exempt. Older text below that mentions accompanying family or applying from inside Australia may be out of date. Check the Home Affairs Student visa page and our "
+        },
+        {
+          "_key": "8aafec5d7629",
+          "_type": "span",
+          "marks": [
+            "146ad7edc7ba"
+          ],
+          "text": "student visa changes guide"
+        },
+        {
+          "_key": "ea0cc55ec8dd",
+          "_type": "span",
+          "marks": [],
+          "text": "."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "146ad7edc7ba",
+          "_type": "link",
+          "blank": true,
+          "href": "/australia-student-visa-changes-october-2026-nepali-students"
+        }
+      ],
+      "style": "normal"
+    },
     {
       "_key": "dbc0647fdc89",
       "_type": "block",

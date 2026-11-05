@@ -815,6 +815,45 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "955f39877dd8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e7ff739d3e99",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "39de2925f6ba",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8515bb20c42f",
+          "_type": "span",
+          "marks": [
+            "7a3c792f2ab9"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "7a3c792f2ab9",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

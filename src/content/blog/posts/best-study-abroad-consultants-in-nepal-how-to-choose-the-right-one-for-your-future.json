@@ -1528,6 +1528,70 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "b56ada43085f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "233141f3c490",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "fecb95237976",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2b56b2c81369",
+          "_type": "span",
+          "marks": [
+            "0729a7578fcc"
+          ],
+          "text": "How to Choose the Right Country for Your Higher Studies"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "0729a7578fcc",
+          "_type": "link",
+          "blank": false,
+          "href": "/how-to-choose-the-right-country-for-your-higher-studies"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b357d8bb8eb7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "204f8a4e6f32",
+          "_type": "span",
+          "marks": [
+            "7019314b26ac"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "7019314b26ac",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

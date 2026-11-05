@@ -2,7 +2,7 @@
   "_id": "wp-post-11364",
   "_type": "post",
   "_createdAt": "2026-02-10T06:41:46Z",
-  "_updatedAt": "2026-10-08T05:23:00Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Countries with the Easiest Student Visa Approval in 2026",
   "slug": {
     "_type": "slug",
@@ -11,6 +11,69 @@
   "publishedAt": "2026-01-31T10:00:16",
   "excerpt": "Choosing the right study destination in 2026 is not just about universities or courses—it’s equally about student visa approval success. [&hellip;]",
   "content": [
+    {
+      "_key": "65ec0978dadd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f9b1c1cd2c3e",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Update, November 2026: "
+        },
+        {
+          "_key": "4076bcc1b2c1",
+          "_type": "span",
+          "marks": [],
+          "text": "\"Easy\" depends on your passport country and your education provider. For Nepal, Australia's student visa evidence requirements were reported to have been raised to Level 3 on January 8, 2026, which expects English test results and proof of funds upfront. Read our "
+        },
+        {
+          "_key": "0c39a7741149",
+          "_type": "span",
+          "marks": [
+            "747bb9cae023"
+          ],
+          "text": "Australia Level 3 guide for Nepal"
+        },
+        {
+          "_key": "b330b2134a37",
+          "_type": "span",
+          "marks": [],
+          "text": " before you shortlist Australia, and check the "
+        },
+        {
+          "_key": "0c54646654ee",
+          "_type": "span",
+          "marks": [
+            "ac263da4f909"
+          ],
+          "text": "Document Checklist Tool"
+        },
+        {
+          "_key": "7e34624122ef",
+          "_type": "span",
+          "marks": [],
+          "text": " for your own case. Home Affairs does not publish country Evidence Levels, so the Level 3 statement is unconfirmed; use the Document Checklist Tool for what applies to you."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "747bb9cae023",
+          "_type": "link",
+          "blank": true,
+          "href": "/australia-assessment-level-3-nepal-2026"
+        },
+        {
+          "_key": "ac263da4f909",
+          "_type": "link",
+          "blank": true,
+          "href": "https://immi.homeaffairs.gov.au/visas/web-evidentiary-tool"
+        }
+      ],
+      "style": "normal"
+    },
     {
       "_key": "ea6739fc135d",
       "_type": "block",
@@ -1104,6 +1167,45 @@
         }
       ],
       "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9f0e1f729d8d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5ac8513b0d86",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "8e6622c8f9ca",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7ac4052f3518",
+          "_type": "span",
+          "marks": [
+            "360f378d4b37"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "360f378d4b37",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
       "style": "normal"
     }
   ],

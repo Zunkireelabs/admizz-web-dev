@@ -2,7 +2,7 @@
   "_id": "wp-post-1501",
   "_type": "post",
   "_createdAt": "2026-02-10T06:47:20Z",
-  "_updatedAt": "2026-10-06T22:13:51Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "4 Major Difference Between IELTS & PTE",
   "slug": {
     "_type": "slug",
@@ -177,6 +177,98 @@
           "_type": "link",
           "blank": false,
           "href": "https://admizzeducation.com/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "39c842bbd932",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "481f8a3073dc",
+          "_type": "span",
+          "marks": [],
+          "text": "Scores and Validity"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "70ee2ef800f8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "369e8ed1880d",
+          "_type": "span",
+          "marks": [],
+          "text": "IELTS reports results in whole and half bands from 0 to 9. PTE Academic gives an overall score between 10 and 90. Both test providers describe results as valid for two years: IELTS recommends that results are considered valid for two years after the test, and Pearson says a PTE Score Report is valid for two years from the test date. Some institutions set shorter or longer validity periods, so check with the one you are applying to."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4a6c58ab7f7b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b04a301a2a53",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c47379a50b2e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "af5353d1e5a1",
+          "_type": "span",
+          "marks": [
+            "22ca8f4796e3"
+          ],
+          "text": "IELTS vs PTE: Which English Test Is Right for Your Study Abroad Dreams?"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "22ca8f4796e3",
+          "_type": "link",
+          "blank": false,
+          "href": "/ielts-vs-pte"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "cc09d1f69180",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "43c8ca66e116",
+          "_type": "span",
+          "marks": [
+            "d3edd848d39f"
+          ],
+          "text": "IELTS, PTE and test preparation"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "d3edd848d39f",
+          "_type": "link",
+          "blank": false,
+          "href": "/test-prep"
         }
       ],
       "style": "normal"

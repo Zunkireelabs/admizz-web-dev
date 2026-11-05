@@ -2,8 +2,8 @@
   "_id": "f871e930-a3ce-450e-ac9e-51ca19aeac1c",
   "_type": "post",
   "_createdAt": "2026-08-28T05:51:46Z",
-  "_updatedAt": "2026-10-08T05:22:40Z",
-  "title": "September 15, 2026: What Every F-1 Student Must Know Before the Deadline",
+  "_updatedAt": "2026-11-04T09:00:00Z",
+  "title": "September 15, 2026: What Every F-1 Student Must Know About the New Rule",
   "slug": {
     "_type": "slug",
     "current": "us-f1-september-15-deadline-2026"
@@ -11,6 +11,69 @@
   "publishedAt": "2026-08-28T06:20:00.000Z",
   "excerpt": "US universities are urgently warning F-1 and J-1 students about new visa rules taking effect September 15. Duration of Status ends. Here is what changes and what to do right now.",
   "content": [
+    {
+      "_key": "22d4ffa488eb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4949c0232995",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Update, November 2026: "
+        },
+        {
+          "_key": "4d3bff31c54b",
+          "_type": "span",
+          "marks": [],
+          "text": "The rule described below took effect on September 15, 2026. DHS published the final rule in the "
+        },
+        {
+          "_key": "5f8ecdd0fe2f",
+          "_type": "span",
+          "marks": [
+            "8967bc4e6b1e"
+          ],
+          "text": "Federal Register on July 17, 2026"
+        },
+        {
+          "_key": "aeac370b9408",
+          "_type": "span",
+          "marks": [],
+          "text": " Students admitted under duration of status before that date can stay until the program end date on their Form I-20, or the end of their post-completion OPT or STEM OPT, and no later than November 14, 2030, according to the "
+        },
+        {
+          "_key": "5efd2c4d1a27",
+          "_type": "span",
+          "marks": [
+            "73f37fb203f7"
+          ],
+          "text": "DHS Study in the States quick facts"
+        },
+        {
+          "_key": "80777a79ef63",
+          "_type": "span",
+          "marks": [],
+          "text": ". Where the text below refers to the date as upcoming, read it as the date the rule started. Speak to your school's designated school official (DSO) before you travel or change your program."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "8967bc4e6b1e",
+          "_type": "link",
+          "blank": true,
+          "href": "https://www.federalregister.gov/documents/2026/07/17/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant"
+        },
+        {
+          "_key": "73f37fb203f7",
+          "_type": "link",
+          "blank": true,
+          "href": "https://studyinthestates.dhs.gov/final-rule-establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-quick"
+        }
+      ],
+      "style": "normal"
+    },
     {
       "_key": "77e5a1370a2b",
       "_type": "rawHtml",
@@ -70,8 +133,8 @@
   "seo": {
     "_type": "seo",
     "canonicalUrl": "https://admizzeducation.com/us-f1-september-15-deadline-2026",
-    "metaDescription": "Duration of Status ends September 15, 2026. F-1 students get a fixed 4-year limit. Travel warning issued. Here's exactly what changes and what to do before the deadline.",
-    "metaTitle": "F-1 Visa September 15 Deadline — What Students Must Know",
+    "metaDescription": "On September 15, 2026, the USA replaced Duration of Status with a fixed admission period of up to 4 years for F-1 and J-1 students. What changed and what to do.",
+    "metaTitle": "F-1 Rule Change From September 15, 2026: What to Know",
     "noIndex": false
   },
   "faqItems": null,

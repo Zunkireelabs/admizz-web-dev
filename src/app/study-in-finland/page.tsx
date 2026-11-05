@@ -7,14 +7,14 @@ import type { SanityPost } from "@/types";
 export const metadata: Metadata = {
   title: "Study in Finland - Admizz Education",
   description:
-    "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+    "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert help with admissions, visas and scholarships.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-finland",
   },
   openGraph: {
     title: "Study in Finland - Admizz Education",
     description:
-      "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+      "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert help with admissions, visas and scholarships.",
     url: "https://admizzeducation.com/study-in-finland",
     siteName: "Admizz Education",
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Study in Finland - Admizz Education",
     description:
-      "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+      "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert help with admissions, visas and scholarships.",
     images: ["/images/og/countries/study-in-finland.jpg"],
   },
 };
@@ -60,37 +60,37 @@ const finlandData: CountryPageData = {
       title: "Top-Ranked Education System",
       icon: "/images/icons/school-1.webp",
       description:
-        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert help with admissions, visas and scholarships.",
     },
     {
       title: "Affordable Tuition & Living",
       icon: "/images/icons/exam-1.webp",
       description:
-        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert help with admissions, visas and scholarships.",
     },
     {
       title: "Strong Post-Study Work Options",
       icon: "/images/icons/visa-108.webp",
       description:
-        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert help with admissions, visas and scholarships.",
     },
     {
       title: "Safe & High Quality of Life",
       icon: "/images/icons/visa-1.webp",
       description:
-        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert help with admissions, visas and scholarships.",
     },
     {
       title: "Innovation & Technology Hub",
       icon: "/images/icons/consultation.webp",
       description:
-        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert help with admissions, visas and scholarships.",
     },
     {
       title: "English-Taught Programs",
       icon: "/images/icons/accomodation-108.webp",
       description:
-        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert guidance from Admizz Education for admissions, visas, and scholarships.",
+        "Study in Finland with English-taught programs, research-driven universities and a high quality of life. Get expert help with admissions, visas and scholarships.",
     },
   ],
   admissionTitle: "Admission Requirements for Studying in Finland",

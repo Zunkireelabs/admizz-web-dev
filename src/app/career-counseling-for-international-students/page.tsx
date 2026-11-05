@@ -333,7 +333,7 @@ export default async function CareerCounselingForInternationalStudentsPage() {
             Ready to Plan Your Career Abroad?
           </h2>
           <p className="mt-4 text-[15px] text-white/90 leading-relaxed">
-            Our expert consultants are here to guide you every step of the way.
+            Our expert advisors are here to guide you every step of the way.
           </p>
           <Link
             href="/register"

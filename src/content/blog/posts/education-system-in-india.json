@@ -66,6 +66,70 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "cc01c88ce76a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a286b640c2f4",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "67df5f633fcb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "99871c2fd14d",
+          "_type": "span",
+          "marks": [
+            "460bbe0b38cf"
+          ],
+          "text": "Why More International Students Are Choosing India in 2026?"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "460bbe0b38cf",
+          "_type": "link",
+          "blank": false,
+          "href": "/why-international-students-choosing-india-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "74ddda1a5d53",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2ede18679030",
+          "_type": "span",
+          "marks": [
+            "bc308875ce12"
+          ],
+          "text": "Study in India from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "bc308875ce12",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-india-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -102,7 +166,7 @@
     "canonicalUrl": "https://admizzeducation.com/education-system-in-india",
     "metaDescription": "Learn about the education system in India—its structure, challenges, reforms, and opportunities from primary schooling to higher education.",
     "metaTitle": "Education System In India - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.031Z"

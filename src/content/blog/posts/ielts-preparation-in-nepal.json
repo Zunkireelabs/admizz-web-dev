@@ -2,7 +2,7 @@
   "_id": "wp-post-9465",
   "_type": "post",
   "_createdAt": "2026-02-10T06:43:56Z",
-  "_updatedAt": "2026-10-26T06:25:02Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "IELTS Preparation in Nepal",
   "slug": {
     "_type": "slug",
@@ -703,6 +703,98 @@
           "_type": "link",
           "blank": false,
           "href": "https://admizzeducation.com/test-preparation/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "abcb600a0615",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "87ed2b68dc16",
+          "_type": "span",
+          "marks": [],
+          "text": "Understanding Your IELTS Score"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "8acd26bc012a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d3dd0dbcd703",
+          "_type": "span",
+          "marks": [],
+          "text": "IELTS scores are reported in whole and half bands on a scale from 0 (did not attempt the test) to 9 (expert). The IELTS organisation recommends treating results as valid for two years after the test, but organisations can accept results for a longer period, so confirm with your university or visa authority before you book."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e65d23d6e0c2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bd0e523c1919",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d3f0859bdd6c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2d209cfdf641",
+          "_type": "span",
+          "marks": [
+            "9267e11ef665"
+          ],
+          "text": "IELTS Exam Preparation Guide: Format, Tips & Scoring Explained for Study Abroad"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "9267e11ef665",
+          "_type": "link",
+          "blank": false,
+          "href": "/ielts-exam-preparation-guide-format-tips-scoring-explained-for-study-abroad"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "4ed9371fd057",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e9bdb1672bc2",
+          "_type": "span",
+          "marks": [
+            "9debc7e6bbd5"
+          ],
+          "text": "IELTS, PTE and test preparation"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "9debc7e6bbd5",
+          "_type": "link",
+          "blank": false,
+          "href": "/test-prep"
         }
       ],
       "style": "normal"

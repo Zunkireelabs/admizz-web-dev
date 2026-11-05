@@ -16,13 +16,14 @@ const CANONICAL = "https://admizzeducation.com/events/ielts-workshop";
 
 export const metadata: Metadata = {
   title: `${event.sessionTitle} | Admizz Education`,
-  description: event.intro,
+  description: "A live 2-hour IELTS workshop on how the test is scored, where students lose marks, and how to prepare with a plan, not guesswork.",
   alternates: { canonical: CANONICAL },
   openGraph: {
     title: `${event.sessionTitle} | Admizz Education`,
-    description: event.intro,
+    description: "A live 2-hour IELTS workshop on how the test is scored, where students lose marks, and how to prepare with a plan, not guesswork.",
     url: CANONICAL,
     siteName: "Admizz Education",
+    images: [{ url: "/images/og/stuyabroad.webp", alt: "Admizz Education" }],
     type: "website",
   },
 };
@@ -35,7 +36,7 @@ const EVENT_JSON_LD = {
   endDate: event.endISO,
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
-  description: event.intro,
+  description: "A live 2-hour IELTS workshop on how the test is scored, where students lose marks, and how to prepare with a plan, not guesswork.",
   organizer: {
     "@type": "Organization",
     name: "Admizz Education",

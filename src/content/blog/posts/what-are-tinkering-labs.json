@@ -136,6 +136,45 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "21e501875810",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c2e2fbedbaa3",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "03ee80a46ea8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b70bc5e3fcb0",
+          "_type": "span",
+          "marks": [
+            "6109810cb750"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "6109810cb750",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -164,7 +203,7 @@
     "canonicalUrl": "https://admizzeducation.com/what-are-tinkering-labs",
     "metaDescription": "Explore what ‘Tinkering’ Labs are and how they spark creativity, innovation, and problem-solving skills in young minds through hands-on learning.",
     "metaTitle": "WHAT ARE ‘TINKERING’ LABS? - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.021Z"

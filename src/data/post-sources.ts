@@ -110,4 +110,237 @@ export const postSources: Record<string, PostSourcesEntry> = {
       { label: "Immigration New Zealand: Staying to work after finishing your study", url: "https://www.immigration.govt.nz/study/after-you-finish-your-study/staying-to-work-after-finishing-your-study/" },
     ],
   },
+  "uk-graduate-route-visa-2026": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Graduate visa (length, fee and how to apply)", url: "https://www.gov.uk/graduate-visa" },
+      { label: "GOV.UK: Student visa, knowledge of English (CEFR B2 at degree level)", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Skilled Worker visa, your job (£41,700 or the going rate)", url: "https://www.gov.uk/skilled-worker-visa/your-job" },
+      { label: "GOV.UK: Apply for a Graduate visa", url: "https://www.gov.uk/graduate-visa/apply" },
+    ],
+  },
+  "uk-graduate-visa-18-months-january-2027-deadline": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Graduate visa (length, fee and how to apply)", url: "https://www.gov.uk/graduate-visa" },
+      { label: "GOV.UK: Apply for a Graduate visa", url: "https://www.gov.uk/graduate-visa/apply" },
+    ],
+  },
+  "us-f1-duration-of-status-ended-2026": {
+    checked: "November 2026",
+    sources: [
+      { label: "Federal Register: Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure for Nonimmigrant Academic Students (published July 17, 2026; effective September 15, 2026)", url: "https://www.federalregister.gov/documents/2026/07/17/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant" },
+    ],
+  },
+  "uk-education-nepal-growth": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "5-reasons-why-uk-is-an-ideal-study-destination": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "university-of-west-london-courses-international-2027": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "affordable-universities-london-international-students-2027": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "bpp-university-london-international-students-2027": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "abertay-university-courses-fees-international-2027": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "london-metropolitan-university-fees-courses-international-2027": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "uk-student-visa-success-rate-nepali-students-2027": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "uk-study-gap-acceptable-international-students-2027": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "uk-international-education-policy-2026": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "study-in-uk-without-ielts-english-requirement-2027": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "university-of-east-london-courses-fees-international-2027": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "ielts-requirement-for-studying-in-the-uk-from-nepal": {
+    checked: "November 2026",
+    sources: [
+      { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
+      { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
+      { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },
+      { label: "GOV.UK: Immigration Health Surcharge cost", url: "https://www.gov.uk/healthcare-immigration-application/how-much-pay" },
+    ],
+  },
+  "student-visa-for-canada": {
+    checked: "November 2026",
+    sources: [
+      { label: "IRCC: Study permit (fee and how to apply)", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit.html" },
+      { label: "IRCC: Proof of financial support (living-cost chart)", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html" },
+      { label: "IRCC: Provincial attestation letter (PAL/TAL)", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/provincial-attestation-letter.html" },
+      { label: "IRCC: Work off campus", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/work-off-campus.html" },
+    ],
+  },
+  "minimum-ielts-requirement-for-canadian-universities": {
+    checked: "November 2026",
+    sources: [
+      { label: "IRCC: PGWP eligibility (language requirement)", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility.html" },
+      { label: "IRCC: About the Post-Graduation Work Permit", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/about.html" },
+    ],
+  },
+  "five-reasons-why-you-should-study-in-australia": {
+    checked: "November 2026",
+    sources: [
+      { label: "Study Australia: Student visa (subclass 500), work rights", url: "https://www.studyaustralia.gov.au/en/plan-your-move/your-guide-to-visas/student-visa-subclass-500" },
+      { label: "Study Australia: Temporary Graduate visa (subclass 485)", url: "https://www.studyaustralia.gov.au/en/plan-your-move/your-guide-to-visas/temporary-graduate-visa-subclass-485" },
+    ],
+  },
+  "study-in-australia": {
+    checked: "November 2026",
+    sources: [
+      { label: "Study Australia: Visa application process (Genuine Student)", url: "https://www.studyaustralia.gov.au/en/plan-your-move/visa-application-process" },
+      { label: "Home Affairs: Visa Prices table (Student visa subclass 500 charges)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/fees-and-charges/current-visa-pricing" },
+      { label: "Home Affairs: Student visa (subclass 500) overview, including the October 2, 2026 rule changes", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500" },
+      { label: "Home Affairs: Changes to Student visa application rules (subclasses 500 & 590), from October 2, 2026", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/changes-to-student-visa-application-rules-500-590" },
+    ],
+  },
+  "australia-streamlines-student-visas-focus-on-genuine-students": {
+    checked: "November 2026",
+    sources: [
+      { label: "Study Australia: Visa application process (Genuine Student)", url: "https://www.studyaustralia.gov.au/en/plan-your-move/visa-application-process" },
+    ],
+  },
+  "4-major-difference-between-ielts-pte": {
+    checked: "November 2026",
+    sources: [
+      { label: "IELTS: Scoring in detail and validity", url: "https://ielts.org/take-a-test/your-results/ielts-scoring-in-detail" },
+      { label: "Pearson: PTE Academic scoring explained", url: "https://www.pearsonpte.com/scoring-explained/" },
+    ],
+  },
+  "ielts-preparation-in-nepal": {
+    checked: "November 2026",
+    sources: [
+      { label: "IELTS: Scoring in detail and validity", url: "https://ielts.org/take-a-test/your-results/ielts-scoring-in-detail" },
+    ],
+  },
+  "isic-explained-why-every-international-student-should-have-one": {
+    checked: "November 2026",
+    sources: [
+      { label: "ISIC: The ISIC card, eligibility and cost", url: "https://www.isic.org/cards/isic/" },
+    ],
+  },
+  "top-5-reasons-to-study-in-the-usa": {
+    checked: "November 2026",
+    sources: [
+      { label: "Study in the States: F-1 Optional Practical Training (OPT)", url: "https://studyinthestates.dhs.gov/sevis-help-hub/student-records/fm-student-employment/f-1-optional-practical-training-opt" },
+      { label: "Study in the States: STEM OPT extension overview", url: "https://studyinthestates.dhs.gov/stem-opt-hub/additional-resources/stem-opt-extension-overview" },
+    ],
+  },
+  "top-5-best-universities-in-the-u-s-a": {
+    checked: "November 2026",
+    sources: [
+      { label: "ICE: I-901 SEVIS fee amounts", url: "https://www.ice.gov/sevis/i901" },
+      { label: "ICE: I-901 SEVIS fee FAQ", url: "https://www.ice.gov/sevis/i901/faq" },
+      { label: "Study in the States: Students and the Form I-20", url: "https://studyinthestates.dhs.gov/students/prepare/students-and-the-form-i-20" },
+    ],
+  },
+  "foreign-university-admission-from-nepal": {
+    checked: "November 2026",
+    sources: [
+      { label: "ETS: GRE General Test scoring", url: "https://www.ets.org/gre/score-users/about/general-test/scoring.html" },
+      { label: "ETS: Getting your GRE General Test scores", url: "https://www.ets.org/gre/test-takers/general-test/scores/get-scores.html" },
+    ],
+  },
+  "step-by-step-guide-to-australia-student-visa-from-nepal": {
+    checked: "November 2026",
+    sources: [
+      { label: "Home Affairs: Visa Prices table (Student visa subclass 500 charges)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/fees-and-charges/current-visa-pricing" },
+      { label: "Home Affairs: Student visa (subclass 500) overview, including the October 2, 2026 rule changes", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500" },
+      { label: "Home Affairs: Changes to Student visa application rules (subclasses 500 & 590), from October 2, 2026", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/changes-to-student-visa-application-rules-500-590" },
+    ],
+  },
+  "australia-student-visa-subclass-500": {
+    checked: "November 2026",
+    sources: [
+      { label: "Home Affairs: Student visa (subclass 500) overview, including the October 2, 2026 rule changes", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500" },
+      { label: "Home Affairs: Changes to Student visa application rules (subclasses 500 & 590), from October 2, 2026", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/changes-to-student-visa-application-rules-500-590" },
+    ],
+  },
 };

@@ -716,6 +716,70 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "3b419d524997",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "007cc8f99b76",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "8cda53b1c531",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "74ea17dfb5db",
+          "_type": "span",
+          "marks": [
+            "fe4cc1281c85"
+          ],
+          "text": "Gates Cambridge and Commonwealth Scholarships"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "fe4cc1281c85",
+          "_type": "link",
+          "blank": false,
+          "href": "/gates-cambridge-commonwealth-scholarships-international-2027"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "20695598e15a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a22edfc378e4",
+          "_type": "span",
+          "marks": [
+            "5692395f392b"
+          ],
+          "text": "Scholarship assistance in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "5692395f392b",
+          "_type": "link",
+          "blank": false,
+          "href": "/scholarship-assistance-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

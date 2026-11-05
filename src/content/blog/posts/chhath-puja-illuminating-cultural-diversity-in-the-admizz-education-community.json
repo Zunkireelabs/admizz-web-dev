@@ -302,6 +302,45 @@
         }
       ],
       "style": "normal"
+    },
+    {
+      "_key": "6de6b720fe9b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fe8deb8ef246",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "cbbddea91f4f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5305b1e25033",
+          "_type": "span",
+          "marks": [
+            "674fa59f3654"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "674fa59f3654",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -330,7 +369,7 @@
     "canonicalUrl": "https://admizzeducation.com/chhath-puja-illuminating-cultural-diversity-in-the-admizz-education-community",
     "metaDescription": "Celebrate Chhath Puja—an ancient Hindu festival dedicated to the Sun God, marked by rituals, prayers, and gratitude for nature’s blessings.4.1-mini",
     "metaTitle": "Chhath Puja: Illuminating Cultural Diversity in the Admizz Education Community - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.027Z"

@@ -2,7 +2,7 @@
   "_id": "wp-post-9696",
   "_type": "post",
   "_createdAt": "2026-02-10T06:43:42Z",
-  "_updatedAt": "2026-10-06T22:13:51Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "How Nepali Students Can Prepare for GRE, GMAT, and SAT Exams",
   "slug": {
     "_type": "slug",
@@ -801,6 +801,112 @@
           "_type": "link",
           "blank": false,
           "href": "https://admizzeducation.com/contact/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "13671effd295",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1bcf55041dc3",
+          "_type": "span",
+          "marks": [],
+          "text": "How the GRE Is Scored"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d59623d652d0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5c845a0da818",
+          "_type": "span",
+          "marks": [],
+          "text": "ETS, which runs the GRE, reports three scores on the General Test: Verbal Reasoning and Quantitative Reasoning, each from 130 to 170 in 1-point steps, and Analytical Writing from 0 to 6 in half-point steps."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9018ae60140c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9344d588c401",
+          "_type": "span",
+          "marks": [],
+          "text": "ETS says your scores stay in a 5-year reportable history, and with the ScoreSelect option you can choose which scores from the last 5 years to send to each institution. Check each program’s own minimum score, since universities set their own."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "55cb8c498a9e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5ef9cd76d52c",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "75d3a19d9aa4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8bc2810f3a20",
+          "_type": "span",
+          "marks": [
+            "9b134eb184fc"
+          ],
+          "text": "Study Abroad from Nepal: Complete Guide to Foreign University Admissions"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "9b134eb184fc",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-abroad-from-nepal"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "8a999cd97bec",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bdfb39b0d1b3",
+          "_type": "span",
+          "marks": [
+            "2c2c8015b99e"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "2c2c8015b99e",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
         }
       ],
       "style": "normal"

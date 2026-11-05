@@ -4,7 +4,7 @@
 //
 // Facts used (checked October 2026):
 //  - UK Graduate visa: 18 months for applications submitted from 1 January 2027
-//    (2 years before that date, 3 years for PhD graduates).
+//    (3 years for PhD graduates).
 //  - UK Student visa fee GBP 558 and Immigration Health Surcharge GBP 776 a year
 //    (GOV.UK).
 //  - Living-cost funds GBP 1,529 a month in London and GBP 1,171 a month outside
@@ -18,15 +18,15 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "<td>Graduate Route — 2 years</td>",
-        replace: "<td>Graduate Route — 18 months from Jan 1, 2027 (2 years before)</td>",
+        replace: "<td>Graduate Route — 18 months</td>",
       },
       {
         find: "Apply for the Graduate Route visa — 2 years open work rights",
-        replace: "Apply for the Graduate Route visa — 18 months open work rights (from January 1, 2027)",
+        replace: "Apply for the Graduate Route visa — 18 months open work rights",
       },
       {
         find: "The Graduate Route gives you 2 years (3 for PhD) to work",
-        replace: "The Graduate Route gives you 18 months for applications from January 1, 2027 (2 years before that date, 3 years for PhD) to work",
+        replace: "The Graduate Route gives you 18 months (3 years for PhD) to work",
       },
     ],
   },
@@ -35,11 +35,11 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "<span class=\"fact-value\">2 Years (Graduate Route)</span>",
-        replace: "<span class=\"fact-value\">18 Months from Jan 1, 2027 (Graduate Route)</span>",
+        replace: "<span class=\"fact-value\">18 Months (Graduate Route)</span>",
       },
       {
         find: "2 years open work rights for all graduates (3 for PhD).",
-        replace: "18 months of open work rights for applications from January 1, 2027 (2 years before that date, 3 for PhD).",
+        replace: "18 months of open work rights (3 for PhD).",
       },
       {
         find: "£1,334/month for living costs (up to 9 months, or £1,023/month outside London)",
@@ -52,23 +52,23 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "eligible for the 2-year Graduate Route immediately",
-        replace: "eligible for the Graduate Route (18 months for applications from January 1, 2027) immediately",
+        replace: "eligible for the Graduate Route (18 months) immediately",
       },
       {
         find: "followed by the 2-year Graduate Route —",
-        replace: "followed by the Graduate Route (18 months for applications from January 1, 2027) —",
+        replace: "followed by the Graduate Route (18 months) —",
       },
       {
         find: "The 2-year Graduate Route gives you time",
-        replace: "The Graduate Route (18 months for applications from January 1, 2027) gives you time",
+        replace: "The Graduate Route (18 months) gives you time",
       },
       {
         find: "still deliver the full 2-year Graduate Route visa after graduation",
-        replace: "still lead to the Graduate Route visa after graduation (18 months for applications from January 1, 2027)",
+        replace: "still lead to the Graduate Route visa after graduation (18 months)",
       },
       {
         find: "followed by 2 years on the Graduate Route. The total UK commitment — 1 year study + 2 years work — is just 3 years from start to finish.",
-        replace: "followed by the Graduate Route (18 months for applications from January 1, 2027). The total UK commitment — 1 year study + 18 months work — is about 2.5 years from start to finish.",
+        replace: "followed by the Graduate Route (18 months). The total UK commitment — 1 year study + 18 months work — is about 2.5 years from start to finish.",
       },
     ],
   },
@@ -77,11 +77,11 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "<td>Graduate Route — 2 years (guaranteed)</td>",
-        replace: "<td>Graduate Route — 18 months from Jan 1, 2027 (2 years before)</td>",
+        replace: "<td>Graduate Route — 18 months</td>",
       },
       {
         find: "The UK's Graduate Route gives 2 years of guaranteed open work rights",
-        replace: "The UK's Graduate Route gives guaranteed open work rights (18 months for applications from January 1, 2027, 2 years before that date)",
+        replace: "The UK's Graduate Route gives guaranteed open work rights (18 months)",
       },
     ],
   },
@@ -99,11 +99,11 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "1-year Masters + 2-year Graduate Route.",
-        replace: "1-year Master's + Graduate Route (18 months for applications from January 1, 2027).",
+        replace: "1-year Master's + Graduate Route (18 months).",
       },
       {
         find: "1-year Masters plus 2-year Graduate Route with no restriction",
-        replace: "1-year Master's plus the Graduate Route (18 months for applications from January 1, 2027) with no restriction",
+        replace: "1-year Master's plus the Graduate Route (18 months) with no restriction",
       },
     ],
   },
@@ -112,19 +112,19 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "<span class=\"fact-value\">2 Years (3 for PhD)</span>",
-        replace: "<span class=\"fact-value\">18 Months from Jan 1, 2027 (2 Years before; 3 for PhD)</span>",
+        replace: "<span class=\"fact-value\">18 Months from Jan 1, 2027 (3 for PhD)</span>",
       },
       {
         find: "— 2 years of open work rights (3 years for PhD graduates)",
-        replace: "— 18 months of open work rights for applications from January 1, 2027, or 2 years before that date (3 years for PhD graduates),",
+        replace: "— 18 months of open work rights (3 years for PhD graduates),",
       },
       {
         find: "so use the full 2 years strategically",
-        replace: "so use the full period (18 months for applications from January 1, 2027) strategically",
+        replace: "so use the full period (18 months) strategically",
       },
       {
         find: "The 2-year entitlement (3 years for PhD) applies equally",
-        replace: "The entitlement (18 months from January 1, 2027, 2 years before that date, 3 years for PhD) applies equally",
+        replace: "The entitlement (18 months, 3 years for PhD) applies equally",
       },
     ],
   },
@@ -133,15 +133,15 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "Qualifies for the 2-year Graduate Route immediately.",
-        replace: "Qualifies for the Graduate Route immediately (18 months for applications from January 1, 2027).",
+        replace: "Qualifies for the Graduate Route immediately (18 months).",
       },
       {
         find: "followed by two years on the Graduate Route,",
-        replace: "followed by the Graduate Route (18 months for applications from January 1, 2027),",
+        replace: "followed by the Graduate Route (18 months),",
       },
       {
         find: "access 2 years of Graduate Route work rights",
-        replace: "access Graduate Route work rights (18 months for applications from January 1, 2027)",
+        replace: "access Graduate Route work rights (18 months)",
       },
     ],
   },
@@ -150,7 +150,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "lets you work up to 2 years after study, or 3 years for PhD graduates",
-        replace: "lets you work for 18 months after study for applications from January 1, 2027 (2 years before that date), or 3 years for PhD graduates",
+        replace: "lets you work for 18 months after study, or 3 years for PhD graduates",
       },
       {
         find: "UK Student Visa (Tier 4)",
@@ -162,7 +162,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
       },
       {
         find: "stay and work for up to 2 years after completing a degree.",
-        replace: "stay and work for 18 months after completing a degree (for applications from January 1, 2027; 2 years before that date).",
+        replace: "stay and work for 18 months after completing a degree.",
       },
     ],
   },
@@ -171,11 +171,11 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "stay and work in the UK for 2 years after completing their degree.",
-        replace: "stay and work in the UK for 18 months after completing their degree (for applications from January 1, 2027; 2 years before that date).",
+        replace: "stay and work in the UK for 18 months after completing their degree.",
       },
       {
         find: "stay and work in the UK for two years after graduation",
-        replace: "stay and work in the UK for 18 months after graduation (two years for applications before January 1, 2027)",
+        replace: "stay and work in the UK for 18 months after graduation",
       },
     ],
   },
@@ -197,7 +197,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "2 years for Bachelor’s and Master’s graduates",
-        replace: "18 months for Bachelor’s and Master’s graduates applying from January 1, 2027 (2 years before that date)",
+        replace: "18 months for Bachelor’s and Master’s graduates",
       },
     ],
   },
@@ -206,7 +206,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "2 years post-study work for graduates",
-        replace: "18 months post-study work for graduates applying from January 1, 2027 (2 years before that date)",
+        replace: "18 months post-study work for graduates",
       },
     ],
   },
@@ -215,7 +215,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "stay for two years (three years for PhD graduates)",
-        replace: "stay for 18 months for applications from January 1, 2027, or two years before that date (three years for PhD graduates)",
+        replace: "stay for 18 months (three years for PhD graduates)",
       },
       {
         find: "Tier 4 (General) Student Visa Requirements",
@@ -239,7 +239,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
       },
       {
         find: "stay for 2 years (3 years for a PhD)",
-        replace: "stay for 18 months for applications from January 1, 2027 (2 years before that date; 3 years for a PhD)",
+        replace: "stay for 18 months (3 years for a PhD)",
       },
     ],
   },
@@ -248,7 +248,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "That period is now reduced to 18 months.",
-        replace: "That period is reduced to 18 months for Graduate visa applications submitted from January 1, 2027.",
+        replace: "That period is reduced to 18 months.",
       },
     ],
   },
@@ -257,7 +257,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "the UK offers a two-year Graduate Route for international students.",
-        replace: "the UK offers a Graduate Route (18 months for applications from January 1, 2027) for international students.",
+        replace: "the UK offers a Graduate Route (18 months) for international students.",
       },
     ],
   },
@@ -279,7 +279,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
       },
       {
         find: "stay and work for up to 2 years (3 years for PhD graduates)",
-        replace: "stay and work for 18 months for applications from January 1, 2027, or up to 2 years before that date (3 years for PhD graduates)",
+        replace: "stay and work for 18 months (3 years for PhD graduates)",
       },
     ],
   },
@@ -309,7 +309,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "stay back for 2 years (3 years for PhD students)",
-        replace: "stay back for 18 months for applications from January 1, 2027, or 2 years before that date (3 years for PhD students)",
+        replace: "stay back for 18 months (3 years for PhD students)",
       },
     ],
   },
@@ -327,7 +327,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "allowing 2 years (3 years for PhD) of post-study work",
-        replace: "allowing 18 months for applications from January 1, 2027, or 2 years before that date (3 years for PhD), of post-study work",
+        replace: "allowing 18 months (3 years for PhD), of post-study work",
       },
     ],
   },
@@ -336,7 +336,7 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "remain in the UK to work for 2 years after a bachelor's or master's, and 3 years after a PhD.",
-        replace: "remain in the UK to work for 18 months after a bachelor's or master's for applications from January 1, 2027 (2 years before that date), and 3 years after a PhD.",
+        replace: "remain in the UK to work for 18 months after a bachelor's or master's, and 3 years after a PhD.",
       },
       {
         find: "{\"@type\":\"Question\",\"name\":\"Is Australia still good for Nepali students after Assessment Level 3?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. Level 3 means stricter documentation requirements, not closure. Genuine students with clean financials, strong GS statements, and valid English scores continue to receive approvals.\"}},",
@@ -349,15 +349,15 @@ export const postContentPatches: Record<string, PostPatchSet> = {
     patches: [
       {
         find: "a 2-year Graduate Route visa allows students",
-        replace: "a Graduate Route visa (18 months for applications from January 1, 2027, 2 years before) allows students",
+        replace: "a Graduate Route visa (18 months) allows students",
       },
       {
         find: "remain in the UK for two years after graduation (three years for PhD graduates)",
-        replace: "remain in the UK for 18 months after graduation for applications from January 1, 2027, or two years before that date (three years for PhD graduates)",
+        replace: "remain in the UK for 18 months after graduation (three years for PhD graduates)",
       },
       {
         find: "stay and work in the UK for <strong>two years</strong> without",
-        replace: "stay and work in the UK for <strong>18 months</strong> (for applications from January 1, 2027; <strong>two years</strong> before that date) without",
+        replace: "stay and work in the UK for <strong>18 months</strong> without",
       },
     ],
   },

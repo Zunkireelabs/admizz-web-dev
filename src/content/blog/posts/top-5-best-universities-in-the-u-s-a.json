@@ -2,7 +2,7 @@
   "_id": "wp-post-1525",
   "_type": "post",
   "_createdAt": "2026-02-10T06:47:04Z",
-  "_updatedAt": "2026-10-06T22:13:51Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Top 5 Best Universities in the U.S.A",
   "slug": {
     "_type": "slug",
@@ -177,6 +177,112 @@
         }
       ],
       "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f7af1526abff",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "42259b0fb7c5",
+          "_type": "span",
+          "marks": [],
+          "text": "From Offer to Visa: The Official Steps"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "1c6b06e44359",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8d75ed998fa3",
+          "_type": "span",
+          "marks": [],
+          "text": "The universities above are examples, not an official ranking. Whichever you choose, the process is set by the US government. After your school accepts you it issues a Form I-20, and you pay the I-901 SEVIS fee, which ICE lists as $350 for F and M student visa applicants. If you apply for your visa within 12 months of paying, you do not pay again."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "20053b702c72",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4f56cd8487ab",
+          "_type": "span",
+          "marks": [],
+          "text": "Study in the States says F-1 and M-1 student visas can be issued up to 365 days before your course start date, and your Form I-20 lists the program start date, 30 days before which you are allowed to enter the United States. Bring your original Form I-20 to the visa interview."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "141bfdc78213",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2dc19c241c99",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "bbaf9b383e1a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "938b4b900c45",
+          "_type": "span",
+          "marks": [
+            "705d3faf4773"
+          ],
+          "text": "Top 5 Universities of India Based on NIRF Rankings 2023"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "705d3faf4773",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-5-universities-of-india-based-on-nirf-rankings-2023"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "18074b3b84e1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "472822ce1c3f",
+          "_type": "span",
+          "marks": [
+            "ee5c2e91daf2"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "ee5c2e91daf2",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
       "style": "normal"
     }
   ],

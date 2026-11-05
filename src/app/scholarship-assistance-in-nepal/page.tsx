@@ -269,7 +269,7 @@ export default async function ScholarshipAssistanceInNepalPage() {
           </h2>
           <p className="text-center text-[15px] text-gray-dark max-w-2xl mx-auto mb-12">
             Scholarship applications can be confusing and time-sensitive. As a
-            trusted study abroad consultancy in Nepal, Admizz Education guides
+            trusted study abroad partner in Nepal, Admizz Education guides
             you through every step, from matching to a real opportunity to
             submitting a strong application.
           </p>
@@ -334,7 +334,7 @@ export default async function ScholarshipAssistanceInNepalPage() {
             Ready to Apply for a Scholarship?
           </h2>
           <p className="mt-4 text-[15px] text-white/90 leading-relaxed">
-            Our expert consultants are here to guide you every step of the way.
+            Our expert advisors are here to guide you every step of the way.
           </p>
           <Link
             href="/register"

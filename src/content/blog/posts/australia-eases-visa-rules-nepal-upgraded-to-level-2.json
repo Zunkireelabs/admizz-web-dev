@@ -2,7 +2,7 @@
   "_id": "wp-post-1909",
   "_type": "post",
   "_createdAt": "2026-02-10T06:44:46Z",
-  "_updatedAt": "2026-10-08T08:22:08Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "Australia Eases Visa Rules: Nepal Upgraded to Level 2",
   "slug": {
     "_type": "slug",
@@ -11,6 +11,69 @@
   "publishedAt": "2025-03-31T19:02:41",
   "excerpt": "Australia's decision to upgrade Nepal to Assessment Level 2 for student visas is a significant development for aspiring international students. [&hellip;]",
   "content": [
+    {
+      "_key": "45d2d646dccf",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "29098629a608",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Update, November 2026: "
+        },
+        {
+          "_key": "a3498e4c1b21",
+          "_type": "span",
+          "marks": [],
+          "text": "This article is from 2025 and is out of date. Nepal was reported to have been moved back to Level 3 on January 8, 2026, which means the stricter evidence requirements apply again. Please read our "
+        },
+        {
+          "_key": "7aec81bd8eca",
+          "_type": "span",
+          "marks": [
+            "d06ea427b4a0"
+          ],
+          "text": "Australia Level 3 guide for Nepal"
+        },
+        {
+          "_key": "1ede8b133134",
+          "_type": "span",
+          "marks": [],
+          "text": " and check the "
+        },
+        {
+          "_key": "66cf76088519",
+          "_type": "span",
+          "marks": [
+            "43c67504f8d7"
+          ],
+          "text": "Document Checklist Tool"
+        },
+        {
+          "_key": "4924a91cba44",
+          "_type": "span",
+          "marks": [],
+          "text": " for the current requirements. Home Affairs does not publish country Evidence Levels, so the Level 3 statement is unconfirmed; use the Document Checklist Tool for what applies to you."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "d06ea427b4a0",
+          "_type": "link",
+          "blank": true,
+          "href": "/australia-assessment-level-3-nepal-2026"
+        },
+        {
+          "_key": "43c67504f8d7",
+          "_type": "link",
+          "blank": true,
+          "href": "https://immi.homeaffairs.gov.au/visas/web-evidentiary-tool"
+        }
+      ],
+      "style": "normal"
+    },
     {
       "_key": "628448ec8fbe",
       "_type": "block",
@@ -771,6 +834,70 @@
           "_type": "link",
           "blank": false,
           "href": "https://admizzeducation.com/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "b093f08ebbea",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "41a965b5c73b",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "3676de031fcd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "89ec970742c3",
+          "_type": "span",
+          "marks": [
+            "0b8b8cb87975"
+          ],
+          "text": "Changing Providers in Australia: Student Visa Update"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "0b8b8cb87975",
+          "_type": "link",
+          "blank": false,
+          "href": "/australia-student-visa-change-provider-apply-outside-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "03565d331a68",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c8a844bb9991",
+          "_type": "span",
+          "marks": [
+            "54ea06f54b90"
+          ],
+          "text": "Study in Australia from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "54ea06f54b90",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-australia-from-nepal"
         }
       ],
       "style": "normal"

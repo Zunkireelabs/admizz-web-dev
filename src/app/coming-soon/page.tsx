@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Coming Soon | Admizz Education",
   description:
     "Something exciting is on the way! Stay tuned for new features from Admizz Education.",

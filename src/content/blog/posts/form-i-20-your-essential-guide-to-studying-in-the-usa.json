@@ -1837,6 +1837,70 @@
         }
       ],
       "style": "h4"
+    },
+    {
+      "_key": "99e4cb28235a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "535113cb0ef6",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "5e50645a35e5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "91fc6ebff3e0",
+          "_type": "span",
+          "marks": [
+            "70f15f561cfe"
+          ],
+          "text": "USA Ends Duration of Status — F-1 Visa Guide 2026"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "70f15f561cfe",
+          "_type": "link",
+          "blank": false,
+          "href": "/us-f1-duration-of-status-ended-2026"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "de30fd1df32b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d7487b982c38",
+          "_type": "span",
+          "marks": [
+            "b0cabf1777f2"
+          ],
+          "text": "Study in the USA from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "b0cabf1777f2",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-usa-from-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

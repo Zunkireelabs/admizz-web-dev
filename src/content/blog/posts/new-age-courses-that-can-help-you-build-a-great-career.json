@@ -178,6 +178,70 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "62462b8376a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1650a5763ab3",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "c9c9ad1f630a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4abe6a79fa6a",
+          "_type": "span",
+          "marks": [
+            "323741a39ab6"
+          ],
+          "text": "Top Courses To Study at KIIT University"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "323741a39ab6",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-courses-to-study-at-kiit-university"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "d4d1e3f16c93",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e8cfb07348eb",
+          "_type": "span",
+          "marks": [
+            "5abc2f97413f"
+          ],
+          "text": "IELTS, PTE and test preparation"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "5abc2f97413f",
+          "_type": "link",
+          "blank": false,
+          "href": "/test-prep"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {

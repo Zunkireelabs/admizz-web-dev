@@ -2,7 +2,7 @@
   "_id": "wp-post-11178",
   "_type": "post",
   "_createdAt": "2026-02-10T06:42:18Z",
-  "_updatedAt": "2026-10-08T05:22:53Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
   "title": "ISIC Explained: Why Every International Student Should Have One",
   "slug": {
     "_type": "slug",
@@ -1062,6 +1062,73 @@
           "_type": "link",
           "blank": false,
           "href": "https://admizzeducation.com/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "d0f2687f3ec0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "568ed98eae91",
+          "_type": "span",
+          "marks": [],
+          "text": "ISIC Eligibility and Cost, per the Official Site"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "a05144f6b92d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3096bd51a961",
+          "_type": "span",
+          "marks": [],
+          "text": "The ISIC website describes the card as a student identity card that provides student status verification and discounts worldwide, and says full-time students at a school, college or university can apply, with no upper age limit. Proof of full-time student status is required when you apply. The site lists the cost as between 4 and 25 euros depending on the country of issue, so check the price for Nepal when you order."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4dc9e858955f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0ff51ca95675",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "d93c9fe06d15",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a1a79894c42c",
+          "_type": "span",
+          "marks": [
+            "e68046d008f4"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "e68046d008f4",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
         }
       ],
       "style": "normal"

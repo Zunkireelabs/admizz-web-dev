@@ -108,6 +108,45 @@
       ],
       "markDefs": [],
       "style": "normal"
+    },
+    {
+      "_key": "83554e828d80",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "670466ee0f66",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "713296ee65c6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "743563171647",
+          "_type": "span",
+          "marks": [
+            "49eae63aee6a"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "49eae63aee6a",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
     }
   ],
   "featuredImage": {
@@ -136,7 +175,7 @@
     "canonicalUrl": "https://admizzeducation.com/its-high-time-for-educational-equality",
     "metaDescription": "It's time to prioritize educational equality—ensure every student gets fair access to quality learning, resources, and opportunities.",
     "metaTitle": "It's high time for Educational Equality! - Admizz Education",
-    "noIndex": false
+    "noIndex": true
   },
   "faqItems": null,
   "_exportedAt": "2026-11-04T05:24:34.019Z"

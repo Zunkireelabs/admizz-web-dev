@@ -20,7 +20,7 @@
  *     invisible through every accessor, exactly as before.
  *  2. ORDERING. `| order(publishedAt desc)` is applied as a date sort, with posts
  *     that have no date last (GROQ sorts nulls last on desc).
- *  3. NORMALIZED TEXT. src/lib/sanity.ts wrapped client.fetch in
+ *  3. NORMALIZED TEXT. the old Sanity client wrapped client.fetch in
  *     normalizeSanityResult (americanize: "Nepali", American spelling,
  *     month-first dates). The exported files hold the RAW text, so the same
  *     normalizer is applied here on read. Same function, same input, same output
@@ -32,7 +32,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeSanityResult } from "./sanity-text";
+import { normalizeSanityResult } from "./text-style";
 import retired from "@/data/retired-posts.json";
 import type { SanityPost, SanityCategory } from "@/types";
 
@@ -57,13 +57,15 @@ function readJson<T>(file: string): T {
 }
 
 // Read once per build. A Next build imports this module once per route worker,
-// so caching here turns ~40 consumers into one read of each file.
+// so caching here turns ~40 consumers into one read of each file. Skipped under
+// `next dev` so an edit to a post file shows up on refresh without a restart.
+const CACHE = process.env.NODE_ENV === "production";
 let indexCache: BlogIndexEntry[] | null = null;
 let categoriesCache: SanityCategory[] | null = null;
 const postCache = new Map<string, SanityPost | null>();
 
 function blogIndex(): BlogIndexEntry[] {
-  if (!indexCache) {
+  if (!CACHE || !indexCache) {
     const all = readJson<BlogIndexEntry[]>(path.join(CONTENT_DIR, "index.json"));
     indexCache = all.filter((e) => !RETIRED.has(e.slug)).sort(byPublishedDesc);
   }
@@ -83,7 +85,7 @@ function byPublishedDesc(a: { publishedAt: string | null }, b: { publishedAt: st
  * missing files both give null, so a caller's notFound() path is unchanged.
  */
 export function getPostBySlug(slug: string): SanityPost | null {
-  if (postCache.has(slug)) return postCache.get(slug) ?? null;
+  if (CACHE && postCache.has(slug)) return postCache.get(slug) ?? null;
   let post: SanityPost | null = null;
   if (!RETIRED.has(slug)) {
     const file = path.join(POSTS_DIR, `${slug}.json`);
@@ -92,7 +94,7 @@ export function getPostBySlug(slug: string): SanityPost | null {
       post = normalizeSanityResult(readJson<SanityPost>(file));
     }
   }
-  postCache.set(slug, post);
+  if (CACHE) postCache.set(slug, post);
   return post;
 }
 
@@ -120,7 +122,7 @@ export function getRelatedPosts(slug: string, categorySlugs: string[]): SanityPo
 }
 
 export function getAllCategories(): SanityCategory[] {
-  if (!categoriesCache) {
+  if (!CACHE || !categoriesCache) {
     const cats = readJson<SanityCategory[]>(path.join(CONTENT_DIR, "categories.json"));
     categoriesCache = normalizeSanityResult(
       [...cats].sort((a, b) => a.title.localeCompare(b.title)),

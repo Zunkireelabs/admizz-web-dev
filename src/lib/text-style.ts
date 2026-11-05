@@ -1,7 +1,7 @@
-// Style normalizer for text that comes out of Sanity (docs/seo-content-rules.md):
+// Style normalizer for blog text (docs/seo-content-rules.md):
 // "Nepali" not "Nepalese", American spelling, month-first dates. It runs on every
-// Sanity fetch (see src/lib/sanity.ts), so old posts follow the same rules as the
-// code-authored pages without editing each post in Sanity. Slugs, URLs and ids are
+// blog read (see src/lib/blog-content.ts), so imported posts follow the same rules as the
+// code-authored pages without editing each post file. Slugs, URLs and ids are
 // never touched. Official names ("Orange Knowledge Programme", "Honours") are kept.
 
 const MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December";
