@@ -1,4 +1,8 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
+
+// A post body is Portable Text blocks, plus raw-HTML blocks that carry an `html` string.
+export type BodyBlock = PortableTextBlock | { _type: string; _key?: string; html?: string; [key: string]: unknown };
 import { BLOG_SHARED_OVERRIDES, RICH_POST_CSS, RICH_POST_FONT_LINK, RICH_POST_MARKERS } from "@/components/lib/blog-rich-styles";
 import { urlFor } from "@/lib/image";
 import { blogH2, blogH3, blogP, blogLi } from "./lib/blog-typography";
@@ -185,14 +189,14 @@ const PLAIN_POST_EXTRA_CSS = `
 .blog-raw-content ol.steps li{padding-left:64px}
 `;
 
-function PlainRichPost({ content }: { content: any[] }) {
+function PlainRichPost({ content }: { content: BodyBlock[] }) {
   const css = scopeRichCss(RICH_POST_CSS) + BLOG_SHARED_OVERRIDES + PLAIN_POST_EXTRA_CSS;
   return (
     <div className="my-6 overflow-x-auto blog-table blog-raw-content">
       <style dangerouslySetInnerHTML={{ __html: css }} />
       <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
       <div className="container">
-        <PortableText value={content} components={richComponents} />
+        <PortableText value={content as PortableTextBlock[]} components={richComponents} />
         <div className="cta-banner">
           <h2>Plan Your Study Abroad Journey</h2>
           <p>Admizz Education guides you from university choice to visa and what comes after graduation.</p>
@@ -241,14 +245,14 @@ function FactsCard({ title, facts }: { title: string; facts: PostFact[] }) {
 }
 
 interface PortableTextRendererProps {
-  content: any[];
+  content: BodyBlock[];
   facts?: PostFact[];
   factsTitle?: string;
 }
 
 export default function PortableTextRenderer({ content, facts, factsTitle }: PortableTextRendererProps) {
   if (!content) return null;
-  const hasOwnCard = content.some((b) => b?._type === "rawHtml" && /class="quick-facts/.test(b.html || ""));
+  const hasOwnCard = content.some((b) => b?._type === "rawHtml" && /class="quick-facts/.test(String((b as { html?: string }).html || "")));
   const card = !hasOwnCard && facts && facts.length > 0 ? <FactsCard title={factsTitle || "At a Glance"} facts={facts} /> : null;
   return (
     <div className="prose-admizz">
@@ -260,7 +264,7 @@ export default function PortableTextRenderer({ content, facts, factsTitle }: Por
       </div>
       {card}
       {content.some((b) => b?._type === "rawHtml") ? (
-        <PortableText value={content} components={components} />
+        <PortableText value={content as PortableTextBlock[]} components={components} />
       ) : (
         <PlainRichPost content={content} />
       )}
