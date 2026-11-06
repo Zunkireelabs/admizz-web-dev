@@ -223,7 +223,7 @@ export interface PostFact { label: string; value: string }
 
 // The "At a Glance" card every post opens with (same markup as the key-facts card in the approved template).
 // Posts that do not write their own card get one built from data the post already has.
-function FactsCard({ title, facts }: { title: string; facts: PostFact[] }) {
+export function FactsCard({ title, facts }: { title: string; facts: PostFact[] }) {
   return (
     <div className="blog-raw-content">
       <style dangerouslySetInnerHTML={{ __html: scopeRichCss(RICH_POST_CSS) + BLOG_SHARED_OVERRIDES }} />

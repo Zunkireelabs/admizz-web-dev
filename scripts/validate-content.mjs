@@ -59,12 +59,26 @@ for (const entry of manifest) {
     errors.push(`${where}: needs at least one category`);
   }
 
+  // Cover image must exist on disk, otherwise /blogs and Related Articles show a broken image.
+  if (entry.imageUrl && entry.imageUrl.startsWith('/') && !existsSync(join(ROOT, 'public', entry.imageUrl))) {
+    errors.push(`${where}: cover image public${entry.imageUrl} does not exist`);
+  }
+
   const pagePath = join(ROOT, 'src/app', slug, 'page.tsx');
   if (!existsSync(pagePath)) {
     errors.push(`${where}: no page at src/app/${slug}/page.tsx`);
     continue;
   }
   const src = readFileSync(pagePath, 'utf8');
+  // One design for every blog: a post page must render through GeneratedBlogPost (which uses the shared
+  // BlogPostLayout), never its own hero/sidebar/CTA markup.
+  if (!/from\s+["']@\/components\/GeneratedBlogPost["']/.test(src) || !/<GeneratedBlogPost\b/.test(src)) {
+    errors.push(`src/app/${slug}/page.tsx: must render <GeneratedBlogPost {...post} /> so it uses the shared blog design`);
+  }
+  const imgMatch = src.match(/"featuredImage"\s*:\s*\{\s*"url"\s*:\s*"(\/[^"]+)"/);
+  if (imgMatch && !existsSync(join(ROOT, 'public', imgMatch[1]))) {
+    errors.push(`src/app/${slug}/page.tsx: featuredImage public${imgMatch[1]} does not exist`);
+  }
   const bodyFile = ['content.ts', 'content.tsx'].map((f) => join(ROOT, 'src/app', slug, f)).find(existsSync);
   const body = src + (bodyFile ? readFileSync(bodyFile, 'utf8') : '');
   const legacy = LEGACY_EXEMPT.has(slug);

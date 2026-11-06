@@ -32,7 +32,7 @@ Applies to every new blog post, answer page and comparison page. Enforced where 
 ## Adding a repo-authored post (checklist)
 1. `src/app/<slug>/page.tsx` using `GeneratedBlogPost` (copy `uk-student-visa-cost-2027`).
 2. Entry in `src/data/generated-posts.json` (same commit).
-3. Image at `public/images/blog/<slug>.webp`. Categories must be real Sanity taxonomy slugs.
+3. Cover image at `public/images/blog/<slug>.webp` (1200x630) and `<slug>-600.webp`, in the site's cover style (blue-purple gradient, white + yellow title, flat icons, `www.admizzeducation.com`). The build fails if the file is missing. Categories must be slugs from `src/content/blog/categories.json`.
 4. `npm run build` passes. Confirm the URL is in `public/sitemap.xml`.
 5. Deploy to dev first (`./deploy.sh dev`). Production only on an explicit go-ahead.
 
@@ -40,4 +40,6 @@ Applies to every new blog post, answer page and comparison page. Enforced where 
 `LEGACY_EXEMPT` in `scripts/validate-content.mjs` lists older posts that lack a quickAnswer or Sources section. Backfill them and remove them from the list. Never add a new post to it.
 
 ## One design for every blog
+Every post, standard or repo-authored, renders through `src/components/BlogPostLayout.tsx` (hero, sticky form, Related Articles, CTA banner). A post page must be `<GeneratedBlogPost {...post} />` and nothing else; the validator fails the build otherwise. Change the design in the shared components, never per post.
+
 New posts must not carry their own `<style>` or hand-written layout CSS. Write them as sections (`GeneratedBlogPost`) so they match every other blog. Older posts that still bring their own CSS are listed in `src/data/own-css-posts.json` and are restyled by `src/components/lib/blog-rich-styles.ts`. `scripts/validate-content.mjs` fails the build if a post outside that list carries its own `<style>`. Never add a new slug to the list.
