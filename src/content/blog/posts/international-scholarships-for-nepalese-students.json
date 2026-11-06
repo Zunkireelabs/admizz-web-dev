@@ -1,0 +1,823 @@
+{
+  "_id": "wp-post-3418",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:44:21Z",
+  "_updatedAt": "2026-10-08T08:22:10Z",
+  "title": "International Scholarships for Nepali Students",
+  "slug": {
+    "_type": "slug",
+    "current": "international-scholarships-for-nepalese-students"
+  },
+  "publishedAt": "2025-05-21T09:12:20",
+  "excerpt": "Every year, thousands of Nepali students dream of studying abroad—but for many, financial barriers can seem impossible to overcome. The [&hellip;]",
+  "content": [
+    {
+      "_key": "957df8e9ad7d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f79c58f256c9",
+          "_type": "span",
+          "marks": [],
+          "text": "Every year, thousands of Nepali students dream of studying abroad—but for many, financial barriers can seem impossible to overcome. The good news? "
+        },
+        {
+          "_key": "c6ea3d1f19b5",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "International scholarships for Nepali students"
+        },
+        {
+          "_key": "045e273c8abf",
+          "_type": "span",
+          "marks": [],
+          "text": " are unlocking doors to quality education around the world. With the right guidance and preparation, these opportunities can become your path to a successful global career."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e163c5eb9558",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "69b9cdafa67a",
+          "_type": "span",
+          "marks": [],
+          "text": "At "
+        },
+        {
+          "_key": "610c09d83aee",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Admizz Education"
+        },
+        {
+          "_key": "2f6f4ec2d8ab",
+          "_type": "span",
+          "marks": [],
+          "text": ", we specialize in helping students secure scholarships and gain admission to leading international universities. Whether you’re aiming for undergraduate, postgraduate, or research programs, we’re here to walk with you every step of the way."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d4179ef2968f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e50e8ff40d4e",
+          "_type": "span",
+          "marks": [],
+          "text": "Why International Scholarships Matter"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "2d5ab05af03a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "66773a295931",
+          "_type": "span",
+          "marks": [],
+          "text": "For Nepali students, international scholarships are more than just financial aid—they’re a life-changing opportunity. Scholarships can cover tuition fees, living expenses, travel costs, and more. More importantly, they allow deserving students to focus on academic and personal growth without the burden of financial stress."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c669495222ab",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4c465770b7fc",
+          "_type": "span",
+          "marks": [],
+          "text": "Some key benefits of securing an international scholarship include:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0042bdc08a1e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "edf975f77d7a",
+          "_type": "span",
+          "marks": [],
+          "text": "Access to world-class education"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "dddba1587794",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a7e036cbaddc",
+          "_type": "span",
+          "marks": [],
+          "text": "Exposure to global cultures and networks"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6c51fd9edbd1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3af4cb34ecc9",
+          "_type": "span",
+          "marks": [],
+          "text": "Boosted academic and professional credibility"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fb75f2ec5244",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7faaed89ea3f",
+          "_type": "span",
+          "marks": [],
+          "text": "Increased career opportunities after graduation"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a6adc6eb05e8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "904301b92645",
+          "_type": "span",
+          "marks": [],
+          "text": "Who Can Apply for International Scholarships?"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "6f440ff1bb27",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "98ac032a4391",
+          "_type": "span",
+          "marks": [],
+          "text": "International scholarships are available for a wide range of students from Nepal, regardless of their academic background or study level. While eligibility criteria vary by institution and program, common requirements include:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "72b26c53c05e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "af4281278704",
+          "_type": "span",
+          "marks": [],
+          "text": "Strong academic performance"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c4fbe0a54e8f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ab18c8dbc9ef",
+          "_type": "span",
+          "marks": [],
+          "text": "English language proficiency (IELTS/TOEFL)"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f30d53a5be25",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3d36d164625d",
+          "_type": "span",
+          "marks": [],
+          "text": "Well-written Statement of Purpose (SOP)"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "82a771c4f7e0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f0344310881d",
+          "_type": "span",
+          "marks": [],
+          "text": "Extracurricular involvement or leadership experience"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d63f3dec25fb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e02227aedd5d",
+          "_type": "span",
+          "marks": [],
+          "text": "Letters of recommendation"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "604bfd3f2830",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "111023cd45a9",
+          "_type": "span",
+          "marks": [],
+          "text": "Whether you’re  a bachelor’s degree holder, or a professional seeking a research opportunity, there’s likely a scholarship suited for your academic goals."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "45d58f01c91f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c36f9e6ba6e4",
+          "_type": "span",
+          "marks": [],
+          "text": "How Admizz Education Supports Your Scholarship Journey"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "11b9d80e77d3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "913d939dd7ac",
+          "_type": "span",
+          "marks": [],
+          "text": "At "
+        },
+        {
+          "_key": "a9b6dbbc4953",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Admizz Education"
+        },
+        {
+          "_key": "3ae07596517d",
+          "_type": "span",
+          "marks": [],
+          "text": ", we believe that every motivated student deserves access to global education. Here’s how we help you make it happen:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "def10b40c713",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c164af15b1ef",
+          "_type": "span",
+          "marks": [],
+          "text": "1. Scholarship Matching"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "30bae4ffd3db",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7664ff2fbb15",
+          "_type": "span",
+          "marks": [],
+          "text": "We help identify scholarships that match your academic profile, financial needs, and career goals."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "aead2753221f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "75626a419852",
+          "_type": "span",
+          "marks": [],
+          "text": "2. Documentation Assistance"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "fdb211cd890f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6d4789535e32",
+          "_type": "span",
+          "marks": [],
+          "text": "Our experts assist in preparing all necessary documents, including resumes, SOPs, academic transcripts, and recommendation letters."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "869cd2e9f285",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "df2caa03ca4c",
+          "_type": "span",
+          "marks": [],
+          "text": "3. Application Support"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "7b5168cb85ad",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2d9d108877f7",
+          "_type": "span",
+          "marks": [],
+          "text": "From filling out scholarship forms to tracking deadlines, we ensure your application process is smooth and complete."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ac518f2c3041",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c06eed198c40",
+          "_type": "span",
+          "marks": [],
+          "text": "4. Interview Preparation"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "51d2caac7693",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ef67aaf66965",
+          "_type": "span",
+          "marks": [],
+          "text": "We offer mock interviews and coaching to help you present yourself confidently to scholarship committees."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d28d15cb443f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "532bf759c055",
+          "_type": "span",
+          "marks": [],
+          "text": "5. Visa and Pre-Departure Guidance"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "9ff144353272",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "465b7021de7b",
+          "_type": "span",
+          "marks": [],
+          "text": "Once selected, we guide you through the visa process and prepare you for life as an international student."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "be0d41d61ca3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "80aac5f99e65",
+          "_type": "span",
+          "marks": [],
+          "text": "Tips to Improve Your Scholarship Application"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "c74ad89839df",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4d22f4fc1389",
+          "_type": "span",
+          "marks": [],
+          "text": "To increase your chances of winning an international scholarship, consider the following tips:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d39f0e8b781b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0167b75ee312",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Start Early"
+        },
+        {
+          "_key": "79cd4a963ea5",
+          "_type": "span",
+          "marks": [],
+          "text": ": Many scholarships have deadlines months before the course begins."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3bb12bebf9a6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c888388c7669",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Customize Your SOP"
+        },
+        {
+          "_key": "81ca5cabc3e7",
+          "_type": "span",
+          "marks": [],
+          "text": ": Make it personal, clear, and aligned with your goals."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b34e1c718b9b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6901d970ef85",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Maintain Academic Consistency"
+        },
+        {
+          "_key": "b6507f86f5e2",
+          "_type": "span",
+          "marks": [],
+          "text": ": Strong grades are often a key selection factor."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6a8dfefb3220",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "98724e24f5ca",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Stay Organized"
+        },
+        {
+          "_key": "088093be6a8f",
+          "_type": "span",
+          "marks": [],
+          "text": ": Keep track of requirements, deadlines, and submission formats."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "267b79e0e155",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "37fbc097e1b2",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Seek Professional Guidance"
+        },
+        {
+          "_key": "c1d9d7f9082d",
+          "_type": "span",
+          "marks": [],
+          "text": ": Working with an expert team like Admizz Education can significantly improve your application quality."
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "baaa9a4410c7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "329a8e2c383f",
+          "_type": "span",
+          "marks": [],
+          "text": "Turn Your Study Abroad Dream Into Reality"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "77707dbdfe96",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bdb1d96d7028",
+          "_type": "span",
+          "marks": [],
+          "text": "Finding and applying for "
+        },
+        {
+          "_key": "76e269444aa6",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "international scholarships for Nepali students"
+        },
+        {
+          "_key": "30bd381632ae",
+          "_type": "span",
+          "marks": [],
+          "text": " may seem overwhelming—but with the right guidance, it’s absolutely achievable. At "
+        },
+        {
+          "_key": "4db55a59071f",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Admizz Education"
+        },
+        {
+          "_key": "23ea7403a034",
+          "_type": "span",
+          "marks": [],
+          "text": ", we are committed to helping you navigate this journey with confidence and clarity."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6b0633c3db73",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9a41ece835d1",
+          "_type": "span",
+          "marks": [],
+          "text": " "
+        },
+        {
+          "_key": "30a204789ba9",
+          "_type": "span",
+          "marks": [
+            "strong",
+            "a28dd13edf01"
+          ],
+          "text": "Book your free consultation"
+        },
+        {
+          "_key": "bfd2cc24f65d",
+          "_type": "span",
+          "marks": [],
+          "text": " and let us help you take the first step toward a brighter future."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "a28dd13edf01",
+          "_type": "link",
+          "blank": false,
+          "href": "https://admizzeducation.com/contact/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "3b419d524997",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "007cc8f99b76",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "8cda53b1c531",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "74ea17dfb5db",
+          "_type": "span",
+          "marks": [
+            "fe4cc1281c85"
+          ],
+          "text": "Gates Cambridge and Commonwealth Scholarships"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "fe4cc1281c85",
+          "_type": "link",
+          "blank": false,
+          "href": "/gates-cambridge-commonwealth-scholarships-international-2027"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "20695598e15a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a22edfc378e4",
+          "_type": "span",
+          "marks": [
+            "5692395f392b"
+          ],
+          "text": "Scholarship assistance in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "5692395f392b",
+          "_type": "link",
+          "blank": false,
+          "href": "/scholarship-assistance-in-nepal"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/international-scholarships-for-nepalese-students-1200.webp",
+    "card": "/images/blog/international-scholarships-for-nepalese-students-600.webp",
+    "og": "/images/blog/og/international-scholarships-for-nepalese-students.jpg",
+    "alt": "International Scholarships for Nepalese Students",
+    "caption": null,
+    "_sanityRef": "image-5c08f0d5a8e767f3259afbc9c1e4c7d15ee12520-1600x900-png",
+    "_sanityOgRef": "image-5c08f0d5a8e767f3259afbc9c1e4c7d15ee12520-1600x900-png"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-47",
+      "title": "Nepal",
+      "slug": {
+        "_type": "slug",
+        "current": "nepal"
+      }
+    },
+    {
+      "_id": "wp-category-44",
+      "title": "Scholarships",
+      "slug": {
+        "_type": "slug",
+        "current": "scholarships"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/international-scholarships-for-nepalese-students",
+    "metaDescription": "Discover the best opportunities for Nepali students to receive international scholarships. Let Admizz Education help you study abroad",
+    "metaTitle": "International Scholarships for Nepali Students - Admizz Education",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.000Z"
+}

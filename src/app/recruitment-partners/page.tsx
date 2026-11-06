@@ -9,7 +9,7 @@ import { allUniversities } from "@/lib/universities";
 export const metadata: Metadata = {
   title: "Recruitment Partners - Admizz Education",
   description:
-    "Partner with Admizz Education as an education consultant or recruitment agency. Refer students to 100+ partner universities with 24-48 hour application turnaround.",
+    "Partner with Admizz Education as an education consultant or recruitment agency. Refer students to 100+ partner universities with fast application turnaround.",
   alternates: {
     canonical: "https://admizzeducation.com/recruitment-partners",
   },
@@ -198,12 +198,12 @@ const faqItems: FAQItem[] = [
   {
     question: "What is the Admizz recruitment partner program?",
     answer:
-      "It is a structured collaboration for independent counselors, study-abroad consultancies, and education agencies who refer students to universities through the Admizz network. Commercial terms are agreed during onboarding.",
+      "It is a structured collaboration for independent counselors, study-abroad agencies, and education agencies who refer students to universities through the Admizz network. Commercial terms are agreed during onboarding.",
   },
   {
     question: "Who can become a recruitment partner?",
     answer:
-      "Established education consultancies, independent overseas-education counselors, and study-abroad agencies are typically a good fit. Specific eligibility is reviewed during the discovery call.",
+      "Established education agencies, independent overseas-education counselors, and study-abroad agencies are typically a good fit. Specific eligibility is reviewed during the discovery call.",
   },
   {
     question: "How does the commission structure work?",
@@ -355,7 +355,7 @@ export default function RecruitmentPartnersPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-[12px] font-bold uppercase tracking-[2px] mb-4" style={{ color: "#5a6275" }}>
-            For Recruitment Agents &amp; Consultancies
+            For Recruitment Agents &amp; Agencies
           </p>
           <h1 className="text-[28px] sm:text-[34px] lg:text-[42px] font-bold leading-[1.15] tracking-tight max-w-3xl mx-auto" style={{ color: "#0D1282" }}>
             Grow Your Counseling Business with Admizz
@@ -363,7 +363,7 @@ export default function RecruitmentPartnersPage() {
           <p className="mt-5 text-[15px] sm:text-[16px] max-w-2xl mx-auto leading-relaxed" style={{ color: "#3d4663" }}>
             Refer students to 100+ partner universities with 24-48 hour
             application turnaround. Built for independent counselors,
-            education consultants, and study-abroad agencies.
+            education agents, and study-abroad agencies.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
@@ -440,7 +440,7 @@ export default function RecruitmentPartnersPage() {
           <div className="space-y-4 max-w-3xl mx-auto">
             <p className="text-[15px] text-gray-dark leading-relaxed">
               Admizz Education partners with independent counselors,
-              education consultants, and study-abroad agencies to place
+              education agents, and study-abroad agencies to place
               students at universities across our global network. The
               partnership is built around speed, transparency, and ethical
               recruitment &mdash; so you can spend more time guiding students
@@ -841,7 +841,7 @@ export default function RecruitmentPartnersPage() {
                 Sell Confidence to Your Students
               </h2>
               <p className="text-[15px] leading-relaxed opacity-90 mb-8">
-                Whether you&rsquo;re an established consultancy or starting out,
+                Whether you&rsquo;re an established agency or starting out,
                 you get instant access to a global network of universities
                 &mdash; backed by 24-48 hour application turnaround and
                 industry-leading commission.

@@ -1,9 +1,7 @@
-// Visa, fee and funds facts checked against official sources in October 2026. Re-check before editing.
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
@@ -19,43 +17,50 @@ export const metadata: Metadata = {
       "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!",
     url: "https://admizzeducation.com/study-in-dubai",
     siteName: "Admizz Education",
-    images: ["/images/og/UAE.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-dubai.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in UAE - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in UAE - Admizz Education",
+    description:
+      "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!",
+    images: ["/images/og/countries/study-in-dubai.jpg"],
   },
 };
 
 const dubaiData: CountryPageData = {
   countryName: "UAE",
   countryCategorySlug: "uae",
-  nepalGuide: {
-    href: "/study-in-dubai-from-nepal",
-    title: "Applying from Nepal? Read the Nepal-specific guide to studying in Dubai",
-    text: "Costs, the student visa process, intakes, test scores and scholarships for Nepali students.",
-  },
   heroHeading: "Study in UAE",
+  flagColors: ["#00732F", "#C8102E"],
   heroSubheading: "Explore World-Class Education in a Dynamic Global Hub",
   heroDescription: "Study in UAE and explore world-class universities, industry-driven programs, and a dynamic international lifestyle. Admizz Education assists with course selection, admissions, documentation, and visa guidance — ensuring a seamless, well-supported journey toward top-quality education and global career opportunities in the UAE.",
   heroBackground: "/images/hero/dubai-hero.webp",
   quickFacts: [
-    { label: "Capital", value: "Abu Dhabi" },
     { label: "Language", value: "Arabic" },
-    { label: "Dialing Code", value: "+971" },
     { label: "Currency", value: "UAE Dirham" },
-    { label: "KHDA-licensed providers (Dubai)", value: "41" },
-    { label: "Branch campuses (Dubai)", value: "37" },
-    { label: "Visa sponsor", value: "Your university" },
-    { label: "Health insurance", value: "Required" },
+    { label: "KHDA-licensed institutions", value: "41" },
+    { label: "Students enrolled (2024\u201325)", value: "42,026" },
+    { label: "Tuition fee", value: "AED 40,000" },
   ],
   whyStudyTitle: "Why Study In UAE?",
   whyStudyIntro:
     "Study in UAE offers international students world-class universities, globally recognized degrees, safe living, cultural diversity, and excellent career opportunities. Experience quality education in one of the fastest-growing global education hubs.",
   benefits: [
-    { title: "World-Class Universities", icon: "/images/icons/school-1.webp", description: "The UAE hosts federal universities and international branch campuses. The CAA licenses institutions and accredits programs, and KHDA regulates higher education in Dubai." },
-    { title: "Tuition & Scholarships", icon: "/images/icons/scholarship-108.webp", description: "Tuition is set by each university, and some institutions offer scholarships. Ask each admissions office for current fees and awards." },
-    { title: "High Employability & Internships", icon: "/images/icons/consultation.webp", description: "Many programs include internships. After graduation, top graduates who meet the conditions can apply for the 10-year Golden Residence." },
-    { title: "Cultural Diversity & Global Exposure", icon: "/images/icons/visa-1.webp", description: "The UAE offers international students a multicultural environment with global networking opportunities." },
+    { title: "World-Class Universities", icon: "/images/icons/school-1.webp", description: "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!" },
+    { title: "Affordable Tuition & Scholarships", icon: "/images/icons/scholarship-108.webp", description: "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!" },
+    { title: "High Employability & Internships", icon: "/images/icons/consultation.webp", description: "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!" },
+    { title: "Cultural Diversity & Global Exposure", icon: "/images/icons/visa-1.webp", description: "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!" },
     { title: "University-Sponsored Student Visa", icon: "/images/icons/visa-108.webp", description: "Your accredited university sponsors your student residence visa, and MOHRE offers a student training and employment permit." },
-    { title: "Safe & Modern Environment", icon: "/images/icons/accomodation-108.webp", description: "The UAE is known for modern infrastructure and a multicultural, student-friendly environment." },
+    { title: "Safe & Modern Environment", icon: "/images/icons/accomodation-108.webp", description: "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!" },
   ],
   admissionTitle: "Admission Requirements for Studying in UAE",
   admissionIntro:
@@ -91,14 +96,15 @@ const dubaiData: CountryPageData = {
     },
     {
       title: "Visa Documentation",
-      intro: "GDRFA Dubai lists a passport copy, a recent colour photo, an approved medical examination, health insurance and an ID receipt for the student residence permit. The university also issues a certificate stating the duration of study.",
+      intro: "GDRFA Dubai lists a passport copy, a recent color photo, an approved medical examination, health insurance and an ID receipt for the student residence permit. The university also issues a certificate stating the duration of study.",
       documents: [
         "Valid Passport Copy",
-        "Recent Colour Photo (white background)",
+        "Recent Color Photo (white background)",
         "Study Certificate / Admission Letter from University",
         "Medical Fitness Test (applicants aged 18 and above)",
         "Health Insurance",
         "Emirates ID Application",
+        "Academic Certificates & Transcripts",
       ],
     },
   ],
@@ -108,6 +114,8 @@ const dubaiData: CountryPageData = {
     items: [
       { name: "Main intake – set by each university", details: [] },
       { name: "Second intake – set by each university, not available for every program", details: [] },
+      { name: "Additional intakes – only where your university offers them", details: [] },
+      { name: "Rolling admissions – only where your university offers them", details: [] },
     ],
   },
   universities: [
@@ -135,14 +143,12 @@ const dubaiData: CountryPageData = {
   visaTitle: "UAE Student Visa Process",
   visaIntro: "The UAE student visa is a residence visa sponsored by your accredited university or college. It involves admission, documents, a medical test, health insurance and an Emirates ID.",
   visaSteps: [
-    { title: "Receive Admission Offer", description: "Secure an offer letter from a licensed UAE university or college." },
-    { title: "Submit Required Documents", description: "Prepare your passport, photo, academic records and any documents your university asks for." },
-    { title: "University Sponsors Your Visa", description: "The university acts as host and guarantor and provides a certificate stating the duration of your study." },
-    { title: "Medical Fitness Test", description: "Applicants aged 18 and above take the approved medical examination." },
-    { title: "Arrange Health Insurance", description: "Valid health insurance is required for the residence permit." },
-    { title: "Apply for Emirates ID", description: "Residence visa holders apply for an Emirates ID from ICP and pass a security check." },
-    { title: "Receive Student Residence Visa", description: "Validity varies by visa type and sponsor; a sponsored visa can be for 1, 2 or 3 years." },
-    { title: "Start Your Studies", description: "Begin classes at your chosen UAE institution." },
+    { title: "Get Your Admission Offer", description: "Secure an offer letter from a licensed UAE university or college." },
+    { title: "Submit Your Documents", description: "Prepare your passport, photo, academic records and any documents your university asks for." },
+    { title: "University Gets Your Entry Permit", description: "The university acts as host and guarantor and provides a certificate stating the duration of your study." },
+    { title: "Travel to the UAE", description: "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!" },
+    { title: "Medical, Emirates ID & Stamping", description: "Applicants aged 18 and above take the approved medical exam, arrange valid health insurance, and apply for an Emirates ID with a security check. Residence validity varies by visa type and sponsor; a sponsored visa can be for 1, 2 or 3 years." },
+    { title: "Start Your Studies", description: "Study in UAE with top universities, modern campuses, expert guidance, and visa support. Start your global education journey today!" },
   ],
   faqItems: [
     { question: "Is UAE good for students?", answer: "The UAE offers federal universities, international branch campuses and a multicultural living environment. Higher education is licensed and accredited through the CAA at national level, with KHDA regulating Dubai. Check that both your university and your program are accredited before you apply." },
@@ -159,6 +165,6 @@ const dubaiData: CountryPageData = {
 };
 
 export default async function StudyInDubaiPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "uae" });
+  const blogPosts: SanityPost[] = getPostsByCategory("uae");
   return <CountryPageTemplate data={dubaiData} blogPosts={blogPosts} />;
 }

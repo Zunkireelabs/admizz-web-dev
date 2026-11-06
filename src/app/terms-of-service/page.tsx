@@ -5,16 +5,17 @@ import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 export const metadata: Metadata = {
   title: "Terms of Service | Admizz Education",
   description:
-    "The terms for using admizzeducation.com and Admizz Education's counseling, guides and registration forms, including accuracy of information and limits of liability.",
+    "The terms for using admizzeducation.com and Admizz Education's counseling, guides and forms, including accuracy of information and liability.",
   alternates: {
     canonical: "https://admizzeducation.com/terms-of-service",
   },
   openGraph: {
     title: "Terms of Service | Admizz Education",
     description:
-      "The terms for using admizzeducation.com and Admizz Education's counseling, guides and registration forms, including accuracy of information and limits of liability.",
+      "The terms for using admizzeducation.com and Admizz Education's counseling, guides and forms, including accuracy of information and liability.",
     url: "https://admizzeducation.com/terms-of-service",
     siteName: "Admizz Education",
+    images: [{ url: "/images/og/stuyabroad.webp", alt: "Admizz Education" }],
     type: "website",
   },
 };
@@ -47,7 +48,7 @@ export default function TermsOfServicePage() {
           <div>
             <h2 className="text-xl font-bold text-navy mb-4">What we provide</h2>
             <div className="space-y-3">
-              <p className="text-[15px] text-gray-dark leading-relaxed">Admizz Education is a study abroad consultancy. The site provides guides, tools and forms, and lets you register for counseling on university selection, applications, visas, scholarships and test preparation. Counseling is free for students: we earn from university partners and not from students.</p>
+              <p className="text-[15px] text-gray-dark leading-relaxed">Admizz Education is a study abroad partner. The site provides guides, tools and forms, and lets you register for counseling on university selection, applications, visas, scholarships and test preparation. Counseling is free for students: we earn from university partners and not from students.</p>
             </div>
           </div>
 

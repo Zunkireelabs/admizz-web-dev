@@ -94,8 +94,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* SEOAI:HEAD:START */}{/* SEOAI:HEAD:END */}
-        <link rel="preconnect" href="https://cdn.sanity.io" />
-        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <link rel="dns-prefetch" href="https://edgex.zunkireelabs.com" />
       </head>
       <body suppressHydrationWarning>
@@ -173,7 +171,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 "https://youtube.com/c/Admizz_official",
                 "https://www.tiktok.com/@admizz_official",
                 "https://www.linkedin.com/company/admizzofficial/",
-                "https://share.google/yKo7sqK2XYQmvBUKp",
+                "https://maps.app.goo.gl/fWXtTok1oCWJLWEFA",
               ],
             }),
           }}

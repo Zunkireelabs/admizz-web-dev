@@ -1,0 +1,142 @@
+{
+  "_id": "f871e930-a3ce-450e-ac9e-51ca19aeac1c",
+  "_type": "post",
+  "_createdAt": "2026-08-28T05:51:46Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
+  "title": "September 15, 2026: What Every F-1 Student Must Know About the New Rule",
+  "slug": {
+    "_type": "slug",
+    "current": "us-f1-september-15-deadline-2026"
+  },
+  "publishedAt": "2026-08-28T06:20:00.000Z",
+  "excerpt": "US universities are urgently warning F-1 and J-1 students about new visa rules taking effect September 15. Duration of Status ends. Here is what changes and what to do right now.",
+  "content": [
+    {
+      "_key": "22d4ffa488eb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4949c0232995",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Update, November 2026: "
+        },
+        {
+          "_key": "4d3bff31c54b",
+          "_type": "span",
+          "marks": [],
+          "text": "The rule described below took effect on September 15, 2026. DHS published the final rule in the "
+        },
+        {
+          "_key": "5f8ecdd0fe2f",
+          "_type": "span",
+          "marks": [
+            "8967bc4e6b1e"
+          ],
+          "text": "Federal Register on July 17, 2026"
+        },
+        {
+          "_key": "aeac370b9408",
+          "_type": "span",
+          "marks": [],
+          "text": " Students admitted under duration of status before that date can stay until the program end date on their Form I-20, or the end of their post-completion OPT or STEM OPT, and no later than November 14, 2030, according to the "
+        },
+        {
+          "_key": "5efd2c4d1a27",
+          "_type": "span",
+          "marks": [
+            "73f37fb203f7"
+          ],
+          "text": "DHS Study in the States quick facts"
+        },
+        {
+          "_key": "80777a79ef63",
+          "_type": "span",
+          "marks": [],
+          "text": ". Where the text below refers to the date as upcoming, read it as the date the rule started. Speak to your school's designated school official (DSO) before you travel or change your program."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "8967bc4e6b1e",
+          "_type": "link",
+          "blank": true,
+          "href": "https://www.federalregister.gov/documents/2026/07/17/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant"
+        },
+        {
+          "_key": "73f37fb203f7",
+          "_type": "link",
+          "blank": true,
+          "href": "https://studyinthestates.dhs.gov/final-rule-establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-quick"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "77e5a1370a2b",
+      "_type": "rawHtml",
+      "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta name=\"description\" content=\"On September 15, 2026, the USA replaces Duration of Status with a fixed 4-year limit for F-1 and J-1 students. Here is exactly what changes, the travel warning every student must read, and what to do right now.\">\n  <title>September 15, 2026: What Every F-1 Student Must Know Before the Deadline | Admizz Education</title>\n  <link href=\"https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap\" rel=\"stylesheet\">\n  <style>\n    .container { max-width: 100%; margin: 0 auto; padding: 48px 24px 72px; font-family: 'Rubik', sans-serif; background: #faf8f3; color: #1a1a18; font-size: 17px; line-height: 1.85; }\n    .quick-facts { font-family: 'Rubik', sans-serif; background: #ffffff; border: 1.5px solid #3C50A0; border-radius: 12px; padding: 28px 32px; margin-bottom: 52px; }\n    .quick-facts-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #2A3D8F; margin-bottom: 20px; }\n    .facts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }\n    .fact-item { display: flex; flex-direction: column; gap: 4px; }\n    .fact-label { font-size: 11px; color: #7a7a74; text-transform: uppercase; letter-spacing: 0.08em; }\n    .fact-value { font-size: 15px; font-weight: 600; color: #1a1a18; }\n    h2 { font-size: clamp(20px, 2.8vw, 26px); font-weight: 700; color: #0d1b2a; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #C8D5EF; line-height: 1.25; }\n    .section { margin-bottom: 56px; }\n    p { margin-bottom: 18px; color: #1a1a18; }\n    p:last-child { margin-bottom: 0; }\n    strong { font-weight: 600; }\n    .callout { border-radius: 10px; padding: 18px 22px; margin: 28px 0; display: flex; gap: 14px; align-items: flex-start; }\n    .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }\n    .callout-body { flex: 1; font-size: 15px; line-height: 1.75; }\n    .callout-body strong { display: block; margin-bottom: 4px; }\n    .callout.tip { background: #e1f5ee; border-left: 3px solid #0f6e56; }\n    .callout.tip .callout-body { color: #085041; }\n    .callout.warning { background: #EEF1FA; border-left: 3px solid #5078B4; }\n    .callout.warning .callout-body { color: #1e2e6a; }\n    .callout.info { background: #faeaec; border-left: 3px solid #9b2335; }\n    .callout.info .callout-body { color: #6b1420; }\n    .checklist { list-style: none; padding: 0; margin: 20px 0; }\n    .checklist li { padding: 10px 0 10px 36px; position: relative; border-bottom: 1px solid #e0dbd0; font-size: 15.5px; line-height: 1.65; }\n    .checklist li:last-child { border-bottom: none; }\n    .checklist li::before { content: ''; position: absolute; left: 0; top: 14px; width: 18px; height: 18px; border-radius: 50%; background: #0f6e56 url(\"data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") no-repeat center; }\n    .steps { list-style: none; padding: 0; margin: 24px 0; counter-reset: steps; }\n    .steps li { counter-increment: steps; padding: 20px 20px 20px 64px; position: relative; margin-bottom: 14px; background: #ffffff; border-radius: 10px; border: 1px solid #e0dbd0; font-size: 15.5px; line-height: 1.7; }\n    .steps li::before { content: counter(steps); position: absolute; left: 18px; top: 18px; width: 30px; height: 30px; border-radius: 50%; background: #0d1b2a; color: #ffffff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }\n    .steps li strong { display: block; font-size: 15.5px; font-weight: 600; margin-bottom: 6px; color: #0d1b2a; }\n    /* Destination compare pills */\n    .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 16px; margin: 28px 0; }\n    .pillar-card { background: #ffffff; border: 1px solid #e0dbd0; border-top: 3px solid #3C50A0; border-radius: 10px; padding: 20px 18px; }\n    .pillar-num { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: #2A3D8F; text-transform: uppercase; margin-bottom: 8px; }\n    .pillar-title { font-size: 16px; font-weight: 700; color: #0d1b2a; margin-bottom: 8px; }\n    .pillar-desc { font-size: 13.5px; color: #4a4a46; line-height: 1.6; }\n    .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0; border-radius: 8px; box-shadow: 0 0 0 1px #e0dbd0; }\n    .elig-table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 14.5px; }\n    .elig-table th { background: #0d1b2a; color: #ffffff; padding: 11px 14px; text-align: left; font-weight: 500; font-size: 12px; letter-spacing: 0.04em; }\n    .elig-table td { padding: 11px 14px; border-bottom: 1px solid #e0dbd0; vertical-align: top; line-height: 1.55; }\n    .elig-table tr:nth-child(even) td { background: #faf8f3; }\n    .elig-table td:first-child { font-weight: 600; color: #0d1b2a; }\n    .inline-cta { background: #EAF0FA; border: 1.5px solid #3C50A0; border-radius: 10px; padding: 22px 28px; margin: 36px 0; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }\n    .inline-cta-text { flex: 1; font-size: 15px; color: #1e3a6a; line-height: 1.55; min-width: 200px; }\n    .inline-cta-text strong { display: block; font-size: 15.5px; margin-bottom: 4px; color: #0d1b2a; }\n    .inline-cta a { background: #0d1b2a; color: #ffffff; font-family: 'Rubik', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 22px; border-radius: 7px; text-decoration: none; white-space: nowrap; }\n    .inline-cta a:hover { background: #3C50A0; }\n    .cta-banner { background: linear-gradient(135deg, #0d1b2a 0%, #0d1282 100%); border-radius: 16px; padding: 48px 40px; margin: 48px 0; text-align: center; position: relative; overflow: hidden; }\n    .cta-banner::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; background: #0d1282; }\n    .cta-banner::after { content: ''; position: absolute; bottom: -80px; left: -40px; width: 250px; height: 250px; border-radius: 50%; background: #0d1282; }\n    .cta-banner h2 { font-size: clamp(19px, 2.8vw, 26px); font-weight: 700; color: #ffffff; border: none; padding: 0; margin-bottom: 12px; position: relative; z-index: 1; }\n    .cta-banner p { color: rgba(255,255,255,0.72); font-size: 16px; max-width: 520px; margin: 0 auto 28px; position: relative; z-index: 1; }\n    .cta-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; position: relative; z-index: 1; }\n    .btn-primary { background: #3C50A0; color: #ffffff; font-family: 'Rubik', sans-serif; font-weight: 600; font-size: 15px; padding: 13px 28px; border-radius: 8px; text-decoration: none; display: inline-block; }\n    .btn-primary:hover { background: #2A3D8F; }\n    .btn-secondary { background: transparent; color: #ffffff; font-family: 'Rubik', sans-serif; font-weight: 600; font-size: 15px; padding: 12px 28px; border-radius: 8px; text-decoration: none; display: inline-block; border: 1.5px solid rgba(255,255,255,0.35); }\n    .faq-item { border-bottom: 1px solid #e0dbd0; padding: 20px 0; }\n    .faq-q { font-size: 16.5px; font-weight: 600; color: #0d1b2a; margin-bottom: 10px; }\n    .faq-a { font-size: 15.5px; color: #4a4a46; line-height: 1.75; }\n    @media (max-width: 600px) { .facts-grid { grid-template-columns: 1fr 1fr; } .cta-banner { padding: 36px 22px; } .inline-cta { flex-direction: column; } }\n  </style>\n</head>\n<body>\n<div class=\"container\">\n<article>\n\n  <div class=\"quick-facts\">\n    <div class=\"quick-facts-title\">🇺🇸 F-1 Visa Rule Change — September 15, 2026</div>\n    <div class=\"facts-grid\">\n      <div class=\"fact-item\"><span class=\"fact-label\">Effective Date</span><span class=\"fact-value\">September 15, 2026</span></div>\n      <div class=\"fact-item\"><span class=\"fact-label\">What Ends</span><span class=\"fact-value\">Duration of Status (D/S)</span></div>\n      <div class=\"fact-item\"><span class=\"fact-label\">New Time Limit</span><span class=\"fact-value\">Fixed 4 Years (Most Students)</span></div>\n      <div class=\"fact-item\"><span class=\"fact-label\">Visas Affected</span><span class=\"fact-value\">F-1 and J-1 Visa Holders</span></div>\n      <div class=\"fact-item\"><span class=\"fact-label\">Travel Warning</span><span class=\"fact-value\">Caution After Sept 15</span></div>\n      <div class=\"fact-item\"><span class=\"fact-label\">Extension Authority</span><span class=\"fact-value\">USCIS Only — Not Your University</span></div>\n    </div>\n  </div>\n\n\n  <section class=\"section\" id=\"intro\">\n    <h2>Something Changes for Every F-1 Student on September 15</h2>\n    <p>US universities across the country are urgently contacting their international students with the same message: <strong>understand what is changing on September 15, 2026 — and act before it arrives.</strong> On that date, the most significant change to US student immigration in decades goes live. The system that has governed how long international students can stay in the United States — Duration of Status — is being replaced with a fixed time limit, printed directly on your I-94 arrival record.</p>\n\n    <p>This is not a minor administrative update. It changes how long you can legally remain in the US, what happens if you travel internationally and return after September 15, and what you must do if your studies take longer than your permitted period. Every current and prospective F-1 and J-1 student needs to understand this before the deadline arrives.</p>\n\n    <div class=\"callout info\">\n      <span class=\"callout-icon\">🚨</span>\n      <div class=\"callout-body\">\n        <strong>Universities are calling this the most urgent update in a generation</strong>\n        NAFSA — the association of international educators — described the September 15 rule as a \"sea change.\" International student offices at universities across the US have been working overtime to update guidance, build new tracking systems, and contact every enrolled F-1 student individually. If your university has emailed you about this, read it carefully. If they haven't yet, contact your international student office today.\n      </div>\n    </div>\n  </section>\n\n\n  <section class=\"section\" id=\"what-changes\">\n    <h2>What Exactly Changes on September 15</h2>\n    <p>Until September 14, 2026, your F-1 visa stamp allows you to enter the United States and your I-94 record shows <strong>\"D/S\" — Duration of Status.</strong> This meant you could stay for the full length of your program plus any authorized practical training, with no fixed end date. Your university's Designated School Official (DSO) had the authority to extend your stay if you needed more time.</p>\n\n    <p>From September 15, 2026, that changes entirely. Here is what the new system looks like:</p>\n\n    <div class=\"table-scroll\">\n      <table class=\"elig-table\">\n        <thead>\n          <tr><th>Factor</th><th>Before September 15</th><th>From September 15</th></tr>\n        </thead>\n        <tbody>\n          <tr><td>I-94 entry record</td><td>Shows \"D/S\" — no end date</td><td>Shows a fixed calendar end date</td></tr>\n          <tr><td>Maximum stay</td><td>Full program length + OPT</td><td>Up to 4 years (most students)</td></tr>\n          <tr><td>Language students</td><td>D/S for program duration</td><td>Maximum 24 months</td></tr>\n          <tr><td>Extension authority</td><td>Your university DSO</td><td>USCIS only — full application required</td></tr>\n          <tr><td>Changing programs</td><td>Permitted with DSO approval</td><td>Restricted — undergraduate first year; graduate students cannot change</td></tr>\n          <tr><td>Grace period after study</td><td>60 days</td><td>30 days</td></tr>\n          <tr><td>Second degree at same level</td><td>Permitted</td><td>Extension not granted</td></tr>\n        </tbody>\n      </table>\n    </div>\n  </section>\n\n\n  <section class=\"section\" id=\"travel-warning\">\n    <h2>The Travel Warning — Read This Before You Book Any Flights</h2>\n    <p>This is the most urgent practical issue for students currently in the US. <strong>If you leave the United States and re-enter after September 15, 2026, you will receive a new I-94 under the new rules — with a fixed end date.</strong> Even if you entered the US before September 15 with a D/S stamp, returning after the deadline means your re-entry is processed under the new system.</p>\n\n    <p>Universities are specifically warning students who plan to travel internationally around the September to December period to understand this before they go. A student who flies home for a family occasion in October and returns in November will re-enter under the new fixed-date system — even if they have been on D/S status for years.</p>\n\n    <div class=\"callout info\">\n      <span class=\"callout-icon\">✈️</span>\n      <div class=\"callout-body\">\n        <strong>If you are planning international travel after September 15 — speak to your DSO first</strong>\n        Before booking any flight that takes you out of the United States after September 15, contact your university's international student office. They will advise you on how re-entry under the new rules will affect your specific situation — your program length, your remaining authorized stay, and whether an extension application may be needed before or after you travel.\n      </div>\n    </div>\n  </section>\n\n\n  <section class=\"section\" id=\"who-is-affected\">\n    <h2>Who Is Most at Risk From This Change</h2>\n    <ul class=\"checklist\">\n      <li><strong>PhD and doctoral students:</strong> The average PhD in the United States takes 5–8 years. The 4-year maximum means virtually every international doctoral student will need to file a USCIS extension — an application that involves fees, documentation, and no guarantee of approval. This is the group facing the greatest disruption from the September 15 change.</li>\n      <li><strong>Students on language or foundation programs:</strong> The new 24-month maximum for English-language students is significantly shorter than the time many students spend completing intensive English before progressing to a degree. Language students need to plan their transition carefully and urgently.</li>\n      <li><strong>Students nearing the end of their 4-year period:</strong> If your cumulative F-1 time in the US is approaching four years — including any previous study periods — your I-94 end date under the new system may arrive sooner than you expect. Check your history carefully.</li>\n      <li><strong>Students planning to travel internationally this autumn:</strong> As above — any student leaving and re-entering the US after September 15 will be processed under the new rules, regardless of their previous D/S status. This is not a theoretical concern — it is happening immediately.</li>\n      <li><strong>Students planning to change their program or transfer university:</strong> Graduate students cannot change programs at any point under the new rules. Undergraduate students cannot change in their first year. If you were planning a transfer or program change, speak to your DSO before September 15.</li>\n    </ul>\n  </section>\n\n\n  <section class=\"section\" id=\"what-to-do\">\n    <h2>What to Do Right Now — Before September 15</h2>\n\n    <ol class=\"steps\">\n      <li>\n        <strong>Check your I-94 record at i94.cbp.dhs.gov</strong>\n        Log in and confirm whether your current I-94 shows D/S or a fixed date. This tells you exactly where you stand before the September 15 change. If it shows D/S and you are planning to remain in the US, your existing stay is not immediately affected — but any re-entry after September 15 will be.\n      </li>\n      <li>\n        <strong>Contact your university's international student office this week</strong>\n        Do not wait. Book an appointment with your DSO specifically to discuss how September 15 affects your program, your expected graduation timeline, and any travel plans you have this year. Universities are advising students proactively — take advantage of that support.\n      </li>\n      <li>\n        <strong>Do not book international flights for after September 15 without advice first</strong>\n        Before purchasing any travel that takes you out of the US after September 15 and brings you back, confirm with your DSO how re-entry under the new rules will affect your specific I-94 end date and your remaining authorized period.\n      </li>\n      <li>\n        <strong>If your program takes more than 4 years — plan your extension now</strong>\n        If you are in a program that cannot realistically be completed within four years — particularly doctoral, research, or combined degree programs — begin gathering the documentation needed for a USCIS extension application. Extensions are not guaranteed and processing takes time. Starting early is essential.\n      </li>\n      <li>\n        <strong>If you are considering a program change or transfer — decide before September 15</strong>\n        Once the new rules are in effect, graduate students cannot change programs and undergraduates cannot change in their first year. If you have been considering a transfer or program change, September 15 is a hard deadline for that flexibility.\n      </li>\n    </ol>\n\n    <div class=\"inline-cta\">\n      <div class=\"inline-cta-text\">\n        <strong>Reconsidering whether the US is the right destination given these changes?</strong>\n        Admizz Education helps you compare the US against the UK, Australia and New Zealand — honestly, based on your course, timeline and career goals.\n      </div>\n      <a href=\"https://admizzeducation.com/register\" rel=\"noopener\">Book Free Consultation →</a>\n    </div>\n  </section>\n\n\n  <section class=\"section\" id=\"alternatives\">\n    <h2>What the UK, Australia and New Zealand Still Offer — Without a Fixed Deadline</h2>\n    <p>The September 15 change has prompted many students weighing their options to look again at alternative destinations — where post-study flexibility, clear extension pathways, and genuine student support remain intact. Here is a quick honest comparison for students making that decision now:</p>\n\n    <div class=\"pillars\">\n      <div class=\"pillar-card\">\n        <div class=\"pillar-num\">🇬🇧 United Kingdom</div>\n        <div class=\"pillar-title\">No Fixed Study Limit</div>\n        <div class=\"pillar-desc\">Your study visa covers the full length of your course, however long it takes. The Graduate Route gives 2 years of open work rights after graduation — guaranteed, no lottery. Graduate Route reduces to 18 months from January 2027 for new applications, so September 2026 intake students should plan accordingly.</div>\n      </div>\n      <div class=\"pillar-card\">\n        <div class=\"pillar-num\">🇦🇺 Australia</div>\n        <div class=\"pillar-title\">Course Duration Covered</div>\n        <div class=\"pillar-desc\">Your student visa covers your full course duration. The Temporary Graduate visa (485) provides 2–4 years of post-study work rights depending on your qualification level. A structured points-based PR pathway with no lottery involved.</div>\n      </div>\n      <div class=\"pillar-card\">\n        <div class=\"pillar-num\">🇳🇿 New Zealand</div>\n        <div class=\"pillar-title\">Fastest Route to PR</div>\n        <div class=\"pillar-desc\">No fixed study time limit. Post Study Work Visa available for up to 3 years. IT and engineering graduates qualify for Green List Tier 1 — the most direct route from student to permanent resident available in any English-speaking country in 2026.</div>\n      </div>\n    </div>\n  </section>\n\n\n  <div class=\"cta-banner\">\n    <h2>September 15 Changes Everything for F-1 Students. Make Sure You Are Ready.</h2>\n    <p>Whether you are currently studying in the US or planning your next move — Admizz Education helps you navigate the new rules and explore every option available to you.</p>\n    <div class=\"cta-btns\">\n      <a href=\"https://admizzeducation.com/register\" class=\"btn-primary\" rel=\"noopener\">Book Free Consultation →</a>\n      <a href=\"https://admizzeducation.com/\" class=\"btn-secondary\" rel=\"noopener\">Explore Study Destinations</a>\n    </div>\n  </div>\n\n\n  <section class=\"section\" id=\"faq\">\n    <h2>Frequently Asked Questions</h2>\n\n    <div class=\"faq-item\">\n      <div class=\"faq-q\">Does the September 15 rule affect students already studying in the US on D/S status?</div>\n      <div class=\"faq-a\">Your existing D/S status is not canceled on September 15. However, if you travel internationally and re-enter after September 15, you will receive a new I-94 with a fixed end date — not D/S. Contact your university's international student office for guidance specific to your situation before you travel.</div>\n    </div>\n\n    <div class=\"faq-item\">\n      <div class=\"faq-q\">What happens if my program takes longer than 4 years?</div>\n      <div class=\"faq-a\">You must apply to USCIS for an extension before your I-94 end date passes. This is a formal immigration application — unlike the old DSO approval, it involves fees, documentation, processing time, and is not guaranteed. PhD students should start planning this well in advance.</div>\n    </div>\n\n    <div class=\"faq-item\">\n      <div class=\"faq-q\">Is it safe to travel internationally after September 15?</div>\n      <div class=\"faq-a\">Travel is not banned — but re-entering the US after September 15 means your new I-94 will show a fixed end date, not D/S. Before booking any international flights for after September 15, speak to your DSO first to understand how re-entry affects your specific stay period.</div>\n    </div>\n\n    <div class=\"faq-item\">\n      <div class=\"faq-q\">Should I still apply to study in the US given these changes?</div>\n      <div class=\"faq-a\">For a 1–2 year Master's or 4-year bachelor's, the new rules create no real problem. For PhD students, the 4-year limit adds genuine uncertainty. The US still offers the highest STEM salaries and most prestigious research universities — but the flexibility that made it work for many students has reduced significantly. Speak to an Admizz advisor to compare your options honestly.</div>\n    </div>\n  </section>\n\n</article>\n</div>\n</body>\n</html>"
+    },
+    {
+      "_key": "c9f079f2a1b4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "33aba45ee4c9",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/us-f1-september-15-deadline-2026-1200.webp",
+    "card": "/images/blog/us-f1-september-15-deadline-2026-600.webp",
+    "og": "/images/blog/og/us-f1-september-15-deadline-2026.jpg",
+    "alt": null,
+    "caption": null,
+    "_sanityRef": "image-29a8c24ada0185934ef9ce986a50246250e7f0c9-1424x752-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-46",
+      "title": "Study Abroad",
+      "slug": {
+        "_type": "slug",
+        "current": "study-abroad"
+      }
+    },
+    {
+      "_id": "wp-category-51",
+      "title": "USA",
+      "slug": {
+        "_type": "slug",
+        "current": "usa"
+      }
+    },
+    {
+      "_id": "1e1bd218-1b22-401a-9ebb-7df19c672a80",
+      "title": "Visa Guides",
+      "slug": {
+        "_type": "slug",
+        "current": "visa-guides"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/us-f1-september-15-deadline-2026",
+    "metaDescription": "On September 15, 2026, the USA replaced Duration of Status with a fixed admission period of up to 4 years for F-1 and J-1 students. What changed and what to do.",
+    "metaTitle": "F-1 Rule Change From September 15, 2026: What to Know",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:33.925Z"
+}

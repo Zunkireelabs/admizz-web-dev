@@ -2,7 +2,7 @@
 // Content/SEO gate for repo-authored posts (src/data/generated-posts.json).
 // Rules live in docs/seo-content-rules.md. Runs in prebuild AFTER generate-sitemap.mjs
 // so it can confirm every post made it into public/sitemap.xml.
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
@@ -17,6 +17,31 @@ const sitemap = existsSync(join(ROOT, 'public/sitemap.xml'))
 
 // Posts published before these rules existed and not yet backfilled. NEVER add a new post here.
 const LEGACY_EXEMPT = new Set([]);
+
+// One look for every blog. Older posts keep their own <style> (listed in own-css-posts.json) and are restyled by the
+// shared sheet. A NEW post may not bring its own CSS: write it as sections so it matches every other post.
+{
+  const OWN_CSS = new Set(JSON.parse(readFileSync(join(ROOT, 'src/data/own-css-posts.json'), 'utf8')).slugs);
+  const postsDir = join(ROOT, 'src/content/blog/posts');
+  if (existsSync(postsDir)) {
+    for (const f of readdirSync(postsDir).filter((x) => x.endsWith('.json'))) {
+      const slug = f.replace(/\.json$/, '');
+      if (OWN_CSS.has(slug)) continue;
+      const post = JSON.parse(readFileSync(join(postsDir, f), 'utf8'));
+      const hasStyle = (post.content || []).some((b) => b._type === 'rawHtml' && /<style[\s>]/i.test(b.html || ''));
+      if (hasStyle) errors.push(`src/content/blog/posts/${f}: carries its own <style>; write it as plain sections so it uses the shared blog design`);
+    }
+  }
+  for (const entry of manifest) {
+    const dir = join(ROOT, 'src/app', entry.slug);
+    for (const name of ['page.tsx', 'content.ts', 'content.tsx']) {
+      const p = join(dir, name);
+      if (existsSync(p) && /<style[\s>]/i.test(readFileSync(p, 'utf8')) && !OWN_CSS.has(entry.slug)) {
+        errors.push(`src/app/${entry.slug}/${name}: carries its own <style>; use the shared blog design instead`);
+      }
+    }
+  }
+}
 
 const seen = new Set();
 
@@ -34,12 +59,26 @@ for (const entry of manifest) {
     errors.push(`${where}: needs at least one category`);
   }
 
+  // Cover image must exist on disk, otherwise /blogs and Related Articles show a broken image.
+  if (entry.imageUrl && entry.imageUrl.startsWith('/') && !existsSync(join(ROOT, 'public', entry.imageUrl))) {
+    errors.push(`${where}: cover image public${entry.imageUrl} does not exist`);
+  }
+
   const pagePath = join(ROOT, 'src/app', slug, 'page.tsx');
   if (!existsSync(pagePath)) {
     errors.push(`${where}: no page at src/app/${slug}/page.tsx`);
     continue;
   }
   const src = readFileSync(pagePath, 'utf8');
+  // One design for every blog: a post page must render through GeneratedBlogPost (which uses the shared
+  // BlogPostLayout), never its own hero/sidebar/CTA markup.
+  if (!/from\s+["']@\/components\/GeneratedBlogPost["']/.test(src) || !/<GeneratedBlogPost\b/.test(src)) {
+    errors.push(`src/app/${slug}/page.tsx: must render <GeneratedBlogPost {...post} /> so it uses the shared blog design`);
+  }
+  const imgMatch = src.match(/"featuredImage"\s*:\s*\{\s*"url"\s*:\s*"(\/[^"]+)"/);
+  if (imgMatch && !existsSync(join(ROOT, 'public', imgMatch[1]))) {
+    errors.push(`src/app/${slug}/page.tsx: featuredImage public${imgMatch[1]} does not exist`);
+  }
   const bodyFile = ['content.ts', 'content.tsx'].map((f) => join(ROOT, 'src/app', slug, f)).find(existsSync);
   const body = src + (bodyFile ? readFileSync(bodyFile, 'utf8') : '');
   const legacy = LEGACY_EXEMPT.has(slug);

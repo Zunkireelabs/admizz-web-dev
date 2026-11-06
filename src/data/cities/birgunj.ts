@@ -1,4 +1,5 @@
 import type { CityLandingData } from "./types";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 // TODO(content): replace office address, phone, WhatsApp, photos, and student
 // testimonials with verified Birgunj-specific content before launch.
@@ -21,8 +22,8 @@ export const birgunjData: CityLandingData = {
     highlightedWord: "Birgunj's",
     subheading:
       "Personal guidance, transparent fees, and a team that speaks your language. From profile evaluation to pre-departure — handled locally, end to end.",
-    trustBadge: "★ 4.9 · Trusted by 2,000+ students",
-    primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
+    trustBadge: `★ 4.9 · Trusted by ${ADMIZZ_STATS.studentsPlaced} students`,
+    primaryCta: { text: "Book a Free Consultation", href: "#hero-form" },
     secondaryCta: {
       text: "Chat on WhatsApp",
       // TODO(content): replace with real Birgunj counselor WhatsApp number
@@ -48,8 +49,8 @@ export const birgunjData: CityLandingData = {
     },
     inlineTrustBadges: [
       { iconKey: "star", value: "4.9", label: "Google rating" },
-      { iconKey: "graduate", value: "2,000+", label: "Enrolled" },
-      { iconKey: "shieldCheck", value: "95%", label: "Visa success" },
+      { iconKey: "graduate", value: ADMIZZ_STATS.studentsPlaced, label: "Enrolled" },
+      { iconKey: "shieldCheck", value: "ICEF", label: "Accredited" },
       { iconKey: "certified", value: "ICEF", label: "Certified" },
     ],
     activityFeed: [],
@@ -99,8 +100,8 @@ export const birgunjData: CityLandingData = {
         iconKey: "visa",
         title: "Visa-tested success record",
         description:
-          "95% visa approval rate across UK, USA, Australia, Canada and Europe. We know what each embassy looks for — and prepare you for it.",
-        proofPoint: "95% visa rate",
+          "Visa guidance for the UK, USA, Australia, Canada and Europe. We know what each embassy looks for — and prepare you for it.",
+        proofPoint: "Embassy-ready files",
       },
     ],
   },
@@ -113,7 +114,6 @@ export const birgunjData: CityLandingData = {
     highlightStats: [
       { value: "12+", label: "Countries" },
       { value: "100+", label: "Partner universities" },
-      { value: "$2M+", label: "Scholarships unlocked" },
     ],
     items: [
       {
@@ -326,7 +326,7 @@ export const birgunjData: CityLandingData = {
       },
       {
         q: "What if my IELTS score is low?",
-        a: "We don't push students into wrong courses just to close a deal. If your score isn't ready, we'll connect you with vetted IELTS prep partners and reapply on the next intake — that honesty is why our visa rate stays at 95%.",
+        a: `We don't push students into wrong courses just to close a deal. If your score isn't ready, we'll connect you with vetted IELTS prep partners and reapply on the next intake — we'd rather wait than risk a refusal.`,
       },
       {
         q: "How long does the full process take from Birgunj?",
@@ -340,7 +340,7 @@ export const birgunjData: CityLandingData = {
     heading: "Ready to start, Birgunj?",
     subheading:
       "Book a free 30-minute consultation. Walk out with a clear plan — even if you don't choose us.",
-    primaryCta: { text: "Book Free Consultation", href: "#hero-form" },
+    primaryCta: { text: "Book a Free Consultation", href: "#hero-form" },
     whatsappCta: {
       number: "9779802728444",
       message: "Hi Admizz, I'm interested in studying abroad",
@@ -351,7 +351,7 @@ export const birgunjData: CityLandingData = {
   // TODO(content): swap with real campaigns/events when scheduled.
   // Top banner: leave as-is until a campaign is running, otherwise omit.
   topBanner: {
-    id: "birgunj-counselling-week-may-2026-v2",
+    id: "birgunj-counseling-week-may-2026-v2",
     variant: "campaign",
     eyebrow: "Limited time",
     title: "Free Counseling Week at our Birgunj office",

@@ -1,0 +1,134 @@
+{
+  "_id": "ba86f163-a308-4360-861f-afb88d6e2e88",
+  "_type": "post",
+  "_createdAt": "2026-04-29T05:27:54Z",
+  "_updatedAt": "2026-10-16T19:44:01Z",
+  "title": "UK FAQ Study Guide for International Students",
+  "slug": {
+    "_type": "slug",
+    "current": "uk-faq-study-guide-for-international-students"
+  },
+  "publishedAt": "2026-04-29T05:32:00.000Z",
+  "excerpt": "Thinking about studying in the UK? From choosing the right program to understanding visa rules and working rights, the process can feel overwhelming.",
+  "content": [
+    {
+      "_key": "1254197f3c76",
+      "_type": "rawHtml",
+      "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>The UK Study Guide for International Students — Admizz Education</title>\n  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\n  <link href=\"https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;500;600&display=swap\" rel=\"stylesheet\" />\n  <style>\n    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n\n    body {\n      font-family: 'Source Sans 3', sans-serif;\n      background: #f5f4f0;\n      color: #1a1a1a;\n      min-height: 100vh;\n      padding: 2rem 1rem 4rem;\n    }\n\n    .page-wrap {\n      max-width: 780px;\n      margin: 0 auto;\n    }\n\n\n    /* ── Hero ── */\n    .hero {\n      background: linear-gradient(135deg, #1a3a5c 0%, #0d2340 60%, #0a1c33 100%);\n      border-radius: 14px;\n      padding: 2.75rem 2.5rem 2.25rem;\n      margin-bottom: 2.5rem;\n      position: relative;\n      overflow: hidden;\n    }\n    .hero::before {\n      content: '';\n      position: absolute;\n      inset: 0;\n      background: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.035'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n    }\n    .hero-logo {\n      font-size: 12px;\n      font-weight: 600;\n      color: rgba(255,255,255,0.45);\n      letter-spacing: 0.1em;\n      text-transform: uppercase;\n      margin-bottom: 0.75rem;\n    }\n    .hero-badge {\n      display: inline-block;\n      background: rgba(255,255,255,0.1);\n      border: 1px solid rgba(255,255,255,0.18);\n      color: #93bfe8;\n      font-size: 11.5px;\n      font-weight: 600;\n      letter-spacing: 0.08em;\n      text-transform: uppercase;\n      padding: 4px 13px;\n      border-radius: 20px;\n      margin-bottom: 1.1rem;\n    }\n    .hero h2 {\n      font-family: 'Source Sans 3', sans-serif;\n      font-size: 1.1rem;\n      font-weight: 500;\n      color: rgba(255,255,255,0.75);\n      line-height: 1.4;\n      margin-bottom: 0.65rem;\n      letter-spacing: 0.01em;\n    }\n\n    .hero-tags {\n      display: flex;\n      gap: 7px;\n      flex-wrap: wrap;\n    }\n    .hero-tag {\n      background: rgba(255,255,255,0.07);\n      border: 1px solid rgba(255,255,255,0.11);\n      color: rgba(255,255,255,0.58);\n      font-size: 12px;\n      padding: 3px 11px;\n      border-radius: 5px;\n    }\n\n    /* ── Intro ── */\n    .intro {\n      font-size: 15.5px;\n      line-height: 1.8;\n      color: #444;\n      margin-bottom: 2.5rem;\n      padding: 0 0.1rem;\n    }\n\n    /* ── Section header ── */\n    .section-label {\n      font-size: 11px;\n      font-weight: 600;\n      letter-spacing: 0.12em;\n      text-transform: uppercase;\n      color: #185FA5;\n      margin-bottom: 0.4rem;\n    }\n    .section-title {\n      font-family: 'Playfair Display', serif;\n      font-size: 1.45rem;\n      font-weight: 700;\n      color: #0d2340;\n      margin-bottom: 1.25rem;\n      padding-bottom: 0.75rem;\n      border-bottom: 2.5px solid #378ADD;\n    }\n\n    /* ── FAQ block ── */\n    .faq-block {\n      margin-bottom: 2.75rem;\n    }\n    .faq-item {\n      background: #fff;\n      border: 0.5px solid #ddd;\n      border-left: 3.5px solid #378ADD;\n      border-radius: 0 10px 10px 0;\n      padding: 1.1rem 1.35rem;\n      margin-bottom: 0.8rem;\n    }\n    .faq-q {\n      font-size: 14.5px;\n      font-weight: 600;\n      color: #0d2340;\n      margin-bottom: 0.5rem;\n    }\n    .faq-a {\n      font-size: 14px;\n      line-height: 1.75;\n      color: #555;\n    }\n    .faq-a strong {\n      color: #1a1a1a;\n      font-weight: 600;\n    }\n\n    /* ── Callout ── */\n    .callout {\n      background: #E6F1FB;\n      border: 0.5px solid #B5D4F4;\n      border-radius: 8px;\n      padding: 1rem 1.25rem;\n      margin: 0.85rem 0 1rem;\n      display: flex;\n      gap: 10px;\n      align-items: flex-start;\n    }\n    .callout-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }\n    .callout p { font-size: 13.5px; line-height: 1.65; color: #0C447C; }\n    .callout p strong { color: #083568; }\n\n    /* ── Cost cards ── */\n    .costs-grid {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 10px;\n      margin: 1rem 0;\n    }\n    .cost-card {\n      background: #f5f4f0;\n      border-radius: 8px;\n      padding: 1.1rem;\n      text-align: center;\n    }\n    .cost-label {\n      font-size: 11.5px;\n      color: #888;\n      margin-bottom: 4px;\n      text-transform: uppercase;\n      letter-spacing: 0.06em;\n    }\n    .cost-value {\n      font-size: 1.45rem;\n      font-weight: 600;\n      color: #0d2340;\n    }\n    .cost-sub {\n      font-size: 11px;\n      color: #999;\n      margin-top: 3px;\n    }\n\n    /* ── Pills ── */\n    .pills { display: flex; gap: 7px; flex-wrap: wrap; margin: 0.65rem 0; }\n    .pill {\n      border-radius: 20px;\n      font-size: 13px;\n      padding: 5px 14px;\n    }\n    .pill.blocked  { background: #FCEBEB; border: 0.5px solid #F7C1C1; color: #A32D2D; }\n    .pill.allowed  { background: #EAF3DE; border: 0.5px solid #C0DD97; color: #3B6D11; }\n\n    /* ── Timeline ── */\n    .timeline-row {\n      display: flex;\n      gap: 12px;\n      align-items: flex-start;\n      margin-bottom: 0.85rem;\n    }\n    .timeline-dot {\n      width: 28px; height: 28px; border-radius: 50%;\n      background: #185FA5; color: #fff;\n      font-size: 12px; font-weight: 600;\n      display: flex; align-items: center; justify-content: center;\n      flex-shrink: 0; margin-top: 2px;\n    }\n    .timeline-content strong { font-size: 14px; font-weight: 600; display: block; margin-bottom: 2px; }\n    .timeline-content span  { font-size: 13px; color: #666; line-height: 1.5; }\n\n    /* ── Divider ── */\n    hr.divider { border: none; border-top: 0.5px solid #ddd; margin: 2.25rem 0; }\n\n    /* ── CTA ── */\n    .cta-box {\n      background: linear-gradient(135deg, #0d2340 0%, #1a3a5c 100%);\n      border-radius: 14px;\n      padding: 2rem 2.5rem;\n      text-align: center;\n      margin-top: 2.75rem;\n    }\n    .cta-box p   { color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 0.4rem; }\n    .cta-box h3  { font-family: 'Playfair Display', serif; color: #fff; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; }\n    .cta-btn {\n      display: inline-block;\n      background: #378ADD;\n      color: #fff;\n      font-family: 'Source Sans 3', sans-serif;\n      font-size: 14.5px;\n      font-weight: 600;\n      padding: 11px 28px;\n      border-radius: 8px;\n      border: none;\n      cursor: pointer;\n      text-decoration: none;\n      transition: background 0.18s;\n    }\n    .cta-btn:hover { background: #185FA5; }\n\n\n    @media (max-width: 560px) {\n      .hero { padding: 2rem 1.5rem 1.75rem; }\n      .costs-grid { grid-template-columns: 1fr; }\n    }\n  </style>\n</head>\n<body>\n\n<div class=\"page-wrap\">\n\n\n  <!-- Hero -->\n  <header class=\"hero\">\n    <div class=\"hero-logo\">Admizz Education</div>\n    <div class=\"hero-badge\">Study in the UK</div>\n    <h2>Your complete FAQ on applications, visas, costs &amp; life after graduation</h2>\n\n    <div class=\"hero-tags\">\n      <span class=\"hero-tag\">Applications</span>\n      <span class=\"hero-tag\">Visas</span>\n      <span class=\"hero-tag\">Finances</span>\n      <span class=\"hero-tag\">Work Rights</span>\n      <span class=\"hero-tag\">Post-Graduation</span>\n      <span class=\"hero-tag\">English Proficiency</span>\n    </div>\n  </header>\n\n  <!-- Intro -->\n  <p class=\"intro\">\n    Thinking about studying in the UK? From choosing the right program to understanding visa rules and working rights, the process can feel overwhelming. At Admizz Education, we've put together this comprehensive FAQ guide — packed with everything international students need to know before, during, and after their UK studies.\n  </p>\n\n  <!-- Section 01 -->\n  <div class=\"faq-block\">\n    <div class=\"section-label\">Section 01</div>\n    <div class=\"section-title\">The Application Process &amp; Timeline</div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">When should I start my UK university application?</p>\n      <p class=\"faq-a\">Start as early as possible. Most postgraduate courses begin in September or October, with application deadlines in June or July — but intake windows can open as early as March. <strong>High-demand fields like health sciences and business fill up fast</strong>, so applying the moment the window opens is strongly recommended.</p>\n    </div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">What documents are required for a UK university application?</p>\n      <p class=\"faq-a\">While it varies by program, most applications require a <strong>personal statement or statement of purpose</strong>, a resume/CV, a copy of your passport, proof of financial support, official transcripts, and proof of English language proficiency.</p>\n    </div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">What is a CAS and why do I need it?</p>\n      <p class=\"faq-a\"><strong>CAS stands for Confirmation of Acceptance for Studies</strong> — a unique reference number issued by your university once you accept an unconditional offer. You must have a CAS before you can apply for your UK Student visa. Without it, your application cannot proceed.</p>\n    </div>\n  </div>\n\n  <hr class=\"divider\" />\n\n  <!-- Section 02 -->\n  <div class=\"faq-block\">\n    <div class=\"section-label\">Section 02</div>\n    <div class=\"section-title\">UK Student Visas &amp; Interviews</div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">Which UK student visa do I need?</p>\n      <p class=\"faq-a\">If you are <strong>16 or older pursuing higher education</strong>, you need a Student visa. If you are between 4–17 years old attending an independent (private) school, apply for a <strong>Child Student visa</strong> instead.</p>\n    </div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">When can I apply for my UK Student visa?</p>\n      <p class=\"faq-a\">If applying from <strong>outside the UK</strong>, you can apply up to six months before your course begins. If applying from <strong>inside the UK</strong>, you can apply up to three months before your start date.</p>\n    </div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">What is a UK Credibility Interview?</p>\n      <p class=\"faq-a\">Before issuing your CAS, some universities may require a credibility interview to verify that your intent to study in the UK is genuine, assess your spoken English, and confirm you understand the details of your chosen course. Preparation is key — know your course content, career goals, and why you chose that university.</p>\n    </div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">Will I get a physical visa card (BRP)?</p>\n      <p class=\"faq-a\">No. As of late 2025, the UK fully phased out physical Biometric Residence Permits (BRPs) and paper vignettes. <strong>Your visa status is now entirely digital (an eVisa)</strong>. You prove your right to study and work via a UKVI digital account.</p>\n    </div>\n\n    <div class=\"callout\">\n      <span class=\"callout-icon\">💡</span>\n      <p><strong>Admizz tip:</strong> Set up your UKVI digital account well before your departure date. Access issues can delay your ability to prove your immigration status to landlords and employers in the UK.</p>\n    </div>\n  </div>\n\n  <hr class=\"divider\" />\n\n  <!-- Section 03 -->\n  <div class=\"faq-block\">\n    <div class=\"section-label\">Section 03</div>\n    <div class=\"section-title\">Financial Requirements &amp; Costs</div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">How much money do I need to show for my visa application?</p>\n      <p class=\"faq-a\">You must prove \"financial capacity\" — enough to cover travel, your first year's tuition, and living expenses. As of 2026, for visa applications made before 30 November 2026, the monthly living expense requirement is shown below. For applications from 30 November 2026, it rises to £1,570 (London) and £1,203 (outside London).</p>\n      <div class=\"costs-grid\">\n        <div class=\"cost-card\">\n          <p class=\"cost-label\">London</p>\n          <p class=\"cost-value\">£1,529</p>\n          <p class=\"cost-sub\">per month, up to 9 months · £1,570 from 30 Nov 2026</p>\n        </div>\n        <div class=\"cost-card\">\n          <p class=\"cost-label\">Outside London</p>\n          <p class=\"cost-value\">£1,171</p>\n          <p class=\"cost-sub\">per month, up to 9 months · £1,203 from 30 Nov 2026</p>\n        </div>\n      </div>\n      <p class=\"faq-a\" style=\"margin-top:10px\">⚠️ <strong>Crucial rule:</strong> These funds must sit in your bank account for a minimum of <strong>28 consecutive days</strong>, and your bank statement must be dated within 31 days of your visa application.</p>\n      <p class=\"faq-a\" style=\"margin-top:8px\"><em>Updated October 2026: UK fees and fund requirements are subject to change and have recently changed. Your Admizz counselor will confirm the current figures.</em></p>\n    </div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">How much does it generally cost to study in the UK?</p>\n      <p class=\"faq-a\">Total annual costs (tuition + living expenses) typically range from <strong>£35,000 to £62,000</strong>. For undergraduate courses alone, international tuition usually ranges between <strong>£11,400 and £38,000</strong> per year.</p>\n    </div>\n  </div>\n\n  <hr class=\"divider\" />\n\n  <!-- Section 04 -->\n  <div class=\"faq-block\">\n    <div class=\"section-label\">Section 04</div>\n    <div class=\"section-title\">Working While Studying &amp; Post-Graduation</div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">How many hours can I work while studying?</p>\n      <p class=\"faq-a\">Students at <strong>degree level or above</strong> can work up to 20 hours per week during term time. Those studying below degree level are limited to 10 hours per week. During vacation periods, full-time work is permitted. Note: postgraduate students writing dissertations over summer are typically still considered to be in term time.</p>\n    </div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">Are there restrictions on the type of work I can do?</p>\n      <p class=\"faq-a\">Yes. Student visa holders are strictly prohibited from certain work types:</p>\n      <div class=\"pills\">\n        <span class=\"pill blocked\">Self-employment</span>\n        <span class=\"pill blocked\">Freelancing</span>\n        <span class=\"pill blocked\">Professional sports / coaching</span>\n        <span class=\"pill blocked\">Entertainment work</span>\n        <span class=\"pill blocked\">Permanent full-time roles</span>\n      </div>\n      <p class=\"faq-a\" style=\"margin: 0.5rem 0 0.4rem\">Permitted types of work include:</p>\n      <div class=\"pills\">\n        <span class=\"pill allowed\">Part-time employment</span>\n        <span class=\"pill allowed\">Full-time during holidays</span>\n        <span class=\"pill allowed\">Internships / placements</span>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">Can I stay in the UK after graduating?</p>\n      <p class=\"faq-a\">Yes — through the <strong>Graduate Route visa</strong>. It allows most graduates to stay for <strong>18 months</strong> (3 years for PhD graduates). The Graduate Route offers more flexibility than a Student visa, including permission for self-employment and permanent roles.</p>\n    </div>\n\n    <div class=\"callout\">\n      <span class=\"callout-icon\">⏰</span>\n      <p><strong>Time-sensitive:</strong> If you are planning to study in the UK, applying before the end of 2026 gives you access to the current 2-year Graduate Route. This is a significant advantage worth factoring into your timeline.</p>\n    </div>\n  </div>\n\n  <hr class=\"divider\" />\n\n  <!-- Section 05 -->\n  <div class=\"faq-block\">\n    <div class=\"section-label\">Section 05</div>\n    <div class=\"section-title\">English Proficiency &amp; Bringing Your Family</div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">How do I prove my English proficiency?</p>\n      <p class=\"faq-a\">For visa purposes, the most common method is a government-approved <strong>Secure English Language Test (SELT)</strong> — such as specific tests offered by <strong>IELTS</strong> or <strong>Pearson</strong>. Your university will also assess your English skills as part of the admissions process.</p>\n    </div>\n\n    <div class=\"faq-item\">\n      <p class=\"faq-q\">Can I bring my family with me to the UK?</p>\n      <p class=\"faq-a\">Depending on your course level and type, you may be able to bring dependents — a spouse, civil/unmarried partner, or children under 18. You will need to provide <strong>proof of relationship</strong> (e.g. a marriage or birth certificate) and demonstrate you have the additional financial capacity to support them throughout your stay.</p>\n    </div>\n  </div>\n\n  <!-- CTA -->\n  <div class=\"cta-box\">\n    <p>Ready to begin your UK journey?</p>\n    <h3>Let Admizz Education guide you every step of the way</h3>\n    <a class=\"cta-btn\" href=\"https://admizzeducation.com/register\">Talk to an Admizz advisor →</a>\n  </div>\n\n\n</div>\n</body>\n</html>"
+    },
+    {
+      "_key": "527497dc028a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f18fccc9a2c3",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c4364b796919",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4738e3abd669",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "516e4311d7fa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d838de803acd",
+          "_type": "span",
+          "marks": [
+            "f00d33bb3474"
+          ],
+          "text": "UK Settlement Doubles to 10 Years: What Students Need"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "f00d33bb3474",
+          "_type": "link",
+          "blank": false,
+          "href": "/uk-earned-settlement-10-years-ilr-international-students-2027"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "feb0f58ce634",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "55b23fd85bba",
+          "_type": "span",
+          "marks": [
+            "93ba899c1b0b"
+          ],
+          "text": "Study in the UK from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "93ba899c1b0b",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-uk-from-nepal"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/uk-faq-study-guide-for-international-students-1200.webp",
+    "card": "/images/blog/uk-faq-study-guide-for-international-students-600.webp",
+    "og": "/images/blog/og/uk-faq-study-guide-for-international-students.jpg",
+    "alt": null,
+    "caption": null,
+    "_sanityRef": "image-52a24baf5f3c8a3c29a604ba6d809c7887b9eafe-1200x630-png"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-49",
+      "title": "UK",
+      "slug": {
+        "_type": "slug",
+        "current": "uk"
+      }
+    },
+    {
+      "_id": "wp-category-46",
+      "title": "Study Abroad",
+      "slug": {
+        "_type": "slug",
+        "current": "study-abroad"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "metaDescription": "Everything international students need to know about studying in the UK, including applications, student visas, financial requirements, and more.",
+    "metaTitle": "UK University Application Guide for International Students 2026",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:33.935Z"
+}

@@ -38,6 +38,12 @@ interface FAQProps {
   twoColumn?: boolean;
   sidebar?: boolean;
   sidebarSubtitle?: string;
+  /** Heading shown in the sticky sidebar (sidebar mode only) */
+  sidebarTitle?: string;
+  /** Tailwind `top-*` class for the sticky sidebar offset (sidebar mode only) */
+  sidebarTopClass?: string;
+  /** Larger, darker text for the sidebar variant (sidebar mode only) */
+  comfortableText?: boolean;
   compact?: boolean;
   bgColor?: string;
   schema?: boolean;
@@ -167,11 +173,13 @@ function FAQSidebarItem({
   index,
   isOpen,
   onToggle,
+  comfortable = false,
 }: {
   item: FAQItem;
   index: number;
   isOpen: boolean;
   onToggle: () => void;
+  comfortable?: boolean;
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -196,14 +204,14 @@ function FAQSidebarItem({
           aria-expanded={isOpen}
         >
           <span
-            className={`text-[13px] font-bold flex-shrink-0 transition-colors duration-300 ${
+            className={`${comfortable ? "text-[14px]" : "text-[13px]"} font-bold flex-shrink-0 transition-colors duration-300 ${
               isOpen ? "text-blue-royal" : "text-navy/40"
             }`}
           >
             {index + 1}.
           </span>
           <span
-            className={`text-[14px] font-medium flex-1 pr-2 transition-colors duration-300 ${
+            className={`${comfortable ? "text-[16px]" : "text-[14px]"} font-medium flex-1 pr-2 transition-colors duration-300 ${
               isOpen ? "text-blue-royal" : "text-navy"
             }`}
           >
@@ -227,7 +235,11 @@ function FAQSidebarItem({
         className="transition-[height] duration-300 ease-in-out overflow-hidden"
       >
         <div ref={contentRef} className="px-5 pb-5 pl-12">
-          <p className="text-[13px] text-gray-dark leading-relaxed">{item.answer}</p>
+          <p
+            className={`${comfortable ? "text-[15px] text-body" : "text-[13px] text-gray-dark"} leading-relaxed`}
+          >
+            {item.answer}
+          </p>
         </div>
       </div>
     </div>
@@ -240,6 +252,9 @@ export default function FAQ({
   twoColumn = false,
   sidebar = false,
   sidebarSubtitle = "Still wondering about studying abroad, and how Admizz can get you there? Read these answers to our most commonly asked questions.",
+  sidebarTitle = "Got Questions? We Have Answers",
+  sidebarTopClass = "md:top-[100px]",
+  comfortableText = false,
   compact = false,
   bgColor,
   schema = true,
@@ -253,7 +268,7 @@ export default function FAQ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-[2fr_3fr] gap-10 md:gap-16">
             {/* Left Sidebar - Sticky */}
-            <div className="md:sticky md:top-[100px] md:self-start">
+            <div className={`md:sticky ${sidebarTopClass} md:self-start`}>
               <p
                 className="text-[13px] font-semibold uppercase tracking-[0.15em] mb-4"
                 style={{ color: "#1E6DEB" }}
@@ -264,9 +279,12 @@ export default function FAQ({
                 className="text-[26px] md:text-[32px] font-bold leading-tight mb-4"
                 style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}
               >
-                Got Questions? We Have Answers
+                {sidebarTitle}
               </h2>
-              <p className="text-[14px] leading-relaxed" style={{ color: "#5a6275" }}>
+              <p
+                className={`${comfortableText ? "text-base" : "text-[14px]"} leading-relaxed`}
+                style={{ color: comfortableText ? "#3D4A5E" : "#5a6275" }}
+              >
                 {sidebarSubtitle}
               </p>
             </div>
@@ -280,6 +298,7 @@ export default function FAQ({
                   index={index}
                   isOpen={openIndex === index}
                   onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+                  comfortable={comfortableText}
                 />
               ))}
             </div>

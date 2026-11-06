@@ -96,6 +96,14 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
       answer:
         "Yes. English is the primary language of instruction, so you will have many opportunities to practice your language skills in a supportive and immersive environment. The page says this can give you a competitive edge in the global job market and open up new career opportunities.",
     },
+    {
+      question: 'How many hours can I work on an Australian student visa?',
+      answer: "Study Australia says up to 48 hours per fortnight while your course is in session and unlimited hours during scheduled breaks, subject to your visa conditions.",
+    },
+    {
+      question: 'Who can apply for the Temporary Graduate visa?',
+      answer: "Applicants aged 35 or under, unless an exception applies, who held a Student visa in the last 6 months and recently completed an eligible qualification.",
+    },
   ],
   "what-makes-bangalore-a-favored-destination-for-student": [
     {
@@ -328,6 +336,10 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
       answer:
         "Yes. American universities offer a wide range of programs and courses, so you can tailor your education to your interests and career goals. You can choose from a variety of majors, minors and electives, and take advantage of internships, research opportunities and study abroad programs.",
     },
+    {
+      question: "How long can I work in the US after my degree?",
+      answer: "Study in the States says 12 months of regular OPT is available for each higher level of study, and STEM graduates can apply for a 24-month STEM OPT extension.",
+    },
   ],
   "time-management-tips-for-students": [
     {
@@ -508,6 +520,14 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
       answer:
         "IELTS is available in over 140 countries, with more than 1,600 test centers worldwide. PTE is available in fewer locations but is offered in over 50 countries, and its computer-based format allows greater flexibility and convenience.",
     },
+    {
+      question: 'How are IELTS and PTE scored?',
+      answer: "IELTS uses whole and half bands from 0 to 9, while PTE Academic gives an overall score between 10 and 90.",
+    },
+    {
+      question: 'How long are IELTS and PTE scores valid?',
+      answer: "Both providers describe results as valid for two years, though some institutions set shorter or longer periods.",
+    },
   ],
   "top-ranked-mba-colleges-in-india-2021": [
     {
@@ -632,6 +652,10 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
       answer:
         "The IELTS preparation classes are suited to high school graduates applying for undergraduate programs abroad, university graduates seeking postgraduate admissions, and students aiming for scholarship opportunities. The page says the coaching covers test structure, vocabulary and grammar, listening, writing and simulated speaking tests.",
     },
+    {
+      question: 'How long is an IELTS score valid?',
+      answer: "The IELTS organisation recommends treating results as valid for two years after the test, but organisations can accept them for longer, so check with yours.",
+    },
   ],
   "foreign-university-admission-from-nepal": [
     {
@@ -648,6 +672,10 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
       question: "How can I prepare for GRE, GMAT and SAT exams from Nepal?",
       answer:
         "Strengthen your basics in English and math, plan your study time, attempt regular full-length mock tests, analyze results to find weak areas, and consider expert coaching. Staying consistent matters: steady effort beats last-minute cramming.",
+    },
+    {
+      question: "How is the GRE scored and how long do scores last?",
+      answer: "Verbal and Quantitative Reasoning are each scored 130 to 170, and Analytical Writing 0 to 6. ETS keeps a 5-year reportable score history.",
     },
   ],
   "navigating-your-future-the-importance-of-assessing-a-colleges-alumni-network": [
@@ -810,6 +838,10 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
       answer:
         "ISIC offers discounts on transportation, accommodation, travel-related services and student insurance plans. It also gives lifestyle savings on food and dining, shopping and retail, entertainment and leisure activities, and cultural and educational attractions, which helps students manage their budgets more effectively.",
     },
+    {
+      question: 'Who can get an ISIC card and what does it cost?',
+      answer: "Full-time students can apply, with no upper age limit and proof of student status. The ISIC site lists the cost as 4 to 25 euros depending on the country of issue.",
+    },
   ],
   "part-time-jobs-for-international-students-uk": [
     {
@@ -954,7 +986,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "What is the minimum IELTS score for Canadian universities?",
       answer:
-        "Most Canadian universities require an overall band score of 6.5, with a minimum of 6.0 in each of Listening, Reading, Writing and Speaking. Some institutions and programs may accept lower scores under special categories like the Student Direct Stream (SDS) or offer conditional admissions.",
+        "Most Canadian universities require an overall band score of 6.5, with a minimum of 6.0 in each of Listening, Reading, Writing and Speaking. Some institutions and programs may offer conditional admissions.",
     },
     {
       question: "What IELTS score does the University of Toronto require?",
@@ -964,7 +996,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "What can I do if I don't meet the minimum IELTS score?",
       answer:
-        "You can retake the IELTS and aim for a higher score, accept a conditional offer by completing a university's English language program first, or choose the SDS route, where a minimum 6.0 in each band is often sufficient. Some universities also accept TOEFL, PTE Academic or the Duolingo English Test.",
+        "You can retake the IELTS and aim for a higher score, accept a conditional offer by completing a university's English language program first. The Student Direct Stream ended on November 8, 2024, so all applicants now use the regular study permit stream. Some universities also accept TOEFL, PTE Academic or the Duolingo English Test.",
     },
   ],
   "uk-graduate-route-visa-reduced-2025": [
@@ -1049,12 +1081,12 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "What documents do Nepali students need for a Canada student visa?",
       answer:
-        "You need a Letter of Acceptance from a Designated Learning Institution, a valid passport covering your whole program, proof of funds, academic records, English test scores (IELTS, PTE or TOEFL), a GIC account for SDS applicants, medical examination and biometrics, and a Statement of Purpose.",
+        "You need a Letter of Acceptance from a Designated Learning Institution, a valid passport covering your whole program, proof of funds, academic records, English test scores (IELTS, PTE or TOEFL), medical examination and biometrics, and a Statement of Purpose.",
     },
     {
       question: "What is the step-by-step process to apply for a Canada study permit from Nepal?",
       answer:
-        "Shortlist universities, apply for admission with transcripts, SOP and English scores, receive your Letter of Acceptance, open a GIC account and arrange tuition payments, submit the online visa application, complete biometrics and medical exam, then prepare for travel after the visa decision.",
+        "Shortlist universities, apply for admission with transcripts, SOP and English scores, receive your Letter of Acceptance, prepare your proof of funds and arrange tuition payments, submit the online visa application, complete biometrics and medical exam, then prepare for travel after the visa decision.",
     },
     {
       question: "Which English tests are accepted for studying in Canada?",
@@ -1064,7 +1096,15 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "What proof of funds is needed for a Canadian student visa?",
       answer:
-        "You must show proof of funds covering tuition, living expenses, and return travel. Applicants under SDS use a GIC account as financial proof. Admizz Education also offers financial counseling on tuition, GIC accounts and proof of funds.",
+        "You must show proof of funds covering tuition, living expenses, and return travel. Admizz Education also offers financial counseling on tuition, proof of funds.",
+    },
+    {
+      question: 'How much money do I need to show for a Canada study permit?',
+      answer: "For applications on or after September 1, 2026, IRCC’s chart asks for CAN$23,448 for one person outside Quebec, excluding tuition and transportation. You also need proof of your first year of tuition.",
+    },
+    {
+      question: 'How many hours can international students work off campus in Canada?',
+      answer: "IRCC says students with the right permit condition can work up to 24 hours a week during term and unlimited hours during scheduled breaks.",
     },
   ],
   "12-must-try-street-food-of-india": [
@@ -1294,6 +1334,14 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
       question: "Where are MIT and Stanford located?",
       answer:
         "MIT is located in Cambridge, Massachusetts, and was founded in 1861; it is known for science, engineering and technology. Stanford University is located in the heart of Silicon Valley in California, was founded in 1885, and is known for pioneering STEM research.",
+    },
+    {
+      question: "How much is the SEVIS fee for an F-1 student?",
+      answer: "ICE lists the I-901 SEVIS fee as $350 for F and M visa applicants. If you apply for your visa within 12 months of paying, you do not pay again.",
+    },
+    {
+      question: "How early can I get an F-1 visa?",
+      answer: "Study in the States says F-1 visas can be issued up to 365 days before your course start date, and you may enter the US 30 days before the program start date on your Form I-20.",
     },
   ],
   "physical-vs-digital-vs-audio-books-which-is-better": [
@@ -1586,6 +1634,74 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
       question: "Which country is good for which field of study?",
       answer:
         "According to the article, Canada is known for programs in IT and healthcare, the UK for finance and law, and Australia for environmental sciences and nursing. If you are interested in engineering, the USA and Germany offer world-class programs.",
+    },
+  ],
+  "5-benefits-of-studying-in-uae": [
+    {
+      question: "What are the benefits of studying in Dubai?",
+      answer:
+        "The post lists five benefits: a multicultural environment, quality education at globally recognized universities, career opportunities in business and finance, a high standard of living, and a vibrant social scene.",
+    },
+    {
+      question: "Why is Dubai good for starting a career?",
+      answer:
+        "The post says Dubai is a hub for business and finance and is home to many multinational corporations, giving students access to job opportunities, internships and industry connections.",
+    },
+    {
+      question: "What is the standard of living like for students in Dubai?",
+      answer:
+        "The post says Dubai offers a high standard of living for students, with excellent infrastructure, modern amenities and world-class healthcare facilities.",
+    },
+  ],
+  "education-system-in-india": [
+    {
+      question: "How big is the education system in India?",
+      answer:
+        "The post says India has the third largest education system in the world, with more than 800 universities and 39,000 colleges.",
+    },
+    {
+      question: "Is higher education in India taught in English?",
+      answer:
+        "The post says English is the principal language of higher education and research in India.",
+    },
+    {
+      question: "How many Indian institutions were in the QS World University Rankings?",
+      answer:
+        "The post says 9 Indian institutions were in the 2019 QS World University Rankings top 500.",
+    },
+  ],
+  "top-3-reasons-to-study-in-india": [
+    {
+      question: "Why is studying in India affordable?",
+      answer:
+        "The post says tuition fees and living expenses in India are significantly lower than in the United States, the United Kingdom or Canada, and that scholarships and grants are available to international students.",
+    },
+    {
+      question: "Are courses in India taught in English?",
+      answer:
+        "The post says the majority of courses in India are taught in English, so you do not need to learn a new language before you start your studies.",
+    },
+    {
+      question: "What can I study in India?",
+      answer:
+        "The post says Indian universities offer diverse course options, including engineering, medicine, business and social sciences.",
+    },
+  ],
+  "why-to-study-in-india-after-12th": [
+    {
+      question: "Which courses can arts students take in India after 12th?",
+      answer:
+        "The post lists courses including BBA, BMS, BFA, BEM, the integrated law course (BA + LL.B), BJMC, BFD, BSW, BBS and BTTM.",
+    },
+    {
+      question: "What can science students study in India after 12th?",
+      answer:
+        "The post lists options including BE/B.Tech, B.Arch, BCA, B.Sc. Information Technology, B.Sc. Nursing, B.Pharma, BDS and BPT, among others.",
+    },
+    {
+      question: "How large is India's higher education system?",
+      answer:
+        "The post says India has 575 university-level institutions and approximately 30,000 institutions offering more specialized education, and that Indira Gandhi National Open University, with 3.5 million students, is the largest university in the world by enrollment.",
     },
   ],
 };

@@ -31,7 +31,7 @@ export default function RegisterJourneyHero() {
   const [formOpen, setFormOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  // Listen for external open trigger (e.g. "Book free consultation" button)
+  // Listen for external open trigger (e.g. "Book a Free Consultation" button)
   useEffect(() => {
     const handler = () => setFormOpen(true);
     document.addEventListener("admizz:open-register", handler);

@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import UKAdmissionsInit from "./UKAdmissionsInit";
 import UniversityPartners from "../../UniversityPartners";
 import { allUniversities } from "@/lib/universities";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   alternates: { canonical: "https://admizzeducation.com/events/uk-admissions-day" },
   title: "UK Admission Day - March 17, 2026 | Admizz Education",
   description:
@@ -91,7 +93,7 @@ export default function UKAdmissionsDayPage() {
           <div className="trust-inline">
             <div className="trust-badge">
               <span className="trust-icon">🎓</span>
-              <span className="trust-text"><strong>2,000+</strong> Students Enrolled</span>
+              <span className="trust-text"><strong>{ADMIZZ_STATS.studentsPlaced}</strong> Students Enrolled</span>
             </div>
             <div className="trust-divider"></div>
             <div className="trust-badge">
@@ -222,7 +224,7 @@ export default function UKAdmissionsDayPage() {
         <div className="container">
           <h2 className="section-title">Why Choose Admizz?</h2>
           <p className="section-subtitle">
-            Unlike single-country consultancies, we offer:
+            Unlike single-country providers, we offer:
           </p>
           <div className="why-cards">
             <div className="why-card">
@@ -232,7 +234,7 @@ export default function UKAdmissionsDayPage() {
                 </svg>
               </div>
               <h3>Multi-Destination Expertise</h3>
-              <p>12+ countries, one consultancy. Not limited to single-country advice.</p>
+              <p>12+ countries, one partner. Not limited to single-country advice.</p>
             </div>
             <div className="why-card">
               <div className="why-card-icon">
@@ -256,7 +258,7 @@ export default function UKAdmissionsDayPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 2,000+ Students Enrolled</span>
+            <span>🎓 {ADMIZZ_STATS.studentsPlaced} Students Enrolled</span>
             <span>•</span>
             <span>🌍 100+ Partner Universities</span>
           </div>
@@ -426,7 +428,7 @@ export default function UKAdmissionsDayPage() {
             </svg>
             <span>Back</span>
           </button>
-          <h2>Book FREE Consultation</h2>
+          <h2>Book a Free Consultation</h2>
           <button type="button" className="register-panel-close" id="closeRegisterPanel">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />

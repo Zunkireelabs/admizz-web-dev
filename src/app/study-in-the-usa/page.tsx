@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
@@ -18,43 +17,50 @@ export const metadata: Metadata = {
       "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!",
     url: "https://admizzeducation.com/study-in-the-usa",
     siteName: "Admizz Education",
-    images: ["/images/hero/web-ad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-the-usa.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in the USA - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in the USA - Admizz Education",
+    description:
+      "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!",
+    images: ["/images/og/countries/study-in-the-usa.jpg"],
   },
 };
 
 const usaData: CountryPageData = {
   countryName: "the USA",
   countryCategorySlug: "usa",
-  nepalGuide: {
-    href: "/study-in-usa-from-nepal",
-    title: "Applying from Nepal? Read the Nepal-specific USA guide",
-    text: "Costs in USD, the F-1 visa process at the US Embassy in Kathmandu, intakes, test scores and scholarships for Nepali students.",
-  },
   heroHeading: "STUDY IN THE USA",
+  flagColors: ["#0A3161", "#B31942"],
   heroSubheading: "Shape Your Global Future With World-Class US Education",
   heroDescription: "Kick-start your study abroad journey with Admizz Education, your trusted partner for studying in the USA. From university selection and application support to scholarships, visas, and pre-departure guidance, we help you secure admission to top US universities with complete confidence and clarity.",
   heroBackground: "/images/hero/usa-hero.webp",
   quickFacts: [
-    { label: "Capital", value: "Washington" },
     { label: "Language", value: "English" },
-    { label: "Dialing Code", value: "+1" },
     { label: "Currency", value: "US Dollar ($)" },
-    { label: "Population", value: "330+" },
-    { label: "SEVIS fee (F-1)", value: "$350" },
-    { label: "Visa fee", value: "$185" },
+    { label: "Students on OPT (2024/25)", value: "294,253" },
+    { label: "Intl. Students (2024/25)", value: "1,177,766" },
     { label: "Tuition fee", value: "$20,000/yr" },
   ],
   whyStudyTitle: "Why Study in the USA?",
   whyStudyIntro:
     "The United States is one of the world's most preferred study destinations, offering globally recognized degrees, cutting-edge research, flexible learning options, and exceptional career opportunities. Whether you're pursuing STEM, business, healthcare, or arts, studying in the USA empowers you with skills, exposure, and a future-ready global edge.",
   benefits: [
-    { title: "World-Class Universities", description: "The USA hosts globally top-ranked universities known for academic excellence, modern classrooms, advanced labs, and innovation.", icon: "/images/icons/school-1.webp" },
-    { title: "Flexible Learning System", description: "American universities allow customised course combinations, helping students explore interests and switch majors easily if needed.", icon: "/images/icons/knowledge.webp" },
-    { title: "Global Career Opportunities", description: "Students benefit from strong industry connections, internships, OPT, and CPT programs supporting excellent international career growth.", icon: "/images/icons/consultation.webp" },
-    { title: "Cutting-Edge Research Environment", description: "The USA leads innovation with advanced research facilities, funded projects, and opportunities to work alongside global experts.", icon: "/images/icons/exam-1.webp" },
-    { title: "Highly Diverse & Inclusive Culture", description: "Students enjoy a multicultural environment promoting broad perspectives, personal growth, global friendships, and supportive campus communities.", icon: "/images/icons/visa-1.webp" },
-    { title: "Strong Post-Study Prospects", description: "Graduates from U.S. universities gain worldwide recognition, improving employability across international markets and long-term career pathways.", icon: "/images/icons/accomodation-108.webp" },
+    { title: "World-Class Universities", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!", icon: "/images/icons/school-1.webp" },
+    { title: "Flexible Learning System", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!", icon: "/images/icons/knowledge.webp" },
+    { title: "Global Career Opportunities", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!", icon: "/images/icons/consultation.webp" },
+    { title: "Cutting-Edge Research Environment", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!", icon: "/images/icons/exam-1.webp" },
+    { title: "Highly Diverse & Inclusive Culture", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!", icon: "/images/icons/visa-1.webp" },
+    { title: "Strong Post-Study Prospects", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!", icon: "/images/icons/accomodation-108.webp" },
   ],
   admissionTitle: "Admission Requirements for Studying in the USA",
   admissionIntro:
@@ -150,20 +156,12 @@ const usaData: CountryPageData = {
   visaTitle: "Visa Process for the USA (F1 Visa)",
   visaIntro: "Understanding the USA student visa process is essential for a smooth study abroad journey. From gathering key documents and receiving your I-20 to completing biometrics and attending the visa interview, each step must be followed carefully to ensure timely approval and stress-free travel.",
   visaSteps: [
-    { title: "Choose Course & University", description: "Select your preferred US university and program based on eligibility and goals." },
-    { title: "Submit Application", description: "Apply through university portals with academic records, SOP, resume, and test scores." },
-    { title: "Receive Offer Letter", description: "Get conditional or unconditional admission based on your academic profile." },
-    { title: "Submit Financial Proof", description: "Provide bank statements or sponsor letters to meet university financial requirements." },
-    { title: "Receive Form I-20", description: "Your university issues the I-20 after financial and academic verification." },
-    { title: "Pay SEVIS Fee", description: "Complete the SEVIS I-901 fee payment to activate your student record." },
-    { title: "Fill DS-160 Form", description: "Submit the online non-immigrant visa application and save the confirmation page." },
-    { title: "Book Visa Appointment", description: "Schedule OFC (biometrics) and US Embassy visa interview dates." },
-    { title: "Attend Biometrics", description: "Visit the VAC centre to submit fingerprints and photograph." },
-    { title: "Attend Visa Interview", description: "Appear for the F1 visa interview with I-20, financial proof, and academic documents." },
-    { title: "Wait for Decision", description: "Most F1 visa decisions are made immediately after the interview." },
-    { title: "Collect Passport", description: "Receive your passport with F1 visa stamp from the VAC or courier." },
-    { title: "Prepare for Travel", description: "Book tickets, arrange accommodation, and carry essential documents." },
-    { title: "Travel to the USA", description: "Arrive in the US up to 30 days before your program start date." },
+    { title: "Choose & Apply", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!" },
+    { title: "Get Your Offer & I-20", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!" },
+    { title: "Pay SEVIS & Fill DS-160", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!" },
+    { title: "Book Biometrics & Interview", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!" },
+    { title: "Attend Your F1 Interview", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!" },
+    { title: "Travel to the USA", description: "Study in the USA at top universities with expert guidance, visa assistance, and scholarships. Start your American dream today!" },
   ],
   faqItems: [
     { question: "Why should international students choose to study in the USA?", answer: "The USA offers world-class universities, cutting-edge research, flexible programs, and global career opportunities, making it a top choice for students worldwide." },
@@ -180,6 +178,6 @@ const usaData: CountryPageData = {
 };
 
 export default async function StudyInUSAPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "usa" });
+  const blogPosts: SanityPost[] = getPostsByCategory("usa");
   return <CountryPageTemplate data={usaData} blogPosts={blogPosts} />;
 }

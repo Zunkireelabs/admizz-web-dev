@@ -1,9 +1,7 @@
-// Visa, fee and funds facts checked against official sources in October 2026. Re-check before editing.
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
@@ -19,47 +17,54 @@ export const metadata: Metadata = {
       "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!",
     url: "https://admizzeducation.com/study-in-south-korea",
     siteName: "Admizz Education",
-    images: ["/images/og/korean.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-south-korea.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in South Korea - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in South Korea - Admizz Education",
+    description:
+      "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!",
+    images: ["/images/og/countries/study-in-south-korea.jpg"],
   },
 };
 
 const southKoreaData: CountryPageData = {
   countryName: "South Korea",
   countryCategorySlug: "south-korea",
-  nepalGuide: {
-    href: "/study-in-south-korea-from-nepal",
-    title: "Applying from Nepal? Read the Nepal-specific guide to studying in South Korea",
-    text: "Costs, the student visa process, intakes, test scores and scholarships for Nepali students.",
-  },
   heroHeading: "STUDY IN SOUTH KOREA",
+  flagColors: ["#CD2E3A", "#0047A0"],
   heroSubheading: "Enter a Dynamic Academic World With Innovation and Creativity",
   heroDescription: "South Korea has become a global learning hub where innovation hums through every lecture hall and creativity blooms in every campus street. Admizz Education stands beside you as your trusted navigator, helping you enter this dynamic academic world with confidence and clarity.",
   heroBackground: "/images/hero/south-korea-hero.webp",
   quickFacts: [
-    { label: "Capital", value: "Seoul" },
     { label: "Language", value: "Korean" },
-    { label: "Dialing Code", value: "+82" },
     { label: "Currency", value: "South Korean Won" },
-    { label: "Intl. Students (2025)", value: "253,434" },
-    { label: "Nepali Students (2025)", value: "12,784" },
-    { label: "Semesters start", value: "March & September" },
-    { label: "Avg. undergrad tuition", value: "KRW 4.3M–7.6M/yr" },
+    { label: "Universities", value: "43+" },
+    { label: "Intl. Students", value: "253,000+" },
+    { label: "Tuition fee", value: "$1,600–$10,800" },
   ],
   whyStudyTitle: "Why Study In South Korea ?",
   whyStudyIntro:
-    "South Korea offers well-known universities, modern cities, rich cultural experiences, and government and university scholarships. International students there grew from 91,332 in 2015 to 253,434 in 2025, according to Study in Korea.",
+    "South Korea offers globally ranked universities, innovative learning, safe modern cities, rich cultural experiences, and excellent career opportunities. It's the ideal destination for ambitious students seeking quality education and future-focused growth.",
   benefits: [
-    { icon: "/images/icons/school-1.webp", title: "World-Class Universities", description: "South Korea hosts research universities such as Seoul National University, KAIST and Yonsei University that welcome international students." },
-    { icon: "/images/icons/scholarship-108.webp", title: "Affordable Quality Education", description: "Average annual undergraduate tuition is about KRW 4.3 million at national and public universities and KRW 7.6 million at private ones." },
-    { icon: "/images/icons/consultation.webp", title: "Strong Career Opportunities", description: "After your degree you can move to a D-10-1 job-seeking visa, which can be extended in 6-month steps up to 2 years." },
-    { icon: "/images/icons/scholarship-108.webp", title: "Attractive Scholarships", description: "The Korean government's Global Korea Scholarship (GKS) and many universities offer scholarships to international students." },
-    { icon: "/images/icons/visa-1.webp", title: "Rich Cultural Experience", description: "A unique blend of tradition, innovation, arts, and global pop culture enhances student life." },
-    { icon: "/images/icons/accomodation-108.webp", title: "Safe, Modern Cities", description: "Study in Korea describes public transport as very affordable, and cities have large international student communities." },
+    { icon: "/images/icons/school-1.webp", title: "World-Class Universities", description: "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!" },
+    { icon: "/images/icons/scholarship-108.webp", title: "Affordable Quality Education", description: "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!" },
+    { icon: "/images/icons/consultation.webp", title: "Strong Career Opportunities", description: "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!" },
+    { icon: "/images/icons/scholarship-108.webp", title: "Attractive Scholarships", description: "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!" },
+    { icon: "/images/icons/visa-1.webp", title: "Rich Cultural Experience", description: "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!" },
+    { icon: "/images/icons/accomodation-108.webp", title: "Safe, Modern Cities", description: "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!" },
   ],
   admissionTitle: "Admission Requirements for Studying in South Korea",
   admissionIntro:
-    "Applicants must have completed 12 years of schooling and meet the language and document requirements set by each university. Typical documents include academic records, language scores, a valid passport, SOP, recommendations and financial proof, but check your university's list.",
+    "Admission requirements include academic qualifications, language proficiency, valid passport, SOP, recommendation letters, financial proof, and university-specific documents. These ensure students meet eligibility standards for successful admission to South Korean universities.",
   documentSections: [
     {
       title: "Admission Requirements for Studying in South Korea",
@@ -77,8 +82,8 @@ const southKoreaData: CountryPageData = {
       ],
     },
     {
-      title: "Admission Certificate Documents",
-      intro: "Korean universities issue a Standard Admission Certificate, which you need for the visa. Submit the academic records, identity documents and forms your university asks for.",
+      title: "Documents Required for the Standard Admission Certificate",
+      intro: "To receive your Standard Admission Certificate for South Korea, students must submit accurate academic records, identity documents, financial proof, and university-required forms. These documents help confirm eligibility and support a smooth visa process.",
       documents: [
         "Valid passport (scanned copy)",
         "Completed university application form",
@@ -100,6 +105,7 @@ const southKoreaData: CountryPageData = {
         "Standard Admission Certificate from the university",
         "Academic transcripts and graduation certificates",
         "Balance certificate and bank statements, as the embassy requires",
+        "Tuition fee payment receipt (if applicable)",
         "Statement of Purpose (required by the Korean Embassy in Nepal)",
       ],
     },
@@ -108,8 +114,8 @@ const southKoreaData: CountryPageData = {
     title: "Academic Intakes in South Korea",
     intro: "South Korean universities offer multiple intakes each year, giving international students flexible entry points to begin their studies. These structured admission cycles help students plan applications, visas, and travel with confidence.",
     items: [
-      { name: "Spring Intake (March)", details: ["First semester of the Korean academic year. Application windows differ by university."] },
-      { name: "Fall Intake (September)", details: ["Second semester. Which programs admit in September depends on the university."] },
+      { name: "Spring Intake (March)", details: ["The primary and most popular intake with wide program availability and higher scholarship opportunities."] },
+      { name: "Fall Intake (September)", details: ["A major intake offering strong course options, ideal for students completing their studies mid-year."] },
     ],
   },
   universities: [
@@ -125,33 +131,27 @@ const southKoreaData: CountryPageData = {
     { name: "Chung-Ang University", logo: "/images/universities/south-korea/chung-ang-university.webp" },
   ],
   costTitle: "Cost of Studying in South Korea",
-  costIntro: "Figures below are based on Study in Korea (NIIED) data in Korean won. Check your university for exact fees.",
+  costIntro: "Understanding the cost of studying in South Korea helps international students plan their finances effectively.",
   costTable: [
-    { program: "Undergraduate tuition (average)", fee: "About KRW 4.3 million (national and public) to KRW 7.6 million (private) per year" },
-    { program: "Graduate tuition (average)", fee: "About KRW 2.5 million to KRW 4.4 million per year" },
+    { program: "Undergraduate", fee: "About KRW 4.3M (national/public) to KRW 7.6M (private) per year" },
+    { program: "Postgraduate", fee: "About KRW 2.5M – 4.4M per year" },
+    { program: "MBA / Professional", fee: "$8,000 – $15,000" },
     { program: "Living Expenses", fee: "KRW 750,000 – 1,000,000 per month" },
     { program: "Health Insurance", fee: "National Health Insurance applies after 6 months of stay; D-2 students get a 50% premium reduction" },
   ],
-  costNote: "Note: Costs vary by city, university and department. By department the average annual tuition runs from about KRW 6.0 million (humanities and social sciences) to KRW 9.8 million (medicine). Source: Study in Korea.",
+  costNote: "Note: Costs vary by city, university and department. Average annual tuition runs from about KRW 6.0M (humanities and social sciences) to KRW 9.8M (medicine). Source: Study in Korea.",
   visaTitle: "South Korea Student Visa Process",
   visaIntro: "Planning to study in South Korea? Follow the step-by-step visa process to secure your student visa, meet requirements, and start your academic journey smoothly with proper documentation.",
   visaSteps: [
-    { title: "Choose Course & University", description: "Select a recognized South Korean university and program suitable for your study goals." },
-    { title: "Submit Application", description: "Apply directly to the university with all required academic documents and certificates." },
-    { title: "Receive Acceptance Letter", description: "Obtain your official acceptance letter from the university to proceed with visa application." },
-    { title: "Prepare Financial Documents", description: "Prepare the balance certificate and bank statements your embassy asks for." },
-    { title: "Gather Required Documents", description: "Collect passport, photo, transcripts, admission certificate, financial documents, and any medical report your embassy requires." },
-    { title: "Complete Visa Application", description: "Fill out the South Korea D-2 (degree) or D-4 (language program) visa application form accurately." },
-    { title: "Pay Visa Fees", description: "Pay the visa fee set by the Korean embassy or consulate. For Nepali applicants, a single-entry visa of more than 90 days costs NPR 9,300 from 1 July 2026." },
-    { title: "Submit Application", description: "Submit all documents and application form to the South Korean embassy/consulate." },
-        { title: "Wait for Visa Decision", description: "Times vary by embassy. The Korean Embassy in Nepal says processing can take 21 working days or more." },
-    { title: "Collect Visa", description: "Once approved, collect your visa and verify all details." },
-    { title: "Travel to South Korea", description: "Carry your visa, passport, acceptance letter, and other essential documents while traveling." },
-    { title: "University Registration", description: "Register at your university and submit required documents within the stipulated timeframe." },
-    { title: "Apply for Alien Registration Card (ARC)", description: "Register at the local immigration office within 90 days of arrival." },
+    { title: "Choose & Apply", description: "Study in South Korea with top universities, innovative programs, expert guidance, and visa support. Start your journey to success today!" },
+    { title: "Get Your Acceptance Letter", description: "Korean universities issue a Standard Admission Certificate, which you need for the visa." },
+    { title: "Prepare Funds & Documents", description: "Prepare the balance certificate and bank statements your embassy asks for. The Korean Embassy in Kathmandu asks for 6 months of statements from an A-level bank." },
+    { title: "Apply for D-2/D-4 Visa", description: "D-2 is for degree programs and D-4 for Korean language training. For Nepali applicants, a single-entry visa of more than 90 days costs NPR 9,300 from July 1, 2026." },
+    { title: "Visa Decision", description: "The Korean Embassy in Nepal says processing can take 21 working days or more." },
+    { title: "Travel & Get Your ARC", description: "Register at the local immigration office for your Alien Registration Card (ARC) within 90 days of arrival." },
   ],
   faqItems: [
-    { question: "What are the top universities in South Korea for international students?", answer: "Well-known options include Seoul National University, KAIST, Yonsei University, and Korea University. Programs, language requirements and fees differ by university, so compare them on each university's international admissions page." },
+    { question: "What are the top universities in South Korea for international students?", answer: "Top universities include Seoul National University, KAIST, Yonsei University, and Korea University, offering world-class programs in engineering, business, and sciences." },
     { question: "What are the eligibility requirements for studying in South Korea?", answer: "Applicants must have completed 12 years of schooling, hold a non-Korean nationality, and meet the university's grade and language requirements. You also need a Standard Admission Certificate and a D-2 student visa. Requirements differ by university." },
     { question: "How much does it cost to study in South Korea?", answer: "Study in Korea lists average annual undergraduate tuition of about KRW 4.3 million at national and public universities and KRW 7.6 million at private ones. Living costs are estimated at KRW 750,000 to 1,000,000 a month. Exact fees depend on the university and department." },
     { question: "What types of student visas are available in South Korea?", answer: "The D-2 visa is for associate, bachelor's, master's and doctoral degree programs. The D-4 visa is for Korean language training. A D-2 stay can be up to 2 years per issuance, with extensions depending on your program." },
@@ -165,6 +165,6 @@ const southKoreaData: CountryPageData = {
 };
 
 export default async function StudyInSouthKoreaPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "south-korea" });
+  const blogPosts: SanityPost[] = getPostsByCategory("south-korea");
   return <CountryPageTemplate data={southKoreaData} blogPosts={blogPosts} />;
 }

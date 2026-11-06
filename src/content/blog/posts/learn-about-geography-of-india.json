@@ -1,0 +1,623 @@
+{
+  "_id": "wp-post-1692",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:44:52Z",
+  "_updatedAt": "2026-10-08T21:39:58Z",
+  "title": "Learn About Geography of India",
+  "slug": {
+    "_type": "slug",
+    "current": "learn-about-geography-of-india"
+  },
+  "publishedAt": "2025-08-16T17:26:00.000Z",
+  "excerpt": "Located in Asia, India covers an area of 32, 87,263 sq. km, extending from the snow-covered Himalayan heights to the [&hellip;]",
+  "content": [
+    {
+      "_key": "1b0c3933a44f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0057a3dba31d",
+          "_type": "span",
+          "marks": [],
+          "text": "Located in Asia, India covers an area of 32, 87,263 sq. km, extending from the snow-covered Himalayan heights to the tropical rain forests of the south. The 7th largest country in the world is home to over 1.2 billion people. The country is situated north of the equator between 8°4′ north to 37°6′ north latitude and 68°7′ east to 97°25′ east longitude. It stretches southwards and at the Tropic of Cancer, tapers off into the Indian Ocean between the Bay of Bengal on the east and the Arabian Sea on the west."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f2dfcd564f58",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "03428d004005",
+          "_type": "span",
+          "marks": [],
+          "text": "India shares a land border with Pakistan, Nepal, Bangladesh, China, Bhutan and Myanmar. It is also surrounded by the Indian Ocean, the Arabian Sea and the Bay of Bengal. It is divided into 28 States and 8 union territories including the National capital territory i.e., Delhi. Its borders run a total length of 15,200 km. "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fba401bcbe81",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "414c53cfb7fc",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "States of India "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "8422abea8c25",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3fdf03d1ad0d",
+          "_type": "span",
+          "marks": [],
+          "text": "Andhra Pradesh"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f5e5ae2734b3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3b7037ad79d1",
+          "_type": "span",
+          "marks": [],
+          "text": "Arunachal Pradesh"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "010c31325510",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "cb19ad8c596e",
+          "_type": "span",
+          "marks": [],
+          "text": "Assam"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "327b203ffe1d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8854d1fb26ad",
+          "_type": "span",
+          "marks": [],
+          "text": "Bihar"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a8c33e26d347",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4df6486f62d3",
+          "_type": "span",
+          "marks": [],
+          "text": "Chhattisgarh"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "331eec161763",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e9527b9c06b0",
+          "_type": "span",
+          "marks": [],
+          "text": "Goa"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "749043de9993",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "124ea4cd4f78",
+          "_type": "span",
+          "marks": [],
+          "text": "Gujarat"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9a18a0c63afd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a2a62f3aa354",
+          "_type": "span",
+          "marks": [],
+          "text": "Haryana"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "36b4114c6cff",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "24d330d226ca",
+          "_type": "span",
+          "marks": [],
+          "text": "Himachal Pradesh"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b60e3a14062a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bd39d7643b4b",
+          "_type": "span",
+          "marks": [],
+          "text": "Jharkhand"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "cbc4a4728e85",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c89d1162967a",
+          "_type": "span",
+          "marks": [],
+          "text": "Karnataka"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c64b982db371",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "946771026713",
+          "_type": "span",
+          "marks": [],
+          "text": "Kerala"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6a59334d8828",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9b8d1513de7b",
+          "_type": "span",
+          "marks": [],
+          "text": "Madhya Pradesh"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a7dc3985a86d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b00008ca5c94",
+          "_type": "span",
+          "marks": [],
+          "text": "Maharashtra"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4cc0a0674e74",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "362681c60d2f",
+          "_type": "span",
+          "marks": [],
+          "text": "Manipur"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "eeaca26a5bdc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e9d791584c06",
+          "_type": "span",
+          "marks": [],
+          "text": "Meghalaya"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "53d581334cb7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5ff1666a1518",
+          "_type": "span",
+          "marks": [],
+          "text": "Mizoram"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a134c45b345e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6eee37608b05",
+          "_type": "span",
+          "marks": [],
+          "text": "Nagaland"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "10b30ad81f9c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e6e5c854141f",
+          "_type": "span",
+          "marks": [],
+          "text": "Odisha"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c6868524a645",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "413b21d98d1c",
+          "_type": "span",
+          "marks": [],
+          "text": "Punjab"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6036621c4b2a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "62e24ce1e42c",
+          "_type": "span",
+          "marks": [],
+          "text": "Rajasthan"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0c17d4b1256d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bac4bd12c342",
+          "_type": "span",
+          "marks": [],
+          "text": "Sikkim"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "5bdc3a06310e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "11c055f25fc9",
+          "_type": "span",
+          "marks": [],
+          "text": "Tamil Nadu"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c8c3b87b9f37",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2098eda7b3e0",
+          "_type": "span",
+          "marks": [],
+          "text": "Telangana"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "41aaeeb9287a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "72556d890869",
+          "_type": "span",
+          "marks": [],
+          "text": "Tripura"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "eed17c98c7e6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "876bb9fc8ab6",
+          "_type": "span",
+          "marks": [],
+          "text": "Uttar Pradesh"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "1de424ca6170",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b7de7ce80826",
+          "_type": "span",
+          "marks": [],
+          "text": "Uttarakhand"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "587a3c686925",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "36225f5602f4",
+          "_type": "span",
+          "marks": [],
+          "text": "West Bengal"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "2ef1c5fc0de6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a8a58f3fc4fd",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Union Territory "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "30c609770c55",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "85d0d5714ce9",
+          "_type": "span",
+          "marks": [],
+          "text": "Andaman & Nicobar"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fcf129b0216c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2f1e08988df3",
+          "_type": "span",
+          "marks": [],
+          "text": "Chandigarh"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "714d21bf2024",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ed49beb91a59",
+          "_type": "span",
+          "marks": [],
+          "text": "Dadra & Nagar Haveli"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "26ea120527dc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "77dd67e7a7e1",
+          "_type": "span",
+          "marks": [],
+          "text": "Daman & Diu"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "418c9076e37d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "43f2427bb825",
+          "_type": "span",
+          "marks": [],
+          "text": "Delhi"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "36304d244859",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9e03debc8fa8",
+          "_type": "span",
+          "marks": [],
+          "text": "Jammu & Kashmir"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ef1c957f7dff",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a09667dec3d2",
+          "_type": "span",
+          "marks": [],
+          "text": "Ladakh"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d368e8d29104",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c4f2f3767bbb",
+          "_type": "span",
+          "marks": [],
+          "text": "Lakshadweep"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "53b219281c5c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a94c5472824e",
+          "_type": "span",
+          "marks": [],
+          "text": "Puducherry"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/learn-about-geography-of-india-1200.webp",
+    "card": "/images/blog/learn-about-geography-of-india-600.webp",
+    "og": "/images/blog/og/learn-about-geography-of-india.jpg",
+    "alt": "Geography of India",
+    "caption": null,
+    "_sanityRef": "image-3901ca152751ac7ebb71ac089a8afdf142b9736a-1200x628-jpg",
+    "_sanityOgRef": "image-3901ca152751ac7ebb71ac089a8afdf142b9736a-1200x628-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-1",
+      "title": "Uncategorized",
+      "slug": {
+        "_type": "slug",
+        "current": "uncategorized"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/learn-about-geography-of-india",
+    "metaDescription": "Explore the geography of India—landforms, rivers, climate, states, and natural features that shape the nation’s diverse landscape.",
+    "metaTitle": "Learn About Geography of India - Admizz Education",
+    "noIndex": true
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:33.996Z"
+}

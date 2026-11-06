@@ -19,7 +19,7 @@ const post = {
     },
     {
       "heading": "Other UK rules Nepali applicants should know",
-      "body": "The levy is one part of a wider set of changes. Two others matter for planning:\n\n- **Graduate Route:** for applications submitted on or after January 1, 2027, the Graduate visa for bachelor's and master's graduates is 18 months instead of two years. PhD graduates keep three years. See our guide to the [UK Graduate Route](/uk-graduate-route-visa-2026).\n- **English language:** for a degree-level course or above, the Student visa requires English at CEFR level B2, and level B1 for courses below degree level. You can show this with an approved Secure English Language Test, or, for degree-level courses, your university may assess your English itself, according to [GOV.UK](https://www.gov.uk/student-visa/knowledge-of-english).\n\nFor the wider picture, read our [UK international education policy guide](/uk-international-education-policy-2026)."
+      "body": "The levy is one part of a wider set of changes. Two others matter for planning:\n\n- **Graduate Route:** the Graduate visa for bachelor's and master's graduates is 18 months. PhD graduates keep three years. See our guide to the [UK Graduate Route](/uk-graduate-route-visa-2026).\n- **English language:** for a degree-level course or above, the Student visa requires English at CEFR level B2, and level B1 for courses below degree level. You can show this with an approved Secure English Language Test, or, for degree-level courses, your university may assess your English itself, according to [GOV.UK](https://www.gov.uk/student-visa/knowledge-of-english).\n\nFor the wider picture, read our [UK international education policy guide](/uk-international-education-policy-2026)."
     },
     {
       "heading": "How to plan if you are applying now",
@@ -91,11 +91,11 @@ const post = {
 };
 
 export const metadata: Metadata = {
-  title: "UK International Student Levy 2028: Impact on Nepali Students",
+  title: "UK Student Levy 2028: Impact on Nepali Students",
   description: "England will charge universities £925 per international student per year from August 1, 2028. What the levy is, who pays, and how Nepali applicants should plan.",
   alternates: { canonical: "https://admizzeducation.com/uk-international-student-levy-2028-nepali-students" },
   openGraph: {
-    title: "UK International Student Levy 2028: Impact on Nepali Students",
+    title: "UK Student Levy 2028: Impact on Nepali Students",
     description: "England will charge universities £925 per international student per year from August 1, 2028. What the levy is, who pays, and how Nepali applicants should plan.",
     url: "https://admizzeducation.com/uk-international-student-levy-2028-nepali-students",
     siteName: "Admizz Education",

@@ -38,11 +38,11 @@ export default function AdmizzTrustBox() {
       <p className="mt-4 text-[13.5px] text-gray-600">
         Learn more:{" "}
         <Link href="/top-education-consultancy-in-nepal" className="text-blue-royal underline hover:text-blue-dark">
-          Top education consultancy in Nepal
+          Top study abroad partner in Nepal
         </Link>
         {" · "}
         <Link href="/education-consultancy-in-kathmandu" className="text-blue-royal underline hover:text-blue-dark">
-          Education consultancy in Kathmandu
+          Education partner in Kathmandu
         </Link>
         {" · "}
         <Link href="/accreditation-and-results" className="text-blue-royal underline hover:text-blue-dark">

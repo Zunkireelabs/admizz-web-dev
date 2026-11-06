@@ -6,8 +6,7 @@ import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import CTAForm from "@/components/ui/CTAForm";
 import CountryCard from "@/components/ui/CountryCard";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
@@ -161,9 +160,9 @@ const faqItems: FAQItem[] = [
       "We provide end-to-end student visa support: document checklists, financial documentation guidance, application review, appointment scheduling, and mock visa interviews for the USA, UK, Canada, Australia, New Zealand, and more.",
   },
   {
-    question: "How do overseas education consultants help with student visas?",
+    question: "How do overseas education advisors help with student visas?",
     answer:
-      "Consultants help students prepare accurate visa applications, provide document checklists, schedule visa appointments, and conduct mock visa interviews to increase the chances of approval.",
+      "Advisors help students prepare accurate visa applications, provide document checklists, schedule visa appointments, and conduct mock visa interviews to increase the chances of approval.",
   },
   {
     question: "What is Admizz Education's visa approval rate?",
@@ -198,7 +197,7 @@ const faqItems: FAQItem[] = [
 ];
 
 export default async function VisaAssistanceForStudyAbroadPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "visa-guides" });
+  const blogPosts: SanityPost[] = getPostsByCategory("visa-guides");
 
   return (
     <main>
@@ -233,7 +232,7 @@ export default async function VisaAssistanceForStudyAbroadPage() {
                 href="/register"
                 className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-10 py-3.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
               >
-                Book a Free Counseling Session
+                Book a Free Consultation
               </Link>
             </div>
             <div className="hidden md:block lg:w-[472px] ml-auto">
@@ -333,13 +332,13 @@ export default async function VisaAssistanceForStudyAbroadPage() {
             Ready to Start Your Visa Application?
           </h2>
           <p className="mt-4 text-[15px] text-white/90 leading-relaxed">
-            Our expert consultants are here to guide you every step of the way.
+            Our expert advisors are here to guide you every step of the way.
           </p>
           <Link
             href="/register"
             className="inline-block mt-8 bg-yellow text-black font-semibold text-[15px] px-10 py-3.5 rounded-[10px] hover:bg-yellow-bright transition-colors"
           >
-            Book a Free Counseling Session
+            Book a Free Consultation
           </Link>
         </div>
       </section>

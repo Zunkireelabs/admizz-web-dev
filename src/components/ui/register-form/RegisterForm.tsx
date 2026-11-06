@@ -7,6 +7,8 @@ import { supabase } from "@/lib/supabase";
 import { createReferralFromRegistration } from "@/lib/affiliate/api";
 import { readAffiliateRefCookie, writeAffiliateRef } from "@/lib/affiliate/refCookie";
 import { getUtmAttribution } from "@/lib/attribution/utmStorage";
+import { DIAL_CODES, SEARCH_NAMES } from "@/lib/dialCodes";
+import Select from "@/components/ui/consultation/Select";
 
 interface RegisterFormProps {
   onStepChange?: (step: number) => void;
@@ -62,21 +64,29 @@ const INITIAL: FormData = {
   hearAboutSocial: "",
 };
 
-const DIAL_CODES: { key: string; dial: string; label: string; digits: number; country: string }[] = [
-  { key: "NP", dial: "+977", label: "🇳🇵 +977", digits: 10, country: "Nepal" },
-  { key: "IN", dial: "+91",  label: "🇮🇳 +91",  digits: 10, country: "India" },
-  { key: "BD", dial: "+880", label: "🇧🇩 +880", digits: 10, country: "Bangladesh" },
-  { key: "ZM", dial: "+260", label: "🇿🇲 +260", digits: 9,  country: "Zambia" },
-  { key: "GB", dial: "+44",  label: "🇬🇧 +44",  digits: 10, country: "UK" },
-  { key: "US", dial: "+1",   label: "🇺🇸 +1",   digits: 10, country: "USA" },
-  { key: "AU", dial: "+61",  label: "🇦🇺 +61",  digits: 9,  country: "Australia" },
-  { key: "CA", dial: "+1",   label: "🇨🇦 +1",   digits: 10, country: "Canada" },
-  { key: "NZ", dial: "+64",  label: "🇳🇿 +64",  digits: 9,  country: "New Zealand" },
-  { key: "DE", dial: "+49",  label: "🇩🇪 +49",  digits: 11, country: "Germany" },
-  { key: "AE", dial: "+971", label: "🇦🇪 +971", digits: 9,  country: "UAE" },
-];
+// Exact national number lengths for the most common countries; any other country accepts 7–15 digits
+const EXACT_DIGITS: Record<string, number> = {
+  NP: 10, IN: 10, BD: 10, ZM: 9, GB: 10, US: 10, AU: 9, CA: 10, NZ: 9, DE: 11, AE: 9,
+};
+const MIN_DIGITS = 7;
+const MAX_DIGITS = 15;
 
-const dialSpec = (key: string) => DIAL_CODES.find(d => d.key === key) ?? DIAL_CODES[0];
+const dialSpec = (key: string) => {
+  const d = DIAL_CODES.find((c) => c.key === key) ?? DIAL_CODES[0];
+  return { ...d, digits: EXACT_DIGITS[d.key] as number | undefined };
+};
+const isPhoneComplete = (key: string, phone: string) => {
+  const n = phone.replace(/\D/g, "").length;
+  const exact = dialSpec(key).digits;
+  return exact ? n === exact : n >= MIN_DIGITS && n <= MAX_DIGITS;
+};
+
+const DIAL_OPTIONS = DIAL_CODES.map((d) => ({
+  label: `${d.label.split(" ")[0]} ${d.country} (${d.dial})`,
+  value: d.key,
+  keywords: [d.key, ...(SEARCH_NAMES[d.key] ?? [])],
+}));
+
 const phoneDigits = (s: string) => s.replace(/\D/g, "");
 
 const COUNTRIES = [
@@ -116,7 +126,7 @@ function isStepValid(step: number, form: FormData): boolean {
     return (
       form.firstName.trim().length >= 2 &&
       /^\S+@\S+\.\S+$/.test(form.email.trim()) &&
-      phoneDigits(form.phone).length === dialSpec(form.dialCode).digits &&
+      isPhoneComplete(form.dialCode, form.phone) &&
       form.city.trim().length >= 2
     );
   if (step === 1) {
@@ -140,8 +150,10 @@ function fieldError(field: keyof FormData, form: FormData): string | null {
     return "Please enter a valid email address.";
   if (field === "phone" && form.phone.length > 0) {
     const spec = dialSpec(form.dialCode);
-    if (phoneDigits(form.phone).length !== spec.digits)
-      return `${spec.country} numbers must be ${spec.digits} digits.`;
+    if (!isPhoneComplete(form.dialCode, form.phone))
+      return spec.digits
+        ? `${spec.country} numbers must be ${spec.digits} digits.`
+        : `Please enter a valid ${spec.country} phone number.`;
   }
   return null;
 }
@@ -403,23 +415,28 @@ function Step1({ form, set, theme }: { form: FormData; set: (p: Partial<FormData
         <div>
           <span className="block text-[12px] font-bold uppercase tracking-[0.12em] mb-2" style={{ color: "#0D1282" }}>Phone</span>
           <div className="flex gap-2">
-            <select
-              value={form.dialCode}
-              onChange={(e) => {
-                const nextDigits = dialSpec(e.target.value).digits;
-                set({ dialCode: e.target.value, phone: phoneDigits(form.phone).slice(0, nextDigits) });
-              }}
-              className="rounded-xl px-3 py-3 text-[13px] outline-none flex-shrink-0"
-              style={{ border: "1.5px solid #E0E6F2", color: "#0D1282", background: "#FFFFFF", minWidth: 104 }}
-            >
-              {DIAL_CODES.map((d) => (
-                <option key={d.key} value={d.key}>{d.label}</option>
-              ))}
-            </select>
+            <div className="w-[124px] flex-shrink-0">
+              <Select
+                id="register-dial-code"
+                ariaLabel="Country code"
+                value={form.dialCode}
+                onChange={(key) => {
+                  const nextMax = dialSpec(key).digits ?? MAX_DIGITS;
+                  set({ dialCode: key, phone: phoneDigits(form.phone).slice(0, nextMax) });
+                }}
+                options={DIAL_OPTIONS}
+                placeholder="+"
+                searchable
+                searchPlaceholder="Search country or code"
+                buttonLabel={(o) => dialSpec(o.value).label}
+                minListWidth={300}
+              />
+            </div>
             <div className="relative flex-1">
               {(() => {
                 const spec = dialSpec(form.dialCode);
-                const isComplete = phoneDigits(form.phone).length === spec.digits;
+                const maxDigits = spec.digits ?? MAX_DIGITS;
+                const isComplete = isPhoneComplete(form.dialCode, form.phone);
                 return (
                   <input
                     type="tel"
@@ -427,10 +444,10 @@ function Step1({ form, set, theme }: { form: FormData; set: (p: Partial<FormData
                     value={form.phone}
                     onChange={(e) => {
                       const next = phoneDigits(e.target.value).replace(/^0+/, "");
-                      set({ phone: next.slice(0, spec.digits) });
+                      set({ phone: next.slice(0, maxDigits) });
                     }}
-                    maxLength={spec.digits}
-                    placeholder={"x".repeat(spec.digits)}
+                    maxLength={maxDigits}
+                    placeholder={spec.digits ? "x".repeat(spec.digits) : "Phone number"}
                     autoComplete="tel-national"
                     className="w-full rounded-xl px-4 py-3 text-[14px] outline-none transition-all duration-200"
                     style={{

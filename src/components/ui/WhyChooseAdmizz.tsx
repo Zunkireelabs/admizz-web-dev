@@ -1,3 +1,4 @@
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 export default function WhyChooseAdmizz() {
   return (
     <section
@@ -9,7 +10,7 @@ export default function WhyChooseAdmizz() {
           Why Choose Admizz?
         </h2>
         <p className="text-center text-base text-white/80 mb-9">
-          Unlike single-country consultancies, we offer:
+          Unlike single-country providers, we offer:
         </p>
 
         {/* Cards */}
@@ -23,7 +24,7 @@ export default function WhyChooseAdmizz() {
             </div>
             <h3 className="text-[17px] font-bold mb-2.5">Multi-Destination Expertise</h3>
             <p className="text-sm text-white/85 leading-relaxed m-0">
-              12+ countries, one consultancy. Not limited to single-country advice.
+              12+ countries, one partner. Not limited to single-country advice.
             </p>
           </div>
 
@@ -58,7 +59,7 @@ export default function WhyChooseAdmizz() {
         <div className="flex justify-center items-center gap-4 flex-wrap text-sm text-white/90">
           <span>&#127942; ICEF Accredited</span>
           <span>&#8226;</span>
-          <span>&#127891; 2,000+ Students Enrolled</span>
+          <span>&#127891; {ADMIZZ_STATS.studentsPlaced} Students Enrolled</span>
           <span>&#8226;</span>
           <span>&#127758; 100+ Partner Universities</span>
         </div>

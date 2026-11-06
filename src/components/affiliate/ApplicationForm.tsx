@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { readAffiliateRefCookie } from "@/lib/affiliate/refCookie";
-import { DIAL_CODES, dialSpec, phoneDigits, isValidPhoneLength } from "@/lib/dialCodes";
+import { dialSpec, phoneDigits, isValidPhoneLength, searchDialCodes } from "@/lib/dialCodes";
 
 type FormData = {
   fullName: string;
@@ -110,13 +110,7 @@ function PhoneInput({
     }
   }, [open]);
 
-  const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase();
-    if (!q) return DIAL_CODES;
-    return DIAL_CODES.filter(
-      d => d.country.toLowerCase().includes(q) || d.dial.includes(q) || d.key.toLowerCase().includes(q)
-    );
-  }, [search]);
+  const filtered = useMemo(() => searchDialCodes(search), [search]);
 
   const pick = (key: string) => {
     onChange("dialCode", key);

@@ -2,21 +2,20 @@ import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import { DESTINATION_COMPARE_HEADERS, DESTINATION_COMPARE_ROWS, DESTINATION_COMPARE_SOURCES } from "@/data/destination-compare";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in Australia from Nepal 2026: Cost, Visa & Scholarships",
+  title: "Study in Australia from Nepal 2026: Cost, Visa, Scholarships",
   description:
-    "Study in Australia from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+    "Study in Australia from Nepal: Student visa (subclass 500) fee, funds, English scores, work rights and scholarships for Nepali students, with official sources. Free advice from Admizz.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-australia-from-nepal",
   },
   openGraph: {
-    title: "Study in Australia from Nepal 2026: Cost, Visa & Scholarships",
+    title: "Study in Australia from Nepal 2026: Cost, Visa, Scholarships",
     description:
-      "Study in Australia from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+      "Study in Australia from Nepal: Student visa (subclass 500) fee, funds, English scores, work rights and scholarships for Nepali students, with official sources. Free advice from Admizz.",
     url: "https://admizzeducation.com/study-in-australia-from-nepal",
     siteName: "Admizz Education",
     images: ["/images/og/stuyabroad.webp"],
@@ -32,7 +31,7 @@ const pageData: NepalVariantData = {
   countryCategorySlug: "australia",
   heroHeading: "Study in Australia from Nepal",
   heroSubheading:
-    "Study in Australia from Nepal with Admizz Education: expert counselling, university selection, Student visa support and scholarship guidance for Nepali students.",
+    "Study in Australia from Nepal with Admizz Education: expert counseling, university selection, Student visa support and scholarship guidance for Nepali students.",
 
   quickAnswer:
     "To study in Australia from Nepal you need a Confirmation of Enrolment (CoE) from a registered Australian provider, Overseas Student Health Cover (OSHC), a Genuine Student statement, and an English test score of at least IELTS 6.0, PTE Academic 47 or TOEFL iBT 67 (for tests taken on or after 7 August 2025). You must show you can pay your tuition, travel and living costs, with the living-cost amount set at AUD 29,710 for a single student. The Student visa (subclass 500) costs from AUD 2,500 from 1 July 2026. Students can work up to 48 hours a fortnight while their course is in session, and graduates can usually apply for the Temporary Graduate visa for 2 to 3 years.",
@@ -106,16 +105,16 @@ const pageData: NepalVariantData = {
 
   introTitle: "Your Guide to Studying in Australia from Nepal",
   introContent:
-    "Australia is a popular destination for Nepali students because of its globally ranked universities, practical courses, work rights during study and a graduate visa after you finish. Admizz Education helps Nepali students choose a course and university, apply, prepare the Genuine Student statement and financial evidence, and lodge the Student visa. Book a free counselling session to find out which intake and course suit your profile.",
+    "Australia is a popular destination for Nepali students because of its globally ranked universities, practical courses, work rights during study and a graduate visa after you finish. Admizz Education helps Nepali students choose a course and university, apply, prepare the Genuine Student statement and financial evidence, and lodge the Student visa. Book a free counseling session to find out which intake and course suit your profile.",
 
   whyStudyTitle: "Why Study in Australia from Nepal?",
   whyStudyIntro:
-    "Australia combines recognised qualifications, work rights and a clear route to work after graduation.",
+    "Australia combines recognized qualifications, work rights and a clear route to work after graduation.",
   benefits: [
     {
-      title: "Globally Recognised Universities",
+      title: "Globally Recognized Universities",
       description:
-        "Australian universities appear in the world rankings, and degrees are recognised by employers worldwide.",
+        "Australian universities appear in the world rankings, and degrees are recognized by employers worldwide.",
     },
     {
       title: "Work While You Study",
@@ -146,7 +145,7 @@ const pageData: NepalVariantData = {
 
   whyAdmizzTitle: "Why Choose Admizz Education?",
   whyAdmizzPoints: [
-    "Free career counselling: personalised guidance for your goals and budget",
+    "Free career counseling: personalized guidance for your goals and budget",
     "University shortlisting across Australian partner universities",
     "Help writing the Genuine Student statement and preparing financial evidence",
     "Scholarship assistance and application support",
@@ -455,13 +454,10 @@ const pageData: NepalVariantData = {
 
   ctaTitle: "Ready to Begin Your Study Abroad Journey?",
   ctaContent:
-    "Our expert consultants are here to guide you every step of the way.",
+    "Our expert advisors are here to guide you every step of the way.",
 };
 
 export default async function StudyInAustraliaFromNepalPage() {
-  const blogPosts: SanityPost[] = await client.fetch(
-    postsByCategoryQuery,
-    { categorySlug: "australia" }
-  );
+  const blogPosts: SanityPost[] = getPostsByCategory("australia");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

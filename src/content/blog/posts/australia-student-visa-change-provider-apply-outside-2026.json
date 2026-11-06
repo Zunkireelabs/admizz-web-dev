@@ -1,0 +1,79 @@
+{
+  "_id": "0a1f6519-78f9-48f3-876f-e0cced7d9171",
+  "_type": "post",
+  "_createdAt": "2026-10-25T04:33:06Z",
+  "_updatedAt": "2026-11-02T21:52:43Z",
+  "title": "Changing Providers in Australia: Student Visa Update",
+  "slug": {
+    "_type": "slug",
+    "current": "australia-student-visa-change-provider-apply-outside-2026"
+  },
+  "publishedAt": "2026-10-25T04:30:00.000Z",
+  "excerpt": "Changed education provider or need more than 12 months to finish your course in Australia? You may now have to apply for your next Student visa from outside the country.",
+  "content": [
+    {
+      "_key": "8ae0d7f164e2",
+      "_type": "rawHtml",
+      "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta name=\"description\" content=\"Changed provider or need more than 12 months to finish in Australia? You may have to apply for a new Student visa from outside the country. What to know.\">\n  <title>Australia Student Visa: Changing Provider Rules 2026 | Admizz Education</title>\n  <link href=\"https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap\" rel=\"stylesheet\">\n  <style>\n.container{max-width:100%;margin:0 auto;padding:48px 24px 72px;font-family:'Rubik',sans-serif;background:#faf8f3;color:#1a1a18;font-size:17px;line-height:1.85}\n.quick-facts{font-family:'Rubik',sans-serif;background:#fff;border:1.5px solid #3C50A0;border-radius:12px;padding:28px 32px;margin-bottom:52px}\n.quick-facts-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#2A3D8F;margin-bottom:20px}\n.facts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px}\n.fact-item{display:flex;flex-direction:column;gap:4px}\n.fact-label{font-size:11px;color:#7a7a74;text-transform:uppercase;letter-spacing:.08em}\n.fact-value{font-size:15px;font-weight:600;color:#1a1a18}\nh2{font-size:clamp(20px,2.8vw,26px);font-weight:700;color:#0d1b2a;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #C8D5EF;line-height:1.25}\n.section{margin-bottom:56px}\np{margin-bottom:18px;color:#1a1a18}\np:last-child{margin-bottom:0}\nstrong{font-weight:600}\n.callout{border-radius:10px;padding:18px 22px;margin:28px 0;display:flex;gap:14px;align-items:flex-start}\n.callout-icon{font-size:18px;flex-shrink:0;margin-top:2px}\n.callout-body{flex:1;font-size:15px;line-height:1.75}\n.callout-body strong{display:block;margin-bottom:4px}\n.callout.tip{background:#e1f5ee;border-left:3px solid #0f6e56}\n.callout.tip .callout-body{color:#085041}\n.callout.warning{background:#EEF1FA;border-left:3px solid #5078B4}\n.callout.warning .callout-body{color:#1e2e6a}\n.callout.info{background:#faeaec;border-left:3px solid #9b2335}\n.callout.info .callout-body{color:#6b1420}\n.checklist{list-style:none;padding:0;margin:20px 0}\n.checklist li{padding:10px 0 10px 36px;position:relative;border-bottom:1px solid #e0dbd0;font-size:15.5px;line-height:1.65}\n.checklist li:last-child{border-bottom:none}\n.checklist li::before{content:'';position:absolute;left:0;top:14px;width:18px;height:18px;border-radius:50%;background:#0f6e56 url(\"data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") no-repeat center}\n.steps{list-style:none;padding:0;margin:24px 0;counter-reset:steps}\n.steps li{counter-increment:steps;padding:20px 20px 20px 64px;position:relative;margin-bottom:14px;background:#fff;border-radius:10px;border:1px solid #e0dbd0;font-size:15.5px;line-height:1.7}\n.steps li::before{content:counter(steps);position:absolute;left:18px;top:18px;width:30px;height:30px;border-radius:50%;background:#0d1b2a;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}\n.steps li strong{display:block;font-size:15.5px;font-weight:600;margin-bottom:6px;color:#0d1b2a}\n.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:16px;margin:28px 0}\n.pillar-card{background:#fff;border:1px solid #e0dbd0;border-top:3px solid #3C50A0;border-radius:10px;padding:20px 18px}\n.pillar-num{font-size:10px;font-weight:700;letter-spacing:.12em;color:#2A3D8F;text-transform:uppercase;margin-bottom:8px}\n.pillar-title{font-size:16px;font-weight:700;color:#0d1b2a;margin-bottom:8px}\n.pillar-desc{font-size:13.5px;color:#4a4a46;line-height:1.6}\n.table-scroll{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0;border-radius:8px;box-shadow:0 0 0 1px #e0dbd0}\n.elig-table{width:100%;min-width:500px;border-collapse:collapse;font-size:15px}\n.elig-table th{background:#0d1b2a;color:#fff;padding:11px 16px;text-align:left;font-weight:500;font-size:13px;letter-spacing:.04em}\n.elig-table td{padding:12px 16px;border-bottom:1px solid #e0dbd0;vertical-align:top;line-height:1.55}\n.elig-table tr:nth-child(even) td{background:#faf8f3}\n.elig-table td:first-child{font-weight:600;color:#0d1b2a}\n.timeline{margin:28px 0;position:relative;padding-left:26px}\n.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:#e0dbd0}\n.timeline-item{position:relative;margin-bottom:28px}\n.timeline-item::before{content:'';position:absolute;left:-22px;top:5px;width:13px;height:13px;border-radius:50%;background:#3C50A0;border:2px solid #faf8f3;box-shadow:0 0 0 1px #3C50A0}\n.timeline-date{font-size:11px;font-weight:700;color:#2A3D8F;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}\n.timeline-event{font-size:15.5px;font-weight:600;color:#1a1a18;margin-bottom:4px}\n.timeline-note{font-size:14px;color:#4a4a46;line-height:1.6}\n.inline-cta{background:#EAF0FA;border:1.5px solid #3C50A0;border-radius:10px;padding:22px 28px;margin:36px 0;display:flex;align-items:center;gap:20px;flex-wrap:wrap}\n.inline-cta-text{flex:1;font-size:15px;color:#1e3a6a;line-height:1.55;min-width:200px}\n.inline-cta-text strong{display:block;font-size:15.5px;margin-bottom:4px;color:#0d1b2a}\n.inline-cta a{background:#0d1b2a;color:#fff;font-family:'Rubik',sans-serif;font-size:14px;font-weight:600;padding:10px 22px;border-radius:7px;text-decoration:none;white-space:nowrap}\n.inline-cta a:hover{background:#3C50A0}\n.cta-banner{background:linear-gradient(135deg,#0d1b2a 0%,#0d1282 100%);border-radius:16px;padding:48px 40px;margin:48px 0;text-align:center;position:relative;overflow:hidden}\n.cta-banner::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:#0d1282}\n.cta-banner::after{content:'';position:absolute;bottom:-80px;left:-40px;width:250px;height:250px;border-radius:50%;background:#0d1282}\n.cta-banner h2{font-size:clamp(19px,2.8vw,26px);font-weight:700;color:#fff;border:none;padding:0;margin-bottom:12px;position:relative;z-index:1}\n.cta-banner p{color:rgba(255,255,255,.72);font-size:16px;max-width:520px;margin:0 auto 28px;position:relative;z-index:1}\n.cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;position:relative;z-index:1}\n.btn-primary{background:#3C50A0;color:#fff;font-family:'Rubik',sans-serif;font-weight:600;font-size:15px;padding:13px 28px;border-radius:8px;text-decoration:none;display:inline-block}\n.btn-primary:hover{background:#2A3D8F}\n.btn-secondary{background:transparent;color:#fff;font-family:'Rubik',sans-serif;font-weight:600;font-size:15px;padding:12px 28px;border-radius:8px;text-decoration:none;display:inline-block;border:1.5px solid rgba(255,255,255,.35)}\n.faq-item{border-bottom:1px solid #e0dbd0;padding:20px 0}\n.faq-q{font-size:16.5px;font-weight:600;color:#0d1b2a;margin-bottom:10px}\n.faq-a{font-size:15.5px;color:#4a4a46;line-height:1.75}\n@media(max-width:600px){.facts-grid{grid-template-columns:1fr 1fr}.cta-banner{padding:36px 22px}.inline-cta{flex-direction:column}}\n</style>\n</head>\n<body>\n<div class=\"container\">\n<article>\n<div class=\"quick-facts\"><div class=\"quick-facts-title\">🇦🇺 Australia Student Visa Update — At a Glance</div><div class=\"facts-grid\"><div class=\"fact-item\"><span class=\"fact-label\">Who Is Affected</span><span class=\"fact-value\">Students Who Changed Provider</span></div><div class=\"fact-item\"><span class=\"fact-label\">Also Affected</span><span class=\"fact-value\">Students Needing Over 12 More Months</span></div><div class=\"fact-item\"><span class=\"fact-label\">Key Rule</span><span class=\"fact-value\">Be Outside Australia at Lodgement and Grant</span></div><div class=\"fact-item\"><span class=\"fact-label\">Rules Start</span><span class=\"fact-value\">2 October 2026</span></div><div class=\"fact-item\"><span class=\"fact-label\">Current Visa</span><span class=\"fact-value\">Not Affected</span></div><div class=\"fact-item\"><span class=\"fact-label\">Guarantee</span><span class=\"fact-value\">None — Visa Not Assured</span></div></div></div><section class=\"section\" id=\"s1\"><h2>What Has Changed?</h2><p>Australia's Department of Home Affairs has updated its guidance for students who need <strong>another Student visa</strong> to finish their studies. If you <strong>changed education providers</strong> since your current visa was granted, or your provider has given you <strong>more than 12 months</strong> to finish your course, you will generally need to apply from <strong>outside Australia</strong>.</p><div class=\"callout warning\"><span class=\"callout-icon\">⚠️</span><div class=\"callout-body\"><strong>You must be offshore twice</strong>You must be outside Australia <strong>when you lodge</strong> the application and <strong>when the visa is granted</strong>. Applying offshore does not guarantee a grant.</div></div><p>Home Affairs updated this guidance on 22 October 2026. The wider rule changes began on 2 October 2026, and visa applications lodged before that date are assessed under the rules in place when they were lodged.</p></section><section class=\"section\" id=\"s2\"><h2>Who Is Affected?</h2><ul class=\"checklist\"><li><strong>Students who changed provider:</strong> your new provider enrolled you, but you need a new Student visa to finish there.</li><li><strong>Students who need more than 12 more months:</strong> your provider extended your study time past the point the onshore exemption allows.</li><li><strong>Students applying for a further visa:</strong> most current Student visa holders can no longer lodge another Student visa from inside Australia unless an exemption applies.</li></ul><p><strong>Your current visa is not affected.</strong> The change applies when you need to apply for a new one.</p></section><section class=\"section\" id=\"s3\"><h2>Exemptions That Still Allow an Onshore Application</h2><p>Home Affairs lists situations where you may still apply from inside Australia. These include:</p><ul class=\"checklist\"><li><strong>Up to 12 more months:</strong> you need extra time but stay with the same provider.</li><li><strong>Moving to a higher course:</strong> you finished a main course and are moving to a higher qualification level.</li><li><strong>Provider default:</strong> your education provider can no longer deliver your course.</li><li><strong>Special groups:</strong> sponsored students (DFAT or Defence), PhD students, and school students.</li></ul><div class=\"callout info\"><span class=\"callout-icon\">ℹ️</span><div class=\"callout-body\"><strong>Read the official page for your case</strong>Whether an exemption applies depends on your course, provider and visa history. Check the Home Affairs Student visa pages before you make plans.</div></div><div class=\"inline-cta\"><div class=\"inline-cta-text\"><strong>Not sure which rule applies to you?</strong>Admizz Education can review your situation before you enroll, transfer or travel.</div><a href=\"https://admizzeducation.com/register\" rel=\"noopener\">Get Free Guidance →</a></div></section><section class=\"section\" id=\"s4\"><h2>What to Do Before Making Plans</h2><ol class=\"steps\"><li><strong>Check your course end date</strong>Work out whether you will need more than 12 months and whether the same provider is involved.</li><li><strong>Check before you transfer</strong>If you plan to change providers, understand that you may have to leave Australia to apply for your next visa. A new Transfer stream has been announced but details are still to come.</li><li><strong>Read the official guidance</strong>It covers preparation, health checks and possible biometrics collection.</li><li><strong>Plan travel and funds</strong>If you must apply offshore, plan the travel, the time away from your course and your finances.</li><li><strong>Talk to a registered migration agent</strong>Rules and exemptions are specific to your visa and course.</li></ol></section><div class=\"cta-banner\"><h2>Planning to Switch Providers or Extend Your Studies?</h2><p>Admizz Education helps students understand Australian Student visa changes before they commit.</p><div class=\"cta-btns\"><a href=\"https://admizzeducation.com/register\" class=\"btn-primary\" rel=\"noopener\">Book Free Consultation →</a><a href=\"https://admizzeducation.com/\" class=\"btn-secondary\" rel=\"noopener\">Explore UK Universities</a></div></div><section class=\"section\" id=\"faq\"><h2>Frequently Asked Questions</h2><div class=\"faq-item\"><div class=\"faq-q\">Can I apply for another Student visa from inside Australia?</div><div class=\"faq-a\">Only if an exemption applies, such as needing up to 12 more months with the same provider, or moving to a higher course. Otherwise you generally must apply from outside Australia.</div></div><div class=\"faq-item\"><div class=\"faq-q\">Does this affect my current visa?</div><div class=\"faq-a\">No. Your current Student visa is not affected by this rule.</div></div><div class=\"faq-item\"><div class=\"faq-q\">If I apply offshore, am I guaranteed a visa?</div><div class=\"faq-a\">No. You must still meet all visa requirements, and a grant is not guaranteed.</div></div></section>\n</article>\n</div>\n</body>\n</html>"
+    },
+    {
+      "_key": "d1f1709c7501",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "175cc43b152e",
+          "_type": "span",
+          "marks": [],
+          "text": ""
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/australia-student-visa-change-provider-apply-outside-2026-1200.webp",
+    "card": "/images/blog/australia-student-visa-change-provider-apply-outside-2026-600.webp",
+    "og": "/images/blog/og/australia-student-visa-change-provider-apply-outside-2026.jpg",
+    "alt": null,
+    "caption": null,
+    "_sanityRef": "image-991a37b273b6893531e953b2048d954aa2b40499-1200x628-png"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-50",
+      "title": "Australia",
+      "slug": {
+        "_type": "slug",
+        "current": "australia"
+      }
+    },
+    {
+      "_id": "1e1bd218-1b22-401a-9ebb-7df19c672a80",
+      "title": "Visa Guides",
+      "slug": {
+        "_type": "slug",
+        "current": "visa-guides"
+      }
+    },
+    {
+      "_id": "wp-category-46",
+      "title": "Study Abroad",
+      "slug": {
+        "_type": "slug",
+        "current": "study-abroad"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/australia-student-visa-change-provider-apply-outside-2026",
+    "metaDescription": "Changed provider or need more than 12 months to finish in Australia? You may have to apply for a new Student visa from outside the country. What to know.",
+    "metaTitle": "Australia Student Visa: Changing Provider Rules 2026",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:33.920Z"
+}

@@ -6,6 +6,7 @@ import AboutTimeline from "./AboutTimeline";
 import FAQ from "@/components/ui/FAQ";
 import UniversityPartners from "@/app/UniversityPartners";
 import { allUniversities } from "@/lib/universities";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "About Us | Admizz Education",
@@ -117,7 +118,7 @@ const aboutFaqs = [
   {
     question: "What is Admizz Education?",
     answer:
-      "Admizz Education is a study abroad consultancy founded in 2015. It helps students with university admissions, visa assistance, test preparation, scholarship guidance and career counseling, with offices in Kathmandu and partner offices abroad.",
+      "Admizz Education is a study abroad partner founded in 2015. It helps students with university admissions, visa assistance, test preparation, scholarship guidance and career counseling, with offices in Kathmandu and partner offices abroad.",
   },
   {
     question: "How many students has Admizz Education helped?",
@@ -212,7 +213,7 @@ export default function AboutPage() {
             <div className="flex items-center justify-center">
               <Image
                 src="/images/about/2main-image-1024x773.webp"
-                alt="Study abroad consultancy — Admizz Education"
+                alt="Study abroad partner — Admizz Education"
                 width={1024}
                 height={773}
                 priority
@@ -247,7 +248,7 @@ export default function AboutPage() {
             international students secure admission worldwide, offering test
             prep, expert guidance, scholarship support, and a seamless
             application process. We also support Recruitment Partners (Education
-            Consultants) in placing their students in our partnered institutions.
+            Advisors) in placing their students in our partnered institutions.
           </p>
 
           {/* 4 photo cards with pill background */}
@@ -325,7 +326,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               {
-                value: "2,000+",
+                value: ADMIZZ_STATS.studentsPlaced,
                 label: "Students Successfully Enrolled Worldwide",
                 icon: "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5",
                 accent: "#1E6DEB",
@@ -337,15 +338,15 @@ export default function AboutPage() {
                 accent: "#3FB5A0",
               },
               {
-                value: "95%",
-                label: "Student Visa Approval Rate",
+                value: "Free",
+                label: "First Consultation with Expert Counselors",
                 icon: "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
                 accent: "#E86F3C",
               },
               {
-                value: "$2M+",
-                label: "In Scholarships Awarded To Our Students",
-                icon: "M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
+                value: "ICEF",
+                label: "Accredited Study Abroad Agency",
+                icon: "M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z",
                 accent: "#BB5FEC",
               },
             ].map((stat) => (
@@ -706,7 +707,7 @@ export default function AboutPage() {
                   className="text-[14px] leading-[1.7] mb-6"
                   style={{ color: "#5a6275" }}
                 >
-                  With powerful platforms for education consultants, Admizz
+                  With powerful platforms for education advisors, Admizz
                   Education ensures students find the right institutions easily
                   and partners grow their network.
                 </p>
@@ -765,7 +766,7 @@ export default function AboutPage() {
                 Why Admizz?
               </p>
               <h3 className="text-white font-bold text-[22px] md:text-[26px] leading-tight mb-4">
-                We Are Not Just An Education Consultancy
+                We Are Not Just An Study Abroad Partner
               </h3>
               <p className="text-white/80 text-[15px] leading-[1.7] mb-8">
                 We Are the Future of International Student Recruitment.

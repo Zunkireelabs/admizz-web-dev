@@ -1,4 +1,4 @@
-import { urlFor } from "@/lib/sanity";
+import { urlFor } from "@/lib/image";
 import type { SanityPost, BlogListItem } from "@/types";
 import type { GeneratedPostManifestEntry } from "@/types";
 

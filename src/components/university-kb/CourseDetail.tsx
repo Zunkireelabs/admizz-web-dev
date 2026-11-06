@@ -121,7 +121,7 @@ function Content({ data }: { data: CourseDetailData }) {
           <dl className="mt-7 grid gap-x-8 gap-y-4 border-t border-white/20 pt-6 sm:grid-cols-3">
             <div>
               <dt className="flex items-center gap-1.5 text-[13px] text-white/70"><Wallet className="h-4 w-4" aria-hidden />Tuition</dt>
-              <dd className="mt-1 text-[17px] font-semibold">{range(fees, (n) => formatMoney(n, currency)) ?? "Ask a counsellor"}</dd>
+              <dd className="mt-1 text-[17px] font-semibold">{range(fees, (n) => formatMoney(n, currency)) ?? "Ask a counselor"}</dd>
             </div>
             <div>
               <dt className="flex items-center gap-1.5 text-[13px] text-white/70"><Clock className="h-4 w-4" aria-hidden />Duration</dt>
@@ -129,7 +129,7 @@ function Content({ data }: { data: CourseDetailData }) {
             </div>
             <div>
               <dt className="flex items-center gap-1.5 text-[13px] text-white/70"><CalendarDays className="h-4 w-4" aria-hidden />Intakes</dt>
-              <dd className="mt-1 text-[17px] font-semibold">{allIntakes.length ? allIntakes.join(", ") : "Ask a counsellor"}</dd>
+              <dd className="mt-1 text-[17px] font-semibold">{allIntakes.length ? allIntakes.join(", ") : "Ask a counselor"}</dd>
             </div>
           </dl>
 
@@ -211,7 +211,7 @@ function Content({ data }: { data: CourseDetailData }) {
                             <span className="ml-1 text-[12px] font-normal text-gray-dark">{c.per === "year" ? "per year" : "total"}</span>
                           </>
                         ) : (
-                          <span className="font-normal text-gray-dark">Ask a counsellor</span>
+                          <span className="font-normal text-gray-dark">Ask a counselor</span>
                         )}
                       </dd>
                     </div>
@@ -221,7 +221,7 @@ function Content({ data }: { data: CourseDetailData }) {
                     </div>
                     <div>
                       <dt className="text-[12px] text-gray-dark">Intake</dt>
-                      <dd className="font-semibold text-navy">{c.intakes.length ? c.intakes.join(", ") : "Ask a counsellor"}</dd>
+                      <dd className="font-semibold text-navy">{c.intakes.length ? c.intakes.join(", ") : "Ask a counselor"}</dd>
                     </div>
                   </dl>
                   <span className="inline-flex items-center gap-1 text-[14px] font-semibold text-blue-royal group-hover:underline underline-offset-4">
@@ -252,7 +252,7 @@ function Content({ data }: { data: CourseDetailData }) {
         )}
 
         <p className="mt-12 text-[13px] text-gray-dark">
-          Fees and intakes can change. Confirm with an Admizz counsellor before applying.
+          Fees and intakes can change. Confirm with an Admizz counselor before applying.
         </p>
       </section>
     </>

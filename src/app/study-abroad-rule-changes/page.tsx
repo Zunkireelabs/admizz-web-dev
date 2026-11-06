@@ -8,9 +8,9 @@ import CTAForm from "@/components/ui/CTAForm";
 import { blogH2, blogP } from "@/components/lib/blog-typography";
 import RuleTimeline, { type TimelineItem } from "./RuleTimeline";
 
-const TITLE = "Study Abroad Rule Changes for Nepali Students 2026: UK, Australia, Canada";
+const TITLE = "Study Abroad Rule Changes for Nepali Students 2026";
 const DESCRIPTION =
-  "A dated list of the visa, funds and work-rule changes that affect Nepali students applying to the UK, Australia and Canada in 2026 and 2027, each checked against an official government page.";
+  "Dated visa, funds and work-rule changes for Nepali students applying to the UK, Australia and Canada in 2026 and 2027, each checked against an official page.";
 const URL = "https://admizzeducation.com/study-abroad-rule-changes";
 
 export const metadata: Metadata = {
@@ -277,7 +277,7 @@ export default function StudyAbroadRuleChangesPage() {
 
           <aside className="hidden lg:block w-[472px] shrink-0">
             <div className="sticky top-[90px]">
-              <CTAForm title="Book a Free Counseling Session" colorScheme="light" formSource="blog-post" />
+              <CTAForm title="Book a Free Consultation" colorScheme="light" formSource="blog-post" />
             </div>
           </aside>
         </div>

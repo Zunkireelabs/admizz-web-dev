@@ -148,8 +148,8 @@ export default function Header() {
               href="/register"
               className="ml-3 xl:ml-4 bg-yellow text-black font-semibold text-[14px] xl:text-[15px] px-4 xl:px-6 py-2.5 rounded-[10px] whitespace-nowrap hover:bg-yellow-bright transition-colors"
             >
-              <span className="xl:hidden">Free Counseling</span>
-              <span className="hidden xl:inline">Book a Free Counseling Session</span>
+              <span className="xl:hidden">Free Consultation</span>
+              <span className="hidden xl:inline">Book a Free Consultation</span>
             </Link>
           </nav>
 
@@ -247,7 +247,7 @@ export default function Header() {
               className="block text-center bg-yellow text-black font-semibold text-[15px] px-6 py-3.5 rounded-[10px] mt-3"
               onClick={() => setMobileOpen(false)}
             >
-              Book a Free Counseling Session
+              Book a Free Consultation
             </Link>
           </div>
         </div>

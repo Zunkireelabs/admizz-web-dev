@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Fragment } from "react";
 import UKEducationExpoInit from "./UKEducationExpoInit";
 import AlumniSection from "@/components/ui/AlumniSection";
+import { allUniversities } from "@/lib/universities";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "UK Education Expo 2026 (October) | Admizz Education",
@@ -143,8 +145,7 @@ export default function UKEducationExpoPage() {
           <div className="grid grid-cols-2 gap-3 sm:hidden">
             {[
               { icon: "📋", bold: "Free 1-on-1,", text: "Counseling" },
-              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
-              { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
+              { icon: "🎓", bold: ADMIZZ_STATS.studentsPlaced, text: "Students Admitted" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item) => (
               <div key={item.bold} className="flex items-center gap-2.5 bg-[#F8F9FF] rounded-xl px-3 py-3">
@@ -159,8 +160,7 @@ export default function UKEducationExpoPage() {
           <div className="hidden sm:flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {[
               { icon: "📋", bold: "Free 1-on-1,", text: "Counseling" },
-              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
-              { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
+              { icon: "🎓", bold: ADMIZZ_STATS.studentsPlaced, text: "Students Admitted" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item, i, arr) => (
               <div key={item.bold} className="flex items-center gap-4 flex-shrink-0">
@@ -373,7 +373,7 @@ export default function UKEducationExpoPage() {
         <div className="container">
           <h2 className="section-title">Why Choose Admizz?</h2>
           <p className="section-subtitle">
-            Unlike single-country consultancies, we offer:
+            Unlike single-country providers, we offer:
           </p>
           <div className="why-cards">
             <div className="why-card">
@@ -383,7 +383,7 @@ export default function UKEducationExpoPage() {
                 </svg>
               </div>
               <h3>Multi-Destination Expertise</h3>
-              <p>12+ countries, one consultancy. Not limited to single-country advice.</p>
+              <p>12+ countries, one partner. Not limited to single-country advice.</p>
             </div>
             <div className="why-card">
               <div className="why-card-icon">
@@ -407,7 +407,7 @@ export default function UKEducationExpoPage() {
           <div className="why-trust-bar">
             <span>🏆 ICEF Accredited</span>
             <span>•</span>
-            <span>🎓 2,000+ Students Enrolled</span>
+            <span>🎓 {ADMIZZ_STATS.studentsPlaced} Students Enrolled</span>
             <span>•</span>
             <span>🌍 100+ Partner Universities</span>
           </div>
@@ -534,7 +534,7 @@ export default function UKEducationExpoPage() {
             </svg>
             <span>Back</span>
           </button>
-          <h2>Book FREE Consultation</h2>
+          <h2>Book a Free Consultation</h2>
           <button type="button" className="register-panel-close" id="closeRegisterPanel">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />

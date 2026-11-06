@@ -1,0 +1,57 @@
+{
+  "_id": "1b7238f0-69f4-461e-8e04-d939bee8eb44",
+  "_type": "post",
+  "_createdAt": "2026-10-23T17:57:30Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
+  "title": "Studying in Scotland as an International Student",
+  "slug": {
+    "_type": "slug",
+    "current": "study-in-scotland-international-students-2027"
+  },
+  "publishedAt": "2026-10-23T18:10:00.000Z",
+  "excerpt": "Scotland offers world-ranked universities, lower costs than London and the same visa rules. See cities, tuition, living costs and work options for 2027.",
+  "content": [
+    {
+      "_key": "h1",
+      "_type": "rawHtml",
+      "html": "<div class=\"container\"><article><div class=\"quick-facts\"><div class=\"quick-facts-title\">🏴 Studying in Scotland — At a Glance</div><div class=\"facts-grid\"><div class=\"fact-item\"><span class=\"fact-label\">Main Cities</span><span class=\"fact-value\">Edinburgh, Glasgow, Aberdeen, Dundee</span></div><div class=\"fact-item\"><span class=\"fact-label\">Bachelor's Length</span><span class=\"fact-value\">4 Years (Honours, Typical)</span></div><div class=\"fact-item\"><span class=\"fact-label\">Master's Length</span><span class=\"fact-value\">1 Year (Taught)</span></div><div class=\"fact-item\"><span class=\"fact-label\">Tuition (Approx.)</span><span class=\"fact-value\">£14,000–£28,000 / Year</span></div><div class=\"fact-item\"><span class=\"fact-label\">Visa Rules</span><span class=\"fact-value\">Same as the Rest of the UK</span></div><div class=\"fact-item\"><span class=\"fact-label\">Post-Study Work</span><span class=\"fact-value\">Graduate Route, 18 Months (From 2027)</span></div></div></div><section class=\"section\" id=\"s1\"><h2>Why Choose Scotland?</h2><p>Scotland combines historic universities, friendly cities and a lower cost of living than London. International students follow the same UK Student visa rules as in England, so the visa process is identical.</p><ul class=\"checklist\"><li><strong>Strong universities:</strong> Edinburgh, Glasgow, St Andrews, Aberdeen and Strathclyde are well known internationally.</li><li><strong>Four-year bachelor's degrees:</strong> more time to explore subjects before specializing.</li><li><strong>Lower living costs:</strong> rent and daily costs are usually below London in most Scottish cities.</li><li><strong>Safe, welcoming cities:</strong> large international student communities.</li></ul></section><section class=\"section\" id=\"s2\"><h2>Popular Scottish Cities for Students</h2><div class=\"table-scroll\"><table class=\"elig-table\"><thead><tr><th>City</th><th>Known for</th><th>Cost level</th></tr></thead><tbody><tr><td>Edinburgh</td><td>Capital, finance, law, medicine</td><td>Higher</td></tr><tr><td>Glasgow</td><td>Arts, engineering, large student scene</td><td>Moderate</td></tr><tr><td>Aberdeen</td><td>Energy, engineering, petroleum</td><td>Lower</td></tr><tr><td>Dundee</td><td>Design, games, life sciences</td><td>Lower</td></tr></tbody></table></div><p>Costs vary by neighborhood and lifestyle, so treat the levels above as a rough guide.</p></section><section class=\"section\" id=\"s3\"><h2>Tuition and Living Costs</h2><p>International tuition differs by university and subject. As a rough range, expect <strong>about £14,000 to £28,000 per year</strong>, with medicine and some lab-based degrees higher. Confirm fees for your specific course.</p><p>For a Student visa, maintenance funds are the same across the UK outside London: <strong>£1,171 per month now, rising to £1,203 from 30 November 2026</strong>. Scottish cities use this lower rate. For nine months that is about £10,539 now and £10,827 after the rise.</p><div class=\"inline-cta\"><div class=\"inline-cta-text\"><strong>Comparing Scotland and England?</strong>Admizz Education shortlists universities by budget, course and city.</div><a href=\"https://admizzeducation.com/register\" rel=\"noopener\">Get Free Guidance →</a></div></section><section class=\"section\" id=\"s4\"><h2>Scholarships and Work Options</h2><p>Many Scottish universities offer international scholarships, and some are automatic discounts on tuition. Look for them during application. While studying, you can usually work up to 20 hours a week in term time.</p><div class=\"callout tip\"><span class=\"callout-icon\">💡</span><div class=\"callout-body\"><strong>After graduation</strong>The Graduate Route is a UK-wide visa. For applications from 1 January 2027, it lasts 18 months. Scotland also has no separate student visa, so you can switch to a Skilled Worker role anywhere in the UK if eligible.</div></div></section><div class=\"cta-banner\"><h2>Find Your Place at a Scottish University</h2><p>Admizz Education helps you compare Scotland with the rest of the UK and apply with confidence.</p><div class=\"cta-btns\"><a href=\"https://admizzeducation.com/register\" class=\"btn-primary\" rel=\"noopener\">Book Free Consultation →</a><a href=\"https://admizzeducation.com/\" class=\"btn-secondary\" rel=\"noopener\">Explore UK Universities</a></div></div><section class=\"section\" id=\"faq\"><h2>Frequently Asked Questions</h2><div class=\"faq-item\"><div class=\"faq-q\">Is Scotland cheaper than England for international students?</div><div class=\"faq-a\">Living costs are often lower outside Edinburgh, and a four-year bachelor's means one more year of tuition. Compare total cost, not only yearly fees.</div></div><div class=\"faq-item\"><div class=\"faq-q\">Do I need a different visa for Scotland?</div><div class=\"faq-a\">No. You apply for the same UK Student visa as for any other UK university.</div></div><div class=\"faq-item\"><div class=\"faq-q\">Can I work in England after studying in Scotland?</div><div class=\"faq-a\">Yes. The Graduate Route and Skilled Worker visas apply across the whole UK.</div></div></section></article></div>"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/study-in-scotland-international-students-2027-1200.webp",
+    "card": "/images/blog/study-in-scotland-international-students-2027-600.webp",
+    "og": "/images/blog/og/study-in-scotland-international-students-2027.jpg",
+    "alt": null,
+    "caption": null,
+    "_sanityRef": "image-1cb28f5e8e35402cfbe4a159543c17fe7d89496a-1200x628-png"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-49",
+      "title": "UK",
+      "slug": {
+        "_type": "slug",
+        "current": "uk"
+      }
+    },
+    {
+      "_id": "wp-category-46",
+      "title": "Study Abroad",
+      "slug": {
+        "_type": "slug",
+        "current": "study-abroad"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/study-in-scotland-international-students-2027",
+    "metaDescription": "Thinking of studying in Scotland? Compare cities, tuition, living costs, visa funds and post-study work for international students starting in 2027.",
+    "metaTitle": "Study in Scotland: International Students 2027",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:33.921Z"
+}

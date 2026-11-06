@@ -6,7 +6,7 @@ import type { MatchWithTeams, PredictionChoice } from "@/lib/wc2026/types";
 import { savePrediction, loadStoredPredictions } from "@/lib/wc2026/predictions";
 import { useLive } from "@/lib/wc2026/LiveProvider";
 import { loadProfile, saveProfile, type SavedProfile } from "@/lib/wc2026/userProfile";
-import { DIAL_CODES, dialSpec, phoneDigits } from "@/lib/dialCodes";
+import { dialSpec, phoneDigits, searchDialCodes } from "@/lib/dialCodes";
 import { getUtmAttribution } from "@/lib/attribution/utmStorage";
 import Flag from "./Flag";
 import { CheckIcon } from "./Icons";
@@ -269,13 +269,7 @@ export default function PredictionModal({ open, match, choice, onClose, onSubmit
     }
   }, [dialOpen]);
 
-  const filteredDialCodes = useMemo(() => {
-    const q = dialSearch.trim().toLowerCase();
-    if (!q) return DIAL_CODES;
-    return DIAL_CODES.filter(
-      d => d.country.toLowerCase().includes(q) || d.dial.includes(q) || d.key.toLowerCase().includes(q),
-    );
-  }, [dialSearch]);
+  const filteredDialCodes = useMemo(() => searchDialCodes(dialSearch), [dialSearch]);
 
   if (!open || !match || !choice) return null;
   if (typeof document === "undefined") return null;

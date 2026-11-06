@@ -1,9 +1,7 @@
-// Visa, fee and funds facts checked against official sources in October 2026. Re-check before editing.
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
@@ -19,42 +17,50 @@ export const metadata: Metadata = {
       "Study in New Zealand with top-ranked universities, expert guidance, visa support, and scholarships. Start your global journey today!",
     url: "https://admizzeducation.com/study-in-newzealand",
     siteName: "Admizz Education",
-    images: ["/images/og/stuyabroad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-newzealand.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in New Zealand - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in New Zealand - Admizz Education",
+    description:
+      "Study in New Zealand with top-ranked universities, expert guidance, visa support, and scholarships. Start your global journey today!",
+    images: ["/images/og/countries/study-in-newzealand.jpg"],
   },
 };
 
 const nzData: CountryPageData = {
   countryName: "New Zealand",
   countryCategorySlug: "new-zealand",
-  nepalGuide: {
-    href: "/study-in-newzealand-from-nepal",
-    title: "Applying from Nepal? Read the Nepal-specific guide to studying in New Zealand",
-    text: "Costs, the student visa process, intakes, test scores and scholarships for Nepali students.",
-  },
   heroHeading: "STUDY IN NEW ZEALAND",
+  flagColors: ["#00247D", "#CC142B"],
   heroSubheading: "Experience High-Quality Education and a Welcoming Lifestyle",
-  heroDescription: "Experience high-quality education, innovative learning, and a welcoming lifestyle in New Zealand. Admizz Education supports you with university selection, application guidance, visa processing, and personalised counselling to build a strong international career with confidence.",
+  heroDescription: "Experience high-quality education, innovative learning, and a welcoming lifestyle in New Zealand. Admizz Education supports you with university selection, application guidance, visa processing, and personalized counseling to build a strong international career with confidence.",
   heroBackground: "/images/hero/newzealand-hero.webp",
   quickFacts: [
-    { label: "Capital", value: "Wellington" },
     { label: "Language", value: "English" },
-    { label: "Dialing Code", value: "+64" },
     { label: "Currency", value: "NZD ($)" },
-    { label: "Population", value: "5+ Million" },
     { label: "Student visa fee", value: "From NZD 850" },
-    { label: "Living costs to show", value: "NZD 20,000 a year" },
+    { label: "Intl. Enrollments (2024)", value: "83,425" },
+    { label: "Tuition fee", value: "NZD 35,000\u201355,000" },
   ],
   whyStudyTitle: "Why Choose New Zealand?",
   whyStudyIntro:
-    "New Zealand offers a powerful blend of world-class education, safe living, and industry-focused opportunities. With globally recognised universities, innovative teaching methods, and strong post-study pathways, it has become one of the most trusted destinations for students seeking academic excellence and career growth.",
+    "New Zealand offers a powerful blend of world-class education, safe living, and industry-focused opportunities. With globally recognized universities, innovative teaching methods, and strong post-study pathways, it has become one of the most trusted destinations for students seeking academic excellence and career growth.",
   benefits: [
-    { icon: "/images/icons/school-1.webp", title: "Globally Ranked Universities", description: "Deliver internationally recognised degrees supported by strong research and modern academics." },
-    { icon: "/images/icons/accomodation-108.webp", title: "Safe and Friendly Environment", description: "Offer welcoming communities, supportive campuses, and excellent quality of life." },
-    { icon: "/images/icons/consultation.webp", title: "Industry-Connected Learning", description: "Provide practical learning experiences aligned with evolving global workforce requirements." },
+    { icon: "/images/icons/school-1.webp", title: "Globally Ranked Universities", description: "Study in New Zealand with top-ranked universities, expert guidance, visa support, and scholarships. Start your global journey today!" },
+    { icon: "/images/icons/accomodation-108.webp", title: "Safe and Friendly Environment", description: "Study in New Zealand with top-ranked universities, expert guidance, visa support, and scholarships. Start your global journey today!" },
+    { icon: "/images/icons/consultation.webp", title: "Industry-Connected Learning", description: "Study in New Zealand with top-ranked universities, expert guidance, visa support, and scholarships. Start your global journey today!" },
     { icon: "/images/icons/consultation.webp", title: "Work Opportunities for Students", description: "Eligible students can work up to 25 hours a week in term and full-time in holidays." },
     { icon: "/images/icons/visa-108.webp", title: "Strong Post-Study Pathways", description: "Eligible graduates can apply for a Post-Study Work Visa for up to 3 years, depending on the level of the qualification." },
-    { icon: "/images/icons/scholarship-108.webp", title: "Affordable, High-Quality Education", description: "Know your costs early: tuition varies by university and course, and Immigration New Zealand sets a clear living-cost requirement." },
+    { icon: "/images/icons/scholarship-108.webp", title: "Affordable, High-Quality Education", description: "Study in New Zealand with top-ranked universities, expert guidance, visa support, and scholarships. Start your global journey today!" },
   ],
   admissionTitle: "Admission Requirement For Studying In New Zealand",
   admissionIntro:
@@ -102,7 +108,6 @@ const nzData: CountryPageData = {
         "Online visa application with all supporting documents",
         "Evidence of tuition payment and the visa fee",
         "Passport-size photographs",
-        "Chest X-ray or medical certificate and police certificate, where required",
       ],
     },
   ],
@@ -112,7 +117,7 @@ const nzData: CountryPageData = {
     items: [
       { name: "February Intake", details: ["Ideal for most undergraduate and postgraduate courses."] },
       { name: "July Intake", details: ["Secondary intake for selected programs and universities."] },
-      { name: "Other start dates", details: ["Some providers also start students in November or at other times of year. Check your course."] },
+      { name: "November Intake", details: ["Some providers also start students in November or at other times of year. Check your course."] },
     ],
   },
   universities: [
@@ -130,26 +135,22 @@ const nzData: CountryPageData = {
   costTitle: "Cost of Studying in New Zealand",
   costIntro: "Studying in New Zealand offers world-class education, but understanding the expenses is crucial for international students. Costs vary by university, course, and city.",
   costTable: [
-    { program: "Tuition (all levels)", fee: "Varies by university and course" },
-    { program: "PhD tuition", fee: "Domestic fee rate at NZ universities" },
-    { program: "Living costs to show (tertiary study)", fee: "NZD 20,000 a year" },
-    { program: "Student visa application fee", fee: "From NZD 850" },
+    { program: "Undergraduate", fee: "About NZD 35,000 \u2013 55,000 per year (more for medicine and veterinary science)" },
+    { program: "Postgraduate", fee: "Varies by university and course" },
+    { program: "Professional / MBA", fee: "Varies by university and course" },
+    { program: "Living Expenses", fee: "About NZD 20,000 \u2013 27,000 a year (NZD 20,000 is the amount to show for the visa)" },
+    { program: "Health Insurance", fee: "NZD 600 – 800" },
   ],
-  costNote: "Note: Visa amounts are set by Immigration New Zealand and can change. Tuition depends on the course, so check your university's fee page.",
+  costNote: "Note: Visa amounts are set by Immigration New Zealand and can change. Tuition depends on the course, so check your university's fee page. Bachelor's fee range and living-cost estimates: Study with New Zealand (cost updated March 2025). Auckland is generally higher; smaller cities are more budget-friendly.",
   visaTitle: "Visa Process",
   visaIntro: "Applying for a New Zealand student visa is a critical step for international students. Proper documentation, timely submission, and understanding the process ensure smooth approval and hassle-free travel.",
   visaSteps: [
-    { title: "Choose Course & University", description: "Select a New Zealand Qualifications Authority (NZQA) approved institution and program." },
-    { title: "Submit Application", description: "Apply directly through the university portal with required academic documents." },
-    { title: "Receive Offer Letter", description: "Get conditional or unconditional offer based on your eligibility and academic profile." },
-    { title: "Meet Financial Requirements", description: "Show tuition for 1 course or 1 year (whichever is shorter) and NZD 20,000 a year for living costs, and agree to hold travel and health insurance." },
-    { title: "Prepare Visa Documents", description: "Collect passport, offer letter, financial proof, any English test scores, and a chest X-ray or police certificate where required." },
-    { title: "Apply for Student Visa", description: "Submit your application online with Immigration New Zealand (INZ). Paper applications are no longer accepted. The fee is from NZD 850." },
-    { title: "Biometrics Submission", description: "Provide biometrics if Immigration New Zealand asks for them." },
-    { title: "Wait for Visa Decision", description: "INZ lists average waits of about 2.5 weeks for universities and 4.5 weeks for polytechnics, but advises students from Nepal to apply at least 3 months before travel." },
-    { title: "Receive Visa Approval", description: "Get your student visa approval notice and check the visa conditions carefully." },
+    { title: "Choose & Apply", description: "Select a New Zealand Qualifications Authority (NZQA) approved institution and program, then apply directly through the university portal." },
+    { title: "Get Your Offer", description: "Receive a conditional or unconditional offer based on your eligibility and academic profile." },
+    { title: "Show Funds & Prepare Documents", description: "Show tuition for 1 course or 1 year (whichever is shorter) and NZD 20,000 a year for living costs, and agree to hold travel and health insurance. Collect your passport, offer letter, any English test scores, and a chest X-ray or police certificate where required." },
+    { title: "Apply for Your Student Visa", description: "Submit your application online with Immigration New Zealand (INZ). Paper applications are no longer accepted. The fee is from NZD 850." },
+    { title: "Biometrics & Decision", description: "Provide biometrics if INZ asks for them. INZ lists average waits of about 2.5 weeks for universities and 4.5 weeks for polytechnics, but advises students from Nepal to apply at least 3 months before travel." },
     { title: "Travel to New Zealand", description: "Carry all essential documents, including visa approval, offer letter, and insurance details." },
-    { title: "Complete Arrival Formalities", description: "Provide documentation at the airport and comply with immigration and health regulations." },
   ],
   faqItems: [
     { question: "Why should I choose New Zealand for higher studies?", answer: "New Zealand offers world-class education, safe campuses, and global career opportunities." },
@@ -164,6 +165,6 @@ const nzData: CountryPageData = {
 };
 
 export default async function StudyInNewZealandPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "new-zealand" });
+  const blogPosts: SanityPost[] = getPostsByCategory("new-zealand");
   return <CountryPageTemplate data={nzData} blogPosts={blogPosts} />;
 }

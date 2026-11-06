@@ -136,7 +136,7 @@ const hiringSteps = [
 
 const openPositions = [
   {
-    id: "multi-destination-counsellor",
+    id: "multi-destination-counselor",
     title: "Multi-Destination Counselor",
     level: "Mid-level",
     location: "Kathmandu, Nepal",

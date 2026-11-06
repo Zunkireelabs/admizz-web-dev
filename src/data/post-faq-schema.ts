@@ -71,11 +71,11 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "What is the Graduate Route fee in Nepali Rupees?",
-      answer: "From April 8, 2026, the fee is £937. Based on current exchange rates, this is approximately NPR 1,55,000–1,62,000, though you should check the latest rate at the time of your application. The Immigration Health Surcharge is paid separately.",
+      answer: "The fee is £937 on GOV.UK. Based on current exchange rates, this is approximately NPR 1,55,000–1,62,000, though you should check the latest rate at the time of your application. The Immigration Health Surcharge is paid separately.",
     },
     {
       question: "I am finishing my Master's in late 2026. Will I get 2 years or 18 months?",
-      answer: "It depends on when your visa is granted — not when you apply. If it is granted on or before December 31, 2026, you receive two years. Since processing takes roughly 8 weeks, you should apply as soon as your university notifies the Home Office of your completion, ideally no later than October or early November 2026.",
+      answer: "It depends on when you apply. If you apply on or before December 31, 2026, you receive two years; from January 1, 2027 it is 18 months. Apply as soon as your university notifies the Home Office of your completion, so the application is in well before the deadline.",
     },
     {
       question: "Can I bring my family to the UK on the Graduate Route?",
@@ -91,7 +91,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "What IELTS score do I need to study in the UK as a Nepali student?",
-      answer: "Requirements vary by university and course level, but most UK universities require an IELTS Academic score of 6.0–6.5 overall for undergraduate programs and 6.5–7.0 for postgraduate. From 2026, the English standard for visa purposes is set at CEFR B2. Always check the specific requirements of your chosen university and course.",
+      answer: "Requirements vary by university and course level, but most UK universities require an IELTS Academic score of 6.0–6.5 overall for undergraduate programs and 6.5–7.0 for postgraduate. For a UK Student visa, GOV.UK requires CEFR B2 or equivalent at degree level. Always check the specific requirements of your chosen university and course.",
     },
   ],
   "uk-intake-timeline-Nepalese-students-2027": [
@@ -217,7 +217,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   "uk-it-graduate-jobs-visa-careers-2026": [
     {
       question: "Can I apply for the Graduate Route visa if I studied outside London?",
-      answer: "Yes — the Graduate Route visa is available to graduates of any registered UK university, regardless of location. The 2-year entitlement (3 years for PhD) applies equally whether you studied in London, Manchester, Edinburgh, or Birmingham. Your city of study does not affect your Graduate Route eligibility or duration.",
+      answer: "Yes — the Graduate Route visa is available to graduates of any registered UK university, regardless of location. The 18-month entitlement (3 years for PhD) applies equally whether you studied in London, Manchester, Edinburgh, or Birmingham. Your city of study does not affect your Graduate Route eligibility or duration.",
     },
     {
       question: "What is the graduate employment rate for IT students at UK universities?",
@@ -339,7 +339,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   "step-by-step-guide-to-australia-student-visa-from-nepal": [
     {
       question: "What is Australia's Assessment Level 3, and how does it affect Nepali students?",
-      answer: "Assessment Level 3 is the highest risk tier under Australia's Simplified Student Visa Framework (SSVF), effective January 8, 2026 for Nepali students. It now requires mandatory English proficiency scores for all applicants, 3–6 months of verifiable bank statements, a detailed and personalized Genuine Student (GS) statement, and in some cases a phone or in-person interview. Genuine, well-prepared applicants continue to be approved every day.",
+      answer: "Assessment Level 3 is the highest risk tier under Australia's Simplified Student Visa Framework (SSVF). This article says it applies to Nepali students from January 8, 2026, but Home Affairs does not publish country evidence levels, so that is unconfirmed. At the highest level it requires mandatory English proficiency scores for all applicants, 3–6 months of verifiable bank statements, a detailed and personalized Genuine Student (GS) statement, and in some cases a phone or in-person interview. Genuine, well-prepared applicants continue to be approved every day.",
     },
     {
       question: "How much bank balance do I need for Australia student visa from Nepal in 2026?",
@@ -607,7 +607,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Why Choose the UK for Higher Studies from Nepal?",
-      answer: "The UK is a top choice for Nepali students due to its quality education, shorter course duration, and strong career prospects. Undergraduate: 3 years. Postgraduate: 1 year. The UK Graduate Route Visa lets you work for 18 months after study for applications from January 1, 2027 (2 years before that date), or 3 years for PhD graduates.",
+      answer: "The UK is a top choice for Nepali students due to its quality education, shorter course duration, and strong career prospects. Undergraduate: 3 years. Postgraduate: 1 year. The UK Graduate Route Visa lets bachelor's and master's graduates work for 18 months after study, or 3 years for PhD graduates.",
     },
   ],
   "know-how-the-power-of-language-can-transform-your-study-abroad-experience": [
@@ -866,6 +866,414 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     {
       question: "How does the UK grading system differ from the grading system in other countries?",
       answer: "Most countries grade on a percentage or GPA scale where 70% or above is considered very high. In the UK, 70% is the threshold for the highest classification, a First Class, and a strong 2:1 result of 65% is already considered an excellent academic outcome.",
+    },
+  ],
+  "us-f1-vs-uk-student-visa-2026": [
+    {
+      question: "Is the UK student visa easier to get than the US F-1 visa in 2026?",
+      answer: "In practical terms, yes — significantly so. The UK Student Visa does not require an in-person interview, has a processing time of 3–8 weeks, and has a refusal rate of around 5–8% for most nationalities. The US F-1 visa requires a mandatory interview, has a global refusal rate of 35% (a decade high), and interview wait times in many countries now exceed 12–18 months. For students with an urgent intake deadline, the difference is critical.",
+    },
+    {
+      question: "Can I apply for both US and UK student visas at the same time?",
+      answer: "Yes — there is nothing stopping you from applying to universities in both countries simultaneously and pursuing both visa applications at the same time. Many students in 2026 are doing exactly this as a risk management strategy. You pay application fees to both but only accept the offer and commit to the visa that comes through first. If both come through, you choose your preferred destination and withdraw from the other.",
+    },
+    {
+      question: "Does studying in the UK instead of the USA affect my long-term career prospects?",
+      answer: "Not significantly — and for many career paths, not at all. A degree from a reputable UK university is recognized globally and by employers across Asia, the Middle East, Australia, and the Americas. The main difference is in post-study earning potential: US STEM graduates who secure H-1B sponsorship typically earn more than their UK counterparts. However, the H-1B is subject to a lottery with roughly 30% annual selection odds, meaning many US graduates return home anyway. The UK's Graduate Route is guaranteed — and for students outside STEM, it is the stronger post-study option in 2026.",
+    },
+  ],
+  "study-in-uk-without-ielts-english-requirement-2027": [
+    {
+      question: "Can I get a UK student visa without IELTS?",
+      answer: "Yes, if you prove your English another accepted way, such as a UK degree, an Ecctis code or a university assessment for degree-level study.",
+    },
+    {
+      question: "Is Duolingo enough for the visa?",
+      answer: "Check with the university. The visa route depends on whether the university assesses you itself or accepts an approved test.",
+    },
+    {
+      question: "Are Nepali students exempt from the English test?",
+      answer: "No. Nepal is not on the exemption list.",
+    },
+  ],
+  "uk-graduate-visa-18-months-january-2027-deadline": [
+    {
+      question: "When does the 18-month Graduate visa start?",
+      answer: "For bachelor's and master's graduates, it applies to successful applications made on or after January 1, 2027.",
+    },
+    {
+      question: "Can I still get two years?",
+      answer: "Yes if you apply before January 1, 2027, or if your university is later named a high-compliance university that keeps the two-year duration.",
+    },
+    {
+      question: "Do PhD graduates lose a year?",
+      answer: "No. PhD graduates keep a three-year Graduate visa.",
+    },
+    {
+      question: "Which universities will keep two years?",
+      answer: "No list or criteria have been published yet.",
+    },
+    {
+      question: "Can I extend my Graduate visa?",
+      answer: "No. You would need to switch to another visa, such as Skilled Worker, before it ends.",
+    },
+    {
+      question: "Does my course start date matter?",
+      answer: "The reported rule depends on when you apply, not when you began your course. Confirm the details for your case with your university.",
+    },
+  ],
+  "abertay-university-courses-fees-international-2027": [
+    {
+      question: "How much does Abertay cost for international students?",
+      answer: "For 2027/28, undergraduate fees are £16,950 to £17,950 a year and postgraduate fees are £18,950 to £19,950.",
+    },
+    {
+      question: "Does Abertay have a January intake?",
+      answer: "Yes. For January 2027, standard applications close on November 30, 2026, and teaching starts on January 18, 2027.",
+    },
+    {
+      question: "Is Abertay good for games and cybersecurity?",
+      answer: "It is well known for these areas. Compare module content and career outcomes with other universities.",
+    },
+  ],
+  "university-of-east-london-courses-fees-international-2027": [
+    {
+      question: "How much does UEL cost for international students?",
+      answer: "Undergraduate tuition is £16,020 per year for 2026/27, and the full-time MBA is £19,500. Scholarships can reduce this by up to £5,000.",
+    },
+    {
+      question: "Does UEL have a January intake?",
+      answer: "Yes. UEL promotes January starts, and many postgraduate courses begin in September or January. Check your course page.",
+    },
+    {
+      question: "Do I get the scholarship automatically?",
+      answer: "Check the scholarship page for how awards are made. Not every student receives the maximum amount.",
+    },
+  ],
+  "bpp-university-london-international-students-2027": [
+    {
+      question: "Is BPP a real university?",
+      answer: "Yes. BPP University is a UK university with degree-awarding powers, and it is private rather than publicly funded.",
+    },
+    {
+      question: "Is BPP cheaper than other London universities?",
+      answer: "Not always. Fees vary widely by course, so compare total cost for your exact program.",
+    },
+    {
+      question: "Are these fee figures official?",
+      answer: "No. They are estimates from third-party guides. Confirm with BPP before you pay any deposit.",
+    },
+  ],
+  "uk-universities-with-london-campuses-international-students-2027": [
+    {
+      question: "Are London campuses of UK universities good value?",
+      answer: "Often, but fees and course quality vary. Compare total cost, teaching hours and graduate outcomes.",
+    },
+    {
+      question: "Do London campus students get the same degree?",
+      answer: "Usually the degree is awarded by the parent university, but confirm this in writing before you accept an offer.",
+    },
+    {
+      question: "Can I start in January or May?",
+      answer: "Many London campuses offer these intakes. Check each course page for dates and deadlines.",
+    },
+  ],
+  "university-rankings-vs-graduate-outcomes-2026": [
+    {
+      question: "Do university rankings matter at all for international students?",
+      answer: "Rankings matter — but only when used correctly. Subject-specific rankings (such as QS by subject or the UK's Complete University Guide by discipline) are meaningfully more useful than overall world rankings for course selection decisions. Overall rankings are most relevant for employer recognition in highly competitive industries like investment banking or management consulting, and for PhD research program selection. For the vast majority of international students, graduate employment rates, visa compliance, course fit, and total cost are far more consequential than a university's overall world ranking position.",
+    },
+    {
+      question: "How do I find graduate employment data for a specific course at a specific university?",
+      answer: "In the UK, use the Graduate Outcomes survey at graduateoutcomes.ac.uk — searchable by subject area and institution. In Australia, use the Quality Indicators for Learning and Teaching (QILT) database at qilt.edu.au. In the USA, use the College Scorecard at collegescorecard.ed.gov, which shows median earnings and employment rates by field of study and institution. In New Zealand, use the Graduate Longitudinal Study. Always filter by your specific subject area — overall institutional employment rates are meaningless for individual course decisions.",
+    },
+    {
+      question: "Does going to a lower-ranked university affect my visa application?",
+      answer: "Not in most cases — and in some cases, a lower-ranked university may actually improve your visa outcome. In Australia, your institution's compliance level directly affects how your visa application is assessed. Some well-known private institutions have lower compliance ratings than less prominent public universities — meaning a student applying to a lower-profile regional public university may have a smoother visa process than one applying to a recognized private college. Always check your institution's compliance record with a qualified advisor before applying.",
+    },
+    {
+      question: "What is the single most important factor for international students choosing a university in 2026?",
+      answer: "Post-study outcome alignment — meaning the connection between your course, your post-graduation visa options, and your career goals. A student who selects a course that appears on the skilled occupation list of their target country, at an institution with strong industry placement, in a city with manageable living costs, will consistently achieve better outcomes than one who chooses purely on ranking. In 2026, the most strategic university choice starts with the life you want to build after graduation — and works backwards from there.",
+    },
+  ],
+  "london-metropolitan-university-fees-courses-international-2027": [
+    {
+      question: "How much is the London Met scholarship?",
+      answer: "The International Bright Futures Scholarship is £5,000 off tuition for eligible new students in 2026/27. It is applied automatically.",
+    },
+    {
+      question: "Does London Met have a January intake?",
+      answer: "Yes. The university lists September, January and May starts. Course availability varies.",
+    },
+    {
+      question: "Are the fee figures exact?",
+      answer: "No. The ranges are estimates from third-party guides. Use the course page for the exact fee.",
+    },
+  ],
+  "master-by-research-uk-international-students-2027": [
+    {
+      question: "Is an MRes the same as an MPhil?",
+      answer: "No. An MRes is a one-year Master's with training modules and a research project. An MPhil is usually a longer, fully research-based degree.",
+    },
+    {
+      question: "Is MRes funded?",
+      answer: "Most international MRes students are self-funded, though some universities offer partial scholarships. Check each university's scholarship page.",
+    },
+    {
+      question: "Will an MRes help me get a PhD?",
+      answer: "Often yes. It shows you can complete independent research, and many universities treat it as strong preparation for doctoral study.",
+    },
+  ],
+  "uk-graduate-visa-two-years-eligible-universities-2027": [
+    {
+      question: "Is the Graduate visa becoming two years for everyone?",
+      answer: "No. As announced, the two-year duration is for graduates of high-compliance universities with strong labor market outcomes. Other graduates are expected to face the planned 18-month limit.",
+    },
+    {
+      question: "Which universities will qualify?",
+      answer: "No list has been published. The criteria and the Home Office process are still to be set out.",
+    },
+    {
+      question: "When will the change start?",
+      answer: "No start date has been given. Check GOV.UK for official updates.",
+    },
+    {
+      question: "Does this affect students already in the UK?",
+      answer: "Details on transitions are not yet published. Rules usually depend on the date you apply, so check the final guidance.",
+    },
+    {
+      question: "Does the Graduate visa lead to settlement?",
+      answer: "No. It is a temporary route. You would need to switch to another visa, such as Skilled Worker, to stay longer.",
+    },
+    {
+      question: "Will the Graduate visa cost change?",
+      answer: "The announcements reported so far do not mention a fee change.",
+    },
+  ],
+  "affordable-universities-london-international-students-2027": [
+    {
+      question: "Which London area is cheapest for students?",
+      answer: "Outer zones generally cost less than central London. Compare commuting time and rent together.",
+    },
+    {
+      question: "Can I study outside London to save money?",
+      answer: "Yes. Many UK cities have lower rent and the same visa rules, and the lower visa funds rate applies.",
+    },
+    {
+      question: "Do I need London visa funds for any London university?",
+      answer: "The London rate applies if your course is in the London area. Your university will confirm which rate applies.",
+    },
+  ],
+  "adult-nursing-uk-international-students-2027": [
+    {
+      question: "Can international students study adult nursing in the UK?",
+      answer: "Yes, though places for international students can be limited. Check each university's policy.",
+    },
+    {
+      question: "Do I need NMC registration?",
+      answer: "Yes. You must register with the NMC after graduation to practice as a registered nurse in the UK.",
+    },
+    {
+      question: "Will I get a job after graduating?",
+      answer: "Demand for nurses is high, but sponsorship depends on the employer and visa rules at the time. Check current rules.",
+    },
+  ],
+  "university-of-west-london-courses-international-2027": [
+    {
+      question: "Is the University of West London a good choice for international students?",
+      answer: "It offers career-focused courses and a London location. Compare course content, fees and location with other options.",
+    },
+    {
+      question: "Does UWL offer a January intake?",
+      answer: "Many courses do, but not all. Check the course page for your subject.",
+    },
+    {
+      question: "What visa funds do I need for London?",
+      answer: "At the London rate you need £1,529 per month now, rising to £1,570 from November 30, 2026, for up to nine months.",
+    },
+  ],
+  "australia-student-visa-change-provider-apply-outside-2026": [
+    {
+      question: "Can I apply for another Student visa from inside Australia?",
+      answer: "Only if an exemption applies, such as needing up to 12 more months with the same provider, or moving to a higher course. Otherwise you generally must apply from outside Australia.",
+    },
+    {
+      question: "Does this affect my current visa?",
+      answer: "No. Your current Student visa is not affected by this rule.",
+    },
+    {
+      question: "If I apply offshore, am I guaranteed a visa?",
+      answer: "No. You must still meet all visa requirements, and a grant is not guaranteed.",
+    },
+  ],
+  "uk-earned-settlement-10-years-ilr-international-students-2027": [
+    {
+      question: "Is UK settlement now 10 years?",
+      answer: "Under the Earned Settlement model, the standard route doubles from 5 to 10 years, with shorter routes for some groups such as higher earners.",
+    },
+    {
+      question: "Who can still settle in 5 years?",
+      answer: "Higher earners above about £50,000, skilled public service workers and refugees on safe and legal routes. Care workers who meet the visa requirements keep a 5-year route.",
+    },
+    {
+      question: "Does my Student or Graduate visa count?",
+      answer: "The sources we reviewed do not say. Historically these visas have not counted toward settlement.",
+    },
+    {
+      question: "What English level is needed?",
+      answer: "The government describes an A-level standard, reported as B2. Check the final rules.",
+    },
+    {
+      question: "Do I lose ILR if I already have it?",
+      answer: "No. People who already hold ILR keep it.",
+    },
+    {
+      question: "Does claiming benefits affect settlement?",
+      answer: "Claiming specified benefits can extend the wait to 20 years. Which benefits count is still being confirmed.",
+    },
+  ],
+  "uk-intake-timeline-nepalese-students-2027": [
+    {
+      question: "What is the best intake for the UK from Nepal?",
+      answer: "September is usually best for choice and scholarships. January suits students who are ready sooner.",
+    },
+    {
+      question: "How early can I apply for a UK student visa?",
+      answer: "Up to 6 months before your course starts.",
+    },
+    {
+      question: "Can I start in May?",
+      answer: "Some universities start in May, but courses are limited. Check your chosen university.",
+    },
+  ],
+  "uk-study-gap-acceptable-international-students-2027": [
+    {
+      question: "How many years of gap is accepted in the UK?",
+      answer: "There is no national limit. Many universities accept a few years and some accept longer with a strong explanation.",
+    },
+    {
+      question: "Should I write a letter about my gap?",
+      answer: "A short, honest explanation with evidence can help, both with the university and your visa application.",
+    },
+    {
+      question: "Can a gap lead to a visa refusal?",
+      answer: "A gap alone should not. Unexplained or inconsistent details can raise concerns.",
+    },
+  ],
+  "us-f1-duration-of-status-ended-2026": [
+    {
+      question: "What is Duration of Status and why does ending it matter?",
+      answer: "Duration of Status (D/S) was the long-standing system that allowed F-1 international students to remain in the US for the full length of their program — however long that took — as long as they were making academic progress. Your university's Designated School Official had the authority to approve extensions. This gave genuine students the flexibility to complete PhD programs (which typically take 5–8 years), progress from language study to degree programs, and complete OPT after graduation. Ending D/S removes that flexibility entirely and replaces it with a fixed 4-year limit controlled by USCIS, not your university.",
+    },
+    {
+      question: "Does the 4-year limit affect students already studying in the US?",
+      answer: "The final rule is primarily designed to apply to new students arriving from September 2026 onwards. Students already in the US on F-1 status face a transition period — current students wishing to extend their stay beyond their program end-date will likely need to file an extension with USCIS rather than their DSO. A possible 6-month grace period for students currently on OPT has been discussed but not formally confirmed. Check your I-94 record at i94.cbp.dhs.gov and contact your international student office for the most current guidance specific to your situation.",
+    },
+    {
+      question: "Is OPT still available under the new rules?",
+      answer: "OPT has not been formally eliminated — but it faces serious uncertainty. The USCIS director has publicly indicated a desire to restrict OPT access, and the August 2026 regulatory agenda includes proposals for OPT reform. A 2025 NAFSA survey found that 54% of current international students would not have chosen the US if OPT did not exist. Students considering the US specifically for the STEM OPT pathway should plan for the possibility that OPT conditions may change further before or during their program — and have a contingency plan ready.",
+    },
+    {
+      question: "Should I still apply to study in the US given these changes?",
+      answer: "That depends entirely on your program, your career goals, and your risk tolerance. The US still offers the world's highest-ranked research universities, the strongest STEM graduate salary ceiling, and a uniquely deep employer base in technology, finance, and engineering. For a 2-year STEM Master's at a well-ranked institution, the 4-year limit presents no problem. For PhD students and those relying on a seamless OPT-to-H-1B pathway, the new rules introduce genuine uncertainty that did not exist before. Applying to the US alongside the UK or Australia — and making your final decision based on which visa and program conditions best match your goals — is the most prudent approach in 2026.",
+    },
+  ],
+  "gates-cambridge-commonwealth-scholarships-international-2027": [
+    {
+      question: "Can Nepali students apply for Gates Cambridge?",
+      answer: "Yes. It is open to citizens of any country outside the UK, for eligible postgraduate courses.",
+    },
+    {
+      question: "Can Nepali students apply for Commonwealth Master's Scholarships?",
+      answer: "No. Nepal is not on the eligible-countries list for this program.",
+    },
+    {
+      question: "Does Gates Cambridge cover an MBA?",
+      answer: "No. MBA and several other courses are not eligible.",
+    },
+  ],
+  "study-in-scotland-international-students-2027": [
+    {
+      question: "Is Scotland cheaper than England for international students?",
+      answer: "Living costs are often lower outside Edinburgh, and a four-year bachelor's means one more year of tuition. Compare total cost, not only yearly fees.",
+    },
+    {
+      question: "Do I need a different visa for Scotland?",
+      answer: "No. You apply for the same UK Student visa as for any other UK university.",
+    },
+    {
+      question: "Can I work in England after studying in Scotland?",
+      answer: "Yes. The Graduate Route and Skilled Worker visas apply across the whole UK.",
+    },
+  ],
+  "uk-student-visa-success-rate-nepali-students-2027": [
+    {
+      question: "Is the UK student visa easy to get from Nepal?",
+      answer: "Most genuine applicants with a valid offer and clear funds are approved. Careful preparation is what separates approvals from refusals.",
+    },
+    {
+      question: "How long does a UK student visa take?",
+      answer: "Standard decisions often take around three weeks from your biometrics appointment, though times vary.",
+    },
+    {
+      question: "Can I reapply after a refusal?",
+      answer: "Yes. Fix the reasons in the refusal letter and reapply with stronger evidence.",
+    },
+  ],
+  "phd-in-uk-for-international-students-fees-funding-2027": [
+    {
+      question: "How long is a PhD in the UK?",
+      answer: "Usually three to four years full-time, plus a possible write-up period.",
+    },
+    {
+      question: "Is a master's needed for a UK PhD?",
+      answer: "Often yes, but a strong bachelor's can be enough for some programs. Check each university.",
+    },
+    {
+      question: "Can I work during my PhD?",
+      answer: "Student visa rules limit work hours. Many PhD students also do paid teaching or research.",
+    },
+  ],
+  "uk-january-2027-intake-nepalese-students": [
+    {
+      question: "Is it too late to apply for January 2027?",
+      answer: "Not necessarily, but you need to move now. Confirm that your course still has places, then work back from a mid-November visa application.",
+    },
+    {
+      question: "Do January intakes offer scholarships?",
+      answer: "Some do, but there are usually fewer scholarship rounds than for September. Check your university's scholarship page after receiving your offer.",
+    },
+    {
+      question: "What is the next intake after January 2027?",
+      answer: "Some universities start in May, but September 2027 is the main intake. Applications for September 2027 are open now.",
+    },
+  ],
+  "university-of-bradford-international-scholarships-2027": [
+    {
+      question: "Do I need to apply separately for the Bradford scholarship?",
+      answer: "No. The university states the discount is applied automatically at enrollment for eligible students.",
+    },
+    {
+      question: "Is the scholarship paid in cash?",
+      answer: "It is a tuition fee discount, not a cash payment to you.",
+    },
+    {
+      question: "Can undergraduates get this scholarship?",
+      answer: "The listed 60th Anniversary Scholarship is for full-time postgraduate taught courses. Undergraduates should check other awards.",
+    },
+  ],
+  "ai-cybersecurity-data-science-courses-jobs-2026": [
+    {
+      question: "Which technology course has the best graduate employment rate in the UK?",
+      answer: "Cybersecurity and AI / Machine Learning consistently report the highest graduate employment rates among technology subjects in the UK, with figures regularly exceeding 88–92% within 15 months of graduation according to the Graduate Outcomes survey. Both subjects appear on the UK Shortage Occupation List, meaning employers prioritize hiring and are more willing to sponsor Skilled Worker visas for these graduates compared to other IT specializations.",
+    },
+    {
+      question: "Do these courses qualify for the Australian Skilled Occupation List?",
+      answer: "Yes — all five courses listed above lead to occupations that appear on Australia's Medium and Long-term Strategic Skills List (MLTSSL), which provides access to both the Subclass 189 (independent) and Subclass 190 (state-nominated) permanent residency pathways. Software and Applications Programmers, ICT Business Analysts, Cybersecurity Specialists, and Data Scientists are all listed occupations. This makes tech graduates from Australian universities among the most competitive PR applicants in the General Skilled Migration pool.",
+    },
+    {
+      question: "Can I get PR in New Zealand with an IT degree from a New Zealand university?",
+      answer: "Yes — and New Zealand offers one of the most direct routes. ICT Programmers and Software Engineers are Tier 1 Green List occupations, which means graduates who complete a relevant degree, register in a qualifying role, and meet the median wage threshold can apply directly for permanent residency through the Residence from Work pathway. There is no points test, no lottery, and no invitation required — making this the most certain PR pathway of any destination for IT graduates in 2026.",
     },
   ],
 };

@@ -3,8 +3,10 @@ import SpinWheelInit from "./SpinWheelInit";
 import AlumniSection from "@/components/ui/AlumniSection";
 import FAQ from "@/components/ui/FAQ";
 import type { AlumniCard } from "@/components/ui/AlumniSection";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   alternates: { canonical: "https://admizzeducation.com/events/spin-and-win" },
   title: "Study Abroad Rewards Event | Admizz Education",
   description: "Unlock exclusive rewards on your study abroad journey. Discover laptops, flight tickets & more — plus free expert counseling from Admizz Education's ICEF-accredited agency.",
@@ -86,7 +88,7 @@ const faqItems = [
     answer: "The timeline depends on the country, intake, university, and program. Typically, the entire admission cycle—shortlisting, application submission, and receiving an offer—takes 2 to 12 weeks. Early applicants usually receive faster decisions.",
   },
   {
-    question: "Why should I choose Admizz Education over other study-abroad consultancies?",
+    question: "Why should I choose Admizz Education over other study-abroad providers?",
     answer: "Admizz combines expert counselors with advanced technology to offer accurate university matches, faster processing, transparent workflows, and a higher visa success rate. Students benefit from personalized support, global partner universities, and a seamless digital platform.",
   },
 ];
@@ -138,9 +140,7 @@ export default function SpinAndWinPage() {
             <div className="trust-inline">
               <div className="trust-badge"><span className="trust-icon">🎁</span><span className="trust-text"><strong>Real Rewards,</strong> Real Students</span></div>
               <div className="trust-divider"></div>
-              <div className="trust-badge"><span className="trust-icon">🎓</span><span className="trust-text"><strong>2,000+</strong> Students Admitted</span></div>
-              <div className="trust-divider"></div>
-              <div className="trust-badge"><span className="trust-icon">🎯</span><span className="trust-text"><strong>95%</strong> Visa Approval Rate</span></div>
+              <div className="trust-badge"><span className="trust-icon">🎓</span><span className="trust-text"><strong>{ADMIZZ_STATS.studentsPlaced}</strong> Students Admitted</span></div>
               <div className="trust-divider"></div>
               <div className="trust-badge"><span className="trust-icon">🏆</span><span className="trust-text"><strong>ICEF</strong> Accredited Agency</span></div>
             </div>
@@ -211,10 +211,10 @@ export default function SpinAndWinPage() {
         <section className="why-admizz-section">
           <div className="container">
             <h2 className="section-title">Why Choose Admizz?</h2>
-            <p className="section-subtitle">Unlike single-country consultancies, we offer:</p>
+            <p className="section-subtitle">Unlike single-country providers, we offer:</p>
             <div className="why-cards">
               {[
-                { icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z", title: "Multi-Destination Expertise", desc: "12+ countries, one consultancy. Not limited to single-country advice." },
+                { icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z", title: "Multi-Destination Expertise", desc: "12+ countries, one partner. Not limited to single-country advice." },
                 { icon: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z", title: "Switch Without Losing Time", desc: "Change your destination and keep your intake timeline intact." },
                 { icon: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z", title: "Transparent Guidance", desc: "Real talk on visa strength, finances & realistic backup options." },
               ].map((w) => (
@@ -227,9 +227,8 @@ export default function SpinAndWinPage() {
             </div>
             <div className="why-trust-bar">
               <span>🏆 ICEF Accredited Agency</span><span>•</span>
-              <span>🪃 2,000+ Students Enrolled</span><span>•</span>
-              <span>🌍 100+ Partner Universities</span><span>•</span>
-              <span>🎯 95% Visa Approval Rate</span>
+              <span>🪃 {ADMIZZ_STATS.studentsPlaced} Students Enrolled</span><span>•</span>
+              <span>🌍 100+ Partner Universities</span>
             </div>
           </div>
         </section>

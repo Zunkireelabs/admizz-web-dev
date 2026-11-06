@@ -1,0 +1,57 @@
+{
+  "_id": "5910d9ae-1785-4f85-8b69-c80f8e8d76d2",
+  "_type": "post",
+  "_createdAt": "2026-10-23T17:58:05Z",
+  "_updatedAt": "2026-11-04T09:00:00Z",
+  "title": "Adult Nursing in the UK for International Students",
+  "slug": {
+    "_type": "slug",
+    "current": "adult-nursing-uk-international-students-2027"
+  },
+  "publishedAt": "2026-10-23T18:10:00.000Z",
+  "excerpt": "Want to become a nurse in the UK? See adult nursing course routes, English requirements, NMC registration, placements, costs and visa rules for 2027 entry.",
+  "content": [
+    {
+      "_key": "h1",
+      "_type": "rawHtml",
+      "html": "<div class=\"container\"><article><div class=\"quick-facts\"><div class=\"quick-facts-title\">🩺 Adult Nursing in the UK — At a Glance</div><div class=\"facts-grid\"><div class=\"fact-item\"><span class=\"fact-label\">Bachelor's Route</span><span class=\"fact-value\">BSc Adult Nursing, 3 Years</span></div><div class=\"fact-item\"><span class=\"fact-label\">Master's Route</span><span class=\"fact-value\">MSc Pre-Registration, About 2 Years</span></div><div class=\"fact-item\"><span class=\"fact-label\">English Test</span><span class=\"fact-value\">IELTS About 7.0 Overall (Typical)</span></div><div class=\"fact-item\"><span class=\"fact-label\">Practice Hours</span><span class=\"fact-value\">2,300 Clinical Placement Hours (NMC)</span></div><div class=\"fact-item\"><span class=\"fact-label\">Registration</span><span class=\"fact-value\">NMC After Graduation</span></div><div class=\"fact-item\"><span class=\"fact-label\">Tuition (Approx.)</span><span class=\"fact-value\">£15,000–£22,000 / Year</span></div></div></div><section class=\"section\" id=\"s1\"><h2>Routes Into Adult Nursing</h2><p>To work as a registered nurse in the UK you must complete an approved nursing program and then register with the <strong>Nursing and Midwifery Council (NMC)</strong>. International students usually choose between two routes.</p><div class=\"table-scroll\"><table class=\"elig-table\"><thead><tr><th>Route</th><th>Length</th><th>Who it suits</th></tr></thead><tbody><tr><td>BSc (Hons) Adult Nursing</td><td>3 years</td><td>Students entering after high school or access courses</td></tr><tr><td>MSc Adult Nursing (pre-registration)</td><td>About 2 years</td><td>Graduates in a related subject</td></tr></tbody></table></div></section><section class=\"section\" id=\"s2\"><h2>Entry and English Requirements</h2><ul class=\"checklist\"><li><strong>Academic:</strong> recent high school or degree results in relevant subjects; some courses prefer biology or health science.</li><li><strong>English:</strong> nursing courses ask for higher scores than most degrees, typically around IELTS 7.0 overall with no less than 6.5 in any part. Check each university.</li><li><strong>Suitability checks:</strong> interviews, health clearance and criminal record checks are common.</li><li><strong>Experience:</strong> caring experience helps your personal statement.</li></ul><div class=\"callout warning\"><span class=\"callout-icon\">⚠️</span><div class=\"callout-body\"><strong>Not every course is open to international students</strong>Some universities limit international places for nursing, so apply early and confirm eligibility before paying a deposit.</div></div></section><section class=\"section\" id=\"s3\"><h2>Placements and Registration</h2><p>Nursing programs include around <strong>2,300 hours of clinical practice</strong> in hospitals and community settings, shared with classroom study. After graduation you apply to the NMC to join the register, which is required to practice as a nurse.</p><div class=\"inline-cta\"><div class=\"inline-cta-text\"><strong>Planning a nursing degree?</strong>Admizz Education checks which universities offer international places and what each one requires.</div><a href=\"https://admizzeducation.com/register\" rel=\"noopener\">Get Free Guidance →</a></div></section><section class=\"section\" id=\"s4\"><h2>Costs, Visa and Careers After Study</h2><p>Tuition for international nursing students is often around <strong>£15,000 to £22,000 a year</strong>; confirm the exact fee for your course. Student visa maintenance funds are £1,171/£1,529 per month now, rising to £1,203/£1,570 from 30 November 2026, for up to nine months. A Student visa lets you work up to 20 hours a week in term time, but placement hours are part of your course.</p><p>After graduating, you may use the <strong>Graduate Route</strong> (18 months for applications from 1 January 2027) or move to a Health and Care Worker visa if a UK employer sponsors you as a registered nurse.</p></section><div class=\"cta-banner\"><h2>Start Your Nursing Career in the UK</h2><p>Admizz Education helps you find a nursing program and prepare your application.</p><div class=\"cta-btns\"><a href=\"https://admizzeducation.com/register\" class=\"btn-primary\" rel=\"noopener\">Book Free Consultation →</a><a href=\"https://admizzeducation.com/\" class=\"btn-secondary\" rel=\"noopener\">Explore UK Universities</a></div></div><section class=\"section\" id=\"faq\"><h2>Frequently Asked Questions</h2><div class=\"faq-item\"><div class=\"faq-q\">Can international students study adult nursing in the UK?</div><div class=\"faq-a\">Yes, though places for international students can be limited. Check each university's policy.</div></div><div class=\"faq-item\"><div class=\"faq-q\">Do I need NMC registration?</div><div class=\"faq-a\">Yes. You must register with the NMC after graduation to practice as a registered nurse in the UK.</div></div><div class=\"faq-item\"><div class=\"faq-q\">Will I get a job after graduating?</div><div class=\"faq-a\">Demand for nurses is high, but sponsorship depends on the employer and visa rules at the time. Check current rules.</div></div></section></article></div>"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/adult-nursing-uk-international-students-2027-1200.webp",
+    "card": "/images/blog/adult-nursing-uk-international-students-2027-600.webp",
+    "og": "/images/blog/og/adult-nursing-uk-international-students-2027.jpg",
+    "alt": null,
+    "caption": null,
+    "_sanityRef": "image-c776ff10d4b67336c6442a65e80e0901569aff5d-1200x628-png"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-49",
+      "title": "UK",
+      "slug": {
+        "_type": "slug",
+        "current": "uk"
+      }
+    },
+    {
+      "_id": "wp-category-33",
+      "title": "Medical",
+      "slug": {
+        "_type": "slug",
+        "current": "medical"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/adult-nursing-uk-international-students-2027",
+    "metaDescription": "Study adult nursing in the UK as an international student: course routes, English requirements, NMC registration, placements, costs and visa rules for 2027.",
+    "metaTitle": "Adult Nursing UK for International Students 2027",
+    "noIndex": false
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:33.922Z"
+}

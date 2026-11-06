@@ -1,87 +1,93 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in the UK - Admizz Education",
   description:
-    "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for 2025 intake now!",
+    "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-the-uk",
   },
   openGraph: {
     title: "Study in the UK - Admizz Education",
     description:
-      "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for 2025 intake now!",
+      "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!",
     url: "https://admizzeducation.com/study-in-the-uk",
     siteName: "Admizz Education",
-    images: ["/images/hero/web-ad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-the-uk.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in the UK - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in the UK - Admizz Education",
+    description:
+      "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!",
+    images: ["/images/og/countries/study-in-the-uk.jpg"],
   },
 };
 
 const ukData: CountryPageData = {
   countryName: "the UK",
   countryCategorySlug: "uk",
-  nepalGuide: {
-    href: "/study-in-uk-from-nepal",
-    title: "Applying from Nepal? Read the Nepal-specific guide to studying in the UK",
-    text: "Costs, the student visa process, intakes, test scores and scholarships for Nepali students.",
-  },
   heroHeading: "STUDY IN THE UK",
+  flagColors: ["#012169", "#C8102E"],
   heroSubheading: "Shape Your Future at World-Class Universities",
   heroDescription: "Choosing the UK for higher studies opens doors to international exposure, employment opportunities, and globally recognized qualifications. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top UK universities with complete confidence.",
   heroBackground: "/images/hero/uk-hero.webp",
   quickFacts: [
-    { label: "Capital", value: "London" },
     { label: "Language", value: "English" },
-    { label: "Dialing Code", value: "+44" },
-    { label: "Currency", value: "Pound" },
-    { label: "Population", value: "67M+" },
-    { label: "Student visa fee", value: "£558" },
-    { label: "Health surcharge", value: "£776 / year" },
-    { label: "Tuition fee", value: "£6000/yr" },
+    { label: "Currency", value: "Pound sterling (GBP)" },
+    { label: "Universities", value: "165+" },
+    { label: "Intl. Students", value: "685,000+" },
+    { label: "Tuition fee", value: "From £11,000/yr" },
   ],
-  whyStudyTitle: "Why Study In the UK ?",
+  whyStudyTitle: "Why Study in the UK?",
   whyStudyIntro:
     "Choosing the UK for higher studies opens doors to international exposure, employment opportunities, and globally recognized qualifications.",
   benefits: [
     {
       title: "World-Renowned Universities",
       description:
-        "Oxford, Cambridge, Manchester, Bristol, Leeds, Birmingham, and more.",
+        "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!",
       icon: "/images/icons/school-1.webp",
     },
     {
       title: "Affordable & Shorter Program Duration",
-      description: "1-year master's and 3-year bachelor's degrees.",
+      description: "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!",
       icon: "/images/icons/scholarship-108.webp",
     },
     {
       title: "Post-Study Work Visa (Graduate Route)",
       description:
-        "Stay and work in the UK for 2–3 years after graduation.",
+        "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!",
       icon: "/images/icons/visa-108.webp",
     },
     {
       title: "Flexible Course Options",
       description:
-        "Over 50,000+ courses across STEM, business, health, arts, media, aviation & more.",
+        "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!",
       icon: "/images/icons/knowledge.webp",
     },
     {
       title: "High Employability",
       description:
-        "UK graduates are preferred by global employers for their skills and academic quality.",
+        "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!",
       icon: "/images/icons/consultation.webp",
     },
     {
       title: "Safe, Diverse & Student-Friendly",
       description:
-        "Over 600,000 international students from 180+ countries.",
+        "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!",
       icon: "/images/icons/visa-1.webp",
     },
   ],
@@ -94,7 +100,7 @@ const ukData: CountryPageData = {
       intro:
         "Universities in the UK require essential academic and personal documents to evaluate your eligibility. The commonly required documents include:",
       documents: [
-        "Academic transcripts (10th, 12th, Diploma, Bachelor's, Master's—whichever applies)",
+        "Academic transcripts (secondary/high school, diploma, bachelor's, master's—whichever applies)",
         "Degree certificates (if applying for postgraduate programs)",
         "Passport copy (front and back)",
         "Updated CV / Resume",
@@ -113,22 +119,21 @@ const ukData: CountryPageData = {
         "Tuition fee payment receipt (partial or initial deposit as required)",
         "Bank statements showing required maintenance funds for 28 days",
         "Proof of living expenses as per UKVI requirements",
-        "Financial affidavit/sponsorship letter (if sponsored by parents or guardians)",
+        "Sponsor letter (if sponsored by parents or guardians)",
         "Final academic documents (once conditions are met)",
       ],
     },
     {
-      title: "Visa Documentation (UK Student Visa / Tier 4 Visa)",
+      title: "Visa Documentation (UK Student Visa)",
       intro:
         "For your UK Student Visa, the following documents are required:",
       documents: [
         "Valid passport",
         "CAS letter from the university",
-        "Confirmation of financial support (bank statements, loan sanction letters, fixed deposits if accepted)",
+        "Confirmation of financial support (bank statements, education loan approval letter, savings or term deposits if accepted)",
         "Tuition fee payment receipts",
         "Proof of English proficiency (IELTS/PTE/TOEFL)",
-        "Academic documents (all certificates and mark sheets)",
-        "Passport-size photographs (meeting UKVI specifications)",
+        "Academic documents (all certificates and academic records)",
         "UKVI application form",
         "Visa fee receipt and IHS (Immigration Health Surcharge) payment",
       ],
@@ -183,48 +188,41 @@ const ukData: CountryPageData = {
   costIntro:
     "Planning to Study in the UK requires a clear understanding of the overall costs involved.",
   costTable: [
-    { program: "Undergraduate", fee: "£10,000 – £20,000" },
+    { program: "Undergraduate", fee: "£11,000 – £20,000" },
     { program: "Postgraduate", fee: "£12,000 – £25,000" },
     { program: "MBA / Professional", fee: "£20,000 – £35,000+" },
-    { program: "Living Expenses", fee: "£9,000 – £12,000 per year" },
-    { program: "Health Surcharge (NHS)", fee: "£470 per year" },
+    { program: "Living Expenses (London)", fee: "£1,529 per month" },
+    { program: "Living Expenses (outside London)", fee: "£1,171 per month" },
+    { program: "Health Surcharge (NHS)", fee: "£776 per year" },
   ],
   costNote:
-    "Your total costs vary by city. London is higher; smaller cities are more budget friendly.",
+    "Living expenses are the UKVI funds requirement for up to 9 months. For applications from November 30, 2026, these rise to £1,570 per month in London and £1,203 per month outside London. Your total costs vary by city. London is higher; smaller cities are more budget friendly.",
   visaTitle: "UK Student Visa Process",
   visaIntro:
-    "Applying for a UK Student Visa (formerly Tier 4 Visa) becomes simple when you understand each step clearly. Below is a complete, easy-to-follow breakdown of the UK student visa process.",
+    "Applying for a UK Student visa becomes simple when you understand each step clearly. Below is a complete, easy-to-follow breakdown of the UK student visa process.",
   visaSteps: [
-    { title: "Choose Course & University", description: "Select a UKVI-approved institution and the right course." },
-    { title: "Submit Application", description: "Apply through UCAS or university portals with required documents." },
-    { title: "Receive Offer Letter", description: "Get conditional or unconditional offer based on your eligibility." },
-    { title: "Meet Financial Requirements", description: "Maintain sufficient funds for tuition and living expenses." },
-    { title: "Complete TB Test", description: "Take your TB test at a UKVI-approved centre." },
-    { title: "Request CAS", description: "Submit documents and fee receipts to receive your CAS number." },
-    { title: "Prepare Visa Documents", description: "Collect CAS, bank proof, TB certificate, transcripts, and passport." },
-    { title: "Apply for Visa", description: "Fill UKVI visa form and pay visa + IHS fees." },
-    { title: "Book Biometrics", description: "Schedule your biometrics appointment at a visa application centre." },
-    { title: "Attend Your Appointment", description: "Submit your biometrics and the documents you are asked for." },
-    { title: "Wait for Decision", description: "Visa processing typically takes 1–3 weeks." },
-    { title: "Collect Passport", description: "Receive your passport with visa vignette." },
-    { title: "Travel to UK", description: "Carry all essential documents when flying to the UK." },
-    { title: "Collect BRP", description: "Pick up your BRP card within 10 days of arrival." },
+    { title: "Choose & Apply", description: "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!" },
+    { title: "Get Your Offer & CAS", description: "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!" },
+    { title: "Show Funds & Take TB Test", description: "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!" },
+    { title: "Apply for Your Visa", description: "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!" },
+    { title: "Biometrics & Decision", description: "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!" },
+    { title: "Travel to the UK", description: "Study in the UK at world-renowned universities with expert guidance, visa support, and scholarship options. Apply for the 2027 intake now!" },
   ],
   faqItems: [
     { question: "Is the UK a good place for international students?", answer: "Yes, the UK is one of the best study destinations due to its world-class universities, high-quality teaching, global recognition, and excellent career opportunities." },
     { question: "What are the requirements to study in the UK for international students?", answer: "You generally need academic transcripts, English proficiency scores (IELTS/PTE), a valid passport, Statement of Purpose, Letters of Recommendation, and proof of funds." },
-    { question: "How much does it cost to study in the UK?", answer: "Tuition fees typically range from £10,000 to £25,000 per year, depending on the course and university. Living expenses may cost £9,000–£12,000 annually." },
+    { question: "How much does it cost to study in the UK?", answer: "Tuition fees typically range from £10,000 to £25,000 per year, depending on the course and university. For living costs, UKVI requires you to show £1,529 per month in London or £1,171 per month elsewhere, for up to 9 months. For applications from November 30, 2026, these rise to £1,570 and £1,203." },
     { question: "What IELTS score is required for UK universities?", answer: "Most universities require an overall IELTS score of 6.0–6.5, but some top programs may ask for 7.0 or higher." },
-    { question: "Can I work while studying in the UK?", answer: "Many international students on a Student visa can work, but how much depends on what they study and whether it is term time. The visa states your exact limit, and you cannot be self-employed or work as a professional sportsperson or sports coach." },
-    { question: "What is the UK student visa processing time?", answer: "The standard UK Student Visa usually takes 3–6 weeks for processing, depending on your home country and application accuracy." },
+    { question: "Can I work while studying in the UK?", answer: "Yes. On a degree-level course you can usually work up to 20 hours per week during term time (10 hours for courses below degree level), and full-time during official holidays." },
+    { question: "What is the UK student visa processing time?", answer: "If you apply from outside the UK, you will usually get a decision on your Student visa within 3 weeks." },
     { question: "Is it easy to get a part-time job in the UK as a student?", answer: "Yes, the UK offers plenty of part-time job opportunities in retail, hospitality, customer service, and campus roles." },
-    { question: "Can I stay in the UK after completing my studies?", answer: "Absolutely. The Graduate Route (Post-Study Work Visa) allows students to stay and work for 2 years (UG/PG) or 3 years (PhD)." },
+    { question: "Can I stay in the UK after completing my studies?", answer: "Yes. The Graduate Route (Post-Study Work Visa) lets you stay and work after your degree: 18 months for bachelor's and master's graduates applying from 1 January 2027, and 3 years for PhD graduates." },
     { question: "What are the best courses to study in the UK?", answer: "Popular courses include MBA, Data Science, Engineering, Healthcare, Law, Computer Science, Business Analytics, Pharmacy, and Finance." },
     { question: "Do UK universities accept gaps in education?", answer: "Yes, most UK universities accept study gaps if properly justified with experience letters, family reasons, medical documents, or valid explanations." },
   ],
 };
 
 export default async function StudyInUKPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "uk" });
+  const blogPosts: SanityPost[] = getPostsByCategory("uk");
   return <CountryPageTemplate data={ukData} blogPosts={blogPosts} />;
 }

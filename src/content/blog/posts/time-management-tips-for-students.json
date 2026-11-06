@@ -1,0 +1,256 @@
+{
+  "_id": "wp-post-1635",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:45:44Z",
+  "_updatedAt": "2026-10-08T21:39:58Z",
+  "title": "Time Management Tips for Students",
+  "slug": {
+    "_type": "slug",
+    "current": "time-management-tips-for-students"
+  },
+  "publishedAt": "2025-03-28T10:56:06",
+  "excerpt": "It will be hectic for students to maintain time for their studies and personal life. There will be loads of [&hellip;]",
+  "content": [
+    {
+      "_key": "1cd2a91c6bc3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "915cb60907c1",
+          "_type": "span",
+          "marks": [],
+          "text": " It will be hectic for students to maintain time for their studies and personal life. There will be loads of assignments and projects to complete on time while you want to watch that show your friend has recommended to you. Not only this, but you also need some time for yourself to follow your passion. Therefore, time management skill is a must for students. Here is the list of seven best time management tips for you."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3d4ccbf47c7c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "edf4a465c8bf",
+          "_type": "span",
+          "marks": [],
+          "text": "Make a Proper Schedule"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "1a8125dd308d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c9f21cb71b01",
+          "_type": "span",
+          "marks": [],
+          "text": "When it comes to time management, the first thing you need to do is identify what your work is and prioritize the tasks you need to complete. Therefore, make a proper schedule for each day. You can buy a journal to keep track of your work. You can even use colorful markers to track your routine. Making a schedule and working accordingly will not only help you in your college life but in your professional as well."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ab8757ee11e0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c69fbca800fd",
+          "_type": "span",
+          "marks": [],
+          "text": "Set Goals"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "586cf92418ef",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bccc6315063d",
+          "_type": "span",
+          "marks": [],
+          "text": "After you made the list of things to do, set goals for the completion of your work. You can set goals for each study session. For example, you can set a goal to read six pages of text from your history book. Also, set a goal to not engage in any behavior during dedicated study time. This will help you to complete your assignment on time."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "eaba60e7f02b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1d871cf347af",
+          "_type": "span",
+          "marks": [],
+          "text": "Eliminate distractions"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "c10657f8aaae",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b8d436d3f385",
+          "_type": "span",
+          "marks": [],
+          "text": "It is easy to get distracted when you are working. Make sure to pay attention to what draws your focus away from your studies and assignments. It can be your cell phone or a neighbor playing loud music next door. Thus, when it’s time for studying, you can turn off your cell phone or ask your neighbor to slow down the music. It’s easy to become distracted by the news or your favorite celebrity gossip site. Thus, avoid surfing the web excessively."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "e03f5359d767",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3672a6f0f331",
+          "_type": "span",
+          "marks": [],
+          "text": "Don’t multitask"
+        }
+      ],
+      "markDefs": [],
+      "style": "h4"
+    },
+    {
+      "_key": "ccd3cbd9f9df",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a298bbfcccbd",
+          "_type": "span",
+          "marks": [],
+          "text": "Instead of watching a movie and doing your assignment simultaneously, focus on one thing at a time. You can complete your assignment first. Then, you can watch the movie. This way, you can remember what you studied as well and enjoy the movie without any disturbance. Always arrange your tasks in order of importance. Then pay attention to the crucial task that requires the most effort."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "49f1b326ca81",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "dddf5f635ab0",
+          "_type": "span",
+          "marks": [],
+          "text": "To read more blogs like this. Go to "
+        },
+        {
+          "_key": "06f8999716a1",
+          "_type": "span",
+          "marks": [
+            "05e9531893bf"
+          ],
+          "text": "Admizz.com"
+        },
+        {
+          "_key": "69a7d334dda9",
+          "_type": "span",
+          "marks": [],
+          "text": "."
+        },
+        {
+          "_key": "2a6193e0bdb8",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": " "
+        },
+        {
+          "_key": "bfc353fe4e73",
+          "_type": "span",
+          "marks": [],
+          "text": "Don’t forget to share on your social."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "05e9531893bf",
+          "_type": "link",
+          "blank": true,
+          "href": "https://admizzeducation.com/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "5cf2ee1e925e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1aabb5021f9b",
+          "_type": "span",
+          "marks": [],
+          "text": "If you are planning to study in India, "
+        },
+        {
+          "_key": "948df9c78f84",
+          "_type": "span",
+          "marks": [
+            "772db3682a0f",
+            "strong"
+          ],
+          "text": "Admizz"
+        },
+        {
+          "_key": "855c2ea0f9f4",
+          "_type": "span",
+          "marks": [],
+          "text": " is the best guide for you. "
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "772db3682a0f",
+          "_type": "link",
+          "blank": true,
+          "href": "https://admizzeducation.com/"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/time-management-tips-for-students-1200.webp",
+    "card": "/images/blog/time-management-tips-for-students-600.webp",
+    "og": "/images/blog/og/time-management-tips-for-students.jpg",
+    "alt": "Time Management Tips for Students",
+    "caption": null,
+    "_sanityRef": "image-28816862ec7574447d5e905e9365c5b0bf3c03fa-900x403-jpg",
+    "_sanityOgRef": "image-28816862ec7574447d5e905e9365c5b0bf3c03fa-900x403-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/time-management-tips-for-students",
+    "metaDescription": "Master your schedule with these time management tips for students—boost productivity, stay organized, and balance study with life.",
+    "metaTitle": "Time Management Tips for Students - Admizz Education",
+    "noIndex": true
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.016Z"
+}

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
-import { client } from "@/lib/sanity";
-import { allPostsQuery } from "@/lib/queries";
+import { getAllPosts } from "@/lib/blog-content";
 import type { SanityPost, BlogListItem, GeneratedPostManifestEntry } from "@/types";
 import PostCard from "./PostCard";
 import MoreArticles from "./MoreArticles";
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogsPage() {
-  const sanityPosts: SanityPost[] = await client.fetch(allPostsQuery);
+  const sanityPosts: SanityPost[] = getAllPosts();
   const localPosts = (generatedPostsData as GeneratedPostManifestEntry[]).map(fromGeneratedPost);
 
   // Newest first, Sanity and locally-generated posts interleaved by real

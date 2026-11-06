@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
@@ -18,47 +17,54 @@ export const metadata: Metadata = {
       "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!",
     url: "https://admizzeducation.com/study-in-canada",
     siteName: "Admizz Education",
-    images: ["/images/og/untitled-design-80.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-canada.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in Canada - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in Canada - Admizz Education",
+    description:
+      "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!",
+    images: ["/images/og/countries/study-in-canada.jpg"],
   },
 };
 
 const canadaData: CountryPageData = {
   countryName: "Canada",
   countryCategorySlug: "canada",
-  nepalGuide: {
-    href: "/study-in-canada-from-nepal",
-    title: "Applying from Nepal? Read the Nepal-specific guide to studying in Canada",
-    text: "Costs, the student visa process, intakes, test scores and scholarships for Nepali students.",
-  },
   heroHeading: "STUDY IN CANADA",
+  flagColors: ["#D52B1E", "#8C1B14"],
   heroSubheading: "Build Your Global Career With World-Class Canadian Education",
-  heroDescription: "Canada is one of the most popular study destinations for international students, offering globally recognised degrees, high academic standards, affordable tuition, and promising post-study work opportunities. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top Canadian universities with complete confidence and clarity.",
+  heroDescription: "Canada is one of the most popular study destinations for international students, offering globally recognized degrees, high academic standards, affordable tuition, and promising post-study work opportunities. From university selection and application support to scholarships, visas, and pre-departure guidance, Admizz Education helps you secure admission to top Canadian universities with complete confidence and clarity.",
   heroBackground: "/images/hero/canada-hero.webp",
   quickFacts: [
-    { label: "Capital", value: "Ottawa" },
     { label: "Language", value: "English & French" },
-    { label: "Dialing Code", value: "+1" },
     { label: "Currency", value: "CAD $" },
-    { label: "Population", value: "39+ Million" },
     { label: "Study permit fee", value: "CAD 150" },
     { label: "Living funds to show", value: "CAD 23,448" },
     { label: "Tuition fee", value: "CAD $15,000" },
   ],
   whyStudyTitle: "Why Study In Canada ?",
   whyStudyIntro:
-    "Canada is one of the world's top study-abroad destinations known for high-quality education, globally recognised degrees, affordable tuition fees, and a safe, welcoming environment.",
+    "Canada is one of the world's top study-abroad destinations known for high-quality education, globally recognized degrees, affordable tuition fees, and a safe, welcoming environment.",
   benefits: [
-    { title: "World-Class Education", icon: "/images/icons/school-1.webp", description: "Canadian institutions deliver globally recognised programs with exceptional academic and research standards." },
-    { title: "Affordable Study Costs", icon: "/images/icons/scholarship-108.webp", description: "Students enjoy lower tuition fees and manageable living expenses compared internationally." },
-    { title: "Safe Multicultural Environment", icon: "/images/icons/visa-1.webp", description: "Canada offers welcoming communities supporting diverse international students with inclusivity." },
-    { title: "Strong Career Opportunities", icon: "/images/icons/consultation.webp", description: "Internships, co-op programs, and industry links boost professional growth significantly." },
-    { title: "Easy PR Pathway", icon: "/images/icons/visa-108.webp", description: "Post-study immigration routes help students achieve permanent residency more smoothly." },
-    { title: "High Quality Life", icon: "/images/icons/accomodation-108.webp", description: "Vibrant cities and breathtaking landscapes create enjoyable, enriching student lifestyle experiences." },
+    { title: "World-Class Education", icon: "/images/icons/school-1.webp", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
+    { title: "Affordable Study Costs", icon: "/images/icons/scholarship-108.webp", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
+    { title: "Safe Multicultural Environment", icon: "/images/icons/visa-1.webp", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
+    { title: "Strong Career Opportunities", icon: "/images/icons/consultation.webp", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
+    { title: "Easy PR Pathway", icon: "/images/icons/visa-108.webp", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
+    { title: "High Quality Life", icon: "/images/icons/accomodation-108.webp", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
   ],
   admissionTitle: "Admission Requirement For Studying In Canada",
   admissionIntro:
-    "Canada is one of the most popular destinations for international students, offering world-class education, globally recognised degrees, and excellent post-study opportunities.",
+    "Canada is one of the most popular destinations for international students, offering world-class education, globally recognized degrees, and excellent post-study opportunities.",
   documentSections: [
     {
       title: "Admission Requirements for Studying in Canada",
@@ -106,7 +112,6 @@ const canadaData: CountryPageData = {
     { program: "Diploma / Certificate", fee: "CAD 10,000 – 22,000" },
     { program: "MBA / Executive Programs", fee: "CAD 30,000 – 60,000" },
     { program: "Living funds to show for the study permit (single applicant, applications from 1 Sep 2026)", fee: "CAD 23,448" },
-    { program: "Study permit application fee", fee: "CAD 150" },
     { program: "Health Insurance", fee: "CAD 600 – 900 per year" },
   ],
   costNote: "Costs vary by province. Toronto and Vancouver are higher; smaller cities are more affordable.",
@@ -114,18 +119,12 @@ const canadaData: CountryPageData = {
   visaIntro:
     "Dreaming of studying in Canada? The journey begins with understanding the student visa (study permit) process.",
   visaSteps: [
-    { title: "Choose Course & College", description: "Select a DLI-approved program wisely." },
-    { title: "Apply to Institution", description: "Submit application with required documents." },
-    { title: "Receive Offer Letter", description: "Get a conditional or final acceptance." },
-    { title: "Pay Tuition Deposit", description: "Secure your seat by paying fees." },
-    { title: "Gather Visa Documents", description: "Prepare financial proof, passport, transcripts." },
-    { title: "Complete Medical Exam", description: "Take IRCC-approved immigration medical exam." },
-    { title: "Submit Biometrics", description: "Schedule and complete biometrics at VAC." },
-    { title: "Apply for Study Permit", description: "Upload documents and submit online application." },
-    { title: "Wait for Processing", description: "IRCC reviews your study permit application." },
-    { title: "Receive Visa Approval", description: "Get your POE letter from IRCC." },
-    { title: "Fly to Canada", description: "Carry all documents and travel safely." },
-    { title: "Get Study Permit", description: "Receive permit at the port of entry." },
+    { title: "Choose & Apply", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
+    { title: "Get Your Offer & Pay Deposit", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
+    { title: "Prepare Documents & Medical", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
+    { title: "Apply for Your Study Permit", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
+    { title: "Biometrics & Approval", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
+    { title: "Fly to Canada", description: "Study in Canada with top universities, expert guidance, visa assistance, and scholarships. Begin your path to global education today!" },
   ],
   faqItems: [
     { question: "Is Canada a good country for international students?", answer: "Yes, Canada is one of the top study destinations offering quality education, affordable tuition, safety, and strong work opportunities." },
@@ -142,6 +141,6 @@ const canadaData: CountryPageData = {
 };
 
 export default async function StudyInCanadaPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "canada" });
+  const blogPosts: SanityPost[] = getPostsByCategory("canada");
   return <CountryPageTemplate data={canadaData} blogPosts={blogPosts} />;
 }

@@ -6,11 +6,11 @@ import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 import CTAForm from "@/components/ui/CTAForm";
 import CountryCard from "@/components/ui/CountryCard";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
   title: "Education Consultancy in Nepal: Study Abroad Consultants",
@@ -35,10 +35,10 @@ export const metadata: Metadata = {
 /* ------------------------------------------------------------------ */
 
 const stats = [
-  { value: "2,000+", label: "Students Successfully Enrolled" },
+  { value: ADMIZZ_STATS.studentsPlaced, label: "Students Successfully Enrolled" },
   { value: "100+", label: "Partner Institutions Worldwide" },
-  { value: "95%", label: "Visa Approval Rate" },
-  { value: "$2M+", label: "Scholarships Awarded" },
+  { value: "Free", label: "First Consultation" },
+  { value: "ICEF", label: "Accredited Agency" },
 ];
 
 const features = [
@@ -234,7 +234,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What happens if my visa application is refused?",
     answer:
-      "We review the feedback, improve your documentation, and assist with re-application. Our 95% visa approval rate reflects our thorough preparation process.",
+      `We review the feedback, improve your documentation, and assist with re-application.`,
   },
   {
     question: "Do you provide guidance after reaching my destination?",
@@ -278,7 +278,7 @@ const faqItems: FAQItem[] = [
 /* ------------------------------------------------------------------ */
 
 export default async function TopEducationConsultancyInNepalPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "nepal" });
+  const blogPosts: SanityPost[] = getPostsByCategory("nepal");
 
   return (
     <main>
@@ -312,7 +312,7 @@ export default async function TopEducationConsultancyInNepalPage() {
               </Link>
             </div>
             <div className="hidden md:block lg:w-[472px] ml-auto">
-              <CTAForm title="Book Your Free Consultation" />
+              <CTAForm title="Book a Free Consultation" />
             </div>
           </div>
         </div>
@@ -385,7 +385,7 @@ export default async function TopEducationConsultancyInNepalPage() {
                 href="/register"
                 className="inline-block mt-8 bg-blue-royal text-white font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-blue-dark transition-colors"
               >
-                Get a Free Counseling Session
+                Book a Free Consultation
               </Link>
             </div>
           </div>
@@ -647,7 +647,7 @@ export default async function TopEducationConsultancyInNepalPage() {
             href="/register"
             className="inline-block bg-yellow text-black font-semibold text-[15px] px-8 py-3 rounded-[10px] hover:bg-yellow-bright transition-colors"
           >
-            Book a Free Counseling Session
+            Book a Free Consultation
           </Link>
         </div>
       </section>

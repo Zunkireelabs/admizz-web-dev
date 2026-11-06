@@ -1,0 +1,115 @@
+{
+  "_id": "wp-post-1680",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:45:04Z",
+  "_updatedAt": "2026-10-08T21:39:58Z",
+  "title": "Learn About Indian Culture",
+  "slug": {
+    "_type": "slug",
+    "current": "learn-about-indian-culture"
+  },
+  "publishedAt": "2023-09-15T17:20:00.000Z",
+  "excerpt": "Indian culture is often known as “Sa Prathama Sanskrati Vishvavara”: the first and the supreme culture in the world. India [&hellip;]",
+  "content": [
+    {
+      "_key": "63b60d932e83",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7a587dcb160c",
+          "_type": "span",
+          "marks": [],
+          "text": "Indian culture is often known as “Sa Prathama Sanskrati Vishvavara”: the first and the supreme culture in the world."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "27149bf37527",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "930e310b2839",
+          "_type": "span",
+          "marks": [],
+          "text": "India is one of the oldest civilizations in the world with a kaleidoscopic variety and rich cultural heritage. It is home to hundreds of communities, languages and several religions such as Hinduism, Islam, Sikhism, Buddhism, Jainism and Christianity. The Constitution of India officially recognizes 23 official languages and Hindi is the official language of the government."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "526af7f47dac",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "53e486b5be38",
+          "_type": "span",
+          "marks": [],
+          "text": "With the vast diversity that varies with every region, state, community, culture and even religion, diversity can be found in every nook and corner of the country. From its expensive cities to beautiful countryside, the richness of Indian culture can be everywhere. Even Indian delicacies are so diverse with uncountable dishes. Those dishes are distinctly characterized by the subtle and sophisticated use of spices, grains, fruits and vegetables that are all grown in the country."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ac50f9b8aca4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5d892efc97ad",
+          "_type": "span",
+          "marks": [],
+          "text": "India also has rich, fascinating stories, from the origin stories of the Hindu gods through to traditional folktales and legends. These stories are more than enough to keep you enthralled for hours at a time. Another integral part of Indian culture is music and dance. Bharatnatyam, odissi, kathakali, kathak, kuchipudi are various dance forms and hindustani and carnatic are two major music styles. These dance and music forms celebrate the joy of Indian culture. However, modern dance and music forms are also widely practiced by young people.  "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "06ad9ee9406d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2629efca4e13",
+          "_type": "span",
+          "marks": [],
+          "text": "Indian culture offers a range of vast tourism choices, diverse in land and nature, people, tribes, cuisine, faiths, dance forms, music, arts, crafts, adventure, sport, spirituality, history; even these vary as you journey from one state to another."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/learn-about-indian-culture-1200.webp",
+    "card": "/images/blog/learn-about-indian-culture-600.webp",
+    "og": "/images/blog/og/learn-about-indian-culture.jpg",
+    "alt": "About Indian Culture",
+    "caption": null,
+    "_sanityRef": "image-2329989e9bc33b37cece755145017d851ecc8c66-1200x628-jpg",
+    "_sanityOgRef": "image-2329989e9bc33b37cece755145017d851ecc8c66-1200x628-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/learn-about-indian-culture",
+    "metaDescription": "Discover the richness of Indian culture—diverse traditions, festivals, art, music, and heritage that define India’s timeless legacy.",
+    "metaTitle": "Learn About Indian Culture - Admizz Education",
+    "noIndex": true
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.030Z"
+}

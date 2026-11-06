@@ -1,0 +1,248 @@
+{
+  "_id": "wp-post-1520",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:47:06Z",
+  "_updatedAt": "2026-10-06T22:13:51Z",
+  "title": "3 Reasons Why You Should Study at KIIT University",
+  "slug": {
+    "_type": "slug",
+    "current": "3-reasons-why-you-should-study-at-kiit-university"
+  },
+  "publishedAt": "2025-03-28T09:52:48",
+  "excerpt": "Are you looking for a university that offers world-class education and excellent career opportunities? Look no further than KIIT University. [&hellip;]",
+  "content": [
+    {
+      "_key": "5c4adf002105",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fb7ef45fcc0b",
+          "_type": "span",
+          "marks": [],
+          "text": "Are you looking for a university that offers world-class education and excellent career opportunities? Look no further than KIIT University. Here are the top three reasons why you should consider studying at KIIT University:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fdc745176d5e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0328f1847e60",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Top Rankings"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "9790a9349f30",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c75984f76152",
+          "_type": "span",
+          "marks": [],
+          "text": "KIIT University is ranked No. 1 among the Private Higher Education Indian Universities by Atal Ranking of Institutions on Innovation Achievements (ARIIA), Ministry of Human Resource Development Government of India. This is a testament to the university’s commitment to innovation and excellence in education. The university is also highly ranked by the Times Higher Education ‘World University Ranking,’ with its Computer Science Engineering program ranking in the cohort of 301-400 and its overall Engineering ranking in the cohort of 401-500 in the world."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4d61d67ba7a1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e30b31d35a45",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Global Recognition"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d58836a7533e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0090ee10d167",
+          "_type": "span",
+          "marks": [],
+          "text": "KIIT University has gained recognition and respect from various international organizations for its excellence in teaching and research. In 2021, KIIT University became India’s first QS 5 Stars Rated University, receiving 5 stars after assessing all the categories of QS criteria. This recognition is proof of the university’s global standard and commitment to providing the best education to its students."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "c2a8210477d0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "709daa08ad9d",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Wide Range of Courses"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "24efaa42ee0f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "de96c0bb5acd",
+          "_type": "span",
+          "marks": [],
+          "text": "KIIT University offers a wide range of undergraduate and postgraduate courses in various disciplines such as engineering, law, medicine, management, fashion, film, and more. With highly experienced faculty and state-of-the-art infrastructure, KIIT University provides a comprehensive education to its students that prepares them for successful careers in their chosen fields."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "bd264d0e7fa0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6c0191bf0e53",
+          "_type": "span",
+          "marks": [],
+          "text": "If you’re looking for a university that offers top rankings, global recognition, and a wide range of courses, KIIT University is the right choice for you. "
+        },
+        {
+          "_key": "d0b8895f5e2f",
+          "_type": "span",
+          "marks": [
+            "8ee033a15f53"
+          ],
+          "text": "Contact us"
+        },
+        {
+          "_key": "e82ceb009e1e",
+          "_type": "span",
+          "marks": [],
+          "text": " today to learn more about how we can help you achieve your educational goals."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "8ee033a15f53",
+          "_type": "link",
+          "blank": false,
+          "href": "https://admizzeducation.com/contact/"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "42a0bb1cd719",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "831bc4f49901",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "35ce58875d22",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ad6cd25c16c4",
+          "_type": "span",
+          "marks": [
+            "0d85220be30d"
+          ],
+          "text": "Top Courses To Study at KIIT University"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "0d85220be30d",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-courses-to-study-at-kiit-university"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "e2e6fa263c74",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "84306ac09ee9",
+          "_type": "span",
+          "marks": [
+            "62fe6d8c6ed8"
+          ],
+          "text": "Study in India from Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "62fe6d8c6ed8",
+          "_type": "link",
+          "blank": false,
+          "href": "/study-in-india-from-nepal"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/3-reasons-why-you-should-study-at-kiit-university-1200.webp",
+    "card": "/images/blog/3-reasons-why-you-should-study-at-kiit-university-600.webp",
+    "og": "/images/blog/og/3-reasons-why-you-should-study-at-kiit-university.jpg",
+    "alt": "3 Reasons Why You Should Study at KIIT University",
+    "caption": null,
+    "_sanityRef": "image-0ed23879c3098696146360471f32fc2291138ee1-1200x600-webp",
+    "_sanityOgRef": "image-0ed23879c3098696146360471f32fc2291138ee1-1200x600-webp"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-22",
+      "title": "Engineering",
+      "slug": {
+        "_type": "slug",
+        "current": "engineering"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/3-reasons-why-you-should-study-at-kiit-university",
+    "metaDescription": "Discover 3 compelling reasons to study at KIIT University – top-ranked education, global exposure & world-class campus life.",
+    "metaTitle": "3 Reasons Why You Should Study at KIIT University - Admizz Education",
+    "noIndex": true
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.024Z"
+}

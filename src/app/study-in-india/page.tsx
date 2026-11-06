@@ -1,9 +1,7 @@
-// Visa, fee and funds facts checked against official sources in October 2026. Re-check before editing.
 import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
@@ -19,92 +17,106 @@ export const metadata: Metadata = {
       "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!",
     url: "https://admizzeducation.com/study-in-india",
     siteName: "Admizz Education",
-    images: ["/images/hero/web-ad.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-india.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in India - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in India - Admizz Education",
+    description:
+      "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!",
+    images: ["/images/og/countries/study-in-india.jpg"],
   },
 };
 
 const indiaData: CountryPageData = {
   countryName: "India",
   countryCategorySlug: "india",
-  nepalGuide: {
-    href: "/study-in-india-from-nepal",
-    title: "Applying from Nepal? Read the Nepal-specific guide to studying in India",
-    text: "Entry rules, entrance exams, fees and scholarships including COMPEX for Nepali students.",
-  },
   heroHeading: "STUDY IN INDIA",
+  flagColors: ["#E8751A", "#138808"],
   heroSubheading: "Unlock Quality Education and Career-Ready Opportunities",
   heroDescription: "Study in India and unlock quality education, diverse programs, and career-ready opportunities. Admizz Education guides you through course selection, university admissions, documentation, and support — making your journey effortless, informed, and future-focused across India's leading academic destinations.",
   heroBackground: "/images/hero/india-hero.webp",
   quickFacts: [
-    { label: "Capital", value: "New Delhi" },
-    { label: "Dialing Code", value: "+91" },
+    { label: "Language", value: "Hindi" },
     { label: "Currency", value: "Indian Rupee (₹)" },
     { label: "Visa for Nepali citizens", value: "Not required" },
-    { label: "Official portal", value: "studyinindia.gov.in" },
+    { label: "Intl. Students (2023\u201324)", value: "58,134" },
+    { label: "Tuition fee", value: "₹50,000" },
   ],
   whyStudyTitle: "Why Study in India?",
   whyStudyIntro:
-    "Study in India for a wide choice of universities and institutes, English-medium programs in many fields, a cultural mix, and scholarships for Nepali students. Nepali citizens need no visa to enter.",
+    "Study in India for globally recognized education, affordable fees, diverse culture, advanced universities, English-taught programs, and excellent career opportunities for international students.",
   benefits: [
-    { title: "Wide Choice of Institutions", icon: "/images/icons/school-1.webp", description: "Central universities, national institutes, and private universities offer courses across many fields." },
-    { title: "Scholarships for Nepali Students", icon: "/images/icons/scholarship-108.webp", description: "The Embassy of India in Kathmandu says around 1,500 scholarships and seats are provided to Nepali nationals every year." },
-    { title: "English Programs", icon: "/images/icons/knowledge.webp", description: "Many Indian institutions offer English-taught courses. Check the language of instruction for your course." },
-    { title: "Cultural Diversity", icon: "/images/icons/visa-1.webp", description: "Experience India's vibrant culture, traditions, and student communities." },
-    { title: "Open Border for Nepal", icon: "/images/icons/consultation.webp", description: "Citizens of Nepal are exempt from the Indian visa requirement, according to India's Bureau of Immigration." },
-    { title: "Campus Facilities", icon: "/images/icons/school-1.webp", description: "Facilities differ by institution, so review the campus, labs and hostel details of each one you shortlist." },
+    { title: "Global Recognition", icon: "/images/icons/school-1.webp", description: "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!" },
+    { title: "Affordable Education", icon: "/images/icons/scholarship-108.webp", description: "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!" },
+    { title: "English Programs", icon: "/images/icons/knowledge.webp", description: "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!" },
+    { title: "Cultural Diversity", icon: "/images/icons/visa-1.webp", description: "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!" },
+    { title: "Career Opportunities", icon: "/images/icons/consultation.webp", description: "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!" },
+    { title: "Modern Campuses", icon: "/images/icons/school-1.webp", description: "Study in India at top universities with diverse programs, affordable education, and expert admission support. Apply for your future today!" },
   ],
   admissionTitle: "Admission Requirements for Studying in India",
   admissionIntro:
-    "Each institution sets its own admission requirements. Common items are academic records, an entrance exam score where the course needs one (for example JEE for IITs, NITs and IIITs, or NEET-UG for MBBS/BDS), identity documents, and a Study in India ID. Nepali applicants may need a UGC equivalence certificate for their Class 12.",
+    "Admission requirements for studying in India include academic documents, English proficiency (Only for a few top universities), a valid passport (except Nepal & Bhutan), financial proof, entrance exams, and supporting documents like SOPs and recommendations (mostly for government institutions), ensuring a smooth and transparent application process.",
   documentSections: [
     {
       title: "Admission Requirements for Studying in India",
-      intro: "Check the admission page of each institution, because documents and entrance exams differ by course.",
+      intro: "India's admission process requires academic records, English proficiency, entrance exams, valid passport, financial proof, and essential documents for smooth international student enrollment.",
       documents: [
         "Academic Transcripts",
-        "UGC Equivalence Certificate for Class 12 (if asked)",
-        "Entrance Exam Score (where the course needs one)",
-        "Study in India (SII) ID",
-        "Citizenship Certificate or Passport",
-        "Statement of Purpose and Recommendations (if the institution asks)",
-        "Proof of Financial Capacity (if the scheme asks)",
+        "Valid Passport",
+        "English Proficiency",
+        "Entrance Exams",
+        "Statement of Purpose (SOP)",
+        "Letters of Recommendation (LORs)",
+        "Proof of Financial Support",
         "Application Form & Fee",
       ],
     },
     {
       title: "Documents Required for Admission Confirmation",
-      intro: "Confirmation formalities are set by each institution, and they usually include the following.",
+      intro: "Admission requires verified academic documents, passport details, financial evidence, offer letter acceptance, and supporting records to confirm eligibility for an Indian Visa (If required)",
       documents: [
+        "Valid Passport",
         "Final Academic Transcripts",
+        "English Language Proof",
         "Previous Qualifications",
         "Offer Letter Acceptance",
+        "Financial Documents",
         "Tuition Fee Payment Receipt",
-        "Identity Document",
+        "Sponsor Letter (If Applicable)",
         "Passport-Sized Photographs",
       ],
     },
     {
-      title: "Documents for the Embassy's Self-Financing Scheme (Nepali Nationals)",
-      intro: "The Embassy of India in Kathmandu asked for these with its 2026-27 application for MBBS/BDS and BE/B.Tech/B.Arch/B.Pharmacy seats.",
+      title: "Visa Documentation",
+      intro: "Citizens of Nepal and Bhutan do not need an Indian visa; Nepali citizens carry a government-approved photo ID, or a valid passport if entering from anywhere other than Nepal. Other nationalities apply for a student visa with a Study in India (SII) ID and an offer letter.",
       documents: [
-        "First Four Pages of Passport",
-        "Citizenship Certificate with English Translation",
-        "Birth Certificate with English Translation",
-        "Character Certificate",
-        "Marksheets with Percentage Conversion",
-        "UGC or AIU Equivalence Certificate for 10+2",
-        "NEET-UG Score Sheet (MBBS/BDS)",
-        "Proof of Financial Capacity",
+        "Government-Approved Photo ID or Valid Passport (Nepali citizens)",
+        "Study in India (SII) ID",
+        "Offer Letter from the Institution",
+        "Visa Application Form (other nationalities only)",
+        "Tuition Fee Payment Receipt",
+        "Academic Documents",
+        "Passport-Sized Photographs",
+        "Proof of Financial Capacity (if the scheme asks)",
       ],
     },
   ],
   intakes: {
     title: "Academic Intakes in India",
-    intro: "Intake and application dates are set by each institution and by the scheme you apply through, so check the current calendar before you plan.",
+    intro: "India follows a structured academic calendar that helps international students plan their applications, visa processes, and course enrollment smoothly.",
     items: [
-      { name: "Institution Intakes (dates set by each college or university)", details: [] },
-      { name: "Embassy of India Scholarship Cycle (dates announced each year)", details: [] },
+      { name: "July–August Intake (Primary Intake)", details: [] },
+      { name: "January–February Intake (Secondary Intake)", details: [] },
+      { name: "Rolling / Flexible Intakes (Special Courses)", details: [] },
     ],
   },
   universities: [
@@ -121,23 +133,23 @@ const indiaData: CountryPageData = {
     { name: "RK University", logo: "/images/universities/india/rk-university.webp" },
   ],
   costTitle: "Cost of Studying in India",
-  costIntro: "Tuition and living costs differ by institution, course and city, so check the fee page of each college you shortlist. These are the fixed figures the Embassy of India in Kathmandu publishes for Nepali students.",
+  costIntro: "Study in India offers affordable tuition fees, low living expenses, quality education, and excellent value compared to major global study destinations.",
   costTable: [
-    { program: "Tuition and living costs", fee: "Set by each institution and city" },
-    { program: "COMPEX 2026 application fee", fee: "NPR 400" },
-    { program: "Law Scholarship Scheme (top-20 NIRF law colleges)", fee: "Up to NPR 6.4 lakh a year, reimbursed" },
-    { program: "Self-Financing Scheme (MBBS, BDS, BE/B.Tech, B.Arch, B.Pharmacy)", fee: "No scholarship or financial aid" },
+    { program: "Engineering & IT", fee: "₹2,00,000 – ₹6,00,000" },
+    { program: "Medicine (MBBS/MD)", fee: "₹5,00,000 – ₹25,00,000" },
+    { program: "Management (MBA)", fee: "₹3,00,000 – ₹10,00,000" },
+    { program: "Arts Science Humanities", fee: "₹80,000 – ₹3,00,000" },
+    { program: "Living Expenses", fee: "₹15,000 – ₹30,000 per month" },
+    { program: "Hostel / Accommodation", fee: "₹8,000 – ₹20,000 per month" },
   ],
-  costNote: "Note: Check current fees on each institution's website and current scheme terms on the Embassy of India, Kathmandu website.",
+  costNote: "Note: Costs vary by city. Metro cities like Mumbai, Bangalore, and Delhi are higher; smaller cities are more affordable.",
   visaTitle: "Entry and Student Visa Process for India",
   visaIntro: "Citizens of Nepal and Bhutan are exempt from the Indian visa and registration requirements. Other nationalities follow the Study in India student visa process below.",
   visaSteps: [
-    { title: "Choose Course & Institution", description: "Select your preferred Indian institution and program based on eligibility and goals." },
-    { title: "Register on Study in India", description: "Register on studyinindia.gov.in to get your unique Study in India (SII) ID. COMPEX 2026 applications required it." },
-    { title: "Receive Admission Offer", description: "Get your admission offer letter from the institution." },
+    { title: "Choose & Get Admitted", description: "Select your preferred Indian institution and program, and get your admission offer letter." },
+    { title: "Register on Study in India", description: "Register on studyinindia.gov.in to get your unique Study in India (SII) ID." },
     { title: "Nepali Citizens: No Visa", description: "Coming from Nepal by land or air, carry a government-approved photo ID showing your nationality. You need a valid passport if you enter from elsewhere." },
-    { title: "Other Nationalities: Apply for a Student Visa", description: "Apply on indianvisaonline.gov.in after you hold your SII ID and offer letter. The Study in India portal says applying there does not guarantee a visa." },
-    { title: "Student Visa Validity", description: "Student visas are issued for the course duration, up to five years, and can be extended in India." },
+    { title: "Other Nationalities: Apply for a Student Visa", description: "Apply on indianvisaonline.gov.in after you hold your SII ID and offer letter. Student visas are issued for the course duration, up to five years, and can be extended in India." },
     { title: "University Registration", description: "Complete your registration and enrollment formalities at the institution." },
     { title: "FRRO/FRO Registration (Not for Nepali Citizens)", description: "Foreign nationals on student visas valid for more than 180 days register with the FRRO/FRO within 14 days of arrival. Citizens of Nepal and Bhutan are exempt." },
   ],
@@ -146,13 +158,16 @@ const indiaData: CountryPageData = {
     { question: "What are the top universities in India?", answer: "India has institutions such as the IITs, IIMs, AIIMS, Delhi University, JNU, and many other universities and institutes. Check the current official ranking and the course you want before you shortlist." },
     { question: "How can I apply to study in India?", answer: "Register on the Study in India portal for your SII ID, then apply to institutions through their admission pages. Nepali students can also apply for Embassy of India scholarships, but only directly. Admizz can guide you through course selection and documents." },
     { question: "Do Nepali citizens need a visa to study in India?", answer: "No. The Bureau of Immigration says citizens of Nepal are exempt from the requirement of an Indian visa. Coming from Nepal by land or air you need a government-approved photo ID showing your nationality. A valid passport is needed if you enter from anywhere other than Nepal." },
-    { question: "Do Nepali students need to register with the FRRO?", answer: "No. Citizens of Nepal and Bhutan are exempt from the requirement of visa and registration. FRRO/FRO registration within 14 days of arrival applies to foreign nationals on student visas valid for more than 180 days." },
-    { question: "What is the cost of studying in India?", answer: "It depends on the institution, course and city, so check each college's fee page. Fixed figures from the Embassy of India in Kathmandu include a COMPEX application fee of NPR 400 and a Law Scholarship that reimburses up to NPR 6.4 lakh a year for tuition, admission and hostel fees." },
+    { question: "How long does it take to get an Indian student visa?", answer: "Nepali citizens do not need a student visa. For other nationalities, the Study in India portal says applying does not guarantee a visa and that student visas are issued for up to five years. We have no official processing time, so apply early." },
+    { question: "Can I work while studying in India?", answer: "International students on a student visa are generally not permitted to work in India. However, internships related to the course of study may be allowed with university approval." },
+    { question: "What is the cost of studying in India?", answer: "Tuition fees range from ₹50,000 to ₹25,00,000 per year depending on the program and university. Living costs are ₹15,000 to ₹30,000 per month." },
+    { question: "Is health insurance required for studying in India?", answer: "While not always mandatory, health insurance is strongly recommended for international students to cover medical expenses during their stay in India." },
     { question: "Can I extend my student visa in India?", answer: "For nationalities that need a student visa, the Study in India portal says student visas are issued for up to five years depending on the course and can be extended in India. Nepali citizens do not need a student visa." },
+    { question: "Do Nepali students need to register with the FRRO?", answer: "No. Citizens of Nepal and Bhutan are exempt from the requirement of visa and registration. FRRO/FRO registration within 14 days of arrival applies to foreign nationals on student visas valid for more than 180 days." },
   ],
 };
 
 export default async function StudyInIndiaPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "india" });
+  const blogPosts: SanityPost[] = getPostsByCategory("india");
   return <CountryPageTemplate data={indiaData} blogPosts={blogPosts} />;
 }

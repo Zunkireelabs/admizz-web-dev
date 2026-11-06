@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 import FAQ from "@/components/ui/FAQ";
 import type { FAQItem } from "@/components/ui/FAQ";
 
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "2,000+", label: "Students" },
-  { value: "95%", label: "Visa Approval Rate" },
-  { value: "$2M+", label: "Scholarships" },
+  { value: ADMIZZ_STATS.studentsPlaced, label: "Students" },
+  { value: "Free", label: "First Consultation" },
+  { value: "ICEF", label: "Accredited Agency" },
 ];
 
 const destinations = [

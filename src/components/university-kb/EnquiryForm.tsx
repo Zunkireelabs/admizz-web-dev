@@ -114,7 +114,7 @@ export function EnquiryProvider({ university, universitySlug, intakes, adviceAbo
             <div className="flex items-start justify-between gap-4 border-b border-border-light px-6 py-5">
               <div>
                 <h2 id="enquiry-title" className="text-[20px] font-bold text-navy">
-                  {status === "success" ? "Enquiry received" : "Talk to a counsellor"}
+                  {status === "success" ? "Enquiry received" : "Talk to a counselor"}
                 </h2>
                 {status !== "success" && (
                   <p className="mt-1 text-[14px] text-gray-dark">Free, one-to-one advice about {adviceAbout ?? university}.</p>
@@ -130,7 +130,7 @@ export function EnquiryProvider({ university, universitySlug, intakes, adviceAbo
                 <CheckCircle2 className="mx-auto w-14 h-14 text-green-600" aria-hidden />
                 <p className="mt-4 text-[20px] font-bold text-navy">Thank you{submittedName ? `, ${submittedName}` : ""}!</p>
                 <p className="mx-auto mt-2 max-w-sm text-[15px] text-gray-dark">
-                  We&apos;ve received your enquiry about {university}. An Admizz counsellor will contact you shortly.
+                  We&apos;ve received your enquiry about {university}. An Admizz counselor will contact you shortly.
                 </p>
                 <button
                   type="button"
@@ -201,7 +201,7 @@ export function EnquiryProvider({ university, universitySlug, intakes, adviceAbo
 
                   <label className="block md:col-span-2">
                     <span className={label}>Message <span className="font-normal text-gray-dark">(optional)</span></span>
-                    <textarea name="message" rows={3} placeholder="Anything you'd like the counsellor to know" className={`${input} ${border()} resize-none`} />
+                    <textarea name="message" rows={3} placeholder="Anything you'd like the counselor to know" className={`${input} ${border()} resize-none`} />
                   </label>
                 </div>
 

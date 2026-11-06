@@ -1,0 +1,210 @@
+{
+  "_id": "wp-post-1550",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:46:47Z",
+  "_updatedAt": "2026-10-06T22:13:51Z",
+  "title": "WHAT ARE ‘TINKERING’ LABS?",
+  "slug": {
+    "_type": "slug",
+    "current": "what-are-tinkering-labs"
+  },
+  "publishedAt": "2025-03-28T10:12:52",
+  "excerpt": "Here are a few things about the Atal Tinkering Labs(ATL) for you to recall. 1. By adding 1,500 schools to [&hellip;]",
+  "content": [
+    {
+      "_key": "7383c99a979c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fb64bf8dba9a",
+          "_type": "span",
+          "marks": [],
+          "text": "Here are a few things about the Atal Tinkering Labs(ATL) for you to recall."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4bac42d92867",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e567a67e13c4",
+          "_type": "span",
+          "marks": [],
+          "text": "1. By adding 1,500 schools to the program, the AIM, since it started operations over a year back, has 2,441 schools to cover."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f26c5f820cbc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5aa7c237d531",
+          "_type": "span",
+          "marks": [],
+          "text": "2. ATLs are advanced play workspaces for understudies between Class 6 to 12, fortifying developments and consolidating science and innovation."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "585225362474",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e8cf9c5e394a",
+          "_type": "span",
+          "marks": [],
+          "text": "3. These open-finished advancement workspaces are furnished with best-in-class innovations like 3D printers, mechanical autonomy, sensor innovation units, Internet of Things, scaled-down gadgets, and so on, to empower understudies to learn and take care of neighborhood group issues utilizing developing advances."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "89b4337c1e3f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "9cda757e760c",
+          "_type": "span",
+          "marks": [],
+          "text": "4. The point of Atal Labs is to advance development and enterprise in schools, colleges, and industry with a dream to “develop one million kids in India as the pioneers of tomorrow”, an announcement from NITI Aayog has said."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4b7c6dd944ed",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fc31449fe5e2",
+          "_type": "span",
+          "marks": [],
+          "text": "5. The 2,441 schools have been chosen from more than 25,000 or more applications to date from two rounds of utilizations."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "350ae707d2a6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "41e673e8badd",
+          "_type": "span",
+          "marks": [],
+          "text": "6. With the expansion of the new schools, the scope of ATLs will be reached out to more than 98% of shrewd urban areas, and 93% or more of the locale (655 or more regions). Its spread is apparent from the way that there will now be no less than at least one ATLs in 34 states and union regions the nation over."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a3a0ea28e33d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "314560acfe6d",
+          "_type": "span",
+          "marks": [],
+          "text": "7. Understudies officially presented to inventive innovation stages to sustain their interest, innovativeness, and creative ability through ATLs in their schools, have begun planning model arrangements and propelled imaginative tasks, for example, better water system administration, squander administration, and sensor-based arrangements utilizing IOT gadgets and mechanical technology in their labs, an announcement from NITI Aayog said."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "725dcaf9a132",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "736659bed72d",
+          "_type": "span",
+          "marks": [],
+          "text": "8. ATL mission chief R. Ramanan has said the dynamic engagement of ATLs is critical in “the mission to change India into an imaginative nation”."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "21e501875810",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c2e2fbedbaa3",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "03ee80a46ea8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b70bc5e3fcb0",
+          "_type": "span",
+          "marks": [
+            "6109810cb750"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "6109810cb750",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/what-are-tinkering-labs-1200.webp",
+    "card": "/images/blog/what-are-tinkering-labs-600.webp",
+    "og": "/images/blog/og/what-are-tinkering-labs.jpg",
+    "alt": "WHAT ARE ‘TINKERING’ LABS?",
+    "caption": null,
+    "_sanityRef": "image-11e37813859f6904c3bc5aca302b0bf4bbf0e01f-1927x1124-webp",
+    "_sanityOgRef": "image-11e37813859f6904c3bc5aca302b0bf4bbf0e01f-1927x1124-webp"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/what-are-tinkering-labs",
+    "metaDescription": "Explore what ‘Tinkering’ Labs are and how they spark creativity, innovation, and problem-solving skills in young minds through hands-on learning.",
+    "metaTitle": "WHAT ARE ‘TINKERING’ LABS? - Admizz Education",
+    "noIndex": true
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.021Z"
+}

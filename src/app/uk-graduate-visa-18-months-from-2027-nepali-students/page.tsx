@@ -7,7 +7,7 @@ const post = {
   "sections": [
     {
       "heading": "What is changing",
-      "body": "The Graduate visa is the UK's post-study work visa. According to [GOV.UK](https://www.gov.uk/graduate-visa), how long it lasts depends on the date you apply:\n\n- **Apply on or before December 31, 2026:** the visa lasts 2 years.\n- **Apply on or after January 1, 2027:** the visa lasts 18 months.\n- **PhD or other doctoral qualification:** the visa lasts 3 years.\n\nThe length is set by your application date, not by the date you graduate or the date your course ends."
+      "body": "The Graduate visa is the UK's post-study work visa. According to [GOV.UK](https://www.gov.uk/graduate-visa), how long it lasts depends on the date you apply:\n\n- **Apply on or before December 31, 2026:** the visa lasts 2 years.\n- **Apply on or after January 1, 2027:** the visa lasts 18 months.\n- **PhD or other doctoral qualification:** the visa lasts 3 years.\n\nThe length is set by your application date, not by the date you graduate or the date your course ends.\n\n**Update (November 3, 2026):** on October 28, 2026 the UK Government announced that the Graduate route will be extended to two years for people who graduate from high-compliance universities with strong labor market outcomes. UKCISA says no further detail is available yet, and the [GOV.UK Graduate visa page](https://www.gov.uk/graduate-visa) still states 2 years if you apply on or before December 31, 2026 and 18 months if you apply on or after January 1, 2027. Plan on 18 months until the new rule is published, and check GOV.UK before you apply."
     },
     {
       "heading": "Who can apply for the Graduate visa",
@@ -27,7 +27,7 @@ const post = {
     },
     {
       "heading": "Sources",
-      "body": "- [GOV.UK: Graduate visa](https://www.gov.uk/graduate-visa)\n- [GOV.UK: Student visa](https://www.gov.uk/student-visa)\n\nFigures taken from GOV.UK in October 2026. Fees and rules change, so check GOV.UK before you apply. This guide was checked in October 2026."
+      "body": "- [GOV.UK: Graduate visa](https://www.gov.uk/graduate-visa)\n- [GOV.UK: Student visa](https://www.gov.uk/student-visa)\n\nFigures taken from GOV.UK in October 2026. Fees and rules change, so check GOV.UK before you apply. This guide was checked in October 2026.\n- [UKCISA: Graduate route, October 28, 2026 Budget announcement](https://www.ukcisa.org.uk/student-advice/working/graduate-route/)"
     }
   ],
   "featuredImage": {
@@ -85,6 +85,10 @@ const post = {
     {
       "question": "Can I extend the UK Graduate visa?",
       "answer": "No. GOV.UK says you cannot extend a Graduate visa. You may be able to switch to another visa, such as a Skilled Worker visa, if you meet its requirements and have a sponsoring employer."
+    },
+    {
+      "question": "Will the UK Graduate visa be extended to two years?",
+      "answer": "The UK Government announced on October 28, 2026 that the Graduate route will be extended to two years for graduates of high-compliance universities with strong labor market outcomes. UKCISA reports that no further detail is available yet. GOV.UK still says 18 months for applications from January 1, 2027, so plan on 18 months until the new rule is published."
     }
   ],
   "path": "/uk-graduate-visa-18-months-from-2027-nepali-students"

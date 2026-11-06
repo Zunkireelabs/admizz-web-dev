@@ -10,6 +10,7 @@ import AlumniSection from "@/components/ui/AlumniSection";
 import TestimonialsSection from "@/components/ui/TestimonialsSection";
 import RegisterJourneyHero from "@/components/ui/journey/RegisterJourneyHero";
 import { journeySteps } from "@/components/ui/journey/journey.data";
+import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -73,10 +74,10 @@ const offices = [
 ];
 
 const stats = [
-  { value: "2,000+", label: "Students Successfully Enrolled", icon: "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5", accent: "#1E6DEB" },
+  { value: ADMIZZ_STATS.studentsPlaced, label: "Students Successfully Enrolled", icon: "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5", accent: "#1E6DEB" },
   { value: "100+", label: "Partner Universities & Colleges", icon: "M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z", accent: "#3FB5A0" },
-  { value: "95%", label: "Visa Approval Rate", icon: "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", accent: "#E86F3C" },
-  { value: "$2M+", label: "Scholarships Awarded", icon: "M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", accent: "#BB5FEC" },
+  { value: "Free", label: "First Consultation", icon: "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", accent: "#E86F3C" },
+  { value: "ICEF", label: "Accredited Agency", icon: "M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z", accent: "#BB5FEC" },
 ];
 
 
@@ -221,8 +222,7 @@ export default function RegisterPage() {
           <div className="grid grid-cols-2 gap-3 sm:hidden">
             {[
               { icon: "📋", bold: "Free 1-on-1", text: "Counseling" },
-              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
-              { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
+              { icon: "🎓", bold: ADMIZZ_STATS.studentsPlaced, text: "Students Admitted" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item) => (
               <div key={item.bold} className="flex items-center gap-2.5 bg-[#F8F9FF] rounded-xl px-3 py-3">
@@ -237,8 +237,7 @@ export default function RegisterPage() {
           <div className="hidden sm:flex flex-nowrap items-center justify-center gap-x-4 sm:gap-x-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {[
               { icon: "📋", bold: "Free 1-on-1", text: "Counseling" },
-              { icon: "🎓", bold: "2,000+", text: "Students Admitted" },
-              { icon: "🎯", bold: "95%", text: "Visa Approval Rate" },
+              { icon: "🎓", bold: ADMIZZ_STATS.studentsPlaced, text: "Students Admitted" },
               { icon: "🏆", bold: "ICEF", text: "Accredited Agency" },
             ].map((item, i, arr) => (
               <div key={item.bold} className="flex items-center gap-4 flex-shrink-0">
@@ -589,14 +588,14 @@ export default function RegisterPage() {
           </div>
 
           {(() => {
-            const counsellors = [
-              { name: "Mr. Bijay", region: "Australia & UK", flags: "🇦🇺🇬🇧", image: "/images/counsellors/bijay.jpeg", color: "#E04562", deep: "#B72D47" },
-              { name: "Mr. Nikhil", region: "USA & Canada", flags: "🇺🇸🇨🇦", image: "/images/counsellors/nikhil.jpeg", color: "#4FBFA8", deep: "#2F9D85" },
-              { name: "Mr. Amit", region: "Australia & India", flags: "🇦🇺🇮🇳", image: "/images/counsellors/amit.jpeg", color: "#F08A5F", deep: "#D76A3D" },
-              { name: "Mr. Gautam", region: "UK & Europe", flags: "🇬🇧🇪🇺", image: "/images/counsellors/gautam.jpeg", color: "#B373E5", deep: "#8B47C2" },
-              { name: "Mrs. Mamata", region: "India & Nepal", flags: "🇮🇳🇳🇵", image: "/images/counsellors/mamata.jpeg", color: "#4F7DEB", deep: "#2954C7" },
+            const counselors = [
+              { name: "Mr. Bijay", region: "Australia & UK", flags: "🇦🇺🇬🇧", image: "/images/counselors/bijay.jpeg", color: "#E04562", deep: "#B72D47" },
+              { name: "Mr. Nikhil", region: "USA & Canada", flags: "🇺🇸🇨🇦", image: "/images/counselors/nikhil.jpeg", color: "#4FBFA8", deep: "#2F9D85" },
+              { name: "Mr. Amit", region: "Australia & India", flags: "🇦🇺🇮🇳", image: "/images/counselors/amit.jpeg", color: "#F08A5F", deep: "#D76A3D" },
+              { name: "Mr. Gautam", region: "UK & Europe", flags: "🇬🇧🇪🇺", image: "/images/counselors/gautam.jpeg", color: "#B373E5", deep: "#8B47C2" },
+              { name: "Mrs. Mamata", region: "India & Nepal", flags: "🇮🇳🇳🇵", image: "/images/counselors/mamata.jpeg", color: "#4F7DEB", deep: "#2954C7" },
             ];
-            const Card = ({ c, size = "lg" }: { c: typeof counsellors[number]; size?: "sm" | "lg" }) => (
+            const Card = ({ c, size = "lg" }: { c: typeof counselors[number]; size?: "sm" | "lg" }) => (
               <div className="bg-white rounded-2xl overflow-hidden flex-shrink-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.05)", width: size === "sm" ? 160 : undefined }}>
                 <div className="relative w-full" style={{ aspectRatio: "3 / 4", background: c.color + "22" }}>
                   <Image src={c.image} alt={c.name} fill sizes={size === "sm" ? "160px" : "(min-width: 1024px) 240px, 200px"} className="object-cover object-top" loading="lazy" />
@@ -617,13 +616,13 @@ export default function RegisterPage() {
                 <div className="md:hidden overflow-hidden">
                   <div className="-mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     <div className="flex gap-4 w-max">
-                      {counsellors.map((c) => <Card key={c.name} c={c} size="sm" />)}
+                      {counselors.map((c) => <Card key={c.name} c={c} size="sm" />)}
                     </div>
                   </div>
                 </div>
                 <div className="hidden md:block max-w-4xl mx-auto">
                   <div className="grid grid-cols-5 gap-4">
-                    {counsellors.map((c) => <Card key={c.name} c={c} />)}
+                    {counselors.map((c) => <Card key={c.name} c={c} />)}
                   </div>
                 </div>
               </>
@@ -706,7 +705,7 @@ export default function RegisterPage() {
               className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[14px] font-bold transition-all hover:-translate-y-0.5 hover:shadow-lg"
               style={{ background: "#FDED22", color: "#0D1282", minHeight: 48 }}
             >
-              Book free consultation
+              Book a Free Consultation
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
@@ -748,7 +747,7 @@ export default function RegisterPage() {
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
             <path d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" />
           </svg>
-          Book Free Consultation
+          Book a Free Consultation
         </button>
       </div>
     </main>

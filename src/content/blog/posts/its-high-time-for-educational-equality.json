@@ -1,0 +1,182 @@
+{
+  "_id": "wp-post-1582",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:46:25Z",
+  "_updatedAt": "2026-10-06T22:13:51Z",
+  "title": "It's high time for Educational Equality!",
+  "slug": {
+    "_type": "slug",
+    "current": "its-high-time-for-educational-equality"
+  },
+  "publishedAt": "2025-03-28T10:29:10",
+  "excerpt": "India & Nepal are 2 of the few countries in the world where unfortunately caste system is imbibed deep into [&hellip;]",
+  "content": [
+    {
+      "_key": "cffdaaaf36a3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "077a0b8adca2",
+          "_type": "span",
+          "marks": [],
+          "text": "India & Nepal are 2 of the few countries in the world where unfortunately caste system is imbibed deep into the roots of everything. Education is no exception! With the recent suicide of a student scholar in Hyderabad due to relevant issues (as claimed by major sources as of now), it has turned out to be a burning issue in the media, although it was always there."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3cef0b86fa7d",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6b868181a5b3",
+          "_type": "span",
+          "marks": [],
+          "text": "As written by the student who had committed suicide in his heart-wrenching death note, “Our feelings are second-handed. Our love is constructed. Our beliefs are colored. Our originality is valid through artificial art. It has become truly difficult to love without getting hurt. The value of a man was reduced to his immediate identity and nearest possibility. To a vote. To a number. To a thing. Never was a man treated as a mind. As a glorious thing made up of stardust. In every field, in studies, in streets, in politics, and in dying and living.”"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "fb7a7c683cbb",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a8feb556a34f",
+          "_type": "span",
+          "marks": [],
+          "text": "Regardless of the actual intentions of the student (which is still under debate), the point that has come up into the limelight currently is true to the core and has to be addressed properly as soon as possible. Not just caste, there have been many factors influencing the way education is offered – like gender, color, etc. While some institutions are seeking a positive change, most are still stuck in the age-old ‘divided’ educational systems."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "95b7cd55307a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "58cfb4498539",
+          "_type": "span",
+          "marks": [],
+          "text": "There are numerous institutions where “division” plays a major factor in the admission of a student into a college. Caste-based grouping in colleges is also not new. So-called-leaders from politics have always played an important role in arousing this caste-based ganging in colleges. While at times some are expelled from participation in major events like college elections, during other times some are left beyond merit-seating in spite of being better at the subject, due to some ‘constitutional-articulations."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4f5af87acb85",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b432ac2811cc",
+          "_type": "span",
+          "marks": [],
+          "text": "This divided education system has been a deciding factor for education in many parts of India & Nepal. This unfortunate scenario has never led to the victory of any part of this ‘division’. All that it resulted in was the diminishing of education. While true talents might get rooted down, unnecessary differences within the students themselves raises due to the involvement of external factors in education."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b50b49d038dc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0ee399eb543d",
+          "_type": "span",
+          "marks": [],
+          "text": "It’s high time the system sees a fresh change. We, Admizz.com, strongly condemn the involvement of caste or gender or any other biasing factor in education. We believe that education is everyone’s birthright and has to be given with no discrimination. This is the way to lead the country toward a better future."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0c75a73556e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "03366d094e58",
+          "_type": "span",
+          "marks": [],
+          "text": "Do share your opinions on this issue."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "83554e828d80",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "670466ee0f66",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "713296ee65c6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "743563171647",
+          "_type": "span",
+          "marks": [
+            "49eae63aee6a"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "49eae63aee6a",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/its-high-time-for-educational-equality-1200.webp",
+    "card": "/images/blog/its-high-time-for-educational-equality-600.webp",
+    "og": "/images/blog/og/its-high-time-for-educational-equality.jpg",
+    "alt": "It's high time for Educational Equality!",
+    "caption": null,
+    "_sanityRef": "image-6bb41278697b050d20be29ab0b844a317ecbc9ed-1050x550-jpg",
+    "_sanityOgRef": "image-6bb41278697b050d20be29ab0b844a317ecbc9ed-1050x550-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/its-high-time-for-educational-equality",
+    "metaDescription": "It's time to prioritize educational equality—ensure every student gets fair access to quality learning, resources, and opportunities.",
+    "metaTitle": "It's high time for Educational Equality! - Admizz Education",
+    "noIndex": true
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.019Z"
+}

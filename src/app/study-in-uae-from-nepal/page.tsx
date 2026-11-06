@@ -1,195 +1,144 @@
-// Visa, fee and funds facts checked against official sources in October 2026. Re-check before editing.
 import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
-import { DESTINATION_COMPARE_HEADERS, DESTINATION_COMPARE_ROWS, DESTINATION_COMPARE_SOURCES } from "@/data/destination-compare";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
-import { client } from "@/lib/sanity";
-import { postsByCategoryQuery } from "@/lib/queries";
+import { getPostsByCategory } from "@/lib/blog-content";
 import type { SanityPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in UAE from Nepal 2026: Cost, Visa & Scholarships",
+  robots: { index: false, follow: true },
+  title: "Study in UAE from Nepal - Admizz Education",
   description:
     "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
   alternates: {
-    canonical: "https://admizzeducation.com/study-in-dubai-from-nepal",
+    canonical: "https://admizzeducation.com/study-in-uae-from-nepal",
   },
   openGraph: {
-    title: "Study in UAE from Nepal 2026: Cost, Visa & Scholarships",
+    title: "Study in UAE from Nepal - Admizz Education",
     description:
       "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
-    url: "https://admizzeducation.com/study-in-dubai-from-nepal",
+    url: "https://admizzeducation.com/study-in-uae-from-nepal",
     siteName: "Admizz Education",
-    images: ["/images/og/UAE.webp"],
+    images: [
+      {
+        url: "/images/og/countries/study-in-dubai.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Study in UAE from Nepal - Admizz Education",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Study in UAE from Nepal - Admizz Education",
+    description:
+      "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
+    images: ["/images/og/countries/study-in-dubai.jpg"],
   },
 };
 
 const pageData: NepalVariantData = {
   countryName: "UAE",
   countryCategorySlug: "uae",
-  heroHeading: "Build a Bright Future in One of the World's Top Study Destinations",
-  heroSubheading: "Experience world-class education in a vibrant international hub. Study in the UAE with Admizz Education—get expert counseling, top university options, visa guidance, and scholarship support for your academic success.",
-  introTitle: "Shape Your Future in the Heart of Innovation",
-  introContent: "The United Arab Emirates (UAE) offers federal universities such as United Arab Emirates University and Zayed University, institutions in Abu Dhabi and Sharjah, and international branch campuses. Higher education is regulated at national level by the Ministry of Higher Education and Scientific Research (MoHESR) and its Commission for Academic Accreditation (CAA), with local regulators such as KHDA in Dubai, ADEK in Abu Dhabi and the Sharjah Council for Higher Education. This page covers the wider UAE. For Dubai branch campuses, free zones and KHDA, see our Dubai guide. At Admizz Education, we help you choose the right university, prepare for admissions, apply for scholarships, and guide you through visa processing.",
-  // Last edit of this page in the repo (git). Update when the content is next changed or reviewed.
-  dateModified: "2026-10-08",
-  guideTabLabel: "Compare",
-  guideSections: [
-    {
-      id: "compare",
-      title: "Compare the UAE with Other Study Destinations",
-      intro:
-        "If you are still deciding, here is how the main alternatives compare on visa fees, the funds you must show and work after study, using official figures as checked in October 2026.",
-      table: { headers: DESTINATION_COMPARE_HEADERS, rows: DESTINATION_COMPARE_ROWS },
-      links: [
-        { label: "UK", href: "/study-in-uk-from-nepal" },
-        { label: "USA", href: "/study-in-usa-from-nepal" },
-        { label: "Canada", href: "/study-in-canada-from-nepal" },
-        { label: "Australia", href: "/study-in-australia" },
-        { label: "Study abroad checklist", href: "/study-abroad-from-nepal" },
-      ],
-    },
+  heroHeading: "Study in the UAE from Nepal",
+  heroSubheading: "Universities in Abu Dhabi, Dubai and Sharjah, with your university sponsoring the student visa. We guide you from Kathmandu.",
+  heroImage: "/images/hero/dubai-hero.webp",
+  quickFacts: [
+    { label: "Intakes", value: "Sep · Jan" },
+    { label: "Tuition from", value: "AED 55,000 / yr" },
+    { label: "Bachelor's", value: "3–4 years" },
+    { label: "Golden visa", value: "10 yrs, top grads" },
+    { label: "English", value: "IELTS 6.0+" },
   ],
-  sourcesTitle: "Official sources",
-
-  whyStudyTitle: "Why Study in the UAE?",
-  whyStudyIntro: "The UAE spans several emirates, each with its own universities and regulators. Here is what students look at:",
+  introTitle: "Study in the UAE from Nepal",
+  introContent:
+    "The UAE has public universities, private universities and foreign branch campuses across Abu Dhabi, Dubai, Sharjah and the other emirates. Most courses are taught in English. Kathmandu has direct flights to Dubai, Abu Dhabi and Sharjah.",
+  whyStudyTitle: "Many kinds of university, one visa system",
+  whyStudyIntro: "Why students from Nepal pick the UAE.",
+  highlightStats: [
+    {
+      value: "10",
+      unit: "years",
+      label: "Golden visa",
+      note: "for top graduates of UAE universities: bachelor's GPA of 3.5+ (3.8+ at some universities), applied for within two years of graduating.",
+    },
+    { value: "37", unit: "branch campuses", label: "in Dubai alone" },
+    { value: "3–4", unit: "years", label: "for a bachelor's" },
+  ],
   benefits: [
     {
-      title: "Federal and Private Universities",
-      description: "Choose from federal institutions such as UAEU and Zayed University, Abu Dhabi institutions such as Khalifa University, Sharjah universities, and international branch campuses.",
+      title: "Choice across emirates",
+      description: "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
-      title: "Accreditation You Can Check",
-      description: "The CAA licenses institutions and accredits their academic programs, and the Ministry of Education publishes the list of licensed institutions.",
+      title: "Checked by the government",
+      description: "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
-      title: "English-Taught Programs",
-      description: "Many programs are taught in English. Check the language of instruction for your specific program.",
+      title: "Visa through your university",
+      description: "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
     {
-      title: "Multicultural Environment",
-      description: "Live and learn in a multicultural society with students from many countries.",
-    },
-    {
-      title: "Work While You Study",
-      description: "MOHRE offers a student training and employment permit. Check eligibility and limits with your university and MOHRE before you work.",
-    },
-    {
-      title: "Scholarships & Financial Support",
-      description: "Some institutions offer scholarships. For example, Khalifa University states that it awards full scholarships to all admitted postgraduate students.",
+      title: "A route to stay on",
+      description: "Study in the UAE from Nepal: costs, student visa, intakes, scholarships and partner universities for Nepali students. Admission support from Admizz.",
     },
   ],
-  visaTitle: "Student Visa Requirements for the UAE",
-  visaIntro: "Students can be sponsored by a resident parent or by an accredited university or college where they are enrolled. Students without a resident parent in the UAE use university sponsorship.",
+  visaTitle: "Your student visa, step by step",
+  visaIntro: "In the UAE the university is your visa sponsor. Its visa team files the application with the immigration authority of its emirate.",
   visaRequirements: [
-    {
-      category: "Visa Type",
-      details: "UAE student residence visa",
-    },
-    {
-      category: "Who Issues It",
-      details: "Residency services are federal under the Federal Authority for Identity, Citizenship, Customs and Port Security (ICP). In Dubai the permit is handled by GDRFA Dubai",
-    },
-    {
-      category: "Sponsor",
-      details: "An accredited university or college, or a resident parent. Under parental sponsorship, male students can be sponsored up to age 25, and female students until marriage",
-    },
-    {
-      category: "Key Document",
-      details: "A certificate from the university or institute stating the duration of study",
-    },
-    {
-      category: "Medical, Insurance and ID",
-      details: "Applicants aged 18 and above take a medical fitness test; health insurance or a health card is needed; you pass a security check and apply for an Emirates ID",
-    },
-    {
-      category: "Validity",
-      details: "Varies by visa type and sponsor; a sponsored residence visa can be for 1, 2 or 3 years",
-    },
-    {
-      category: "Processing Time and Fees",
-      details: "Vary by emirate and university. In Dubai, GDRFA lists AED 740 in total and 48 hours for the permit service",
-    },
-    {
-      category: "More Info",
-      details: "Check the UAE Government Portal (u.ae) and ICP for updates",
-    },
+    { category: "Choose a university", details: "Pick an accredited university and course. We shortlist with you." },
+    { category: "Offer & fee NOC", details: "Get your offer, then a no objection letter from Nepal's Ministry of Education to send fees abroad." },
+    { category: "Pay deposit & visa fee", details: "Part of the first year's tuition, the visa fee and any visa deposit." },
+    { category: "University files your visa", details: "It applies for your entry permit (ICP, or GDRFA in Dubai). We brief you in Kathmandu before you fly." },
+    { category: "Fly to the UAE", details: "Enter on the entry permit, then report to your university's visa office." },
+    { category: "Medical test & Emirates ID", details: "Medical fitness test (age 18 and above), health insurance and Emirates ID biometrics. Validity varies by visa type and sponsor; a sponsored residence visa can be for 1, 2 or 3 years." },
   ],
-  visaNote: "Sources: u.ae, Residence visa for studying in the UAE and General provisions for the residence visa. Rules and fees change, so confirm on official websites.",
-  intakesTitle: "Intakes Available in the UAE",
-  intakesIntro: "Each university sets its own intakes and deadlines, and they can differ between emirates and programs.",
+  visaDocuments: [
+    "Passport valid at least 1 year",
+    "Unconditional offer letter",
+    "Photo on a white background",
+    "Tuition deposit and visa fee receipts",
+    "Academic transcripts",
+    "IELTS or PTE result",
+  ],
+  intakesTitle: "When you can start",
+  intakesIntro: "September has the most courses. Leave a few weeks for the visa before you start.",
   intakes: [
-    {
-      intake: "Main intake",
-      months: "Set by each university",
-    },
-    {
-      intake: "Second intake",
-      months: "Set by each university",
-    },
+    { intake: "September intake", months: "Apply March – July", details: "Main intake at every university." },
+    { intake: "January intake", months: "Apply August – November", details: "Offered by most universities." },
+    { intake: "April / May intake", months: "Check with each university", details: "Selected courses at some campuses." },
   ],
-  intakesNote: "Confirm start dates and deadlines on the university's admissions page, and apply early to leave time for the visa.",
-  testTitle: "English Requirements for Studying in the UAE",
-  testIntro: "Minimum English scores are set by each university and program. One official example is below.",
-  testRequirements: [
-    {
-      test: "Zayed University (international undergraduate)",
-      score: "EmSAT English 1250, or IELTS 5.5, or TOEFL iBT 71",
-    },
-    {
-      test: "Khalifa University (international applicants from schools outside the UAE)",
-      score: "IELTS or TOEFL required; minimum set by the university",
-    },
-    {
-      test: "Other universities",
-      score: "Set by each university",
-    },
-  ],
-  testNote: "Always check the current requirement on your chosen university's website. Contact Admizz for guidance on test prep and admissions.",
-  costTitle: "Cost to Study in the UAE",
-  costIntro: "Tuition varies widely by emirate, university and program, so we show only fees published by the institutions themselves.",
+  costTitle: "What a year in the UAE costs",
+  costIntro: "Typical tuition across the UAE, plus housing and visa costs at named universities as examples.",
   costTables: [
     {
+      title: "Tuition per year",
       rows: [
-        {
-          category: "Zayed University, international students without a UAE national ID (per credit hour)",
-          cost: "AED 2,500",
-        },
-        {
-          category: "Other universities",
-          cost: "Set by each university; ask for the current fee schedule",
-        },
-        {
-          category: "Dubai student residence permit (GDRFA)",
-          cost: "AED 740 in total",
-        },
-        {
-          category: "Health insurance",
-          cost: "Required; the premium depends on the policy",
-        },
+        { category: "Foundation year", cost: "AED 49k – 60k" },
+        { category: "Undergraduate", cost: "AED 55k – 111k" },
+        { category: "Postgraduate / MBA", cost: "AED 60k – 90k+" },
+      ],
+    },
+    {
+      title: "Living & visa costs",
+      rows: [
+        { category: "University housing", cost: "AED 5,000 – 8,500 / semester" },
+        { category: "Student visa (from Nepal)", cost: "AED 5,555" },
+        { category: "Visa deposit (refundable)", cost: "AED 2,500" },
+        { category: "Visa renewal", cost: "AED 4,570 / yr" },
       ],
     },
   ],
-  costNote: "Accommodation and living costs depend on the emirate and your lifestyle. Ask your university for a written estimate before paying a deposit.",
-  scholarshipsTitle: "Scholarships to Study in the UAE",
-  scholarshipsIntro: "Scholarships are offered by individual institutions. Check each university's website for current awards and deadlines.",
+  costNote:
+    "Tuition: university fee lists, from UAEU (AED 1,900–2,500 per credit hour) to AUS (AED 110,876). Housing: UAEU and American University in Dubai. Visa: Middlesex University Dubai, fee includes Emirates ID and medical insurance; other universities differ. Checked October 2026.",
+  scholarshipsTitle: "Funding you can apply for",
+  scholarshipsIntro: "Most funding in the UAE comes from universities. We check what you qualify for.",
   scholarships: [
-    {
-      name: "Khalifa University postgraduate scholarships",
-      details: "Khalifa University states that it awards full scholarships to all admitted postgraduate students, Emirati and international",
-    },
-    {
-      name: "Zayed University scholarships",
-      details: "Zayed University states that scholarships cover tuition fees only, not transport, accommodation or equipment",
-    },
-    {
-      name: "Other university scholarships",
-      details: "Set by each university; ask the admissions office",
-    },
+    { name: "Graduate Scholarship", provider: "Khalifa University, Abu Dhabi", details: "For international master's and PhD students. Top tiers cover full tuition." },
+    { name: "Undergraduate Merit Scholarship", provider: "Heriot-Watt University Dubai", details: "30%, 40% or 50% off first-year tuition, based on your grades." },
+    { name: "International Study Grant", provider: "Middlesex University Dubai", details: "Tuition grant for international applicants, set by admissions." },
+    { name: "University awards", provider: "Other UAE universities", details: "Merit discounts that change each intake. We check current terms." },
   ],
-  scholarshipsNote: "Contact Admizz to discover scholarships tailored to your profile and simplify the application process.",
   universities: [
     { name: "American University in Dubai", logo: "/images/universities/uae/american-university-in-dubai.webp" },
     { name: "American University of Sharjah", logo: "/images/universities/uae/american-university-of-sharjah.webp" },
@@ -202,127 +151,45 @@ const pageData: NepalVariantData = {
     { name: "Zayed University", logo: "/images/universities/uae/zayed-university.webp" },
     { name: "University of Wollongong Dubai", logo: "/images/universities/uae/university-of-wollongong-dubai.webp" },
   ],
-  quickAnswer:
-    "To study in the UAE you need admission to a licensed, accredited institution, which sponsors your student residence visa; students can also be sponsored by a resident parent. You need a medical fitness test if you are 18 or older, health insurance, a security check and an Emirates ID. Validity of a sponsored visa can be 1, 2 or 3 years. The CAA licenses institutions and accredits programs, so check both before you pay. Top graduates can qualify for a 10-year Golden Residence.",
-  lastUpdated: "October 2026",
-  sources: [
-    { label: "u.ae: Residence visa for studying in the UAE", url: "https://u.ae/en/information-and-services/visa-and-emirates-id/residence-visas/residence-visa-for-studying-in-the-uae" },
-    { label: "u.ae: General provisions for the residence visa", url: "https://u.ae/en/information-and-services/visa-and-emirates-id/Visa-information/general-provisions-for-the-residence-visa" },
-    { label: "u.ae: Higher education regulatory bodies", url: "https://u.ae/en/information-and-services/education/higher-education/Higher-education-regulatory-bodies" },
-    { label: "Ministry of Education: List of licensed institutions", url: "https://www.moe.gov.ae/En/MediaCenter/News/Pages/licensedInstitutions.aspx" },
-    { label: "GDRFA Dubai: Golden residence for top students and graduates", url: "https://www.gdrfad.gov.ae/en/services/8ea80dad-f43e-11eb-0320-0050569629e8" },
-    { label: "MOHRE: Training and work permit for students", url: "https://www.mohre.gov.ae/en/services/training-and-work-permit-for-students-2022" },
-    ...DESTINATION_COMPARE_SOURCES,
-  ],
-  extraSections: [
-    {
-      id: "uae-accreditation",
-      title: "Licensing and Accreditation Across the UAE",
-      bullets: [
-        "The Ministry of Higher Education and Scientific Research (MoHESR) leads higher education development in the UAE.",
-        "The Commission for Academic Accreditation (CAA) is the national body that licenses institutions and accredits their academic programs.",
-        "KHDA regulates education in Dubai, ADEK in Abu Dhabi, and the Sharjah Council for Higher Education and Scientific Research in Sharjah.",
-        "The Ministry of Education advises students to register only in accredited institutions and programs so that qualifications can be attested and recognized by employers.",
-      ],
-      note: "Sources: u.ae, Higher education regulatory bodies; Ministry of Education, List of licensed institutions.",
-    },
-    {
-      id: "uae-visa-documents",
-      title: "Student Visa Requirements and Documents",
-      table: {
-        headers: ["Item", "Detail"],
-        rows: [
-          ["Sponsor", "Accredited university or college, or a resident parent"],
-          ["Parental sponsorship age", "Male students up to 25; female students until marriage"],
-          ["Study certificate", "Issued by the university or institute, stating the duration of study"],
-          ["Medical test", "Applicants aged 18 and above"],
-          ["Health insurance", "Medical insurance or health card"],
-          ["Security check and Emirates ID", "Required; apply to ICP for the Emirates ID"],
-          ["Validity", "Sponsored residence visas can be for 1, 2 or 3 years"],
-        ],
-      },
-      note: "Sources: u.ae, Residence visa for studying in the UAE and General provisions for the residence visa.",
-    },
-    {
-      id: "uae-money-needed",
-      title: "Money to Show for a UAE Student Visa",
-      bullets: [
-        "The official u.ae student visa page does not list a fixed bank balance, fee or processing time.",
-        "Fees depend on the emirate. In Dubai, GDRFA lists AED 740 in total for the student residence permit.",
-        "Your university may ask for fee payment proof or financial documents in its own process. Ask it for the exact list in writing.",
-      ],
-      note: "Sources: u.ae and GDRFA Dubai. Confirm current amounts on official websites.",
-    },
-    {
-      id: "uae-work-rights",
-      title: "Working and Staying in the UAE",
-      bullets: [
-        "During study: MOHRE issues a student training and employment permit. Non-national students need a valid residence visa, and for training a no-objection certificate from the educational institution is required. The permit runs for three months.",
-        "We could not verify a fixed weekly hour limit for international students on official sites. Check with your university and MOHRE before you work.",
-        "After study: the Golden Residence (10 years) is open to top graduates of UAE universities licensed by the Ministry of Education and classified Category A (GPA 3.5 or above) or Category B (GPA 3.8 or above), who graduated no more than two years ago.",
-        "Graduates of top-100 ranked international universities with a GPA of 3.5 or above can also qualify.",
-      ],
-      note: "Sources: MOHRE, Training and work permit for students; GDRFA Dubai and u.ae, Golden visa.",
-    },
-  ],
+
   faqItems: [
     {
-      question: "Why should I choose the UAE for higher education?",
-      answer: "The UAE has federal universities, institutions in Abu Dhabi and Sharjah, and international branch campuses, all under a national licensing and accreditation system run by the CAA. That lets you check an institution and its programs before you apply. Multicultural living and English-taught programs add to the appeal.",
+      question: "Who sponsors my student visa in the UAE?",
+      answer:
+        "Your accredited university, or a resident parent if you have one in the UAE. The university applies for your entry permit, and you finish the residence visa in the UAE with a medical test, health insurance and an Emirates ID.",
     },
     {
-      question: "What are the major intakes in the UAE?",
-      answer: "Each university sets its own intakes, and they can differ between emirates and programs. Check the admissions page of your chosen university for start dates and deadlines, and apply early so the sponsored student visa can be processed before your course starts.",
+      question: "Is studying in the UAE different from studying in Dubai?",
+      answer:
+        "Dubai is one of seven emirates. The visa type is the same, a student residence visa sponsored by your university, but processing is handled by the local immigration authority (GDRFA in Dubai), so steps and fees can differ. Dubai free-zone campuses are approved by KHDA; universities elsewhere are accredited federally by the CAA.",
     },
     {
-      question: "What is the cost of studying in the UAE?",
-      answer: "Tuition is set by each university. As one published example, Zayed University charges international students without a UAE national ID AED 2,500 per credit hour. Add accommodation, living costs and health insurance, and ask your university for a written estimate before paying a deposit.",
+      question: "Can I work part-time while studying in the UAE?",
+      answer:
+        "MOHRE issues a student training and employment permit. You need a valid residence visa, training needs a no-objection certificate from your institution, and the permit runs for three months. We could not verify a weekly hour limit, so confirm with your university and MOHRE.",
     },
     {
-      question: "Do I need IELTS to apply?",
-      answer: "Most universities ask for proof of English, and the score is set by each one. For example, Zayed University lists EmSAT English 1250, IELTS 5.5 or TOEFL iBT 71 for international undergraduates. Check your university's current requirement before booking a test.",
+      question: "Do I need IELTS to study in the UAE?",
+      answer:
+        "Most universities ask for proof of English, and the score is set by each one. Zayed University, for example, lists EmSAT English 1250, IELTS 5.5 or TOEFL iBT 71 for international undergraduates. Check your university's current requirement.",
     },
     {
-      question: "Are scholarships available for international students?",
-      answer: "Some institutions offer scholarships. Khalifa University states that it awards full scholarships to all admitted postgraduate students, while Zayed University states its scholarships cover tuition only. Check each university for current awards, criteria and deadlines, since they change.",
+      question: "How much does it cost to study in the UAE?",
+      answer:
+        "Undergraduate tuition runs from about AED 55,000 a year at public universities to about AED 111,000 at AUS. Add housing, food and visa costs.",
     },
     {
-      question: "Can I work while studying in the UAE?",
-      answer: "MOHRE issues a student training and employment permit. Non-national students need a valid residence visa, training needs a no-objection certificate from the institution, and the permit runs for three months. We could not verify a weekly hour limit, so confirm with your university and MOHRE.",
-    },
-    {
-      question: "What kind of visa is required to study in the UAE?",
-      answer: "You need a student residence visa. An accredited university or college can sponsor you, or a resident parent can. You need a medical test if you are 18 or older, health insurance, a security check and an Emirates ID. A sponsored visa can be valid for 1, 2 or 3 years.",
-    },
-    {
-      question: "How do I check that a UAE university is accredited?",
-      answer: "The CAA licenses institutions and accredits their programs, and the Ministry of Education publishes the list of licensed institutions. In Dubai, KHDA also lists licensed providers. Check both the institution and your exact program before paying fees, because qualifications are attested only if they are accredited.",
-    },
-    {
-      question: "Is the UAE student visa different in Dubai, Abu Dhabi and Sharjah?",
-      answer: "The visa type is the same, a student residence visa sponsored by your university, but processing is handled by the local immigration authority. In Dubai that is GDRFA, which lists AED 740 in total fees. Other emirates may differ, so ask your university for its exact steps.",
-    },
-    {
-      question: "Can I get a Golden Visa after graduating in the UAE?",
-      answer: "Possibly. The 10-year Golden Residence covers top graduates of UAE universities licensed by the Ministry of Education that are Category A (GPA 3.5) or Category B (GPA 3.8), within two years of graduating. Graduates of top-100 ranked international universities with a GPA of 3.5 can also qualify.",
-    },
-    {
-      question: "How can Admizz help me study in the UAE?",
-      answer: "Admizz provides expert support in university selection, application, scholarship help, visa process, and relocation planning.",
+      question: "Can I stay in the UAE after graduating?",
+      answer:
+        "Top graduates can apply for a 10-year golden visa: a bachelor's GPA of 3.5 or higher (3.8 at some universities), within two years of graduating. You also get a 60-day grace period after your student residence ends (as listed by GDRFA Dubai). Others need a job and a work visa.",
     },
   ],
-  relatedLinks: [
-    { label: "Study in Dubai from Nepal", href: "/study-in-dubai-from-nepal", description: "the Dubai-focused guide: branch campuses, costs and visas" },
-    { label: "Study in Dubai", href: "/study-in-dubai", description: "destination overview" },
-    { label: "Study abroad rule changes for Nepali students", href: "/study-abroad-rule-changes", description: "dated visa, funds and work-rule changes" },
-    { label: "Scholarship assistance in Nepal", href: "/scholarship-assistance-in-nepal" },
-    { label: "Visa assistance for study abroad", href: "/visa-assistance-for-study-abroad" },
-  ],
-  ctaTitle: "Get in Touch with Admizz",
-  ctaContent: "Dreaming of studying in the UAE? Admizz Education is your trusted partner in making that dream a reality. From selecting top universities to helping with scholarship applications and guiding you through the visa process—we're with you every step of the way. Whether it's a business degree in Dubai, engineering in Abu Dhabi, or media studies in Sharjah, we simplify your path to success in the UAE. Take the first step toward your global education journey with Admizz today!",
+
+  ctaTitle: "Plan your UAE move with us",
+  ctaContent: "Free first consultation with our UAE team, in person or on a call.",
 };
 
 export default async function StudyInUAEFromNepalPage() {
-  const blogPosts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: "uae" });
+  const blogPosts: SanityPost[] = getPostsByCategory("uae");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

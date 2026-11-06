@@ -1,0 +1,140 @@
+{
+  "_id": "wp-post-1602",
+  "_type": "post",
+  "_createdAt": "2026-02-10T06:46:15Z",
+  "_updatedAt": "2026-10-08T08:22:06Z",
+  "title": "Are Nepali youth going abroad coming back to Nepal after abroad studies?",
+  "slug": {
+    "_type": "slug",
+    "current": "are-nepalese-youth-going-abroad-coming-back-to-nepal-after-abroad-studies"
+  },
+  "publishedAt": "2025-03-28T10:39:21",
+  "excerpt": "According to the 2018 Open Doors Report on International Educational Exchange data released by IIE and the U.S. Department of [&hellip;]",
+  "content": [
+    {
+      "_key": "824ff3180b30",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "8cd2139558ea",
+          "_type": "span",
+          "marks": [],
+          "text": "According to the 2018 Open Doors Report on International Educational Exchange data released by IIE and the U.S. Department of State Bureau of Educational and Cultural Affairs, the number of Nepali students studying in the United States has increased by 14.3 percent over the prior year. "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "13dd560557b8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b977cc93a0e5",
+          "_type": "span",
+          "marks": [],
+          "text": "Nepali have become the fastest-growing immigrant population in Australia. The population of Nepali students in Australia is the fifth largest among foreigners studying in the country. The number has significantly increased in 2018."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6ca090ff666e",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f9a7a1a4498b",
+          "_type": "span",
+          "marks": [],
+          "text": "However, there are no statistics to track how many of these youths are coming back to Nepal. It is safe to say that many of the youths that go abroad prefer to stay back rather than come back to the country. There might be many reasons behind it. The familiarity with better facilities, higher income, a better lifestyle, and frustration towards an underdeveloped country might be some of the reasons. "
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "812599bbe859",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "93ded6c66762",
+          "_type": "span",
+          "marks": [],
+          "text": "The story of India is a bit different. Throughout history, students from Nepal have pursued their education in this neighboring country—from the Gurukul system to the inception of modern education in various destinations like Deharadun, Patna, Darjeeling, Banaras, and Gorakhpur. While exact data is not available, as students do not have to acquire a No Objection Certificate from the Ministry of Education, it is estimated that over 15,000 students leave the country on an annual basis for India. Out of them, most students are found to be returning back to Nepal after their study and internship. Thus, the brain drain threat is quite less among students who go to India for their studies."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "6f94feb460ea",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "efc3c1cf5689",
+          "_type": "span",
+          "marks": [],
+          "text": "Related reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "fe6847f4643c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6f24381636fe",
+          "_type": "span",
+          "marks": [
+            "f5fd034d2569"
+          ],
+          "text": "Top education consultancy in Nepal"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [
+        {
+          "_key": "f5fd034d2569",
+          "_type": "link",
+          "blank": false,
+          "href": "/top-education-consultancy-in-nepal"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "featuredImage": {
+    "_type": "localImage",
+    "article": "/images/blog/are-nepalese-youth-going-abroad-coming-back-to-nepal-after-abroad-studies-1200.webp",
+    "card": "/images/blog/are-nepalese-youth-going-abroad-coming-back-to-nepal-after-abroad-studies-600.webp",
+    "og": "/images/blog/og/are-nepalese-youth-going-abroad-coming-back-to-nepal-after-abroad-studies.jpg",
+    "alt": "Do Nepalese students return after studying abroad",
+    "caption": null,
+    "_sanityRef": "image-64a51fe47268cd1cc2d652e6b5b4a7e7d76b3f69-500x330-jpg",
+    "_sanityOgRef": "image-64a51fe47268cd1cc2d652e6b5b4a7e7d76b3f69-500x330-jpg"
+  },
+  "infoBox": null,
+  "categories": [
+    {
+      "_id": "wp-category-21",
+      "title": "Other",
+      "slug": {
+        "_type": "slug",
+        "current": "other"
+      }
+    }
+  ],
+  "seo": {
+    "_type": "seo",
+    "canonicalUrl": "https://admizzeducation.com/are-nepalese-youth-going-abroad-coming-back-to-nepal-after-abroad-studies",
+    "metaDescription": "Do Nepali students return after studying abroad? Explore trends, reasons, and what influences their decision to stay abroad or come back.",
+    "metaTitle": "Are Nepali youth going abroad coming back to Nepal after abroad studies? - Admizz Education",
+    "noIndex": true
+  },
+  "faqItems": null,
+  "_exportedAt": "2026-11-04T05:24:34.018Z"
+}

@@ -136,12 +136,6 @@ export default function PopularDestinations({
                     </p>
                     <p className="mt-1.5 text-[11px] uppercase tracking-[0.08em] text-gray-medium font-semibold">From Birgunj</p>
                   </div>
-                  <div>
-                    <p className="font-bold leading-none text-[#FCB730]" style={{ fontFamily: "var(--font-rubik), sans-serif", fontSize: "clamp(26px, 3vw, 34px)" }}>
-                      95%
-                    </p>
-                    <p className="mt-1.5 text-[11px] uppercase tracking-[0.08em] text-gray-medium font-semibold">Visa success</p>
-                  </div>
                   {featured.avgVisaTime && (
                     <div>
                       <p className="font-bold leading-none text-navy" style={{ fontFamily: "var(--font-rubik), sans-serif", fontSize: "clamp(22px, 2.5vw, 28px)" }}>

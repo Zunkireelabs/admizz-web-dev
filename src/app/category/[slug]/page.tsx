@@ -1,11 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { client, urlFor } from "@/lib/sanity";
+import { urlFor } from "@/lib/image";
 import {
-  allCategorySlugsQuery,
-  postsByCategoryQuery,
-  allCategoriesQuery,
-} from "@/lib/queries";
+  getAllCategorySlugs,
+  getAllCategories,
+  getPostsByCategory,
+} from "@/lib/blog-content";
 import type { SanityPost, SanityCategory } from "@/types";
 
 interface PageProps {
@@ -13,7 +13,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs: { slug: string }[] = await client.fetch(allCategorySlugsQuery);
+  const slugs: { slug: string }[] = getAllCategorySlugs();
   return slugs.map((s) => ({ slug: s.slug }));
 }
 
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
 
   // Fetch category name
-  const categories: SanityCategory[] = await client.fetch(allCategoriesQuery);
+  const categories: SanityCategory[] = getAllCategories();
   const category = categories.find((c) => c.slug.current === slug);
   const name = category?.title || slug;
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // what a soft-404 read means. noindex it (still fully visible/navigable
   // to visitors) until it has real posts; sitemap.js already only lists
   // categories with posts, so this never touches an indexed URL.
-  const posts: SanityPost[] = await client.fetch(postsByCategoryQuery, { categorySlug: slug });
+  const posts: SanityPost[] = getPostsByCategory(slug);
   const robots = posts.length === 0 ? { index: false, follow: true } : undefined;
 
   return {
@@ -65,10 +65,8 @@ export default async function CategoryPage({ params }: PageProps) {
   const { slug } = await params;
 
   // Fetch category info and posts
-  const [categories, posts]: [SanityCategory[], SanityPost[]] = await Promise.all([
-    client.fetch(allCategoriesQuery),
-    client.fetch(postsByCategoryQuery, { categorySlug: slug }),
-  ]);
+  const categories = getAllCategories();
+  const posts = getPostsByCategory(slug);
 
   const category = categories.find((c) => c.slug.current === slug);
   const categoryName = category?.title || slug;
