@@ -63,6 +63,8 @@ export interface StudentPhoto {
   name: string;
   image: string;
   caption: string;
+  /** Optional short testimonial shown under the photo */
+  quote?: string;
   /** CSS object-position, e.g. "center 70%", to keep faces in frame */
   imagePosition?: string;
 }
@@ -678,14 +680,22 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
           <div className={containerClass}>
             <p className={eyebrowClass}>Our students</p>
             <h2 className={h2Class} style={rubikFont}>Already studying in {data.countryName}</h2>
-            <ul className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+            <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-5">
               {data.students.map((s) => (
-                <li key={s.name}>
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-[#F4F6FF]">
-                    <Image src={s.image} alt={s.name} fill className="object-cover" style={s.imagePosition ? { objectPosition: s.imagePosition } : undefined} sizes="(min-width: 1024px) 25vw, 50vw" />
+                <li key={s.name} className="flex h-full flex-col">
+                  <div className={`relative overflow-hidden rounded-3xl bg-[#F4F6FF] ${s.quote ? "aspect-[1/1]" : "aspect-[4/5]"}`}>
+                    <Image src={s.image} alt={s.name} fill className="object-cover" style={s.imagePosition ? { objectPosition: s.imagePosition } : undefined} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" />
                   </div>
-                  <p className="mt-3 text-sm md:text-[15px] font-bold text-navy">{s.name}</p>
-                  <p className="text-xs md:text-sm text-gray-dark">{s.caption}</p>
+                  {s.quote && (
+                    <blockquote className="mt-5 flex-1">
+                      <span aria-hidden="true" className="block text-5xl leading-none font-bold text-golden" style={rubikFont}>&ldquo;</span>
+                      <p className="mt-1 text-[15px] leading-[1.65] text-navy/80">{s.quote}</p>
+                    </blockquote>
+                  )}
+                  <div className={s.quote ? "mt-4 border-t border-border-light pt-3" : "mt-3"}>
+                    <p className="text-sm md:text-[15px] font-bold text-navy">{s.name}</p>
+                    <p className="text-xs md:text-sm text-gray-dark">{s.caption}</p>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -810,15 +820,25 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
                       {office.city}
                     </p>
                     <p className="mt-0.5 text-sm text-[#B9C3E6]">{office.area}</p>
-                    <a
-                      href={office.directionsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Directions to Admizz ${office.city} office`}
-                      className="mt-3 inline-flex text-sm font-semibold text-golden hover:underline"
-                    >
-                      Get directions →
-                    </a>
+                    {office.pageHref ? (
+                      <a
+                        href={office.pageHref}
+                        aria-label={`Visit the Admizz ${office.city} office page`}
+                        className="mt-3 inline-flex text-sm font-semibold text-golden hover:underline"
+                      >
+                        Visit {office.city} page →
+                      </a>
+                    ) : (
+                      <a
+                        href={office.directionsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Directions to Admizz ${office.city} office`}
+                        className="mt-3 inline-flex text-sm font-semibold text-golden hover:underline"
+                      >
+                        Get directions →
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

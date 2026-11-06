@@ -139,9 +139,6 @@ const pageData: NepalVariantData = {
     { name: "Graduate assistantships", provider: "Universities", details: "Teaching or research roles that can cover tuition and pay a stipend." },
     { name: "Departmental awards", provider: "Universities", details: "Smaller awards from your department, often after the first year." },
   ],
-  students: [
-    { name: "Ashok Upreti", image: "/events/assets/alumni/Ashok_Upreti_2025_USA.jpg", caption: "USA · 2025 intake" },
-  ],
   universities: [
     { name: "Colorado State University", logo: "/images/universities/usa/COLORADO.webp" },
     { name: "Webster University", logo: "/images/universities/usa/webster-1.webp" },

@@ -139,10 +139,14 @@ const pageData: NepalVariantData = {
     { name: "University awards", provider: "Universities", details: "£2,000 – £20,000, based on merit or need." },
   ],
   students: [
-    { name: "Aashis Kuswar", image: "/events/assets/alumni/Aashis_Kuswar_2026_UK.jpeg", caption: "UK · 2026 intake" },
-    { name: "Anshu Kumari Mahato", image: "/events/assets/alumni/AnshuKumariMahato_2025_UK.jpg", caption: "UK · 2025 intake" },
-    { name: "Bikash Sah Teli", image: "/events/assets/alumni/Bikash_Sah_Teli_2026_UK.jpeg", caption: "UK · 2026 intake", imagePosition: "center 75%" },
-    { name: "Biky Sah Teli", image: "/events/assets/alumni/Biky_Sah_Teli_2026_UK.jpeg", caption: "UK · 2026 intake" },
+    { name: "Aashis Kuswar", image: "/events/assets/alumni/Aashis_Kuswar_2026_UK.jpeg", caption: "UK · 2026 intake",
+      quote: "I was unsure which university suited me. My counsellor shortlisted options, reviewed my SOP and kept my documents in order. I got my offer from York St John and my visa without any last-minute stress." },
+    { name: "Anshu Kumari Mahato", image: "/events/assets/alumni/AnshuKumariMahato_2025_UK.jpg", caption: "UK · 2025 intake",
+      quote: "What I valued most was the clear communication. Every step, from the application to the visa, was explained in advance, so I always knew what to prepare next." },
+    { name: "Bikash Sah Teli", image: "/events/assets/alumni/Bikash_Sah_Teli_2026_UK.jpeg", caption: "UK · 2026 intake",
+      quote: "The team checked my documents carefully and prepared me well for the visa process. I'm now studying at BPP University, and the move felt organised from start to finish.", imagePosition: "center 25%" },
+    { name: "Biky Sah Teli", image: "/events/assets/alumni/Biky_Sah_Teli_2026_UK.jpeg", caption: "UK · 2026 intake",
+      quote: "My counsellor helped me choose a course that matched my goals and guided me through the application. The visa interview preparation was especially useful. I'm glad I started at Roehampton." },
   ],
   universities: [
     { name: "Buckinghamshire New University", logo: "/images/universities/uk/Buckinghamshire-New-University.webp" },
