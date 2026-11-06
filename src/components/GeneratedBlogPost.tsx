@@ -1,34 +1,22 @@
-// Shared renderer for agent-authored blog posts (src/app/blogs/<slug>/page.tsx).
+// Renderer for repo-authored blog posts (src/app/<slug>/page.tsx + an entry in src/data/generated-posts.json).
 //
-// Unlike the Sanity-backed /[slug]/page.tsx template, a post using this
-// component has no CMS document behind it — its content is a plain,
-// JSON-serializable data object sitting right in its own page.tsx, committed
-// like any other file in the repo. This component owns ALL of the JSX/markup
-// so every generated post's page.tsx can stay a tiny, safe data literal (see
-// that file's own comment for why data-as-props, not content interpolated
-// directly into JSX, is what keeps a post with quotes/braces/backticks in its
-// title or body from ever producing broken TypeScript).
+// DESIGN RULE: this file contains NO page design of its own. The page frame (hero, sticky consultation form,
+// Related Articles, CTA banner) is src/components/BlogPostLayout.tsx, the same component src/app/[slug]/page.tsx
+// uses for the 181 standard posts, and the body pieces (PostSummary, FactsCard "At a Glance", PostSources,
+// AdmizzTrustBox, FAQ) are the same components too. To change how blogs look, edit those shared components.
+// Never copy their markup in here, or the two post types drift apart again.
 //
-// Categories: real ones only (server/generators/blog-outline.js validates
-// every category against the site's own live Sanity taxonomy before a post
-// is ever drafted — an invented category never reaches here).
-//
-// Related articles: intentionally SAME-SOURCE-ONLY — other locally-generated
-// posts from src/data/generated-posts.json, never a cross-link into Sanity.
-// Mixing sources here would mean either fetching Sanity at render time (this
-// component has no Sanity credential and shouldn't need one) or guessing at
-// topical relevance across two completely different taxonomies, which is
-// exactly the kind of unverified behavior this codebase avoids elsewhere.
-// Computed at render/build time from the manifest (not baked in at
-// generation time), so it never goes stale as new posts are added later.
-import Link from "next/link";
+// Content is a plain JSON-serializable data object inside the post's own page.tsx (data-as-props, so quotes or
+// braces in a title or body can never produce broken TypeScript). Related articles are other repo-authored posts
+// from src/data/generated-posts.json, computed at build time.
 import ArticleInfoBox from "@/components/ArticleInfoBox";
 import PostSummary from "@/components/PostSummary";
-import PortableTextRenderer from "@/components/PortableTextRenderer";
-import BlogCtaBanner from "@/components/BlogCtaBanner";
+import PortableTextRenderer, { FactsCard, type BodyBlock } from "@/components/PortableTextRenderer";
+import { postFacts as writtenPostFacts } from "@/data/post-facts";
+import PostSources from "@/components/PostSources";
 import AdmizzTrustBox from "@/components/AdmizzTrustBox";
+import BlogPostLayout from "@/components/BlogPostLayout";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
-import CTAForm from "@/components/ui/CTAForm";
 import generatedPostsData from "@/data/generated-posts.json";
 import type { GeneratedPostManifestEntry } from "@/types";
 import { renderMarkdownLite } from "./lib/markdown-lite";
@@ -122,6 +110,19 @@ export default function GeneratedBlogPost({
   content,
   faqSchemaOnly,
 }: GeneratedBlogPostProps) {
+  // Same "At a Glance" card every other post opens with (see [slug]/page.tsx): hand-written facts when the post has
+  // them, otherwise built from data the post already has.
+  const bodyWordCount = sections.map((x) => x.body).join(" ").split(/\s+/).filter(Boolean).length;
+  const factsDate = publishedAt
+    ? new Date(publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })
+    : null;
+  const sectionFacts = writtenPostFacts[slug] ?? (infoBox && infoBox.length > 0 ? infoBox : null) ?? [
+    ...(categories?.[0] ? [{ label: "Topic", value: categories[0].title }] : []),
+    ...(factsDate ? [{ label: "Published", value: factsDate }] : []),
+    { label: "Reading Time", value: `${Math.max(2, Math.round(bodyWordCount / 220))} min read` },
+    { label: "Written By", value: "Admizz Education" },
+  ];
+
   const formattedDate = publishedAt
     ? new Date(publishedAt).toLocaleDateString("en-US", {
         year: "numeric",
@@ -135,9 +136,29 @@ export default function GeneratedBlogPost({
   // template emits, built only from this post's own real fields.
   const canonicalUrl = `${SITE}${path || `/blogs/${slug}`}`;
   const schemaDescription = description || fallbackDescription(sections);
+  // citation: the official pages listed in the post's own "Sources" section (external links only).
+  const sourcesBody = sections.find((x) => x.heading.trim().toLowerCase() === "sources")?.body || "";
+  const citations = [...sourcesBody.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g)].map((m) => ({
+    "@type": "CreativeWork",
+    name: m[1],
+    url: m[2],
+  }));
+  // The "Sources" section is shown with the same card every other post uses (PostSources), not as plain body text.
+  // Links become the card rows, "checked in <Month Year>" becomes its footer, and any other sentence (for example a
+  // caveat about a page we could not open) stays visible as a paragraph above the card.
+  const sourceLinks = [...sourcesBody.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g)].map((m) => ({ label: m[1], url: m[2] }));
+  const checkedIn = sourcesBody.match(/checked[^.]*?\bin ([A-Z][a-z]+ \d{4})/i)?.[1];
+  const sourceNote = sourcesBody
+    .split("\n")
+    .map((l) => l.trim())
+    .filter((l) => l && !/^[-*]\s+\[/.test(l))
+    .join(" ");
+  const showSourcesCard = sourceLinks.length > 0;
+  const bodySections = showSourcesCard ? sections.filter((x) => x.heading.trim().toLowerCase() !== "sources") : sections;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    ...(citations.length > 0 ? { citation: citations } : {}),
     headline: title,
     description: schemaDescription,
     url: canonicalUrl,
@@ -186,61 +207,43 @@ export default function GeneratedBlogPost({
       {faqSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
-      {/* ===== HERO ===== */}
-      <section className="bg-gradient-to-r from-blue-royal to-blue-dark text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {categories && categories.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
-              {categories.map((cat) => (
-                <Link
-                  key={cat.slug}
-                  href={`/category/${cat.slug}`}
-                  className="text-[13px] font-semibold bg-white/20 px-3 py-2 rounded-full hover:bg-white/30 transition-colors"
-                >
-                  {cat.title}
-                </Link>
-              ))}
-            </div>
-          )}
-
-          <h1 className="text-[22px] sm:text-2xl md:text-[36px] font-bold leading-tight max-w-3xl">
-            {title}
-          </h1>
-          {formattedDate && (
-            <p className="mt-3 text-white/70 text-sm">
-              By Admizz Education <span aria-hidden="true">·</span> {formattedDate}
-            </p>
-          )}
-        </div>
-      </section>
-
-      {/* ===== CONTENT + SIDEBAR ===== */}
-      <article className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-6 lg:gap-10">
-          <div className="flex-1 min-w-0 max-w-3xl">
-            {featuredImage?.url && (
-              // eslint-disable-next-line @next/next/no-img-element -- a plain
-              // remote URL (Pexels or similar), not a local/optimizable asset.
-              <img
-                src={featuredImage.url}
-                alt={featuredImage.alt || title}
-                width={1200}
-                height={630}
-                loading="eager"
-                decoding="async"
-                className="w-full h-auto rounded-lg mb-8"
-              />
-            )}
-
-            {infoBox && infoBox.length > 0 && <ArticleInfoBox items={infoBox} />}
+      {/* The page frame (hero, sidebar form, Related Articles, CTA banner) is the one shared blog design. */}
+      <BlogPostLayout
+        title={title}
+        categories={categories}
+        dateLabel={formattedDate}
+        featuredImage={featuredImage?.url ? { src: featuredImage.url, alt: featuredImage.alt } : null}
+        related={related.map((r) => ({
+          slug: r.slug,
+          title: r.title,
+          excerpt: r.excerpt,
+          image: r.imageUrl,
+          imageAlt: r.imageAlt,
+          categories: r.categories,
+          dateLabel: r.publishedAt
+            ? new Date(r.publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
+            : null,
+        }))}
+      >
+            {(html || content) && infoBox && infoBox.length > 0 && <ArticleInfoBox items={infoBox} />}
 
             {quickAnswer && <PostSummary text={quickAnswer} />}
 
             {html && <PortableTextRenderer content={[{ _type: "rawHtml", _key: "raw-html", html }]} />}
 
-            {content && <PortableTextRenderer content={content as any[]} />}
+            {content && <PortableTextRenderer content={content as BodyBlock[]} />}
 
-            {!html && !content && sections.map((section, i) => (
+            {!html && !content && sectionFacts.length > 0 && (
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-[13px] font-bold uppercase tracking-[0.15em] text-[#001353]">Introduction</span>
+                  <span className="flex-1 h-px bg-[#001353]/20" />
+                </div>
+                <FactsCard title="At a Glance" facts={sectionFacts} />
+              </div>
+            )}
+
+            {!html && !content && bodySections.map((section, i) => (
               <div key={i}>
                 <h2 className={blogH2.className} style={blogH2.style}>
                   {section.heading}
@@ -263,122 +266,14 @@ export default function GeneratedBlogPost({
               </section>
             )}
 
+            {!html && !content && showSourcesCard && sourceNote && renderMarkdownLite(sourceNote, "sources-note", "blog")}
+
+            {!html && !content && showSourcesCard && (
+              <PostSources entry={{ checked: checkedIn, sources: sourceLinks }} />
+            )}
+
             <AdmizzTrustBox />
-          </div>
-
-          <aside className="hidden lg:block w-[472px] shrink-0">
-            <div className="sticky top-[90px]">
-              <CTAForm title="Book a Free Consultation" colorScheme="light" formSource="blog-post" />
-            </div>
-          </aside>
-        </div>
-
-        <div className="lg:hidden mt-10 max-w-xl mx-auto">
-          <CTAForm title="Book a Free Consultation" colorScheme="light" formSource="blog-post" />
-        </div>
-      </article>
-
-      {/* ===== RELATED ARTICLES (other locally-generated posts only) ===== */}
-      {related.length > 0 && (
-        <section className="py-14 md:py-20" style={{ background: "#F8F9FF" }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-              className="text-[26px] font-bold text-center mb-3"
-              style={{ color: "#0D1282", fontFamily: "var(--font-rubik), sans-serif" }}
-            >
-              Related Articles
-            </h2>
-            <p
-              className="text-center text-[15px] max-w-2xl mx-auto mb-10"
-              style={{ color: "#5a6275", lineHeight: 1.7 }}
-            >
-              Explore more articles on similar topics — tips, guides, and expert advice to help you succeed.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {related.map((rPost) => {
-                const rDate = rPost.publishedAt
-                  ? new Date(rPost.publishedAt).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })
-                  : null;
-
-                return (
-                  <Link
-                    key={rPost.slug}
-                    href={rPost.href}
-                    className="group bg-white rounded-2xl overflow-hidden border border-[#eef1f6] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col"
-                    style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
-                  >
-                    {rPost.imageUrl && (
-                      <div className="relative overflow-hidden" style={{ aspectRatio: "19/10" }}>
-                        <img
-                          src={rPost.imageUrl}
-                          alt={rPost.imageAlt || rPost.title}
-                          loading="lazy"
-                          decoding="async"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                    )}
-
-                    <div className="p-5 flex flex-col flex-1">
-                      {rPost.categories && rPost.categories.length > 0 && (
-                        <div className="flex flex-wrap gap-1.5 mb-3">
-                          {rPost.categories.map((cat) => (
-                            <span
-                              key={cat.slug}
-                              className="text-[11px] font-semibold px-2.5 py-1 rounded-full"
-                              style={{ background: "#EBF2FF", color: "#1E6DEB" }}
-                            >
-                              {cat.title}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-
-                      <h3
-                        className="text-[16px] font-bold leading-snug mb-2 group-hover:text-[#1E6DEB] transition-colors line-clamp-2"
-                        style={{ color: "#0D1282" }}
-                      >
-                        {rPost.title}
-                      </h3>
-
-                      {rPost.excerpt && (
-                        <p className="text-[13px] leading-relaxed mb-4 line-clamp-2" style={{ color: "#5a6275" }}>
-                          {rPost.excerpt}
-                        </p>
-                      )}
-
-                      <div className="mt-auto flex items-center justify-between pt-3 border-t border-[#f0f2f5]">
-                        {rDate && (
-                          <span className="text-[12px]" style={{ color: "#9ca3af" }}>
-                            {rDate}
-                          </span>
-                        )}
-                        <span
-                          className="text-[13px] font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all"
-                          style={{ color: "#1E6DEB" }}
-                        >
-                          Read More
-                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ===== CTA BANNER ===== */}
-      <BlogCtaBanner />
+      </BlogPostLayout>
     </main>
   );
 }
