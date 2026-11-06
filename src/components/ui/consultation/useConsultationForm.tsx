@@ -292,7 +292,7 @@ export function StepFields({
   idPrefix: string;
   focusOnMount?: boolean;
 }) {
-  const { form, set, step, errors, dial, submitError } = f;
+  const { form, set, step, errors, submitError } = f;
   const id = (name: string) => `${idPrefix}-${name}`;
   const borderFor = (key: keyof FormState) => ({ borderColor: errors[key] ? "#c41e3a" : "#D7DAE8" });
 
@@ -307,22 +307,22 @@ export function StepFields({
             <input id={id("last")} autoComplete="family-name" className={inputClass} style={borderFor("lastName")} placeholder="Last name" value={form.lastName} onChange={(e) => set({ lastName: e.target.value })} />
           </Field>
         </div>
-        <Field label="Country" htmlFor={id("country")}>
-          <Select
-            id={id("country")}
-            value={form.country}
-            onChange={(v) => set({ country: v })}
-            options={countryOptions}
-            placeholder="Select your country"
-            searchable
-            searchPlaceholder="Search country or code"
-          />
-        </Field>
         <Field label="Phone number" htmlFor={id("phone")} error={errors.phone}>
           <div className="flex gap-2">
-            <span className="flex h-12 min-w-[72px] items-center justify-center rounded-xl border bg-[#F4F6FF] px-3 text-[15px] font-medium text-navy" style={{ borderColor: "#D7DAE8" }}>
-              {dial || "+"}
-            </span>
+            <div className="w-[112px] flex-shrink-0">
+              <Select
+                id={id("country")}
+                ariaLabel="Country code"
+                value={form.country}
+                onChange={(v) => set({ country: v })}
+                options={countryOptions}
+                placeholder="+"
+                searchable
+                searchPlaceholder="Search country or code"
+                buttonLabel={(o) => dialFor(o.value) || "+"}
+                minListWidth={300}
+              />
+            </div>
             <input id={id("phone")} type="tel" inputMode="numeric" autoComplete="tel-national" className={inputClass} style={borderFor("phone")} placeholder="Phone number" value={form.phone} onChange={(e) => set({ phone: e.target.value.replace(/\D/g, "").slice(0, 15) })} />
           </div>
         </Field>
