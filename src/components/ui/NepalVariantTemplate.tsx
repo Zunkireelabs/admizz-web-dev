@@ -9,6 +9,7 @@ import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import ConsultationPopup from "@/components/ui/consultation/ConsultationPopup";
 import Select from "@/components/ui/consultation/Select";
 import { countryOptions, dialFor } from "@/components/ui/consultation/useConsultationForm";
+import RecognizedInNepal from "@/components/ui/RecognizedInNepal";
 import { NEPAL_OFFICES } from "@/data/nepalOffices";
 import type { SanityPost } from "@/types";
 
@@ -846,6 +847,8 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
           </div>
         </div>
       </section>
+
+      <RecognizedInNepal />
 
       {/* ===== MOBILE STICKY CTA ===== */}
       <div className="lg:hidden fixed inset-x-0 bottom-0 z-40 border-t border-border-light bg-white/95 backdrop-blur px-4 py-3">

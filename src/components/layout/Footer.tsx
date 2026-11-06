@@ -160,13 +160,29 @@ export default function Footer() {
           </div>
 
           {/* ICEF Badge */}
-          <div
-            className="col-span-2 lg:col-span-1 flex items-start justify-center lg:justify-end"
-            suppressHydrationWarning
-            dangerouslySetInnerHTML={{
-              __html: '<span id="iasBadge" data-account-id="6499"></span>',
-            }}
-          />
+          <div className="col-span-2 lg:col-span-1 flex flex-col items-center lg:items-end gap-6">
+            <div
+              suppressHydrationWarning
+              dangerouslySetInnerHTML={{
+                __html: '<span id="iasBadge" data-account-id="6499"></span>',
+              }}
+            />
+            {/* British Council: logo kept in its official colours on a white panel */}
+            <div className="flex flex-col items-center lg:items-end gap-2 max-w-[220px]">
+              <div className="rounded-lg bg-white px-4 py-3">
+                <Image
+                  src="/images/logos/british-council.webp"
+                  alt="British Council"
+                  width={140}
+                  height={40}
+                  className="h-9 w-auto"
+                />
+              </div>
+              <p className="text-xs text-white/70 text-center lg:text-right">
+                Trained and recognized for global English standards
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
