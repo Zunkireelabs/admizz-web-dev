@@ -46,8 +46,8 @@ const pageData: NepalVariantData = {
     { label: "Intakes", value: "Sep · Jan · May" },
     { label: "Tuition from", value: "£11,000 / yr" },
     { label: "Master's", value: "1 year" },
-    { label: "Graduate visa", value: "18 months" },
-    { label: "English", value: "IELTS 6.0+" },
+    { label: "Graduate visa", value: "18 months from 2027" },
+    { label: "English", value: "B2 for degree level" },
   ],
   introTitle: "Study in the UK from Nepal",
   introContent:
@@ -59,10 +59,10 @@ const pageData: NepalVariantData = {
       value: "18",
       unit: "months",
       label: "Graduate visa",
-      note: "to work in the UK after a bachelor's or master's. PhD graduates get 3 years.",
+      note: "to work in the UK after a bachelor's or master's, if you apply from 1 January 2027 (2 years if you apply by 31 December 2026). PhD graduates get 3 years. Eligibility conditions apply.",
     },
     { value: "12", unit: "months", label: "for most master's" },
-    { value: "20", unit: "hours a week", label: "work during term" },
+    { value: "20", unit: "hours a week", label: "work during term, on eligible courses" },
   ],
   benefits: [
     {
@@ -75,7 +75,7 @@ const pageData: NepalVariantData = {
     },
     {
       title: "Work while you study",
-      description: "Work up to 20 hours a week in term on a degree-level course, and full-time in the holidays.",
+      description: "Work up to 20 hours a week in term on a full-time degree-level course at an eligible university, and full-time in the holidays. Part-time courses may have no work permission.",
     },
     {
       title: "Degrees recognized worldwide",
@@ -83,22 +83,25 @@ const pageData: NepalVariantData = {
     },
   ],
   visaTitle: "Your Student visa, step by step",
-  visaIntro: "Most decisions arrive within 3 weeks of your biometrics appointment.",
+  visaIntro: "Decisions usually arrive within about 3 weeks of your biometrics appointment, but this is not guaranteed.",
   visaRequirements: [
     { category: "Choose a course", details: "Pick a course at a UKVI-licensed university. We shortlist with you." },
     { category: "Offer, deposit & CAS", details: "Accept your offer, pay the deposit and receive your CAS number." },
-    { category: "TB test in Kathmandu", details: "At a UKVI-approved clinic. The certificate goes with your application." },
-    { category: "Apply online & pay fees", details: "Visa form, the £558 visa fee and the immigration health surcharge (£776 per year)." },
+    { category: "TB test at an approved clinic", details: "Home Office-approved clinics in Nepal are in Kathmandu and Jhapa. The certificate is valid for 6 months from your x-ray and goes with your application." },
+    { category: "Apply online & pay fees", details: "Visa form, the £558 visa fee and the immigration health surcharge (£776 per year of your visa, for example £1,552 for a 2-year visa, so the total depends on your visa length)." },
     { category: "Biometrics in Kathmandu", details: "Photo and fingerprints at the visa application center." },
     { category: "Decision & eVisa", details: "Your visa is digital, in your UKVI account. Then we brief you before you fly." },
   ],
   visaDocuments: [
     "Valid passport",
     "CAS from your university",
-    "Bank statements held 28 days",
-    "Academic transcripts",
-    "IELTS or PTE result",
+    "Bank statements: funds held 28 days, ending within 31 days of applying",
     "TB test certificate",
+    "Academic transcripts, if your university asks for them",
+    "Proof of English (for example IELTS or PTE), if required",
+    "ATAS certificate, if your course requires it (some master's subjects)",
+    "Written consent from both parents or guardians, if you are under 18",
+    "Financial sponsor consent, if you were sponsored for fees or living costs in the last 12 months",
   ],
   intakesTitle: "When you can start",
   intakesIntro: "September has the most courses and scholarships. Apply early.",
@@ -127,7 +130,7 @@ const pageData: NepalVariantData = {
       ],
     },
   ],
-  costNote: "Living costs: UKVI funds requirement for up to 9 months. For applications from November 30, 2026, these rise to £1,570 / mo in London and £1,203 / mo outside London. Source: GOV.UK, checked October 2026.",
+  costNote: "Living costs: UKVI funds requirement for up to 9 months. For applications from November 30, 2026, these rise to £1,570 / mo in London and £1,203 / mo outside London. Source: GOV.UK, checked November 2026.",
   scholarshipsTitle: "Funding you can apply for",
   scholarshipsIntro: "We check which of these you qualify for in your first consultation.",
   scholarships: [
@@ -174,17 +177,17 @@ const pageData: NepalVariantData = {
     {
       question: "Can I work while studying in the UK?",
       answer:
-        "Yes, 20 hours/week during term time on degree-level courses (10 hours below degree level) and full-time during holidays.",
+        "Yes, on eligible full-time courses at approved universities: up to 20 hours a week in term on degree-level courses (10 hours below degree level), and full-time during holidays. Part-time courses, and some providers, may carry no work permission, so follow your visa conditions.",
     },
     {
       question: "Do I need IELTS for UK study?",
       answer:
-        "Yes, most universities require IELTS (6.0-7.0). Some accept alternatives like PTE or may waive if you studied in English medium.",
+        "Not always. UKVI requires English at CEFR B2 for degree-level courses and B1 below degree level. Many universities ask for IELTS, often 6.0 to 7.0 depending on the course, but some accept other tests, can assess your English themselves, or may waive the test if you studied in English medium. Check your offer.",
     },
     {
       question: "What is the post-study work visa duration?",
       answer:
-        "The Graduate Route Visa gives Bachelor's and Master's graduates 18 months to work in the UK after their degree. PhD graduates get 3 years.",
+        "The Graduate visa lasts 2 years if you apply on or before 31 December 2026, and 18 months if you apply from 1 January 2027. PhD and other doctoral graduates get 3 years. Eligibility conditions apply. The UK government has said it plans to extend the Graduate visa to 2 years for eligible universities, but no start date or list has been published yet, so check GOV.UK before you apply.",
     },
     {
       question: "Can I apply with a study gap?",
@@ -194,12 +197,12 @@ const pageData: NepalVariantData = {
     {
       question: "What are the living expenses in the UK?",
       answer:
-        "UKVI requires you to show £1,529 per month in London or £1,171 per month outside London, for up to 9 months, to cover accommodation, food, and transport. These rise to £1,570 and £1,203 for applications from November 30, 2026. Hold the funds for 28 consecutive days.",
+        "UKVI requires you to show £1,529 per month in London or £1,171 per month outside London, for up to 9 months, to cover accommodation, food, and transport. These rise to £1,570 and £1,203 for applications from November 30, 2026. Hold the funds for 28 consecutive days, with the 28-day period ending within 31 days before you apply. The funds should cover any course fees still due on your CAS plus living costs.",
     },
     {
       question: "What documents do I need for a UK student visa from Nepal?",
       answer:
-        "You need a valid passport, the CAS from your university, bank statements showing your funds held for 28 days, academic transcripts, an IELTS or PTE result and a TB test certificate. Your document list can vary by course, so check GOV.UK before you apply.",
+        "You need a valid passport, the CAS from your university, bank statements showing your funds held for 28 days and a TB test certificate. Where required, you also need academic transcripts and proof of English. Some applicants also need an ATAS certificate (if the course requires it), written parental consent (under 18) or financial sponsor consent (if sponsored in the last 12 months). Your document list can vary by course, so check GOV.UK before you apply.",
     },
     {
       question: "When should I apply for the September intake?",
@@ -209,9 +212,9 @@ const pageData: NepalVariantData = {
   ],
 
   quickAnswer:
-    "To study in the UK from Nepal, choose a course at a UKVI-licensed university, get an offer and a CAS, show your funds held for 28 days, take a TB test in Nepal and apply online for a Student visa. You usually get a decision within 3 weeks of your biometrics. After a bachelor's or master's you can apply for the Graduate visa, which lasts 18 months (3 years for PhD graduates).",
+    "To study in the UK from Nepal, choose a course at a UKVI-licensed university, get an offer and a CAS, show your funds held for 28 days, take a TB test in Nepal and apply online for a Student visa. You usually get a decision within 3 weeks of your biometrics. After a bachelor's or master's you can apply for the Graduate visa, which lasts 2 years if you apply by 31 December 2026 and 18 months from 1 January 2027 (3 years for PhD graduates).",
   lastChecked: "November 2026",
-  dateModified: "2026-11-05",
+  dateModified: "2026-11-06",
   sourcesTitle: "Official sources",
   sources: [
     { label: "GOV.UK: Student visa", url: "https://www.gov.uk/student-visa" },
