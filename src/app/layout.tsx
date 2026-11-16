@@ -11,7 +11,7 @@ import AffiliateRefCapture from "@/components/AffiliateRefCapture";
 import UtmAttributionCapture from "@/components/UtmAttributionCapture";
 import AuthTokenCatcher from "@/components/AuthTokenCatcher";
 import ContactClickTracker from "@/components/tracking/ContactClickTracker";
-import { META_PIXEL_ID, metaPixelBootstrapScript } from "@/lib/tracking/config";
+import { META_PIXEL_ID, googleTagBootstrapScript, metaPixelBootstrapScript } from "@/lib/tracking/config";
 import siteFacts from "@/data/site-facts.json";
 
 const montserrat = localFont({
@@ -97,6 +97,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         {/* Meta Pixel (CRET-13): base code in <head>, live host only; see src/lib/tracking/config.ts */}
         <script dangerouslySetInnerHTML={{ __html: metaPixelBootstrapScript() }} />
+        {/* Google tag (GA4 + Google Ads, CRET-13): one gtag.js, must come after the pixel script */}
+        <script dangerouslySetInnerHTML={{ __html: googleTagBootstrapScript() }} />
         {/* SEOAI:HEAD:START */}{/* SEOAI:HEAD:END */}
         <link rel="dns-prefetch" href="https://edgex.zunkireelabs.com" />
       </head>
@@ -273,17 +275,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             {children}
           </div>
         </SiteChrome>
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-              strategy="lazyOnload"
-            />
-            <Script id="ga-init" strategy="lazyOnload">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA_ID}');`}
-            </Script>
-          </>
-        )}
         <Script
           src="https://www-cdn.icef.com/scripts/iasbadgeid.js"
           strategy="lazyOnload"

@@ -1,9 +1,12 @@
 // Conversion tracking for ad platforms (CRET-13).
 //
 // One call per successful form submit sends the conversion to:
-//   - the Meta Pixel (standard event, so Meta ads can optimise for it), and
-//   - the GTM dataLayer (so the Google Ads conversion tag, and anything else set up in
-//     GTM-TX24X74T, can fire on the same moment without more code changes).
+//   - the Meta Pixel (standard event, so Meta ads can optimise for it),
+//   - Google Ads (conversion "Website lead (form submit)", student leads only),
+//   - GA4 (generate_lead etc., for reporting; GA4's generate_lead is also imported into
+//     Google Ads and must stay a SECONDARY conversion there, or leads count twice), and
+//   - the GTM dataLayer (for anything set up in GTM-TX24X74T).
+// Ad platforms only receive it on the live host (see config.ts); the dataLayer always does.
 //
 // Each conversion gets one event ID. It goes to the pixel AND into the CRM lead
 // (custom_fields.meta_event_id), so a later server-side send of the same lead to Meta's
@@ -14,7 +17,14 @@
 //   ...post to CRM with custom_fields: { ...leadTrackingFields(eventId), ... }
 //   ...on success: trackConversion({ eventId, formName: "consultation-popup" });
 
-import { AD_USER_MATCHING, META_PIXEL_ID } from "./config";
+import {
+  AD_USER_MATCHING,
+  GA4_ID,
+  GOOGLE_ADS_CONTACT_LABEL,
+  GOOGLE_ADS_ID,
+  GOOGLE_ADS_LEAD_LABEL,
+  META_PIXEL_ID,
+} from "./config";
 import { getAdAttribution } from "./clickIds";
 
 type Fbq = (...args: unknown[]) => void;
@@ -38,6 +48,14 @@ const META_EVENT: Record<ConversionType, string> = {
   lead: "Lead",
   registration: "CompleteRegistration",
   application: "SubmitApplication",
+};
+
+// GA4 event names. Never "sign_up": that GA4 event is already a PRIMARY Google Ads
+// conversion ("Sign Up") fed by something else, and must not be mixed with these.
+const GA4_EVENT: Record<ConversionType, string> = {
+  lead: "generate_lead",
+  registration: "event_registration",
+  application: "affiliate_application",
 };
 
 const DATALAYER_EVENT: Record<ConversionType, string> = {
@@ -122,6 +140,12 @@ function googleUserData(user: LeadUser): Record<string, unknown> {
   };
 }
 
+/** gtag is defined by the <head> Google tag script; ad/analytics sends are live-host only. */
+function liveGtag(): ((...args: unknown[]) => void) | null {
+  if (typeof window === "undefined" || !window.__admizzTrackingOn || !window.gtag) return null;
+  return window.gtag;
+}
+
 function pushDataLayer(payload: Record<string, unknown>): void {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
@@ -141,6 +165,28 @@ export function trackConversion({ eventId, formName, type = "lead", details, use
         if (Object.keys(userData).length) window.fbq("init", META_PIXEL_ID, userData);
       }
       window.fbq("track", META_EVENT[type], params, { eventID: eventId });
+    }
+
+    const gtag = liveGtag();
+    if (gtag) {
+      if (GA4_ID) {
+        gtag("event", GA4_EVENT[type], {
+          send_to: GA4_ID,
+          form_name: formName,
+          conversion_type: type,
+          event_id: eventId,
+          ...cleanDetails(details),
+        });
+      }
+      // Only student leads count as the Google Ads conversion the campaigns bid on.
+      if (type === "lead" && GOOGLE_ADS_LEAD_LABEL) {
+        if (shareUser) gtag("set", "user_data", googleUserData(user));
+        gtag("event", "conversion", {
+          send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_LEAD_LABEL}`,
+          // Google Ads drops a second conversion with the same transaction_id.
+          transaction_id: eventId,
+        });
+      }
     }
 
     pushDataLayer({
@@ -164,6 +210,11 @@ export function trackContact(channel: ContactChannel): void {
   try {
     const params = { content_name: channel, content_category: window.location.pathname };
     window.fbq?.("track", "Contact", params);
+    const gtag = liveGtag();
+    if (gtag) {
+      if (GA4_ID) gtag("event", "contact_click", { send_to: GA4_ID, contact_channel: channel });
+      if (GOOGLE_ADS_CONTACT_LABEL) gtag("event", "conversion", { send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_CONTACT_LABEL}` });
+    }
     pushDataLayer({ event: "contact_click", contact_channel: channel, page_path: window.location.pathname });
   } catch (err) {
     console.warn("[tracking] contact not sent:", err);
