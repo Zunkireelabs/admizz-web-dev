@@ -4,6 +4,7 @@ import { useRef, useEffect, useState, useCallback } from "react";
 import { supabase } from "@/lib/supabase";
 import { createReferralFromRegistration } from "@/lib/affiliate/api";
 import { readAffiliateRefCookie, writeAffiliateRef } from "@/lib/affiliate/refCookie";
+import { leadTrackingFields, newEventId, trackConversion } from "@/lib/tracking/track";
 
 /* ── Prize config (exact match of events spin-wheel.js) ───────── */
 const prizes = [
@@ -188,6 +189,10 @@ export default function SpinWheel() {
 
     const countryVal = fd.get("Country") as string;
 
+    // Ad attribution (CRET-13). Sheet columns that don't exist are ignored by the script.
+    const eventId = newEventId();
+    Object.entries(leadTrackingFields(eventId)).forEach(([k, v]) => fd.set(k, v));
+
     try {
       const fetches = [
         fetch(SCRIPT_URLS.primary, { method: "POST", body: fd }),
@@ -200,6 +205,26 @@ export default function SpinWheel() {
     } catch (error) {
       console.error("Form submission error:", error);
     }
+
+    // Counted after the save attempt. The Sheets script's response can't be read reliably
+    // from the browser, so success can't be confirmed here (same as the existing flow).
+    trackConversion({
+      eventId,
+      formName: "spin-and-win",
+      details: {
+        destination: (fd.get("preferedDestination") as string) || null,
+        study_level: (fd.get("studyLevel") as string) || null,
+        program: (fd.get("studyProgram") as string) || null,
+      },
+      user: {
+        email: fd.get("Email") as string,
+        phone: fd.get("PhoneNo") as string,
+        firstName: fd.get("Name") as string,
+        lastName: fd.get("Last Name") as string,
+        city: fd.get("City") as string,
+        countryCode: countryVal || null,
+      },
+    });
 
     // Affiliate attribution — fire-and-forget, never blocks the spin result.
     // URL param takes priority; also refresh sessionStorage to tag this session.
