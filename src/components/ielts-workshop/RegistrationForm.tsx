@@ -6,6 +6,7 @@ import { event } from "./content";
 import { dialSpec, phoneDigits, searchDialCodes } from "@/lib/dialCodes";
 import { isValidPhoneNumber } from "libphonenumber-js/min";
 import { getUtmAttribution } from "@/lib/attribution/utmStorage";
+import { leadTrackingFields, newEventId, trackConversion } from "@/lib/tracking/track";
 
 type FormState = {
   firstName: string;
@@ -70,6 +71,7 @@ export default function RegistrationForm() {
     setSubmitting(true);
     setSubmitError(null);
     try {
+      const eventId = newEventId();
       const { utm_source, utm_medium, utm_campaign } = getUtmAttribution();
       const res = await fetch(CRM_ENDPOINT, {
         method: "POST",
@@ -95,11 +97,26 @@ export default function RegistrationForm() {
             // leads.degree_level / leads.destinations columns.
             degree_level: form.studyLevel || null,
             dream_destination: form.destination || null,
+            ...leadTrackingFields(eventId),
           },
         }),
       });
 
       if (!res.ok) throw new Error(`CRM responded ${res.status}`);
+      const spec = dialSpec(form.dialCode);
+      trackConversion({
+        eventId,
+        formName: `event-${event.slug}`,
+        type: "registration",
+        details: { study_level: form.studyLevel, destination: form.destination },
+        user: {
+          email: form.email,
+          phone: `${spec.dial}${form.phone}`,
+          firstName: form.firstName,
+          lastName: form.lastName,
+          countryCode: spec.key,
+        },
+      });
       setDone(true);
     } catch (err) {
       console.error("[ielts-workshop] registration submit failed:", err);

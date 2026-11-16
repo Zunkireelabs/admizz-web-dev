@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { readAffiliateRefCookie } from "@/lib/affiliate/refCookie";
 import { dialSpec, phoneDigits, isValidPhoneLength, searchDialCodes } from "@/lib/dialCodes";
+import { newEventId, trackConversion } from "@/lib/tracking/track";
 
 type FormData = {
   fullName: string;
@@ -436,6 +437,14 @@ export default function ApplicationForm({
         lead_type:        leadType,
       });
       if (insertError) throw insertError;
+      // Partner application, not a student lead: tracked as SubmitApplication so it never
+      // counts toward the Lead conversion the ads optimise for.
+      trackConversion({
+        eventId: newEventId(),
+        formName: "affiliate-application",
+        type: "application",
+        details: { lead_type: leadType, promotion_method: form.promotionMethod },
+      });
       setDone(true);
     } catch (err) {
       console.error("Affiliate application submit failed:", err);

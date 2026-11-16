@@ -10,6 +10,8 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import AffiliateRefCapture from "@/components/AffiliateRefCapture";
 import UtmAttributionCapture from "@/components/UtmAttributionCapture";
 import AuthTokenCatcher from "@/components/AuthTokenCatcher";
+import ContactClickTracker from "@/components/tracking/ContactClickTracker";
+import { META_PIXEL_ID, googleTagBootstrapScript, metaPixelBootstrapScript } from "@/lib/tracking/config";
 import siteFacts from "@/data/site-facts.json";
 
 const montserrat = localFont({
@@ -93,6 +95,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${GTM_ID}');`,
           }}
         />
+        {/* Meta Pixel (CRET-13): base code in <head>, live host only; see src/lib/tracking/config.ts */}
+        <script dangerouslySetInnerHTML={{ __html: metaPixelBootstrapScript() }} />
+        {/* Google tag (GA4 + Google Ads, CRET-13): one gtag.js, must come after the pixel script */}
+        <script dangerouslySetInnerHTML={{ __html: googleTagBootstrapScript() }} />
         {/* SEOAI:HEAD:START */}{/* SEOAI:HEAD:END */}
         <link rel="dns-prefetch" href="https://edgex.zunkireelabs.com" />
       </head>
@@ -103,6 +109,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
+          />
+          {/* Meta Pixel no-JS fallback. Not host-gated (no JS to check the host), but only real browsers without JS hit it. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
           />
         </noscript>
         <script
@@ -245,6 +260,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <NavTracker />
         <AffiliateRefCapture />
         <UtmAttributionCapture />
+        <ContactClickTracker />
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>
@@ -259,22 +275,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             {children}
           </div>
         </SiteChrome>
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-              strategy="lazyOnload"
-            />
-            <Script id="ga-init" strategy="lazyOnload">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA_ID}');`}
-            </Script>
-          </>
-        )}
-        {process.env.NEXT_PUBLIC_FB_PIXEL_ID && (
-          <Script id="fb-pixel" strategy="lazyOnload">
-            {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${process.env.NEXT_PUBLIC_FB_PIXEL_ID}');fbq('track','PageView');`}
-          </Script>
-        )}
         <Script
           src="https://www-cdn.icef.com/scripts/iasbadgeid.js"
           strategy="lazyOnload"

@@ -1,9 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { readAffiliateRefCookie } from "@/lib/affiliate/refCookie";
+import { leadTrackingFields, newEventId, trackConversion } from "@/lib/tracking/track";
 
 const DEFAULT_FORM_URL = "https://edgex.zunkireelabs.com/form/admizz?bg=F0ECF9";
+const EDGEX_ORIGIN = "https://edgex.zunkireelabs.com";
+
+// Ad conversion from inside the iframe (CRET-13). The form is cross-origin, so this page
+// can't see the submit. EdgeX needs to post this message to the parent when a submission
+// succeeds; until it does, this listener simply never fires:
+//   window.parent.postMessage({ type: "edgex:form-submitted" }, "*")
+const EDGEX_SUBMITTED = "edgex:form-submitted";
 
 interface CRMFormEmbedProps {
   height?: number;
@@ -16,9 +24,12 @@ interface CRMFormEmbedProps {
 // Append ref_code (from ?ref= or first-touch cookie), form_source, and UTM params to
 // the iframe URL so the CRM form can capture attribution. CRM ignores unknown params
 // if not yet wired up — safe no-op until the CRM side reads them.
-function withAttribution(baseSrc: string, formSource?: string): string {
+function withAttribution(baseSrc: string, formSource?: string, eventId?: string): string {
   if (typeof window === "undefined") return baseSrc;
   try {
+    // Ad click IDs + event ID ride along as URL params so the CRM can store them on the lead.
+    const tracking = eventId ? leadTrackingFields(eventId) : {};
+
     const parentParams = new URLSearchParams(window.location.search);
     const urlRef = parentParams.get("ref");
     const cookieRef = readAffiliateRefCookie();
@@ -28,9 +39,10 @@ function withAttribution(baseSrc: string, formSource?: string): string {
     const utmMedium   = parentParams.get("utm_medium");
     const utmCampaign = parentParams.get("utm_campaign");
 
-    if (!refCode && !utmSource && !utmMedium && !utmCampaign && !formSource) return baseSrc;
+    if (!refCode && !utmSource && !utmMedium && !utmCampaign && !formSource && !eventId) return baseSrc;
 
     const url = new URL(baseSrc);
+    Object.entries(tracking).forEach(([k, v]) => url.searchParams.set(k, v));
     if (formSource)  url.searchParams.set("form_source",  formSource);
     if (refCode)     url.searchParams.set("ref_code",     refCode);
     // Auto-tag utm_source=affiliate when ref present but no explicit utm_source in URL
@@ -54,10 +66,26 @@ export default function CRMFormEmbed({
   // Start with the bare src so SSR/build-time HTML and first client render match,
   // then enrich on the client after hydration. Avoids hydration mismatch.
   const [resolvedSrc, setResolvedSrc] = useState(src);
+  const eventIdRef = useRef<string | null>(null);
 
   useEffect(() => {
-    setResolvedSrc(withAttribution(src, formSource));
+    eventIdRef.current = newEventId();
+    setResolvedSrc(withAttribution(src, formSource, eventIdRef.current));
   }, [src, formSource]);
+
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      if (e.origin !== EDGEX_ORIGIN) return;
+      const data = e.data as { type?: unknown } | null;
+      if (!data || data.type !== EDGEX_SUBMITTED || !eventIdRef.current) return;
+      // Desktop and mobile iframes both exist on the page; only one is visible, and the
+      // event ID is cleared after the first message so one submit counts once.
+      trackConversion({ eventId: eventIdRef.current, formName: formSource || "crm-form-embed" });
+      eventIdRef.current = null;
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [formSource]);
 
   const mobileSrc = resolvedSrc + (resolvedSrc.includes("?") ? "&" : "?") + "compact=1";
 

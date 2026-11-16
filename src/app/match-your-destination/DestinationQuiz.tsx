@@ -14,6 +14,7 @@ import {
   type DestinationKey,
 } from "@/lib/destination-quiz";
 import { getUtmAttribution } from "@/lib/attribution/utmStorage";
+import { leadTrackingFields, newEventId, trackConversion } from "@/lib/tracking/track";
 import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 type Phase = "intro" | "quiz" | "lead" | "result";
@@ -125,7 +126,8 @@ export default function DestinationQuiz() {
     const finalLead: LeadData = { ...lead, destination_matched: destKey.toUpperCase() };
     setLead(finalLead);
 
-    // Send to CRM (fire-and-forget)
+    // Send to CRM (fire-and-forget). The conversion is counted only once the CRM confirms the save.
+    const eventId = newEventId();
     const { utm_source, utm_medium, utm_campaign } = getUtmAttribution();
     fetch("https://edgex.zunkireelabs.com/api/public/submit/admizz/find-your-destination", {
       method: "POST",
@@ -147,9 +149,25 @@ export default function DestinationQuiz() {
           budget:               answers.q3 ?? "",
           matched_destination:  dest.country,
           match_score:          `${match}%`,
+          ...leadTrackingFields(eventId),
         },
       }),
-    }).catch(() => {}); // silent fail — WhatsApp flow unaffected
+    })
+      .then((res) => {
+        if (!res.ok) return;
+        trackConversion({
+          eventId,
+          formName: "destination-quiz",
+          details: { destination: dest.country, match_score: match },
+          user: {
+            email: finalLead.email,
+            phone: `${finalLead.code}${finalLead.phone}`,
+            firstName: finalLead.firstName,
+            lastName: finalLead.lastName,
+          },
+        });
+      })
+      .catch(() => {}); // silent fail — WhatsApp flow unaffected
 
     setPhase("result");
     setSubmitting(false);
