@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { readAffiliateRefCookie } from "@/lib/affiliate/refCookie";
 import { getUtmAttribution } from "@/lib/attribution/utmStorage";
+import { leadTrackingFields, newEventId, trackConversion } from "@/lib/tracking/track";
 import {
   COUNTRY_OPTIONS,
   DESTINATION_OPTIONS,
@@ -148,6 +149,7 @@ export function useConsultationForm({ countryName, formSource = "consultation", 
     setSubmitting(true);
     setSubmitError(null);
     try {
+      const eventId = newEventId();
       const { utm_source, utm_medium, utm_campaign } = getUtmAttribution();
       const urlRef = new URLSearchParams(window.location.search).get("ref")?.trim() || null;
       const refCode = urlRef ?? readAffiliateRefCookie();
@@ -172,10 +174,24 @@ export function useConsultationForm({ countryName, formSource = "consultation", 
             terms_accepted: true,
             form_source: formSource,
             ...(refCode ? { ref_code: refCode } : {}),
+            ...leadTrackingFields(eventId),
           },
         }),
       });
       if (!res.ok) throw new Error(`CRM responded ${res.status}`);
+      trackConversion({
+        eventId,
+        formName: formSource,
+        details: { destination: form.destination, study_level: form.level, program: form.program },
+        user: {
+          email: form.email,
+          phone: `${dial}${form.phone}`,
+          firstName: form.firstName,
+          lastName: form.lastName,
+          city: form.city,
+          countryCode: form.country === "nepal" ? "NP" : null,
+        },
+      });
       setDone(true);
     } catch (err) {
       console.error(err);

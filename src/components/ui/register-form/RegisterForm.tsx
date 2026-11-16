@@ -7,6 +7,7 @@ import { supabase } from "@/lib/supabase";
 import { createReferralFromRegistration } from "@/lib/affiliate/api";
 import { readAffiliateRefCookie, writeAffiliateRef } from "@/lib/affiliate/refCookie";
 import { getUtmAttribution } from "@/lib/attribution/utmStorage";
+import { leadTrackingFields, newEventId, trackConversion } from "@/lib/tracking/track";
 import { DIAL_CODES, SEARCH_NAMES } from "@/lib/dialCodes";
 import Select from "@/components/ui/consultation/Select";
 
@@ -889,7 +890,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
     return payload.hearAbout;
   };
 
-  const postToCRM = (payload: FormData, refCode: string | null, affiliateName: string | null) => {
+  const postToCRM = (payload: FormData, refCode: string | null, affiliateName: string | null, eventId: string) => {
     const { utm_source, utm_medium, utm_campaign } = getUtmAttribution();
     return fetch(CRM_ENDPOINT, {
       method: "POST",
@@ -915,6 +916,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
           hear_about:      buildHearAbout(payload),
           ...(refCode       ? { ref_code:       refCode       } : {}),
           ...(affiliateName ? { affiliate_name: affiliateName } : {}),
+          ...leadTrackingFields(eventId),
         },
       }),
     });
@@ -925,6 +927,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
     setSubmitting(true);
     try {
       const leadId = crypto.randomUUID();
+      const eventId = newEventId();
       // URL param takes priority (strongest signal — student is on /register?ref=CODE right now).
       // Also refresh sessionStorage so the current session is properly tagged.
       // readAffiliateRefCookie() checks sessionStorage first, then the 30-day cookie —
@@ -947,7 +950,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
         affiliateName = data?.full_name ?? null;
       }
 
-      const [supabaseResult] = await Promise.allSettled([
+      const [supabaseResult, crmResult] = await Promise.allSettled([
         supabase.from("register_leads").insert({
           id:             leadId,
           full_name:      `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
@@ -964,7 +967,7 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
           ref_code:       refCode || null,
           affiliate_name: affiliateName,
         }),
-        postToCRM(form, refCode, affiliateName),
+        postToCRM(form, refCode, affiliateName, eventId),
       ]);
 
       // Log Supabase failures but never block the student — CRM is the primary lead store.
@@ -989,6 +992,32 @@ export default function RegisterForm({ onStepChange, onSubmitSuccess, hideIntern
             }
           })
           .catch(err => console.warn("[affiliate referral] unexpected:", err));
+      }
+
+      // Count the conversion only if the lead was actually stored somewhere.
+      const savedToCrm = crmResult.status === "fulfilled" && crmResult.value.ok;
+      const savedToSupabase = supabaseResult.status === "fulfilled" && !supabaseResult.value.error;
+      if (savedToCrm || savedToSupabase) {
+        const spec = dialSpec(form.dialCode);
+        trackConversion({
+          eventId,
+          formName: "register",
+          details: {
+            destinations: form.countries.join(", "),
+            study_level: form.education,
+            field: form.field,
+            intake: form.intake,
+            referred_by_affiliate: refCode ? "yes" : "no",
+          },
+          user: {
+            email: form.email,
+            phone: `${spec.dial}${form.phone}`,
+            firstName: form.firstName,
+            lastName: form.lastName,
+            city: form.city,
+            countryCode: spec.key,
+          },
+        });
       }
 
       setDone(true);
