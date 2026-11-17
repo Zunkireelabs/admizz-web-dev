@@ -589,11 +589,11 @@ export default function RegisterPage() {
 
           {(() => {
             const counselors = [
-              { name: "Mr. Bijay", region: "Australia & UK", flags: "🇦🇺🇬🇧", image: "/images/counselors/bijay.jpeg", color: "#E04562", deep: "#B72D47" },
-              { name: "Mr. Nikhil", region: "USA & Canada", flags: "🇺🇸🇨🇦", image: "/images/counselors/nikhil.jpeg", color: "#4FBFA8", deep: "#2F9D85" },
-              { name: "Mr. Amit", region: "Australia & India", flags: "🇦🇺🇮🇳", image: "/images/counselors/amit.jpeg", color: "#F08A5F", deep: "#D76A3D" },
-              { name: "Mr. Gautam", region: "UK & Europe", flags: "🇬🇧🇪🇺", image: "/images/counselors/gautam.jpeg", color: "#B373E5", deep: "#8B47C2" },
-              { name: "Mrs. Mamata", region: "India & Nepal", flags: "🇮🇳🇳🇵", image: "/images/counselors/mamata.jpeg", color: "#4F7DEB", deep: "#2954C7" },
+              { name: "Mr. Bijay", region: "Australia & UK", flags: "🇦🇺🇬🇧", image: "/images/counsellors/bijay.jpeg", color: "#E04562", deep: "#B72D47" },
+              { name: "Mr. Nikhil", region: "USA & Canada", flags: "🇺🇸🇨🇦", image: "/images/counsellors/nikhil.jpeg", color: "#4FBFA8", deep: "#2F9D85" },
+              { name: "Mr. Amit", region: "Australia & India", flags: "🇦🇺🇮🇳", image: "/images/counsellors/amit.jpeg", color: "#F08A5F", deep: "#D76A3D" },
+              { name: "Mr. Gautam", region: "UK & Europe", flags: "🇬🇧🇪🇺", image: "/images/counsellors/gautam.jpeg", color: "#B373E5", deep: "#8B47C2" },
+              { name: "Mrs. Mamata", region: "India & Nepal", flags: "🇮🇳🇳🇵", image: "/images/counsellors/mamata.jpeg", color: "#4F7DEB", deep: "#2954C7" },
             ];
             const Card = ({ c, size = "lg" }: { c: typeof counselors[number]; size?: "sm" | "lg" }) => (
               <div className="bg-white rounded-2xl overflow-hidden flex-shrink-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #F0F0F0", boxShadow: "0 2px 12px rgba(13,18,130,0.05)", width: size === "sm" ? 160 : undefined }}>
