@@ -32,6 +32,7 @@ export default function MobileStickyActions({
 
   return (
     <div
+      data-bottom-bar
       className={`tablet:hidden fixed bottom-0 left-0 right-0 z-40 px-3 pb-3 pt-2 transition-all duration-300 ${
         visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
       }`}

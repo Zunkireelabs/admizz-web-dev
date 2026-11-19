@@ -9,8 +9,12 @@ import { isPortalPath } from "@/lib/portal-routes";
 const BASE_URL = process.env.NEXT_PUBLIC_CHATWOOT_BASE_URL;
 const WEBSITE_TOKEN = process.env.NEXT_PUBLIC_CHATWOOT_WEBSITE_TOKEN;
 
-// The compare tray on this page is a full-width bar on desktop, so the bubble sits above it.
-const DESKTOP_LIFT_PATH = "/explore-universities";
+// Fixed bottom bars on the site (register CTA, city and template CTAs, the university compare
+// tray) carry this attribute. The bubble measures whichever one is on screen and sits above it.
+const BOTTOM_BAR_SELECTOR = "[data-bottom-bar]";
+const GAP_ABOVE_BAR_PX = 12;
+// Chatwoot puts the open chat window 84px above the bubble (bubble 20px up, window 104px up).
+const CHAT_WINDOW_ABOVE_BUBBLE_PX = 84;
 
 declare global {
   interface Window {
@@ -19,14 +23,64 @@ declare global {
   }
 }
 
+/** Height of the tallest bottom bar that is on screen right now, or 0 when there is none. */
+function visibleBottomBarHeight(): number {
+  let tallest = 0;
+  document.querySelectorAll<HTMLElement>(BOTTOM_BAR_SELECTOR).forEach((bar) => {
+    const rect = bar.getBoundingClientRect();
+    if (rect.height === 0) return; // not displayed at this screen width
+    if (rect.top >= window.innerHeight) return; // slid down out of view
+    if (getComputedStyle(bar).opacity === "0") return; // faded out
+    tallest = Math.max(tallest, window.innerHeight - rect.top);
+  });
+  return tallest;
+}
+
+/** Publishes the offsets that globals.css reads; with no bar on screen, Chatwoot's defaults apply. */
+function applyBubbleOffset() {
+  const root = document.documentElement;
+  const barHeight = visibleBottomBarHeight();
+  if (barHeight === 0) {
+    root.removeAttribute("data-chat-bar");
+    root.style.removeProperty("--chat-bubble-bottom");
+    root.style.removeProperty("--chat-window-bottom");
+    return;
+  }
+  const bubbleBottom = barHeight + GAP_ABOVE_BAR_PX;
+  root.setAttribute("data-chat-bar", "");
+  root.style.setProperty("--chat-bubble-bottom", `${bubbleBottom}px`);
+  root.style.setProperty("--chat-window-bottom", `${bubbleBottom + CHAT_WINDOW_ABOVE_BUBBLE_PX}px`);
+}
+
 export default function ChatwootWidget() {
   const pathname = usePathname();
   const startedRef = useRef(false);
   const hiddenRef = useRef(false);
 
-  // globals.css lifts the bubble when this attribute is present (desktop compare tray).
+  // Keep the bubble clear of whichever bottom bar is visible, as bars slide in and out.
   useEffect(() => {
-    document.documentElement.toggleAttribute("data-chat-lift", pathname.startsWith(DESKTOP_LIFT_PATH));
+    if (!BASE_URL || !WEBSITE_TOKEN) return;
+
+    let frame = 0;
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(applyBubbleOffset);
+    };
+
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    document.addEventListener("transitionend", schedule);
+    const observer = new MutationObserver(schedule);
+    observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class", "style"] });
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      document.removeEventListener("transitionend", schedule);
+      observer.disconnect();
+    };
   }, [pathname]);
 
   useEffect(() => {
