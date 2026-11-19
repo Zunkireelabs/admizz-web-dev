@@ -7,6 +7,7 @@ import SiteChrome from "@/components/layout/SiteChrome";
 import ScrollToTop from "@/components/ScrollToTop";
 import NavTracker from "@/components/NavTracker";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import ChatwootWidget from "@/components/ChatwootWidget";
 import AffiliateRefCapture from "@/components/AffiliateRefCapture";
 import UtmAttributionCapture from "@/components/UtmAttributionCapture";
 import AuthTokenCatcher from "@/components/AuthTokenCatcher";
@@ -280,12 +281,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           strategy="lazyOnload"
           crossOrigin="anonymous"
         />
-        {/* Chatwoot website chat bubble. Renders only when both env vars are set, so it stays off until configured. */}
-        {process.env.NEXT_PUBLIC_CHATWOOT_BASE_URL && process.env.NEXT_PUBLIC_CHATWOOT_WEBSITE_TOKEN && (
-          <Script id="chatwoot-widget" strategy="lazyOnload">
-            {`(function(d,t){var BASE_URL=${JSON.stringify(process.env.NEXT_PUBLIC_CHATWOOT_BASE_URL)};var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=BASE_URL+"/packs/js/sdk.js";g.async=true;s.parentNode.insertBefore(g,s);g.onload=function(){window.chatwootSDK.run({websiteToken:${JSON.stringify(process.env.NEXT_PUBLIC_CHATWOOT_WEBSITE_TOKEN)},baseUrl:BASE_URL})}})(document,"script");`}
-          </Script>
-        )}
+        <ChatwootWidget />
         {/* Zunkiree Search widget — hidden
         <Script
           src="https://zunkiree-search-v1.vercel.app/zunkiree-widget.iife.js"

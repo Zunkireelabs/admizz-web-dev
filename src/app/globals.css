@@ -120,3 +120,21 @@ html {
   content-visibility: auto;
   contain-intrinsic-size: 0 800px;
 }
+
+/* Website chat bubble (Chatwoot) — keep the closed bubble clear of fixed bottom bars.
+   Phones: sticky bars on the register and city pages. The OPEN chat is full-screen on phones,
+   so only the bubble moves. Desktop: the compare tray on /explore-universities
+   (ChatwootWidget sets data-chat-lift on <html> there). */
+@media (max-width: 667px) {
+  .woot-widget-bubble {
+    bottom: 90px !important;
+  }
+}
+@media (min-width: 668px) {
+  html[data-chat-lift] .woot-widget-bubble {
+    bottom: 110px !important;
+  }
+  html[data-chat-lift] .woot-widget-holder {
+    bottom: 194px !important;
+  }
+}
