@@ -1,6 +1,5 @@
-// Body copied from the Sanity post of the same slug (Portable Text, rendered by the
-// same PortableTextRenderer). Kept in the website repo so the post no longer
-// depends on Sanity.
+// Body of this post (Portable Text, rendered by the same PortableTextRenderer
+// as the content posts). Kept in the website repo.
 export const content = [
  {
   "_key": "e0ac7c23177e",

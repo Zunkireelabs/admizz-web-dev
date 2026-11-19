@@ -9,7 +9,7 @@
 - Preserve 100% of existing content
 - Preserve 100% of SEO value
 - Maintain identical URLs, structure, and content
-- Introduce a Headless CMS (Sanity) for blog/content management
+- Keep blog content as files in the repo (no CMS; see section 6)
 
 > This is a **technology migration**, not a redesign or re-architecture of content.
 
@@ -31,9 +31,8 @@
 
 ### CMS
 
-- **Sanity** (Headless CMS)
-- Scope limited to: Blog posts, Blog categories/tags, SEO metadata
-- Sanity Studio hosted separately (managed by Sanity)
+- **Repo-based blog content** (`src/content/blog`), no CMS
+- Scope: Blog posts, Blog categories, SEO metadata
 
 ---
 
@@ -87,7 +86,7 @@ Each blog post must preserve:
 
 ### Blog Content
 
-> Sourced from Sanity.
+> Sourced from `src/content/blog`.
 
 - Title, Slug, Body (rich text)
 - Featured image
@@ -96,42 +95,27 @@ Each blog post must preserve:
 
 ---
 
-## 6. Sanity CMS — Content Model
+## 6. Blog Content Model (repo files, CRET-12)
 
-### Document: `post`
+Blogs live in the repo, not in a CMS. Posts are JSON files in `src/content/blog/posts/<slug>.json`
+(index: `src/content/blog/index.json`, categories: `src/content/blog/categories.json`), read at build
+time by `src/lib/blog-content.ts`. Types: `BlogPost`, `BlogCategory`, `BlogSEO`, `BlogImage` in `src/types/index.ts`.
+New posts are written as repo pages with `GeneratedBlogPost`; rules in `docs/seo-content-rules.md`.
 
-| Field | Type | Notes |
-|---|---|---|
-| `title` | string | required |
-| `slug` | slug | required, must match WP slug |
-| `publishedAt` | datetime | |
-| `excerpt` | text | |
-| `content` | portable text | |
-| `featuredImage` | image | |
-| `categories` | reference[] | |
-| `seo` | object | see below |
-
-**SEO Object Fields:** `metaTitle`, `metaDescription`, `canonicalUrl`, `noIndex` (boolean), `ogImage`
-
-### Document: `category`
-
-| Field | Type |
-|---|---|
-| `title` | string |
-| `slug` | slug |
+**Post fields:** `title`, `slug` (must match the WP slug), `publishedAt`, `excerpt`, `content`, `featuredImage`, `categories`, `seo`
+(`metaTitle`, `metaDescription`, `canonicalUrl`, `noIndex`, `ogImage`).
 
 ---
 
 ## 7. Build & Data Flow
 
 ```
-Sanity (publish/edit) → Next.js (GROQ fetch at build) → /out (static) → Nginx (Docker) → Traefik (SSL + domain)
+Edit files in src/content/blog → PR → Next.js build → /out (static) → Nginx (Docker) → Traefik (SSL + domain)
 ```
 
 ### Rebuild Strategy
 
-- **Initial:** Manual rebuild via `deploy.sh`
-- **Future (optional):** Webhook-triggered rebuild
+- Merging into `stage` deploys dev-web; merging into `main` deploys production (GitHub Actions). No webhook.
 
 ---
 
@@ -142,10 +126,9 @@ Sanity (publish/edit) → Next.js (GROQ fetch at build) → /out (static) → Ng
 **Key additions:**
 
 ```
-src/lib/sanity.ts          — Sanity client
-src/lib/queries.ts         — GROQ queries
-src/app/blog/[slug]/page.tsx — Blog detail page
-src/app/blog/page.tsx      — Blog listing
+src/lib/blog-content.ts    — reads blog posts from src/content/blog
+src/app/[slug]/page.tsx    — Blog detail page
+src/app/blogs/page.tsx     — Blog listing
 ```
 
 - SEO utility for meta tags
@@ -156,7 +139,7 @@ src/app/blog/page.tsx      — Blog listing
 
 - Use Next.js `generateMetadata()` for blog and static pages
 - **Metadata source:**
-  - Blogs → Sanity
+  - Blogs → `src/content/blog` (plus `src/data/post-seo-overrides.ts`)
   - Static pages → Local constants
 - Canonical URLs must be absolute
 - `noindex` respected if set
@@ -175,7 +158,7 @@ src/app/blog/page.tsx      — Blog listing
 ## 11. Images & Performance
 
 - Use static images where possible
-- Blog images served via Sanity CDN (or downloaded locally — optional)
+- Blog images served locally from `public/images/blog/`
 - Long-term caching enabled in Nginx (already in template)
 
 ---
@@ -184,7 +167,7 @@ src/app/blog/page.tsx      — Blog listing
 
 | Environment | Stack |
 |---|---|
-| **Development** | Local Next.js dev server, optional dev Sanity dataset |
+| **Development** | Local Next.js dev server |
 | **Production** | Docker container, Traefik-managed SSL, domain: `admizzeducation.com` |
 
 ---

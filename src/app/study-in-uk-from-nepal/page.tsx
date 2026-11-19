@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in UK from Nepal: Visa, Costs, Intakes and Documents (2026) | Admizz Education",
@@ -209,6 +209,26 @@ const pageData: NepalVariantData = {
       answer:
         "Apply between November and May for the September intake. The January intake is open from July to October, and some courses have a May intake. Applying early gives you more time for your funds, CAS and visa.",
     },
+    {
+      question: "How much is the UK student visa fee from Nepal?",
+      answer:
+        "GOV.UK lists £558 to apply for a Student visa from outside the UK, and the Home Office fees table effective October 8, 2026 shows it unchanged. You also pay the Immigration Health Surcharge, which is £776 per year for students. There is no charge if you apply from outside the UK for a course of 6 months or less, and a stay of more than 6 months but under a year counts as a full year.",
+    },
+    {
+      question: "What is the UK student visa success rate for Nepali applicants?",
+      answer:
+        "Home Office data for the year ending June 2026 shows, for Nepali main applicants for sponsored study, 17,397 applications and 17,209 decisions: 16,300 visas issued, 691 refused and 218 withdrawn. That is about 95% issued among decisions, which is our own calculation from the official counts (95.9% if withdrawn cases are left out). The figures change each quarter, and the Home Office lists its next release for November 26, 2026.",
+    },
+    {
+      question: "How do I apply for a UK student visa from Nepal, step by step?",
+      answer:
+        "First get an offer from a licensed student sponsor and a CAS. Then apply online within 6 months of receiving your CAS, and no earlier than 6 months before your course starts. Pay the visa fee and the healthcare surcharge, provide your passport and CAS plus proof of funds, and add a TB test result and an ATAS certificate if they apply to you. You then prove your identity with the UK Immigration: ID Check app or by giving fingerprints and a photo at a visa application centre, and GOV.UK says you are told which when you apply. A decision usually takes 3 weeks from outside the UK.",
+    },
+    {
+      question: "Do Nepali students need a TB test for the UK?",
+      answer:
+        "Nepal is on GOV.UK's list of countries where a TB test is needed. You need the test if you are coming to the UK for 6 months or more and have lived 6 months or more in a listed country within the last 6 months. It is a chest x-ray at a Home Office approved clinic, and the certificate is valid for 6 months from the x-ray date.",
+    },
   ],
 
   quickAnswer:
@@ -237,6 +257,6 @@ const pageData: NepalVariantData = {
 };
 
 export default async function StudyInUKFromNepalPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("uk");
+  const blogPosts: BlogPost[] = getPostsByCategory("uk");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in France from Nepal - Admizz Education",
@@ -91,7 +91,7 @@ const pageData: NepalVariantData = {
     { category: "Admission & housing", details: "Accept your offer and arrange accommodation." },
     { category: "Visa form on France-Visas", details: "Fill in the long-stay student visa form online." },
     { category: "Submit at VFS Kathmandu", details: "Documents and biometrics at VFS Global, Thapathali." },
-    { category: "Decision & arrival", details: "Validate your visa online within 3 months of arriving (€100)." },
+    { category: "Decision & arrival", details: "Validate your visa online within 3 months of arriving (€150)." },
   ],
   visaDocuments: [
     "Valid passport",
@@ -123,7 +123,7 @@ const pageData: NepalVariantData = {
       title: "Living & visa costs",
       rows: [
         { category: "Funds to show", cost: "€877.50 / mo" },
-        { category: "Visa validation", cost: "€100" },
+        { category: "Visa validation", cost: "€150" },
         { category: "Student contribution (CVEC)", cost: "€105 / yr" },
       ],
     },
@@ -182,6 +182,11 @@ const pageData: NepalVariantData = {
         "For new non-EU students in 2026-27: €2,902 a year for a bachelor's and €3,950 for a master's. Some universities offer fee waivers.",
     },
     {
+      question: "How much is the France student visa application fee?",
+      answer:
+        "We could not confirm the current application fee from an official page we can read, so we do not quote a figure. The fee and any VFS Global service fee are shown on France-Visas and when you book your VFS appointment in Kathmandu, so check both before you pay. Separately, after you arrive you pay \u20AC150 to validate your student visa online (service-public.gouv.fr).",
+    },
+    {
       question: "Where do Nepali students apply for the visa?",
       answer:
         "Complete Études en France with Campus France Nepal, fill in the form on France-Visas, then submit your documents at VFS Global in Kathmandu.",
@@ -193,6 +198,6 @@ const pageData: NepalVariantData = {
 };
 
 export default async function StudyInFranceFromNepalPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("france");
+  const blogPosts: BlogPost[] = getPostsByCategory("france");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

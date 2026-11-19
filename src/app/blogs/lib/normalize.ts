@@ -1,14 +1,14 @@
 import { urlFor } from "@/lib/image";
-import type { SanityPost, BlogListItem } from "@/types";
+import type { BlogPost, BlogListItem } from "@/types";
 import type { GeneratedPostManifestEntry } from "@/types";
 
-// Both post sources (Sanity CMS, locally-generated) convert into this one
+// Both post sources (src/content/blog, locally-generated) convert into this one
 // shape before reaching PostCard/MoreArticles — those components render
 // ONE kind of thing and never need to know which source it came from.
-// Sanity's urlFor() image resolution happens HERE, once, so PostCard never
-// touches a Sanity-specific API (a local post's image is already a plain
+// urlFor() image resolution happens HERE, once, so PostCard never
+// touches the image helper (a local post's image is already a plain
 // URL — running it through urlFor() would break).
-export function fromSanityPost(post: SanityPost): BlogListItem {
+export function fromContentPost(post: BlogPost): BlogListItem {
   return {
     key: post.slug.current,
     href: `/${post.slug.current}`,

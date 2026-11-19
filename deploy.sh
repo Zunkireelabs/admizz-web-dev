@@ -45,18 +45,5 @@ chmod -R g+rwX .next node_modules 2>/dev/null || true
 [ ! -d out ] && echo "ERROR: out/ not produced" && exit 1
 
 # ── Step 3: Deploy containers ───────────────────────────────────────────────
-if [ "$WEBHOOK_TRIGGERED" == "1" ]; then
-    # Webhook: deploy dev + prod simultaneously using the same out/
-    echo "3. Deploying to dev and prod in parallel..."
-    deploy_container dev &
-    PID_DEV=$!
-    deploy_container prod &
-    PID_PROD=$!
-    wait $PID_DEV
-    wait $PID_PROD
-    echo "All deployments complete — dev and prod are live"
-else
-    # Manual deploy: single env only
-    echo "3. Deploying to $ENV..."
-    deploy_container "$ENV"
-fi
+echo "3. Deploying to $ENV..."
+deploy_container "$ENV"

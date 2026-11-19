@@ -1,11 +1,11 @@
 # Website Migration Frontend Architect Role Documentation  
-**Project: Admizz Education (WordPress → Next.js Static + Sanity)**
+**Project: Admizz Education (WordPress → Next.js Static)**
 
 ---
 
 ## Role Summary
 
-Senior Frontend Architect & Migration Engineer responsible for executing a **zero-SEO-loss website migration** from WordPress to a **Next.js Static Export architecture** using **Zunkiree Labs’ Docker + Traefik standard**, with **Sanity as the headless CMS** for content management.
+Senior Frontend Architect & Migration Engineer responsible for executing a **zero-SEO-loss website migration** from WordPress to a **Next.js Static Export architecture** using **Zunkiree Labs’ Docker + Traefik standard**, with blog **content kept as files in the repo** (no CMS) for content management.
 
 This role prioritizes **SEO preservation, structural parity, performance, and maintainability** over redesign or experimentation.
 
@@ -33,7 +33,7 @@ This role prioritizes **SEO preservation, structural parity, performance, and ma
   - SEO metadata
 - Replace WordPress with:
   - **Next.js Static Export**
-  - **Sanity Headless CMS (blogs only)**
+  - **Blog content as files in the repo** (no CMS)
 - Match current website behavior **1:1** from the perspective of:
   - Search engines
   - Users
@@ -62,14 +62,11 @@ This is a **technology migration**, not a redesign.
 
 ---
 
-### 3. Headless CMS Integration (Sanity)
-- Integrate Sanity strictly for:
-  - Blog posts
-  - Categories
-  - SEO metadata
-- Enforce structured content models
-- Prevent editors from altering layout or routing logic
-- Fetch content at build time via GROQ
+### 3. Blog Content (repo files)
+- Blog posts, categories and SEO metadata live in `src/content/blog` (CRET-12)
+- Enforce structured content (`src/types/index.ts`) and `docs/seo-content-rules.md`
+- Posts can't alter layout or routing logic (one shared design: `BlogPostLayout`)
+- Read at build time by `src/lib/blog-content.ts`
 
 ---
 
@@ -125,7 +122,7 @@ This is a **technology migration**, not a redesign.
 | Framework | Next.js (Static Export) | `output: export` |
 | Language | TypeScript | Required |
 | Styling | Tailwind CSS | Utility-first |
-| CMS | Sanity | Blogs + SEO only |
+| Blog content | Repo files (`src/content/blog`) | No CMS |
 | Server | Nginx (Docker) | Static serving |
 | Proxy | Traefik | SSL + routing |
 | Hosting | VPS / Docker | Zunkiree Labs standard |
@@ -189,7 +186,7 @@ If a choice risks SEO or URL parity, it is **automatically rejected**.
 **Current Phase**:  
 ➡️ Execution phase  
 ➡️ Architecture approved  
-➡️ CMS selected (Sanity)  
+➡️ Blog content in the repo (no CMS)  
 ➡️ Ready for implementation
 
 ---

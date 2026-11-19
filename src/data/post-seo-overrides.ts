@@ -1,7 +1,7 @@
-// Search-result title and description for existing Sanity posts, keyed by
+// Search-result title and description for existing content posts, keyed by
 // post slug. [slug]/page.tsx uses these in preference to the post's own
 // seo.metaTitle / seo.metaDescription, so a keyword or wording fix ships with
-// the site code (reviewed in a PR) instead of needing a Sanity publish.
+// the site code (reviewed in a PR) instead of editing the post file.
 // Titles stay under ~60 characters and descriptions under ~160.
 export const postSeoOverrides: Record<string, { title: string; description: string }> = {
   "best-study-abroad-consultants-in-nepal-how-to-choose-the-right-one-for-your-future": {
@@ -27,6 +27,14 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
   "online-application-vs-application-through-direct-consultancy": {
     title: "Online Application vs Using an Education Consultancy",
     description: "Compare applying online yourself with using an education consultancy: pros, cons and how to decide. Advice from Admizz Education.",
+  },
+  "london-metropolitan-university-fees-courses-international-2027": {
+    title: "London Metropolitan University Fees (International, 2027)",
+    description: "London Metropolitan University fees for international students: typical tuition, the \u00a35,000 Bright Futures Scholarship, popular courses and 2027 entry rules.",
+  },
+  "university-of-west-london-courses-international-2027": {
+    title: "University of West London January 2027 Intake and Courses",
+    description: "University of West London courses and January 2027 intake for international students: subjects, campuses, entry requirements, IELTS and how to apply.",
   },
   "study-abroad-from-nepal": {
     title: "Study Abroad from Nepal: Countries, Process & Support",
@@ -303,10 +311,6 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
   "new-age-courses-that-can-help-you-build-a-great-career": {
     title: "New Age Courses for a Great Career: Top Options",
     description: "Explore new age courses such as animation, performing arts, golf coaching, fashion design, filmmaking and foreign languages for a career built on your passion.",
-  },
-  "us-f1-september-15-deadline-2026": {
-    title: "F-1 Visa Rule Change: September 15, 2026 Deadline",
-    description: "Duration of Status ends September 15, 2026 for F-1 students. See the fixed 4-year limit, travel warning, USCIS extensions and what to do before the deadline.",
   },
   "3-reasons-why-you-should-study-at-kiit-university": {
     title: "3 Reasons to Study at KIIT University",

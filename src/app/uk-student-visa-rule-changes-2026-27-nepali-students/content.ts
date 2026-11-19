@@ -1,4 +1,4 @@
-// Rich body in the same format as the Sanity-style posts (styled HTML rendered by PortableTextRenderer).
+// Rich body in the same format as the content posts (styled HTML rendered by PortableTextRenderer).
 export const content = [
  {
   "_key": "richukstude",

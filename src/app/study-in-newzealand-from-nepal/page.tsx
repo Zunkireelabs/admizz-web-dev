@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in New Zealand from Nepal - Admizz Education",
@@ -169,7 +169,7 @@ const pageData: NepalVariantData = {
     {
       question: "Can I work while studying in New Zealand?",
       answer:
-        "Yes. Eligible students can work up to 25 hours a week during study and full-time in scheduled holidays.",
+        "Yes. Eligible students can work up to 25 hours a week during study and full-time in scheduled holidays. Immigration New Zealand says that from November 3, 2025, students on a 20-hour visa must apply for a variation of conditions to raise it to 25 hours, with a fee listed as NZD 325.",
     },
     {
       question: "How long is the Post Study Work Visa?",
@@ -186,6 +186,16 @@ const pageData: NepalVariantData = {
       answer:
         "6 to 9 months before you want to start. Main intakes are February and July.",
     },
+    {
+      question: "What is the New Zealand Short-term Graduate Work Visa?",
+      answer:
+        "It is a new visa of up to six months with open work rights for graduates who do not qualify for a Post Study Work Visa. Immigration New Zealand's instructions say you need a level 5 to 7 qualification studied full-time for at least 24 weeks in New Zealand (not English-language, foundation or bridging study), NZ$5,000 in funds, and you must apply no later than 3 months after your student visa ends. You cannot have held a Short-term Graduate Work Visa or a Post Study Work Visa before. The launch was postponed from November 16 to November 23, 2026, so check the Immigration New Zealand page before you apply.",
+    },
+    {
+      question: "Can a Graduate Diploma lead to a Post Study Work Visa?",
+      answer:
+        "From the same launch date, Immigration New Zealand's instructions allow a level 7 Graduate Diploma studied full-time in New Zealand if you also hold a bachelor's degree, from New Zealand or overseas. The visa lasts for the time you studied in New Zealand, up to a maximum of one year.",
+    },
   ],
 
   ctaTitle: "Plan your New Zealand move with us",
@@ -193,6 +203,6 @@ const pageData: NepalVariantData = {
 };
 
 export default async function StudyInNewZealandFromNepalPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("new-zealand");
+  const blogPosts: BlogPost[] = getPostsByCategory("new-zealand");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

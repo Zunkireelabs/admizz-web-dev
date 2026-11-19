@@ -10,7 +10,7 @@ import type { FAQItem } from "@/components/ui/FAQ";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import DestinationEntitySchema from "@/components/ui/DestinationEntitySchema";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 import { ADMIZZ_STATS, ADMIZZ_STATS_BASIS } from "@/lib/admizz-stats";
 
 export interface QuickFact {
@@ -82,7 +82,7 @@ export interface CountryPageData {
 
 interface CountryPageTemplateProps {
   data: CountryPageData;
-  blogPosts?: SanityPost[];
+  blogPosts?: BlogPost[];
 }
 
 
@@ -1134,7 +1134,7 @@ export default function CountryPageTemplate({ data, blogPosts }: CountryPageTemp
       </div>
 
       {/* ===== STUDY ABROAD INSIGHTS (Blog) ===== */}
-      {/* Renders itself only when there is something to show (Sanity posts or repo posts for this category). */}
+      {/* Renders itself only when there is something to show (content posts or repo posts for this category). */}
       <StudyAbroadInsights
         posts={blogPosts ?? []}
         countryName={data.countryName}

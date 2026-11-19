@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in India from Nepal - Admizz Education",
@@ -199,6 +199,6 @@ const pageData: NepalVariantData = {
 };
 
 export default async function StudyInIndiaFromNepalPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("india");
+  const blogPosts: BlogPost[] = getPostsByCategory("india");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

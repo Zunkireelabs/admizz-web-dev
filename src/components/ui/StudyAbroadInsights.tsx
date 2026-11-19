@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { urlFor } from "@/lib/image";
-import type { SanityPost, GeneratedPostManifestEntry } from "@/types";
+import type { BlogPost, GeneratedPostManifestEntry } from "@/types";
 import generatedPosts from "@/data/generated-posts.json";
 
-// One card, whichever source it came from (Sanity CMS or a post written in the repo).
+// One card, whichever source it came from (src/content/blog or a repo-authored page).
 interface InsightItem {
   key: string;
   href: string;
@@ -16,7 +16,7 @@ interface InsightItem {
 }
 
 interface StudyAbroadInsightsProps {
-  posts: SanityPost[];
+  posts: BlogPost[];
   countryName: string;
   categorySlug?: string;
 }
@@ -26,7 +26,7 @@ export default function StudyAbroadInsights({
   countryName,
   categorySlug,
 }: StudyAbroadInsightsProps) {
-  const fromSanity: InsightItem[] = (posts || []).map((post) => ({
+  const fromContent: InsightItem[] = (posts || []).map((post) => ({
     key: post.slug.current,
     href: `/${post.slug.current}`,
     title: post.title,
@@ -57,7 +57,7 @@ export default function StudyAbroadInsights({
 
   // Newest first; a post that exists in both places is shown once.
   const seen = new Set<string>();
-  const allPosts = [...fromSanity, ...fromRepo]
+  const allPosts = [...fromContent, ...fromRepo]
     .filter((p) => (seen.has(p.href) ? false : (seen.add(p.href), true)))
     .sort((a, b) => (b.publishedAt || "").localeCompare(a.publishedAt || ""));
 

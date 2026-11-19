@@ -1,14 +1,14 @@
 /**
  * Image URLs for blog content now served from this repo (CRET-12).
  *
- * This is a COMPATIBILITY SHIM. It keeps the chained call signature of Sanity's
+ * This is a COMPATIBILITY SHIM. It keeps the chained call signature of the old CMS
  * image builder — urlFor(img).width(600).auto("format").url() — so that swapping
  * the data source did not require editing the markup of the ~6 places that build
  * a blog image URL. That was the point: an untouched expression cannot change
  * what it renders. A follow-up can replace these call sites with a plain
  * `post.featuredImage.card` and delete this file.
  *
- * the one-time export from Sanity wrote three renditions per post, matching
+ * the one-time export from the old CMS wrote three renditions per post, matching
  * what each call site asked the CDN for:
  *
  *   .width(1200).auto("format")          article hero   -> <slug>-1200.webp
@@ -33,8 +33,6 @@ export interface LocalImage {
   og: string;
   alt: string | null;
   caption: string | null;
-  _sanityRef?: string;
-  _sanityOgRef?: string;
 }
 
 export interface ImageUrlBuilderLike {

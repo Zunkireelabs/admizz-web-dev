@@ -1,8 +1,8 @@
 /**
  * Pre-build script: regenerates the "## Key Pages" list in public/llms.txt
- * and writes public/llms-full.txt, both from live Sanity data.
+ * and writes public/llms-full.txt, both from the blog content in src/content/blog.
  *
- * Posts that live in the website repo instead of Sanity (listed in
+ * Repo-authored posts with their own page under src/app (listed in
  * src/data/generated-posts.json) are merged into the same lists, so AI
  * crawlers see them too.
  *
@@ -29,14 +29,14 @@ const BASE_URL = "https://admizzeducation.com";
 const KEY_PAGE_LIMIT = 25;
 const KEY_PAGES_HEADING = "## Key Pages";
 
-// Blog posts now come from committed files (CRET-12), not from Sanity.
+// Blog posts come from committed files in src/content/blog (CRET-12).
 function readBlogIndex() {
   const file = path.join(ROOT, "src", "content", "blog", "index.json");
   return JSON.parse(fs.readFileSync(file, "utf-8")).filter((p) => !RETIRED.includes(p.slug));
 }
 
 // One line, no markdown-breaking characters.
-// Same style rule as src/lib/sanity-text.ts: "Nepali" in visible text (URLs keep their slug).
+// Same style rule as src/lib/text-style.ts: "Nepali" in visible text (URLs keep their slug).
 const oneLine = (s) =>
   (s || "")
     .replace(/\s+/g, " ")
@@ -79,8 +79,8 @@ function readLocalAnswerPages() {
   return out;
 }
 
-// Posts that exist as files in this repo (no Sanity document). Same shape as
-// the Sanity rows so they sort and render with the same code.
+// Repo-authored posts (own page under src/app, no JSON in src/content/blog). Same
+// shape as the content rows so they sort and render with the same code.
 function readLocalPosts() {
   const manifestPath = path.join(ROOT, "src", "data", "generated-posts.json");
   if (!fs.existsSync(manifestPath)) return [];
@@ -97,7 +97,7 @@ function readLocalPosts() {
   }
 }
 
-// Slugs with their own page file under src/app (they override the noindex flag on the Sanity post).
+// Slugs with their own page file under src/app (they override the noindex flag on the content post).
 function repoPageSlugs() {
   const dir = path.join(ROOT, "src", "app");
   return fs.readdirSync(dir, { withFileTypes: true })

@@ -49,8 +49,6 @@ yarn-error.log*
 !.env.example
 !**/.env.example
 
-# sanity studio
-.sanity/
 /dist/
 webhook/logs/
 
