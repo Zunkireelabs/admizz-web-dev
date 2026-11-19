@@ -7,7 +7,7 @@ import type { FAQItem } from "@/components/ui/FAQ";
 import CTAForm from "@/components/ui/CTAForm";
 import CountryCard from "@/components/ui/CountryCard";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 import StudyAbroadInsights from "@/components/ui/StudyAbroadInsights";
 import TestimonialsBento from "@/components/ui/TestimonialsBento";
 
@@ -197,7 +197,7 @@ const faqItems: FAQItem[] = [
 ];
 
 export default async function CareerCounselingForInternationalStudentsPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("career-planning");
+  const blogPosts: BlogPost[] = getPostsByCategory("career-planning");
 
   return (
     <main>

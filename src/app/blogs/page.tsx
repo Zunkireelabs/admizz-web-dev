@@ -2,10 +2,12 @@ import Link from "next/link";
 import BreadcrumbSchema from "@/components/ui/BreadcrumbSchema";
 import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/blog-content";
-import type { SanityPost, BlogListItem, GeneratedPostManifestEntry } from "@/types";
+import type { BlogPost, BlogListItem, GeneratedPostManifestEntry } from "@/types";
 import PostCard from "./PostCard";
 import MoreArticles from "./MoreArticles";
-import { fromSanityPost, fromGeneratedPost } from "./lib/normalize";
+import FAQ from "@/components/ui/FAQ";
+import { blogIndexFaqs } from "@/data/page-faqs";
+import { fromContentPost, fromGeneratedPost } from "./lib/normalize";
 import generatedPostsData from "@/data/generated-posts.json";
 
 export const metadata: Metadata = {
@@ -27,12 +29,12 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogsPage() {
-  const sanityPosts: SanityPost[] = getAllPosts();
+  const contentPosts: BlogPost[] = getAllPosts();
   const localPosts = (generatedPostsData as GeneratedPostManifestEntry[]).map(fromGeneratedPost);
 
-  // Newest first, Sanity and locally-generated posts interleaved by real
+  // Newest first, content and locally-generated posts interleaved by real
   // publish date — neither source gets special placement.
-  const posts: BlogListItem[] = [...sanityPosts.map(fromSanityPost), ...localPosts].sort((a, b) => {
+  const posts: BlogListItem[] = [...contentPosts.map(fromContentPost), ...localPosts].sort((a, b) => {
     const at = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
     const bt = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
     return bt - at;
@@ -80,6 +82,9 @@ export default async function BlogsPage() {
 
       {/* ===== ALL POSTS WITH LOAD MORE ===== */}
       {remainingPosts.length > 0 && <MoreArticles posts={remainingPosts} />}
+
+      {/* ===== FAQ (visible, with matching FAQPage schema) ===== */}
+      <FAQ items={blogIndexFaqs} title="Frequently asked questions" />
 
       {/* ===== CTA BANNER ===== */}
       <section className="relative py-14 md:py-20 overflow-hidden" style={{ background: "#FFFAED" }}>

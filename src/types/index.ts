@@ -1,43 +1,43 @@
 // Type definitions for Admizz Education
 
-// Sanity CMS types
+// Blog content types (posts in src/content/blog)
 
 export interface InfoBoxItem {
   label: string;
   value: string;
 }
 
-export interface SanityPost {
+export interface BlogPost {
   title: string;
   slug: { current: string };
   publishedAt: string;
   _updatedAt?: string;
   excerpt?: string;
   content?: any[];
-  featuredImage?: SanityImage;
+  featuredImage?: BlogImage;
   infoBox?: InfoBoxItem[];
-  categories?: SanityCategory[];
-  seo?: SanitySEO;
+  categories?: BlogCategory[];
+  seo?: BlogSEO;
   // Real Q&A pairs already present as visible content in the post body —
   // this field only lets [slug]/page.tsx emit FAQPage schema for them, it
   // never sources the FAQ section's own visible text on the page.
   faqItems?: { question: string; answer: string }[];
 }
 
-export interface SanityCategory {
+export interface BlogCategory {
   title: string;
   slug: { current: string };
 }
 
-export interface SanitySEO {
+export interface BlogSEO {
   metaTitle?: string;
   metaDescription?: string;
   canonicalUrl?: string;
   noIndex?: boolean;
-  ogImage?: SanityImage;
+  ogImage?: BlogImage;
 }
 
-export interface SanityImage {
+export interface BlogImage {
   _type: "image";
   asset: {
     _ref: string;
@@ -47,7 +47,7 @@ export interface SanityImage {
   caption?: string;
 }
 
-// One normalized shape both Sanity-backed and locally-generated
+// One normalized shape both content (src/content/blog) and locally-generated
 // (src/data/generated-posts.json) blog posts convert into before reaching
 // PostCard/MoreArticles — see src/app/blogs/lib/normalize.ts.
 export interface BlogListItem {

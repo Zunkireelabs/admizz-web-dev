@@ -43,7 +43,7 @@ export interface GeneratedBlogPostProps {
   // All optional, so every existing generated post keeps rendering unchanged.
   // description: used for the BlogPosting schema (falls back to the first
   // sentences of the body). quickAnswer: the same visible answer-first card the
-  // Sanity template shows. faqItems: a visible FAQ plus matching FAQPage schema —
+  // content-post template shows. faqItems: a visible FAQ plus matching FAQPage schema —
   // schema is only ever emitted alongside the visible FAQ, never on its own.
   description?: string | null;
   quickAnswer?: string | null;
@@ -51,11 +51,11 @@ export interface GeneratedBlogPostProps {
   updatedAt?: string | null;
   // Public path of this post, e.g. "/my-slug". Defaults to "/blogs/<slug>".
   path?: string;
-  // Hand-written HTML body (styles are scoped exactly like a Sanity rawHtml
+  // Hand-written HTML body (styles are scoped exactly like a content-post rawHtml
   // block). When set it replaces `sections`.
   html?: string | null;
-  // Portable Text array copied from a Sanity post (rendered by the same
-  // PortableTextRenderer the Sanity template uses). Replaces `sections`.
+  // Portable Text array copied from a content post (rendered by the same
+  // PortableTextRenderer the content-post template uses). Replaces `sections`.
   content?: unknown[] | null;
   // FAQPage schema only, no visible FAQ section: for a body that already
   // shows its own FAQ.
@@ -132,7 +132,7 @@ export default function GeneratedBlogPost({
     : null;
   const related = relatedPosts(slug, categories || []);
 
-  // Same BlogPosting / BreadcrumbList / FAQPage structured data the Sanity
+  // Same BlogPosting / BreadcrumbList / FAQPage structured data the content-post
   // template emits, built only from this post's own real fields.
   const canonicalUrl = `${SITE}${path || `/blogs/${slug}`}`;
   const schemaDescription = description || fallbackDescription(sections);

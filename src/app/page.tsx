@@ -10,16 +10,16 @@ import LazyMount from "@/components/LazyMount";
 import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
-  title: "Your Partner in Study Abroad - Admizz Education",
+  title: "Admizz Education: Study Abroad Consultancy in Nepal",
   description:
-    "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities and prepare for success, all in one portal.",
+    "Admizz Education helps students from Nepal choose a country, prepare for tests, apply to universities and get visa guidance for the UK, USA and more.",
   alternates: {
     canonical: "https://admizzeducation.com/",
   },
   openGraph: {
-    title: "Your Partner in Study Abroad - Admizz Education",
+    title: "Admizz Education: Study Abroad Consultancy in Nepal",
     description:
-      "Dreaming of studying abroad? Admizz Education helps you explore top destinations, apply to global universities and prepare for success, all in one portal.",
+      "Admizz Education helps students from Nepal choose a country, prepare for tests, apply to universities and get visa guidance for the UK, USA and more.",
     url: "https://admizzeducation.com/",
     siteName: "Admizz Education",
     images: ["/images/hero/web-ad.webp"],

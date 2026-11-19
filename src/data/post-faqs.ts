@@ -1,4 +1,4 @@
-// Visible FAQ + FAQPage schema for Sanity posts whose body has no FAQ section
+// Visible FAQ + FAQPage schema for content posts whose body has no FAQ section
 // of its own. Keyed by post slug. Every answer restates facts already stated
 // in that post's own body — nothing here is invented. [slug]/page.tsx renders
 // these visibly AND emits the matching FAQPage schema (never schema alone),
@@ -903,6 +903,16 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
       answer:
         "Options include Chevening Scholarships, which are the UK Government's global scholarship program, and Commonwealth Scholarships for students from Commonwealth nations. There are also university-specific scholarships such as Oxford Clarendon, Cambridge Gates and UCL Global, plus merit-based and need-based aid for outstanding students and those with financial need.",
     },
+    {
+      question: "How can I check that a UK university can sponsor international students?",
+      answer:
+        "Look for it in the GOV.UK Register of licensed sponsors: students (gov.uk/government/publications/register-of-licensed-sponsors-students), which lists institutions licensed to sponsor migrant students. GOV.UK says you need an offer from a licensed student sponsor to apply, so check this before you pay a deposit.",
+    },
+    {
+      question: "What English level does a UK degree need for the Student visa?",
+      answer:
+        "GOV.UK says degree level and above needs English equivalent to CEFR level B2, and below degree level needs B1. You can show it with a Secure English Language Test (SELT) from an approved provider, and for degree-level study your higher education provider can assess your English itself. Each university also sets its own score, so check the course page.",
+    },
   ],
   "international-scholarships-for-nepalese-students": [
     {
@@ -1059,7 +1069,7 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
     {
       question: "What is the ICCR Scholarship 2026 application deadline?",
       answer:
-        "The ICCR Scholarship portal opened on February 27, 2026, and the application deadline is April 15, 2026. All documents must be submitted by then, and students are encouraged to apply early and read all instructions carefully before submitting.",
+        "The ICCR Scholarship portal opened on February 27, 2026, and the application deadline was April 22, 2026, extended by the Embassy of India from April 15, 2026. All documents must be submitted by then, and students are encouraged to apply early and read all instructions carefully before submitting.",
     },
     {
       question: "How much is the ICCR scholarship application fee in Nepal?",
@@ -1571,6 +1581,11 @@ export const postFaqs: Record<string, PostFaqItem[]> = {
       question: "Which engineering disciplines does KIIT offer in B.Tech?",
       answer:
         "The B.Tech program at KIIT covers a wide range of engineering disciplines, including Computer Science, Mechanical Engineering, Civil Engineering and Electrical Engineering, among many others. It provides theoretical foundations and practical skills, with laboratories, experienced faculty and industry collaborations.",
+    },
+    {
+      question: "What is KIIT University's NIRF ranking?",
+      answer:
+        "In the NIRF 2025 rankings on nirfindia.org, which is the latest year we could open, KIIT University in Bhubaneswar ranked 17 in the University category (score 62.87), 36 in the Engineering category (score 58.79) and 27 in the Overall category (score 60.13). Rankings change every year, so check nirfindia.org for newer results.",
     },
   ],
   "visa-processing-for-students-in-nepal": [

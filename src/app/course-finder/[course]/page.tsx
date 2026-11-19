@@ -4,6 +4,8 @@ import { universityProfiles, toCourseCatalog, upcomingIntakes } from "@/lib/univ
 import { groupCourses, searchGroups, minFee } from "@/lib/university-kb/course-groups";
 import { formatMoney } from "@/lib/university-kb/countries";
 import CourseDetail, { type CourseDetailData } from "@/components/university-kb/CourseDetail";
+import FAQ from "@/components/ui/FAQ";
+import { buildCourseFaqs } from "@/lib/university-kb/course-faq";
 
 interface PageProps {
   params: Promise<{ course: string }>;
@@ -103,6 +105,7 @@ export default async function CoursePage({ params }: PageProps) {
   return (
     <main className="bg-white">
       <CourseDetail data={data} />
+      <FAQ items={buildCourseFaqs(data)} title={`${data.name}: frequently asked questions`} />
     </main>
   );
 }

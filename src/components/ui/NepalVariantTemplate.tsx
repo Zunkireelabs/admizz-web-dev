@@ -14,7 +14,7 @@ import Select from "@/components/ui/consultation/Select";
 import { countryOptions, dialFor } from "@/components/ui/consultation/useConsultationForm";
 import RecognizedInNepal from "@/components/ui/RecognizedInNepal";
 import { NEPAL_OFFICES } from "@/data/nepalOffices";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export interface NepalBenefit {
   title: string;
@@ -166,7 +166,7 @@ export interface NepalVariantData {
 
 interface NepalVariantTemplateProps {
   data: NepalVariantData;
-  blogPosts?: SanityPost[];
+  blogPosts?: BlogPost[];
 }
 
 const rubikFont = { fontFamily: "var(--font-rubik), sans-serif" };
@@ -994,7 +994,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
       )}
 
       {/* ===== BLOG ===== */}
-      {/* Renders itself only when there is something to show (Sanity posts or repo posts for this category). */}
+      {/* Renders itself only when there is something to show (content posts or repo posts for this category). */}
       <StudyAbroadInsights posts={blogPosts ?? []} countryName={data.countryName} categorySlug={data.countryCategorySlug} />
 
       {/* ===== CTA ===== */}

@@ -1,5 +1,5 @@
-// Official sources and a "checked in" line for Sanity-backed posts. Keyed by post slug. Shipped with the
-// site code (no Sanity publish needed), same idea as post-faqs.ts / post-summaries.ts.
+// Official sources and a "checked in" line for content posts. Keyed by post slug. Shipped with the
+// site code (no post-file edit needed), same idea as post-faqs.ts / post-summaries.ts.
 //
 // Rules: every source must be an official or primary page that was actually opened and read; add
 // `checked` only when the post's key facts were compared with those sources in that month. If the
@@ -94,19 +94,12 @@ export const postSources: Record<string, PostSourcesEntry> = {
       { label: "GOV.UK: Do you need a tuberculosis test for a UK visa", url: "https://www.gov.uk/tb-test-visa" },
     ],
   },
-  "us-f1-september-15-deadline-2026": {
-    checked: "November 2026",
-    sources: [
-      { label: "Study in the States: DHS publishes final rule on elimination of duration of status", url: "https://studyinthestates.dhs.gov/2026/07/dhs-publishes-final-rule-on-elimination-of-duration-of-status" },
-      { label: "Study in the States: Elimination of duration of status FAQ", url: "https://studyinthestates.dhs.gov/elimination-of-duration-of-status-frequently-asked-questions" },
-      { label: "GOV.UK: Graduate visa (18 months from January 1, 2027)", url: "https://www.gov.uk/graduate-visa" },
-    ],
-  },
   "new-zealand-short-term-graduate-work-visa-2026": {
     checked: "November 2026",
     sources: [
-      { label: "Immigration New Zealand: New Short-Term Graduate Work Visa launching November 16, 2026", url: "https://www.immigration.govt.nz/about-us/news-centre/new-short-term-graduate-work-visa-launching-on-16-november-2026/" },
-      { label: "Immigration New Zealand: Post-Study Work Visa eligibility extended from November 16, 2026", url: "https://www.immigration.govt.nz/about-us/news-centre/post-study-work-visa-eligibility-extended-from-16-november-2026/" },
+      { label: "Immigration New Zealand: Amendment Circular 2026-36 (launch postponed to November 23, 2026)", url: "https://www.immigration.govt.nz/assets/inz/documents/amendment-circulars/Amendment-Circular-2026-36.pdf" },
+      { label: "Immigration New Zealand: New Short-Term Graduate Work Visa launching November 16, 2026 (original date; postponed to November 23, 2026)", url: "https://www.immigration.govt.nz/about-us/news-centre/new-short-term-graduate-work-visa-launching-on-16-november-2026/" },
+      { label: "Immigration New Zealand: Post-Study Work Visa eligibility extended from November 16, 2026 (original date; postponed to November 23, 2026)", url: "https://www.immigration.govt.nz/about-us/news-centre/post-study-work-visa-eligibility-extended-from-16-november-2026/" },
       { label: "Immigration New Zealand: Staying to work after finishing your study", url: "https://www.immigration.govt.nz/study/after-you-finish-your-study/staying-to-work-after-finishing-your-study/" },
     ],
   },
@@ -124,12 +117,6 @@ export const postSources: Record<string, PostSourcesEntry> = {
     sources: [
       { label: "GOV.UK: Graduate visa (length, fee and how to apply)", url: "https://www.gov.uk/graduate-visa" },
       { label: "GOV.UK: Apply for a Graduate visa", url: "https://www.gov.uk/graduate-visa/apply" },
-    ],
-  },
-  "us-f1-duration-of-status-ended-2026": {
-    checked: "November 2026",
-    sources: [
-      { label: "Federal Register: Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure for Nonimmigrant Academic Students (published July 17, 2026; effective September 15, 2026)", url: "https://www.federalregister.gov/documents/2026/07/17/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant" },
     ],
   },
   "uk-education-nepal-growth": {
@@ -189,6 +176,10 @@ export const postSources: Record<string, PostSourcesEntry> = {
   "london-metropolitan-university-fees-courses-international-2027": {
     checked: "November 2026",
     sources: [
+      { label: "London Met: Students from Nepal (fees, entry requirements)", url: "https://www.londonmet.ac.uk/international/applying/countries/students-from-nepal/" },
+      { label: "London Met: South Asia scholarships", url: "https://www.londonmet.ac.uk/applying/funding-your-studies/scholarships/south-asia-scholarships/" },
+      { label: "London Met: Pay in instalments (deposit for a student visa)", url: "https://www.londonmet.ac.uk/applying/funding-your-studies/ways-to-pay/pay-in-instalments/" },
+      { label: "London Met: Undergraduate English language requirements", url: "https://www.londonmet.ac.uk/international/applying/english-language-requirements/undergraduate/" },
       { label: "GOV.UK: Student visa overview", url: "https://www.gov.uk/student-visa" },
       { label: "GOV.UK: Student visa, money you need", url: "https://www.gov.uk/student-visa/money" },
       { label: "GOV.UK: Student visa, knowledge of English", url: "https://www.gov.uk/student-visa/knowledge-of-english" },

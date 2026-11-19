@@ -1,5 +1,5 @@
 // Standard stylesheet for the "rich" blog post layout (key-facts card, callouts, tables, steps, FAQ, CTA banner,
-// contents box, sources card). Posts normally carry this CSS in their own <style> block. When a Sanity post
+// contents box, sources card). Posts normally carry this CSS in their own <style> block. When a content post
 // publishes the same markup WITHOUT any <style> block it would render as plain text, so PortableTextRenderer
 // applies this stylesheet as a fallback (only in that case).
 export const RICH_POST_FONT_LINK =

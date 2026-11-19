@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in USA from Nepal: F-1 Visa, Costs, Intakes and Scholarships (2026) | Admizz Education",
@@ -208,6 +208,26 @@ const pageData: NepalVariantData = {
       answer:
         "You pay the $185 visa application fee and the $350 SEVIS fee (Form I-901). Fees can change, so check the US Department of State and DHS sites before you pay.",
     },
+    {
+      question: "What are the steps to get an F-1 student visa from Nepal?",
+      answer:
+        "The order, according to DHS, is: get accepted by a school certified by the Student and Exchange Visitor Program (SEVP) and receive your Form I-20, pay the I-901 SEVIS fee, then apply for the visa at a US embassy or consulate. The US Embassy in Kathmandu points applicants to its USTravelDocs page for the application. Bring proof of your SEVIS payment to the interview.",
+    },
+    {
+      question: "How much money do I need to show for a US student visa?",
+      answer:
+        "There is no single national amount. DHS says the school's designated official must collect evidence of your financial ability before issuing the Form I-20, and that you must bring that evidence when you apply for the visa. Examples it lists are family bank statements, a sponsor's documents, financial aid letters, scholarship letters and an employer letter showing annual salary. Requirements vary by school.",
+    },
+    {
+      question: "Do I need to change my social media settings before the interview?",
+      answer:
+        "Yes. The US Embassy in Nepal says applicants for F, J and M visas are instructed to adjust the privacy setting on all social media accounts to public or open.",
+    },
+    {
+      question: "Has the US replaced Duration of Status for F-1 students?",
+      answer:
+        "No. DHS published a rule to replace it with fixed admission periods, but a federal court postponed it on September 14, 2026 and vacated it on November 16, 2026, so it never took effect. An appeal of the earlier postponement is pending, so check your school's international student office for the latest.",
+    },
   ],
 
   quickAnswer:
@@ -235,6 +255,6 @@ const pageData: NepalVariantData = {
 };
 
 export default async function StudyInUSAFromNepalPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("usa");
+  const blogPosts: BlogPost[] = getPostsByCategory("usa");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

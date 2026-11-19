@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in South Korea from Nepal - Admizz Education",
@@ -62,7 +62,7 @@ const pageData: NepalVariantData = {
       note: "for bachelor's degrees at national and public universities. Private universities average about ₩7.6M a year.",
     },
     { value: "2", unit: "intakes", label: "March and September" },
-    { value: "20", unit: "hours a week", label: "max weekday work in term (bachelor's, TOPIK 3\u20134+)" },
+    { value: "TOPIK 3", unit: "to start", label: "minimum Korean level for part-time work in bachelor's years 1\u20132 (Level 4 from year 3)" },
   ],
   benefits: [
     {
@@ -158,7 +158,7 @@ const pageData: NepalVariantData = {
     {
       question: "Can I work part-time while studying?",
       answer:
-        "Yes, with a part-time work permit from Korean immigration. Weekday hours in term depend on your degree and TOPIK level: bachelor's students can work up to 20 hours with TOPIK Level 3 (years 1\u20132) or Level 4 (years 3\u20134) and 10 hours below that, while master's and doctoral students can work up to 30 hours with Level 4 and 15 below it. Weekends and vacations have no hour limit. Check your university's table.",
+        "Yes, with a part-time work permit from Korean immigration. Bachelor's students need TOPIK Level 3 in years 1\u20132 and Level 4 in years 3\u20134, and master's and doctoral students need TOPIK Level 4. Weekly hours depend on your degree, year and Korean level, and Study in Korea publishes the table, so check it and your university's international office before you plan around a number.",
     },
     {
       question: "How much money do I need to show for the visa?",
@@ -180,12 +180,27 @@ const pageData: NepalVariantData = {
       answer:
         "6 to 9 months before you want to start. The main intakes are March and September.",
     },
+    {
+      question: "What documents do I need for a Korean D-2 student visa from Nepal?",
+      answer:
+        "The Korean Embassy in Nepal lists a passport, an invitation letter and letter of guarantee, a balance certificate and bank statements (accepted only from an A-level bank), verified educational documents, an official TOPIK or IELTS report and a TB medical report. For a D-2 visa of more than 90 days your university also provides documents such as the Standard Admission Certificate, and a scholarship certificate or a professor's financial affidavit if they apply. You also bring a photo and your original passport with a photocopy.",
+    },
+    {
+      question: "How much is the Korean student visa fee in Nepal, and how long does it take?",
+      answer:
+        "The Embassy lists a fee of NPR 9,300 for a stay of more than 90 days (NPR 6,200 for up to 90 days), as of July 1, 2026. It says the visa issuance process can take 21 working days or more, and your passport must be valid for at least 6 months.",
+    },
+    {
+      question: "Is the 2027 Global Korea Scholarship graduate round open for Nepal?",
+      answer:
+        "We found no 2027 graduate notice on the Korean Embassy in Nepal's notice board as of November 19, 2026. The 2026 round was posted on February 2, 2026 and accepted applications from February 12 to February 25, 2026, with 4 Embassy Track places for Nepal.",
+    },
   ],
   ctaTitle: "Plan your South Korea move with us",
   ctaContent: "Free first consultation with our South Korea team, in person or on a call.",
 };
 
 export default async function StudyInSouthKoreaFromNepalPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("south-korea");
+  const blogPosts: BlogPost[] = getPostsByCategory("south-korea");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

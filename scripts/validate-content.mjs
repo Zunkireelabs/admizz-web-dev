@@ -115,7 +115,7 @@ for (const entry of manifest) {
     .replace(/"\/[^"\s]*"/g, '""');               // site paths and image paths
   const brit = visible.match(/\b(counsell\w*|recognis\w*|personalis\w*|customis\w*|organis\w*|specialis\w*|programmes?|enrolments?|centres?|advisers?|practise|travelling|Nepalese)\b/gi);
   if (brit) errors.push(`${file}: British spelling or "Nepalese" in visible text (${[...new Set(brit.map((w) => w.toLowerCase()))].join(', ')}). Use American English and "Nepali"`);
-  const dayFirst = visible.match(/\b\d{1,2} (January|February|March|April|May|June|July|August|September|October|November|December)\b/);
+  const dayFirst = visible.match(/(?<![\w-])\d{1,2} (January|February|March|April|May|June|July|August|September|October|November|December)\b/);
   if (dayFirst) errors.push(`${file}: day-first date "${dayFirst[0]}". Use month-first, e.g. November 30, 2026`);
 
   if (legacy) warnings.push(`${file}: legacy post exempt from quickAnswer/Sources, backfill it`);

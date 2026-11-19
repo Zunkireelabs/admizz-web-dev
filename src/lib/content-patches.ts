@@ -1,6 +1,6 @@
-// Applies text corrections (src/data/post-content-patches.ts) to a Sanity post's
+// Applies text corrections (src/data/post-content-patches.ts) to a content post's
 // body at render time, so an out-of-date fact can be fixed in this repo (and
-// reviewed in a PR) without editing the post in Sanity.
+// reviewed in a PR) without editing the post file.
 //
 // Works on both body shapes the site uses:
 //   - rawHtml blocks: plain string replace on the HTML
@@ -9,7 +9,7 @@
 //     and the replacement keeps the formatting of the first span it touches.
 //
 // A patch that matches nothing logs a warning instead of failing the build, so
-// an edit made to the post in Sanity can never break the site.
+// an edit made to the post file can never break the site.
 
 export interface ContentPatch {
   find: string;

@@ -35,14 +35,14 @@ export function americanize(text: string): string {
 
 const SKIP_KEYS = new Set(["slug", "current", "href", "url", "canonicalUrl", "_id", "_key", "_ref", "_type", "_rev"]);
 
-/** Deep-maps every string in a Sanity result, leaving identifiers and links alone. */
-export function normalizeSanityResult<T>(value: T): T {
+/** Deep-maps every string in a content result, leaving identifiers and links alone. */
+export function normalizeContentText<T>(value: T): T {
   if (typeof value === "string") return americanize(value) as unknown as T;
-  if (Array.isArray(value)) return value.map((v) => normalizeSanityResult(v)) as unknown as T;
+  if (Array.isArray(value)) return value.map((v) => normalizeContentText(v)) as unknown as T;
   if (value && typeof value === "object") {
     const out: Record<string, unknown> = {};
     for (const [k, v] of Object.entries(value as Record<string, unknown>)) {
-      out[k] = SKIP_KEYS.has(k) ? v : normalizeSanityResult(v);
+      out[k] = SKIP_KEYS.has(k) ? v : normalizeContentText(v);
     }
     return out as T;
   }

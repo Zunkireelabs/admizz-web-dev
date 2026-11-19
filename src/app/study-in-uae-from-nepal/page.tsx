@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   robots: { index: false, follow: true },
@@ -190,6 +190,6 @@ const pageData: NepalVariantData = {
 };
 
 export default async function StudyInUAEFromNepalPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("uae");
+  const blogPosts: BlogPost[] = getPostsByCategory("uae");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

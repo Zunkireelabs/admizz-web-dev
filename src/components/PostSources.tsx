@@ -1,6 +1,6 @@
 import type { PostSourcesEntry } from "@/data/post-sources";
 
-// "Sources" card shown under a Sanity-backed post (data: src/data/post-sources.ts).
+// "Sources" card shown under a content post (data: src/data/post-sources.ts).
 // Built as a normal component with the site's own utility classes, so it always carries its styling.
 function hostOf(url: string): string {
   try {

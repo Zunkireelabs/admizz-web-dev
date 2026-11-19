@@ -148,7 +148,7 @@ function staticPageSource(p) {
 }
 
 // Locally-generated blog posts (Action Center's blog-outline target,
-// src/app/blogs/<slug>/page.tsx) are never in Sanity — src/data/generated-posts.json
+// src/app/blogs/<slug>/page.tsx) are not in src/content/blog — src/data/generated-posts.json
 // is their manifest (written by frontend.js's computeGeneratedPostsManifestUpdate
 // in the same commit as the post file). Without this, a generated post is
 // reachable by direct URL/internal links but never submitted for indexing.
@@ -242,7 +242,7 @@ async function main() {
     });
   }
 
-  // Locally-generated blog posts (never in Sanity — see readGeneratedPosts)
+  // Locally-generated blog posts (not in src/content/blog — see readGeneratedPosts)
   for (const post of generatedPosts) {
     if (!post.href) continue;
     urls.push({
@@ -263,7 +263,7 @@ async function main() {
     });
   }
 
-  // A slug can exist both in Sanity and as a repo page; keep the first entry only.
+  // A slug can exist both in src/content/blog and as a repo page; keep the first entry only.
   const seenLocs = new Set();
   urls = urls.filter((u) => (seenLocs.has(u.loc) ? false : (seenLocs.add(u.loc), true)));
 
@@ -287,7 +287,7 @@ ${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ""}    <changefreq>${u.c
 
   console.log(`  Written ${urls.length} URLs to public/sitemap.xml`);
   console.log(`    Static pages:          ${staticPages.length}`);
-  console.log(`    Sanity blog posts:     ${posts.length}`);
+  console.log(`    Content blog posts:    ${posts.length}`);
   console.log(`    Categories:            ${categories.length}`);
   console.log(`    Generated blog posts:  ${generatedPosts.length}`);
   console.log(`    Generated answers:     ${generatedAnswerSlugs.length}`);

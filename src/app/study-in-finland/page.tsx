@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in Finland - Admizz Education",
@@ -199,6 +199,6 @@ const finlandData: CountryPageData = {
 };
 
 export default async function StudyInFinlandPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("finland");
+  const blogPosts: BlogPost[] = getPostsByCategory("finland");
   return <CountryPageTemplate data={finlandData} blogPosts={blogPosts} />;
 }
