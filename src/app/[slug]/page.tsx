@@ -2,7 +2,7 @@ import { urlFor } from "@/lib/image";
 import { getAllPostSlugs, getPostBySlug, getRelatedPosts } from "@/lib/blog-content";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 import ArticleInfoBox from "@/components/ArticleInfoBox";
 import PostSummary from "@/components/PostSummary";
@@ -31,7 +31,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post: SanityPost | null = getPostBySlug(slug);
+  const post: BlogPost | null = getPostBySlug(slug);
 
   if (!post) return {};
 
@@ -69,14 +69,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
-  const post: SanityPost | null = getPostBySlug(slug);
+  const post: BlogPost | null = getPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
   // Corrections kept in this repo (src/data/post-content-patches.ts) are applied
-  // to the body here, so outdated facts can be fixed without editing Sanity.
+  // to the body here, so outdated facts can be fixed without editing the post file.
   const patchSet = postContentPatches[post.slug.current];
   const bodyContent = applyContentPatches(post.content, patchSet, post.slug.current);
 
@@ -94,7 +94,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   // Fetch related posts by shared categories
   const categorySlugs = post.categories?.map((c) => c.slug.current) || [];
-  const relatedPosts: SanityPost[] = categorySlugs.length > 0
+  const relatedPosts: BlogPost[] = categorySlugs.length > 0
     ? getRelatedPosts(slug, categorySlugs)
     : [];
 

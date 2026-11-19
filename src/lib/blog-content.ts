@@ -1,9 +1,9 @@
 /**
- * Blog content read from this repo (CRET-12) instead of from Sanity.
+ * Blog content read from this repo (CRET-12). It replaced the old CMS queries.
  *
  * Each function here replaces one GROQ query from the old src/lib/queries.ts and
  * returns the SAME shape that query returned, so every page and component that
- * consumed Sanity keeps its markup untouched:
+ * consumed the old CMS keeps its markup untouched:
  *
  *   allPostsQuery          -> getAllPosts()
  *   postBySlugQuery        -> getPostBySlug(slug)
@@ -20,11 +20,11 @@
  *     invisible through every accessor, exactly as before.
  *  2. ORDERING. `| order(publishedAt desc)` is applied as a date sort, with posts
  *     that have no date last (GROQ sorts nulls last on desc).
- *  3. NORMALIZED TEXT. the old Sanity client wrapped client.fetch in
- *     normalizeSanityResult (americanize: "Nepali", American spelling,
+ *  3. NORMALIZED TEXT. the old CMS client wrapped client.fetch in
+ *     normalizeContentText (americanize: "Nepali", American spelling,
  *     month-first dates). The exported files hold the RAW text, so the same
  *     normalizer is applied here on read. Same function, same input, same output
- *     — which is what keeps rendered text identical to the Sanity-backed build.
+ *     — which is what keeps rendered text identical to the CMS-backed build.
  *
  * Files are read with fs at build time rather than imported. Everything on this
  * site is prerendered (output: "export"), so there is no runtime filesystem
@@ -32,9 +32,9 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeSanityResult } from "./text-style";
+import { normalizeContentText } from "./text-style";
 import retired from "@/data/retired-posts.json";
-import type { SanityPost, SanityCategory } from "@/types";
+import type { BlogPost, BlogCategory } from "@/types";
 
 const CONTENT_DIR = path.join(process.cwd(), "src", "content", "blog");
 const POSTS_DIR = path.join(CONTENT_DIR, "posts");
@@ -61,8 +61,8 @@ function readJson<T>(file: string): T {
 // `next dev` so an edit to a post file shows up on refresh without a restart.
 const CACHE = process.env.NODE_ENV === "production";
 let indexCache: BlogIndexEntry[] | null = null;
-let categoriesCache: SanityCategory[] | null = null;
-const postCache = new Map<string, SanityPost | null>();
+let categoriesCache: BlogCategory[] | null = null;
+const postCache = new Map<string, BlogPost | null>();
 
 function blogIndex(): BlogIndexEntry[] {
   if (!CACHE || !indexCache) {
@@ -84,14 +84,14 @@ function byPublishedDesc(a: { publishedAt: string | null }, b: { publishedAt: st
  * The full post, in the shape postBySlugQuery returned. Retired slugs and
  * missing files both give null, so a caller's notFound() path is unchanged.
  */
-export function getPostBySlug(slug: string): SanityPost | null {
+export function getPostBySlug(slug: string): BlogPost | null {
   if (CACHE && postCache.has(slug)) return postCache.get(slug) ?? null;
-  let post: SanityPost | null = null;
+  let post: BlogPost | null = null;
   if (!RETIRED.has(slug)) {
     const file = path.join(POSTS_DIR, `${slug}.json`);
     // Guard against a slug escaping the content directory (e.g. "../secrets").
     if (file.startsWith(POSTS_DIR + path.sep) && fs.existsSync(file)) {
-      post = normalizeSanityResult(readJson<SanityPost>(file));
+      post = normalizeContentText(readJson<BlogPost>(file));
     }
   }
   if (CACHE) postCache.set(slug, post);
@@ -99,7 +99,7 @@ export function getPostBySlug(slug: string): SanityPost | null {
 }
 
 /** Listing shape: the fields allPostsQuery projected, newest first. */
-export function getAllPosts(): SanityPost[] {
+export function getAllPosts(): BlogPost[] {
   return blogIndex().map(toListPost);
 }
 
@@ -107,13 +107,13 @@ export function getAllPostSlugs(): { slug: string }[] {
   return blogIndex().map((e) => ({ slug: e.slug }));
 }
 
-export function getPostsByCategory(categorySlug: string): SanityPost[] {
+export function getPostsByCategory(categorySlug: string): BlogPost[] {
   return blogIndex()
     .filter((e) => e.categories.some((c) => c.slug === categorySlug))
     .map(toListPost);
 }
 
-export function getRelatedPosts(slug: string, categorySlugs: string[]): SanityPost[] {
+export function getRelatedPosts(slug: string, categorySlugs: string[]): BlogPost[] {
   const wanted = new Set(categorySlugs);
   return blogIndex()
     .filter((e) => e.slug !== slug && e.categories.some((c) => wanted.has(c.slug)))
@@ -121,10 +121,10 @@ export function getRelatedPosts(slug: string, categorySlugs: string[]): SanityPo
     .map(toListPost);
 }
 
-export function getAllCategories(): SanityCategory[] {
+export function getAllCategories(): BlogCategory[] {
   if (!CACHE || !categoriesCache) {
-    const cats = readJson<SanityCategory[]>(path.join(CONTENT_DIR, "categories.json"));
-    categoriesCache = normalizeSanityResult(
+    const cats = readJson<BlogCategory[]>(path.join(CONTENT_DIR, "categories.json"));
+    categoriesCache = normalizeContentText(
       [...cats].sort((a, b) => a.title.localeCompare(b.title)),
     );
   }
@@ -143,19 +143,19 @@ export function getPostsForSitemap(): { slug: string; publishedAt: string | null
 }
 
 /**
- * An index entry as the listing-shaped SanityPost the old queries returned.
+ * An index entry as the listing-shaped BlogPost the old queries returned.
  * The image is the exported localImage object; urlFor() in src/lib/image.ts
  * turns it back into a path, so call sites keep their existing expressions.
  */
-function toListPost(entry: BlogIndexEntry): SanityPost {
+function toListPost(entry: BlogIndexEntry): BlogPost {
   const full = getPostBySlug(entry.slug);
   return {
-    title: normalizeSanityResult(entry.title),
+    title: normalizeContentText(entry.title),
     slug: { current: entry.slug },
     publishedAt: entry.publishedAt || "",
-    excerpt: normalizeSanityResult(entry.excerpt) || undefined,
+    excerpt: normalizeContentText(entry.excerpt) || undefined,
     featuredImage: full?.featuredImage,
-    categories: normalizeSanityResult(
+    categories: normalizeContentText(
       entry.categories.map((c) => ({ title: c.title, slug: { current: c.slug } })),
     ),
   };

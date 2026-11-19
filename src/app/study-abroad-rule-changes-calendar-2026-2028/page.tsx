@@ -7,15 +7,15 @@ const post = {
   "sections": [
     {
       "heading": "The timeline at a glance",
-      "body": "- **January 1, 2026, Canada:** master's and doctoral students at public institutions, school students and some other groups no longer need a provincial attestation letter. The 2026 cap is 309,670 applications.\n- **September 15, 2026, USA:** F-1, J-1 and I visa holders move from \"duration of status\" to a fixed period of admission, capped at four years for F-1 students.\n- **November 30, 2026, UK:** the living-cost funds for a Student visa rise to £1,203 a month outside London and £1,570 in London for applications from this date.\n- **January 1, 2027, UK:** the Graduate visa for bachelor's and master's graduates becomes 18 months for applications submitted on or after this date. PhD graduates keep three years.\n- **August 1, 2028, UK:** the international student levy of £925 per student per year starts for English higher education providers."
+      "body": "- **January 1, 2026, Canada:** master's and doctoral students at public institutions, school students and some other groups no longer need a provincial attestation letter. The 2026 cap is 309,670 applications.\n- **September 15, 2026, USA:** a DHS rule that would have replaced duration of status with a fixed period of admission was due to start. A court postponed it on September 14, 2026 and vacated it on November 16, 2026, so it never took effect.\n- **November 30, 2026, UK:** the living-cost funds for a Student visa rise to £1,203 a month outside London and £1,570 in London for applications from this date.\n- **January 1, 2027, UK:** the Graduate visa for bachelor's and master's graduates becomes 18 months for applications submitted on or after this date. PhD graduates keep three years.\n- **August 1, 2028, UK:** the international student levy of £925 per student per year starts for English higher education providers."
     },
     {
       "heading": "Canada: fewer new permits in 2026",
       "body": "Canada expects to issue up to 408,000 study permits in 2026, with 155,000 for new students. Most new bachelor's and college applicants need a PAL, while postgraduate students at public institutions are exempt. Read the full breakdown in our [Canada study permit cap guide](/canada-study-permit-cap-2026-nepali-students)."
     },
     {
-      "heading": "USA: a fixed end date on your stay",
-      "body": "Under the Department of Homeland Security's final rule, effective September 15, 2026, F-1 students are admitted for the length of their program, up to a maximum of four years. The grace period after the program ends is reduced from 60 days to 30 days. A student who needs more time must file an extension with USCIS.\n\nWe explain the practical effect in our guides on [when F-1 duration of status ended](/us-f1-duration-of-status-ended-2026) and the [September 15 deadline](/us-f1-september-15-deadline-2026)."
+      "heading": "USA: the fixed-period rule was vacated",
+      "body": "The Department of Homeland Security's final rule was due to take effect on September 15, 2026 and would have replaced duration of status with a fixed period of admission. A federal court postponed it on September 14, 2026 and vacated it on November 16, 2026, so it never went into effect. An appeal of the earlier postponement is pending.\n\nWe explain the ruling in our guides on [the court ruling on F-1 duration of status](/us-f1-duration-of-status-ended-2026) and the [September 15 deadline](/us-f1-september-15-deadline-2026)."
     },
     {
       "heading": "UK: shorter Graduate visa and a new levy",
@@ -72,7 +72,7 @@ const post = {
   ],
   "publishedAt": "2026-10-05T00:00:00.000Z",
   "description": "The dates that matter for Nepali students: UK Graduate Route 18 months, US fixed admission period, Canada's 2026 cap and the UK levy from 2028.",
-  "quickAnswer": "Five rule changes set the timeline for Nepali students: Canada's 2026 study permit cap and PAL exemptions (from January 1, 2026), the US fixed period of admission for F-1 students (from September 15, 2026), higher UK student visa funds (for applications from November 30, 2026), the UK Graduate visa reduced to 18 months (for applications from January 1, 2027), and the UK international student levy (from August 1, 2028). Plan your intake and country choice around these dates.",
+  "quickAnswer": "Five rule changes set the timeline for Nepali students: Canada's 2026 study permit cap and PAL exemptions (from January 1, 2026), the US fixed period of admission for F-1 students (planned for September 15, 2026, then vacated by a court on November 16, 2026), higher UK student visa funds (for applications from November 30, 2026), the UK Graduate visa reduced to 18 months (for applications from January 1, 2027), and the UK international student levy (from August 1, 2028). Plan your intake and country choice around these dates.",
   "faqItems": [
     {
       "question": "When do UK student visa funds rise?",
@@ -83,8 +83,8 @@ const post = {
       "answer": "For applications submitted on or after January 1, 2027, the Graduate visa for bachelor's and master's graduates is 18 months. PhD graduates still receive three years."
     },
     {
-      "question": "When does the US fixed period of admission start?",
-      "answer": "The DHS final rule takes effect on September 15, 2026. F-1 students are admitted for the length of their program, up to four years, with a 30-day grace period afterwards."
+      "question": "Did the US fixed period of admission start?",
+      "answer": "No. The DHS final rule was due to take effect on September 15, 2026, but a court postponed it on September 14 and vacated it on November 16, 2026."
     },
     {
       "question": "When does the UK international student levy start?",
@@ -92,7 +92,7 @@ const post = {
     },
     {
       "question": "Which countries have changed their rules for 2026?",
-      "answer": "Canada has a 2026 study permit cap of 309,670 applications, and the USA is replacing duration of status with a fixed admission period from September 15, 2026."
+      "answer": "Canada has a 2026 study permit cap of 309,670 applications, and the USA planned to replace duration of status with a fixed admission period from September 15, 2026, but a court vacated that rule on November 16, 2026."
     }
   ],
   "path": "/study-abroad-rule-changes-calendar-2026-2028"

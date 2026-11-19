@@ -2,61 +2,61 @@ import type { Metadata } from "next";
 import GeneratedBlogPost from "@/components/GeneratedBlogPost";
 
 const post = {
-  "title": "COMPEX Scholarship 2026-27: Exam Schedule, Eligibility and How to Apply",
+  "title": "COMPEX Scholarship 2026: Exam Dates, Form and Eligibility",
   "slug": "compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india",
   "sections": [
     {
-      "heading": "What COMPEX is",
-      "body": "COMPEX is a scholarship scheme run by the Embassy of India in Kathmandu for Nepali nationals who want to study undergraduate courses in India. Selection is through a computer-based test (CBT) conducted by the Embassy. Students also search for it as the COMPEX exam, the COMPEX scholarship form or, by a common misspelling, the \"complex scholarship\". It is the same scheme. The Embassy says its nomination of a name does not guarantee admission to any Indian college or university, and that confirmation of admission is given only after it receives confirmation from the institution."
+      "heading": "What is the COMPEX scholarship and who is it for?",
+      "body": "The Embassy of India in Kathmandu describes the COMPEX-2026 Scholarship Scheme in its [notification](https://www.indembkathmandu.gov.in/storage/press-release/7569148.pdf) as online applications from Nepali nationals for Engineering (BE/B.Tech), Pharmacy (B.Pharma), Agriculture (B.Sc.-Ag), Food Technology (B.Sc.-FT) and B.Sc. (Nursing) for the 2026-27 academic year in India. Preference goes to candidates who completed their school studies in Nepal.\n\nIt is an undergraduate scheme, so it is not for master's or PhD study and it does not cover medicine. The Embassy lists other schemes separately on its [scholarship page](https://www.indembkathmandu.gov.in/about-education-and-scholarship). The Embassy's own [COMPEX page](https://www.indembkathmandu.gov.in/complex) describes the scheme."
     },
     {
-      "heading": "Key dates for COMPEX-2026 (academic year 2026-27)",
-      "body": "These dates are from the Embassy's official notices:\n\n- **August 27, 2026:** online registration opened.\n- **September 10, 2026 (up to 11:45 PM):** last date to complete online registration and submit the application.\n- **September 14, 2026 (closing of business hours):** last date to deposit the application fee at Nepal SBI Bank.\n- **September 16, 2026 (up to 11:45 PM):** last date to complete the online application by entering the challan details and uploading its scanned copy.\n- **September 25 and 26, 2026, 10:00 AM to 4:00 PM:** Facilitation Center at the Education Wing of the Embassy for admit card queries.\n- **September 28 to October 3, 2026:** the revised examination schedule.\n\nThe registration window was only about two weeks, so students who waited lost the chance to apply. As of October 12, 2026, the 2026 window has closed. Watch the Embassy's scholarship page for the next notice."
+      "heading": "What were the COMPEX 2026-27 dates?",
+      "body": "Our earlier version of this guide gave expected months. The Embassy's real dates were different:\n\n| Step | Date (2026) |\n|---|---|\n| Notification and portal opened | August 27 |\n| Online registration and submission closed | September 10, 11:45 PM |\n| Fee challan deadline (Nepal SBI) | September 14 |\n| Final application with challan upload | September 16, 11:45 PM |\n| Computer based test (revised schedule) | September 28 to October 3 |\n\nThe [revised schedule notice](https://www.indembkathmandu.gov.in/storage/press-release/6188975.pdf) of September 23 set the test dates. The first plan had been the fourth week of September. We found no deadline extension for COMPEX on the Embassy's scholarship news list. Extensions we saw there were for other schemes."
     },
     {
-      "heading": "Exam schedule and format",
-      "body": "The exam is a computer-based test held at centers in Kathmandu. The revised schedule runs over six days, from September 28 to October 3, 2026, in three shifts a day. The papers are:\n\n- **English, Physics and Chemistry (EPC):** 120 minutes\n- **Mathematics:** 60 minutes\n- **Biology:** 60 minutes\n\nThe Embassy's instructions for exam days:\n\n- Online admit cards were released four days before the scheduled date, and the download link was sent to each eligible candidate's registered email.\n- Report **90 minutes** before the session starts. The gate closes at the time on the admit card, and late entry is not allowed.\n- Bring a **printout of the e-admit card and an original ID** (passport or Nepal citizenship card). No candidate is allowed in without them.\n- Make your own arrangements to stay in Kathmandu. The Embassy pays no travel or other allowances.\n- The Embassy sent mock test links by email so candidates could practice the computer-based format."
+      "heading": "How do you apply, and what does it cost?",
+      "body": "Applications are online only. The notification says no other mode of submission will be accepted. A Study in India ID is mandatory, and you register on the [Study in India portal](https://studyinindia.gov.in/). The application has three steps: registration, the form and submission, then challan details and upload. You can choose a maximum of two courses.\n\nThe fee is NPR 400, paid at Nepal SBI Bank into the Embassy's account, and it is non-refundable. For BE/B.Tech you choose three streams and five institutes in order of preference, and the notification says changes are not allowed.\n\nThe Embassy only accepts applications directly from the applicant. Its notification says it does not recognize or receive applications through any so-called education consultants, middlemen or agencies in Nepal, and that such applications are liable to be rejected."
     },
     {
-      "heading": "Courses covered",
-      "body": "The 2026-27 notice invited applications for undergraduate courses in:\n\n- Engineering (BE or B.Tech)\n- Pharmacy (B.Pharm)\n- Agriculture (B.Sc. Agriculture)\n- Food Technology (B.Sc. Food Technology)\n- Nursing (B.Sc. Nursing)\n\nYou can apply for a **maximum of two courses**. For BE or B.Tech you choose three streams in order of preference, and for all courses you choose five institutes in order of preference. The Embassy says requests to change streams or institutes may not be considered after the form is filled. Applicants to NITs, IITs and IIITs must also have qualified in JEE (Main) and JEE (Advanced), as applicable."
+      "heading": "Where is the COMPEX exam held, and what is the format?",
+      "body": "The exam is a computer based test (CBT) held at centers in Kathmandu only, according to the [notification](https://www.indembkathmandu.gov.in/storage/press-release/7569148.pdf). It is not held in India. The revised schedule lists the papers as English, Physics and Chemistry together (120 minutes), Mathematics (60 minutes) and Biology (60 minutes), in shifts between September 28 and October 3, 2026 (Nepal time). Mock test links were on the revised schedule notice. We found no official syllabus beyond the subject names.\n\nFor the exam day, the [admit card notice](https://www.indembkathmandu.gov.in/storage/press-release/1547431.pdf) and the revised notice say:\n\n- Admit cards are released four days before and sent to your registered email, and you log in to the e-admit card page with your application user ID and password.\n- Bring a printout and an original ID, such as a passport or citizenship certificate.\n- Report 90 minutes before your session.\n- Arrange your own stay in Kathmandu. The Embassy does not pay travel or daily allowances.\n- A facilitation counter at the Education Wing in Kathmandu ran on September 25 and 26, 10:00 to 16:00."
     },
     {
-      "heading": "Eligibility",
-      "body": "From the 2026-27 notice:\n\n- **Nationality:** Nepali nationals. Preference goes to candidates who completed their school studies in Nepal.\n- **Age:** at least 16 and at most 23 years, with July 1, 2026, as the cut-off date.\n- **BE or B.Tech:** at least 60% aggregate and 50% in English in Class XII (10+2), and at least 60% in each of Physics, Chemistry and Mathematics.\n- **B.Sc. Agriculture, B.Pharm, B.Sc. Food Technology and B.Sc. Nursing:** at least 60% aggregate and 50% in English in Class XII, and at least 55% in each of Physics, Chemistry and Biology.\n- **Class XI marks are not included.**\n- **Already passed Class XII:** you may apply. The notice says an equivalence certificate from UGC New Delhi must be produced at the time of admission.\n- **Appearing in 10+2 in 2026:** you may apply in anticipation of results, but your selection depends on meeting the criteria, and results must reach the Embassy within three days of publication or your candidature is likely to be cancelled.\n\nThese figures are for 2026-27. Check the next notice for any change."
+      "heading": "Who is eligible for COMPEX?",
+      "body": "From the 2026 [notification](https://www.indembkathmandu.gov.in/storage/press-release/7569148.pdf):\n\n- **Age:** 16 to 23 years on July 1, 2026.\n- **Nationality:** Nepali.\n- **Class 12:** you must have passed, or be appearing in 2026. Results must reach the Embassy within three days of publication. Class 11 marks are not included.\n\n| Course | Marks needed in Class 12 |\n|---|---|\n| BE/B.Tech | 60% aggregate, 50% in English, and at least 60% in each of Physics, Chemistry and Mathematics |\n| B.Sc. Agriculture, B.Pharma, B.Sc. Food Technology, B.Sc. Nursing | 60% aggregate, 50% in English, and at least 55% in each of Physics, Chemistry and Biology |\n\nThe notification also asks for an equivalence certificate from the [UGC equivalence portal](https://equivalence.ugc.ac.in/) at the time of admission. The Embassy's COMPEX page names a different body (AIU), but the notification names UGC, so follow the notification."
     },
     {
-      "heading": "How to apply",
-      "body": "The Embassy says applications are accepted online only, in English, through its website. No other method is accepted.\n\n1. **Step 1, registration.** You need a **Study In India ID**, which you get by registering at studyinindia.gov.in. Keep the email address and mobile number active throughout the process.\n2. **Step 2, application form.** Fill in your personal and course details, communication details and educational qualification details, and upload your photo, signature and documents. Photos must be 100 to 200 KB and signatures 80 to 150 KB, in JPG or JPEG format. You can preview before submitting, but **no changes are allowed after submission.** Enter percentage marks, not grades.\n3. **Fee.** Download the bank challan and pay the fee of **NPR 400** at any branch of Nepal SBI Bank. The fee is not refunded or adjusted under any circumstances.\n4. **Step 3, challan details.** After at least 24 to 48 hours, log in again, enter the challan details and upload its scanned copy.\n\nFor help with the online form, the Embassy lists a help desk email, helpdeskcompex@gmail.com, available from 10 AM to 5 PM on working days."
+      "heading": "Which documents do you need?",
+      "body": "The 2026 notification does not list a full document set. It asks you to upload a scanned photo (100 to 200 KB), a signature (80 to 150 KB) and your documents (100 to 1000 KB, in jpg, jpeg or pdf format), plus a principal's certificate if you are appearing in Class 12 and the fee challan. The Embassy's [COMPEX page](https://www.indembkathmandu.gov.in/complex) lists the Class 10+2 marksheet, a character certificate, a citizenship certificate with English translation, passport pages and the NPR 400 bank voucher. For the facilitation counter, the admit card notice also mentioned six passport photos, the application copy and the challan.\n\nCheck the current notice for the exact list in your cycle."
     },
     {
-      "heading": "What to have ready before you start the COMPEX form",
-      "body": "Gather these before you open the form, because the Embassy allows no changes after you submit:\n\n- **A Study In India ID** from studyinindia.gov.in, plus an email address and mobile number that stay active throughout.\n- **Your Class XII marks as percentages**, not grades, checked against the course rules above.\n- **Your course and institute choices:** up to two courses, with five institutes in order of preference, and three streams in order of preference for BE or B.Tech.\n- **A photo of 100 to 200 KB and a signature of 80 to 150 KB**, both in JPG or JPEG format.\n- **NPR 400 for the fee**, paid with the bank challan at any branch of Nepal SBI Bank, then the challan details and a scanned copy of the challan uploaded after at least 24 to 48 hours.\n- **For NITs, IITs and IIITs:** JEE (Main) and JEE (Advanced) qualification, as applicable.\n- **If you have already passed Class XII:** an equivalence certificate from UGC New Delhi, produced at the time of admission.\n\nThe 2026-27 notice lists no essay, personal statement or resume. Selection is through the Embassy's computer-based test."
+      "heading": "How are students selected?",
+      "body": "According to the notification, selection is based on a qualifying, competitive computer based test. Being nominated by the Embassy does not guarantee admission, and the Embassy confirms admission only after it receives confirmation from the Indian university or institution. Shortlisted candidates are informed by individual email.\n\nTwo more rules matter. For NITs, IITs and IIITs, the notification says candidates must have qualified in JEE (Main) and JEE (Advance) in addition to final selection in COMPEX. Requests to change the college or transfer the scholarship are not entertained.\n\nWe could not find official COMPEX-specific figures for the number of seats or the benefit amounts. The Embassy's scholarship page says the Government of India pays tuition for most schemes under each scheme's own terms, so check the notice for COMPEX."
     },
     {
-      "heading": "Track your application and get help",
-      "body": "- **Where the exam is held:** in Kathmandu, as a computer-based test at centers in Kathmandu. You make your own travel and stay arrangements.\n- **How you hear about results:** the Embassy informs shortlisted candidates through their individual registered email, so check it often and deal only with the Education Wing of the Embassy of India in Kathmandu.\n- **Where to ask questions about the online form:** the Embassy lists a help desk email, helpdeskcompex@gmail.com, available from 10 AM to 5 PM on working days.\n- **Other scholarships for India:** COMPEX is not the only route. See our guide to [scholarships for Nepali students to study in India](/scholarships-for-nepali-students-to-study-in-india) and our guide to [studying in India](/study-in-india)."
+      "heading": "How do you contact the Embassy and track your application?",
+      "body": "From the Embassy's pages:\n\n- **COMPEX application help desk:** helpdeskcompex@gmail.com, 10 AM to 5 PM on working days.\n- **COMPEX technical issues:** examgrievance@edcil.co.in (an address published on September 8, 2026).\n- **Scholarship queries:** attacheedu.kathmandu@mea.gov.in, and the Attaché (Education) on +977-1-4414149. See the [Embassy contacts page](https://www.indembkathmandu.gov.in/contacts).\n- **General queries:** +977-1-4439926, 3 PM to 5 PM on working days.\n\nWe found no separate status-tracking page. You log in to the application portal with your user ID and password, and the Embassy says it posts results under \"What's new\" and emails selected candidates."
     },
     {
-      "heading": "Apply yourself: the Embassy does not accept agents",
-      "body": "The Embassy's notice carries this warning: it only entertains applications directly from the applicant, it does not recognize or receive applications through any so-called education consultants, middle-men or agencies in Nepal, and applications received that way are liable to be rejected.\n\nThat means you must submit your own application. Admizz Education does not apply on your behalf. Our counselors can help you understand the notice, prepare for the exam and plan your options in India, but the application itself must come from you."
+      "heading": "What about the COMPEX result and COMPEX 2027-28?",
+      "body": "As of November 19, 2026, we saw no 2026-27 COMPEX result and no 2027-28 notice on the Embassy's news, results and other lists. That means \"not seen\", because we could not read the archive pages.\n\nFor reference, the Embassy's last two COMPEX results were posted on March 23, 2026 (for 2025-26) and April 24, 2025 (for 2024-25). That does not prove when the 2026-27 result will come. The Embassy's COMPEX page gives a tentative opening of April or May for the scheme, but the 2026 notice came on August 27, so watch the Embassy website instead of a fixed month."
     },
     {
-      "heading": "What happens after the exam",
-      "body": "The Embassy says shortlisted candidates are informed through their individual registered email, and that candidates should deal only with the Education Wing of the Embassy of India in Kathmandu. Once placed, a request to change college, institution or university, or to transfer the scholarship, is not entertained under any circumstances. Watch your registered email and the Embassy's scholarship page for updates."
+      "heading": "Are there other scholarships besides COMPEX?",
+      "body": "Yes. The Embassy's [scholarship list](https://www.indembkathmandu.gov.in/about-education-and-scholarship) names several other schemes for Nepali students, including the Atal Bihari Vajpayee General Scholarship Scheme, the Silver Jubilee Scholarship Scheme (postgraduate and PhD), the Mahatma Gandhi and Golden Jubilee schemes, the Self Finance Scheme (diploma, engineering and medical), SAARC, AYUSH and the Homi Jahangir Bhabha scheme (postgraduate). Each has its own rules and dates. Our guide to the [ICCR scholarship 2026-27](/iccr-scholarship-2026-study-in-india) covers the general schemes."
     },
     {
-      "heading": "Preparing for the next round",
-      "body": "- **Read the notice as soon as it appears.** In 2026 it appeared on August 27 and the window closed on September 10.\n- **Register at Study In India early** so you have your ID ready.\n- **Check your marks against the course rules** before you start the form.\n- **Practice the computer-based format** with mock tests.\n- **Revise the right papers.** The 2026 exam used English, Physics and Chemistry, Mathematics, and Biology papers.\n- **Keep a backup plan.** Many students also apply directly to Indian universities. See our guides to [studying in India](/study-in-india) and [KIIT University](/top-courses-to-study-at-kiit-university).\n\nIf you are looking at postgraduate study instead, read our [Chevening guide](/chevening-scholarship-complete-guide-for-nepali-students). More options are in our guides to [international scholarships for Nepali students](/international-scholarships-for-nepalese-students) and the [top scholarships for Nepali students](/top-15-scholarships-for-nepali-students-to-study-abroad-in-2026)."
+      "heading": "What should Nepali students do now?",
+      "body": "- **Do not rely on old month guides.** The 2026 notice came in late August, not April or May.\n- **Prepare your Class 12 marks and papers early.** The marks rules above decide who can apply.\n- **Watch the Embassy website.** It is the only source for a 2027-28 notice.\n- **Apply yourself.** The Embassy rejects applications that come through agents.\n- **Keep a backup plan.** A seat depends on the test, your marks and the Indian institution.\n\nFor other options, see [Study in India from Nepal](/study-in-india-from-nepal) and our guide to [scholarship assistance in Nepal](/scholarship-assistance-in-nepal). To talk to a counselor, [book a free consultation](/register)."
     },
     {
       "heading": "Sources",
-      "body": "- [Embassy of India, Kathmandu: scholarship notices](https://www.indembkathmandu.gov.in/education/news/scholarship)\n- Embassy of India, Kathmandu: notification inviting applications under the COMPEX-2026 Scholarship Scheme, the revised examination schedule notice and the mock test notice (available on the Embassy website, www.indembkathmandu.gov.in)\n\nDetails taken from the Embassy's notices in October 2026. We update this page when the Embassy publishes new notices."
+      "body": "- [Embassy of India, Kathmandu: COMPEX-2026 notification (PDF, August 27, 2026)](https://www.indembkathmandu.gov.in/storage/press-release/7569148.pdf)\n- [Embassy of India, Kathmandu: revised schedule, mock tests and admit card notice (PDF, September 23, 2026)](https://www.indembkathmandu.gov.in/storage/press-release/6188975.pdf)\n- [Embassy of India, Kathmandu: admit card notice (PDF, September 24, 2026)](https://www.indembkathmandu.gov.in/storage/press-release/1547431.pdf)\n- [Embassy of India, Kathmandu: COMPEX scheme page](https://www.indembkathmandu.gov.in/complex)\n- [Embassy of India, Kathmandu: education and scholarship schemes](https://www.indembkathmandu.gov.in/about-education-and-scholarship)\n- [Embassy of India, Kathmandu: contacts](https://www.indembkathmandu.gov.in/contacts)\n\nDetails taken from the Embassy website in November 2026. Dates, rules and portals change each cycle, so confirm everything on the Embassy site before you apply. This guide was checked in November 2026."
     }
   ],
   "featuredImage": {
-    "url": "/images/blog/sa-1f990a2fa1-1200.webp",
-    "alt": "COMPEX Scholarship 2026"
+    "url": "/images/blog/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india.webp",
+    "alt": "COMPEX scholarship 2026-27 for Nepali students: dates, eligibility and exam"
   },
   "categories": [
     {
@@ -64,77 +64,94 @@ const post = {
       "title": "India"
     },
     {
-      "slug": "scholarships",
-      "title": "Scholarships"
-    },
-    {
       "slug": "nepal",
       "title": "Nepal"
+    },
+    {
+      "slug": "study-abroad",
+      "title": "Study Abroad"
+    },
+    {
+      "slug": "scholarships",
+      "title": "Scholarships"
     }
   ],
   "infoBox": [
     {
-      "label": "Exam window (2026)",
+      "label": "Notification",
+      "value": "August 27, 2026"
+    },
+    {
+      "label": "Online application closed",
+      "value": "September 10, 2026 (final step September 16)"
+    },
+    {
+      "label": "Exam (computer based, Kathmandu)",
       "value": "September 28 to October 3, 2026"
     },
     {
-      "label": "Age limit",
-      "value": "16 to 23 on July 1, 2026"
-    },
-    {
       "label": "Application fee",
-      "value": "NPR 400"
-    },
-    {
-      "label": "How to apply",
-      "value": "Directly, never through agents"
+      "value": "NPR 400, non-refundable"
     }
   ],
-  "publishedAt": "2026-01-14T12:30:36",
-  "updatedAt": "2026-10-12T00:00:00.000Z",
-  "description": "COMPEX scholarship 2026-27 for Nepali students: exam September 28 to October 3, 2026, how to fill the form, eligibility by course and the NPR 400 fee.",
-  "quickAnswer": "COMPEX 2026-27 registration closed on September 10, 2026, and the computer-based exam ran from September 28 to October 3, 2026 in Kathmandu. COMPEX is the Embassy of India, Kathmandu's scholarship scheme for Nepali students who want undergraduate courses in India. The age limit was 16 to 23 on July 1, 2026, the application fee was NPR 400, and the Embassy accepts applications only directly from the student, not through consultants or agencies. Watch the Embassy's scholarship page for the next notice.",
+  "publishedAt": "2026-01-14T12:30:36.000Z",
+  "description": "COMPEX 2026-27 for Nepali students: the real dates (exam September 28 to October 3), eligibility, how selection works, contacts and what to watch next.",
+  "quickAnswer": "COMPEX is an Embassy of India scholarship scheme for Nepali students who want a bachelor's degree in India in engineering, pharmacy, agriculture, food technology or nursing. For 2026-27 the Embassy published its notice on August 27, 2026, closed the online application in September, and held a computer based test in Kathmandu from September 28 to October 3, 2026. We found no 2027-28 notice and no 2026-27 result as of November 19, 2026.",
   "faqItems": [
     {
-      "question": "What is the COMPEX 2026 exam date and syllabus?",
-      "answer": "The Embassy of India, Kathmandu scheduled the computer-based COMPEX-2026 exam from September 28 to October 3, 2026, in several shifts a day in Kathmandu. The papers were English, Physics and Chemistry (120 minutes), Mathematics (60 minutes) and Biology (60 minutes)."
+      "question": "When was the COMPEX 2026 exam?",
+      "answer": "The revised schedule set the computer based test between September 28 and October 3, 2026, in shifts, at centers in Kathmandu."
     },
     {
-      "question": "What is the COMPEX age limit and application fee?",
-      "answer": "For COMPEX-2026 the age limit was at least 16 and at most 23 years, with July 1, 2026, as the cut-off date. The application fee was NPR 400, paid with a bank challan at Nepal SBI Bank, and it is not refunded or adjusted."
+      "question": "Is the COMPEX exam held in Nepal or India?",
+      "answer": "In Nepal. The notification says the test is held at centers in Kathmandu."
+    },
+    {
+      "question": "What was the last date to submit the COMPEX 2026 form?",
+      "answer": "Online registration and submission closed on September 10, 2026, and the final application with the challan upload closed on September 16, 2026. We found no extension."
+    },
+    {
+      "question": "How much is the COMPEX application fee?",
+      "answer": "NPR 400, paid at Nepal SBI Bank, and it is non-refundable."
     },
     {
       "question": "What marks do I need for COMPEX engineering?",
-      "answer": "For BE or B.Tech you needed at least 60% aggregate and 50% in English in Class XII, and at least 60% in each of Physics, Chemistry and Mathematics. Class XI marks are not included."
+      "answer": "BE/B.Tech needs 60% aggregate in Class 12, 50% in English and at least 60% in each of Physics, Chemistry and Mathematics."
     },
     {
-      "question": "Can an agent or consultant apply for me to COMPEX?",
-      "answer": "No. The Embassy says it only accepts applications directly from the applicant, does not recognize applications through consultants or agencies, and may reject applications received that way."
-    },
-    {
-      "question": "Does COMPEX nomination guarantee admission?",
-      "answer": "No. The Embassy says its nomination of a name does not guarantee admission to any Indian college or university, and admission is confirmed only after the institution confirms it."
-    },
-    {
-      "question": "Is the \"complex scholarship\" the same as COMPEX?",
-      "answer": "Yes. Many students type \"complex scholarship\" by mistake, but the scheme is COMPEX, run by the Embassy of India in Kathmandu for Nepali students who want undergraduate courses in India."
+      "question": "Can I apply to COMPEX through a consultancy?",
+      "answer": "No. The Embassy says it only entertains applications directly from the applicant and may reject applications received through agencies."
     }
   ],
   "path": "/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india"
 };
 
 export const metadata: Metadata = {
-  title: "COMPEX Scholarship 2026: Exam Date, Form, Eligibility, Fee",
-  description: "COMPEX scholarship 2026-27 for Nepali students: exam September 28 to October 3, 2026, how to fill the form, eligibility by course and the NPR 400 fee.",
-  alternates: { canonical: "https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india" },
+  keywords: [
+    "COMPEX scholarship 2026",
+    "COMPEX exam date 2026",
+    "COMPEX scholarship Nepal",
+    "complex scholarship Nepal",
+    "COMPEX eligibility",
+    "COMPEX scholarship documents",
+    "Indian Embassy scholarship Nepal engineering",
+    "COMPEX 2027"
+  ],
+  title: "COMPEX Scholarship 2026: Exam Dates, Form and Eligibility",
+  description: "COMPEX 2026-27 for Nepali students: the real dates (exam September 28 to October 3), eligibility, how selection works, contacts and what to watch next.",
+  alternates: {
+    canonical: "https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india"
+  },
   openGraph: {
-    title: "COMPEX Scholarship 2026: Exam Date, Form, Eligibility, Fee",
-    description: "COMPEX scholarship 2026-27 for Nepali students: exam September 28 to October 3, 2026, how to fill the form, eligibility by course and the NPR 400 fee.",
+    title: "COMPEX Scholarship 2026: Exam Dates, Form and Eligibility",
+    description: "COMPEX 2026-27 for Nepali students: the real dates (exam September 28 to October 3), eligibility, how selection works, contacts and what to watch next.",
     url: "https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india",
     siteName: "Admizz Education",
     type: "article",
-    images: ["/images/blog/sa-1f990a2fa1-og.jpg"],
-  },
+    images: [
+      "/images/blog/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india.webp"
+    ]
+  }
 };
 
 export default function Page() {

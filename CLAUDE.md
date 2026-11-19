@@ -211,7 +211,7 @@ Traefik uses 308/307 (the HTTP/2 equivalents of 301/302); search engines treat t
 
 ## Blog Content
 
-Blogs live in the repo, not in a CMS (CRET-12). Sanity is no longer used at build or run time (the workflows still pass old Sanity secrets; they're unused).
+Blogs live in the repo, not in a CMS (CRET-12). Sanity is no longer used at build or run time.
 
 - Posts: `src/content/blog/posts/<slug>.json`, index in `src/content/blog/index.json`, images in `public/images/blog/`.
 - Reads go through `src/lib/blog-content.ts`. Content rules: `docs/seo-content-rules.md`.

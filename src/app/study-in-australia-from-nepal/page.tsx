@@ -3,7 +3,7 @@ import NepalVariantTemplate from "@/components/ui/NepalVariantTemplate";
 import { DESTINATION_COMPARE_HEADERS, DESTINATION_COMPARE_ROWS, DESTINATION_COMPARE_SOURCES } from "@/data/destination-compare";
 import type { NepalVariantData } from "@/components/ui/NepalVariantTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in Australia from Nepal 2026: Cost, Visa, Scholarships",
@@ -458,6 +458,6 @@ const pageData: NepalVariantData = {
 };
 
 export default async function StudyInAustraliaFromNepalPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("australia");
+  const blogPosts: BlogPost[] = getPostsByCategory("australia");
   return <NepalVariantTemplate data={pageData} blogPosts={blogPosts} />;
 }

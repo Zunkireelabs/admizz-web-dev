@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import DestinationQuiz from "./DestinationQuiz";
+import FAQ from "@/components/ui/FAQ";
+import { destinationQuizFaqs } from "@/data/page-faqs";
 
 const PAGE_URL = "https://admizzeducation.com/match-your-destination";
 
@@ -87,6 +89,8 @@ export default function MatchYourDestinationPage() {
           </div>
         </div>
       </section>
+
+      <FAQ items={destinationQuizFaqs} title="Quiz questions answered" />
     </main>
   );
 }

@@ -28,9 +28,6 @@ jobs:
 
       - run: npm run build
         env:
-          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
-          NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
@@ -55,10 +52,9 @@ jobs:
             set -e
             cd /home/zunkireelabs/devprojects/websiteprojects/admizz-devs/admizz-edu-web-dev
 
-            # flock serializes this against BOTH the production deploy job
+            # flock serializes this against the production deploy job
             # (belt-and-suspenders alongside the GH Actions concurrency group
-            # above) AND the Sanity CMS webhook, which also calls deploy.sh
-            # directly on this same folder outside of GitHub entirely.
+            # above), which uses this same folder.
             flock /tmp/admizz-deploy.lock -c '
               set -e
               git fetch origin

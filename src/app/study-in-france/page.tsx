@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in France - Admizz Education",
@@ -190,7 +190,7 @@ const franceData: CountryPageData = {
     { title: "Campus France Interview & NOC", description: "Attend your Campus France interview. Once the Etudes en France procedure is complete, your file is passed on for the visa stage." },
     { title: "Apply on France-Visas", description: "Complete your visa application on the official France-Visas portal and prepare the listed documents, including proof of at least \u20AC877.50 per month (from August 1, 2026) and insurance proof." },
     { title: "VFS Appointment & Decision", description: "Book your VFS appointment, submit your documents and biometrics, and wait for the French consular authorities to decide." },
-    { title: "Travel & Validate VLS-TS", description: "Validate your VLS-TS online within 3 months of arriving; Campus France lists the fee as \u20AC100 for most nationalities." },
+    { title: "Travel & Validate VLS-TS", description: "Validate your VLS-TS online within 3 months of arriving; service-public.gouv.fr lists the validation fee as \u20AC150." },
   ],
   faqItems: [
     { question: "What are the eligibility requirements to study in France?", answer: "Requirements vary by institution, but you generally need academic transcripts, a valid passport, proof of English or French as the program requires, and proof of funds. Nepali students also complete the Etudes en France procedure with Campus France, including an interview, before the visa application." },
@@ -207,6 +207,6 @@ const franceData: CountryPageData = {
 };
 
 export default async function StudyInFrancePage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("france");
+  const blogPosts: BlogPost[] = getPostsByCategory("france");
   return <CountryPageTemplate data={franceData} blogPosts={blogPosts} />;
 }

@@ -6,7 +6,9 @@ import {
   getAllCategories,
   getPostsByCategory,
 } from "@/lib/blog-content";
-import type { SanityPost, SanityCategory } from "@/types";
+import type { BlogPost, BlogCategory } from "@/types";
+import FAQ from "@/components/ui/FAQ";
+import { categoryFaqs } from "@/data/page-faqs";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -21,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
 
   // Fetch category name
-  const categories: SanityCategory[] = getAllCategories();
+  const categories: BlogCategory[] = getAllCategories();
   const category = categories.find((c) => c.slug.current === slug);
   const name = category?.title || slug;
 
@@ -33,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // what a soft-404 read means. noindex it (still fully visible/navigable
   // to visitors) until it has real posts; sitemap.js already only lists
   // categories with posts, so this never touches an indexed URL.
-  const posts: SanityPost[] = getPostsByCategory(slug);
+  const posts: BlogPost[] = getPostsByCategory(slug);
   const robots = posts.length === 0 ? { index: false, follow: true } : undefined;
 
   return {
@@ -177,6 +179,11 @@ export default async function CategoryPage({ params }: PageProps) {
           )}
         </div>
       </section>
+
+      {/* ===== FAQ (only categories with an entry in page-faqs.ts) ===== */}
+      {categoryFaqs[slug] && posts.length > 0 && (
+        <FAQ items={categoryFaqs[slug]} title="Frequently asked questions" />
+      )}
 
       {/* ===== BACK TO BLOG ===== */}
       <section className="bg-off-white py-10">

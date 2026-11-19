@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CountryPageTemplate from "@/components/ui/CountryPageTemplate";
 import type { CountryPageData } from "@/components/ui/CountryPageTemplate";
 import { getPostsByCategory } from "@/lib/blog-content";
-import type { SanityPost } from "@/types";
+import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
   title: "Study in the UK - Admizz Education",
@@ -219,10 +219,20 @@ const ukData: CountryPageData = {
     { question: "Can I stay in the UK after completing my studies?", answer: "Yes. The Graduate Route (Post-Study Work Visa) lets you stay and work after your degree: 18 months for bachelor's and master's graduates applying from 1 January 2027, and 3 years for PhD graduates." },
     { question: "What are the best courses to study in the UK?", answer: "Popular courses include MBA, Data Science, Engineering, Healthcare, Law, Computer Science, Business Analytics, Pharmacy, and Finance." },
     { question: "Do UK universities accept gaps in education?", answer: "Yes, most UK universities accept study gaps if properly justified with experience letters, family reasons, medical documents, or valid explanations." },
+    {
+      question: "What do you need to get a UK Student visa?",
+      answer:
+        "GOV.UK says you can apply if you are 16 or over and have been offered a place on a course by a licensed student sponsor, have enough money to support yourself and pay for your course, can speak, read, write and understand English, and have your parents' consent if you are 16 or 17. You need a Confirmation of Acceptance for Studies (CAS) from your university, and you must apply within 6 months of receiving it. Depending on your case you may also need a TB test result and an ATAS certificate.",
+    },
+    {
+      question: "How do I check that a UK university can sponsor international students?",
+      answer:
+        "Look for it in the GOV.UK Register of licensed sponsors: students (gov.uk/government/publications/register-of-licensed-sponsors-students), which lists institutions licensed to sponsor migrant students. GOV.UK says you need an offer from a licensed student sponsor to apply, so check this before you pay a deposit.",
+    },
   ],
 };
 
 export default async function StudyInUKPage() {
-  const blogPosts: SanityPost[] = getPostsByCategory("uk");
+  const blogPosts: BlogPost[] = getPostsByCategory("uk");
   return <CountryPageTemplate data={ukData} blogPosts={blogPosts} />;
 }

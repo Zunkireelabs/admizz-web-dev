@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 // Bottom "Ready to Build Your Global Career?" banner. Same markup as the one
-// at the end of the Sanity-backed post template (src/app/[slug]/page.tsx),
+// at the end of the content-post template (src/app/[slug]/page.tsx),
 // so agent-authored posts end the same way every other post does.
 export default function BlogCtaBanner() {
   return (

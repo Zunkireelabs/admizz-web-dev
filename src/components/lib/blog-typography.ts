@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 
 // Typography of blog post bodies. It matches the long-standing raw-HTML posts (for example
-// /study-in-france-guide-for-nepali-students) so Sanity posts, repo-written posts and
+// /study-in-france-guide-for-nepali-students) so content posts, repo-written posts and
 // hand-written HTML all read the same. Change the values here, not in each renderer.
 const font = "var(--font-rubik), 'Rubik', sans-serif";
 

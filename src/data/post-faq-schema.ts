@@ -1,4 +1,4 @@
-// FAQPage schema (schema only, no visible markup) for Sanity posts that already
+// FAQPage schema (schema only, no visible markup) for content posts that already
 // show the same questions in their body but carry no faqItems, so no FAQPage
 // structured data was being emitted. Keyed by post slug. Each entry copies the
 // question and answer text that is already visible in that post's own body —
@@ -43,6 +43,10 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
   ],
   "total-cost-studying-uk-from-nepal-2027": [
+    {
+      question: "How much are the UK student visa fee and health surcharge?",
+      answer: "GOV.UK lists £558 for a Student visa from outside the UK and £776 per year for the Immigration Health Surcharge for students. There is no surcharge if you apply from outside the UK for a course of 6 months or less. Confirm both on GOV.UK before you pay.",
+    },
     {
       question: "What is the Education Tax (3%) when sending money to UK for studies?",
       answer: "The Nepal government charges a 3% tax on foreign exchange remittances sent abroad for education. When you transfer your tuition fee through a Nepali bank, this tax is deducted at source. For a £14,000 annual tuition, the tax is £420 (approximately NPR 85,638). This applies each year tuition is remitted — so UG students pay it 3 times and PG students pay it once.",
@@ -106,24 +110,6 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     {
       question: "Can I start in May?",
       answer: "Some universities start in May, but courses are limited. Check your chosen university.",
-    },
-  ],
-  "us-f1-september-15-deadline-2026": [
-    {
-      question: "Does the September 15 rule affect students already studying in the US on D/S status?",
-      answer: "Your existing D/S status is not cancelled on September 15. However, if you travel internationally and re-enter after September 15, you will receive a new I-94 with a fixed end date — not D/S. Contact your university's international student office for guidance specific to your situation before you travel.",
-    },
-    {
-      question: "What happens if my program takes longer than 4 years?",
-      answer: "You must apply to USCIS for an extension before your I-94 end date passes. This is a formal immigration application — unlike the old DSO approval, it involves fees, documentation, processing time, and is not guaranteed. PhD students should start planning this well in advance.",
-    },
-    {
-      question: "Is it safe to travel internationally after September 15?",
-      answer: "Travel is not banned — but re-entering the US after September 15 means your new I-94 will show a fixed end date, not D/S. Before booking any international flights for after September 15, speak to your DSO first to understand how re-entry affects your specific stay period.",
-    },
-    {
-      question: "Should I still apply to study in the US given these changes?",
-      answer: "For a 1–2 year master's or 4-year bachelor's, the new rules create no real problem. For PhD students, the 4-year limit adds genuine uncertainty. The US still offers the highest STEM salaries and most prestigious research universities — but the flexibility that made it work for many students has reduced significantly. Speak to an Admizz advisor to compare your options honestly.",
     },
   ],
   "study-in-europe-from-nepal": [
@@ -253,7 +239,7 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   "new-zealand-short-term-graduate-work-visa-2026": [
     {
       question: "When can I apply for the New Zealand Short-Term Graduate Work Visa?",
-      answer: "Applications open on November 16, 2026, as confirmed by Immigration New Zealand on May 29, 2026. You must apply within 3 months of your New Zealand student visa expiring. If your student visa has already expired before November 16, 2026, you will not be able to apply retroactively — the visa is available only to graduates whose student visas are still valid or who are within the 3-month window after expiry on or after the launch date.",
+      answer: "Applications were due to open on November 16, 2026, but Immigration New Zealand postponed the launch by a week to November 23, 2026, because of the global Microsoft outage on November 13, 2026. Check the official Short-term Graduate Work Visa page before you apply. You must apply within 3 months of your New Zealand student visa expiring. If your student visa ended more than 3 months ago, you will not be able to apply retroactively — the visa is available only to graduates whose student visas are still valid or who are within the 3-month window after expiry on or after the launch date.",
     },
     {
       question: "What is the difference between the Short-Term Graduate Work Visa and the Post Study Work Visa?",
@@ -339,27 +325,35 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
   "step-by-step-guide-to-australia-student-visa-from-nepal": [
     {
       question: "What is Australia's Assessment Level 3, and how does it affect Nepali students?",
-      answer: "Assessment Level 3 is the highest risk tier under Australia's Simplified Student Visa Framework (SSVF). This article says it applies to Nepali students from January 8, 2026, but Home Affairs does not publish country evidence levels, so that is unconfirmed. At the highest level it requires mandatory English proficiency scores for all applicants, 3–6 months of verifiable bank statements, a detailed and personalized Genuine Student (GS) statement, and in some cases a phone or in-person interview. Genuine, well-prepared applicants continue to be approved every day.",
+      answer: "Assessment Level 3 is the highest risk tier under Australia's Simplified Student Visa Framework (SSVF). This article says it applies to Nepali students from January 8, 2026, but Home Affairs does not publish country evidence levels, so that is unconfirmed. It means your application will be examined with the maximum level of scrutiny available. Specifically, it now requires: mandatory English proficiency scores for all applicants (no exemptions), 3–6 months of verifiable bank statements, a detailed and personalized Genuine Student (GS) statement, and — in some cases — a phone or in-person interview with a DHA case officer. Importantly, Assessment Level 3 does not mean Australia is closed to Nepali students. It simply means the documentation bar is higher. Genuine, well-prepared applicants continue to be approved every day.",
     },
     {
       question: "How much bank balance do I need for Australia student visa from Nepal in 2026?",
-      answer: "You must demonstrate access to a minimum of AUD 29,710 for living expenses, plus your full first-year tuition fees, plus return travel costs of approximately AUD 2,500–4,000. For most courses, this means a total of AUD 55,000–70,000. If your spouse is accompanying you, add AUD 10,394. For each child, add AUD 4,449.",
+      answer: "You must demonstrate access to a minimum of AUD 29,710 for living expenses, plus your full first-year tuition fees, plus return travel costs of approximately AUD 2,500–4,000. For most courses, this means a total of AUD 55,000–70,000 (approximately NPR 55–70 lakhs at current exchange rates). If your spouse is accompanying you, add AUD 10,394. For each child, add AUD 4,449. These funds must be evidenced through 3–6 months of consistent bank statements from a recognized Nepali commercial bank — sudden large deposits without a documented source are a major refusal trigger under Level 3.",
     },
     {
       question: "What is the Genuine Student (GS) statement and why is it so important in 2026?",
-      answer: "The Genuine Student (GS) statement replaced the old Genuine Temporary Entrant (GTE) requirement in 2024. It is answered directly within the ImmiAccount visa application form using structured questions. Under Assessment Level 3, a weak, vague, or copied GS statement is one of the leading causes of visa refusal, even when finances and academic records are strong.",
+      answer: "The Genuine Student (GS) statement replaced the old Genuine Temporary Entrant (GTE) requirement in 2024. Unlike the GTE, it is answered directly within the ImmiAccount visa application form using structured questions. It asks you to explain why you chose your specific course and institution, how the qualification connects to your academic and professional background, what your career plans are in Nepal after graduation, and what your ties to Nepal are. Under Assessment Level 3, a weak, vague, or copied GS statement is one of the leading causes of visa refusal — even when finances and academic records are strong. Your GS answers must be specific, personal, and genuinely written by you.",
     },
     {
       question: "How long does Australia student visa processing take from Nepal in 2026?",
-      answer: "Under Assessment Level 3, processing times from Nepal typically range from 4 to 12 weeks after lodgement, though complex cases may take longer. To be safe, apply at least 4–6 months before your intended course start date. Applying fewer than 3 months before your intake under Level 3 is a significant risk.",
+      answer: "Under Assessment Level 3, processing times from Nepal typically range from 4 to 12 weeks after lodgement, though complex cases may take longer. Processing speed also depends on which institution you are applying to — Level 1 universities tend to be processed faster within the National Planning Level prioritization system. To be safe, apply at least 4–6 months before your intended course start date. Applying fewer than 3 months before your intake under Level 3 is a significant risk.",
     },
     {
       question: "Can I work in Australia on a student visa?",
-      answer: "Yes. The Subclass 500 student visa allows you to work up to 48 hours per fortnight (approximately 24 hours per week) during official semester periods, and unlimited hours during scheduled course breaks, such as summer vacation or semester breaks.",
+      answer: "Yes. The Subclass 500 student visa allows you to work up to 48 hours per fortnight (approximately 24 hours per week) during official semester periods, and unlimited hours during scheduled course breaks — such as summer vacation or semester breaks. Australia's national minimum wage is AUD 24.95 per hour, meaning a working student can realistically earn AUD 1,000–1,400 per month during semester, which significantly offsets living costs.",
     },
     {
       question: "What is CRICOS and why does my institution need to be registered on it?",
-      answer: "CRICOS stands for the Commonwealth Register of Institutions and Courses for Overseas Students. It is the Australian government's database of every institution and course approved to enroll international students. Only courses and institutions listed on the CRICOS register are eligible for the Subclass 500 visa. You can search the register at cricos.education.gov.au.",
+      answer: "CRICOS stands for the Commonwealth Register of Institutions and Courses for Overseas Students. It is the Australian government's database of every institution and course approved to enroll international students. Only courses and institutions listed on the CRICOS register are eligible for the Subclass 500 visa — if you enroll in a course at a non-CRICOS-registered institution, you cannot apply for a student visa. You can search the register at cricos.education.gov.au.",
+    },
+    {
+      question: "Is studying in regional Australia worth considering for Nepali students?",
+      answer: "Yes — strongly. Nepali students who study in regional Australian cities (Adelaide, Hobart, Darwin, Canberra, Geelong, and other designated regional areas) are eligible for an additional year on their post-study work visa (Subclass 485). For example, a bachelor's degree graduate studying in regional Australia receives 4 years of post-study work rights instead of 3. Additionally, regional study adds migration points under the skilled immigration system, meaningfully strengthening a future PR application. Costs are also typically lower in regional cities compared to Sydney or Melbourne.",
+    },
+    {
+      question: "What happens if my visa is refused? Can I appeal?",
+      answer: "If your application is refused, you will receive a refusal notice explaining the reasons. In most cases, you have the right to seek a review through the Administrative Appeals Tribunal (AAT) within the timeframe specified in your refusal notice. However, reviews are costly and time-consuming — prevention is far preferable to appeal. If you are refused, the most important step is to understand exactly why, address those specific issues, and reapply with a strengthened application. Admizz Education has experience assisting students who have received refusals and can advise on the best path forward.",
     },
   ],
   "cost-studying-london-vs-outside-london-2026": [
@@ -1007,7 +1001,19 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     },
     {
       question: "Are the fee figures exact?",
-      answer: "No. The ranges are estimates from third-party guides. Use the course page for the exact fee.",
+      answer: "The \"from\" figures come from London Met's page for students from Nepal, and the course examples come from individual course pages checked in November 2026. Fees vary by course and entry date, so use your course page for the exact fee.",
+    },
+    {
+      question: "What are the entry requirements for Nepali students?",
+      answer: "London Met's page for students from Nepal lists, for undergraduate study, a Higher Secondary School Certificate with grades over 55% in year 12 or a CTEVT diploma with a minimum grade of 55%. For postgraduate study it lists a minimum 3.0 GPA on a 4-point scale, or grade B, in a bachelor's degree studied for at least four years. Standard degrees ask for IELTS 6.0 overall with 5.5 in each component, and some courses ask for more.",
+    },
+    {
+      question: "What deposit do I need for a student visa CAS?",
+      answer: "London Met says students applying for a Student visa need a £4,000 deposit to request a CAS, followed by up to 50% of the yearly tuition fee on or before the enrollment deadline. The remaining 50% is due three months after the course starts.",
+    },
+    {
+      question: "Is there a scholarship for Nepali students?",
+      answer: "London Met's South Asia scholarship page lists a £5,000 tuition fee reduction for citizens of Nepal and other South Asian countries who pay a deposit of £4,000 or more, applied automatically with no separate application. The university's pages differ on how long it lasts, so confirm the terms with London Met.",
     },
   ],
   "master-by-research-uk-international-students-2027": [
@@ -1158,24 +1164,6 @@ export const postFaqSchemaOnly: Record<string, PostFaqSchemaItem[]> = {
     {
       question: "Can a gap lead to a visa refusal?",
       answer: "A gap alone should not. Unexplained or inconsistent details can raise concerns.",
-    },
-  ],
-  "us-f1-duration-of-status-ended-2026": [
-    {
-      question: "What is Duration of Status and why does ending it matter?",
-      answer: "Duration of Status (D/S) was the long-standing system that allowed F-1 international students to remain in the US for the full length of their program — however long that took — as long as they were making academic progress. Your university's Designated School Official had the authority to approve extensions. This gave genuine students the flexibility to complete PhD programs (which typically take 5–8 years), progress from language study to degree programs, and complete OPT after graduation. Ending D/S removes that flexibility entirely and replaces it with a fixed 4-year limit controlled by USCIS, not your university.",
-    },
-    {
-      question: "Does the 4-year limit affect students already studying in the US?",
-      answer: "The final rule is primarily designed to apply to new students arriving from September 2026 onwards. Students already in the US on F-1 status face a transition period — current students wishing to extend their stay beyond their program end-date will likely need to file an extension with USCIS rather than their DSO. A possible 6-month grace period for students currently on OPT has been discussed but not formally confirmed. Check your I-94 record at i94.cbp.dhs.gov and contact your international student office for the most current guidance specific to your situation.",
-    },
-    {
-      question: "Is OPT still available under the new rules?",
-      answer: "OPT has not been formally eliminated — but it faces serious uncertainty. The USCIS director has publicly indicated a desire to restrict OPT access, and the August 2026 regulatory agenda includes proposals for OPT reform. A 2025 NAFSA survey found that 54% of current international students would not have chosen the US if OPT did not exist. Students considering the US specifically for the STEM OPT pathway should plan for the possibility that OPT conditions may change further before or during their program — and have a contingency plan ready.",
-    },
-    {
-      question: "Should I still apply to study in the US given these changes?",
-      answer: "That depends entirely on your program, your career goals, and your risk tolerance. The US still offers the world's highest-ranked research universities, the strongest STEM graduate salary ceiling, and a uniquely deep employer base in technology, finance, and engineering. For a 2-year STEM Master's at a well-ranked institution, the 4-year limit presents no problem. For PhD students and those relying on a seamless OPT-to-H-1B pathway, the new rules introduce genuine uncertainty that did not exist before. Applying to the US alongside the UK or Australia — and making your final decision based on which visa and program conditions best match your goals — is the most prudent approach in 2026.",
     },
   ],
   "gates-cambridge-commonwealth-scholarships-international-2027": [
