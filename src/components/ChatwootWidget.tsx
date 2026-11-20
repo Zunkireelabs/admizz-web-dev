@@ -4,10 +4,48 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { isPortalPath } from "@/lib/portal-routes";
 
-// Website chat bubble (Chatwoot). Renders nothing unless both env vars are set, so it stays
-// off until chat is configured for an environment. Both are inlined at build time.
+// Website chat. Two ways to show it, chosen at build time; with neither set it renders nothing, so chat stays
+// off until it is configured for an environment:
+//   1. NEXT_PUBLIC_CHAT_WIDGET_SRC: the Admizz-styled Zunkiree chat widget (a script served by EdgeX).
+//      Takes priority when set. PROTOTYPE: it answers with scripted replies and sends nothing to a server yet.
+//   2. NEXT_PUBLIC_CHATWOOT_BASE_URL + NEXT_PUBLIC_CHATWOOT_WEBSITE_TOKEN: Chatwoot's own bubble.
+const WIDGET_SRC = process.env.NEXT_PUBLIC_CHAT_WIDGET_SRC;
 const BASE_URL = process.env.NEXT_PUBLIC_CHATWOOT_BASE_URL;
 const WEBSITE_TOKEN = process.env.NEXT_PUBLIC_CHATWOOT_WEBSITE_TOKEN;
+const CHAT_ENABLED = Boolean(WIDGET_SRC) || Boolean(BASE_URL && WEBSITE_TOKEN);
+
+// How the Zunkiree widget looks and reads for Admizz. Colours and the logo are the site's own.
+const ADMIZZ_CHAT_THEME = {
+  brand: {
+    name: "Admizz Education",
+    primary: "#001353",
+    primaryDark: "#0D1282",
+    accent: "#FDED22",
+    logo: "/images/logos/Admizz-Education-New-Logo-For-Dark-Background-1.png-1-1024x331.webp",
+  },
+  greeting: "Hi there, how can we help you study abroad?",
+  startCard: { title: "Start a conversation", sub: "Ask about courses, visas or fees" },
+  team: [
+    { initials: "A", color: "#31429C" },
+    { initials: "E", color: "#0D9488" },
+    { initials: "D", color: "#B45309" },
+  ],
+  agent: { name: "Admizz counsellors", initials: "AE" },
+  online: true,
+  onlineTitle: "Our counsellors are online",
+  onlineSub: "Typically reply in a few minutes",
+  topics: ["Study in the UK", "Study in the USA", "Canada", "Australia", "Scholarships", "Visa help"],
+  link: { label: "Book a free consultation", sub: "Pick a time with a counsellor", url: "/register" },
+  // Ask how to reach the visitor before the first message, as the chat form did before: name and WhatsApp
+  // number required, email optional.
+  contact: {
+    when: "before",
+    name: { show: true, required: true },
+    phone: { show: true, required: true },
+    email: { show: true, required: false },
+  },
+  poweredBy: "Zunkiree",
+};
 
 // Fixed bottom bars on the site (register CTA, city and template CTAs, the university compare
 // tray) carry this attribute. The bubble measures whichever one is on screen and sits above it.
@@ -20,6 +58,7 @@ declare global {
   interface Window {
     chatwootSDK?: { run: (config: { websiteToken: string; baseUrl: string }) => void };
     $chatwoot?: { toggleBubbleVisibility: (visibility: "hide" | "show") => void };
+    ZunkireeChat?: { init: (config: unknown) => void; setHidden: (hidden: boolean) => void };
   }
 }
 
@@ -59,7 +98,7 @@ export default function ChatwootWidget() {
 
   // Keep the bubble clear of whichever bottom bar is visible, as bars slide in and out.
   useEffect(() => {
-    if (!BASE_URL || !WEBSITE_TOKEN) return;
+    if (!CHAT_ENABLED) return;
 
     let frame = 0;
     const schedule = () => {
@@ -84,10 +123,28 @@ export default function ChatwootWidget() {
   }, [pathname]);
 
   useEffect(() => {
-    if (!BASE_URL || !WEBSITE_TOKEN) return;
+    if (!CHAT_ENABLED) return;
 
     const hidden = isPortalPath(pathname);
     hiddenRef.current = hidden;
+
+    // The Zunkiree widget: load its script once, then show or hide it as the visitor moves between pages.
+    if (WIDGET_SRC) {
+      if (startedRef.current) {
+        window.ZunkireeChat?.setHidden(hidden);
+        return;
+      }
+      if (hidden) return; // loads on the first normal page instead
+      startedRef.current = true;
+      const widgetScript = document.createElement("script");
+      widgetScript.src = WIDGET_SRC;
+      widgetScript.async = true;
+      widgetScript.onload = () => window.ZunkireeChat?.init(ADMIZZ_CHAT_THEME);
+      document.body.appendChild(widgetScript);
+      return;
+    }
+
+    if (!BASE_URL || !WEBSITE_TOKEN) return;
 
     // Already loaded: just show or hide the bubble as the visitor moves between pages.
     if (startedRef.current) {
