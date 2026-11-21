@@ -27,7 +27,7 @@ export default function CompareTray({ universities, comparePath }: { universitie
     <>
     {/* Spacer so the fixed bar never covers the end of the page. */}
     <div aria-hidden className="h-32 md:h-20" />
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border-light bg-white/95 backdrop-blur shadow-[0_-8px_30px_rgba(0,19,83,0.12)]">
+    <div data-bottom-bar className="fixed inset-x-0 bottom-0 z-40 border-t border-border-light bg-white/95 backdrop-blur shadow-[0_-8px_30px_rgba(0,19,83,0.12)]">
       <div className="max-w-7xl mx-auto flex flex-col gap-3 px-4 py-3 md:flex-row md:items-center">
         <div className="flex flex-1 items-center gap-3 overflow-x-auto">
           <p className="shrink-0 text-[14px] font-semibold text-navy">

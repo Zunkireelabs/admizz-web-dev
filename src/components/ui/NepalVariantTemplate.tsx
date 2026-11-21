@@ -1070,7 +1070,7 @@ export default function NepalVariantTemplate({ data, blogPosts }: NepalVariantTe
       <RecognizedInNepal />
 
       {/* ===== MOBILE STICKY CTA ===== */}
-      <div className="lg:hidden fixed inset-x-0 bottom-0 z-40 border-t border-border-light bg-white/95 backdrop-blur px-4 py-3">
+      <div data-bottom-bar className="lg:hidden fixed inset-x-0 bottom-0 z-40 border-t border-border-light bg-white/95 backdrop-blur px-4 py-3">
         <button
           type="button"
           onClick={openPopup}
