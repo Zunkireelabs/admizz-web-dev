@@ -14,6 +14,15 @@ const BASE_URL = process.env.NEXT_PUBLIC_CHATWOOT_BASE_URL;
 const WEBSITE_TOKEN = process.env.NEXT_PUBLIC_CHATWOOT_WEBSITE_TOKEN;
 const CHAT_ENABLED = Boolean(WIDGET_SRC) || Boolean(BASE_URL && WEBSITE_TOKEN);
 
+// The site is built once and the same output can go to both staging and production, so the chat settings may be
+// present in a production build. Only these hosts may ever show the bubble; production is deliberately not here.
+// Chatwoot also only allows the staging host to embed it, so a bubble on any other host would load broken.
+const CHAT_ALLOWED_HOSTS = ["dev-web.admizzeducation.com", "admizz.localhost", "localhost"];
+
+function chatAllowedHere(): boolean {
+  return CHAT_ENABLED && CHAT_ALLOWED_HOSTS.includes(window.location.hostname);
+}
+
 // How the Zunkiree widget looks and reads for Admizz. Colours and the logo are the site's own.
 const ADMIZZ_CHAT_THEME = {
   brand: {
@@ -98,7 +107,7 @@ export default function ChatwootWidget() {
 
   // Keep the bubble clear of whichever bottom bar is visible, as bars slide in and out.
   useEffect(() => {
-    if (!CHAT_ENABLED) return;
+    if (!chatAllowedHere()) return;
 
     let frame = 0;
     const schedule = () => {
@@ -123,7 +132,7 @@ export default function ChatwootWidget() {
   }, [pathname]);
 
   useEffect(() => {
-    if (!CHAT_ENABLED) return;
+    if (!chatAllowedHere()) return;
 
     const hidden = isPortalPath(pathname);
     hiddenRef.current = hidden;
