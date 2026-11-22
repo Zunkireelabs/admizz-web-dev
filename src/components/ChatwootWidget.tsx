@@ -10,6 +10,9 @@ import { isPortalPath } from "@/lib/portal-routes";
 //      Takes priority when set. PROTOTYPE: it answers with scripted replies and sends nothing to a server yet.
 //   2. NEXT_PUBLIC_CHATWOOT_BASE_URL + NEXT_PUBLIC_CHATWOOT_WEBSITE_TOKEN: Chatwoot's own bubble.
 const WIDGET_SRC = process.env.NEXT_PUBLIC_CHAT_WIDGET_SRC;
+// The public id of the tenant's branded Chatwoot inbox (EdgeX: Settings > Communications > Website chat). With it the widget sends
+// visitors' messages to the team; without it the widget shows its scripted demo replies and nothing leaves the page.
+const CHAT_INBOX = process.env.NEXT_PUBLIC_CHAT_INBOX_ID;
 const BASE_URL = process.env.NEXT_PUBLIC_CHATWOOT_BASE_URL;
 const WEBSITE_TOKEN = process.env.NEXT_PUBLIC_CHATWOOT_WEBSITE_TOKEN;
 const CHAT_ENABLED = Boolean(WIDGET_SRC) || Boolean(BASE_URL && WEBSITE_TOKEN);
@@ -48,6 +51,8 @@ const ADMIZZ_CHAT_THEME = {
   // Ask how to reach the visitor before the first message, as the chat form did before: name and WhatsApp
   // number required, email optional.
   contact: {
+    // Nepali numbers are typed without the country code; Chatwoot only accepts international ones.
+    defaultCountryCode: "+977",
     when: "before",
     name: { show: true, required: true },
     phone: { show: true, required: true },
@@ -148,7 +153,7 @@ export default function ChatwootWidget() {
       const widgetScript = document.createElement("script");
       widgetScript.src = WIDGET_SRC;
       widgetScript.async = true;
-      widgetScript.onload = () => window.ZunkireeChat?.init(ADMIZZ_CHAT_THEME);
+      widgetScript.onload = () => window.ZunkireeChat?.init(CHAT_INBOX ? { ...ADMIZZ_CHAT_THEME, connection: { inbox: CHAT_INBOX } } : ADMIZZ_CHAT_THEME);
       document.body.appendChild(widgetScript);
       return;
     }
