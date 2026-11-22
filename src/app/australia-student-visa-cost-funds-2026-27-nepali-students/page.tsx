@@ -27,7 +27,7 @@ const post = {
     },
     {
       "heading": "Check before you apply",
-      "body": "- Confirm the visa fee on the Home Affairs fees page. It was AUD 2,500 from July 1, 2026.\n- Check the funds figure (AUD 29,710 on Study Australia) and the dependant amounts on Home Affairs.\n- Get an OSHC quote that covers your full course.\n- Get your Confirmation of Enrolment (CoE). You must enroll first.\n- Run the Document Checklist Tool for your passport and course.\n- Write your Genuine Student answers yourself.\n- Check the new student visa application rules that Home Affairs lists as starting October 2, 2026. They change who can apply while in Australia.\n\nIf you are comparing options, see our list of the [top education consultancies in Nepal](/top-education-consultancy-in-nepal)."
+      "body": "- Confirm the visa fee on the Home Affairs fees page. It was AUD 2,500 from July 1, 2026.\n- Check the funds figure (AUD 29,710 on Study Australia) and the dependant amounts on Home Affairs.\n- Get an OSHC quote that covers your full course.\n- Get your Confirmation of Enrolment (CoE). You must enroll first.\n- Run the Document Checklist Tool for your passport and course.\n- Write your Genuine Student answers yourself.\n- Check the new student visa application rules that Home Affairs lists as starting October 2, 2026. They change who can apply while in Australia.\n\nIf you are comparing options, see our list of the [top education consultancies in Nepal](/top-education-partner-in-nepal)."
     },
     {
       "heading": "Sources",
