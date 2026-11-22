@@ -12,16 +12,16 @@ import TestimonialsBento from "@/components/ui/TestimonialsBento";
 import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
-  title: "Education Consultancy in Kathmandu: Study Abroad Consultants",
+  title: "Education Partner in Kathmandu: Study Abroad Partner",
   description:
-    "Study abroad consultants in Kathmandu at Sita Ram Square, Putalisadak: counseling, test prep, scholarships and visa support from Admizz Education.",
+    "Your study abroad partner in Kathmandu at Sita Ram Square, Putalisadak: counseling, test prep, scholarships and visa support from Admizz Education.",
   alternates: {
     canonical: "https://admizzeducation.com/education-consultancy-in-kathmandu",
   },
   openGraph: {
-    title: "Education Consultancy in Kathmandu: Study Abroad Consultants",
+    title: "Education Partner in Kathmandu: Study Abroad Partner",
     description:
-      "Study abroad consultants in Kathmandu at Sita Ram Square, Putalisadak: counseling, test prep, scholarships and visa support from Admizz Education.",
+      "Your study abroad partner in Kathmandu at Sita Ram Square, Putalisadak: counseling, test prep, scholarships and visa support from Admizz Education.",
     url: "https://admizzeducation.com/education-consultancy-in-kathmandu",
     siteName: "Admizz Education",
     images: ["/images/og/study.webp"],
@@ -203,7 +203,7 @@ export default async function EducationConsultancyInKathmanduPage() {
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://admizzeducation.com/" },
-          { name: "Education Consultancy in Kathmandu", url: "https://admizzeducation.com/education-consultancy-in-kathmandu" },
+          { name: "Education Partner in Kathmandu", url: "https://admizzeducation.com/education-consultancy-in-kathmandu" },
         ]}
       />
       {/* Real Kathmandu office address — same facts as the sitewide
@@ -237,13 +237,13 @@ export default async function EducationConsultancyInKathmanduPage() {
                 Trusted Study Abroad Experts with Proven Results
               </p>
               <h1 className="text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight">
-                Education Consultancy in Kathmandu
+                Education Partner in Kathmandu
               </h1>
               <p className="mt-4 text-[15px] md:text-base text-white/90 leading-relaxed">
-                If you are searching for a reliable education consultancy in
+                If you are searching for a reliable education partner in
                 Kathmandu, it&apos;s important to choose a team with real
                 experience, verified expertise, and transparent guidance. Admizz
-                Education is a leading study abroad consultancy in Kathmandu,
+                Education is a leading study abroad partner in Kathmandu,
                 helping Nepali students successfully study in the USA, UK, Canada,
                 Australia, Germany, and Europe through ethical counseling and
                 structured processes.
