@@ -84,7 +84,7 @@ const staticPages = [
   { path: "/uk-student-visa-from-nepal", priority: 0.8, freq: "monthly" },
   // SEO landing pages
   { path: "/education-partner-in-kathmandu", priority: 0.7, freq: "monthly" },
-  { path: "/top-education-consultancy-in-nepal", priority: 0.8, freq: "monthly" },
+  { path: "/top-education-partner-in-nepal", priority: 0.8, freq: "monthly" },
   { path: "/accreditation-and-results", priority: 0.6, freq: "monthly" },
   { path: "/study-abroad-rule-updates", priority: 0.8, freq: "weekly" },
   { path: "/study-abroad-rule-changes", priority: 0.8, freq: "weekly" },

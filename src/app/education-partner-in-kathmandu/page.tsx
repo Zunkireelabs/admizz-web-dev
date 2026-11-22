@@ -473,7 +473,7 @@ export default async function EducationPartnerInKathmanduPage() {
             consultation to discuss your course, country, budget and visa plan with a counselor in person.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-              <Link href="/top-education-consultancy-in-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+              <Link href="/top-education-partner-in-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
                 <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Education partner in Nepal</h3>
                 <p className="text-sm text-gray-dark leading-relaxed">Our full overview of services, countries and how to choose an education partner.</p>
               </Link>

@@ -27,7 +27,7 @@ const post = {
     },
     {
       "heading": "How to use this when you choose a country",
-      "body": "1. Decide which option matters most: length, flexibility or a route to staying longer.\n2. Check that your specific course qualifies (PGWP and STEM OPT depend on the program).\n3. Compare the visa costs in our [visa cost comparison](/study-abroad-visa-costs-compared-uk-usa-canada-australia-2026).\n4. Read the destination page: [UK](/study-in-uk-from-nepal), [USA](/study-in-usa-from-nepal), [Canada](/study-in-canada-from-nepal) or [Australia](/study-in-australia-from-nepal).\n\nFor help choosing, see the [top education consultancies in Nepal](/top-education-consultancy-in-nepal)."
+      "body": "1. Decide which option matters most: length, flexibility or a route to staying longer.\n2. Check that your specific course qualifies (PGWP and STEM OPT depend on the program).\n3. Compare the visa costs in our [visa cost comparison](/study-abroad-visa-costs-compared-uk-usa-canada-australia-2026).\n4. Read the destination page: [UK](/study-in-uk-from-nepal), [USA](/study-in-usa-from-nepal), [Canada](/study-in-canada-from-nepal) or [Australia](/study-in-australia-from-nepal).\n\nFor help choosing, see the [top education consultancies in Nepal](/top-education-partner-in-nepal)."
     },
     {
       "heading": "Sources",

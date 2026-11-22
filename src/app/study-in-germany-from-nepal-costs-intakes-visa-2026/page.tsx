@@ -31,7 +31,7 @@ const post = {
     },
     {
       "heading": "Check before you apply",
-      "body": "- Confirm on the embassy website whether APS applies to your documents today.\n- Read the program page for its language level, deadline and whether it uses uni-assist.\n- Check whether the state or university charges tuition for non-EU students.\n- Confirm the proof-of-funds amount and the accepted type of proof with the embassy.\n- Book your language exam and your embassy appointment early.\n- Keep originals and certified translations ready for the appointment.\n\nIf you are comparing options, you can also read about the [top education consultancy in Nepal](/top-education-consultancy-in-nepal)."
+      "body": "- Confirm on the embassy website whether APS applies to your documents today.\n- Read the program page for its language level, deadline and whether it uses uni-assist.\n- Check whether the state or university charges tuition for non-EU students.\n- Confirm the proof-of-funds amount and the accepted type of proof with the embassy.\n- Book your language exam and your embassy appointment early.\n- Keep originals and certified translations ready for the appointment.\n\nIf you are comparing options, you can also read about the [top education consultancy in Nepal](/top-education-partner-in-nepal)."
     },
     {
       "heading": "Sources",
