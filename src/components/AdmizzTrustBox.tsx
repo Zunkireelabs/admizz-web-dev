@@ -41,7 +41,7 @@ export default function AdmizzTrustBox() {
           Top study abroad partner in Nepal
         </Link>
         {" · "}
-        <Link href="/education-consultancy-in-kathmandu" className="text-blue-royal underline hover:text-blue-dark">
+        <Link href="/education-partner-in-kathmandu" className="text-blue-royal underline hover:text-blue-dark">
           Education partner in Kathmandu
         </Link>
         {" · "}

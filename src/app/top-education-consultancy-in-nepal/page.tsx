@@ -608,7 +608,7 @@ export default async function TopEducationConsultancyInNepalPage() {
             (4th Floor), Putalisadak, or see our local pages for Birgunj and Janakpur.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/education-consultancy-in-kathmandu" className="bg-blue-royal text-white font-semibold text-[14px] px-6 py-2.5 rounded-[10px] hover:bg-blue-dark transition-colors">Study abroad consultants in Kathmandu</Link>
+            <Link href="/education-partner-in-kathmandu" className="bg-blue-royal text-white font-semibold text-[14px] px-6 py-2.5 rounded-[10px] hover:bg-blue-dark transition-colors">Study abroad consultants in Kathmandu</Link>
             <Link href="/birgunj" className="bg-white border border-border-light text-navy font-semibold text-[14px] px-6 py-2.5 rounded-[10px] hover:shadow-md transition-shadow">Birgunj</Link>
             <Link href="/janakpur" className="bg-white border border-border-light text-navy font-semibold text-[14px] px-6 py-2.5 rounded-[10px] hover:shadow-md transition-shadow">Janakpur</Link>
           </div>

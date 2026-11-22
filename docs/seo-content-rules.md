@@ -13,7 +13,7 @@ Applies to every new blog post, answer page and comparison page. Enforced where 
 - `quickAnswer`: 1 to 3 sentences at the top that restate only facts already in the body.
 - Visible FAQ (`faqItems`, 3 to 6 real questions). FAQPage schema is emitted only alongside the visible FAQ, never alone, and a page never gets two FAQs.
 - H2 headings written as the question or topic people search. Short paragraphs, tables or lists for figures.
-- Internal links: at least one to a sibling post and one to a hub (`/top-education-consultancy-in-nepal`, `/education-consultancy-in-kathmandu` or the destination page).
+- Internal links: at least one to a sibling post and one to a hub (`/top-education-consultancy-in-nepal`, `/education-partner-in-kathmandu` or the destination page).
 
 ## Language and style (American English, site-wide)
 - American spelling in all visible text: counseling/counselor, program, enrollment/enroll, center, recognized, personalized, organize, specialize, advisor, practice (verb), traveling, honor.

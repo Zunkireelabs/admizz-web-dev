@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   description:
     "Your study abroad partner in Kathmandu at Sita Ram Square, Putalisadak: counseling, test prep, scholarships and visa support from Admizz Education.",
   alternates: {
-    canonical: "https://admizzeducation.com/education-consultancy-in-kathmandu",
+    canonical: "https://admizzeducation.com/education-partner-in-kathmandu",
   },
   openGraph: {
     title: "Education Partner in Kathmandu: Study Abroad Partner",
     description:
       "Your study abroad partner in Kathmandu at Sita Ram Square, Putalisadak: counseling, test prep, scholarships and visa support from Admizz Education.",
-    url: "https://admizzeducation.com/education-consultancy-in-kathmandu",
+    url: "https://admizzeducation.com/education-partner-in-kathmandu",
     siteName: "Admizz Education",
     images: ["/images/og/study.webp"],
     type: "website",
@@ -142,7 +142,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Which is the best education partner in Kathmandu for studying abroad?",
     answer:
-      "Admizz Education is one of the best education partners in Kathmandu, known for transparent guidance, high visa success rates, and expert counseling for the UK, USA, Australia, Canada, and Europe. Their team provides end-to-end support, from course selection to visa approval.",
+      "Admizz Education is a trusted education partner in Kathmandu, known for transparent guidance, high visa success rates, and expert counseling for the UK, USA, Australia, Canada, and Europe. Their team provides end-to-end support, from course selection to visa approval.",
   },
   {
     question: "What services does Admizz Education provide?",
@@ -195,7 +195,7 @@ const faqItems: FAQItem[] = [
 /*  Page Component                                                     */
 /* ------------------------------------------------------------------ */
 
-export default async function EducationConsultancyInKathmanduPage() {
+export default async function EducationPartnerInKathmanduPage() {
   const blogPosts: BlogPost[] = getPostsByCategory("nepal");
 
   return (
@@ -203,7 +203,7 @@ export default async function EducationConsultancyInKathmanduPage() {
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://admizzeducation.com/" },
-          { name: "Education Partner in Kathmandu", url: "https://admizzeducation.com/education-consultancy-in-kathmandu" },
+          { name: "Education Partner in Kathmandu", url: "https://admizzeducation.com/education-partner-in-kathmandu" },
         ]}
       />
       {/* Real Kathmandu office address — same facts as the sitewide
@@ -217,7 +217,7 @@ export default async function EducationConsultancyInKathmanduPage() {
             "@context": "https://schema.org",
             "@type": "EducationalOrganization",
             name: "Admizz Education",
-            url: "https://admizzeducation.com/education-consultancy-in-kathmandu",
+            url: "https://admizzeducation.com/education-partner-in-kathmandu",
             telephone: "+977-9802728444",
             address: {
               "@type": "PostalAddress",
@@ -462,7 +462,7 @@ export default async function EducationConsultancyInKathmanduPage() {
         </div>
       </section>
 
-      {/* ===== CONSULTANTS IN KATHMANDU ===== */}
+      {/* ===== OUR TEAM IN KATHMANDU ===== */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">

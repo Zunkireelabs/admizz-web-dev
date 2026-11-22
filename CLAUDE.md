@@ -203,7 +203,7 @@ Redirects live in **two places**. Never in `next.config.ts` (`redirects()` is in
 | `/e-floating-buttons/:slug` | `/` | 308 |
 | `www.admizzeducation.com` | `admizzeducation.com` | 308 (prod only) |
 
-2. **nginx `location` blocks** in `nginx/static.conf` (301): merged consultancy pages → `/top-education-consultancy-in-nepal` or `/education-consultancy-in-kathmandu`, merged UK/USA guides → the country pages (slugs also in `src/data/retired-posts.json`), and renamed or moved URLs (NEB result, old event slugs).
+2. **nginx `location` blocks** in `nginx/static.conf` (301): merged consultancy pages → `/top-education-consultancy-in-nepal` or `/education-partner-in-kathmandu`, merged UK/USA guides → the country pages (slugs also in `src/data/retired-posts.json`), and renamed or moved URLs (NEB result, old event slugs).
 
 Traefik uses 308/307 (the HTTP/2 equivalents of 301/302); search engines treat them the same.
 
