@@ -11,7 +11,7 @@ const post = {
     },
     {
       "heading": "Related guides",
-      "body": "- [UK student visa from Nepal: the full guide](/uk-student-visa-from-nepal)\n- [The 28-day rule for Nepali students](/uk-student-visa-28-day-rule-Nepalese-students-2027)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-consultancy-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
+      "body": "- [UK student visa from Nepal: the full guide](/uk-student-visa-from-nepal)\n- [The 28-day rule for Nepali students](/uk-student-visa-28-day-rule-Nepalese-students-2027)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-partner-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
     },
     {
       "heading": "Sources",

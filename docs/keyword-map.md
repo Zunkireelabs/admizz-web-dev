@@ -10,8 +10,8 @@ ranks for it links to the primary page and does not try to win the same query.
 | Target keyword | Primary page | Position now | Impressions (40 days) |
 |---|---|---|---|
 | study abroad from nepal | `/study-abroad-from-nepal` | 21.7–31.9 | 166 |
-| study abroad consultancy in nepal | `/top-education-consultancy-in-nepal` (`/study-abroad-consultancy-in-nepal` now 301-redirects here) | 3.6 (old URL) | 130 |
-| top / best education consultancy in nepal | `/top-education-consultancy-in-nepal` | 5.1 | 292 |
+| study abroad consultancy in nepal | `/top-education-partner-in-nepal` (`/study-abroad-consultancy-in-nepal` now 301-redirects here) | 3.6 (old URL) | 130 |
+| top / best education consultancy in nepal | `/top-education-partner-in-nepal` | 5.1 | 292 |
 | best study abroad consultants | `/best-study-abroad-consultants-in-nepal-how-to-choose-the-right-one-for-your-future` | 13.7–26 | 90 |
 | study in uk from nepal | `/study-in-uk-from-nepal` | 54.5 | 179 |
 | uk student visa from nepal | `/uk-student-visa-from-nepal` | 58.3 | 56 |

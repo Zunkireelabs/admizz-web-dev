@@ -11,7 +11,7 @@ const post = {
     },
     {
       "heading": "Related guides",
-      "body": "- [Bank balance required for a UK student visa](/bank-balance-required-uk-student-visa-2027)\n- [UK student visa cost 2027](/uk-student-visa-cost-2027)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-consultancy-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
+      "body": "- [Bank balance required for a UK student visa](/bank-balance-required-uk-student-visa-2027)\n- [UK student visa cost 2027](/uk-student-visa-cost-2027)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-partner-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
     },
     {
       "heading": "Sources",

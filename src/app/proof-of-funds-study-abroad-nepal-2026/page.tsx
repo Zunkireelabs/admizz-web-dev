@@ -27,7 +27,7 @@ const post = {
     },
     {
       "heading": "Mistakes to avoid",
-      "body": "- Moving money into your account only days before you apply when the rule asks you to hold it for a set period.\n- Using a figure from an old blog post. These amounts change, and the UK figure rises on November 30, 2026.\n- Forgetting tuition and travel, which Canada and Australia ask you to show on top of living costs.\n- Using funds from sources you cannot document. Keep the paper trail for every transfer.\n\nFor a plan matched to your budget, see the [top education consultancies in Nepal](/top-education-consultancy-in-nepal)."
+      "body": "- Moving money into your account only days before you apply when the rule asks you to hold it for a set period.\n- Using a figure from an old blog post. These amounts change, and the UK figure rises on November 30, 2026.\n- Forgetting tuition and travel, which Canada and Australia ask you to show on top of living costs.\n- Using funds from sources you cannot document. Keep the paper trail for every transfer.\n\nFor a plan matched to your budget, see the [top education consultancies in Nepal](/top-education-partner-in-nepal)."
     },
     {
       "heading": "Sources",

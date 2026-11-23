@@ -218,7 +218,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   "@type": "LocalBusiness",
                   "@id": "https://admizzeducation.com/#office-kathmandu",
                   name: "Admizz Education — Kathmandu",
-                  url: "https://admizzeducation.com/education-consultancy-in-kathmandu",
+                  url: "https://admizzeducation.com/education-partner-in-kathmandu",
                   telephone: "+977-9802728444",
                   email: "hello@admizz.com",
                   areaServed: { "@type": "Country", name: "Nepal" },

@@ -163,7 +163,7 @@ From `page-sitemap.xml`:
 7. /study-in-france-from-nepal/
 8. /study-in-india-from-nepal/
 9. /study-in-south-korea-from-nepal/
-10. /top-education-consultancy-in-nepal/
+10. /top-education-partner-in-nepal/
 11. /study-in-uae-from-nepal/
 12. /study-abroad-consultants-in-kathmandu/
 13. /recruitment-partners/
@@ -363,7 +363,7 @@ This slug appears in BOTH post-sitemap.xml and page-sitemap.xml. Need to determi
 | /best-education-consultancy-for-study-abroad/ | (not found) | Admizz Education – Best Education Consultancy for Study Abroad. Expert guidance, test prep & visa support for USA, UK, Canada & more. | Best Education Consultancy for Study Abroad | /wp-content/uploads/2025/06/Flag_of_Australia.svg.png |
 | /study-abroad-consultancy-in-nepal/ | Study Abroad Consultancy in Nepal - Admizz Education | Top education consultancy in Nepal offering expert guidance for studying abroad. Trusted by students for global admissions success. | Study abroad consultancy in Nepal | (none) |
 | /overseas-education-consultants-in-nepal/ | (not found) | Admizz Education is one of Nepal's top overseas education consultants offering expert counselling, visa help & scholarship support. | Overseas Education Consultants in Nepal | /wp-content/uploads/2025/08/admizzn.jpg |
-| /top-education-consultancy-in-nepal/ | Top education consultancy in nepal - Admizz Education | Admizz Education, the top education consultancy in Nepal, offers study abroad guidance, test prep, scholarships & visa support | Top education consultancy in Nepal | /wp-content/uploads/2025/09/study.webp |
+| /top-education-partner-in-nepal/ | Top education consultancy in nepal - Admizz Education | Admizz Education, the top education consultancy in Nepal, offers study abroad guidance, test prep, scholarships & visa support | Top education consultancy in Nepal | /wp-content/uploads/2025/09/study.webp |
 | /study-abroad-consultants-in-kathmandu/ | Study Abroad Consultants in Kathmandu - Admizz Education | Trusted Study Abroad Consultants in Kathmandu helping Nepali students study in Australia, Canada, UK, USA & more with expert guidance. | Study Abroad Consultants in Kathmandu | /wp-content/uploads/2025/07/australia-scaled.webp |
 
 ### Campaign / Utility Pages

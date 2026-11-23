@@ -11,7 +11,7 @@ const post = {
     },
     {
       "heading": "Related guides",
-      "body": "- [Germany blocked account 2026 for Nepali students](/germany-blocked-account-2026-nepali-students)\n- [Study abroad from Nepal: the checklist](/study-abroad-from-nepal)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-consultancy-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
+      "body": "- [Germany blocked account 2026 for Nepali students](/germany-blocked-account-2026-nepali-students)\n- [Study abroad from Nepal: the checklist](/study-abroad-from-nepal)\n- [How to choose a genuine education consultancy in Nepal](/how-to-choose-genuine-education-consultancy-nepal-2026)\n- [Top education consultancy in Nepal](/top-education-partner-in-nepal)\n- [Study abroad rule updates](/study-abroad-rule-updates)"
     },
     {
       "heading": "Sources",
