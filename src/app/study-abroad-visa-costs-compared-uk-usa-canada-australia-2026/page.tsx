@@ -23,7 +23,7 @@ const post = {
     },
     {
       "heading": "How to choose between them",
-      "body": "Visa cost is only one factor. Compare the full picture before you decide:\n\n1. Add tuition and living costs for the course and city you want.\n2. Check what you can do after study. See our [post-study work comparison](/post-study-work-options-uk-canada-usa-australia-nepali-students-2026).\n3. Check the funds you can realistically show and hold for the required time.\n4. Read the destination page: [UK](/study-in-uk-from-nepal), [USA](/study-in-usa-from-nepal), [Canada](/study-in-canada-from-nepal) or [Australia](/study-in-australia-from-nepal).\n\nIf you want a plan matched to your budget, see the [top education consultancies in Nepal](/top-education-consultancy-in-nepal)."
+      "body": "Visa cost is only one factor. Compare the full picture before you decide:\n\n1. Add tuition and living costs for the course and city you want.\n2. Check what you can do after study. See our [post-study work comparison](/post-study-work-options-uk-canada-usa-australia-nepali-students-2026).\n3. Check the funds you can realistically show and hold for the required time.\n4. Read the destination page: [UK](/study-in-uk-from-nepal), [USA](/study-in-usa-from-nepal), [Canada](/study-in-canada-from-nepal) or [Australia](/study-in-australia-from-nepal).\n\nIf you want a plan matched to your budget, see the [top education consultancies in Nepal](/top-education-partner-in-nepal)."
     },
     {
       "heading": "Check before you apply",

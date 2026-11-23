@@ -31,7 +31,7 @@ const post = {
     },
     {
       "heading": "Why Apply Through Admizz Education?",
-      "body": "Admizz Education is a trusted global study abroad platform offering student-first counseling and complete transparency.\n\n**What sets Admizz apart?**\n\n- Certified education counselors\n- University and course shortlisting support\n- Visa documentation expertise\n- Interview and GS statement guidance\n- Pre-departure and post-arrival support\n\nWe don't just process applications. We build international education journeys. If you are still comparing options, see our list of the [top education consultancies in Nepal](/top-education-consultancy-in-nepal)."
+      "body": "Admizz Education is a trusted global study abroad platform offering student-first counseling and complete transparency.\n\n**What sets Admizz apart?**\n\n- Certified education counselors\n- University and course shortlisting support\n- Visa documentation expertise\n- Interview and GS statement guidance\n- Pre-departure and post-arrival support\n\nWe don't just process applications. We build international education journeys. If you are still comparing options, see our list of the [top education consultancies in Nepal](/top-education-partner-in-nepal)."
     },
     {
       "heading": "Post-Study Opportunities in Australia",

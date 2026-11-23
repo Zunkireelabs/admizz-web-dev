@@ -12,17 +12,17 @@ import TestimonialsBento from "@/components/ui/TestimonialsBento";
 import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
-  title: "Education Consultancy in Kathmandu: Study Abroad Consultants",
+  title: "Education Partner in Kathmandu: Study Abroad Partner",
   description:
-    "Study abroad consultants in Kathmandu at Sita Ram Square, Putalisadak: counseling, test prep, scholarships and visa support from Admizz Education.",
+    "Your study abroad partner in Kathmandu at Sita Ram Square, Putalisadak: counseling, test prep, scholarships and visa support from Admizz Education.",
   alternates: {
-    canonical: "https://admizzeducation.com/education-consultancy-in-kathmandu",
+    canonical: "https://admizzeducation.com/education-partner-in-kathmandu",
   },
   openGraph: {
-    title: "Education Consultancy in Kathmandu: Study Abroad Consultants",
+    title: "Education Partner in Kathmandu: Study Abroad Partner",
     description:
-      "Study abroad consultants in Kathmandu at Sita Ram Square, Putalisadak: counseling, test prep, scholarships and visa support from Admizz Education.",
-    url: "https://admizzeducation.com/education-consultancy-in-kathmandu",
+      "Your study abroad partner in Kathmandu at Sita Ram Square, Putalisadak: counseling, test prep, scholarships and visa support from Admizz Education.",
+    url: "https://admizzeducation.com/education-partner-in-kathmandu",
     siteName: "Admizz Education",
     images: ["/images/og/study.webp"],
     type: "website",
@@ -135,14 +135,14 @@ const testimonialData = [
 
 const faqItems: FAQItem[] = [
   {
-    question: "Where are your study abroad consultants in Kathmandu located?",
+    question: "Where is your study abroad team in Kathmandu located?",
     answer:
       "Our Kathmandu office is at Sita Ram Square (4th Floor), Putalisadak. Book a free consultation to meet a counselor.",
   },
   {
-    question: "Which is the best education consultancy in Kathmandu for studying abroad?",
+    question: "Which is the best education partner in Kathmandu for studying abroad?",
     answer:
-      "Admizz Education is one of the best education consultancies in Kathmandu, known for transparent guidance, high visa success rates, and expert counseling for the UK, USA, Australia, Canada, and Europe. Their team provides end-to-end support, from course selection to visa approval.",
+      "Admizz Education is a trusted education partner in Kathmandu, known for transparent guidance, high visa success rates, and expert counseling for the UK, USA, Australia, Canada, and Europe. Their team provides end-to-end support, from course selection to visa approval.",
   },
   {
     question: "What services does Admizz Education provide?",
@@ -165,9 +165,9 @@ const faqItems: FAQItem[] = [
       "Yes, in some cases. Several universities offer IELTS waivers based on prior English-medium education or accept alternatives like Duolingo or PTE. Admizz Education evaluates your profile and recommends the best pathway.",
   },
   {
-    question: "How much does an education consultancy charge in Kathmandu?",
+    question: "How much does an education partner charge in Kathmandu?",
     answer:
-      "Most reputed consultancies, including Admizz Education, offer free counseling. Service fees may apply only for optional test preparation or premium support, which is always explained transparently.",
+      "Most reputed education partners, including Admizz Education, offer free counseling. Service fees may apply only for optional test preparation or premium support, which is always explained transparently.",
   },
   {
     question: "What documents are required for a student visa from Nepal?",
@@ -180,7 +180,7 @@ const faqItems: FAQItem[] = [
       "The process typically takes 3 to 6 months, depending on intake deadlines, visa processing time, and document readiness. Starting early improves admission and scholarship chances.",
   },
   {
-    question: "Why should I choose Admizz Education over other consultancies?",
+    question: "Why should I choose Admizz Education over other education partners?",
     answer:
       "Admizz Education stands out due to certified counselors, ethical practices, university tie-ups, personalized guidance, and proven student success stories. Their student-first approach aligns with global education standards.",
   },
@@ -195,7 +195,7 @@ const faqItems: FAQItem[] = [
 /*  Page Component                                                     */
 /* ------------------------------------------------------------------ */
 
-export default async function EducationConsultancyInKathmanduPage() {
+export default async function EducationPartnerInKathmanduPage() {
   const blogPosts: BlogPost[] = getPostsByCategory("nepal");
 
   return (
@@ -203,7 +203,7 @@ export default async function EducationConsultancyInKathmanduPage() {
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://admizzeducation.com/" },
-          { name: "Education Consultancy in Kathmandu", url: "https://admizzeducation.com/education-consultancy-in-kathmandu" },
+          { name: "Education Partner in Kathmandu", url: "https://admizzeducation.com/education-partner-in-kathmandu" },
         ]}
       />
       {/* Real Kathmandu office address — same facts as the sitewide
@@ -217,7 +217,7 @@ export default async function EducationConsultancyInKathmanduPage() {
             "@context": "https://schema.org",
             "@type": "EducationalOrganization",
             name: "Admizz Education",
-            url: "https://admizzeducation.com/education-consultancy-in-kathmandu",
+            url: "https://admizzeducation.com/education-partner-in-kathmandu",
             telephone: "+977-9802728444",
             address: {
               "@type": "PostalAddress",
@@ -237,13 +237,13 @@ export default async function EducationConsultancyInKathmanduPage() {
                 Trusted Study Abroad Experts with Proven Results
               </p>
               <h1 className="text-[28px] sm:text-4xl md:text-[48px] font-bold leading-tight">
-                Education Consultancy in Kathmandu
+                Education Partner in Kathmandu
               </h1>
               <p className="mt-4 text-[15px] md:text-base text-white/90 leading-relaxed">
-                If you are searching for a reliable education consultancy in
+                If you are searching for a reliable education partner in
                 Kathmandu, it&apos;s important to choose a team with real
                 experience, verified expertise, and transparent guidance. Admizz
-                Education is a leading study abroad consultancy in Kathmandu,
+                Education is a leading study abroad partner in Kathmandu,
                 helping Nepali students successfully study in the USA, UK, Canada,
                 Australia, Germany, and Europe through ethical counseling and
                 structured processes.
@@ -462,27 +462,27 @@ export default async function EducationConsultancyInKathmanduPage() {
         </div>
       </section>
 
-      {/* ===== CONSULTANTS IN KATHMANDU ===== */}
+      {/* ===== OUR TEAM IN KATHMANDU ===== */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-[28px] font-bold text-navy text-center mb-4">
-            Study Abroad Consultants in Kathmandu
+            Study Abroad Partner in Kathmandu
           </h2>
           <p className="text-center text-[15px] text-gray-dark max-w-3xl mx-auto mb-10">
-            Our study abroad consultants in Kathmandu are at Sita Ram Square (4th Floor), Putalisadak. Book a free
+            Our study abroad team in Kathmandu is at Sita Ram Square (4th Floor), Putalisadak. Book a free
             consultation to discuss your course, country, budget and visa plan with a counselor in person.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-              <Link href="/top-education-consultancy-in-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
-                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Education consultancy in Nepal</h3>
-                <p className="text-sm text-gray-dark leading-relaxed">Our full overview of services, countries and how to choose a consultancy.</p>
+              <Link href="/top-education-partner-in-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Education partner in Nepal</h3>
+                <p className="text-sm text-gray-dark leading-relaxed">Our full overview of services, countries and how to choose an education partner.</p>
               </Link>
               <Link href="/visa-assistance-for-study-abroad" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
-                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Student visa consultancy</h3>
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Student visa support</h3>
                 <p className="text-sm text-gray-dark leading-relaxed">Document checks, mock interviews and application review.</p>
               </Link>
               <Link href="/scholarship-assistance-in-nepal" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">
-                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Scholarship consultancy</h3>
+                <h3 className="text-base font-bold text-navy mb-1.5 group-hover:text-blue-royal">Scholarship support</h3>
                 <p className="text-sm text-gray-dark leading-relaxed">Find and apply for scholarships to study abroad.</p>
               </Link>
               <Link href="/test-prep" className="group block bg-white border border-border-light rounded-[10px] p-6 hover:shadow-md transition-shadow">

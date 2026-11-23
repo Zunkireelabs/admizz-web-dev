@@ -31,7 +31,7 @@ const post = {
     },
     {
       "heading": "Check before you apply",
-      "body": "- Confirm the visa fee and SEVIS fee on travel.state.gov and ice.gov on the day you pay.\n- Check the np.usembassy.gov page for current booking, payment and document instructions.\n- Make sure your name, date of birth and passport details match on the I-20, DS-160 and SEVIS payment.\n- Set your social media privacy as the embassy instructs, and list your accounts honestly on the DS-160.\n- Ask your school's DSO about OPT timing and the fixed admission period before you travel.\n- Be careful of anyone who promises a visa. If you want to compare advisors, see our guide to the [top education consultancy in Nepal](/top-education-consultancy-in-nepal)."
+      "body": "- Confirm the visa fee and SEVIS fee on travel.state.gov and ice.gov on the day you pay.\n- Check the np.usembassy.gov page for current booking, payment and document instructions.\n- Make sure your name, date of birth and passport details match on the I-20, DS-160 and SEVIS payment.\n- Set your social media privacy as the embassy instructs, and list your accounts honestly on the DS-160.\n- Ask your school's DSO about OPT timing and the fixed admission period before you travel.\n- Be careful of anyone who promises a visa. If you want to compare advisors, see our guide to the [top education consultancy in Nepal](/top-education-partner-in-nepal)."
     },
     {
       "heading": "Sources",
