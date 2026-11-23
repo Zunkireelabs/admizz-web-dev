@@ -74,6 +74,8 @@ export default function WorldCup2026Page() {
           <AdmizzStory />
         </LiveProvider>
       </TimezoneProvider>
-    </div>
+    
+{/* SEOAI:BREADCRUMBSCHEMA:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<script type=\"application/ld+json\">{\"@type\":\"BreadcrumbList\",\"@context\":\"https://schema.org\",\"itemListElement\":[{\"item\":\"https://admizzeducation.com/\",\"name\":\"Home\",\"@type\":\"ListItem\",\"position\":1},{\"item\":\"https://admizzeducation.com/events\",\"name\":\"Events\",\"@type\":\"ListItem\",\"position\":2},{\"item\":\"https://admizzeducation.com/events/worldcup-2026\",\"name\":\"FIFA World Cup 2026 Live Hub & Predictor\",\"@type\":\"ListItem\",\"position\":3}]}</script>" }} />{/* SEOAI:BREADCRUMBSCHEMA:END */}
+</div>
   );
 }
