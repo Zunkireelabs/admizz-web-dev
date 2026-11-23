@@ -59,6 +59,15 @@ jobs:
               git checkout -f main
               git reset --hard origin/main
               git clean -fd
+              # PRODUCTION chat settings. The site is built on this box from the same folder (and the same
+              # .env.local) as staging, and that file holds the STAGING chat addresses. Values set here win over
+              # .env.local in a Next.js build, so the live site gets the production widget and inbox.
+              # Both are public values (a script address and a public inbox id), not secrets. The two Chatwoot
+              # bubble settings are blanked so no staging address is baked into the production site.
+              NEXT_PUBLIC_CHAT_WIDGET_SRC=https://edgex.zunkireelabs.com/chat-widget/chat-widget.js \
+              NEXT_PUBLIC_CHAT_INBOX_ID=FZ6jxD5QwBKoYCCApoERL4BT \
+              NEXT_PUBLIC_CHATWOOT_BASE_URL= \
+              NEXT_PUBLIC_CHATWOOT_WEBSITE_TOKEN= \
               ./deploy.sh prod
             '
 

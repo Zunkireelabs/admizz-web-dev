@@ -44,6 +44,15 @@ chmod -R g+rwX .next node_modules 2>/dev/null || true
 
 [ ! -d out ] && echo "ERROR: out/ not produced" && exit 1
 
+# Production must never ship a staging chat address. The settings live in a file shared with staging, so
+# check the built site before it goes live and stop the deploy (the running container is left untouched).
+if [ "$ENV" = "prod" ]; then
+    if grep -rIl -e "dev-lead-crm.zunkireelabs.com" -e "dev-talk.zunkireelabs.com" out >/dev/null 2>&1; then
+        echo "ERROR: the production build contains a staging chat address. Aborting before deploy." && exit 1
+    fi
+    grep -rIq "FZ6jxD5QwBKoYCCApoERL4BT" out || { echo "ERROR: the production inbox id is missing from the build. Aborting before deploy." && exit 1; }
+fi
+
 # ── Step 3: Deploy containers ───────────────────────────────────────────────
 echo "3. Deploying to $ENV..."
 deploy_container "$ENV"
