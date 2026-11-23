@@ -18,9 +18,16 @@ const WEBSITE_TOKEN = process.env.NEXT_PUBLIC_CHATWOOT_WEBSITE_TOKEN;
 const CHAT_ENABLED = Boolean(WIDGET_SRC) || Boolean(BASE_URL && WEBSITE_TOKEN);
 
 // The site is built once and the same output can go to both staging and production, so the chat settings may be
-// present in a production build. Only these hosts may ever show the bubble; production is deliberately not here.
-// Chatwoot also only allows the staging host to embed it, so a bubble on any other host would load broken.
-const CHAT_ALLOWED_HOSTS = ["dev-web.admizzeducation.com", "admizz.localhost", "localhost"];
+// present in a build for either. Only these hosts may ever show the bubble. Production is live from 2026-11-23: the
+// production build carries the production widget address and inbox id (deploy.yml), and EdgeX only issues a chat
+// session to requests from the tenant's own website (admizzeducation.com and www.).
+const CHAT_ALLOWED_HOSTS = [
+  "admizzeducation.com",
+  "www.admizzeducation.com",
+  "dev-web.admizzeducation.com",
+  "admizz.localhost",
+  "localhost",
+];
 
 function chatAllowedHere(): boolean {
   return CHAT_ENABLED && CHAT_ALLOWED_HOSTS.includes(window.location.hostname);
