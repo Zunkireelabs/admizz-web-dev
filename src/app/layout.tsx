@@ -7,6 +7,7 @@ import SiteChrome from "@/components/layout/SiteChrome";
 import ScrollToTop from "@/components/ScrollToTop";
 import NavTracker from "@/components/NavTracker";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import ChatwootWidget from "@/components/ChatwootWidget";
 import AffiliateRefCapture from "@/components/AffiliateRefCapture";
 import UtmAttributionCapture from "@/components/UtmAttributionCapture";
 import AuthTokenCatcher from "@/components/AuthTokenCatcher";
@@ -280,6 +281,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           strategy="lazyOnload"
           crossOrigin="anonymous"
         />
+        <ChatwootWidget />
         {/* Zunkiree Search widget — hidden
         <Script
           src="https://zunkiree-search-v1.vercel.app/zunkiree-widget.iife.js"

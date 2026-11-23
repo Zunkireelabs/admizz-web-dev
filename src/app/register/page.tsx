@@ -726,6 +726,7 @@ export default function RegisterPage() {
 
       {/* ===== MOBILE STICKY CTA BAR (mobile only, appears after scrolling past hero) ===== */}
       <div
+        data-bottom-bar
         className="md:hidden fixed bottom-0 left-0 right-0 z-40 p-3"
         style={{
           background: "rgba(255,255,255,0.96)",

@@ -120,3 +120,65 @@ html {
   content-visibility: auto;
   contain-intrinsic-size: 0 800px;
 }
+
+/* Website chat bubble (Chatwoot) — Admizz look: yellow button (same yellow as "Book a Free Consultation"),
+   navy icon (14:1 contrast on the yellow), soft navy shadow, small lift on hover. Chatwoot paints the
+   button colour inline from the inbox's colour, so these rules need !important. The open chat window
+   keeps the inbox colour (navy), set in EdgeX's Website chat card. */
+.woot-widget-bubble {
+  background: var(--color-yellow, #fded22) !important;
+  box-shadow:
+    0 8px 22px rgba(0, 19, 83, 0.22),
+    0 2px 6px rgba(0, 19, 83, 0.12) !important;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+.woot-widget-bubble:hover {
+  transform: translateY(-3px);
+}
+/* The open chat window: compact, with soft corners and a navy-tinted shadow, like the rounded cards on the
+   site. Desktop only (on phones the chat is full-screen). Chatwoot makes the window up to 640px tall and
+   pushes the first screen's content to the bottom, which left a big empty middle. About 500px fits that
+   screen's content (logo, title, tagline, "We are online" card) with no dead space. The short form on the
+   next screen is a little taller than that and scrolls inside. The holder clips its content (overflow:
+   hidden), so the radius rounds the chat inside too. Keep the height under the viewport on small laptops. */
+@media (min-width: 668px) {
+  .woot-widget-holder {
+    height: 500px !important;
+    max-height: calc(100vh - 140px) !important;
+    border-radius: 24px !important;
+    box-shadow:
+      0 22px 56px rgba(0, 19, 83, 0.22),
+      0 4px 12px rgba(0, 19, 83, 0.1) !important;
+  }
+}
+#woot-widget-bubble-icon path {
+  fill: var(--color-navy, #001353) !important;
+}
+.woot--close::before,
+.woot--close::after {
+  background-color: var(--color-navy, #001353) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .woot-widget-bubble {
+    transition: none;
+  }
+  .woot-widget-bubble:hover {
+    transform: none;
+  }
+}
+
+/* Website chat bubble (Chatwoot) — sit just above a fixed bottom bar when one is on screen.
+   ChatwootWidget measures the visible [data-bottom-bar] element and sets the two variables
+   below plus data-chat-bar on <html>; with no bar showing, none of this applies and Chatwoot's
+   own offsets are used. On phones the OPEN chat is full-screen, so only the bubble moves; from
+   668px up the chat window moves too. */
+html[data-chat-bar] .woot-widget-bubble {
+  bottom: var(--chat-bubble-bottom) !important;
+}
+@media (min-width: 668px) {
+  html[data-chat-bar] .woot-widget-holder {
+    bottom: var(--chat-window-bottom) !important;
+  }
+}
