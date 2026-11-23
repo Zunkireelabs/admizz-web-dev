@@ -58,6 +58,13 @@ const ADMIZZ_CHAT_THEME = {
     phone: { show: true, required: true },
     email: { show: true, required: false },
   },
+  // What a visitor reads after the contact form and after their first message, so they know what to do next. The topics above
+  // become one-tap starters under the first message.
+  guide: {
+    afterDetails:
+      "Thanks{name}! 👋 What would you like to know? Type your question below, for example about a country, a course or your visa. A counsellor will reply right here.",
+    afterSend: "Got it! A counsellor will reply here as soon as possible. You can keep browsing; your chat stays open.",
+  },
   poweredBy: "Zunkiree",
 };
 
