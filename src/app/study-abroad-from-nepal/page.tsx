@@ -128,8 +128,8 @@ const post = {
 };
 
 export const metadata: Metadata = {
-  title: "Study Abroad From Nepal: NOC, Funds, Visa Checklist (2026)",
-  description: "How to study abroad from Nepal: choose a country, prove your English, get your NOC, show funds, apply and get your visa, with official sources.",
+  title: "Study Abroad From Nepal: Step-by-Step Checklist (2026)",
+  description: "Study abroad from Nepal with this step-by-step checklist: choose a course, prove English, get your NOC, show funds, and apply for your visa. Updated 2026.",
   alternates: { canonical: "https://admizzeducation.com/study-abroad-from-nepal" },
   openGraph: {
     title: "Study Abroad From Nepal: NOC, Funds, Visa Checklist (2026)",

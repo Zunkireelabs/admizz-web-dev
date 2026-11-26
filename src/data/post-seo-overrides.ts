@@ -29,8 +29,8 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
     description: "Compare applying online yourself with using an education consultancy: pros, cons and how to decide. Advice from Admizz Education.",
   },
   "london-metropolitan-university-fees-courses-international-2027": {
-    title: "London Metropolitan University Fees (International, 2027)",
-    description: "London Metropolitan University fees for international students: typical tuition, the \u00a35,000 Bright Futures Scholarship, popular courses and 2027 entry rules.",
+    title: "London Metropolitan University Fees: International Students",
+    description: "London Metropolitan University fees for international students: UG from £19,500 and PG from £20,000 a year for 2026-27, plus a £5,000 Bright Futures reduction.",
   },
   "university-of-west-london-courses-international-2027": {
     title: "University of West London January 2027 Intake and Courses",
@@ -323,5 +323,9 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
   "which-country-is-best-for-nepalese-students-in-2026": {
     title: "Which Country Is Best for Nepali Students in 2026?",
     description: "Which country is best for Nepali students in 2026? Compare study destinations by tuition, post-study work visas, PR options and career opportunities.",
+  },
+  "uk-intake-timeline-nepalese-students-2027": {
+    title: "UK Intake 2027 Timeline and Guide for Nepali Students",
+    description: "UK intake 2027 guide for Nepali students: September main intake, January/May dates, visa apply window, 28-day funds rule and English test validity by Admizz.",
   },
 };

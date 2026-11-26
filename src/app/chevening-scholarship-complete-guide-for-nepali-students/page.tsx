@@ -70,8 +70,8 @@ const post = {
 };
 
 export const metadata: Metadata = {
-  title: "Chevening Scholarship Nepal 2027/28: Timeline & How to Apply",
-  description: "Chevening Nepal 2027/28: applications closed in October 2026. Interview and results dates, eligibility, benefits and how to prepare for 2028/29.",
+  title: "Chevening Scholarship Nepal: Deadline, Eligibility & Dates",
+  description: "Chevening Scholarship Nepal 2027/28 guide by Kathmandu scholarship advisors: deadlines, eligibility, timeline, and how to apply for this fully funded UK master's.",
   alternates: { canonical: "https://admizzeducation.com/chevening-scholarship-complete-guide-for-nepali-students" },
   openGraph: {
     title: "Chevening Scholarship Nepal 2027/28: Timeline & How to Apply",
