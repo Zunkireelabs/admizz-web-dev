@@ -29,8 +29,8 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
     description: "Compare applying online yourself with using an education consultancy: pros, cons and how to decide. Advice from Admizz Education.",
   },
   "london-metropolitan-university-fees-courses-international-2027": {
-    title: "London Metropolitan University Fees (International, 2027)",
-    description: "London Metropolitan University fees for international students: typical tuition, the \u00a35,000 Bright Futures Scholarship, popular courses and 2027 entry rules.",
+    title: "London Met University Fees for International Students",
+    description: "London Met fees for international students: 2026–27 tuition starts from £19,500 (UG) and £20,000 (PG) a year, plus a £5,000 Bright Futures fee reduction.",
   },
   "university-of-west-london-courses-international-2027": {
     title: "University of West London January 2027 Intake and Courses",
@@ -323,5 +323,13 @@ export const postSeoOverrides: Record<string, { title: string; description: stri
   "which-country-is-best-for-nepalese-students-in-2026": {
     title: "Which Country Is Best for Nepali Students in 2026?",
     description: "Which country is best for Nepali students in 2026? Compare study destinations by tuition, post-study work visas, PR options and career opportunities.",
+  },
+  "university-of-east-london-courses-fees-international-2027": {
+    title: "University of East London Tuition Fees: International",
+    description: "University of East London tuition fees for international students in 2026/27: £16,020 a year undergraduate, £19,500 MBA, £17,400 PhD, plus £5,000 scholarships.",
+  },
+  "uk-intake-timeline-nepalese-students-2027": {
+    title: "UK Intake 2027: Timeline for Nepali Students | Admizz",
+    description: "UK intake 2027: September is the main intake, with January, May and some autumn starts. Admizz Education covers visa timing, the 28-day funds rule and dates.",
   },
 };

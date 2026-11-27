@@ -882,6 +882,8 @@ export default function AdmizzionWeekPage() {
       </div>
 
       <AdmizzionInit />
-    </>
+    
+{/* SEOAI:BREADCRUMBSCHEMA:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<script type=\"application/ld+json\">{\"@type\":\"BreadcrumbList\",\"@context\":\"https://schema.org\",\"itemListElement\":[{\"item\":\"https://admizzeducation.com/\",\"name\":\"Home\",\"@type\":\"ListItem\",\"position\":1},{\"item\":\"https://admizzeducation.com/events\",\"name\":\"Events\",\"@type\":\"ListItem\",\"position\":2},{\"item\":\"https://admizzeducation.com/events/admizzion-week\",\"name\":\"Feb 12-20, 2026\",\"@type\":\"ListItem\",\"position\":3}]}</script>" }} />{/* SEOAI:BREADCRUMBSCHEMA:END */}
+</>
   );
 }

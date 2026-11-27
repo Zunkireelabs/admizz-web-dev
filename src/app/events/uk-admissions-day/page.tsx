@@ -565,6 +565,8 @@ export default function UKAdmissionsDayPage() {
       </div>
 
       <UKAdmissionsInit />
-    </>
+    
+{/* SEOAI:BREADCRUMBSCHEMA:START */}<div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: "<script type=\"application/ld+json\">{\"@type\":\"BreadcrumbList\",\"@context\":\"https://schema.org\",\"itemListElement\":[{\"item\":\"https://admizzeducation.com/\",\"name\":\"Home\",\"@type\":\"ListItem\",\"position\":1},{\"item\":\"https://admizzeducation.com/events\",\"name\":\"Events\",\"@type\":\"ListItem\",\"position\":2},{\"item\":\"https://admizzeducation.com/events/uk-admissions-day\",\"name\":\"UK Admission Day\",\"@type\":\"ListItem\",\"position\":3}]}</script>" }} />{/* SEOAI:BREADCRUMBSCHEMA:END */}
+</>
   );
 }
