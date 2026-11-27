@@ -137,8 +137,8 @@ export const metadata: Metadata = {
     "Indian Embassy scholarship Nepal engineering",
     "COMPEX 2027"
   ],
-  title: "COMPEX Scholarship 2026: Exam Dates, Form and Eligibility",
-  description: "COMPEX 2026-27 for Nepali students: the real dates (exam September 28 to October 3), eligibility, how selection works, contacts and what to watch next.",
+  title: "COMPEX Scholarship 2026: Dates, Form and Eligibility",
+  description: "COMPEX scholarship 2026: Embassy of India scheme for Nepali students taking a BE, B.Pharma, B.Sc.-Ag, FT or Nursing degree in India. Dates, fee and eligibility.",
   alternates: {
     canonical: "https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india"
   },
