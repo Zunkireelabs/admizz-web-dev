@@ -10,9 +10,9 @@ import LazyMount from "@/components/LazyMount";
 import { ADMIZZ_STATS } from "@/lib/admizz-stats";
 
 export const metadata: Metadata = {
-  title: "Admizz Education: Study Abroad Partner",
+  title: "Admizz Education: Study Abroad Partner & Test Prep",
   description:
-    "Admizz Education helps students from Nepal choose a country, prepare for tests, apply to universities and get visa guidance for the UK, USA and more.",
+    "Admizz Education is your study abroad partner, offering test prep, career counseling, scholarship support and visa assistance for 100+ global universities.",
   alternates: {
     canonical: "https://admizzeducation.com/",
   },

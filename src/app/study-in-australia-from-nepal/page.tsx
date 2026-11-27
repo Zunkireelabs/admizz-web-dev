@@ -6,9 +6,9 @@ import { getPostsByCategory } from "@/lib/blog-content";
 import type { BlogPost } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Study in Australia from Nepal 2026: Cost, Visa, Scholarships",
+  title: "Study in Australia from Nepal: Costs, Visa, Scholarships",
   description:
-    "Study in Australia from Nepal: Student visa (subclass 500) fee, funds, English scores, work rights and scholarships for Nepali students, with official sources. Free advice from Admizz.",
+    "Study in Australia from Nepal with Admizz Education: expert counseling, university selection, student visa support and scholarship guidance for Nepali students.",
   alternates: {
     canonical: "https://admizzeducation.com/study-in-australia-from-nepal",
   },
