@@ -34,7 +34,7 @@ const pageData: NepalVariantData = {
     "Study in Australia from Nepal with Admizz Education: expert counseling, university selection, Student visa support and scholarship guidance for Nepali students.",
 
   quickAnswer:
-    "To study in Australia from Nepal you need a Confirmation of Enrolment (CoE) from a registered Australian provider, Overseas Student Health Cover (OSHC), a Genuine Student statement, and an English test score of at least IELTS 6.0, PTE Academic 47 or TOEFL iBT 67 (for tests taken on or after 7 August 2025). You must show you can pay your tuition, travel and living costs, with the living-cost amount set at AUD 29,710 for a single student. The Student visa (subclass 500) costs from AUD 2,500 from 1 July 2026. Students can work up to 48 hours a fortnight while their course is in session, and graduates can usually apply for the Temporary Graduate visa for 2 to 3 years.",
+    "To study in Australia from Nepal you need a Confirmation of Enrolment (CoE) from a registered Australian provider, Overseas Student Health Cover (OSHC), a Genuine Student statement, and an English test score of at least IELTS 6.0, PTE Academic 47 or TOEFL iBT 67 (for tests taken on or after August 7 2025). You must show you can pay your tuition, travel and living costs, with the living-cost amount set at AUD 29,710 for a single student. The Student visa (subclass 500) costs from AUD 2,500 from July 1 2026. Students can work up to 48 hours a fortnight while their course is in session, and graduates can usually apply for the Temporary Graduate visa for 2 to 3 years.",
   lastChecked: "October 2026",
   dateModified: "2026-10-13",
   guideTabLabel: "Fees & Rules",
@@ -97,7 +97,7 @@ const pageData: NepalVariantData = {
     { label: "Australia assessment level and visa guide for Nepal", href: "/australia-assessment-level-3-nepal-2026" },
     { label: "Step-by-step Australia student visa from Nepal", href: "/step-by-step-guide-to-australia-student-visa-from-nepal" },
     { label: "Study abroad rule changes for Nepali students", href: "/study-abroad-rule-changes", description: "dated visa, funds and work-rule changes" },
-    { label: "Australia Student visa rules from 2 October 2026", href: "/australia-student-visa-changes-october-2026-nepali-students", description: "family members and onshore applications" },
+    { label: "Australia Student visa rules from October 2 2026", href: "/australia-student-visa-changes-october-2026-nepali-students", description: "family members and onshore applications" },
     { label: "Scholarship assistance in Nepal", href: "/scholarship-assistance-in-nepal" },
     { label: "Visa assistance for study abroad", href: "/visa-assistance-for-study-abroad" },
     { label: "Test preparation", href: "/test-prep", description: "IELTS and PTE coaching" },
@@ -193,7 +193,7 @@ const pageData: NepalVariantData = {
     },
     {
       category: "7. Lodge Your Application",
-      details: "Apply online and pay the visa application charge, which is from AUD 2,500 from 1 July 2026",
+      details: "Apply online and pay the visa application charge, which is from AUD 2,500 from July 1 2026",
     },
     {
       category: "8. Health and Biometrics, then Decision",
@@ -229,7 +229,7 @@ const pageData: NepalVariantData = {
 
   testTitle: "English Language Requirements for Australia",
   testIntro:
-    "These are the Home Affairs minimum overall scores for tests taken on or after 7 August 2025. Universities often ask for more, so check your course page for the exact score.",
+    "These are the Home Affairs minimum overall scores for tests taken on or after August 7 2025. Universities often ask for more, so check your course page for the exact score.",
   testRequirements: [
     {
       test: "IELTS Academic (Student visa minimum)",
@@ -253,7 +253,7 @@ const pageData: NepalVariantData = {
     },
   ],
   testNote:
-    "Your test must have been taken within the 2 years before you lodge your visa application. Home Affairs does not accept tests taken entirely online or at home, such as IELTS Online, OET@Home, MET Digital or TOEFL iBT Home Edition. For TOEFL, you must select 'Taking TOEFL for Australia' when you register (required from 21 January 2026). You may not need a test at all if you are exempt, for example if you enrol in a standalone English course (ELICOS) or a registered postgraduate research course. Home Affairs also accepts C1 Advanced (161), LANGUAGECERT Academic (61), MET (53), OET (1210) and CELPIP General (7). Tests taken before 7 August 2025 have different scores, so check the Home Affairs table if yours is older. Admizz Education offers IELTS and PTE preparation to help you reach your target score.",
+    "Your test must have been taken within the 2 years before you lodge your visa application. Home Affairs does not accept tests taken entirely online or at home, such as IELTS Online, OET@Home, MET Digital or TOEFL iBT Home Edition. For TOEFL, you must select 'Taking TOEFL for Australia' when you register (required from January 21 2026). You may not need a test at all if you are exempt, for example if you enrol in a standalone English course (ELICOS) or a registered postgraduate research course. Home Affairs also accepts C1 Advanced (161), LANGUAGECERT Academic (61), MET (53), OET (1210) and CELPIP General (7). Tests taken before August 7 2025 have different scores, so check the Home Affairs table if yours is older. Admizz Education offers IELTS and PTE preparation to help you reach your target score.",
 
   costTitle: "Cost of Studying in Australia from Nepal",
   costIntro:
@@ -271,11 +271,11 @@ const pageData: NepalVariantData = {
       title: "Visa and Living Costs",
       rows: [
         {
-          category: "Living costs Home Affairs requires you to show (single student, since 10 May 2024)",
+          category: "Living costs Home Affairs requires you to show (single student, since May 10 2024)",
           cost: "AUD 29,710",
         },
         {
-          category: "Student visa application charge (from 1 July 2026)",
+          category: "Student visa application charge (from July 1 2026)",
           cost: "From AUD 2,500",
         },
         {
@@ -295,7 +295,7 @@ const pageData: NepalVariantData = {
     {
       name: "Australia Awards Scholarships",
       details:
-        "Fully funded master's scholarships for eligible Nepali applicants with relevant work experience. Covers tuition, return airfare, a living contribution and OSHC. The round for the 2027 intake was open from 1 February to 30 April 2026. Check the DFAT website for the next round.",
+        "Fully funded master's scholarships for eligible Nepali applicants with relevant work experience. Covers tuition, return airfare, a living contribution and OSHC. The round for the 2027 intake was open from February 1 to April 30 2026. Check the DFAT website for the next round.",
     },
     {
       name: "University International Merit Scholarships",
@@ -347,7 +347,7 @@ const pageData: NepalVariantData = {
         "Your Confirmation of Enrolment (CoE).",
         "Proof of Overseas Student Health Cover (OSHC) for the whole of your stay.",
         "An English test result, unless you are exempt.",
-        "Evidence that you can pay for travel, tuition and 12 months of living costs. Since 2 October 2026 most students can no longer include family members in their Student visa application (see the rule changes below).",
+        "Evidence that you can pay for travel, tuition and 12 months of living costs. Since October 2 2026 most students can no longer include family members in their Student visa application (see the rule changes below).",
         "Your Genuine Student statement, written in English (the application form limits each answer to 150 words).",
       ],
     },
@@ -363,7 +363,7 @@ const pageData: NepalVariantData = {
     },
     {
       id: "australia-oct-2026-rules",
-      title: "New Student Visa Rules From 2 October 2026",
+      title: "New Student Visa Rules From October 2 2026",
       bullets: [
         "Family members: you can no longer include a partner or dependent children in your Student visa application, including a further Student visa application, unless an exemption applies. Exemptions include PhD students, DFAT or Defence-sponsored students, foreign government scholarship recipients, and eligible students from Pacific and ASEAN countries. Family members must be in the same location as you when the application is lodged.",
         "Adding family later: current Student visa holders can no longer add family members after the visa is granted. There are no exemptions to this rule.",
@@ -393,22 +393,22 @@ const pageData: NepalVariantData = {
     {
       question: "How much money do I need to show for an Australian student visa?",
       answer:
-        "Home Affairs sets the living-cost amount at AUD 29,710 for a single student (since 10 May 2024). You must also show you can pay your tuition fees and travel costs. Since 2 October 2026 most Student visa applicants cannot include a partner or children in their application, so the single-student amount applies to most students.",
+        "Home Affairs sets the living-cost amount at AUD 29,710 for a single student (since May 10 2024). You must also show you can pay your tuition fees and travel costs. Since October 2 2026 most Student visa applicants cannot include a partner or children in their application, so the single-student amount applies to most students.",
     },
     {
       question: "What English score do I need for an Australian student visa?",
       answer:
-        "For tests taken on or after 7 August 2025 the Student visa minimums are IELTS Academic 6.0, PTE Academic 47 and TOEFL iBT 67. They are lower if your main course comes with at least 10 or 20 weeks of English study (ELICOS), for example IELTS 5.5 or 5.0. Universities often ask for more, so check your course page.",
+        "For tests taken on or after August 7 2025 the Student visa minimums are IELTS Academic 6.0, PTE Academic 47 and TOEFL iBT 67. They are lower if your main course comes with at least 10 or 20 weeks of English study (ELICOS), for example IELTS 5.5 or 5.0. Universities often ask for more, so check your course page.",
     },
     {
       question: "What is the Genuine Student requirement?",
       answer:
-        "Since 23 March 2024 every applicant must show they are a genuine student who intends to study in Australia as the main reason for applying. You answer written questions in English about why you chose the course, the provider and Australia, with a limit of 150 words per answer.",
+        "Since March 23 2024 every applicant must show they are a genuine student who intends to study in Australia as the main reason for applying. You answer written questions in English about why you chose the course, the provider and Australia, with a limit of 150 words per answer.",
     },
     {
       question: "Can I bring my partner or children on an Australian student visa from Nepal?",
       answer:
-        "Since 2 October 2026 you can no longer include family members in your Student visa application unless an exemption applies, such as PhD study, being sponsored by DFAT or Defence, receiving a foreign government scholarship, or being an eligible student from a Pacific or ASEAN country. You also cannot add family members after your visa is granted, and there are no exemptions to that rule.",
+        "Since October 2 2026 you can no longer include family members in your Student visa application unless an exemption applies, such as PhD study, being sponsored by DFAT or Defence, receiving a foreign government scholarship, or being an eligible student from a Pacific or ASEAN country. You also cannot add family members after your visa is granted, and there are no exemptions to that rule.",
     },
     {
       question: "Which English tests does Home Affairs not accept for an Australian student visa?",

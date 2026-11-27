@@ -76,7 +76,7 @@ const post = {
 };
 
 export const metadata: Metadata = {
-  title: "Scholarship Support for International Students, Simplified by Admizz",
+  title: "Scholarship Support for International Students | Admizz",
   description: "Admizz Education helps international students find and win scholarships, grants and fee waivers with expert, profile-based support. Here's how it works.",
   alternates: { canonical: "https://admizzeducation.com/scholarship-support-for-international-students-simplified-by-admizz" },
 };

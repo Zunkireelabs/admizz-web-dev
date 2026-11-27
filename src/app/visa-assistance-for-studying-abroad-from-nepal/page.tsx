@@ -19,7 +19,7 @@ const post = {
     },
     {
       "heading": "Getting Started",
-      "body": "Begin once you have an offer or a shortlist. At Admizz Education, our Scholarship Support service helps students identify scholarships, grants and fee waivers that fit their profile. As an ICEF-accredited agency that has helped 2,000+ students enrol successfully, we offer a free first consultation. When you are ready, [contact our team](https://admizzeducation.com/contact). For funding routes, read our [international scholarships for Nepalese students](https://admizzeducation.com/international-scholarships-for-nepalese-students) roundup."
+      "body": "Begin once you have an offer or a shortlist. At Admizz Education, our Scholarship Support service helps students identify scholarships, grants and fee waivers that fit their profile. As an ICEF-accredited agency that has helped 2,000+ students enrol successfully, we offer a free first consultation. When you are ready, [contact our team](https://admizzeducation.com/contact). For funding routes, read our [international scholarships for Nepali students](https://admizzeducation.com/international-scholarships-for-nepalese-students) roundup."
     },
     {
       "heading": "About This Post",
@@ -41,7 +41,7 @@ const post = {
     },
     {
       "slug": "for-nepalese-students",
-      "title": "For nepalese students"
+      "title": "For Nepali students"
     }
   ],
   "publishedAt": "2026-11-27T04:43:02.430Z",

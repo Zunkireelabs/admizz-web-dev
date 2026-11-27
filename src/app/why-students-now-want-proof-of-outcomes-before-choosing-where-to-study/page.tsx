@@ -19,7 +19,7 @@ const post = {
     },
     {
       "heading": "How to Use This",
-      "body": "Make a short list of questions for every university and agent you speak to, and note who answers clearly. At Admizz Education, we are an ICEF-accredited agency that has helped 2,000+ students enrol successfully, and we offer a free first consultation. [Contact our team](https://admizzeducation.com/contact) to talk through your options. For funding, see [international scholarships for Nepalese students](https://admizzeducation.com/international-scholarships-for-nepalese-students)."
+      "body": "Make a short list of questions for every university and agent you speak to, and note who answers clearly. At Admizz Education, we are an ICEF-accredited agency that has helped 2,000+ students enrol successfully, and we offer a free first consultation. [Contact our team](https://admizzeducation.com/contact) to talk through your options. For funding, see [international scholarships for Nepali students](https://admizzeducation.com/international-scholarships-for-nepalese-students)."
     },
     {
       "heading": "About This Post",
@@ -68,7 +68,7 @@ const post = {
 };
 
 export const metadata: Metadata = {
-  title: "Why Students Now Want Proof of Outcomes Before Choosing Where to Study",
+  title: "Why Students Want Proof of Outcomes Before Choosing",
   description: "ICEF Monitor reports students want concrete evidence of outcomes when choosing where to study. How Nepali students can ask the right questions.",
   alternates: { canonical: "https://admizzeducation.com/why-students-now-want-proof-of-outcomes-before-choosing-where-to-study" },
 };

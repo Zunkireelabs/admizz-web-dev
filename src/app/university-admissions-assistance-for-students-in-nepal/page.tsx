@@ -19,7 +19,7 @@ const post = {
     },
     {
       "heading": "Why Start Early",
-      "body": "Intakes and deadlines are fixed, and good applications take weeks. At Admizz Education, our Scholarship Support service helps students identify scholarships, grants and fee waivers that fit their profile. As an ICEF-accredited agency that has helped 2,000+ students enrol successfully, we offer a free first consultation. When you are ready, [contact our team](https://admizzeducation.com/contact). Compare options in our [international scholarships for Nepalese students](https://admizzeducation.com/international-scholarships-for-nepalese-students) guide."
+      "body": "Intakes and deadlines are fixed, and good applications take weeks. At Admizz Education, our Scholarship Support service helps students identify scholarships, grants and fee waivers that fit their profile. As an ICEF-accredited agency that has helped 2,000+ students enrol successfully, we offer a free first consultation. When you are ready, [contact our team](https://admizzeducation.com/contact). Compare options in our [international scholarships for Nepali students](https://admizzeducation.com/international-scholarships-for-nepalese-students) guide."
     },
     {
       "heading": "About This Post",
@@ -41,7 +41,7 @@ const post = {
     },
     {
       "slug": "for-nepalese-students",
-      "title": "For nepalese students"
+      "title": "For Nepali students"
     }
   ],
   "publishedAt": "2026-11-27T04:43:06.204Z",

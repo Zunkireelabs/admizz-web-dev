@@ -7,11 +7,11 @@ const post = {
   "sections": [
     {
       "heading": "The Short Answer",
-      "body": "Include your **education and results, achievements and awards, relevant activities, work or volunteering, and key skills**, each with specific evidence, in one or two clean pages. Tailor it to the scholarship, because funders such as Chevening and Fulbright look for people who will use the opportunity well. Our [international scholarships for Nepalese students](https://admizzeducation.com/international-scholarships-for-nepalese-students) guide lists scholarships that need one."
+      "body": "Include your **education and results, achievements and awards, relevant activities, work or volunteering, and key skills**, each with specific evidence, in one or two clean pages. Tailor it to the scholarship, because funders such as Chevening and Fulbright look for people who will use the opportunity well. Our [international scholarships for Nepali students](https://admizzeducation.com/international-scholarships-for-nepalese-students) guide lists scholarships that need one."
     },
     {
       "heading": "What to Include",
-      "body": "Start with education: school, college, board, years and results. Add awards, ranks and scholarships you have already earned. Then list activities with a result attached, such as \"organised a class fundraiser that raised an amount you can state\" rather than \"member of club\". Add work, internships and volunteering, then skills such as languages and software you genuinely use."
+      "body": "Start with education: school, college, board, years and results. Add awards, ranks and scholarships you have already earned. Then list activities with a result attached, such as \"organized a class fundraiser that raised an amount you can state\" rather than \"member of club\". Add work, internships and volunteering, then skills such as languages and software you genuinely use."
     },
     {
       "heading": "What to Leave Out",
@@ -19,7 +19,7 @@ const post = {
     },
     {
       "heading": "Getting Help",
-      "body": "A resume is quick to improve with feedback. At Admizz Education, our Scholarship Support service helps students identify scholarships, grants and fee waivers that fit their profile. As an ICEF-accredited agency that has helped 2,000+ students enrol successfully, we offer a free first consultation. When you are ready, [contact our team](https://admizzeducation.com/contact). See also our [COMPEX scholarship 2026 complete guide for Nepalese students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india)."
+      "body": "A resume is quick to improve with feedback. At Admizz Education, our Scholarship Support service helps students identify scholarships, grants and fee waivers that fit their profile. As an ICEF-accredited agency that has helped 2,000+ students enrol successfully, we offer a free first consultation. When you are ready, [contact our team](https://admizzeducation.com/contact). See also our [COMPEX scholarship 2026 complete guide for Nepali students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india)."
     },
     {
       "heading": "About This Post",
@@ -41,7 +41,7 @@ const post = {
     },
     {
       "slug": "for-nepalese-students",
-      "title": "For nepalese students"
+      "title": "For Nepali students"
     }
   ],
   "publishedAt": "2026-11-27T04:42:47.286Z",

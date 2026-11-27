@@ -7,7 +7,7 @@ const post = {
   "sections": [
     {
       "heading": "The Short Answer",
-      "body": "The most common challenges are **strict eligibility rules, document requirements, short application windows, no edits after submission and unreliable advice**. All of them are easier when you prepare early and rely on official sources. Our [international scholarships for Nepalese students](https://admizzeducation.com/international-scholarships-for-nepalese-students) guide helps you compare options."
+      "body": "The most common challenges are **strict eligibility rules, document requirements, short application windows, no edits after submission and unreliable advice**. All of them are easier when you prepare early and rely on official sources. Our [international scholarships for Nepali students](https://admizzeducation.com/international-scholarships-for-nepalese-students) guide helps you compare options."
     },
     {
       "heading": "Eligibility and Documents",
@@ -15,11 +15,11 @@ const post = {
     },
     {
       "heading": "Timing and Unreliable Advice",
-      "body": "Windows are short and dates move, so build a calendar from official notices only. Be careful with advice from middlemen: the Embassy of India states it does not recognise applications through agencies, and that applications submitted that way may be rejected. International programmes such as Chevening and Fulbright publish their own requirements, which you should read in full."
+      "body": "Windows are short and dates move, so build a calendar from official notices only. Be careful with advice from middlemen: the Embassy of India states it does not recognize applications through agencies, and that applications submitted that way may be rejected. International programs such as Chevening and Fulbright publish their own requirements, which you should read in full."
     },
     {
       "heading": "A Practical Plan",
-      "body": "Pick two or three scholarships, list their documents, and set personal deadlines weeks ahead of the official ones. At Admizz Education, our Scholarship Support service helps students identify scholarships, grants and fee waivers that fit their profile. As an ICEF-accredited agency that has helped 2,000+ students enrol successfully, we offer a free first consultation. When you are ready, [contact our team](https://admizzeducation.com/contact). See also our [COMPEX scholarship 2026 complete guide for Nepalese students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india)."
+      "body": "Pick two or three scholarships, list their documents, and set personal deadlines weeks ahead of the official ones. At Admizz Education, our Scholarship Support service helps students identify scholarships, grants and fee waivers that fit their profile. As an ICEF-accredited agency that has helped 2,000+ students enrol successfully, we offer a free first consultation. When you are ready, [contact our team](https://admizzeducation.com/contact). See also our [COMPEX scholarship 2026 complete guide for Nepali students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india)."
     },
     {
       "heading": "About This Post",
@@ -41,7 +41,7 @@ const post = {
     },
     {
       "slug": "for-nepalese-students",
-      "title": "For nepalese students"
+      "title": "For Nepali students"
     }
   ],
   "publishedAt": "2026-11-27T04:42:58.645Z",
@@ -68,7 +68,7 @@ const post = {
 };
 
 export const metadata: Metadata = {
-  title: "Common Challenges Nepali Students Face in Scholarship Applications",
+  title: "Challenges Nepali Students Face in Scholarship Applications",
   description: "The common hurdles Nepali students face applying for scholarships: strict eligibility, documents, short windows and unreliable advice.",
   alternates: { canonical: "https://admizzeducation.com/common-challenges-nepali-students-face-in-scholarship-applications" },
 };

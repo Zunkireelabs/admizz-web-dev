@@ -7,7 +7,7 @@ const post = {
   "sections": [
     {
       "heading": "The Short Answer",
-      "body": "The safest peers are the people you already know: classmates, teachers and seniors who applied before. Use the **Embassy's official notices as the source of facts**, and treat any group that promises selection or asks for your documents with caution. See our [COMPEX scholarship 2026 complete guide for Nepalese students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india) for the facts those groups often get wrong."
+      "body": "The safest peers are the people you already know: classmates, teachers and seniors who applied before. Use the **Embassy's official notices as the source of facts**, and treat any group that promises selection or asks for your documents with caution. See our [COMPEX scholarship 2026 complete guide for Nepali students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india) for the facts those groups often get wrong."
     },
     {
       "heading": "Where to Look",
@@ -15,7 +15,7 @@ const post = {
     },
     {
       "heading": "Protect Yourself",
-      "body": "The Embassy warns that it accepts applications only directly from the applicant and does not recognise consultants or middlemen, and that applications received through them may be rejected. So never hand over your login or documents, and never pay anyone who guarantees selection. Application mistakes are your own responsibility, so double check the form yourself."
+      "body": "The Embassy warns that it accepts applications only directly from the applicant and does not recognize consultants or middlemen, and that applications received through them may be rejected. So never hand over your login or documents, and never pay anyone who guarantees selection. Application mistakes are your own responsibility, so double check the form yourself."
     },
     {
       "heading": "A Counselor You Can Ask",
@@ -41,7 +41,7 @@ const post = {
     },
     {
       "slug": "for-nepalese-students",
-      "title": "For nepalese students"
+      "title": "For Nepali students"
     }
   ],
   "publishedAt": "2026-11-27T04:42:54.742Z",

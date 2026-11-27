@@ -7,7 +7,7 @@ const post = {
   "sections": [
     {
       "heading": "The Short Answer",
-      "body": "The COMPEX qualifying test is **conducted by the Embassy of India**, and the Embassy's published selection process does not ask applicants to travel to India for it. It sends an admit-card link to the email you registered in your application, and that admit card together with the Embassy's notice for the year tells you the schedule and arrangements. Because details can change from one cycle to the next, rely on those documents rather than on forum posts. For the wider picture, see our [COMPEX scholarship 2026 complete guide for Nepalese students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india)."
+      "body": "The COMPEX qualifying test is **conducted by the Embassy of India**, and the Embassy's published selection process does not ask applicants to travel to India for it. It sends an admit-card link to the email you registered in your application, and that admit card together with the Embassy's notice for the year tells you the schedule and arrangements. Because details can change from one cycle to the next, rely on those documents rather than on forum posts. For the wider picture, see our [COMPEX scholarship 2026 complete guide for Nepali students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india)."
     },
     {
       "heading": "What the Embassy Says About the Test",

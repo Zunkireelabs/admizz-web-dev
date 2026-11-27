@@ -45,7 +45,7 @@ const post = {
     },
     {
       "slug": "for-nepalese-students",
-      "title": "Nepalese Students"
+      "title": "Nepali Students"
     },
     {
       "slug": "study-abroad",

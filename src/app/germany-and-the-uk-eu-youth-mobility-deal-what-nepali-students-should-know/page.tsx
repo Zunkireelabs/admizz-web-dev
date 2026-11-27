@@ -11,7 +11,7 @@ const post = {
     },
     {
       "heading": "What Did ICEF Monitor Report About Germany?",
-      "body": "ICEF Monitor's November 2026 headline says Germany needs to help more international students learn German to boost STEM graduate retention. We have not reproduced any figures from the article, and you should read it directly for the detail. The practical message for you is simple: even if a programme is taught in English, planning for some German can make life, part-time work and staying on after graduation easier."
+      "body": "ICEF Monitor's November 2026 headline says Germany needs to help more international students learn German to boost STEM graduate retention. We have not reproduced any figures from the article, and you should read it directly for the detail. The practical message for you is simple: even if a program is taught in English, planning for some German can make life, part-time work and staying on after graduation easier."
     },
     {
       "heading": "What Is the UK-EU Youth Mobility Scheme?",
@@ -68,7 +68,7 @@ const post = {
 };
 
 export const metadata: Metadata = {
-  title: "Germany and the UK-EU Youth Mobility Deal: What Nepali Students Should Know",
+  title: "Germany and UK-EU Youth Mobility Deal: Nepali Students",
   description: "What recent coverage says about Germany, the UK-EU youth mobility places and Erasmus+ funding, and what it means for Nepali students choosing a destination.",
   alternates: { canonical: "https://admizzeducation.com/germany-and-the-uk-eu-youth-mobility-deal-what-nepali-students-should-know" },
 };

@@ -7,7 +7,7 @@ const post = {
   "sections": [
     {
       "heading": "The Short Answer",
-      "body": "Take official questions about COMPEX to the **Embassy of India in Kathmandu**, which runs the scheme. Its COMPEX page and news section carry the current notice, and the Embassy has published a notice with an updated email ID for COMPEX technical issues. Use the contact details in the latest notice rather than an address copied from an older post. For help understanding the process and preparing your papers, you can speak to Admizz Education. Our [COMPEX scholarship 2026 complete guide for Nepalese students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india) also answers the most common questions."
+      "body": "Take official questions about COMPEX to the **Embassy of India in Kathmandu**, which runs the scheme. Its COMPEX page and news section carry the current notice, and the Embassy has published a notice with an updated email ID for COMPEX technical issues. Use the contact details in the latest notice rather than an address copied from an older post. For help understanding the process and preparing your papers, you can speak to Admizz Education. Our [COMPEX scholarship 2026 complete guide for Nepali students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india) also answers the most common questions."
     },
     {
       "heading": "Where Official Answers Come From",
@@ -54,7 +54,7 @@ const post = {
     },
     {
       "question": "Can an education consultant submit my COMPEX application?",
-      "answer": "No. The Embassy states it accepts applications directly from the applicant only and does not recognise applications received through consultants or agencies."
+      "answer": "No. The Embassy states it accepts applications directly from the applicant only and does not recognize applications received through consultants or agencies."
     },
     {
       "question": "Where do I find the contact email for COMPEX problems?",

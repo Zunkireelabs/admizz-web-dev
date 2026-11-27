@@ -11,7 +11,7 @@ const post = {
     },
     {
       "heading": "What Is Duration of Status, and Why Does It Matter?",
-      "body": "Duration of Status is the practice of letting an international student on a US student visa stay for as long as their programme lasts, instead of a fixed end date. A rule that ended it would have meant students applying to extend more often, which is why the outcome matters to anyone planning a multi-year degree."
+      "body": "Duration of Status is the practice of letting an international student on a US student visa stay for as long as their program lasts, instead of a fixed end date. A rule that ended it would have meant students applying to extend more often, which is why the outcome matters to anyone planning a multi-year degree."
     },
     {
       "heading": "What About Internships and CPT?",
@@ -54,7 +54,7 @@ const post = {
   "faqItems": [
     {
       "question": "What is Duration of Status?",
-      "answer": "It is the arrangement under which an international student on a US student visa is generally allowed to stay for the length of their programme rather than until a fixed date."
+      "answer": "It is the arrangement under which an international student on a US student visa is generally allowed to stay for the length of their program rather than until a fixed date."
     },
     {
       "question": "Did the court end the proposed rule?",

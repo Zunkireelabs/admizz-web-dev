@@ -7,7 +7,7 @@ const post = {
   "sections": [
     {
       "heading": "The Short Answer",
-      "body": "According to the Embassy of India in Kathmandu, applicants must be **between 16 and 23 years old on 1 July**, meet minimum Class XII marks, and then qualify in a test conducted by the Embassy. Nomination does not guarantee admission, which is confirmed only after the Indian institution responds. Read the current notice before relying on this summary, and see our [COMPEX scholarship 2026 complete guide for Nepalese students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india)."
+      "body": "According to the Embassy of India in Kathmandu, applicants must be **between 16 and 23 years old on July 1**, meet minimum Class XII marks, and then qualify in a test conducted by the Embassy. Nomination does not guarantee admission, which is confirmed only after the Indian institution responds. Read the current notice before relying on this summary, and see our [COMPEX scholarship 2026 complete guide for Nepali students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india)."
     },
     {
       "heading": "Eligibility Marks",
@@ -46,11 +46,11 @@ const post = {
   ],
   "publishedAt": "2026-11-27T04:42:51.031Z",
   "path": "/compex-scholarship-selection-criteria-explained",
-  "quickAnswer": "COMPEX applicants must be 16 to 23 (as of 1 July), meet Class XII mark minimums in the required subjects, and then qualify in the Embassy of India's test. Nomination does not guarantee admission.",
+  "quickAnswer": "COMPEX applicants must be 16 to 23 (as of July 1), meet Class XII mark minimums in the required subjects, and then qualify in the Embassy of India's test. Nomination does not guarantee admission.",
   "faqItems": [
     {
       "question": "What is the age limit?",
-      "answer": "The Embassy states a minimum age of 16 and a maximum of 23, with 1 July of the current year as the crucial date."
+      "answer": "The Embassy states a minimum age of 16 and a maximum of 23, with July 1 of the current year as the crucial date."
     },
     {
       "question": "What marks do I need for BE/B.Tech?",

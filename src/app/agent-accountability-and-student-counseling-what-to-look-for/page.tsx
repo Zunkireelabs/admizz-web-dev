@@ -50,7 +50,7 @@ const post = {
   "faqItems": [
     {
       "question": "How can I check whether an agent is trustworthy?",
-      "answer": "Look for recognised accreditation, clear descriptions of services and honest answers about what the agent cannot promise."
+      "answer": "Look for recognized accreditation, clear descriptions of services and honest answers about what the agent cannot promise."
     },
     {
       "question": "Is Admizz Education accredited?",

@@ -7,19 +7,19 @@ const post = {
   "sections": [
     {
       "heading": "The Short Answer",
-      "body": "Answer the exact question the scholarship asks, support every claim with a **specific example from your own life**, explain how the scholarship and course connect to your goals, and edit until every sentence earns its place. The statement is usually the only place a reader meets you as a person, so it should sound like you. Our [international scholarships for Nepalese students](https://admizzeducation.com/international-scholarships-for-nepalese-students) roundup shows which scholarships ask for essays."
+      "body": "Answer the exact question the scholarship asks, support every claim with a **specific example from your own life**, explain how the scholarship and course connect to your goals, and edit until every sentence earns its place. The statement is usually the only place a reader meets you as a person, so it should sound like you. Our [international scholarships for Nepali students](https://admizzeducation.com/international-scholarships-for-nepalese-students) roundup shows which scholarships ask for essays."
     },
     {
       "heading": "Start With the Prompt and the Funder",
-      "body": "Read what the scholarship is for before you write. Chevening is described by the UK Government as a global scholarship programme funding study at UK universities, and the Fulbright Program is run by the U.S. Department of State to support students studying in the United States. Each wants evidence that you will make good use of the opportunity, so a statement that could be sent to any funder unchanged is a weak one."
+      "body": "Read what the scholarship is for before you write. Chevening is described by the UK Government as a global scholarship program funding study at UK universities, and the Fulbright Program is run by the U.S. Department of State to support students studying in the United States. Each wants evidence that you will make good use of the opportunity, so a statement that could be sent to any funder unchanged is a weak one."
     },
     {
       "heading": "Write Like a Person, Not a Brochure",
-      "body": "Open with a real moment, not a slogan. Describe a problem you noticed, what you did and what you learned. Then connect it forward: why this course, why this country, what you will do afterwards. Keep claims modest and checkable, and avoid copying phrases from sample essays, which readers recognise quickly.\n\nBefore you submit: check names and dates, match the word limit, read it aloud, and ask someone who knows you to say whether it sounds like you."
+      "body": "Open with a real moment, not a slogan. Describe a problem you noticed, what you did and what you learned. Then connect it forward: why this course, why this country, what you will do afterwards. Keep claims modest and checkable, and avoid copying phrases from sample essays, which readers recognize quickly.\n\nBefore you submit: check names and dates, match the word limit, read it aloud, and ask someone who knows you to say whether it sounds like you."
     },
     {
       "heading": "Where Admizz Education Fits",
-      "body": "Applicants from Nepal often have strong stories but little time to structure them. At Admizz Education, our Scholarship Support service helps students identify scholarships, grants and fee waivers that fit their profile. As an ICEF-accredited agency that has helped 2,000+ students enrol successfully, we offer a free first consultation. When you are ready, [contact our team](https://admizzeducation.com/contact). For Indian options, see our [COMPEX scholarship 2026 complete guide for Nepalese students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india)."
+      "body": "Applicants from Nepal often have strong stories but little time to structure them. At Admizz Education, our Scholarship Support service helps students identify scholarships, grants and fee waivers that fit their profile. As an ICEF-accredited agency that has helped 2,000+ students enrol successfully, we offer a free first consultation. When you are ready, [contact our team](https://admizzeducation.com/contact). For Indian options, see our [COMPEX scholarship 2026 complete guide for Nepali students](https://admizzeducation.com/compex-scholarship-2026-complete-guide-for-nepalese-students-to-study-in-india)."
     },
     {
       "heading": "About This Post",
@@ -41,7 +41,7 @@ const post = {
     },
     {
       "slug": "for-nepalese-students",
-      "title": "For nepalese students"
+      "title": "For Nepali students"
     }
   ],
   "publishedAt": "2026-11-27T04:42:38.731Z",
